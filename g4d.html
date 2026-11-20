@@ -1,0 +1,1709 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Grade 4 Reading Quiz — November 18, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eef6ee;
+    --surface:#ffffff;
+    --surface-2:#f4faf2;
+    --ink:#1d2b1f;
+    --ink-soft:#4a5d4e;
+    --line:#d7e6d3;
+    --green:#1f7a3d;
+    --green-dark:#155c2c;
+    --green-soft:#e2f2df;
+    --teal:#0e7c7b;
+    --teal-soft:#dff3f2;
+    --sun:#f2b705;
+    --sun-soft:#fff3cf;
+    --orange:#d96c06;
+    --orange-soft:#ffedda;
+    --red:#c0392b;
+    --red-soft:#fdecea;
+    --radius:18px;
+    --shadow:0 4px 18px rgba(29,60,30,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#131a14;
+      --surface:#1e2a20;
+      --surface-2:#243128;
+      --ink:#eef5ee;
+      --ink-soft:#b7c8b8;
+      --line:#37493a;
+      --green:#4cc26e;
+      --green-dark:#7ad992;
+      --green-soft:#233d29;
+      --teal:#3ec2c0;
+      --teal-soft:#1d3838;
+      --sun:#f2b705;
+      --sun-soft:#3a3317;
+      --orange:#f39a4a;
+      --orange-soft:#3d2c1b;
+      --red:#ff8a7a;
+      --red-soft:#402625;
+      --shadow:0 4px 18px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:18px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:"Fredoka","Nunito",sans-serif;line-height:1.15;margin:0}
+  button,input,textarea{font:inherit}
+  .wrap{max-width:780px;margin:0 auto;padding:20px 16px 26px}
+  .hidden{display:none !important}
+
+   
+  .start-card{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow);padding:32px 24px 28px;text-align:center;margin-top:18px;
+  }
+   
+  .start-stack{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+  .start-stack .start-card{margin-top:0}
+  .start-stack .growth-chart,.start-stack .history{max-width:none;width:100%;margin:0}
+  @media (max-width:560px){ .start-stack{gap:16px} }
+   
+   
+  .merged-tests{background:#fff;color:#1d2b1f;--ink:#1d2b1f;--ink-soft:#4a5d4e;--sun-soft:#fff3cf;border:2.5px solid #111;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;width:100%;max-width:560px;margin:0 auto;text-align:center}
+  .start-stack .merged-tests{max-width:none;width:100%;margin:0}
+  .results-actions .merged-tests{width:100%;justify-self:center}
+  .merged-tests .growth-chart,.merged-tests .history{background:transparent;border:none;border-radius:0;box-shadow:none;margin:0;max-width:none;width:100%}
+  .merged-tests .history{border-top:2.5px solid #111}
+  .badge{
+    display:inline-block;background:var(--sun-soft);color:#7a5b00;border:1.5px solid var(--sun);
+    font-weight:900;font-size:14px;letter-spacing:.04em;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;
+  }
+  @media (prefers-color-scheme: dark){ .badge{color:var(--sun)} }
+   
+  .badge-top{border-radius:18px;padding:9px 20px 10px;line-height:1.4}
+  .badge-top .badge-line{display:block}
+  .badge-top .badge-line + .badge-line{margin-top:1px}
+  .lexile-banner{
+    display:block;margin:18px auto 0;max-width:520px;
+    background:var(--sun-soft);border:2.5px solid var(--sun);border-radius:16px;
+    padding:14px 20px;font-family:"Fredoka","Nunito",sans-serif;font-weight:700;
+    font-size:26px;line-height:1.25;color:var(--ink);letter-spacing:.01em;
+  }
+  @media (max-width:560px){ .lexile-banner{font-size:23px} }
+
+   
+  .top-dash{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow);padding:20px 20px 20px;text-align:center;
+  }
+  .att-head{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+  .att-title{font-size:24px;font-weight:700;line-height:1.2}
+  .att-count{display:inline-block;background:var(--green);color:#fff;font-weight:900;font-size:15px;padding:5px 13px;border-radius:999px;white-space:nowrap}
+  .att-sub{font-size:15px;font-weight:700;color:var(--ink-soft);margin:6px 0 0;line-height:1.45}
+  .punch-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
+  .punch-day{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+  .day-name{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:15.5px;line-height:1.2;white-space:nowrap}
+  .day-zh{display:block;font-family:"Nunito",sans-serif;font-size:11.5px;font-weight:800;color:var(--ink-soft);line-height:1.25}
+  .punch-circle{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;line-height:1;margin-top:2px}
+  .punch-circle.done{background:var(--green);border:2.5px solid var(--green-dark);color:#fff;font-size:23px}
+  .punch-circle.today-ring{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--sun)}
+  .punch-circle.empty{background:var(--surface-2);border:2.5px dashed var(--line);color:var(--ink-soft);font-size:20px}
+  .punch-circle.upcoming{background:var(--surface);border:2.5px solid var(--line);color:var(--ink-soft);font-size:16px}
+  .day-date{font-size:12.5px;font-weight:800;color:var(--ink-soft);font-variant-numeric:tabular-nums;line-height:1.3}
+  .punch-day.today .day-name{color:var(--green-dark)}
+  .att-message{margin:12px 0 0;font-size:16.5px;font-weight:800;line-height:1.45}
+  .att-message strong{color:var(--green-dark)}
+  .top-dash .lexile-banner{margin:16px auto 0;max-width:560px;width:100%}
+  .top-dash form{margin:0}
+  .top-dash .how{margin:18px 0 0}
+  .top-dash .go-zone{margin-top:16px}
+  @media (max-width:560px){
+    .top-dash{padding:16px 12px 14px}
+    .att-title{font-size:21px}
+    .punch-row{gap:3px}
+    .punch-circle{width:38px;height:38px}
+    .punch-circle.done{font-size:20px}
+    .day-name{font-size:13.5px}
+    .att-message{font-size:15.5px}
+  }
+  .growth-chart{
+    margin:18px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);
+    border:2px solid var(--line);border-radius:18px;padding:18px 16px 14px;text-align:center;
+  }
+  .growth-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
+  .growth-title .gt-line{display:block}
+  .growth-title .gt-line-2{margin-top:26px}
+  .growth-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 8px;line-height:1.45}
+  .growth-chart svg{width:100%;height:auto;display:block}
+  .growth-celebration{margin:16px 0 14px;background:var(--sun-soft);border:2.5px solid var(--sun);border-radius:16px;padding:18px 20px;text-align:center}
+  .growth-celebration .celebration-label{font-size:16px;font-weight:800;color:var(--ink-soft);margin:0 0 6px;line-height:1.35}
+  .growth-note{font-size:20px;font-weight:700;color:var(--ink);margin:0;line-height:1.45;font-family:"Fredoka","Nunito",sans-serif}
+  .growth-note strong{color:var(--green-dark);font-weight:700}
+  @media (max-width:560px){ .growth-celebration{margin:14px 0 12px;padding:16px 14px} .growth-note{font-size:19px} }
+  .color-legend{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;align-items:center;margin:8px 0 2px;font-size:15.5px;font-weight:900;line-height:1.3;color:var(--ink);max-width:100%;width:100%;box-sizing:border-box;padding-left:4px;padding-right:4px}
+  .merged-tests .color-legend{margin:10px 0 2px;padding-left:4px;padding-right:4px}
+  .color-legend .legend-item{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .color-legend .swatch{width:14px;height:14px;border-radius:4px;display:inline-block;flex:0 0 auto;border:1.5px solid rgba(0,0,0,.22)}
+  @media (max-width:560px){ .color-legend{gap:4px 9px;font-size:13px} .color-legend .legend-item{gap:4px} .color-legend .swatch{width:12px;height:12px} }
+  .color-legend .swatch.green{background:#27a24b}
+  .color-legend .swatch.red{background:#d64541}
+  .color-legend .swatch.gold{background:#f2b705;border-color:#d9a400}
+  .color-legend .swatch.same{background:#7f97a8}
+  .history-grid .date{white-space:nowrap}
+  .history .color-legend{margin-bottom:0}
+  @media (prefers-color-scheme: dark){ .growth-note strong{color:var(--green-dark)} }
+  .history{
+    margin:14px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);
+    border:2px solid var(--line);border-radius:18px;padding:18px 16px 10px;text-align:center;
+  }
+  .history-table-wrap{
+    margin-top:12px;border:2px solid #111;border-radius:12px;overflow:hidden;
+    width:100%;max-width:100%;background:#fff;
+  }
+  .history-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
+  .history-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 4px;line-height:1.45}
+   
+  .history-grid{width:100%;font-size:17px;text-align:left}
+  .hg-row{display:grid;grid-template-columns:28% 29% 15% 28%;width:100%}
+  .hg-row>*{
+    padding:11px 8px;font-weight:700;line-height:1.35;text-align:left;
+    overflow-wrap:break-word;min-width:0;
+  }
+  .hg-row.hg-head>*{
+    background:#111;color:#fff;font-weight:900;font-size:16.5px;line-height:1.3;
+  }
+  .hg-row .c{text-align:center}
+   
+  .hg-row:not(.hg-head){color:#000}
+  .hg-row:not(.hg-head)>*{border-top:1.5px solid var(--line);background:#fff}
+  .hg-row .score{font-weight:900;white-space:nowrap}
+  .hg-row .lex{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:19px}
+  .hg-row .lex.up{color:var(--ink)}
+  .hg-row .lex .lex-line{display:inline-flex;align-items:center;gap:5px}
+  .hg-row .lex .crown{font-size:.85em;line-height:1;display:inline-flex;align-items:center}
+  .hg-row .lex .delta{
+    display:block;font-family:"Nunito",sans-serif;font-size:14.5px;font-weight:900;
+    margin-top:2px;color:var(--ink);overflow-wrap:break-word;
+  }
+  .hg-row.best>*{background:var(--sun);color:#000;border-top-color:#d9a400}
+  .hg-row.best .lex.up{color:#000}
+  .hg-row.best .lex .delta{color:#000}
+   
+  .hg-row.improved>*{background:#27a24b;color:#000}
+  .hg-row.improved .lex.up{color:#000}
+  .hg-row.improved .lex .delta{color:#000}
+  @media (max-width:560px){
+    .history{padding:16px 10px 10px}
+    .growth-chart{padding:16px 10px 12px}
+    .history-grid{font-size:14.5px}
+    .hg-row.hg-head>*{font-size:13.5px;padding:9px 5px}
+    .hg-row>*{padding:9px 5px}
+    .hg-row .lex{font-size:16px}
+    .hg-row .lex .delta{font-size:13px}
+  }
+  .start-card h1{font-size:42px;font-weight:700;margin:16px 0 8px;letter-spacing:-.01em}
+  .start-card .sub{font-size:19px;color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
+  .how{
+    display:flex;flex-direction:column;gap:8px;margin:16px 0 0;text-align:left;
+  }
+  @media (max-width:560px){ .how{grid-template-columns:1fr} .start-card h1{font-size:34px} }
+  .how-item{background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+  .how-item .how-text{flex:1;min-width:0}
+  .how-item b{display:block;font-size:17px;margin-bottom:2px;line-height:1.3}
+  .how-item .how-text > span{font-size:15.5px;color:var(--ink-soft);font-weight:600;line-height:1.45;display:block}
+  .how-item > span.how-num{
+    flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin:2px 0 0;line-height:1;
+  }
+  .btn{
+    appearance:none;border:none;cursor:pointer;border-radius:999px;font-weight:900;
+    padding:16px 28px;font-size:19px;transition:transform .08s ease, background .15s ease, opacity .15s;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--green);color:#fff;width:100%;margin-top:16px;font-size:21px;padding:18px 28px}
+  .btn-primary:hover{background:var(--green-dark)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:2px solid var(--line)}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .start-note{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:14px}
+
+   
+  .go-zone{
+    margin-top:4px;background:var(--green-soft);border:3px solid var(--green);
+    border-radius:20px;padding:0 18px 18px;overflow:hidden;text-align:center;
+    box-shadow:0 8px 22px rgba(21,92,44,.18);
+  }
+  .go-checker{
+    height:14px;margin:0 -18px;
+    background:
+      repeating-conic-gradient(var(--ink) 0% 25%, var(--surface) 0% 50%)
+      0 0/28px 28px;
+    opacity:.92;
+  }
+  .ready-set-go{
+    display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;
+    margin:16px 0 2px;font-family:"Fredoka","Nunito",sans-serif;
+  }
+  .rsg-step{
+    display:inline-flex;align-items:center;gap:6px;
+    font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;
+    padding:9px 16px;border-radius:999px;border:2.5px solid;
+  }
+  .rsg-ready{background:var(--surface);border-color:var(--orange);color:var(--orange);font-size:17px}
+  .rsg-set{background:var(--sun-soft);border-color:var(--sun);color:#7a5b00;font-size:19px}
+  @media (prefers-color-scheme: dark){ .rsg-set{color:var(--sun)} }
+  .rsg-go{background:var(--green);border-color:var(--green-dark);color:#fff;font-size:23px;padding:11px 22px;box-shadow:0 4px 12px rgba(21,92,44,.35)}
+  .rsg-arrow{font-weight:900;color:var(--ink-soft);font-size:16px}
+  .go-zone .btn-primary{
+    margin-top:14px;font-size:24px;padding:20px 28px;letter-spacing:.01em;
+    box-shadow:0 6px 0 var(--green-dark),0 12px 24px rgba(21,92,44,.28);
+  }
+  .go-zone .btn-primary:hover{box-shadow:0 6px 0 var(--green-dark),0 14px 28px rgba(21,92,44,.34)}
+  .go-zone .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--green-dark),0 6px 14px rgba(21,92,44,.25)}
+  .go-zone .start-note{color:var(--ink);max-width:560px;margin-left:auto;margin-right:auto}
+  @media (max-width:560px){
+    .go-zone{padding:0 12px 14px}
+    .go-checker{margin:0 -12px}
+    .rsg-ready{font-size:15px;padding:8px 12px}
+    .rsg-set{font-size:16px;padding:8px 13px}
+    .rsg-go{font-size:20px;padding:10px 17px}
+    .go-zone .btn-primary{font-size:22px;padding:18px 20px}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rsg-go{animation:rsg-pop 1.6s ease-in-out infinite}
+    @keyframes rsg-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+  }
+
+   
+  .quiz-bar{
+    position:sticky;top:0;z-index:20;background:var(--bg);
+    padding:12px 0 10px;border-bottom:2px solid var(--line);
+  }
+  .quiz-bar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .student-chip{font-weight:900;font-size:16px;background:var(--surface);border:1.5px solid var(--line);padding:7px 14px;border-radius:999px;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .timer{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;letter-spacing:.02em;
+    background:var(--surface);border:2px solid var(--line);padding:6px 16px;border-radius:999px;font-variant-numeric:tabular-nums;
+  }
+  .timer.low{border-color:var(--orange);color:var(--orange)}
+  .timer.critical{border-color:var(--red);background:var(--red-soft);color:var(--red)}
+  .timer.done{border-color:var(--orange);background:var(--orange-soft);color:var(--orange);font-size:17px;font-family:"Nunito",sans-serif;font-weight:900}
+  .time-warning{
+    margin-top:10px;background:var(--red-soft);border:2px solid var(--red);color:var(--red);
+    border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45;text-align:center;
+  }
+  @media (prefers-color-scheme: dark){ .time-warning{color:var(--red)} }
+  .auto-note{
+    margin:16px auto 0;max-width:560px;background:var(--orange-soft);border:2px solid var(--orange);color:var(--orange);
+    border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .timer.critical{animation:timer-pulse 1s ease-in-out infinite}
+    @keyframes timer-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  }
+  .progress-track{height:14px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;overflow:hidden;margin-top:10px}
+  .progress-fill{height:100%;background:var(--green);width:0%;transition:width .3s ease;border-radius:999px}
+  .progress-label{font-size:15px;font-weight:800;color:var(--ink-soft);margin-top:6px}
+
+   
+  .section-head{margin:30px 0 14px}
+  .section-tag{
+    display:inline-block;font-weight:900;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;margin-bottom:8px;
+  }
+  .tag-1{background:var(--green-soft);color:var(--green-dark)}
+  .tag-2{background:var(--teal-soft);color:var(--teal)}
+  .tag-3{background:var(--sun-soft);color:#7a5b00}
+  @media (prefers-color-scheme: dark){ .tag-3{color:var(--sun)} }
+  .section-head h2{font-size:28px;font-weight:700}
+  .section-head p{margin:4px 0 0;color:var(--ink-soft);font-weight:700;font-size:16.5px}
+  .passage{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:22px 22px 8px;box-shadow:var(--shadow);
+  }
+  .passage h3{font-size:23px;margin-bottom:10px}
+  .passage p{font-size:18.5px;line-height:1.75;margin:0 0 14px}
+  .passage .pnum{font-weight:900;color:var(--green)}
+  .passage-label{font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:18px 0 4px}
+  .passage-label:first-of-type{margin-top:0}
+
+   
+  .chart{margin:6px 0 18px;border:1.5px solid var(--line);border-radius:14px;padding:16px;background:var(--surface-2)}
+  .chart h4{margin:0 0 4px;font-size:17px;font-family:"Fredoka",sans-serif}
+  .chart .chart-sub{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:0 0 14px}
+  .bar-row{display:grid;grid-template-columns:128px 1fr 52px;align-items:center;gap:10px;margin-bottom:10px}
+  @media (max-width:480px){ .bar-row{grid-template-columns:104px 1fr 46px} }
+  .bar-row .blabel{font-weight:800;font-size:15.5px;line-height:1.3}
+  .bar-track{height:26px;background:var(--surface);border:1.5px solid var(--line);border-radius:8px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px}
+  .bar-fill.sunny{background:#e67e22}
+  .bar-fill.canopy{background:var(--teal)}
+  .bar-fill.tree{background:var(--green)}
+  .bar-row .bval{font-weight:900;font-size:17px;font-variant-numeric:tabular-nums}
+  table.temp-table{width:100%;border-collapse:collapse;margin-top:6px;font-size:16px}
+  table.temp-table th,table.temp-table td{border:1.5px solid var(--line);padding:9px 12px;text-align:left}
+  table.temp-table th{background:var(--surface);font-weight:900}
+  table.temp-table td:last-child,table.temp-table th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+
+   
+  .qcard{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:20px;margin-top:16px;box-shadow:var(--shadow);
+  }
+  .qcard.answered{border-color:var(--green)}
+  .q-top{display:flex;gap:12px;align-items:flex-start}
+  .q-num{
+    flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--bg);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;margin-top:1px;
+  }
+  .qcard.answered .q-num{background:var(--green);color:#fff}
+  .q-text{font-size:20px;font-weight:800;line-height:1.45;padding-top:4px}
+  .q-type{font-size:13.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+  .options{margin-top:14px;display:grid;gap:10px}
+  .option{
+    display:flex;gap:12px;align-items:flex-start;cursor:pointer;
+    border:2px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface);
+    transition:border-color .12s, background .12s;
+  }
+  .option:hover{border-color:var(--green)}
+  .option input{
+    appearance:none;-webkit-appearance:none;flex:0 0 auto;cursor:pointer;
+    width:27px;height:27px;border-radius:50%;border:2.5px solid var(--line);
+    background:var(--surface);margin:3px 0 0;padding:0;
+  }
+  .option input:checked{border-color:var(--green);background:var(--green);box-shadow:inset 0 0 0 5px var(--surface)}
+  .option input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+  .option .otext{font-size:18px;font-weight:700;line-height:1.45;padding-top:3px}
+  .option .otext b{font-weight:900;margin-right:2px}
+  .option:has(input:checked){border-color:var(--green);background:var(--green-soft)}
+  textarea{
+    width:100%;margin-top:14px;min-height:110px;resize:vertical;
+    padding:14px 16px;font-size:18px;line-height:1.6;color:var(--ink);
+    background:var(--surface-2);border:2px solid var(--line);border-radius:14px;outline:none;
+  }
+  textarea:focus{border-color:var(--green);background:var(--surface)}
+  .q-hint{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:8px}
+
+  .submit-zone{margin-top:32px;text-align:center}
+  .submit-zone .btn-primary{max-width:420px;margin-left:auto;margin-right:auto}
+  .submit-note{font-size:15.5px;color:var(--ink-soft);font-weight:700;margin-top:10px}
+
+   
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(10,20,12,.55);z-index:50;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal{background:var(--surface);border-radius:20px;max-width:440px;width:100%;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
+  .modal h3{font-size:23px;margin-bottom:8px}
+  .modal p{font-weight:700;color:var(--ink-soft);margin:0 0 18px}
+  .modal .row{display:grid;gap:10px}
+  .modal .btn{width:100%;margin:0}
+
+   
+  .results-head{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+    padding:28px 24px;text-align:center;margin-top:18px;
+  }
+  .results-head h2{font-size:30px;margin-bottom:8px}
+  .results-head p{color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
+   
+  .score-big{font-family:"Fredoka",sans-serif;font-size:64px;font-weight:700;line-height:1;margin:14px 0 2px}
+  .score-big small{font-size:30px;color:var(--ink-soft)}
+  .score-pct{font-size:22px;font-weight:900;color:var(--green-dark)}
+  .attempt-badge{
+    display:inline-block;margin-top:12px;background:var(--teal-soft);color:var(--teal);
+    border:2px solid var(--teal);border-radius:999px;padding:7px 18px;font-weight:900;font-size:18px;
+  }
+  .stars{font-size:30px;letter-spacing:6px;color:var(--sun);margin:6px 0 2px}
+  .stars .off{color:var(--line)}
+  .friendly{font-size:20px;font-weight:800;margin-top:10px}
+  .meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .meta-chip{background:var(--surface-2);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:800;font-size:15.5px}
+  .section-scores{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .section-score-chip{border-radius:999px;padding:10px 18px;font-weight:900;font-size:17.5px;line-height:1.3;border:2px solid;white-space:nowrap}
+  .section-score-chip.sec-1{background:var(--green-soft);border-color:var(--green);color:var(--green-dark)}
+  .section-score-chip.sec-2{background:var(--teal-soft);border-color:var(--teal);color:var(--teal)}
+  .section-score-chip.sec-3{background:var(--sun-soft);border-color:var(--sun);color:#7a5b00}
+  @media (prefers-color-scheme: dark){ .section-score-chip.sec-3{color:var(--sun)} }
+  @media (max-width:560px){ .section-scores{gap:8px} .section-score-chip{font-size:16px;padding:9px 14px} }
+  .saved-note{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:14px 0 0}
+  .breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
+  @media (max-width:560px){ .breakdown{grid-template-columns:1fr} }
+  .bd-card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+  .bd-card .bd-name{font-weight:900;font-size:15px;line-height:1.35;min-height:42px}
+  .bd-card .bd-score{font-family:"Fredoka",sans-serif;font-size:34px;font-weight:700}
+  .bd-card .bd-score small{font-size:18px;color:var(--ink-soft)}
+  .bd-dots{display:flex;gap:6px;justify-content:center;margin-top:6px}
+  .bd-dots i{width:14px;height:14px;border-radius:50%;background:var(--line);display:block}
+  .bd-dots i.on{background:var(--green)}
+  .review-title{font-size:25px;margin:32px 0 4px}
+  .review-sub{color:var(--ink-soft);font-weight:700;margin:0 0 6px}
+  .rev-card{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-top:12px;box-shadow:var(--shadow)}
+  .rev-card.correct{border-color:var(--green)}
+  .rev-card.wrong{border-color:var(--orange)}
+  .rev-head{display:flex;gap:10px;align-items:flex-start}
+  .rev-badge{flex:0 0 auto;font-weight:900;font-size:14px;padding:5px 12px;border-radius:999px;margin-top:2px}
+  .rev-badge.ok{background:var(--green-soft);color:var(--green-dark)}
+  .rev-badge.no{background:var(--orange-soft);color:var(--orange)}
+  .rev-q{font-size:18.5px;font-weight:800;line-height:1.45}
+  .rev-line{font-size:16.5px;margin-top:8px;line-height:1.55}
+  .rev-line b{font-weight:900}
+  .rev-why{background:var(--surface-2);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:16px;line-height:1.55}
+  .rev-why b{color:var(--teal)}
+  .results-actions{display:grid;gap:12px;margin-top:28px}
+  .results-actions>*{min-width:0;max-width:100%}
+  .results-actions .history,.results-actions .growth-chart{width:100%;justify-self:center}
+  .results-actions .btn{width:100%;margin:0}
+  footer.note{text-align:center;color:var(--ink-soft);font-size:13.5px;font-weight:700;line-height:1.35;margin-top:14px}
+
+  @media print{
+    body{background:#fff}
+    .quiz-bar,.submit-zone,.results-actions,.no-print{display:none !important}
+    .wrap{max-width:100%}
+    .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid}
+  }
+
+   
+  .outcome{text-align:center;padding:52px 24px 44px;border-radius:24px;margin-top:26px}
+  .outcome-pass{background:#eafaf0;border:3px solid var(--green)}
+  .outcome-redo{background:#fff3e2;border:3px solid #e8590c}
+  .outcome-emoji{font-size:66px;line-height:1}
+  .outcome-title{font-size:42px;line-height:1.25;margin:20px 0 12px}
+  .outcome-lexile{font-size:24px;font-weight:700;margin:10px 0}
+  .outcome-score{font-size:20px;margin:8px 0 22px}
+  .outcome a.outcome-btn,.outcome button.outcome-btn{display:inline-block;width:auto;font-size:24px;padding:16px 42px;margin-top:8px;text-decoration:none}
+  .outcome-note{font-size:17px;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  
+  <section id="view-start">
+    <div class="start-stack">
+    <div class="top-dash">
+      <div class="attendance">
+        <div class="att-head">
+          <h2 class="att-title">📅 My Attendance This Week</h2>
+          <span class="att-count">3 / 7 days</span>
+        </div>
+        <p class="att-sub">本周出席打卡 · Mon Nov 16 – Sun Nov 22 — finish a quiz, get a punch for that day!</p>
+        <div class="punch-row">
+          <div class="punch-day" data-date="2026-11-16">
+            <span class="day-name">Mon<span class="day-zh">周一</span></span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
+            <span class="day-date">11/16</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-17">
+            <span class="day-name">Tue<span class="day-zh">周二</span></span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
+            <span class="day-date">11/17</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-18">
+            <span class="day-name">Wed<span class="day-zh">周三</span></span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
+            <span class="day-date">11/18</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-19">
+            <span class="day-name">Thu<span class="day-zh">周四</span></span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">11/19</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-20">
+            <span class="day-name">Fri<span class="day-zh">周五</span></span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">11/20</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-21">
+            <span class="day-name">Sat<span class="day-zh">周六</span></span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">11/21</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-22">
+            <span class="day-name">Sun<span class="day-zh">周日</span></span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">11/22</span>
+          </div>
+        </div>
+        <p class="att-message">🎉 Great job, Amber! You showed up <strong>3 days</strong> this week — Monday, Tuesday and Wednesday done! Let's fill the whole week!</p>
+      </div>
+
+      <span class="lexile-banner" role="note">⭐ My Lexile Level: 1020L</span>
+
+      <form id="start-form">
+        <div class="go-zone">
+          <div class="go-checker" aria-hidden="true"></div>
+          <div class="ready-set-go" aria-hidden="true">
+            <span class="rsg-step rsg-ready">Ready</span>
+            <span class="rsg-arrow">›</span>
+            <span class="rsg-step rsg-set">Set</span>
+            <span class="rsg-arrow">›</span>
+            <span class="rsg-step rsg-go">Go! 🏁</span>
+          </div>
+          <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
+          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions will score 0, so try to finish before the timer ends!</p>
+        </div>
+      </form>
+
+      <div class="how" role="list" aria-label="How the quiz works">
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">1</span><span class="how-text" style="font-weight:800">Read and answer</span></div>
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">2</span><span class="how-text" style="font-weight:800">Writing checked for you</span></div>
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">3</span><span class="how-text" style="font-weight:800">See your score</span></div>
+      </div>
+    </div>
+      <div class="merged-tests">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth, last 6 tests: 11/13/26 Daily Quiz 980L (up 20L), 11/14/26 Placement 980L (same), 11/15/26 Daily Quiz 980L (same), 11/16/26 Daily Quiz 990L (up 10L), 11/16/26 Daily Quiz 990L (same), 11/17/26 Daily Quiz 1020L (up 30L, gold bar with a crown — your best ever)">
+        <h3 class="growth-title"><span class="gt-line">📈 My Reading Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>810L to 1020L</strong> — that's <strong>+210L</strong>! Keep going!</p></div>
+        <p class="growth-sub">Each bar is one test you finished.</p>
+        <div data-growth-chart></div>
+      </div>
+      <div class="history">
+        <h3 class="history-title">📋 My Last 12 Tests</h3>
+        <p class="history-sub">Every test you finished, newest first. The last number shows your Lexile after that test!</p>
+        <div class="history-table-wrap">
+        <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
+          <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Lexile</span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">11/12</span><span class="c lex up" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>1020L</span><span class="delta">▲ +30L</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell">990L<span class="delta">→ same</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex up" role="cell">990L<span class="delta">▲ +10L</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">980L<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Placement</span><span class="c score" role="cell">36/38</span><span class="c lex" role="cell">980L<span class="delta">→ same</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/13/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex up" role="cell">980L<span class="delta">▲ +20L</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/12/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex up" role="cell">960L<span class="delta">▲ +10L</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/11/26</span><span role="cell">Placement</span><span class="c score" role="cell">18/24</span><span class="c lex up" role="cell">950L<span class="delta">▲ +140L</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/11/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">810L</span></div>
+        </div>
+        </div>
+        <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="view-quiz" class="hidden">
+    <div class="quiz-bar">
+      <div class="quiz-bar-row">
+        <span class="student-chip" id="student-chip">Amber</span>
+        <span class="timer" id="timer">20:00</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">0 of 12 answered</div>
+      <div class="time-warning hidden" id="time-warning" role="alert">⏰ 1 minute left! Finish your last answers — the quiz will send itself when time is up.</div>
+    </div>
+
+    <div id="quiz-body"></div>
+
+    <div class="submit-zone">
+      <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
+      <p class="submit-note">Your score will appear right away — your written answers are checked automatically. If time runs out, your quiz will be sent automatically with the answers you have so far.</p>
+    </div>
+  </section>
+
+
+  
+  <section id="view-passed" class="hidden">
+    <div class="outcome outcome-pass">
+      <div class="outcome-emoji" aria-hidden="true">🎉</div>
+      <h2 class="outcome-title">You passed today's test.</h2>
+      <p class="outcome-lexile" id="p-lexile"></p>
+      <p class="outcome-score">Your score: <span id="p-score">0</span> / 12</p>
+      <button class="btn btn-primary outcome-btn" id="passed-review-btn" type="button">See My Answers &amp; Growth →</button>
+    </div>
+  </section>
+
+  
+  <section id="view-redo" class="hidden">
+    <div class="outcome outcome-redo">
+      <div class="outcome-emoji" aria-hidden="true">🌱</div>
+      <h2 class="outcome-title">今天你的 Lexile level 退步了，你要重做一次。</h2>
+      <p class="outcome-lexile" id="d-lexile"></p>
+      <p class="outcome-score">Your score this time: <span id="d-score">0</span> / 12</p>
+      <a class="btn btn-primary outcome-btn" id="redo-link" href="?redo=1" target="_top">Do it again</a>
+      <p class="outcome-note">Press the button to start a brand-new test.</p>
+      <button class="btn btn-ghost outcome-btn" id="redo-review-btn" type="button">Look at my answers first</button>
+    </div>
+  </section>
+
+  
+  <section id="view-results" class="hidden">
+    <div class="results-head">
+      <span class="badge">Your Result</span>
+      <h2 style="margin-top:12px">Great work, <span id="r-name">Amber</span>!</h2>
+      <span class="lexile-banner" role="note">⭐ My Lexile Level: 1020L</span>
+      <div class="stars" id="r-stars"></div>
+      <div class="score-big"><span id="r-score">0</span><small> / 12</small></div>
+      <div class="score-pct" id="r-pct">0%</div>
+      <div><span class="attempt-badge" id="r-attempt">Attempt #1</span></div>
+      <div class="section-scores" id="r-section-scores" aria-label="Scores by section">
+        <span class="section-score-chip sec-1">Section 1: <span id="r-sec1">0 / 4</span></span>
+        <span class="section-score-chip sec-2">Section 2: <span id="r-sec2">0 / 4</span></span>
+        <span class="section-score-chip sec-3">Section 3: <span id="r-sec3">0 / 4</span></span>
+      </div>
+      <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was sent automatically.</div>
+      <p class="friendly" id="r-message"></p>
+      <div class="meta-row">
+        <span class="meta-chip">⏱ Time used: <span id="r-time">0:00</span></span>
+        <span class="meta-chip">Choice questions: <span id="r-mc">0 / 8</span></span>
+        <span class="meta-chip">Written questions: <span id="r-wr">0 / 4</span></span>
+      </div>
+      <p class="saved-note">Answers saved ✓</p>
+    </div>
+
+    <div class="breakdown" id="r-breakdown"></div>
+
+    <h3 class="review-title">Review: Choice Questions</h3>
+    <p class="review-sub">See what you got right and learn from any mistakes.</p>
+    <div id="r-mc-review"></div>
+
+    <h3 class="review-title">Review: Your Written Answers</h3>
+    <p class="review-sub">Checked automatically for the key ideas. Your answers are shown next to the sample answers.</p>
+    <div id="r-wr-review"></div>
+
+    <div class="results-actions">
+      <div class="merged-tests">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth, last 6 tests: 11/13/26 Daily Quiz 980L (up 20L), 11/14/26 Placement 980L (same), 11/15/26 Daily Quiz 980L (same), 11/16/26 Daily Quiz 990L (up 10L), 11/16/26 Daily Quiz 990L (same), 11/17/26 Daily Quiz 1020L (up 30L, gold bar with a crown — your best ever)">
+        <h3 class="growth-title"><span class="gt-line">📈 My Reading Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>810L to 1020L</strong> — that's <strong>+210L</strong>! Keep going!</p></div>
+        <p class="growth-sub">Each bar is one test you finished.</p>
+        <div data-growth-chart></div>
+      </div>
+      <div class="history">
+        <h3 class="history-title">📋 My Last 12 Tests</h3>
+        <p class="history-sub">Every test you finished, newest first. The last number shows your Lexile after that test!</p>
+        <div class="history-table-wrap">
+        <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
+          <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Lexile</span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">11/12</span><span class="c lex up" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>1020L</span><span class="delta">▲ +30L</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell">990L<span class="delta">→ same</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex up" role="cell">990L<span class="delta">▲ +10L</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">980L<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Placement</span><span class="c score" role="cell">36/38</span><span class="c lex" role="cell">980L<span class="delta">→ same</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/13/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex up" role="cell">980L<span class="delta">▲ +20L</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/12/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex up" role="cell">960L<span class="delta">▲ +10L</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/11/26</span><span role="cell">Placement</span><span class="c score" role="cell">18/24</span><span class="c lex up" role="cell">950L<span class="delta">▲ +140L</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/11/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">810L</span></div>
+        </div>
+        </div>
+        <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
+      </div>
+      </div>
+      <button class="btn btn-ghost" id="again-btn" type="button">↻ Try Again</button>
+    </div>
+  </section>
+
+  <footer class="note">Grade 4 · Targeted Reading Practice · 12 questions</footer>
+</div>
+
+
+<div class="modal-backdrop hidden" id="warn-modal" role="dialog" aria-modal="true" aria-labelledby="warn-title">
+  <div class="modal">
+    <h3 id="warn-title">Some questions are empty!</h3>
+    <p id="warn-text">You haven't answered some choice questions yet.</p>
+    <div class="row">
+      <button class="btn btn-primary" id="warn-back" type="button" style="margin-top:0">Go Back and Check</button>
+      <button class="btn btn-ghost" id="warn-submit" type="button">Submit Anyway</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+
+(function(){
+  function pstTodayLabel(){
+    try{
+      var parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Los_Angeles", month: "numeric", day: "numeric"
+      }).formatToParts(new Date());
+      var m = "", d = "";
+      for(var i = 0; i < parts.length; i++){
+        if(parts[i].type === "month") m = parts[i].value;
+        if(parts[i].type === "day") d = parts[i].value;
+      }
+      return (m && d) ? (m + "/" + d) : null;
+    }catch(e){ return null; }
+  }
+  var label = pstTodayLabel();
+  if(!label) return;
+  var days = document.querySelectorAll(".punch-day");
+  for(var i = 0; i < days.length; i++){
+    var dateEl = days[i].querySelector(".day-date");
+    if(dateEl && dateEl.textContent.replace(/\s+/g, "") === label){
+      days[i].classList.add("today");
+      var circle = days[i].querySelector(".punch-circle");
+      if(circle) circle.classList.add("today-ring");
+    }
+  }
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  
+
+  var TEST_MODE = false;
+  try {
+    if(new URLSearchParams(window.location.search).get("test") === "1") TEST_MODE = true;
+  } catch(e) {}
+  try {
+    if(window.google && google.script && google.script.url && google.script.url.getLocation){
+      google.script.url.getLocation(function(loc){
+        try { if(loc && loc.parameter && loc.parameter.test === "1") TEST_MODE = true; } catch(e) {}
+      });
+    }
+  } catch(e) {}
+
+  
+
+  var REDO_MODE = false;
+  try { if(new URLSearchParams(window.location.search).get("redo") === "1") REDO_MODE = true; } catch(e) {}
+  try {
+    if(window.google && google.script && google.script.url && google.script.url.getLocation){
+      google.script.url.getLocation(function(loc){
+        try { if(loc && loc.parameter && loc.parameter.redo === "1") REDO_MODE = true; } catch(e) {}
+      });
+    }
+  } catch(e) {}
+
+   
+  var SECTIONS = [
+    {
+      id: 1, tag: "Section 1", tagClass: "tag-1",
+      title: "Key Ideas & Details",
+      subtitle: "Nonfiction · How Honey Bees Talk to Each Other · 4 questions",
+      passageTitle: "How Honey Bees Talk to Each Other",
+      paragraphs: [
+        "On a warm morning, a few honey bees leave the hive before the others. These bees are called scouts. A scout flies from flower to flower, sipping a sweet liquid called nectar. When a scout finds a patch of flowers full of nectar, it hurries back to the hive. The other bees cannot see the flowers, so the scout must tell them where to go — without speaking a single word.",
+        "Back at the hive, the scout bee performs a special dance on the honeycomb. It runs in a shape like a figure eight. In the middle of the eight, it runs in a straight line and waggles its body from side to side. This is why the dance is called the waggle dance. The other bees crowd around the scout, touching it with their feelers and watching every move.",
+        "Every part of the dance carries a message. The direction of the straight run points the way to the flowers. If the bee runs straight up the honeycomb, the flowers are toward the sun. If it runs at an angle, the flowers are at that angle from the sun. The length of the dance matters too. A long waggle run means the flowers are far away, and a short run means they are close. A diagram of the dance shows the figure-eight path, with arrows pointing along the straight middle run, so readers can see how direction and length work together.",
+        "Thanks to the dance, the hive works as a team. A colony of bees — the large group of bees that live and work together in one hive — may hold thousands of bees, and many of them will fly out after watching just one scout dance. Soon they return with nectar, and the whole colony shares the food. The tiny dance helps the bees find flowers quickly, before other animals eat the nectar or the flowers close for the night."
+      ],
+      chart: null,
+      questions: [
+        { n:1, std:"RI.4.1", type:"mc", text:"According to the passage, what does a scout bee do right after it finds flowers full of nectar?",
+          options:["It hurries back to the hive to tell the other bees where the flowers are.", "It builds a new hive next to the flowers.", "It falls asleep inside the largest flower.", "It carries all of the nectar back to the hive by itself."],
+          correct:0,
+          why:"The passage says that when a scout finds a patch of flowers full of nectar, it hurries back to the hive so it can tell the other bees where to go." },
+        { n:2, std:"RI.4.4", type:"mc", text:"What does the word “colony” mean in this passage?",
+          options:["A single flower full of nectar.", "The large group of bees that live and work together in one hive.", "A dance that bees perform on the honeycomb.", "The sweet liquid that bees sip from flowers."],
+          correct:1,
+          why:"The passage explains the word right in the sentence: 'A colony of bees — the large group of bees that live and work together in one hive.'" },
+        { n:3, std:"RI.4.5", type:"mc", text:"How does the author mostly organize the information in paragraph 3?",
+          options:["By comparing two different kinds of bees.", "By telling the events of one bee's whole life in time order.", "By describing the parts of the waggle dance and what each part means.", "By explaining a problem the bees had and how they solved it."],
+          correct:2,
+          why:"Paragraph 3 describes one part of the dance at a time — first the direction of the straight run, then the length of the run — and tells what each part means. That is a description structure." },
+        { n:4, std:"RI.4.7", type:"written", text:"Use the diagram of the waggle dance described in the passage. Part 1: What does the waggle dance tell the other bees? Part 2: How do the direction and the length of the dance give the bees even more information?",
+          sample:"The waggle dance tells the other bees where flowers full of nectar are. The direction of the straight run points toward the flowers, lined up with the sun, and a longer dance means the flowers are farther away." }
+      ]
+    },
+    {
+      id: 2, tag: "Section 2", tagClass: "tag-2",
+      title: "Craft & Structure",
+      subtitle: "Fiction · Maya and the Night Market Lantern · 4 questions",
+      passageTitle: "Maya and the Night Market Lantern",
+      paragraphs: [
+        "The night market was just waking up when Maya arrived with her mother. Strings of paper lanterns hung above the stalls, and the smell of grilled corn floated through the warm air. Maya had saved her coins for a mango ice, but first she stopped at her favourite stall. Mr. Chen, the lantern seller, was standing on a stool, reaching up to hang his biggest red lantern.",
+        "Just then, a gust of wind swept down the street. The big lantern swung, slipped from its hook, and dropped — right into Maya's arms! She caught it with a soft thump. “Thank you, little friend,” Mr. Chen said, climbing down. But when he looked up, his smile faded. The wind had tangled the string of smaller lanterns, and half of them hung dark and twisted. “The crowd will come soon,” he sighed. “No one stops at a dark stall.”",
+        "Maya looked at the tangled string, then at Mr. Chen's worried hands. “I can help,” she said. “My fingers are small.” She stood on the stool — carefully, with Mr. Chen holding it steady — and untwisted the string knot by knot. Mr. Chen passed each lantern up to her, and one by one she hung them in a neat, glowing row. When the last small lantern was lit, Mr. Chen plugged in the big red one, and it bloomed with warm light above them both.",
+        "Maya's heart gave a happy jump. She felt proud — her small hands and her patience had helped save the stall. Mr. Chen let out a long, relieved breath. He had been sure the crowd would pass him by, and he felt grateful that a kind helper had appeared just in time. “You lit up my whole stall,” he told Maya, and his face lit up, too. Then he handed her the biggest mango ice she had ever seen. “For my best helper,” he said."
+      ],
+      chart: null,
+      questions: [
+        { n:5, std:"RL.4.3", type:"mc", text:"Why does Maya stay to help Mr. Chen instead of going to buy her mango ice right away?",
+          options:["She hopes Mr. Chen will give her a free lantern.", "She sees that he is worried, and her small fingers can untangle the string.", "Her mother tells her she may not buy a snack.", "She is afraid of the crowd at the food stalls."],
+          correct:1,
+          why:"Maya looks at the tangled string and at Mr. Chen's worried hands, and she offers to help because her small fingers can untwist the knots." },
+        { n:6, std:"RL.4.2", type:"mc", text:"What is a theme of this story?",
+          options:["Night markets are the best places to buy lanterns.", "Windy nights always ruin a market.", "It is best to save your coins and never spend them.", "Helping someone in need can make a hard moment brighter for everyone."],
+          correct:3,
+          why:"Maya gives up her own plans to help Mr. Chen, and her help saves his stall and makes them both happy. The story shows that helping someone in need brightens a hard moment for everyone." },
+        { n:7, std:"RL.4.4", type:"mc", text:"In the story, Mr. Chen's “face lit up.” What does this phrase mean?",
+          options:["A lantern shone directly onto his face.", "His face became hot from all the lights.", "He suddenly looked happy and relieved.", "He turned on another lantern."],
+          correct:2,
+          why:"“His face lit up” is a phrase that means his expression suddenly showed happiness. Mr. Chen says it right after Maya saves his stall, when he is happy and relieved." },
+        { n:8, std:"RL.4.6", type:"written", text:"Think about the moment the big red lantern lights up. Part 1: How does Maya see this moment — how does she feel, and why? Part 2: How does Mr. Chen see the same moment — how does he feel, and why?",
+          sample:"Maya felt proud and excited when the big lantern lit up, because her small hands and her patience had helped save the stall. Mr. Chen felt relieved and grateful, because he had worried the crowd would pass his dark stall by, and now his lanterns could shine again." }
+      ]
+    },
+    {
+      id: 3, tag: "Section 3", tagClass: "tag-3",
+      title: "Integration of Knowledge & Ideas",
+      subtitle: "Two Texts + Chart · Lighthouses Then and Now · 4 questions",
+      passageTitle: null,
+      texts: [
+        { label:"Text 1", title:"Lighthouses Long Ago",
+          body:"Long ago, a lighthouse keeper's work began before dark. Every evening, the keeper climbed the long spiral stairs carrying a can of oil. At the top, he filled the great lamp, trimmed its wick — the strip of cloth that holds the flame — and lit it just before sunset. The keeper had to be dependable, because ships far out at sea were counting on that light to warn them away from the sharp rocks. All night long, the keeper watched the flame. If the light went out, a ship could crash before morning. In the morning, the keeper cleaned the glass, wrote the night's weather in a logbook, and rested — until it was time to climb the stairs again." },
+        { label:"Text 2", title:"Lighthouses Today",
+          body:"Today, most lighthouses shine without a keeper living in the tower. When the sun begins to set, a sensor notices that the light is fading. The sensor switches on a bright electric light, so the light turns on by itself. Batteries charged all day by solar panels give the light its power through the night, and at sunrise the sensor switches the light off again. Workers still visit the lighthouse now and then to clean the lens and check the batteries, but the light does its job on its own, night after night." }
+      ],
+      chart: {
+        title:"Ships Passing Lighthouse Bay Each Winter",
+        sub:"Number of ships that passed Lighthouse Bay each winter",
+        col1:"Winter", col2:"Ships",
+        rows:[
+          { label:"2015", value:46, cls:"tree" },
+          { label:"2018", value:39, cls:"sunny" },
+          { label:"2021", value:33, cls:"canopy" },
+          { label:"2024", value:28, cls:"canopy" }
+        ]
+      },
+      questions: [
+        { n:9, std:"RI.4.8", type:"mc", text:"Why does the author of Text 1 say a lighthouse keeper had to be dependable?",
+          options:["Because keepers had to write neatly in a logbook.", "Because keepers enjoyed climbing the spiral stairs.", "Because ships were counting on the light to warn them away from the sharp rocks.", "Because lamp oil was very expensive."],
+          correct:2,
+          why:"Text 1 gives the reason right after the word 'because': ships far out at sea were counting on the keeper's light to warn them away from the sharp rocks, so the keeper could not let the light go out." },
+        { n:10, std:"RI.4.9", type:"written", text:"Use both texts to answer. Part 1: According to Text 1, how was a lighthouse cared for long ago? Part 2: According to Text 2, how is a lighthouse cared for today?",
+          sample:"In Text 1, a keeper climbed the tower every night to light the oil lamp and trim its wick by hand, and he watched the flame all night. In Text 2, lighthouses today use an automatic electric light powered by solar panels and batteries, so the light turns on by itself and no keeper has to live there." },
+        { n:11, std:"RI.4.3", type:"mc", text:"According to Text 2, what happens in order as night falls at a lighthouse today?",
+          options:["A keeper climbs the stairs, trims the wick, and lights the lamp with oil.", "A sensor notices the fading light, switches on the electric light, and batteries charged by solar panels power it through the night.", "Workers clean the lens, and then the light stays off all night.", "The light turns off at sunset and turns on again at sunrise."],
+          correct:1,
+          why:"Text 2 tells the steps in order: a sensor notices the light fading, the sensor switches on the electric light, and batteries charged by solar panels power the light through the night until sunrise." },
+        { n:12, std:"RI.4.6", type:"written", text:"Compare how the two texts present information about lighthouses. Part 1: How does Text 1 present its information? Part 2: How does Text 2 present its information?",
+          sample:"Text 1 presents the information by following one keeper through his day and night, telling what he did in time order. Text 2 presents the information by explaining facts about how the modern light and its parts work." }
+      ]
+    }
+  ];
+
+  var ALL_MC = [], ALL_WRITTEN = [];
+  SECTIONS.forEach(function(s){
+    s.questions.forEach(function(q){
+      q.section = s.id;
+      if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q);
+    });
+  });
+  var LETTERS = ["A","B","C","D"];
+  var TOTAL_SECONDS = 20 * 60;
+  
+  
+  try {
+    var _ts = parseInt(new URLSearchParams(window.location.search).get("testSeconds") || "", 10);
+    if(_ts >= 5 && _ts <= 1200) TOTAL_SECONDS = _ts;
+  } catch(e) {}
+
+   
+  var studentName = "Amber";
+  var startStamp = null;
+  var elapsedAtSubmit = 0;
+  var timerId = null;
+  var submitted = false;
+  var autoSubmitted = false;
+  var attemptCount = 0;  
+  var answers = {};      
+  var written = {};      
+  var writtenGrades = {}; 
+
+  
+
+  var memoryStore = {};
+  function storeGet(key){
+    try {
+      var v = window.localStorage.getItem(key);
+      if(v !== null && v !== undefined) return v;
+    } catch(e) {}
+    return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null;
+  }
+  function storeSet(key, value){
+    memoryStore[key] = value;
+    try { window.localStorage.setItem(key, value); } catch(e) {}
+  }
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;");
+  }
+  function fmtTime(sec){
+    sec = Math.max(0, Math.floor(sec));
+    var m = Math.floor(sec/60), s = sec % 60;
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+
+  
+
+  var GROWTH = [
+    { date:"11/13/26", type:"Daily Quiz",  lexile:980, delta:"+20L",  kind:"up" },
+    { date:"11/14/26", type:"Placement",  lexile:980, delta:"same",  kind:"same", same:true },
+    { date:"11/15/26", type:"Daily Quiz",  lexile:980, delta:"same",  kind:"same", same:true },
+    { date:"11/16/26", type:"Daily Quiz",  lexile:990, delta:"+10L",  kind:"up" },
+    { date:"11/16/26", type:"Daily Quiz",  lexile:990, delta:"same",  kind:"same", same:true },
+    { date:"11/17/26", type:"Daily Quiz",  lexile:1020, delta:"+30L",  kind:"best" }
+  ];
+  function renderGrowthCharts(){
+    var PLOT_L = 56, PLOT_R = 554, BASE = 260, TOP = 30, MAXL = 1270;
+    var n = GROWTH.length;
+    var slotW = (PLOT_R - PLOT_L) / n;
+    var barW = Math.min(134, slotW * 0.7);
+    var fills = { base:"#5b8db8", up:"#27a24b", down:"#d64541", best:"#f2b705", same:"#7f97a8" };
+    var out = ['<svg viewBox="0 -6 560 328" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">',
+      '<g font-family="Nunito, system-ui, sans-serif">'];
+    [1000, 750, 500, 250].forEach(function(v){
+      var y = BASE - (v / MAXL) * (BASE - TOP);
+      out.push('<line x1="' + PLOT_L + '" y1="' + y + '" x2="' + PLOT_R + '" y2="' + y + '" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5 5"/>');
+      out.push('<text x="48" y="' + (y + 5) + '" text-anchor="end" font-size="13" font-weight="800" fill="var(--ink-soft)">' + v + 'L</text>');
+    });
+    out.push('<line x1="' + PLOT_L + '" y1="' + BASE + '" x2="' + PLOT_R + '" y2="' + BASE + '" stroke="var(--ink-soft)" stroke-width="2"/>');
+    out.push('<text x="48" y="265" text-anchor="end" font-size="13" font-weight="800" fill="var(--ink-soft)">0</text>');
+    GROWTH.forEach(function(d, i){
+      var cx = PLOT_L + slotW * (i + 0.5);
+      var x = cx - barW / 2;
+      var h = (d.lexile / MAXL) * (BASE - TOP);
+      var y = BASE - h;
+      var stroke = d.kind === "best" ? ' stroke="#d9a400" stroke-width="2.5"' : '';
+      out.push('<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="10" fill="' + fills[d.kind] + '"' + stroke + '/>');
+      out.push('<text x="' + cx.toFixed(1) + '" y="' + (y - 13).toFixed(1) + '" text-anchor="middle" font-size="21" font-weight="900" fill="var(--ink)" font-family="Fredoka, Nunito, sans-serif">' + d.lexile + 'L</text>');
+      if(d.delta){
+        var arrow = d.same ? "→ " : (d.kind === "down" ? "▼ " : "▲ ");
+        var deltaText = d.same ? "same" : d.delta;
+        var dcol = d.kind === "best" ? "#4a3500" : (d.kind === "down" ? "#ffffff" : "#ffffff");
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (y + 29).toFixed(1) + '" text-anchor="middle" font-size="17" font-weight="900" fill="' + dcol + '">' + arrow + deltaText + '</text>');
+      }
+      if(d.kind === "best"){
+        var crownY = y + h / 2;
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (crownY + 9).toFixed(1) + '" text-anchor="middle" font-size="26" aria-hidden="true">👑</text>');
+      }
+      var dateSize = n > 4 ? 14 : 16, typeSize = n > 4 ? 12 : 13.5;
+      out.push('<text x="' + cx.toFixed(1) + '" y="284" text-anchor="middle" font-size="' + dateSize + '" font-weight="900" fill="var(--ink)">' + esc(d.date) + '</text>');
+      out.push('<text x="' + cx.toFixed(1) + '" y="304" text-anchor="middle" font-size="' + typeSize + '" font-weight="700" fill="var(--ink-soft)">' + esc(d.type) + '</text>');
+    });
+    out.push('</g></svg>');
+    var svg = out.join("");
+    var mounts = document.querySelectorAll("[data-growth-chart]");
+    for(var k = 0; k < mounts.length; k++){ mounts[k].innerHTML = svg; }
+  }
+  renderGrowthCharts();
+  function show(viewId){
+    ["view-start","view-quiz","view-results","view-passed","view-redo"].forEach(function(v){
+      $(v).classList.toggle("hidden", v !== viewId);
+    });
+    window.scrollTo(0,0);
+  }
+
+  
+
+  function computeQuizId(){
+    return "g4-2026-11-18-seq1";
+  }
+  var QUIZ_ID = "2026-11-18-seq1";
+  function attemptStorageKey(){
+    return "g4rq-attempts-v1:amber:" + todayStr() + ":" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
+  }
+  function recordAttempt(){
+    var key = attemptStorageKey();
+    var prev = parseInt(storeGet(key) || "0", 10) || 0;
+    var next = prev + 1;
+    storeSet(key, String(next));
+    return next;
+  }
+
+  
+
+  function pstTodayKey(){
+    try{
+      var parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit"
+      }).formatToParts(new Date());
+      var y = "", m = "", d = "";
+      for(var i = 0; i < parts.length; i++){
+        if(parts[i].type === "year") y = parts[i].value;
+        if(parts[i].type === "month") m = parts[i].value;
+        if(parts[i].type === "day") d = parts[i].value;
+      }
+      return (y && m && d) ? (y + "-" + m + "-" + d) : null;
+    }catch(e){ return null; }
+  }
+  function punchStorageKey(dayKey){
+    return "g4en-punch-v1:amber:" + dayKey + (TEST_MODE ? ":TEST" : "");
+  }
+  var PUNCH_WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  
+  
+  
+  function markPunchDay(dayKey){
+    var days = document.querySelectorAll(".punch-day");
+    for(var i = 0; i < days.length; i++){
+      if(days[i].getAttribute("data-date") === dayKey){
+        var circle = days[i].querySelector(".punch-circle");
+        if(circle && !circle.classList.contains("done")){
+          circle.classList.remove("upcoming", "empty");
+          circle.classList.add("done");
+          circle.textContent = "✓";
+          return PUNCH_WEEKDAYS[i] || null;
+        }
+        return null;
+      }
+    }
+    return null;
+  }
+  function refreshAttendance(punchedWeekday){
+    var doneCount = document.querySelectorAll(".punch-circle.done").length;
+    var countEl = document.querySelector(".att-count");
+    if(countEl) countEl.textContent = doneCount + " / 7 days";
+    var msgEl = document.querySelector(".att-message");
+    if(!msgEl) return;
+    if(doneCount >= 7){
+      msgEl.innerHTML = "🎉 Amazing, Amber! You filled the whole week — <strong>7 / 7 days</strong>!";
+    } else if(punchedWeekday){
+      msgEl.innerHTML = "🎉 Great job, Amber! You earned your <strong>" + esc(punchedWeekday) + " punch</strong> — " +
+        doneCount + " of 7 days this week. Let's fill the whole week!";
+    }
+  }
+  function applyPunch(){
+    var dayKey = pstTodayKey();
+    if(!dayKey) return;
+    storeSet(punchStorageKey(dayKey), "1");
+    var weekday = markPunchDay(dayKey);
+    refreshAttendance(weekday);
+  }
+  
+  (function restorePunches(){
+    var days = document.querySelectorAll(".punch-day");
+    var lastWeekday = null, changed = false;
+    for(var i = 0; i < days.length; i++){
+      var dk = days[i].getAttribute("data-date");
+      if(dk && storeGet(punchStorageKey(dk))){
+        var wd = markPunchDay(dk);
+        if(wd){ changed = true; lastWeekday = wd; }
+      }
+    }
+    if(changed) refreshAttendance(lastWeekday);
+  })();
+
+   
+  function buildChart(chart){
+    var max = 0;
+    chart.rows.forEach(function(r){ if(r.value > max) max = r.value; });
+    if(max <= 0) max = 1;
+    var bars = chart.rows.map(function(r){
+      var pct = Math.round(r.value / max * 100);
+      return '<div class="bar-row"><span class="blabel">'+esc(r.label)+'</span>'+
+        '<span class="bar-track"><span class="bar-fill '+r.cls+'" style="display:block;width:'+pct+'%"></span></span>'+
+        '<span class="bval">'+r.value+'</span></div>';
+    }).join("");
+    var rows = chart.rows.map(function(r){
+      return "<tr><td>"+esc(r.label)+"</td><td>"+r.value+"</td></tr>";
+    }).join("");
+    return '<div class="chart"><h4>'+esc(chart.title)+'</h4><p class="chart-sub">'+esc(chart.sub)+'</p>'+
+      bars +
+      '<table class="temp-table"><tr><th>'+esc(chart.col1 || "Item")+'</th><th>'+esc(chart.col2 || "Count")+'</th></tr>'+rows+'</table></div>';
+  }
+
+  function buildSimpleTable(tbl){
+    var rows = tbl.rows.map(function(r){
+      return "<tr><td>"+esc(r.label)+"</td><td>"+r.value+"</td></tr>";
+    }).join("");
+    return '<div class="chart"><h4>'+esc(tbl.title)+'</h4>'+
+      '<table class="temp-table"><tr><th>'+esc(tbl.col1 || "Item")+'</th><th>'+esc(tbl.col2 || "Count")+'</th></tr>'+rows+'</table></div>';
+  }
+
+  function buildQuiz(){
+    var html = "";
+    SECTIONS.forEach(function(s){
+      html += '<div class="section-head"><span class="section-tag '+s.tagClass+'">'+esc(s.tag)+' · Questions '+
+        s.questions[0].n + '–' + s.questions[s.questions.length-1].n + '</span>'+
+        '<h2>'+esc(s.title)+'</h2><p>'+esc(s.subtitle)+'</p></div>';
+
+      html += '<div class="passage">';
+      if(s.passageTitle) html += '<h3>'+esc(s.passageTitle)+'</h3>';
+      if(s.paragraphs){
+        s.paragraphs.forEach(function(p){
+          var t = esc(p).replace(/^(\[\d\])/, '<span class="pnum">$1</span>');
+          t = t.replace(/\n/g, "<br>");
+          if(p.charAt(0) === "[") t = "<em>" + t + "</em>";
+          t = t.replace(/^([A-Z][A-Z ]{2,}:)/, "<b>$1</b>");
+          html += '<p>'+t+'</p>';
+        });
+      }
+      if(s.texts){
+        s.texts.forEach(function(t){
+          html += '<div class="passage-label">'+esc(t.label)+' — '+esc(t.title)+'</div><p>'+esc(t.body)+'</p>';
+        });
+      }
+      if(s.chart) html += buildChart(s.chart);
+      if(s.table) html += buildSimpleTable(s.table);
+      html += '</div>';
+
+      s.questions.forEach(function(q){
+        html += '<div class="qcard" id="qcard-'+q.n+'">';
+        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div>'+
+          '<div class="q-text">'+esc(q.text)+'</div>'+
+          '<div class="q-type">'+(q.type === "mc" ? "Choose one answer" : "Write your answer · 1–2 sentences")+'</div>'+
+          '</div></div>';
+        if(q.type === "mc"){
+          html += '<div class="options" role="radiogroup" aria-label="Question '+q.n+'">';
+          q.options.forEach(function(opt, i){
+            html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'">'+
+              '<span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>';
+          });
+          html += '</div>';
+        } else {
+          html += '<div class="q-hint" style="margin-top:12px"><b>Part 1</b></div>'+
+            '<textarea id="ta-'+q.n+'-1" placeholder="Write your Part 1 answer here…" aria-label="Question '+q.n+' part 1 written answer"></textarea>'+
+            '<div class="q-hint" style="margin-top:12px"><b>Part 2</b></div>'+
+            '<textarea id="ta-'+q.n+'-2" placeholder="Write your Part 2 answer here…" aria-label="Question '+q.n+' part 2 written answer"></textarea>'+
+            '<div class="q-hint">Write 1–2 sentences in each box. Your answers will be checked automatically when you submit.</div>';
+        }
+        html += '</div>';
+      });
+    });
+    $("quiz-body").innerHTML = html;
+
+    
+    ALL_MC.forEach(function(q){
+      var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
+      Array.prototype.forEach.call(radios, function(r){
+        r.addEventListener("change", function(){
+          answers[q.n] = parseInt(r.value, 10);
+          updateProgress();
+        });
+      });
+    });
+    ALL_WRITTEN.forEach(function(q){
+      [$("ta-"+q.n+"-1"), $("ta-"+q.n+"-2")].forEach(function(ta){
+        if(ta) ta.addEventListener("input", function(){
+          written[q.n] = collectWritten(q.n);
+          updateProgress();
+        });
+      });
+    });
+  }
+
+  function answeredCount(){
+    var c = 0;
+    ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; });
+    ALL_WRITTEN.forEach(function(q){ if((written[q.n] || "").trim().length > 0) c++; });
+    return c;
+  }
+  function updateProgress(){
+    var c = answeredCount();
+    $("progress-fill").style.width = (c/12*100) + "%";
+    $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " — nice, you answered everything!" : "");
+    ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
+      var done = q.type === "mc" ? (typeof answers[q.n] === "number") : ((written[q.n]||"").trim().length > 0);
+      var card = $("qcard-"+q.n);
+      if(card) card.classList.toggle("answered", done);
+    });
+  }
+
+   
+  function startTimer(){
+    startStamp = Date.now();
+    submitted = false;
+    autoSubmitted = false;
+    var w = $("time-warning");
+    if(w) w.classList.add("hidden");
+    var t0 = $("timer");
+    if(t0){ t0.classList.remove("low","critical","done"); }
+    updateTimer();
+    timerId = setInterval(updateTimer, 250);
+  }
+  function elapsedSeconds(){
+    if(!startStamp) return 0;
+    return (Date.now() - startStamp) / 1000;
+  }
+  function updateTimer(){
+    if(submitted) return;
+    var el = elapsedSeconds();
+    var left = TOTAL_SECONDS - el;
+    var t = $("timer");
+    if(left > 0){
+      t.textContent = "⏱ " + fmtTime(Math.ceil(left));
+      var inLastMinute = left <= 60;
+      t.classList.toggle("critical", inLastMinute);
+      t.classList.toggle("low", !inLastMinute && left <= 120);
+      t.classList.remove("done");
+      if(inLastMinute){
+        var w = $("time-warning");
+        if(w) w.classList.remove("hidden");
+      }
+    } else {
+      t.textContent = "⏱ 0:00";
+      t.classList.add("critical");
+      t.classList.remove("low","done");
+      autoSubmit();
+    }
+  }
+  function stopTimer(){
+    if(timerId){ clearInterval(timerId); timerId = null; }
+  }
+  function collectWritten(qn){
+    var parts = [];
+    [1, 2].forEach(function(k){
+      var ta = $("ta-" + qn + "-" + k);
+      if(ta && ta.value.trim()) parts.push(ta.value);
+    });
+    return parts.join("\n");
+  }
+  function syncWrittenFromDom(){
+    ALL_WRITTEN.forEach(function(q){
+      written[q.n] = collectWritten(q.n);
+    });
+  }
+  function autoSubmit(){
+    if(submitted) return;
+    
+    var wm = $("warn-modal");
+    if(wm) wm.classList.add("hidden");
+    goToResults(true);
+  }
+
+   
+  $("start-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    studentName = TEST_MODE ? "TEST" : "Amber";
+    $("student-chip").textContent = "👤 " + studentName;
+    buildQuiz();
+    updateProgress();
+    show("view-quiz");
+    startTimer();
+  });
+
+   
+  $("submit-btn").addEventListener("click", function(){
+    if(submitted) return;
+    syncWrittenFromDom();
+    var missing = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; });
+    if(missing.length > 0){
+      var nums = missing.map(function(q){ return "Q" + q.n; }).join(", ");
+      $("warn-text").textContent = "You haven't answered " + nums + " yet. Unanswered questions score 0 points.";
+      $("warn-modal").classList.remove("hidden");
+      return;
+    }
+    goToResults();
+  });
+  $("warn-back").addEventListener("click", function(){
+    $("warn-modal").classList.add("hidden");
+    var first = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; })[0];
+    if(first){
+      var card = $("qcard-"+first.n);
+      if(card) card.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+  });
+  $("warn-submit").addEventListener("click", function(){
+    $("warn-modal").classList.add("hidden");
+    goToResults(false);
+  });
+
+  function goToResults(isAuto){
+    if(submitted) return;
+    submitted = true;
+    autoSubmitted = !!isAuto;
+    
+    
+    attemptCount = REDO_MODE ? 1 : recordAttempt();
+    
+    
+    applyPunch();
+    syncWrittenFromDom();
+    
+    elapsedAtSubmit = autoSubmitted ? TOTAL_SECONDS : Math.min(elapsedSeconds(), TOTAL_SECONDS);
+    stopTimer();
+    gradeAllWritten();
+    buildResults();
+    saveAnswerLog();
+    showOutcome();
+  }
+
+  
+
+   
+  function normalizeAnswer(str){
+    return String(str == null ? "" : str)
+      .toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/'/g, "")
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+  function altMatches(norm, alt){
+    for(var i = 0; i < alt.length; i++){
+      if(norm.indexOf(normalizeAnswer(alt[i])) === -1) return false;
+    }
+    return true;
+  }
+  function pointFound(norm, alternatives){
+    for(var i = 0; i < alternatives.length; i++){
+      if(altMatches(norm, alternatives[i])) return true;
+    }
+    return false;
+  }
+  function crossAlt(a, b){
+    var out = [];
+    for(var i = 0; i < a.length; i++){
+      for(var j = 0; j < b.length; j++){ out.push([a[i], b[j]]); }
+    }
+    return out;
+  }
+  var GRADE_KEYS = {
+    4: [
+      { found: "What the dance tells the bees: where flowers full of nectar (food) are",
+        missing: "what the dance tells the bees — where flowers full of nectar are",
+        alt: [["where","flower"],["where","nectar"],["where","food"],["location","flower"],["location","nectar"],["find","flower"],["find","nectar"],["find","food"]] },
+      { found: "More information: the direction of the straight run points toward the flowers (lined up with the sun), and a longer dance means the flowers are farther away",
+        missing: "how direction and length add information — the direction points toward the flowers (lined up with the sun), and a longer dance means the flowers are farther away",
+        alt: [["direction","sun"],["direction","toward"],["direction","point"],["angle","sun"],["angle","direction"],["longer","farther"],["longer","far"],["long","farther"],["duration","farther"],["duration","distance"],["length","farther"],["length","distance"]] }
+    ],
+    8: [
+      { found: "Maya's point of view: she feels proud and excited, because her small hands and patience helped save the stall",
+        missing: "Maya's point of view — she feels proud/excited because her help saved the stall",
+        alt: [["maya","proud"],["maya","excited"],["maya","happy"],["maya","glad"],["maya","proud of"],["she felt proud"],["she feels proud"]] },
+      { found: "Mr. Chen's point of view: he feels relieved and grateful, because he had worried customers would pass his dark stall by",
+        missing: "Mr. Chen's point of view — he feels relieved/grateful because he had worried the crowd would pass his dark stall by",
+        alt: [["mr chen","relieved"],["mr chen","grateful"],["mr chen","thankful"],["chen","relieved"],["chen","grateful"],["seller","relieved"],["seller","grateful"],["he felt relieved"],["he feels relieved"]] }
+    ],
+    10: [
+      { found: "Text 1 (long ago): a keeper climbed the tower every night, lit the oil lamp and trimmed the wick by hand, and watched the flame",
+        missing: "one key point from Text 1 — a keeper lit the oil lamp by hand each night (trimmed the wick, watched the flame)",
+        alt: [["keeper","lamp"],["keeper","oil"],["keeper","wick"],["keeper","climb"],["keeper","by hand"],["keeper","flame"]] },
+      { found: "Text 2 (today): the light is automatic — an electric light powered by solar panels and batteries turns on by itself, with no keeper living there",
+        missing: "one key point from Text 2 — the automatic electric light powered by solar panels/batteries works on its own, no keeper needed",
+        alt: [["automatic"],["solar"],["electric"],["on its own"],["by itself"],["no keeper"],["sensor"]] }
+    ],
+    12: [
+      { found: "How Text 1 presents it: it follows one keeper through his day and night, telling what he did in time order",
+        missing: "how Text 1 presents it — it follows a keeper through his day/night in time order (like a story of his work)",
+        alt: [["text 1","keeper"],["text 1","day"],["text 1","story"],["text 1","routine"],["text 1","order"],["text 1","follows"],["first text","keeper"],["first text","story"]] },
+      { found: "How Text 2 presents it: it explains facts about how the modern light and its parts (sensor, solar panels, batteries) work",
+        missing: "how Text 2 presents it — it explains facts about how the modern light and its parts work",
+        alt: [["text 2","how"],["text 2","fact"],["text 2","explain"],["text 2","step"],["text 2","technology"],["text 2","parts"],["second text","how"],["second text","fact"]] }
+    ]
+  };
+
+  function gradeWrittenAnswer(qn, rawText){
+    var keys = GRADE_KEYS[qn];
+    var norm = normalizeAnswer(rawText);
+    var words = norm ? norm.split(" ").length : 0;
+    var points = keys.map(function(k){ return pointFound(norm, k.alt); });
+    
+    var earned = words >= 3 && points.length === 2 && points[0] && points[1];
+    return { earned: earned, points: points };
+  }
+   
+  function gradeAllWritten(){
+    writtenGrades = {};
+    ALL_WRITTEN.forEach(function(q){
+      writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || "");
+    });
+  }
+
+   
+  function sectionScore(secId){
+    var sec = SECTIONS[secId - 1], pts = 0;
+    sec.questions.forEach(function(q){
+      if(q.type === "mc"){ if(answers[q.n] === q.correct) pts++; }
+      else if(writtenGrades[q.n] && writtenGrades[q.n].earned) pts++;
+    });
+    return pts;
+  }
+
+  function buildResults(){
+    var mcScore = 0, wrScore = 0;
+    ALL_MC.forEach(function(q){ if(answers[q.n] === q.correct) mcScore++; });
+    ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
+    var total = mcScore + wrScore;
+    var pct = Math.round(total / 12 * 100);
+    lastResult = { total: total, pct: pct, mcScore: mcScore, wrScore: wrScore, attempt: attemptCount };
+
+    $("r-name").textContent = studentName;
+    $("r-attempt").textContent = "Attempt #" + attemptCount + (attemptCount === 1 ? " — first try!" : "");
+    var autoNote = $("r-auto-note");
+    if(autoNote) autoNote.classList.toggle("hidden", !autoSubmitted);
+    $("r-score").textContent = total;
+    $("r-pct").textContent = pct + "% correct";
+    $("r-time").textContent = fmtTime(elapsedAtSubmit);
+    $("r-mc").textContent = mcScore + " / 8";
+    $("r-wr").textContent = wrScore + " / 4";
+    $("r-sec1").textContent = sectionScore(1) + " / 4";
+    $("r-sec2").textContent = sectionScore(2) + " / 4";
+    $("r-sec3").textContent = sectionScore(3) + " / 4";
+
+    var filled = total >= 11 ? 5 : total >= 9 ? 4 : total >= 6 ? 3 : total >= 3 ? 2 : 1;
+    var stars = "";
+    for(var i = 0; i < 5; i++) stars += i < filled ? "★" : '<span class="off">★</span>';
+    $("r-stars").innerHTML = stars;
+
+    var msg;
+    if(total === 12) msg = "Perfect score! You are a reading superstar! 🌟";
+    else if(total >= 9) msg = "Excellent work! You understood the passages really well. 🎉";
+    else if(total >= 6) msg = "Good job! Keep reading carefully and you'll get even better. 💪";
+    else if(total >= 3) msg = "Nice try! Read the review below, then try again — you can do it! 🌱";
+    else msg = "Good effort finishing the quiz! Read the review below and try again. 🌱";
+    $("r-message").textContent = msg;
+
+    
+    var bd = "";
+    SECTIONS.forEach(function(s){
+      var pts = sectionScore(s.id);
+      var dots = "";
+      for(var i = 0; i < 4; i++) dots += '<i class="'+(i < pts ? "on" : "")+'"></i>';
+      bd += '<div class="bd-card"><div class="bd-name">Section '+s.id+'<br>'+esc(s.title)+'</div>'+
+        '<div class="bd-score">'+pts+'<small> / 4</small></div><div class="bd-dots">'+dots+'</div></div>';
+    });
+    $("r-breakdown").innerHTML = bd;
+
+    
+    var rev = "";
+    ALL_MC.forEach(function(q){
+      var sec = SECTIONS[q.section - 1];
+      var mine = answers[q.n];
+      var isRight = mine === q.correct;
+      rev += '<div class="rev-card '+(isRight ? "correct" : "wrong")+'">'+
+        '<div class="rev-head"><span class="rev-badge '+(isRight ? "ok" : "no")+'">'+(isRight ? "✓ Correct" : "✗ Not quite")+'</span>'+
+        '<span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>'+
+        '<div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
+      if(!isRight){
+        rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>';
+      }
+      rev += '<div class="rev-why"><b>Why:</b> ' + esc(q.why) + ' <span style="color:var(--ink-soft);font-weight:700">(' + esc(sec.title) + ')</span></div></div>';
+    });
+    $("r-mc-review").innerHTML = rev;
+
+    
+    var wr = "";
+    ALL_WRITTEN.forEach(function(q){
+      var mine = (written[q.n] || "").trim();
+      var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
+      var keys = GRADE_KEYS[q.n];
+      wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'">'+
+        '<div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "✓ Correct" : "✗ Not quite")+'</span>'+
+        '<span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>'+
+        '<div class="answer-box your-box"><span class="ab-label">Your answer</span>'+
+          (mine ? esc(mine) : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div>'+
+        '<div class="kp-box"><span class="kp-title">Key points</span>';
+      keys.forEach(function(k, i){
+        if(g.points[i]){
+          wr += '<div class="kp-line"><span class="kp-ok">✓ Found:</span> ' + esc(k.found) + '</div>';
+        } else {
+          wr += '<div class="kp-line"><span class="kp-miss">✗ Missing:</span> ' + esc(k.missing) + '</div>';
+        }
+      });
+      wr += '</div>'+
+        '<div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div></div>';
+    });
+    $("r-wr-review").innerHTML = wr;
+  }
+
+  var lastResult = null;
+
+  
+
+  function todayStr(){
+    return "2026-11-18";
+  }
+  function sectionPassageText(sec){
+    var parts = [];
+    if(sec.passageTitle) parts.push(sec.passageTitle);
+    if(sec.paragraphs) sec.paragraphs.forEach(function(p){ parts.push(p); });
+    if(sec.texts) sec.texts.forEach(function(t){
+      parts.push(t.label + " — " + t.title + "\n" + t.body);
+    });
+    if(sec.chart){
+      var lines = [sec.chart.title + " (" + sec.chart.sub + ")"];
+      sec.chart.rows.forEach(function(r){ lines.push(r.label + ": " + r.value); });
+      parts.push(lines.join("\n"));
+    }
+    if(sec.table){
+      var tlines = [sec.table.title];
+      sec.table.rows.forEach(function(r){ tlines.push(r.label + ": " + r.value); });
+      parts.push(tlines.join("\n"));
+    }
+    return parts.join("\n");
+  }
+  function buildAnswerLog(total){
+    var lines = [];
+    lines.push(document.title);
+    lines.push("Student: " + studentName);
+    lines.push("Date: " + todayStr());
+    lines.push("Attempt: " + attemptCount);
+    lines.push("Score: " + total + "/12");
+    lines.push("Time used: " + fmtTime(elapsedAtSubmit));
+    var secParts = SECTIONS.map(function(s){
+      return "Section " + s.id + " (" + s.title + "): " + sectionScore(s.id) + "/4";
+    });
+    lines.push("Section scores: " + secParts.join(" · "));
+
+    SECTIONS.forEach(function(sec){
+      var passage = sectionPassageText(sec);
+      sec.questions.forEach(function(q){
+        lines.push("");
+        lines.push("----------------------------------------");
+        lines.push("Question " + q.n + " — Section " + sec.id + ": " + sec.title);
+        if(passage) lines.push("Passage:\n" + passage);
+        lines.push("Question: " + q.text);
+        lines.push("Standard: " + (q.std || ""));
+        if(q.type === "mc"){
+          var mine = answers[q.n];
+          lines.push("Correct answer: " + LETTERS[q.correct] + ". " + q.options[q.correct]);
+          lines.push("Student's answer: " + (typeof mine === "number" ? LETTERS[mine] + ". " + q.options[mine] : "No answer"));
+          lines.push("Result: " + (mine === q.correct ? "✓ Correct" : "✗ Wrong"));
+        } else {
+          var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
+          var keys = GRADE_KEYS[q.n] || [];
+          var raw = written[q.n] || "";
+          lines.push("Sample answer: " + q.sample);
+          lines.push("Key points: " + keys.map(function(k){ return k.found; }).join(" | "));
+          lines.push("Student's answer: " + (raw.trim() ? raw : "No answer"));
+          lines.push("Result: " + (g.earned ? "✓ Correct" : "✗ Not quite"));
+          keys.forEach(function(k, i){
+            if(g.points[i]) lines.push("  ✓ Found: " + k.found);
+            else lines.push("  ✗ Missing: " + k.missing);
+          });
+        }
+      });
+    });
+    return lines.join("\n");
+  }
+  function buildPdfText(total){
+    var lines = [];
+    lines.push(document.title);
+    lines.push("Student: " + studentName);
+    lines.push("Date: " + todayStr());
+    lines.push("Score: " + total + "/12");
+    var anyRedo = false;
+    SECTIONS.forEach(function(sec){
+      var redoQs = sec.questions.filter(function(q){
+        if(q.type === "mc") return answers[q.n] !== q.correct;
+        var g = writtenGrades[q.n] || { earned:false };
+        return !g.earned;
+      });
+      if(redoQs.length === 0) return;
+      anyRedo = true;
+      lines.push("");
+      lines.push("----------------------------------------");
+      var passage = sectionPassageText(sec);
+      if(passage) lines.push(passage);
+      redoQs.forEach(function(q){
+        lines.push("");
+        lines.push("Question " + q.n + ": " + q.text);
+        if(q.type === "mc"){
+          q.options.forEach(function(opt, i){
+            lines.push(LETTERS[i] + ". " + opt);
+          });
+          lines.push("Your answer: ____");
+        } else {
+          lines.push("Your answer: ____");
+          lines.push("");
+          lines.push("____");
+          lines.push("");
+          lines.push("____");
+        }
+      });
+    });
+    if(!anyRedo){
+      lines.push("");
+      lines.push("All correct — perfect score! Nothing to redo.");
+    }
+    return lines.join("\n");
+  }
+  function saveAnswerLog(){
+    if(REDO_MODE) return; 
+    var total = lastResult ? lastResult.total : 0;
+    var payload = {
+      folder: "Amber",
+      subfolder: "阅读理解",
+      student: studentName,
+      test: document.title,
+      date: todayStr(),
+      attempt: attemptCount,
+      score: total + "/12",
+      log: buildAnswerLog(total)
+    };
+    
+  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
+     Google Apps Script, so google.script.run does not exist here. The answer
+     log is POSTed directly to the same receiver endpoint (its doPost), with
+     the identical payload shape the watcher already parses. fetch(no-cors)
+     first; sendBeacon as fallback; a second fetch as last resort. */
+  function postLog(payload){
+    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+    var body;
+    try { body = JSON.stringify(payload); } catch (e) { return false; }
+    function beacon(){
+      try {
+        if (navigator && typeof navigator.sendBeacon === "function") {
+          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
+        }
+      } catch (e) {}
+      return false;
+    }
+    function fetchPost(){
+      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
+    }
+    try {
+      if (window.fetch) {
+        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
+        return true;
+      }
+      return beacon();
+    } catch (e) {
+      return beacon();
+    }
+  }
+    try { postLog(payload); } catch (e) {}
+  }
+
+  
+
+  var QUIZ_URL = window.location.origin + window.location.pathname.replace(/[^\/]*$/, "backup-b.html") + "?";
+  function lexileDeltaFor(total){
+    if(total >= 11) return 30;
+    if(total === 10) return 20;
+    if(total === 9) return 10;
+    if(total === 8) return 0;
+    return -20;
+  }
+  function showOutcome(){
+    var total = lastResult ? lastResult.total : 0;
+    var delta = lexileDeltaFor(total);
+    if(REDO_MODE){
+      var sn = document.querySelector(".saved-note");
+      if(sn) sn.textContent = "Practice try \u2014 this one is not recorded.";
+    }
+    if(delta < 0){
+      $("d-score").textContent = total;
+      $("d-lexile").textContent = "\u2B50 Your Lexile went DOWN by 20L this time.";
+      var redo = $("redo-link");
+      if(redo) redo.href = QUIZ_URL + "&redo=1" + (TEST_MODE ? "&test=1" : "");
+      show("view-redo");
+    } else {
+      $("p-score").textContent = total;
+      $("p-lexile").textContent = delta > 0
+        ? "\u2B50 Your Lexile went UP by +" + delta + "L \u2014 great job!"
+        : "\u2B50 Your Lexile stayed the same this time. Keep going!";
+      show("view-passed");
+    }
+  }
+  $("passed-review-btn").addEventListener("click", function(){ show("view-results"); });
+  $("redo-review-btn").addEventListener("click", function(){ show("view-results"); });
+
+  $("again-btn").addEventListener("click", function(){
+    answers = {}; written = {}; writtenGrades = {};
+    submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
+    stopTimer();
+    var w = $("time-warning"); if(w) w.classList.add("hidden");
+    var an = $("r-auto-note"); if(an) an.classList.add("hidden");
+    var tm = $("timer"); if(tm){ tm.textContent = "⏱ " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical","done"); }
+    studentName = TEST_MODE ? "TEST" : "Amber";
+    show("view-start");
+  });
+})();
+</script>
+</body>
+</html>

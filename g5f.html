@@ -1,0 +1,829 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Grade 5 Reading Placement Test — Full Coverage</title>
+<style>
+:root{
+  --bg:#e8f4fc; --card:#ffffff; --ink:#1d2b3a; --muted:#4a6076;
+  --line:#c9dfef; --accent:#0e7c66; --accent-ink:#ffffff;
+  --amber:#ffb703; --amber-ink:#4a3200; --coral:#e4572e;
+  --good:#1a7f4b; --good-bg:#e2f5e9; --bad:#b3261e; --bad-bg:#fdecea;
+  --warn-bg:#fff3d6; --chip:#eef6fb; --shadow:0 4px 18px rgba(20,60,90,.12);
+  --radius:20px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101c28; --card:#1b2c3d; --ink:#eef5fa; --muted:#a9bfd1;
+    --line:#33506a; --accent:#2bb598; --accent-ink:#06231c;
+    --amber:#ffb703; --amber-ink:#3a2800; --coral:#ff8a5c;
+    --good:#5fd598; --good-bg:#143527; --bad:#ff9a94; --bad-bg:#40201e;
+    --warn-bg:#3d3413; --chip:#243b52; --shadow:0 4px 18px rgba(0,0,0,.4);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Arial Rounded MT Bold","Helvetica Rounded",ui-rounded,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:18px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:16px 14px 48px}
+h1{font-size:clamp(26px,6vw,40px);line-height:1.2;margin:6px 0 10px;text-align:center}
+h2{font-size:clamp(21px,4.5vw,27px);margin:0 0 8px}
+h3{font-size:20px;margin:0 0 6px}
+p{margin:0 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin:0 0 18px}
+.grade-bar-wrap{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:16px 16px 12px;margin:0 0 18px;text-align:center}
+.grade-bar-title{font-size:21px;font-weight:800;margin-bottom:12px}
+.grade-bar{position:relative;display:flex;border:2px solid var(--line);border-radius:999px;margin:28px 4px 8px}
+.gb-seg{flex:1;text-align:center;padding:10px 0;font-weight:800;font-size:17px}
+.gb-seg.g3{background:#dbeafe;border-radius:999px 0 0 999px}
+.gb-seg.g4{background:#fde68a}
+.gb-seg.g5{background:#bbf7d0;border-radius:0 999px 999px 0}
+.gb-duck{position:absolute;top:-40px;transform:translateX(-50%);line-height:1;transition:left .6s ease}.gb-duck svg{display:block}
+.grade-bar-caption{font-size:18px;font-weight:700;margin-top:4px}
+.subtitle{text-align:center;color:var(--muted);font-size:19px;margin-bottom:16px}
+button{font:inherit;cursor:pointer;border:none;border-radius:999px;min-height:52px;
+  padding:12px 26px;font-weight:700}
+.btn-big{background:var(--accent);color:var(--accent-ink);font-size:22px;width:100%;padding:16px}
+.btn-finish{background:var(--accent);color:var(--accent-ink);font-size:20px;width:100%}
+.btn-break{background:var(--accent);color:var(--accent-ink);font-size:21px;width:100%}
+button:active{transform:scale(.98)}
+.attempt-line{text-align:center;font-size:19px;margin:0 0 14px}
+.howto li{margin-bottom:8px;font-size:18px}
+.note{background:var(--warn-bg);border-radius:14px;padding:14px 16px;font-size:16.5px}
+.screen{display:none}
+.screen.active{display:block}
+.timerbar{position:sticky;top:8px;z-index:20;display:flex;align-items:center;gap:10px;
+  background:var(--card);border:3px solid var(--accent);border-radius:999px;
+  padding:8px 18px;box-shadow:var(--shadow);margin-bottom:16px;flex-wrap:wrap}
+.timerbar .t-label{font-weight:700;font-size:17px}
+.timerbar .t-clock{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;margin-left:auto}
+.timerbar.danger{border-color:var(--bad);background:var(--bad-bg)}
+.timerbar.danger .t-clock{color:var(--bad)}
+.t-warn{display:none;width:100%;text-align:center;color:var(--bad);font-weight:800;font-size:18px}
+.timerbar.danger .t-warn{display:block}
+.passage-title{font-size:21px;margin-bottom:8px}
+.passage p{margin-bottom:10px}
+.passage .stanza{margin-bottom:14px}
+.passage .stanza p{margin:0}
+.drama-line{margin-bottom:6px}
+.speaker{font-weight:800;text-transform:uppercase}
+.stage{font-style:italic;color:var(--muted)}
+.playbox{border:3px dashed var(--amber);border-radius:14px;padding:12px 14px;margin-top:12px;background:var(--warn-bg)}
+.dictbox{border:3px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--chip);margin-bottom:12px}
+.dictbox p{margin:0 0 6px}
+.bars{margin:12px 0 4px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.bar-name{width:130px;flex:none;font-weight:700;font-size:16.5px}
+.bar-track{flex:1;background:var(--chip);border-radius:8px;height:30px;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px}
+.bar-val{width:74px;flex:none;font-weight:700;font-size:16.5px}
+.qcard{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin:0 0 18px}
+.q-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.q-num{background:var(--accent);color:var(--accent-ink);border-radius:50%;width:40px;height:40px;
+  flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px}
+.q-text{font-size:19.5px;font-weight:700;padding-top:6px}
+.q-std{font-size:14.5px;color:var(--muted);font-weight:700}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--chip);
+  border:3px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 10px;
+  font-size:18.5px;font-weight:600;color:var(--ink);min-height:56px}
+.opt .letter{background:var(--card);border:2px solid var(--line);border-radius:50%;width:32px;height:32px;
+  flex:none;display:flex;align-items:center;justify-content:center;font-weight:800}
+.opt.selected{border-color:var(--accent);background:var(--good-bg)}
+.opt.selected .letter{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+textarea{width:100%;font:inherit;font-size:18.5px;color:var(--ink);background:var(--chip);
+  border:3px solid var(--line);border-radius:14px;padding:14px;min-height:150px;resize:vertical}
+textarea:focus{outline:3px solid var(--accent)}
+.q-hint{font-size:16.5px;color:var(--muted);margin-bottom:8px}
+.section-actions{display:grid;gap:12px;margin-top:6px}
+.break-clock{font-size:clamp(64px,18vw,110px);font-weight:800;text-align:center;
+  font-variant-numeric:tabular-nums;color:var(--accent);line-height:1.1;margin:10px 0}
+.center{text-align:center}
+.score-big{font-size:clamp(40px,10vw,58px);font-weight:800;text-align:center;margin:4px 0}
+.level-line{text-align:center;font-size:23px;font-weight:800;margin-bottom:6px}
+.cheer{text-align:center;color:var(--muted);font-size:19px;margin-bottom:8px}
+.sec-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.sec-grid{grid-template-columns:1fr 1fr}}
+.sec-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:18px}
+.sec-card .s-score{font-size:26px;font-weight:800}
+.pill{display:inline-block;border-radius:999px;padding:3px 14px;font-size:15.5px;font-weight:800;margin:4px 0}
+.pill.above{background:var(--good-bg);color:var(--good)}
+.pill.at{background:#dcefff;color:#14508c}
+@media (prefers-color-scheme: dark){.pill.at{background:#173a5c;color:#9fd0ff}}
+.pill.below{background:var(--bad-bg);color:var(--bad)}
+.tip{color:var(--muted);font-size:16.5px;margin-top:6px}
+.std-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.std-row:last-child{border-bottom:none}
+.std-code{font-weight:800;min-width:74px;flex:none}
+.std-status{font-weight:700}
+.st-showed{color:var(--good)} .st-almost{color:#b97e00} .st-notyet{color:var(--bad)} .st-design{color:var(--muted)}
+@media (prefers-color-scheme: dark){.st-almost{color:#ffcf5c}}
+.rev-item{border:2px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px;background:var(--card)}
+.rev-item.correct{border-color:var(--good)}
+.rev-item.wrong{border-color:var(--bad)}
+.rev-badge{font-weight:800}
+.rev-badge.ok{color:var(--good)} .rev-badge.no{color:var(--bad)}
+.rev-item p{font-size:17px;margin-bottom:6px}
+.rev-item .lbl{font-weight:800}
+.small{font-size:15.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  
+  <section id="screen-start" class="screen active">
+    <h1>📚 Grade 5 Reading Placement Test<br/>Full Coverage</h1>
+    <p class="subtitle">Hi, Amber! Let's show what a super reader you are. 🌟</p>
+    
+    <div class="grade-bar-wrap">
+      <div class="grade-bar-title">🗺️ Where am I?</div>
+      <div class="grade-bar">
+        <div class="gb-seg g3">Grade 4</div><div class="gb-seg g4">Grade 5</div><div class="gb-seg g5">Grade 6</div>
+        <div class="gb-duck" style="left:37%"><svg width="44" height="44" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><clipPath id="ringClipA"><rect x="0" y="0" width="100" height="87"/></clipPath></defs><g clip-path="url(#ringClipA)"><ellipse cx="50" cy="59" rx="46" ry="43" fill="#E8A856" stroke="#C07F35" stroke-width="3"/><path d="M10 68 q-3 15 5 24 q9-7 7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><path d="M90 68 q3 15-5 24 q-9-7-7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="55" rx="38" ry="35" fill="#FFD93D" stroke="#D99A00" stroke-width="3"/><ellipse cx="50" cy="67" rx="21" ry="17" fill="#FFF3A3"/><ellipse cx="15" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(-18 15 59)"/><ellipse cx="85" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(18 85 59)"/><path d="M50 20 C47 12 42 9 37 7 M50 20 C50 11 54 7 58 4 M50 20 C53 13 58 11 62 9" fill="none" stroke="#D99A00" stroke-width="3" stroke-linecap="round"/><path d="M15 36 C18 15 33 7 50 7 C67 7 82 15 85 36 C75 24 64 20 50 20 C36 20 25 24 15 36 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><g transform="rotate(-8 50 6)"><ellipse cx="41" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><ellipse cx="59" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><circle cx="50" cy="6" r="4.2" fill="#FF5C96" stroke="#E5538B" stroke-width="2"/></g><ellipse cx="27" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><ellipse cx="73" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><circle cx="36" cy="44" r="5.5" fill="#2B2118"/><circle cx="64" cy="44" r="5.5" fill="#2B2118"/><circle cx="37.8" cy="42.2" r="1.8" fill="#ffffff"/><circle cx="65.8" cy="42.2" r="1.8" fill="#ffffff"/><path d="M29.5 39.5 q-3.5-3-7-3.5 M70.5 39.5 q3.5-3 7-3.5" fill="none" stroke="#2B2118" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="50" cy="52.5" rx="10" ry="6.5" fill="#FF8C1A" stroke="#D96A00" stroke-width="2"/><path d="M41 52.5 H59" stroke="#D96A00" stroke-width="1.6" stroke-linecap="round"/></g><g><path d="M2 64 Q50 56 98 64 C94 77 85 86.5 68 89.6 Q50 93.4 32 89.6 C15 86.5 6 77 2 64 Z" fill="#FF8FAB" stroke="#E5538B" stroke-width="3" stroke-linejoin="round"/><path d="M8 65 Q50 57.8 92 65" fill="none" stroke="#FFC2D4" stroke-width="4" stroke-linecap="round" opacity="0.9"/><ellipse cx="50" cy="62.5" rx="25" ry="6.5" fill="#E5538B"/><ellipse cx="50" cy="62" rx="17.5" ry="4.2" fill="#FFD93D" stroke="#E5538B" stroke-width="2"/></g></svg></div>
+      </div>
+      <div class="grade-bar-caption">Just past Grade 4 — now let's see where you stand in Grade 5! 🌱</div>
+    </div>
+    <div class="card howto">
+      <h2>📋 How this test works</h2>
+      <ul>
+        <li><strong>4 sections</strong> of reading and word questions.</li>
+        <li>Each section gives you <strong>15 minutes</strong> — the timer is always at the top.</li>
+        <li>Between sections you get a <strong>5-minute break</strong> to rest, stretch, and get a drink.</li>
+        <li>While you are answering questions, there is <strong>no skipping</strong> — finish all the questions in the section, then tap the finish button to start your break.</li>
+        <li>On a break, you may <strong>skip the break</strong> and go straight to the next section whenever you are ready.</li>
+        <li>There are <strong>38 questions</strong> in all — try to answer every one before your 15 minutes run out.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="attempt-line">This is <strong>Attempt #<span id="attempt-display">1</span></strong></p>
+      <button class="btn-big" id="btn-start">▶ Start the Test</button>
+    </div>
+    <div class="note">
+      <strong>About this test:</strong> Every passage in this test is written in the grades 5–6 text
+      complexity band, which covers standards RL.5.10 and RI.5.10 by design. This test checks all
+      25 California Grade 5 Reading standards points. Oral reading fluency (RF.5.4) is not part of this
+      test — it is checked by listening to Amber read aloud.
+    </div>
+  </section>
+
+  
+  <section id="screen-section" class="screen">
+    <div class="timerbar" id="timerbar">
+      <span class="t-label" id="timer-label">Section 1 · Time left</span>
+      <span class="t-clock" id="timer-clock">15:00</span>
+      <span class="t-warn" id="timer-warn">⏰ 1 minute left!</span>
+    </div>
+    <h2 id="section-title"></h2>
+    <p class="subtitle" id="section-sub" style="text-align:left"></p>
+    <div id="section-body"></div>
+    <div class="section-actions">
+      <button class="btn-finish" id="btn-finish">✅ I finished all the questions — take my break</button>
+      <p class="note" id="finish-warn" style="display:none"></p>
+    </div>
+    <p class="small center" style="margin-top:10px">There is no skip button here — finish all the questions in this section to reach your break. If the 15 minutes run out, the section ends on its own.</p>
+  </section>
+
+  
+  <section id="screen-break" class="screen">
+    <div class="card center">
+      <h2 style="font-size:clamp(26px,6vw,36px)">Great job! 🎉 Break time</h2>
+      <div class="break-clock" id="break-clock">5:00</div>
+      <p style="font-size:20px">Rest your eyes, stretch your arms, roll your shoulders,<br/>and have a sip of water. 💧</p>
+      <p class="small" id="break-next"></p>
+      <button class="btn-break" id="btn-skip-break">⏩ Skip the break — start the next section</button>
+    </div>
+  </section>
+
+  
+  <section id="screen-results" class="screen">
+    <h1>🏆 Your Results</h1>
+    <div class="grade-bar-wrap">
+      <div class="grade-bar-title">🗺️ Where am I?</div>
+      <div class="grade-bar">
+        <div class="gb-seg g3">Grade 4</div><div class="gb-seg g4">Grade 5</div><div class="gb-seg g5">Grade 6</div>
+        <div class="gb-duck" id="res-duck" style="left:50%"><svg width="44" height="44" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><clipPath id="ringClipA2"><rect x="0" y="0" width="100" height="87"/></clipPath></defs><g clip-path="url(#ringClipA2)"><ellipse cx="50" cy="59" rx="46" ry="43" fill="#E8A856" stroke="#C07F35" stroke-width="3"/><path d="M10 68 q-3 15 5 24 q9-7 7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><path d="M90 68 q3 15-5 24 q-9-7-7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="55" rx="38" ry="35" fill="#FFD93D" stroke="#D99A00" stroke-width="3"/><ellipse cx="50" cy="67" rx="21" ry="17" fill="#FFF3A3"/><ellipse cx="15" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(-18 15 59)"/><ellipse cx="85" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(18 85 59)"/><path d="M50 20 C47 12 42 9 37 7 M50 20 C50 11 54 7 58 4 M50 20 C53 13 58 11 62 9" fill="none" stroke="#D99A00" stroke-width="3" stroke-linecap="round"/><path d="M15 36 C18 15 33 7 50 7 C67 7 82 15 85 36 C75 24 64 20 50 20 C36 20 25 24 15 36 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><g transform="rotate(-8 50 6)"><ellipse cx="41" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><ellipse cx="59" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><circle cx="50" cy="6" r="4.2" fill="#FF5C96" stroke="#E5538B" stroke-width="2"/></g><ellipse cx="27" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><ellipse cx="73" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><circle cx="36" cy="44" r="5.5" fill="#2B2118"/><circle cx="64" cy="44" r="5.5" fill="#2B2118"/><circle cx="37.8" cy="42.2" r="1.8" fill="#ffffff"/><circle cx="65.8" cy="42.2" r="1.8" fill="#ffffff"/><path d="M29.5 39.5 q-3.5-3-7-3.5 M70.5 39.5 q3.5-3 7-3.5" fill="none" stroke="#2B2118" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="50" cy="52.5" rx="10" ry="6.5" fill="#FF8C1A" stroke="#D96A00" stroke-width="2"/><path d="M41 52.5 H59" stroke="#D96A00" stroke-width="1.6" stroke-linecap="round"/></g><g><path d="M2 64 Q50 56 98 64 C94 77 85 86.5 68 89.6 Q50 93.4 32 89.6 C15 86.5 6 77 2 64 Z" fill="#FF8FAB" stroke="#E5538B" stroke-width="3" stroke-linejoin="round"/><path d="M8 65 Q50 57.8 92 65" fill="none" stroke="#FFC2D4" stroke-width="4" stroke-linecap="round" opacity="0.9"/><ellipse cx="50" cy="62.5" rx="25" ry="6.5" fill="#E5538B"/><ellipse cx="50" cy="62" rx="17.5" ry="4.2" fill="#FFD93D" stroke="#E5538B" stroke-width="2"/></g></svg></div>
+      </div>
+      <div class="grade-bar-caption" id="res-gb-caption">Let's see where you land!</div>
+    </div>
+    <div class="card">
+      <p class="center" style="font-size:19px;margin:0">Your score</p>
+      <div class="score-big" id="res-score"></div>
+      <div class="level-line" id="res-level"></div>
+      <p class="cheer" id="res-cheer"></p>
+    </div>
+    <h2>📊 Your four sections</h2>
+    <div class="sec-grid" id="res-sections" style="margin-bottom:18px"></div>
+    <div class="card">
+      <h2>✅ Standards check</h2>
+      <p class="small">✓ showed it = you got every question for that standard right · almost = you got at least one right · not yet = keep practising!</p>
+      <div id="res-standards"></div>
+    </div>
+    <div class="card">
+      <h2>🔍 Review your answers</h2>
+      <div id="res-review"></div>
+    </div>
+    <div class="note">
+      <strong>Blueprint note:</strong> This test checks all 25 California Grade 5 Reading standards points.
+      Oral reading fluency (RF.5.4) is not part of this test — it is checked by listening to Amber read aloud.
+      RL.5.10 and RI.5.10 are covered by design: all passages are written in the grades 5–6 text complexity band.
+    </div>
+  </section>
+
+</div>
+<script>
+"use strict";
+var TEST_NAME = "Grade 5 Reading Placement Test — Full Coverage";
+var LS_KEY = "attempts::" + TEST_NAME;
+
+ 
+var PASSAGES = {
+A:{title:"Passage A — The Bridge at Willow Creek (story)",
+text:"Every summer, Sofia Reyes spent two weeks at her aunt's farm in the Willow Creek valley, and every summer she crossed the old rope-and-plank bridge over the creek at least twice a day. The bridge swayed and creaked, and from its middle Sofia could see trout flickering like silver coins in the green water below.\n\nThis summer was different. A spring flood had torn away three planks and left the bridge sagging. The county had promised to repair it, but the crew was busy in the next valley, and Aunt Rosa shook her head. \"We will have to drive the long way around, through the hills, until they come,\" she said.\n\nSofia's best friend in the valley, Ben Okafor, lived on the far side of the creek. In past summers the two of them had built a fort, mapped every swimming hole, and raced leaf boats under the bridge. Now Ben stood on the far bank each morning, waving, too far away to talk. Ben was patient about most things, but Sofia could see him kicking at the dirt. She was the opposite: once Sofia decided something mattered, she could not rest until she had tried to fix it.\n\nOn the fourth morning, Sofia studied the bridge the way her father, a carpenter, had taught her — looking not at what was broken, but at what was still strong. The ropes were sound. The two long side beams were solid oak. Only the planks were gone, and the barn held a stack of dry boards left from the new fence.\n\n\"I am not asking to rebuild the whole bridge,\" she told Aunt Rosa. \"Just three planks. You hold the rope and watch the current. I will do exactly what Papa taught me — measure twice, hammer once. And if anything feels unsafe, we stop.\"\n\nAunt Rosa was silent for a long moment. Then she fetched her work gloves.\n\nBy noon, with the sun standing high and the creek muttering under the boards, Sofia inched across the last new plank and stepped onto the far bank. Ben whooped and ran to meet her. Behind her, the repaired bridge hung steady and plain over the water — not grand, not new, but theirs.\n\n\"You did not wait for the county,\" Ben said.\n\n\"The county has a whole valley,\" Sofia said, grinning. \"I only had one bridge.\"",
+html:null},
+B:{title:"Passage B — A Poem and a Play Scene",
+text:"POEM: \"The Cartographer's Daughter\"\nMy father draws the rivers blue,\nThe mountains in a folded row;\nHe gives the deserts golden hue\nAnd paints the poles in white of snow.\n\nBut I would draw a different chart:\nThe shortcut home through Miller's lane,\nThe plum tree where I left my heart,\nThe puddle kingdoms after rain.\n\nHis maps show where the roads run true;\nMine show where I have learned to go —\nThe world is large, the charts are few,\nAnd some are drawn in steps, not snow.\n\nDRAMA: \"The Map Room\" (a short play scene)\nCharacters: JUNE, a fifth grader. MR. ALMEIDA, the librarian.\n[The school library, after lunch. JUNE is turning a globe slowly. MR. ALMEIDA enters with an armful of atlases.]\nJUNE: (sighing) Every map in this room is older than my grandmother.\nMR. ALMEIDA: (setting down the atlases) Then perhaps, June, the room is waiting for a newer mapmaker.\nJUNE: (looking up) Me? I only know the way to school and back.\nMR. ALMEIDA: That is how every cartographer begins — one road, honestly drawn.\n[He hands her a blank sheet and a pencil. June looks at the sheet the way sailors look at weather.]",
+html:"<h3>🗺️ Poem: \u201CThe Cartographer's Daughter\u201D</h3>"
++"<div class='stanza'><p>My father draws the rivers blue,</p><p>The mountains in a folded row;</p><p>He gives the deserts golden hue</p><p>And paints the poles in white of snow.</p></div>"
++"<div class='stanza'><p>But I would draw a different chart:</p><p>The shortcut home through Miller's lane,</p><p>The plum tree where I left my heart,</p><p>The puddle kingdoms after rain.</p></div>"
++"<div class='stanza'><p>His maps show where the roads run true;</p><p>Mine show where I have learned to go —</p><p>The world is large, the charts are few,</p><p>And some are drawn in steps, not snow.</p></div>"
++"<h3>🎭 Drama: \u201CThe Map Room\u201D (a short play scene)</h3>"
++"<p><strong>Characters:</strong> JUNE, a fifth grader. MR. ALMEIDA, the librarian.</p>"
++"<p class='stage'>[The school library, after lunch. JUNE is turning a globe slowly. MR. ALMEIDA enters with an armful of atlases.]</p>"
++"<p class='drama-line'><span class='speaker'>June:</span> <span class='stage'>(sighing)</span> Every map in this room is older than my grandmother.</p>"
++"<p class='drama-line'><span class='speaker'>Mr. Almeida:</span> <span class='stage'>(setting down the atlases)</span> Then perhaps, June, the room is waiting for a newer mapmaker.</p>"
++"<p class='drama-line'><span class='speaker'>June:</span> <span class='stage'>(looking up)</span> Me? I only know the way to school and back.</p>"
++"<p class='drama-line'><span class='speaker'>Mr. Almeida:</span> That is how every cartographer begins — one road, honestly drawn.</p>"
++"<p class='stage'>[He hands her a blank sheet and a pencil. June looks at the sheet the way sailors look at weather.]</p>"},
+C:{title:"Passage C — The Snowfall Race (two versions)",
+text:"VERSION 1 (told by Priya): The starting horn sounded like a goose, and I laughed right there in my skis, so hard my goggles fogged. I could feel the whole hill tilting under me. Halfway down, I saw Dana fall in a spray of white — my stomach dropped — but she rolled up waving, and I carved on, the cold biting my cheeks like tiny bells ringing.\n\nVERSION 2 (told about Priya): When the starting horn sounded, Priya laughed until her goggles fogged, then pushed off down the hill. Halfway down, her friend Dana fell in a spray of snow but rolled up waving. Priya carved on through the cold and crossed the finish line third, grinning, with snow in her mittens.",
+html:"<p><strong>Version 1</strong> (told by Priya): The starting horn sounded like a goose, and I laughed right there in my skis, so hard my goggles fogged. I could feel the whole hill tilting under me. Halfway down, I saw Dana fall in a spray of white — my stomach dropped — but she rolled up waving, and I carved on, the cold biting my cheeks like tiny bells ringing.</p>"
++"<p><strong>Version 2</strong> (told about Priya): When the starting horn sounded, Priya laughed until her goggles fogged, then pushed off down the hill. Halfway down, her friend Dana fell in a spray of snow but rolled up waving. Priya carved on through the cold and crossed the finish line third, grinning, with snow in her mittens.</p>"},
+D:{title:"Passage D — The Lantern Keeper's Apprentice (story)",
+text:"In the harbour town of Brinemarket, the great lantern on the pier had to be lit every night before the fishing fleet came home, and for thirty years old Tam Osei had climbed its tower alone.\n\nThe winter Tam's knees gave out, he took on an apprentice: his grand-niece Wren, eleven years old, small, serious, and famous in the family for finishing anything she started. Each evening Tam taught her one part of the keeper's craft — how to trim the wick, how to polish the great lens until it shone like a captured moon, how to read the colour of the sky for coming weather.\n\nOn the last night of the year, a festival filled the harbour with music and paper boats, and at dusk the wind rose suddenly and the first boats turned for home early. Tam looked up at the dark tower, then down at his stiff knees.\n\n\"Tonight the light is yours, Wren,\" he said.\n\nWren climbed steadily, lit the wick as she had been taught, and checked the lens twice. When the beam swung out over the water, gold as a road, the whole festival crowd fell quiet for a breath — then cheered so loudly that the gulls burst from the rooftops.\n\nTam was waiting at the bottom with two cups of hot cider. \"The harbour has a keeper again,\" he said. \"It just had to wait for her to grow tall enough.\"",
+html:null, playbox:"<div class='playbox'><h3>🎬 In the animated film…</h3><p>When Brinemarket Studios turned Wren's story into an animated film, audiences could <strong>see</strong> the lantern beam sweep like a golden road across moving waves, and <strong>hear</strong> the festival music, the cheering crowd, and the gulls burst from the rooftops all at once. Colours glowed and shifted as the storm wind rose. The film could not quietly tell viewers what Wren was thinking on the tower stairs, though — in the written story, the words let readers know she was calm, careful, and proud inside.</p></div>"},
+E:{title:"Passage E — The Clockwork Key (an adventure story)",
+text:"Detective stories had filled Nora Bell's whole summer, so when the antique shop's bell jingled and Mr. Ferreira held out a brass key, her heart did a small, hopeful flip.\n\n\"This key was found inside a clock that stopped in 1923,\" the old man said. \"Every lock in this shop has been tried. None fits.\"\n\nNora turned the key over. Its teeth were cut in a pattern she had seen somewhere — not on a door, but in the wrought-iron railing of the shop's own staircase, where one iron flower had a keyhole at its heart. She had noticed it weeks ago and thought it was only decoration. Now her hands were not quite steady as she fitted the key into the iron flower and turned.\n\nA panel in the wall clicked open. Behind it lay no treasure — only a shelf of yellowed letters, tied with string, and a note in careful handwriting: \"For whoever solves this: the shop's stories are its fortune. Read them kindly.\"\n\nNora read the letters all autumn, one each Sunday. They were better than treasure. They were a whole town, remembering itself.",
+html:null},
+F:{title:"Passage F — The Thirteenth Step (an adventure story)",
+text:"Every detective in the family agreed on one thing: Grandfather Osei's house had twelve steps. So when Theo counted thirteen on the night of the storm, he counted again — twelve up to the landing, and one more, narrow and dark, that he had never seen before, because it was usually hidden behind the hall curtain when the lamps were lit.\n\nTheo was not the bravest of the cousins, but he was the most stubborn, and curiosity, that night, was stronger than the thunder. At the top of the thirteenth step stood a door he did not know, and behind the door, a small room lit by a single candle in a jar.\n\nThere was no treasure in the room, and no ghost. There was a desk, a chair, and shelf after shelf of notebooks — sixty years of Grandfather's weather journals, each storm, each snowfall, each first swallow of spring, dated and described in blue ink.\n\n\"You found my other library,\" Grandfather said from the doorway, not angry at all. \"Some rooms only open for people who count carefully.\"\n\nTheo read the journals all winter. They were better than treasure. They were a whole sky, remembering itself.",
+html:null},
+G:{title:"Passage G — The Cities Under the Sea",
+text:"Cities of coral rise under warm, shallow seas, built not by people but by tiny animals. A coral reef begins when a single coral polyp — a soft creature no bigger than a pencil eraser — settles on a rock and begins to build a limestone cup around itself. Polyps divide and multiply, generation after generation, and their cups join into colonies. Over thousands of years, the colonies grow into reefs as long as city streets and as tall as houses.\n\nA reef is far more than a pile of rock. It is one of the busiest neighbourhoods on Earth. About a quarter of all ocean species — fish, turtles, eels, octopuses, and thousands more — depend on reefs for food and shelter, even though reefs cover less than one percent of the ocean floor. Young fish hide from hunters among the coral branches. Others come to be cleaned by tiny shrimp, or to hunt, or to rest.\n\nReefs work for people, too. They stand between the shore and the open sea, breaking the force of storm waves before the waves can flood coastal towns. Scientists also study reef creatures to develop new medicines.\n\nBut a reef grows painfully slowly — some kinds add less than a centimetre a year — and it can be harmed quickly. When sea water grows too warm, corals turn white and may starve, a change called bleaching. Protecting a reef means protecting a city that took thousands of years to build.",
+html:null},
+H:{title:"Passage H — When the Mountain Spoke: Etna's Long Memory",
+text:"Mount Etna, on the island of Sicily, is one of the most active volcanoes on Earth. It has erupted hundreds of times in recorded history, and the people who farm its lower slopes have learned to live alongside it — because Etna's behaviour follows patterns that careful watchers can read.\n\nThe relationship between the mountain and the town of Zafferana Etnea shows how those patterns work. For weeks before the great eruption of 1992, scientists measured the ground swelling as molten rock pushed upward below the surface. Because they understood that swelling ground is connected to rising magma, they could warn the town in time. When the eruption began, a river of lava started down the slope toward Zafferana.\n\nThen the two forces — nature and human planning — interacted. Engineers built earthen walls across the lava's path, and helicopters dropped concrete blocks into the lava channel high on the mountain. The lava slowed, split, and stopped just above the town's first houses. The eruption lasted 473 days, yet Zafferana survived.\n\nEtna teaches a hard lesson: people cannot switch a volcano off. But by studying how the mountain's signals, the lava's movement, and human defences affect one another, a town can turn a disaster into a narrow escape.",
+html:null}};
+PASSAGES.I={title:"Passage I — The Forest's Hidden Plumbing",
+text:"Walk through a redwood forest and you will see the trees. What you cannot see is just as important: beneath the forest floor runs a vast network of fungi — organisms related to mushrooms — whose threads, finer than hairs, wrap around and even enter the roots of trees.\n\nThis partnership has a name: mycorrhiza, from Greek words meaning \"fungus-root.\" The fungi are superb gatherers. Their threads reach into tiny pockets of soil that roots cannot enter, absorbing water and minerals such as phosphorus and carrying them to the tree. In exchange, the tree shares sugar it makes in its leaves. Neither partner is being generous; each is trading what it has plenty of for what it needs.\n\nThe network does more than feed single trees. Through it, a large tree can pass sugar to a shaded seedling. Sick trees receive extra minerals. Some scientists call the whole system the \"wood wide web.\"\n\nWhen loggers clear-cut a forest, they remove more than trees. They tear the hidden plumbing apart — and the seedlings planted afterwards, with no network to plug into, often struggle to survive.",
+html:null};
+PASSAGES.J={title:"Passage J — Building the Transcontinental Railroad (Part 1)",
+text:"In 1862, the United States decided to join its east and west coasts with a single railroad. Two companies took the job. The Union Pacific started in Omaha, Nebraska, and built westward across the plains. The Central Pacific started in Sacramento, California, and built eastward — straight into the granite wall of the Sierra Nevada mountains.\n\nWork began during the Civil War, and at first it crept. Supplies for the Central Pacific had to travel by ship all the way around South America. Crews were small, money was short, and the mountains waited.\n\nThen, year by year, the work gathered speed. By 1868 both companies were laying miles of track each week, racing for the meeting point in Utah. On May 10, 1869, at Promontory Summit, the two lines finally met, and a golden spike joined the last rails.",
+html:null};
+PASSAGES.K={title:"Passage K — Building the Transcontinental Railroad (Part 2)",
+text:"Why did the railroad take seven years to build? The causes reach in several directions, and their effects shaped the whole project.\n\nThe Sierra Nevada was the first great cause. Its granite had to be blasted and tunnelled, and in the winter of 1867, snow buried the work camps forty feet deep. Avalanches swept away crews and supplies. Because of the mountains, the Central Pacific's advance slowed to a crawl each winter.\n\nMoney was a second cause. The government paid the companies by the mile, so both raced to lay track quickly — but racing caused sloppy work, and some early track had to be rebuilt. Because payment depended on speed, quantity sometimes won over quality.\n\nLabour was the third cause. The Central Pacific hired thousands of Chinese immigrants, whose skill with blasting powder and steady work in the tunnels made the mountain crossing possible. Because these workers were willing to take the most dangerous jobs, the hardest tunnels were finished — but the workers themselves paid a heavy price in the avalanches and explosions.\n\nMountains, money, and labour: three causes, pulling on one another, until the last spike was driven in Utah.",
+html:null};
+PASSAGES.L={title:"Passage L — First Flight: Kitty's Letter (a firsthand account)",
+text:"Dear Papa,\nYou told me to write down exactly what I saw at Kitty Hawk, so here it is, from my own eyes.\n\nThe morning was bitter cold, and the wind off the ocean kept snatching at our coats. Mr. Orville Wright lay down flat in the machine like a man lying on a sled, and Mr. Wilbur ran beside the wing until it lifted. I held my breath the whole time — twelve seconds, Papa, no more — and the machine stayed up, wobbling like a newborn bird, and came down in the sand 120 feet away.\n\nThe men were quiet at first, the way people are when something enormous has happened and nobody wants to be the first to say it out loud. Then Mr. Wilbur laughed, and I laughed too, and my hands were shaking so hard I could hardly hold this pencil.\n\nPeople will write about this day in books. But I was THERE, Papa, with sand in my shoes.\n— Kitty, December 1903",
+html:null};
+PASSAGES.M={title:"Passage M — First Flight: The Kitty Hawk Report (a news account)",
+text:"KITTY HAWK, N.C. — On the morning of December 17, 1903, brothers Orville and Wilbur Wright achieved the first powered, controlled aeroplane flight in history, according to the lifesaving crew who witnessed the event.\n\nOrville Wright piloted the first flight, which lasted 12 seconds and covered 120 feet. Three more flights followed that day; the fourth and longest lasted 59 seconds and covered 852 feet. The brothers took turns as pilot, alternating after each attempt.\n\nThe Wrights had spent four years experimenting with gliders at Kitty Hawk, chosen for its steady winds, soft sand, and privacy. Their success rested on years of careful measurement, a homemade wind tunnel, and a lightweight engine built by their mechanic, Charlie Taylor.\n\nHistorians note that the flight went almost unnoticed by the press at the time. Within a few years, however, aeroplanes were being demonstrated across America and Europe.",
+html:null};
+PASSAGES.N={title:"Passage N — The Wind Lab Data",
+text:"For their science project, the fifth-grade Wind Lab team asked a practical question: where on the school roof would a small wind turbine spin fastest? They fixed three identical pinwheel meters at three spots — the open centre of the roof, the corner beside the gym wall, and the sheltered side behind the stairwell box — and counted each meter's spins during the same windy week.\n\nThe team recorded the average spins per minute at each spot, every day for five days, and averaged the week. Their results are in the table below. To choose the turbine spot, a reader needs the week's full picture — one gusty afternoon is not enough, because a single storm can spin even a sheltered meter wildly for an hour.",
+html:"<p>For their science project, the fifth-grade Wind Lab team asked a practical question: where on the school roof would a small wind turbine spin fastest? They fixed three identical pinwheel meters at three spots — the open centre of the roof, the corner beside the gym wall, and the sheltered side behind the stairwell box — and counted each meter's spins during the same windy week.</p><p>The team recorded the average spins per minute at each spot, every day for five days, and averaged the week. Their results are in the table below. To choose the turbine spot, a reader needs the week's full picture — one gusty afternoon is not enough, because a single storm can spin even a sheltered meter wildly for an hour.</p>"
++"<div class='bars'>"
++"<div class='bar-row'><span class='bar-name'>Open centre</span><span class='bar-track'><span class='bar-fill' style='display:block;width:100%;background:#2e9e5b'></span></span><span class='bar-val'>48 spins/min</span></div>"
++"<div class='bar-row'><span class='bar-name'>Gym corner</span><span class='bar-track'><span class='bar-fill' style='display:block;width:67%;background:#1f7fc4'></span></span><span class='bar-val'>32 spins/min</span></div>"
++"<div class='bar-row'><span class='bar-name'>Behind stairwell</span><span class='bar-track'><span class='bar-fill' style='display:block;width:38%;background:#e8912d'></span></span><span class='bar-val'>18 spins/min</span></div>"
++"</div><p class='small'>Table: Average spins per minute over five days — Open centre 48, Gym corner 32, Behind stairwell 18.</p>",
+chartText:"Table — Average spins per minute over five days: Open centre of roof 48, Corner beside gym wall 32, Sheltered side behind stairwell box 18."};
+PASSAGES.O={title:"Passage O — Later Bedtimes for Fifth Graders?",
+text:"Should fifth graders be allowed to stay up later on school nights? Some parents at our school say yes — older children, they argue, need less sleep. The evidence says otherwise, and this essay will show why fifth graders should keep an earlier bedtime.\n\nThe author's first point is that growing brains still need a great deal of sleep. Sleep researchers cited by the Children's Sleep Institute found that children aged ten to twelve who slept fewer than nine hours scored lower on next-day memory tests than classmates who slept ten hours. Memory is exactly what a school day demands.\n\nThe second point concerns mood. The same researchers reported that tired children were more likely to argue, to cry over small problems, and to give up on difficult tasks. A classroom full of overtired fifth graders is a classroom where learning slows for everyone.\n\nSome may object that busy families cannot manage early bedtimes. But the researchers also found that a regular bedtime — even more than the total hours — predicted how alert children felt in the morning. Keeping bedtime steady is a habit any family can build, and it costs nothing.",
+html:null};
+PASSAGES.P={title:"Passage P — Honeybees, Text 1: The Dance Language",
+text:"A honeybee that finds a rich patch of flowers returns to the hive and performs one of nature's most remarkable feats of communication: the waggle dance. Dancing on the vertical honeycomb in the darkness of the hive, she traces a figure eight, waggling her abdomen on the straight run between the loops.\n\nThe dance is a map. The angle of the straight run, measured against straight up, tells the watching bees the direction of the flowers relative to the sun. The length of the waggle tells them the distance — roughly, the longer the waggle, the farther away the flowers are. Other bees follow the dance by touch and smell, then fly out and find the patch.\n\nScientists who decoded the dance in the last century called it the second most complex language known — after human language itself.",
+html:null};
+PASSAGES.Q={title:"Passage Q — Honeybees, Text 2: The Vanishing Bees",
+text:"Honeybees do more than communicate. A single colony can pollinate the flowers of hundreds of plants in a day, and about one out of every three bites of food people eat depends on pollinators like bees.\n\nThat is why beekeepers grew alarmed when, beginning in 2006, whole colonies began vanishing. Workers would leave the hive and simply not return, a mystery named colony collapse disorder. In some years, beekeepers lost forty percent of their colonies.\n\nScientists have not found one single cause. The evidence points to several working together: parasitic mites that weaken bees, viruses the mites spread, pesticides in the environment, and the loss of wildflower meadows where bees feed. Bees that are stressed by several of these at once are the most likely to fail.\n\nFarmers, beekeepers, and gardeners have begun to respond — planting wildflower strips, reducing pesticide use, and breeding bees that resist mites. The bees' dance can tell the hive where the flowers are; only people can make sure the flowers — and the bees — are still there.",
+html:null};
+ 
+ 
+var QUESTIONS=[
+{n:1,sec:1,p:["A"],std:"RL.5.1",type:"mc",
+ q:"Readers can infer that Sofia is a determined person. Which sentence from the story, quoted word for word, BEST supports that inference?",
+ opts:["\u201CSofia could see him kicking at the dirt.\u201D","\u201Conce Sofia decided something mattered, she could not rest until she had tried to fix it.\u201D","\u201CThe bridge swayed and creaked.\u201D","\u201CThe county had promised to repair it.\u201D"],answer:1},
+{n:2,sec:1,p:["A"],std:"RL.5.1",type:"mc",
+ q:"Before Sofia repairs the bridge, she studies what is still strong. Which sentence from the story, quoted exactly, tells what she found?",
+ opts:["\u201CThe ropes were sound. The two long side beams were solid oak.\u201D","\u201CA spring flood had torn away three planks and left the bridge sagging.\u201D","\u201CThe barn held a stack of dry boards left from the new fence.\u201D","\u201CWe will have to drive the long way around, through the hills, until they come.\u201D"],answer:0},
+{n:3,sec:1,p:["A"],std:"RL.5.2",type:"mc",
+ q:"Which sentence best tells the theme of Passage A?",
+ opts:["Rope bridges are dangerous and should always be left to the county.","When something that matters is broken, a person who looks carefully and acts bravely can fix it instead of just waiting.","Best friends should live on the same side of a creek.","Floods always happen in the spring."],answer:1},
+{n:4,sec:1,p:["A"],std:"RL.5.2",type:"written",
+ q:"Write a short summary of Passage A. (1) The problem Sofia faced and what she decided to do. (2) How the story ended.",
+ keys:[
+  {label:"(1) The problem and her decision: the flood had broken the bridge (three planks gone), she could not reach her friend Ben, and she decided to repair the three planks herself the way her father taught her",terms:["bridge","plank","broken","flood","repair","fix","ben","friend","father taught","carpenter"]},
+  {label:"(2) The ending: she crossed the repaired bridge to the far bank, met Ben, and the bridge held steady — she did not have to wait for the county",terms:["crossed","cross","far bank","met ben","steady","held","did not wait","not wait","county","repaired"]}],
+ sample:"A spring flood had torn three planks from the bridge over Willow Creek, so Sofia could not reach her friend Ben on the far bank. Sofia decided to repair the bridge herself, using boards from the barn and the carpentry her father had taught her, while her aunt watched for safety. In the end she crossed the repaired bridge, Ben ran to meet her, and the bridge hung steady over the water."},
+{n:5,sec:1,p:["A"],std:"RL.5.3",type:"mc",
+ q:"Compare Sofia and Ben. How are the two friends DIFFERENT in the story?",
+ opts:["Sofia likes the farm; Ben does not.","Sofia cannot rest until she tries to fix a problem, while Ben waits patiently on the far bank each morning.","Ben is a carpenter; Sofia is not.","Sofia is afraid of the bridge; Ben is not."],answer:1},
+{n:6,sec:1,p:["A"],std:"RL.5.3",type:"mc",
+ q:"How do Sofia and Aunt Rosa interact when Sofia proposes her plan?",
+ opts:["Aunt Rosa refuses immediately and sends Sofia inside.","Sofia explains exactly what she will do and promises to stop if anything feels unsafe; after thinking, Aunt Rosa fetches her gloves and helps by watching for safety.","They argue until Ben arrives.","Aunt Rosa repairs the bridge herself while Sofia watches."],answer:1},
+{n:7,sec:1,p:["A"],std:"RL.5.4",type:"mc",
+ q:"In Passage A, Sofia sees \u201Ctrout flickering like silver coins in the green water.\u201D What does this simile help the reader picture?",
+ opts:["Trout are valuable and should be sold.","The trout flashed and shone brightly as they moved quickly in the water, the way coins glint.","The creek is full of lost money.","Sofia is counting the fish."],answer:1},
+{n:8,sec:1,p:["B"],std:"RL.5.5",type:"mc",
+ q:"How do the three stanzas of the poem \u201CThe Cartographer's Daughter\u201D fit together to build its meaning?",
+ opts:["Each stanza describes a different country's map.","The first stanza shows the father's maps, the second shows the map the speaker would draw, and the third brings the two together: some charts are drawn from real journeys, not just measured roads.","The stanzas are three unrelated rhymes placed side by side.","Each stanza asks the reader a question."],answer:1},
+{n:9,sec:1,p:["B"],std:"RL.5.5",type:"mc",
+ q:"How is the drama \u201CThe Map Room\u201D built so that it works as one complete scene?",
+ opts:["It is built as rhyming stanzas with a chorus.","It opens with stage directions that set the scene, then the dialogue between June and Mr. Almeida carries June from complaining about the old maps to accepting the challenge of drawing her own.","It is a list of chapters and page numbers.","It has no ending, because plays cannot end."],answer:1},
+{n:10,sec:1,p:["C"],std:"RL.5.6",type:"mc",
+ q:"How does the narrator's point of view change the way the race is described in the two versions?",
+ opts:["It does not change anything; both versions are identical.","In Version 1, Priya narrates her own race, so events are described through her feelings and senses — her fogged goggles, her stomach dropping, the cold biting her cheeks. In Version 2, an outside narrator reports what happened, including the final result (third place).","Version 2 is told by Dana, so it describes Dana's feelings.","Version 1 hides the fact that Dana fell; Version 2 reveals it."],answer:1},
+{n:11,sec:2,p:["D"],std:"RL.5.7",type:"mc",
+ q:"How do the visual and sound elements of the animated film add to the written story of Wren?",
+ opts:["The film shows the lantern beam sweeping over moving waves and lets viewers hear the music, the cheering, and the gulls all at once — the story's words become moving pictures and sounds together.","The film explains Wren's thoughts on the stairs more clearly than the story does.","The film removes the festival from the story.","The film changes the ending so Wren never lights the lantern."],answer:0},
+{n:12,sec:2,p:["E","F"],std:"RL.5.9",type:"mc",
+ q:"Passages E and F are both adventure stories with a hidden-place discovery. What theme do they share?",
+ opts:["Treasure is always made of gold and jewels.","The real treasure is a story worth keeping — in both tales, the hidden place holds written memories that are better than treasure.","Old houses and shops should never be explored.","Counting and keys are dangerous."],answer:1},
+{n:13,sec:2,p:["E","F"],std:"RL.5.9",type:"mc",
+ q:"How do the two adventure stories treat that shared theme DIFFERENTLY?",
+ opts:["In Passage E there is no hidden place; in Passage F there are two.","Nora unlocks her discovery by matching a key to a pattern she had noticed, and finds a town's old letters; Theo finds his by counting one step too many, and finds one man's lifetime of weather journals. Both end in written records, but one holds a whole town's memory and the other a single person's.","In Passage E the letters are burned; in Passage F the journals are sold.","The two stories do not treat the theme differently at all."],answer:1},
+{n:14,sec:2,p:["G"],std:"RI.5.1",type:"mc",
+ q:"Which sentence, quoted word for word from Passage G, BEST supports the idea that reefs matter to ocean life far beyond their size?",
+ opts:["\u201CA coral reef begins when a single coral polyp settles on a rock.\u201D","\u201CAbout a quarter of all ocean species — fish, turtles, eels, octopuses, and thousands more — depend on reefs for food and shelter, even though reefs cover less than one percent of the ocean floor.\u201D","\u201CReefs work for people, too.\u201D","\u201CProtecting a reef means protecting a city.\u201D"],answer:1},
+{n:15,sec:2,p:["G"],std:"RI.5.1",type:"mc",
+ q:"The reader can infer that a damaged reef recovers very slowly, if at all. Which quotation from Passage G BEST supports this inference?",
+ opts:["\u201CScientists also study reef creatures to develop new medicines.\u201D","\u201CYoung fish hide from hunters among the coral branches.\u201D","\u201CBut a reef grows painfully slowly — some kinds add less than a centimetre a year — and it can be harmed quickly.\u201D","\u201CCities of coral rise under warm, shallow seas.\u201D"],answer:2},
+{n:16,sec:2,p:["G"],std:"RI.5.2",type:"mc",
+ q:"Passage G has TWO main ideas. One main idea is that reefs are built slowly, over thousands of years, by tiny coral polyps. What is the SECOND main idea?",
+ opts:["Coral polyps are no bigger than a pencil eraser.","A reef is a busy home that supports a huge share of ocean life — and it helps people too, by breaking storm waves and offering creatures scientists study for medicines.","Mexico has warm, shallow seas.","Bleaching turns corals white."],answer:1},
+{n:17,sec:2,p:["G"],std:"RI.5.2",type:"written",
+ q:"Passage G has two main ideas. (1) Write ONE of its main ideas. (2) Write one key detail from the text that supports that main idea.",
+ keys:[
+  {label:"(1) A main idea, e.g. reefs are built slowly over thousands of years by tiny polyps, OR reefs support about a quarter of all ocean species and help people (storm protection, medicines)",terms:["thousands of years","slowly","polyp","built","build","quarter","ocean species","depend","storm","waves","medicine","shelter","home"]},
+  {label:"(2) A supporting key detail, e.g. polyps build limestone cups that join into colonies; a quarter of ocean species depend on reefs though they cover under 1% of the floor; reefs break storm waves; some corals grow less than a centimetre a year",terms:["limestone","colon","one percent","1%","centimetre","centimeter","storm waves","break","young fish","hide","cleaned","shrimp","bleaching"]}],
+ sample:"One main idea of Passage G is that a coral reef supports an enormous share of ocean life. A key detail that supports it is that about a quarter of all ocean species depend on reefs for food and shelter, even though reefs cover less than one percent of the ocean floor."},
+{n:18,sec:2,p:["H"],std:"RI.5.3",type:"mc",
+ q:"What is the relationship between the swelling ground and the warning given to Zafferana before the 1992 eruption?",
+ opts:["The swelling ground caused the town to move away forever.","Scientists understood that swelling ground is connected to molten rock rising below the surface, so the swelling told them an eruption was coming and they could warn the town in time.","The town warned the scientists that the ground was swelling.","The swelling happened after the eruption ended."],answer:1},
+{n:19,sec:2,p:["H"],std:"RI.5.3",type:"mc",
+ q:"How did nature and human planning interact during the eruption?",
+ opts:["People switched the volcano off before the lava moved.","The lava flowed toward the town, and people answered it — building earthen walls across its path and dropping concrete blocks into its channel — so the two forces together decided where the lava finally stopped, just above the town.","The lava stopped on its own before anyone did anything.","Engineers moved the whole town to another island."],answer:1},
+{n:20,sec:3,p:["I"],std:"RI.5.4",type:"mc",
+ q:"In Passage I, what does the word \u201Cmycorrhiza\u201D mean, as the text explains it?",
+ opts:["A disease that attacks redwood roots.","The partnership between fungi and tree roots, in which the fungi carry water and minerals to the tree and the tree shares sugar with the fungi.","A kind of mushroom soup.","The sugar a tree makes in its leaves."],answer:1},
+{n:21,sec:3,p:["J","K"],std:"RI.5.5",type:"mc",
+ q:"Compare the overall structure of Passage J and Passage K. Which answer is correct?",
+ opts:["Both passages use the same structure.","Passage J is built as a chronology — it moves through time from the 1862 decision to the meeting of the rails in 1869. Passage K is built as cause and effect — it asks why the railroad took seven years and organises the answer around causes.","Passage J is cause and effect, and Passage K is a chronology.","Passage K is a poem, and Passage J is a play."],answer:1},
+{n:22,sec:3,p:["J","K"],std:"RI.5.5",type:"mc",
+ q:"Which sentence from Passage K shows its cause-and-effect structure at work?",
+ opts:["\u201COn May 10, 1869, at Promontory Summit, the two lines finally met.\u201D","\u201CBecause payment depended on speed, quantity sometimes won over quality.\u201D","\u201CTwo companies took the job.\u201D","\u201CWork began during the Civil War.\u201D"],answer:1},
+{n:23,sec:3,p:["L","M"],std:"RI.5.6",type:"mc",
+ q:"On which points do Kitty's letter and the news report AGREE about the first flight?",
+ opts:["They agree on almost nothing.","Both say the first flight happened on December 17, 1903, that Orville piloted it, and that it lasted 12 seconds and covered 120 feet.","Both say Wilbur piloted the first flight.","Both say thousands of reporters watched."],answer:1},
+{n:24,sec:3,p:["L","M"],std:"RI.5.6",type:"mc",
+ q:"What is the most important difference in point of view between the two accounts?",
+ opts:["Kitty's letter tells the day as she lived it herself — the cold wind, her shaking hands, the sand in her shoes — while the news report stands outside the event and gives checked facts and background, such as the wind tunnel and the mechanic Charlie Taylor.","The news report is written in rhyme; the letter is not.","Kitty's letter gives the exact distance of the fourth flight; the report does not.","The letter was written in 1903, but the report describes a different flight."],answer:0},
+{n:25,sec:3,p:["N"],std:"RI.5.7",type:"mc",
+ q:"The Wind Lab team must pick the turbine spot. Using the passage and its table, which choice does the evidence support?",
+ opts:["Behind the stairwell, because it is sheltered and safe.","The gym corner, because 32 is a medium number.","The open centre of the roof — its average of 48 spins per minute over the whole week is the highest, and the week-long average is the evidence the team collected for exactly this decision.","It cannot be decided from the information given."],answer:2},
+{n:26,sec:3,p:["N"],std:"RI.5.7",type:"mc",
+ q:"Why did the team average five days of measurements instead of deciding after one windy afternoon?",
+ opts:["Because five is a lucky number.","Because a single storm can spin even a sheltered meter wildly for an hour, so one afternoon's numbers could mislead; the five-day average gives the trustworthy picture needed to answer the question.","Because the turbine only works on weekdays.","Because the table looks better with more numbers."],answer:1},
+{n:27,sec:3,p:["O"],std:"RI.5.8",type:"mc",
+ q:"In Passage O, the author makes the point that tired children do worse at school memory work. Which evidence does the author use to support THAT point?",
+ opts:["Tired children were more likely to argue and cry over small problems.","Children aged ten to twelve who slept fewer than nine hours scored lower on next-day memory tests than classmates who slept ten hours.","Busy families cannot manage early bedtimes.","A regular bedtime predicted how alert children felt in the morning."],answer:1},
+{n:28,sec:3,p:["P","Q"],std:"RI.5.9",type:"written",
+ q:"Use BOTH texts. (1) One fact both texts give about honeybees. (2) One important fact you learn ONLY from Text 2.",
+ keys:[
+  {label:"(1) A fact BOTH texts give, e.g. honeybees visit/collect from flowers (and help pollinate them) / bees communicate about or depend on flower patches",terms:["flower","pollinat","dance","hive","patch","food"]},
+  {label:"(2) A fact ONLY from Text 2, e.g. colonies began vanishing (colony collapse disorder), beekeepers lost up to forty percent of colonies, causes include mites, viruses, pesticides and loss of wildflower meadows, or people are responding by planting wildflowers",terms:["vanish","collapse","colony collapse","forty percent","40","mite","virus","pesticide","wildflower","lost","disappear"]}],
+ sample:"Both texts tell us that honeybees depend on flower patches — Text 1 explains how a bee dances to tell the hive where the flowers are, and Text 2 says bees pollinate hundreds of plants. Only Text 2 tells us that whole colonies began vanishing, a mystery called colony collapse disorder, with causes such as mites, viruses, pesticides, and lost wildflower meadows."},
+{n:29,sec:4,p:[],std:"RF.5.3",type:"mc",
+ q:"Choose the correct way to break the word \u201Cextraordinary\u201D into syllables.",
+ opts:["extra·ordinary","ex·tra·or·di·nar·y","e·xtra·or·din·ary","ex·traor·din·ar·y"],answer:1},
+{n:30,sec:4,p:[],std:"RF.5.3",type:"mc",
+ q:"Read the sentence: \u201CThe gas is invisible, so scientists detect it with instruments instead of eyes.\u201D Use the word parts — \u201Cin-\u201D means NOT, \u201Cvis\u201D is about SEEING, and \u201C-ible\u201D means ABLE TO BE. What does \u201Cinvisible\u201D mean?",
+ opts:["Easy to see.","Not able to be seen.","Seen twice.","Full of colour."],answer:1},
+{n:31,sec:4,p:[],std:"L.5.4a",type:"mc",
+ q:"Read the sentence: \u201CBecause the trail was treacherous — steep, icy, and crumbling — the rangers closed it to hikers.\u201D The cause-and-effect clue in the sentence helps you: what does \u201Ctreacherous\u201D mean?",
+ opts:["Beautiful.","Dangerous and unsafe.","Very long.","Famous."],answer:1},
+{n:32,sec:4,p:[],std:"L.5.4b",type:"mc",
+ q:"The Greek roots \u201Cphoto\u201D (light) and \u201Csynthesis\u201D (putting together) build the word \u201Cphotosynthesis.\u201D Use them as clues: what does \u201Cphotosynthesis\u201D mean?",
+ opts:["Taking a picture of a plant.","The process by which a plant uses light to put together (make) its own food.","A camera that works in a garden.","The death of a plant in winter."],answer:1},
+{n:33,sec:4,p:[],std:"L.5.4c",type:"mc",dict:true,
+ q:"Use the dictionary entry above. In the sentence \u201CPlease project the chart onto the wall so the whole class can see it,\u201D which meaning of \u201Cproject\u201D is used?",
+ opts:["Meaning 1 — a planned piece of work with a goal (noun).","Meaning 2 — to stick out beyond a surface (verb).","Meaning 3 — to show an image on a screen or wall (verb).","None of the meanings fit."],answer:2},
+{n:34,sec:4,p:[],std:"L.5.5a",type:"mc",
+ q:"Read the sentence: \u201CAt rush hour, the city is a jungle, and every driver hunts for a way through.\u201D What does this metaphor mean?",
+ opts:["Wild animals live in the city streets.","At rush hour the city feels wild, crowded, and hard to move through — like a jungle where everyone struggles to find a path.","Drivers are looking for a real jungle.","The city has planted many trees."],answer:1},
+{n:35,sec:4,p:[],std:"L.5.5b",type:"mc",
+ q:"The proverb says: \u201CActions speak louder than words.\u201D What does this proverb mean?",
+ opts:["People should talk more loudly when they act.","What a person actually does shows what they mean more clearly than what they only say.","Words are useless and should never be used.","Quiet people are always honest."],answer:1},
+{n:36,sec:4,p:[],std:"L.5.5c",type:"mc",
+ q:"The word \u201Cdesert\u201D is a homograph — one spelling, two meanings. In the sentence \u201CA soldier must never desert his post,\u201D the word means \u201Cto leave and abandon.\u201D Which other sentence uses the OTHER meaning of \u201Cdesert\u201D?",
+ opts:["He promised he would not desert his friends.","A camel can cross the hot, dry desert without drinking for days.","Do not desert the team before the final game.","She would never desert her post."],answer:1},
+{n:37,sec:4,p:[],std:"L.5.6",type:"mc",
+ q:"Choose the academic word that best completes the sentence accurately: \u201CThe gym was noisy and crowded; ______, the library next door stayed quiet and calm.\u201D",
+ opts:["moreover","in addition","nevertheless","similarly"],answer:2},
+{n:38,sec:4,p:[],std:"L.5.6",type:"mc",
+ q:"Which sentence uses the academic word \u201Cerosion\u201D accurately?",
+ opts:["I erosion my bicycle to school.","Wind and rain caused the erosion of the cliff, slowly carrying away tiny bits of rock and soil.","Erosion is my favourite colour.","Please erosion the door before dinner."],answer:1}
+];
+var DICT_ENTRY_HTML="<div class='dictbox'><p><strong>project</strong> <em>noun / verb</em></p><p>1. (noun) a planned piece of work with a goal, such as a science project.</p><p>2. (verb) to stick out beyond a surface — \u201Cthe shelf projects from the wall.\u201D</p><p>3. (verb) to show an image on a screen or wall — \u201Cproject the picture.\u201D</p></div>";
+var DICT_ENTRY_TEXT="Dictionary entry — project: 1. (noun) a planned piece of work with a goal, such as a science project. 2. (verb) to stick out beyond a surface. 3. (verb) to show an image on a screen or wall.";
+
+var SECTIONS=[
+ {num:1,name:"Section 1 — Stories, Poems & Plays",sub:"Literature: Meaning & Craft · Questions 1–10 · You have 15 minutes.",
+  layout:["p:A","q:1","q:2","q:3","q:4","q:5","q:6","q:7","p:B","q:8","q:9","p:C","q:10"],
+  tip:"Tip: quote the story's own words — Grade 5 readers prove answers with exact lines."},
+ {num:2,name:"Section 2 — Stories Meet Facts",sub:"Literature Connections + Informational Key Ideas · Questions 11–19 · You have 15 minutes.",
+  layout:["p:D","q:11","p:E","p:F","q:12","q:13","p:G","q:14","q:15","q:16","q:17","p:H","q:18","q:19"],
+  tip:"Tip: Grade 5 informational texts often carry TWO main ideas — look for both."},
+ {num:3,name:"Section 3 — How Texts Are Built",sub:"Informational: Structure, Evidence & Integration · Questions 20–28 · You have 15 minutes.",
+  layout:["p:I","q:20","p:J","p:K","q:21","q:22","p:L","p:M","q:23","q:24","p:N","q:25","q:26","p:O","q:27","p:P","p:Q","q:28"],
+  tip:"Tip: compare how each text is organised, and match every claim to its evidence."},
+ {num:4,name:"Section 4 — Word Detective",sub:"Word Study & Vocabulary · Questions 29–38 · You have 15 minutes.",
+  layout:["q:29","q:30","q:31","q:32","q:33","q:34","q:35","q:36","q:37","q:38"],
+  tip:"Tip: break big words into roots and affixes, and let the sentence give you clues."}
+];
+var STD_MAP=[
+ ["RL.5.1",[1,2]],["RL.5.2",[3,4]],["RL.5.3",[5,6]],["RL.5.4",[7]],["RL.5.5",[8,9]],
+ ["RL.5.6",[10]],["RL.5.7",[11]],["RL.5.9",[12,13]],["RL.5.10","design"],
+ ["RI.5.1",[14,15]],["RI.5.2",[16,17]],["RI.5.3",[18,19]],["RI.5.4",[20]],["RI.5.5",[21,22]],
+ ["RI.5.6",[23,24]],["RI.5.7",[25,26]],["RI.5.8",[27]],["RI.5.9",[28]],["RI.5.10","design"],
+ ["RF.5.3",[29,30]],["L.5.4",[31,32]],["L.5.4c",[33]],["L.5.5",[34,36]],["L.5.6",[37,38]]
+];
+ 
+var answers={};             
+var keyResults={};          
+var currentSection=0;
+var submitted=false;
+var attempt=1;
+var timerId=null, timerEnd=0, timerKind=null;  
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function show(id){
+  var screens=["screen-start","screen-section","screen-break","screen-results"];
+  for(var i=0;i<screens.length;i++){$(screens[i]).classList.toggle("active",screens[i]===id);}
+  window.scrollTo(0,0);
+}
+function fmt(sec){sec=Math.max(0,sec);var m=Math.floor(sec/60),s=sec%60;return m+":"+(s<10?"0":"")+s;}
+function levelFor(score,total){
+  var pct=total? (score/total*100):0;
+  if(pct>=80) return "Above Grade Level";
+  if(pct>=55) return "At Grade Level";
+  return "Below Grade Level";
+}
+function cheerFor(level){
+  if(level==="Above Grade Level") return "Amazing, Amber! You are reading above grade level — superstar work! 🌟";
+  if(level==="At Grade Level") return "Great job, Amber! You are reading right at grade level — keep growing! 🌱";
+  return "Good trying, Amber! Every reader grows with practice — we will keep building together! 💪";
+}
+function matchKey(text,terms){
+  var t=" "+String(text||"").toLowerCase()+" ";
+  for(var i=0;i<terms.length;i++){ if(t.indexOf(terms[i].toLowerCase())!==-1) return true; }
+  return false;
+}
+function gradeQuestion(q){
+  if(q.type==="mc"){
+    return (typeof answers[q.n]==="number" && answers[q.n]===q.answer);
+  }
+  var txt=answers[q.n];
+  if(typeof txt!=="string" || txt.trim()===""){ keyResults[q.n]=[false,false]; return false; }
+  var r=[matchKey(txt,q.keys[0].terms), matchKey(txt,q.keys[1].terms)];
+  keyResults[q.n]=r;
+  return r[0]&&r[1];
+}
+function questionByNum(n){ for(var i=0;i<QUESTIONS.length;i++) if(QUESTIONS[i].n===n) return QUESTIONS[i]; return null; }
+
+ 
+try{
+  var prev=parseInt(localStorage.getItem(LS_KEY)||"0",10);
+  if(isNaN(prev)) prev=0;
+  attempt=prev+1;
+}catch(e){ attempt=1; }
+$("attempt-display").textContent=attempt;
+
+ 
+function passageHTML(pid){
+  var p=PASSAGES[pid]; if(!p) return "";
+  var inner;
+  if(p.html){ inner=p.html; }
+  else{
+    inner="";
+    var paras=p.text.split("\n\n");
+    for(var i=0;i<paras.length;i++) inner+="<p>"+esc(paras[i]).replace(/\n/g,"<br/>")+"</p>";
+  }
+  if(p.playbox) inner+=p.playbox;
+  return "<div class='card passage'><h3 class='passage-title'>📖 "+esc(p.title)+"</h3>"+inner+"</div>";
+}
+function questionHTML(q){
+  var h="<div class='qcard' data-q='"+q.n+"'>";
+  h+="<div class='q-head'><span class='q-num'>"+q.n+"</span><div><div class='q-text'>"+esc(q.q)+"</div>"
+    +"<div class='q-std'>California standard "+esc(q.std)+"</div></div></div>";
+  if(q.dict) h+=DICT_ENTRY_HTML;
+  if(q.type==="mc"){
+    var letters=["A","B","C","D"];
+    for(var i=0;i<q.opts.length;i++){
+      var sel=(answers[q.n]===i)?" selected":"";
+      h+="<button type='button' class='opt"+sel+"' data-q='"+q.n+"' data-idx='"+i+"'><span class='letter'>"+letters[i]+"</span><span>"+esc(q.opts[i])+"</span></button>";
+    }
+  }else{
+    h+="<p class='q-hint'>✏️ Write your answer in your own words. Try to include BOTH parts (1) and (2)!</p>";
+    var val=(typeof answers[q.n]==="string")?answers[q.n]:"";
+    h+="<textarea data-written='"+q.n+"' placeholder='Write your answer here…'>"+esc(val)+"</textarea>";
+  }
+  h+="</div>";
+  return h;
+}
+function renderSection(idx){
+  var sec=SECTIONS[idx];
+  $("section-title").textContent=sec.name;
+  $("section-sub").textContent=sec.sub;
+  $("timer-label").textContent="Section "+sec.num+" of 4 · Time left";
+  var html="";
+  for(var i=0;i<sec.layout.length;i++){
+    var item=sec.layout[i], kind=item.split(":")[0], ref=item.split(":")[1];
+    if(kind==="p") html+=passageHTML(ref);
+    else html+=questionHTML(questionByNum(parseInt(ref,10)));
+  }
+  $("section-body").innerHTML=html;
+  $("finish-warn").style.display="none";
+  var opts=document.querySelectorAll(".opt");
+  for(var j=0;j<opts.length;j++){
+    opts[j].addEventListener("click",function(){
+      var qn=parseInt(this.getAttribute("data-q"),10), ix=parseInt(this.getAttribute("data-idx"),10);
+      answers[qn]=ix;
+      var siblings=document.querySelectorAll(".opt[data-q='"+qn+"']");
+      for(var k=0;k<siblings.length;k++) siblings[k].classList.remove("selected");
+      this.classList.add("selected");
+    });
+  }
+  var tas=document.querySelectorAll("textarea[data-written]");
+  for(var t=0;t<tas.length;t++){
+    tas[t].addEventListener("input",function(){
+      answers[parseInt(this.getAttribute("data-written"),10)]=this.value;
+    });
+  }
+}
+function collectVisible(){
+  var tas=document.querySelectorAll("textarea[data-written]");
+  for(var t=0;t<tas.length;t++){ answers[parseInt(tas[t].getAttribute("data-written"),10)]=tas[t].value; }
+}
+
+ 
+function stopTimer(){ if(timerId){ clearInterval(timerId); timerId=null; } }
+function startTimer(seconds,kind,onDone){
+  stopTimer();
+  timerKind=kind;
+  timerEnd=Date.now()+seconds*1000;
+  var tick=function(){
+    var remain=Math.round((timerEnd-Date.now())/1000);
+    if(kind==="section"){
+      $("timer-clock").textContent=fmt(remain);
+      $("timerbar").classList.toggle("danger",remain<=60&&remain>0);
+    }else{
+      $("break-clock").textContent=fmt(remain);
+    }
+    if(remain<=0){ stopTimer(); onDone(); }
+  };
+  tick();
+  timerId=setInterval(tick,250);
+}
+
+ 
+function startSection(idx){
+  currentSection=idx;
+  renderSection(idx);
+  show("screen-section");
+  startTimer(15*60,"section",function(){ endSection(); });
+}
+function endSection(){
+  collectVisible();
+  stopTimer();
+  if(currentSection>=3){ submitTest(); return; }
+  $("break-next").textContent="Next up: "+SECTIONS[currentSection+1].name;
+  show("screen-break");
+  startTimer(5*60,"break",function(){ startSection(currentSection+1); });
+}
+$("btn-start").addEventListener("click",function(){
+  try{ localStorage.setItem(LS_KEY,String(attempt)); }catch(e){}
+  startSection(0);
+});
+function unansweredInSection(idx){
+  var missing=[];
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q=QUESTIONS[i];
+    if(q.sec!==idx+1) continue;
+    if(q.type==="mc"){ if(typeof answers[q.n]!=="number") missing.push(q.n); }
+    else if(typeof answers[q.n]!=="string" || answers[q.n].trim()==="") missing.push(q.n);
+  }
+  return missing;
+}
+$("btn-finish").addEventListener("click",function(){
+  collectVisible();
+  var missing=unansweredInSection(currentSection);
+  if(missing.length){
+    var w=$("finish-warn");
+    w.textContent="Almost! Please answer question"+(missing.length>1?"s ":" ")+missing.join(", ")
+      +" first — finish all the questions, and then your break starts. 🌟";
+    w.style.display="block";
+    var card=document.querySelector(".qcard[data-q='"+missing[0]+"']");
+    if(card) card.scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  endSection();
+});
+$("btn-skip-break").addEventListener("click",function(){ stopTimer(); startSection(currentSection+1); });
+
+ 
+function passageLogText(pid){
+  var p=PASSAGES[pid]; var out=p.title+"\n"+p.text;
+  if(pid==="D") out+="\n[Box] In the animated film… audiences see the lantern beam sweep like a golden road across moving waves and hear the festival music, the cheering crowd, and the gulls all at once; colours glow and shift as the wind rises; the film cannot quietly tell viewers what Wren was thinking on the tower stairs, which the written story's words give the reader.";
+  if(p.chartText) out+="\n"+p.chartText;
+  return out;
+}
+function submitTest(){
+  if(submitted) return;
+  submitted=true;
+  stopTimer();
+  collectVisible();
+
+  var total=QUESTIONS.length, score=0, results={};
+  var secScores={1:0,2:0,3:0,4:0}, secTotals={1:0,2:0,3:0,4:0};
+  var i,q;
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i];
+    secTotals[q.sec]++;
+    var ok=gradeQuestion(q);
+    results[q.n]=ok;
+    if(ok){ score++; secScores[q.sec]++; }
+  }
+  var overallLevel=levelFor(score,total);
+  var today=new Date();
+  var pad=function(x){return (x<10?"0":"")+x;};
+  var dateStr=today.getFullYear()+"-"+pad(today.getMonth()+1)+"-"+pad(today.getDate());
+
+   
+  $("res-score").textContent=score+" / "+total;
+  $("res-level").textContent=overallLevel;
+  var duckPct=overallLevel==="Above Grade Level"?70:(overallLevel==="At Grade Level"?50:37);
+  var duckCap=overallLevel==="Above Grade Level"?"Above Grade 5 level \u2014 swimming toward Grade 6! \uD83C\uDF1F":(overallLevel==="At Grade Level"?"Right at Grade 5 level \u2014 Grade 6 is next! \uD83C\uDF31":"Almost into Grade 5 \u2014 keep going, you are right at the door! \uD83D\uDCAA");
+  $("res-duck").style.left=duckPct+"%";
+  $("res-gb-caption").textContent=duckCap;
+  $("res-cheer").textContent=cheerFor(overallLevel);
+  var secHTML="";
+  for(i=0;i<SECTIONS.length;i++){
+    var s=SECTIONS[i], sc=secScores[s.num], st=secTotals[s.num], lv=levelFor(sc,st);
+    var cls=lv==="Above Grade Level"?"above":(lv==="At Grade Level"?"at":"below");
+    secHTML+="<div class='sec-card'><h3>"+esc(s.name)+"</h3><div class='s-score'>"+sc+" / "+st+"</div>"
+      +"<span class='pill "+cls+"'>"+lv+"</span><p class='tip'>"+esc(s.tip)+"</p></div>";
+  }
+  $("res-sections").innerHTML=secHTML;
+
+  var stdHTML="";
+  for(i=0;i<STD_MAP.length;i++){
+    var code=STD_MAP[i][0], qs=STD_MAP[i][1], status, cls2;
+    if(qs==="design"){ status="covered by design — all passages are written in the grades 5–6 text complexity band"; cls2="st-design"; }
+    else{
+      var any=false, all=true;
+      for(var j=0;j<qs.length;j++){ if(results[qs[j]]) any=true; else all=false; }
+      if(all){ status="✓ showed it"; cls2="st-showed"; }
+      else if(any){ status="almost — some questions right"; cls2="st-almost"; }
+      else{ status="not yet"; cls2="st-notyet"; }
+    }
+    var extra=(code==="L.5.5")?" <span class='small'>(includes L.5.5b, checked by Q35: "+(results[35]?"✓ showed it":"not yet")+")</span>":"";
+    stdHTML+="<div class='std-row'><span class='std-code'>"+esc(code)+"</span><span class='std-status "+cls2+"'>"+esc(status)+"</span>"+extra+"</div>";
+  }
+  $("res-standards").innerHTML=stdHTML;
+
+  var letters=["A","B","C","D"], revHTML="";
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i]; var ok2=results[q.n];
+    revHTML+="<div class='rev-item "+(ok2?"correct":"wrong")+"'>"
+      +"<p><span class='lbl'>Q"+q.n+".</span> "+esc(q.q)+" <span class='q-std'>["+esc(q.std)+"]</span></p>";
+    if(q.type==="mc"){
+      var yourAns=(typeof answers[q.n]==="number")? (letters[answers[q.n]]+". "+q.opts[answers[q.n]]) : "(no answer)";
+      revHTML+="<p><span class='lbl'>Your answer:</span> "+esc(yourAns)+"</p>"
+        +"<p><span class='lbl'>Correct answer:</span> "+esc(letters[q.answer]+". "+q.opts[q.answer])+"</p>";
+    }else{
+      var yourW=(typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")?answers[q.n]:"(no answer)";
+      var kr=keyResults[q.n]||[false,false];
+      revHTML+="<p><span class='lbl'>Your answer:</span> "+esc(yourW)+"</p>"
+        +"<p><span class='lbl'>Key point 1:</span> "+(kr[0]?"✅ found — ":"❌ missing — ")+esc(q.keys[0].label)+"</p>"
+        +"<p><span class='lbl'>Key point 2:</span> "+(kr[1]?"✅ found — ":"❌ missing — ")+esc(q.keys[1].label)+"</p>"
+        +"<p><span class='lbl'>Sample answer:</span> "+esc(q.sample)+"</p>";
+    }
+    revHTML+="<p class='rev-badge "+(ok2?"ok":"no")+"'>"+(ok2?"✅ Correct":"❌ Not yet")+"</p></div>";
+  }
+  $("res-review").innerHTML=revHTML;
+  show("screen-results");
+
+   
+  var log="Grade 5 Reading Placement Test — Full Coverage\n"
+    +"Student: Amber\nDate: "+dateStr+"\nAttempt: "+attempt+"\nForm: A\n"
+    +"Score: "+score+"/38\nOverall level: "+overallLevel+"\n";
+  for(i=0;i<SECTIONS.length;i++){
+    var s2=SECTIONS[i];
+    log+="Section "+s2.num+" ("+s2.name+"): "+secScores[s2.num]+"/"+secTotals[s2.num]+" — "+levelFor(secScores[s2.num],secTotals[s2.num])+"\n";
+  }
+  log+="\n";
+  var seenP={};
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i];
+    for(var pi=0;pi<q.p.length;pi++){
+      var pid=q.p[pi];
+      if(!seenP[pid]){ seenP[pid]=true; log+="----- "+passageLogText(pid)+"\n\n"; }
+    }
+    if(q.dict) log+=DICT_ENTRY_TEXT+"\n\n";
+    log+="Q"+q.n+". "+q.q+" [California standard "+q.std+"]\n";
+    if(q.type==="mc"){
+      for(var oi=0;oi<q.opts.length;oi++) log+="   "+letters[oi]+". "+q.opts[oi]+"\n";
+      log+="Student's answer: "+((typeof answers[q.n]==="number")? q.opts[answers[q.n]] : "(no answer)")+"\n";
+      log+="Correct answer: "+q.opts[q.answer]+"\n";
+    }else{
+      log+="Student's answer: "+((typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")? answers[q.n] : "(no answer)")+"\n";
+      log+="Correct answer (sample): "+q.sample+"\n";
+      var kr2=keyResults[q.n]||[false,false];
+      log+="Key point 1: "+(kr2[0]?"found":"missing")+" — "+q.keys[0].label+"\n";
+      log+="Key point 2: "+(kr2[1]?"found":"missing")+" — "+q.keys[1].label+"\n";
+    }
+    log+="Result: "+(results[q.n]?"Correct":"Wrong")+"\n\n";
+  }
+
+   
+  var wrongList=[];
+  for(i=0;i<QUESTIONS.length;i++) if(!results[QUESTIONS[i].n]) wrongList.push(QUESTIONS[i]);
+  var pdf="Grade 5 Reading Placement Test — Full Coverage — Try Again Sheet\n"
+    +"Student: Amber\nDate: "+dateStr+"\nAttempt: "+attempt+"\n\n";
+  if(wrongList.length===0){
+    pdf+="Wonderful — all answers were correct! Nothing to redo. 🎉\n";
+  }else{
+    for(i=0;i<wrongList.length;i++){
+      q=wrongList[i];
+      for(var pj=0;pj<q.p.length;pj++) pdf+="----- "+passageLogText(q.p[pj])+"\n\n";
+      if(q.dict) pdf+=DICT_ENTRY_TEXT+"\n\n";
+      pdf+="Q"+q.n+". "+q.q+"\n";
+      if(q.type==="mc"){
+        for(var oj=0;oj<q.opts.length;oj++) pdf+="   "+letters[oj]+". "+q.opts[oj]+"\n";
+      }else{
+        pdf+="Part 1: ____________________________________________________________\n";
+        pdf+="Part 2: ____________________________________________________________\n";
+      }
+      pdf+="\n";
+    }
+  }
+
+  var payload={ folder:"Amber", subfolder:"阅读理解摸底测试", student:"Amber",
+    test:"Grade 5 Reading Placement Test — Full Coverage",
+    date:dateStr, attempt:attempt, score:score+"/38", log:log, pdfText:pdf };
+  
+  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
+     Google Apps Script, so google.script.run does not exist here. The answer
+     log is POSTed directly to the same receiver endpoint (its doPost), with
+     the identical payload shape the watcher already parses. fetch(no-cors)
+     first; sendBeacon as fallback; a second fetch as last resort. */
+  function postLog(payload){
+    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+    var body;
+    try { body = JSON.stringify(payload); } catch (e) { return false; }
+    function beacon(){
+      try {
+        if (navigator && typeof navigator.sendBeacon === "function") {
+          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
+        }
+      } catch (e) {}
+      return false;
+    }
+    function fetchPost(){
+      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
+    }
+    try {
+      if (window.fetch) {
+        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
+        return true;
+      }
+      return beacon();
+    } catch (e) {
+      return beacon();
+    }
+  }
+  try { postLog(payload); } catch(e){}
+}
+</script>
+</body>
+</html>
