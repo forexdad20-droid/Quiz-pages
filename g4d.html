@@ -394,6 +394,24 @@
   }
   textarea:focus{border-color:var(--green);background:var(--surface)}
   .q-hint{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:8px}
+  .written-parts{display:grid;gap:16px;margin-top:16px}
+  .written-part{background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;padding:16px}
+  .part-label{font-size:18.5px;font-weight:800;line-height:1.45;color:var(--ink)}
+  .part-label strong{font-weight:900}
+  .written-part textarea{margin-top:10px;background:var(--surface);min-height:88px}
+  .written-part .q-hint{margin-top:6px}
+  .answer-box{border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:16.5px;line-height:1.55;background:var(--surface)}
+  .answer-box .ab-label{display:block;font-weight:900;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+  .answer-box.sample-box{background:var(--surface-2)}
+  .empty-answer{color:var(--ink-soft);font-weight:700}
+  .kp-box{margin-top:10px}
+  .kp-box .kp-title{display:block;font-weight:900;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+  .kp-line{font-size:16.5px;line-height:1.55;margin-top:4px}
+  .kp-ok{font-weight:900;color:var(--green-dark)}
+  .kp-miss{font-weight:900;color:var(--orange)}
+  .rev-part{border-top:2px solid var(--line);margin-top:16px;padding-top:14px}
+  .rev-part:first-of-type{margin-top:14px}
+  .rev-part-title{font-size:17.5px;font-weight:900;line-height:1.4;margin:0}
 
   .submit-zone{margin-top:32px;text-align:center}
   .submit-zone .btn-primary{max-width:420px;margin-left:auto;margin-right:auto}
@@ -809,8 +827,12 @@
           options:["They head for the moonlight gleaming on the water and crawl downhill, away from tall dunes.", "They trail after the crabs and night birds and crawl up the slope toward the tall dunes.", "They look for drifting seaweed near the nest and crawl around it in circles on the beach.", "They wait for their mother to come back and lead them down into the dark ocean waves."],
           correct:0,
           why:"The hatchlings crawl away from the dark, high dunes toward the bright moonlight shining on the water, crawling downhill to the shore. The crabs and birds are dangers, the seaweed is far out at sea, and the mother turtle left long before the eggs hatched." },
-        { n:4, std:"RI.4.1", type:"written", text:"Write two things that help the hatchlings find the ocean.",
-          sample:"The hatchlings head toward the moonlight gleaming on the water, away from the dark dunes. They also feel the ground sloping under their flippers and crawl downhill to the wet sand where the waves wash in." }
+        { n:4, std:"RI.4.1", type:"written", text:"How the hatchlings find the ocean",
+          sample:"The hatchlings head toward the moonlight gleaming on the water, away from the dark dunes. They also feel the ground sloping under their flippers and crawl downhill to the wet sand where the waves wash in.",
+          parts:[
+            { text:"What bright light do the hatchlings crawl toward to find the ocean?", sample:"The hatchlings head toward the moonlight gleaming on the water, away from the dark dunes." },
+            { text:"How does the slope of the sand help the hatchlings find the ocean?", sample:"They feel the ground sloping under their flippers and crawl downhill to the wet sand where the waves wash in." }
+          ] }
       ]
     },
     {
@@ -837,8 +859,12 @@
           options:["A dancer drops onto the top of her lantern and balances there, walking slowly along the handle.", "Grandma carries the lantern down the lane herself and hands it to Mina beside the dragon gate.", "The firecrackers stop popping by the gate and the crowds all hurry home for the evening.", "A dancer bows low by the fruit stalls and spins off without knocking her lantern at all."],
           correct:3,
           why:"A dancer in a golden costume bows low beside the fruit stalls and spins away without ever bumping Mina's lantern — that is why Mina laughs with surprise." },
-        { n:8, std:"RL.4.3", type:"written", text:"Write how Mina feels about the far end of the market at the start of the story, and how she feels about it at the end.",
-          sample:"At the start, Mina is nervous about the far end and stays close to the noodle stall. By the end, she feels proud carrying the lantern there, and the far end she used to fear has become her favourite part of the market." }
+        { n:8, std:"RL.4.3", type:"written", text:"Mina and the far end of the market",
+          sample:"At the start, Mina is nervous about the far end and stays close to the noodle stall. By the end, she feels proud carrying the lantern there, and the far end she used to fear has become her favourite part of the market.",
+          parts:[
+            { text:"How does Mina feel about the far end of the market at the start of the story?", sample:"At the start, Mina is nervous about the far end and stays close to the noodle stall." },
+            { text:"How does Mina feel about the far end of the market at the end of the story?", sample:"By the end, she feels proud carrying the lantern there, and the far end she used to fear has become her favourite part of the market." }
+          ] }
       ]
     },
     {
@@ -873,10 +899,18 @@
           options:["The time of morning when the sun first comes up and daylight begins in the park.", "The tight round shape squirrels make with their tails when they sleep through the cold winter.", "The seeds and nuts that squirrels collect and pile up under the oak trees in summer.", "The weekly visit when the keeper clears dead branches and checks the nests in the branches."],
           correct:0,
           why:"Sunrise is built from sun + rise: it is the time in the morning when the sun comes up. The other choices describe the winter curl around the tail, the nuts the squirrels gather, and the park keeper's weekly check — all from the two texts." },
-        { n:11, std:"RI.4.9", type:"written", text:"Write one way the squirrels' lives are the same in summer and winter, and one way their lives are different.",
-          sample:"In both seasons, the squirrels live in nests in the oak trees and depend on nuts. They are different because in summer they leap from branch to branch gathering nuts, while in winter they stay close to their nests, curl around their tails, and dig up the nuts they buried." },
-        { n:12, std:"L.4.5", type:"written", text:"In Text B, the squirrels \"make a dash\" for the first spring buds — write what this phrase does NOT mean, and what it really means.",
-          sample:"It does not mean the squirrels draw a dash mark. It really means they hurry out quickly, straight toward the fresh green shoots." }
+        { n:11, std:"RI.4.9", type:"written", text:"Squirrels in summer and winter",
+          sample:"In both seasons, the squirrels live in nests in the oak trees and depend on nuts. They are different because in summer they leap from branch to branch gathering nuts, while in winter they stay close to their nests, curl around their tails, and dig up the nuts they buried.",
+          parts:[
+            { text:"Write one way the squirrels' lives are the same in summer and winter.", sample:"In both seasons, the squirrels live in nests in the oak trees and depend on nuts." },
+            { text:"Write one way the squirrels' lives are different in summer and winter.", sample:"In summer they leap from branch to branch gathering nuts, while in winter they stay close to their nests, curl around their tails, and dig up the nuts they buried." }
+          ] },
+        { n:12, std:"L.4.5", type:"written", text:"The phrase \"make a dash\" in Text B",
+          sample:"It does not mean the squirrels draw a dash mark. It really means they hurry out quickly, straight toward the fresh green shoots.",
+          parts:[
+            { text:"What does the phrase \"make a dash\" NOT mean?", sample:"It does not mean the squirrels draw a dash mark." },
+            { text:"What does \"make a dash\" really mean?", sample:"It really means they hurry out quickly, straight toward the fresh green shoots." }
+          ] }
       ]
     }
   ];
@@ -904,9 +938,10 @@
   var submitted = false;
   var autoSubmitted = false;
   var attemptCount = 0;  
-  var answers = {};      
-  var written = {};      
-  var writtenGrades = {}; 
+  var answers = {};
+  var written = {};
+  var writtenParts = {};
+  var writtenGrades = {};
 
   
 
@@ -1140,16 +1175,28 @@
       html += '</div>';
 
       s.questions.forEach(function(q){
+        var isWrittenParts = q.type !== "mc" && q.parts && q.parts.length === 2;
         html += '<div class="qcard" id="qcard-'+q.n+'">';
         html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div>'+
           '<div class="q-text">'+esc(q.text)+'</div>'+
-          '<div class="q-type">'+(q.type === "mc" ? "Choose one answer" : "Write your answer · 1–2 sentences")+'</div>'+
+          '<div class="q-type">'+(q.type === "mc" ? "Choose one answer" : (isWrittenParts ? "Write your answers · 2 parts — one box for each part" : "Write your answer · 1–2 sentences"))+'</div>'+
           '</div></div>';
         if(q.type === "mc"){
           html += '<div class="options" role="radiogroup" aria-label="Question '+q.n+'">';
           q.options.forEach(function(opt, i){
             html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'">'+
               '<span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>';
+          });
+          html += '</div>';
+        } else if(isWrittenParts){
+          html += '<div class="written-parts">';
+          q.parts.forEach(function(part, pi){
+            var partNo = pi + 1;
+            html += '<div class="written-part">'+
+              '<div class="part-label"><strong>Part '+partNo+':</strong> '+esc(part.text)+'</div>'+
+              '<textarea id="ta-'+q.n+'-'+partNo+'" placeholder="Write your answer for Part '+partNo+' here…" aria-label="Question '+q.n+' Part '+partNo+' written answer"></textarea>'+
+              '<div class="q-hint">Write 1–2 sentences for this part only.</div>'+
+              '</div>';
           });
           html += '</div>';
         } else {
@@ -1172,18 +1219,36 @@
       });
     });
     ALL_WRITTEN.forEach(function(q){
-      var ta = $("ta-"+q.n);
-      if(ta) ta.addEventListener("input", function(){
-        written[q.n] = collectWritten(q.n);
-        updateProgress();
-      });
+      if(q.parts && q.parts.length === 2){
+        q.parts.forEach(function(part, pi){
+          var partNo = pi + 1;
+          var ta = $("ta-"+q.n+"-"+partNo);
+          if(ta) ta.addEventListener("input", function(){
+            collectWrittenParts(q.n);
+            updateProgress();
+          });
+        });
+      } else {
+        var ta = $("ta-"+q.n);
+        if(ta) ta.addEventListener("input", function(){
+          written[q.n] = collectWritten(q.n);
+          updateProgress();
+        });
+      }
     });
   }
 
+  function writtenQuestionAnswered(q){
+    if(q.parts && q.parts.length === 2){
+      var parts = writtenParts[q.n] || ["",""];
+      return (parts[0] || "").trim().length > 0 && (parts[1] || "").trim().length > 0;
+    }
+    return (written[q.n] || "").trim().length > 0;
+  }
   function answeredCount(){
     var c = 0;
     ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; });
-    ALL_WRITTEN.forEach(function(q){ if((written[q.n] || "").trim().length > 0) c++; });
+    ALL_WRITTEN.forEach(function(q){ if(writtenQuestionAnswered(q)) c++; });
     return c;
   }
   function updateProgress(){
@@ -1191,7 +1256,7 @@
     $("progress-fill").style.width = (c/12*100) + "%";
     $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " — nice, you answered everything!" : "");
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
-      var done = q.type === "mc" ? (typeof answers[q.n] === "number") : ((written[q.n]||"").trim().length > 0);
+      var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenQuestionAnswered(q);
       var card = $("qcard-"+q.n);
       if(card) card.classList.toggle("answered", done);
     });
@@ -1242,9 +1307,26 @@
     var ta = $("ta-" + qn);
     return ta ? ta.value : "";
   }
+  function collectWrittenPart(qn, partNo){
+    var ta = $("ta-" + qn + "-" + partNo);
+    return ta ? ta.value : "";
+  }
+  function collectWrittenParts(qn){
+    var p1 = collectWrittenPart(qn, 1);
+    var p2 = collectWrittenPart(qn, 2);
+    writtenParts[qn] = [p1, p2];
+    written[qn] = [p1, p2].filter(function(s){ return (s || "").trim().length > 0; }).join("\n");
+    return writtenParts[qn];
+  }
+  function getWrittenPart(qn, partIdx){
+    var parts = writtenParts[qn];
+    if(parts && typeof parts[partIdx] === "string") return parts[partIdx];
+    return "";
+  }
   function syncWrittenFromDom(){
     ALL_WRITTEN.forEach(function(q){
-      written[q.n] = collectWritten(q.n);
+      if(q.parts && q.parts.length === 2) collectWrittenParts(q.n);
+      else written[q.n] = collectWritten(q.n);
     });
   }
   function autoSubmit(){
@@ -1383,15 +1465,23 @@
     var norm = normalizeAnswer(rawText);
     var words = norm ? norm.split(" ").length : 0;
     var points = keys.map(function(k){ return pointFound(norm, k.alt); });
-    
     var earned = words >= 3 && points.length === 2 && points[0] && points[1];
     return { earned: earned, points: points };
   }
-   
+  function gradeWrittenParts(qn){
+    var keys = GRADE_KEYS[qn] || [];
+    var points = keys.map(function(k, i){
+      var norm = normalizeAnswer(getWrittenPart(qn, i) || "");
+      return pointFound(norm, k.alt);
+    });
+    var earned = points.length === 2 && points[0] && points[1];
+    return { earned: earned, points: points };
+  }
   function gradeAllWritten(){
     writtenGrades = {};
     ALL_WRITTEN.forEach(function(q){
-      writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || "");
+      if(q.parts && q.parts.length === 2) writtenGrades[q.n] = gradeWrittenParts(q.n);
+      else writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || "");
     });
   }
 
@@ -1470,24 +1560,45 @@
     
     var wr = "";
     ALL_WRITTEN.forEach(function(q){
-      var mine = (written[q.n] || "").trim();
       var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
-      var keys = GRADE_KEYS[q.n];
+      var keys = GRADE_KEYS[q.n] || [];
       wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'">'+
         '<div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "✓ Correct" : "✗ Not quite")+'</span>'+
-        '<span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>'+
-        '<div class="answer-box your-box"><span class="ab-label">Your answer</span>'+
+        '<span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>';
+      if(q.parts && q.parts.length === 2){
+        q.parts.forEach(function(part, i){
+          var partNo = i + 1;
+          var partMine = (getWrittenPart(q.n, i) || "").trim();
+          var k = keys[i] || { found:"", missing:"" };
+          wr += '<div class="rev-part">'+
+            '<p class="rev-part-title">Part '+partNo+': '+esc(part.text)+'</p>'+
+            '<div class="answer-box your-box"><span class="ab-label">Your answer — Part '+partNo+'</span>'+
+              (partMine ? esc(partMine) : '<span class="empty-answer">(You did not write an answer for this part.)</span>')+'</div>'+
+            '<div class="kp-box"><span class="kp-title">Key point — Part '+partNo+'</span>';
+          if(g.points[i]){
+            wr += '<div class="kp-line"><span class="kp-ok">✓ Found:</span> ' + esc(k.found) + '</div>';
+          } else {
+            wr += '<div class="kp-line"><span class="kp-miss">✗ Missing:</span> ' + esc(k.missing) + '</div>';
+          }
+          wr += '</div>'+
+            '<div class="answer-box sample-box"><span class="ab-label">Sample answer — Part '+partNo+'</span>'+esc(part.sample)+'</div></div>';
+        });
+      } else {
+        var mine = (written[q.n] || "").trim();
+        wr += '<div class="answer-box your-box"><span class="ab-label">Your answer</span>'+
           (mine ? esc(mine) : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div>'+
-        '<div class="kp-box"><span class="kp-title">Key points</span>';
-      keys.forEach(function(k, i){
-        if(g.points[i]){
-          wr += '<div class="kp-line"><span class="kp-ok">✓ Found:</span> ' + esc(k.found) + '</div>';
-        } else {
-          wr += '<div class="kp-line"><span class="kp-miss">✗ Missing:</span> ' + esc(k.missing) + '</div>';
-        }
-      });
-      wr += '</div>'+
-        '<div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div></div>';
+          '<div class="kp-box"><span class="kp-title">Key points</span>';
+        keys.forEach(function(k, i){
+          if(g.points[i]){
+            wr += '<div class="kp-line"><span class="kp-ok">✓ Found:</span> ' + esc(k.found) + '</div>';
+          } else {
+            wr += '<div class="kp-line"><span class="kp-miss">✗ Missing:</span> ' + esc(k.missing) + '</div>';
+          }
+        });
+        wr += '</div>'+
+          '<div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div>';
+      }
+      wr += '</div>';
     });
     $("r-wr-review").innerHTML = wr;
   }
@@ -1548,15 +1659,29 @@
         } else {
           var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
           var keys = GRADE_KEYS[q.n] || [];
-          var raw = written[q.n] || "";
-          lines.push("Sample answer: " + q.sample);
-          lines.push("Key points: " + keys.map(function(k){ return k.found; }).join(" | "));
-          lines.push("Student's answer: " + (raw.trim() ? raw : "No answer"));
-          lines.push("Result: " + (g.earned ? "✓ Correct" : "✗ Not quite"));
-          keys.forEach(function(k, i){
-            if(g.points[i]) lines.push("  ✓ Found: " + k.found);
-            else lines.push("  ✗ Missing: " + k.missing);
-          });
+          if(q.parts && q.parts.length === 2){
+            lines.push("Result: " + (g.earned ? "✓ Correct" : "✗ Not quite"));
+            q.parts.forEach(function(part, i){
+              var partNo = i + 1;
+              var partRaw = getWrittenPart(q.n, i) || "";
+              var k = keys[i] || { found:"", missing:"" };
+              lines.push("Part " + partNo + " question: " + part.text);
+              lines.push("Part " + partNo + " sample answer: " + part.sample);
+              lines.push("Part " + partNo + " key point: " + k.found);
+              lines.push("Part " + partNo + " student's answer: " + (partRaw.trim() ? partRaw : "No answer"));
+              lines.push("Part " + partNo + " result: " + (g.points[i] ? "✓ Found: " + k.found : "✗ Missing: " + k.missing));
+            });
+          } else {
+            var raw = written[q.n] || "";
+            lines.push("Sample answer: " + q.sample);
+            lines.push("Key points: " + keys.map(function(k){ return k.found; }).join(" | "));
+            lines.push("Student's answer: " + (raw.trim() ? raw : "No answer"));
+            lines.push("Result: " + (g.earned ? "✓ Correct" : "✗ Not quite"));
+            keys.forEach(function(k, i){
+              if(g.points[i]) lines.push("  ✓ Found: " + k.found);
+              else lines.push("  ✗ Missing: " + k.missing);
+            });
+          }
         }
       });
     });
@@ -1589,6 +1714,14 @@
             lines.push(LETTERS[i] + ". " + opt);
           });
           lines.push("Your answer: ____");
+        } else if(q.parts && q.parts.length === 2){
+          q.parts.forEach(function(part, i){
+            lines.push("Part " + (i + 1) + ": " + part.text);
+            lines.push("Your answer: ____");
+            lines.push("");
+            lines.push("____");
+            lines.push("");
+          });
         } else {
           lines.push("Your answer: ____");
           lines.push("");
@@ -1687,7 +1820,7 @@
   $("redo-review-btn").addEventListener("click", function(){ show("view-results"); });
 
   $("again-btn").addEventListener("click", function(){
-    answers = {}; written = {}; writtenGrades = {};
+    answers = {}; written = {}; writtenParts = {}; writtenGrades = {};
     submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
     stopTimer();
     var w = $("time-warning"); if(w) w.classList.add("hidden");
