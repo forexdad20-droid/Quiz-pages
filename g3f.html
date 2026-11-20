@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Grade 3 Reading Placement Test — Full Coverage</title>
+<style>
+:root{
+  --bg:#e8f4fc; --card:#ffffff; --ink:#1d2b3a; --muted:#4a6076;
+  --line:#c9dfef; --accent:#0e7c66; --accent-ink:#ffffff;
+  --amber:#ffb703; --amber-ink:#4a3200; --coral:#e4572e;
+  --good:#1a7f4b; --good-bg:#e2f5e9; --bad:#b3261e; --bad-bg:#fdecea;
+  --warn-bg:#fff3d6; --chip:#eef6fb; --shadow:0 4px 18px rgba(20,60,90,.12);
+  --radius:20px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101c28; --card:#1b2c3d; --ink:#eef5fa; --muted:#a9bfd1;
+    --line:#33506a; --accent:#2bb598; --accent-ink:#06231c;
+    --amber:#ffb703; --amber-ink:#3a2800; --coral:#ff8a5c;
+    --good:#5fd598; --good-bg:#143527; --bad:#ff9a94; --bad-bg:#40201e;
+    --warn-bg:#3d3413; --chip:#243b52; --shadow:0 4px 18px rgba(0,0,0,.4);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Arial Rounded MT Bold","Helvetica Rounded",ui-rounded,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:18px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:16px 14px 48px}
+h1{font-size:clamp(26px,6vw,40px);line-height:1.2;margin:6px 0 10px;text-align:center}
+h2{font-size:clamp(21px,4.5vw,27px);margin:0 0 8px}
+h3{font-size:20px;margin:0 0 6px}
+p{margin:0 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin:0 0 18px}
+.grade-bar-wrap{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:16px 16px 12px;margin:0 0 18px;text-align:center}
+.grade-bar-title{font-size:21px;font-weight:800;margin-bottom:12px}
+.grade-bar{position:relative;display:flex;border:2px solid var(--line);border-radius:999px;margin:28px 4px 8px}
+.gb-seg{flex:1;text-align:center;padding:10px 0;font-weight:800;font-size:17px}
+.gb-seg.g3{background:#dbeafe;border-radius:999px 0 0 999px}
+.gb-seg.g4{background:#fde68a}
+.gb-seg.g5{background:#bbf7d0;border-radius:0 999px 999px 0}
+.gb-duck{position:absolute;top:-40px;transform:translateX(-50%);line-height:1;transition:left .6s ease}.gb-duck svg{display:block}
+.grade-bar-caption{font-size:18px;font-weight:700;margin-top:4px}
+.subtitle{text-align:center;color:var(--muted);font-size:19px;margin-bottom:16px}
+button{font:inherit;cursor:pointer;border:none;border-radius:999px;min-height:52px;
+  padding:12px 26px;font-weight:700}
+.btn-big{background:var(--accent);color:var(--accent-ink);font-size:22px;width:100%;padding:16px}
+.btn-finish{background:var(--accent);color:var(--accent-ink);font-size:20px;width:100%}
+.btn-break{background:var(--accent);color:var(--accent-ink);font-size:21px;width:100%}
+button:active{transform:scale(.98)}
+.attempt-line{text-align:center;font-size:19px;margin:0 0 14px}
+.howto li{margin-bottom:8px;font-size:18px}
+.note{background:var(--warn-bg);border-radius:14px;padding:14px 16px;font-size:16.5px}
+.screen{display:none}
+.screen.active{display:block}
+.timerbar{position:sticky;top:8px;z-index:20;display:flex;align-items:center;gap:10px;
+  background:var(--card);border:3px solid var(--accent);border-radius:999px;
+  padding:8px 18px;box-shadow:var(--shadow);margin-bottom:16px;flex-wrap:wrap}
+.timerbar .t-label{font-weight:700;font-size:17px}
+.timerbar .t-clock{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;margin-left:auto}
+.timerbar.danger{border-color:var(--bad);background:var(--bad-bg)}
+.timerbar.danger .t-clock{color:var(--bad)}
+.t-warn{display:none;width:100%;text-align:center;color:var(--bad);font-weight:800;font-size:18px}
+.timerbar.danger .t-warn{display:block}
+.passage-title{font-size:21px;margin-bottom:8px}
+.passage p{margin-bottom:10px}
+.passage .stanza{margin-bottom:14px}
+.passage .stanza p{margin:0}
+.drama-line{margin-bottom:6px}
+.speaker{font-weight:800;text-transform:uppercase}
+.stage{font-style:italic;color:var(--muted)}
+.playbox{border:3px dashed var(--amber);border-radius:14px;padding:12px 14px;margin-top:12px;background:var(--warn-bg)}
+.dictbox{border:3px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--chip);margin-bottom:12px}
+.dictbox p{margin:0 0 6px}
+.bars{margin:12px 0 4px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.bar-name{width:130px;flex:none;font-weight:700;font-size:16.5px}
+.bar-track{flex:1;background:var(--chip);border-radius:8px;height:30px;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px}
+.bar-val{width:74px;flex:none;font-weight:700;font-size:16.5px}
+.qcard{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin:0 0 18px}
+.q-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.q-num{background:var(--accent);color:var(--accent-ink);border-radius:50%;width:40px;height:40px;
+  flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px}
+.q-text{font-size:19.5px;font-weight:700;padding-top:6px}
+.q-std{font-size:14.5px;color:var(--muted);font-weight:700}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--chip);
+  border:3px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 10px;
+  font-size:18.5px;font-weight:600;color:var(--ink);min-height:56px}
+.opt .letter{background:var(--card);border:2px solid var(--line);border-radius:50%;width:32px;height:32px;
+  flex:none;display:flex;align-items:center;justify-content:center;font-weight:800}
+.opt.selected{border-color:var(--accent);background:var(--good-bg)}
+.opt.selected .letter{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+textarea{width:100%;font:inherit;font-size:18.5px;color:var(--ink);background:var(--chip);
+  border:3px solid var(--line);border-radius:14px;padding:14px;min-height:150px;resize:vertical}
+textarea:focus{outline:3px solid var(--accent)}
+.q-hint{font-size:16.5px;color:var(--muted);margin-bottom:8px}
+.section-actions{display:grid;gap:12px;margin-top:6px}
+.break-clock{font-size:clamp(64px,18vw,110px);font-weight:800;text-align:center;
+  font-variant-numeric:tabular-nums;color:var(--accent);line-height:1.1;margin:10px 0}
+.center{text-align:center}
+.score-big{font-size:clamp(40px,10vw,58px);font-weight:800;text-align:center;margin:4px 0}
+.level-line{text-align:center;font-size:23px;font-weight:800;margin-bottom:6px}
+.cheer{text-align:center;color:var(--muted);font-size:19px;margin-bottom:8px}
+.sec-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.sec-grid{grid-template-columns:1fr 1fr}}
+.sec-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:18px}
+.sec-card .s-score{font-size:26px;font-weight:800}
+.pill{display:inline-block;border-radius:999px;padding:3px 14px;font-size:15.5px;font-weight:800;margin:4px 0}
+.pill.above{background:var(--good-bg);color:var(--good)}
+.pill.at{background:#dcefff;color:#14508c}
+@media (prefers-color-scheme: dark){.pill.at{background:#173a5c;color:#9fd0ff}}
+.pill.below{background:var(--bad-bg);color:var(--bad)}
+.tip{color:var(--muted);font-size:16.5px;margin-top:6px}
+.std-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.std-row:last-child{border-bottom:none}
+.std-code{font-weight:800;min-width:74px;flex:none}
+.std-status{font-weight:700}
+.st-showed{color:var(--good)} .st-almost{color:#b97e00} .st-notyet{color:var(--bad)} .st-design{color:var(--muted)}
+@media (prefers-color-scheme: dark){.st-almost{color:#ffcf5c}}
+.rev-item{border:2px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px;background:var(--card)}
+.rev-item.correct{border-color:var(--good)}
+.rev-item.wrong{border-color:var(--bad)}
+.rev-badge{font-weight:800}
+.rev-badge.ok{color:var(--good)} .rev-badge.no{color:var(--bad)}
+.rev-item p{font-size:17px;margin-bottom:6px}
+.rev-item .lbl{font-weight:800}
+.small{font-size:15.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  
+  <section id="screen-start" class="screen active">
+    <h1>📚 Grade 3 Reading Placement Test<br/>Full Coverage</h1>
+    <p class="subtitle">Hi, Eden! Let's show what a super reader you are. 🌟</p>
+    
+    <div class="grade-bar-wrap">
+      <div class="grade-bar-title">🗺️ Where am I?</div>
+      <div class="grade-bar">
+        <div class="gb-seg g3">Grade 2</div><div class="gb-seg g4">Grade 3</div><div class="gb-seg g5">Grade 4</div>
+        <div class="gb-duck" style="left:37%"><svg width="44" height="44" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><clipPath id="ringClipE"><rect x="0" y="0" width="100" height="87"/></clipPath></defs><g clip-path="url(#ringClipE)"><g><rect x="73" y="50" width="23" height="33" rx="9" fill="#7C8156" stroke="#585D3A" stroke-width="2.5"/><rect x="78" y="50" width="13" height="11" rx="5" fill="#969B63" stroke="#585D3A" stroke-width="2"/></g><ellipse cx="50" cy="55" rx="38" ry="35" fill="#FFD93D" stroke="#D99A00" stroke-width="3"/><ellipse cx="50" cy="67" rx="21" ry="17" fill="#FFF3A3"/><ellipse cx="15" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(-18 15 59)"/><ellipse cx="85" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(18 85 59)"/><path d="M50 20 C47 12 42 9 37 7 M50 20 C50 11 54 7 58 4 M50 20 C53 13 58 11 62 9" fill="none" stroke="#D99A00" stroke-width="3" stroke-linecap="round"/><g><path d="M11 45 C11 20 28 8 50 8 C72 8 89 20 89 45 C89 48 87 50 83 50 L17 50 C13 50 11 48 11 45 Z" fill="#666C60" stroke="#454A41" stroke-width="3" stroke-linejoin="round"/><path d="M27 23 C33 14 41 11 50 10.5" fill="none" stroke="#A9AEA2" stroke-width="3" stroke-linecap="round" opacity="0.8"/><rect x="25" y="29" width="50" height="12" rx="6" fill="#333B36" stroke="#272D29" stroke-width="2.5"/><path d="M31 35.5 H52" stroke="#8FA39B" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/><circle cx="21" cy="41" r="3.2" fill="#454A41"/><circle cx="79" cy="41" r="3.2" fill="#454A41"/><circle cx="13.5" cy="53" r="5" fill="#596052" stroke="#454A41" stroke-width="2"/><circle cx="86.5" cy="53" r="5" fill="#596052" stroke="#454A41" stroke-width="2"/></g><ellipse cx="28" cy="57" rx="8" ry="5" fill="#FF9AA2" opacity="0.85"/><ellipse cx="72" cy="57" rx="8" ry="5" fill="#FF9AA2" opacity="0.85"/><circle cx="36" cy="44" r="5.5" fill="#2B2118"/><circle cx="64" cy="44" r="5.5" fill="#2B2118"/><circle cx="37.8" cy="42.2" r="1.8" fill="#ffffff"/><circle cx="65.8" cy="42.2" r="1.8" fill="#ffffff"/><ellipse cx="50" cy="52.5" rx="10" ry="6.5" fill="#FF8C1A" stroke="#D96A00" stroke-width="2"/><path d="M41 52.5 H59" stroke="#D96A00" stroke-width="1.6" stroke-linecap="round"/><g><rect x="89.5" y="57" width="4.5" height="11" rx="2.2" fill="#2F332F"/><circle cx="92" cy="76" r="8" fill="#494F49" stroke="#2F332F" stroke-width="2.5"/><circle cx="92" cy="76" r="4.2" fill="#5D645D"/></g></g><g><path d="M2 64 Q50 56 98 64 C94 77 85 86.5 68 89.6 Q50 93.4 32 89.6 C15 86.5 6 77 2 64 Z" fill="#57B6EA" stroke="#2B7BBB" stroke-width="3" stroke-linejoin="round"/><path d="M8 65 Q50 57.8 92 65" fill="none" stroke="#A8DDF8" stroke-width="4" stroke-linecap="round" opacity="0.9"/></g></svg></div>
+      </div>
+      <div class="grade-bar-caption">You finished Grade 2 above level — your duck just stepped into Grade 3! 🌟</div>
+    </div>
+    <div class="card howto">
+      <h2>📋 How this test works</h2>
+      <ul>
+        <li><strong>4 sections</strong> of reading and word questions.</li>
+        <li>Each section gives you <strong>15 minutes</strong> — the timer is always at the top.</li>
+        <li>Between sections you get a <strong>5-minute break</strong> to rest, stretch, and get a drink.</li>
+        <li>While you are answering questions, there is <strong>no skipping</strong> — finish all the questions in the section, then tap the finish button to start your break.</li>
+        <li>On a break, you may <strong>skip the break</strong> and go straight to the next section whenever you are ready.</li>
+        <li>There are <strong>38 questions</strong> in all — try to answer every one before your 15 minutes run out.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <p class="attempt-line">This is <strong>Attempt #<span id="attempt-display">1</span></strong></p>
+      <button class="btn-big" id="btn-start">▶ Start the Test</button>
+    </div>
+    <div class="note">
+      <strong>About this test:</strong> Every passage in this test is written in the grades 2–3 text
+      complexity band, which covers standards RL.3.10 and RI.3.10 by design. This test checks all
+      24 California Grade 3 Reading standards points. Oral reading fluency (RF.3.4) is not part of this
+      test — it is checked by listening to Eden read aloud.
+    </div>
+  </section>
+
+  
+  <section id="screen-section" class="screen">
+    <div class="timerbar" id="timerbar">
+      <span class="t-label" id="timer-label">Section 1 · Time left</span>
+      <span class="t-clock" id="timer-clock">15:00</span>
+      <span class="t-warn" id="timer-warn">⏰ 1 minute left!</span>
+    </div>
+    <h2 id="section-title"></h2>
+    <p class="subtitle" id="section-sub" style="text-align:left"></p>
+    <div id="section-body"></div>
+    <div class="section-actions">
+      <button class="btn-finish" id="btn-finish">✅ I finished all the questions — take my break</button>
+      <p class="note" id="finish-warn" style="display:none"></p>
+    </div>
+    <p class="small center" style="margin-top:10px">There is no skip button here — finish all the questions in this section to reach your break. If the 15 minutes run out, the section ends on its own.</p>
+  </section>
+
+  
+  <section id="screen-break" class="screen">
+    <div class="card center">
+      <h2 style="font-size:clamp(26px,6vw,36px)">Great job! 🎉 Break time</h2>
+      <div class="break-clock" id="break-clock">5:00</div>
+      <p style="font-size:20px">Rest your eyes, stretch your arms, roll your shoulders,<br/>and have a sip of water. 💧</p>
+      <p class="small" id="break-next"></p>
+      <button class="btn-break" id="btn-skip-break">⏩ Skip the break — start the next section</button>
+    </div>
+  </section>
+
+  
+  <section id="screen-results" class="screen">
+    <h1>🏆 Your Results</h1>
+    <div class="grade-bar-wrap">
+      <div class="grade-bar-title">🗺️ Where am I?</div>
+      <div class="grade-bar">
+        <div class="gb-seg g3">Grade 2</div><div class="gb-seg g4">Grade 3</div><div class="gb-seg g5">Grade 4</div>
+        <div class="gb-duck" id="res-duck" style="left:50%"><svg width="44" height="44" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><clipPath id="ringClipE2"><rect x="0" y="0" width="100" height="87"/></clipPath></defs><g clip-path="url(#ringClipE2)"><g><rect x="73" y="50" width="23" height="33" rx="9" fill="#7C8156" stroke="#585D3A" stroke-width="2.5"/><rect x="78" y="50" width="13" height="11" rx="5" fill="#969B63" stroke="#585D3A" stroke-width="2"/></g><ellipse cx="50" cy="55" rx="38" ry="35" fill="#FFD93D" stroke="#D99A00" stroke-width="3"/><ellipse cx="50" cy="67" rx="21" ry="17" fill="#FFF3A3"/><ellipse cx="15" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(-18 15 59)"/><ellipse cx="85" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(18 85 59)"/><path d="M50 20 C47 12 42 9 37 7 M50 20 C50 11 54 7 58 4 M50 20 C53 13 58 11 62 9" fill="none" stroke="#D99A00" stroke-width="3" stroke-linecap="round"/><g><path d="M11 45 C11 20 28 8 50 8 C72 8 89 20 89 45 C89 48 87 50 83 50 L17 50 C13 50 11 48 11 45 Z" fill="#666C60" stroke="#454A41" stroke-width="3" stroke-linejoin="round"/><path d="M27 23 C33 14 41 11 50 10.5" fill="none" stroke="#A9AEA2" stroke-width="3" stroke-linecap="round" opacity="0.8"/><rect x="25" y="29" width="50" height="12" rx="6" fill="#333B36" stroke="#272D29" stroke-width="2.5"/><path d="M31 35.5 H52" stroke="#8FA39B" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/><circle cx="21" cy="41" r="3.2" fill="#454A41"/><circle cx="79" cy="41" r="3.2" fill="#454A41"/><circle cx="13.5" cy="53" r="5" fill="#596052" stroke="#454A41" stroke-width="2"/><circle cx="86.5" cy="53" r="5" fill="#596052" stroke="#454A41" stroke-width="2"/></g><ellipse cx="28" cy="57" rx="8" ry="5" fill="#FF9AA2" opacity="0.85"/><ellipse cx="72" cy="57" rx="8" ry="5" fill="#FF9AA2" opacity="0.85"/><circle cx="36" cy="44" r="5.5" fill="#2B2118"/><circle cx="64" cy="44" r="5.5" fill="#2B2118"/><circle cx="37.8" cy="42.2" r="1.8" fill="#ffffff"/><circle cx="65.8" cy="42.2" r="1.8" fill="#ffffff"/><ellipse cx="50" cy="52.5" rx="10" ry="6.5" fill="#FF8C1A" stroke="#D96A00" stroke-width="2"/><path d="M41 52.5 H59" stroke="#D96A00" stroke-width="1.6" stroke-linecap="round"/><g><rect x="89.5" y="57" width="4.5" height="11" rx="2.2" fill="#2F332F"/><circle cx="92" cy="76" r="8" fill="#494F49" stroke="#2F332F" stroke-width="2.5"/><circle cx="92" cy="76" r="4.2" fill="#5D645D"/></g></g><g><path d="M2 64 Q50 56 98 64 C94 77 85 86.5 68 89.6 Q50 93.4 32 89.6 C15 86.5 6 77 2 64 Z" fill="#57B6EA" stroke="#2B7BBB" stroke-width="3" stroke-linejoin="round"/><path d="M8 65 Q50 57.8 92 65" fill="none" stroke="#A8DDF8" stroke-width="4" stroke-linecap="round" opacity="0.9"/></g></svg></div>
+      </div>
+      <div class="grade-bar-caption" id="res-gb-caption">Let's see where you land!</div>
+    </div>
+    <div class="card">
+      <p class="center" style="font-size:19px;margin:0">Your score</p>
+      <div class="score-big" id="res-score"></div>
+      <div class="level-line" id="res-level"></div>
+      <p class="cheer" id="res-cheer"></p>
+    </div>
+    <h2>📊 Your four sections</h2>
+    <div class="sec-grid" id="res-sections" style="margin-bottom:18px"></div>
+    <div class="card">
+      <h2>✅ Standards check</h2>
+      <p class="small">✓ showed it = you got every question for that standard right · almost = you got at least one right · not yet = keep practising!</p>
+      <div id="res-standards"></div>
+    </div>
+    <div class="card">
+      <h2>🔍 Review your answers</h2>
+      <div id="res-review"></div>
+    </div>
+    <div class="note">
+      <strong>Blueprint note:</strong> This test checks all 24 California Grade 3 Reading standards points.
+      Oral reading fluency (RF.3.4) is not part of this test — it is checked by listening to Eden read aloud.
+      RL.3.10 and RI.3.10 are covered by design: all passages are written in the grades 2–3 text complexity band.
+    </div>
+  </section>
+
+</div>
+<script>
+"use strict";
+var TEST_NAME = "Grade 3 Reading Placement Test — Full Coverage";
+var LS_KEY = "attempts::" + TEST_NAME;
+
+ 
+var PASSAGES = {
+A:{title:"Passage A — The Snow-Day Soup (story)",
+text:"Milo woke to a white, quiet world. Snow had fallen all night, and school was closed. From his window, Milo could see the little blue house across the street where Mrs. Rosa lived alone. Her front steps were buried in snow, and no smoke rose from her chimney.\n\nAt breakfast, Milo said, \u201CMrs. Rosa's fire must have gone out. She will be cold.\u201D His mother nodded. \u201CThe roads are too snowy for cars today,\u201D she said. \u201CBut a pot of hot soup might just make it across the street.\u201D\n\nMilo pulled on his boots, his coat, and his warm red mittens. Carrying the pot with both hands, he stepped into snow that reached his knees. Each step was slow and heavy, but Milo did not turn back. \u201CAlmost there,\u201D he whispered, and his breath made little clouds in the icy air.\n\nWhen Mrs. Rosa opened her door, her face lit up. \u201CMilo! You came through all that snow — for me?\u201D She wrapped a warm blanket around his shoulders and set two bowls on the table. The soup was delicious, but the best part, Milo decided, was how Mrs. Rosa's kitchen no longer felt cold at all. \u201CA small kindness,\u201D she said, \u201Ccan warm a whole house.\u201D",
+html:null},
+B:{title:"Passage B — A Poem and a Play in Two Scenes",
+text:"POEM: \u201CThe First Star\u201D\nOne by one the lights go out\nAcross the sleepy street.\nThe sun has tucked itself away;\nIts golden day is complete.\n\nThen — look! A tiny silver spark\nWinks in the deepening blue.\nThe very first star of evening\nIs shining just for you.\n\nMore stars come out to join it,\nA sky full, soft and wide.\nThe night is full of wishes,\nWith the first star as our guide.\n\nPLAY: \u201CThe Garden Gate\u201D\nScene 1: [The school garden, Monday morning. TIA stares at rows of tiny green sprouts.] TIA: Oh no! The gate stood open all weekend. I hope no rabbits got in!\nScene 2: [The school garden, Tuesday morning. TIA and PABLO kneel beside the sprouts.] PABLO: Look — every sprout is still standing. And here is the gate latch, fixed tight. TIA: You fixed the gate yesterday! That is why the garden is safe.",
+html:"<h3>\u2728 Poem: \u201CThe First Star\u201D</h3>"
++"<div class='stanza'><p>One by one the lights go out</p><p>Across the sleepy street.</p><p>The sun has tucked itself away;</p><p>Its golden day is complete.</p></div>"
++"<div class='stanza'><p>Then — look! A tiny silver spark</p><p>Winks in the deepening blue.</p><p>The very first star of evening</p><p>Is shining just for you.</p></div>"
++"<div class='stanza'><p>More stars come out to join it,</p><p>A sky full, soft and wide.</p><p>The night is full of wishes,</p><p>With the first star as our guide.</p></div>"
++"<h3>\uD83C\uDFAD Play: \u201CThe Garden Gate\u201D</h3>"
++"<p><strong>Scene 1</strong></p>"
++"<p class='stage'>[The school garden, Monday morning. TIA stares at rows of tiny green sprouts.]</p>"
++"<p class='drama-line'><span class='speaker'>Tia:</span> Oh no! The gate stood open all weekend. I hope no rabbits got in!</p>"
++"<p><strong>Scene 2</strong></p>"
++"<p class='stage'>[The school garden, Tuesday morning. TIA and PABLO kneel beside the sprouts.]</p>"
++"<p class='drama-line'><span class='speaker'>Pablo:</span> Look — every sprout is still standing. And here is the gate latch, fixed tight.</p>"
++"<p class='drama-line'><span class='speaker'>Tia:</span> You fixed the gate yesterday! That is why the garden is safe.</p>"},
+C:{title:"Passage C — June and the Bell (two versions)",
+text:"VERSION 1 (told by June): I gripped the rope with both hands and pulled. My arms burned! For one scary second, I was sure the big bell would never move. Then — BONG! — it rang out over the whole town, and I grinned so hard my cheeks hurt.\n\nVERSION 2 (told about June): June gripped the rope with both hands and pulled hard. After a moment, the big bell rang out over the whole town, and June smiled proudly.",
+html:"<p><strong>Version 1</strong> (told by June): I gripped the rope with both hands and pulled. My arms burned! For one scary second, I was sure the big bell would never move. Then — BONG! — it rang out over the whole town, and I grinned so hard my cheeks hurt.</p>"
++"<p><strong>Version 2</strong> (told about June): June gripped the rope with both hands and pulled hard. After a moment, the big bell rang out over the whole town, and June smiled proudly.</p>"},
+D:{title:"Passage D — Pippa and the Tide Pool (story)",
+text:"Pippa loved the rocky shore behind her grandmother's house. One windy afternoon, she tiptoed between the pools left behind by the tide, looking for tiny sea animals.\n\nIn the smallest pool, Pippa found a tiny red crab. The pool was shrinking in the sun, and the crab waved its little claws at the hot, dry rock. \u201CYou will be stuck here until the tide comes back,\u201D Pippa whispered. \u201CThat is hours away.\u201D\n\nPippa could not move the crab — wild animals must stay where they belong. But she could help in another way. She cupped her hands and carried cool seawater from a bigger pool, drip by drip, until the little pool was deep and shady again. Then she sat nearby with her book, keeping watch.\n\nWhen the tide finally crept back over the rocks, the tiny crab scuttled happily into the waves. Pippa waved. \u201CSee you next low tide,\u201D she said.",
+html:null,
+playbox:"<div class='playbox'><h3>\uD83D\uDDBC\uFE0F The picture for this story\u2026</h3><p>In the picture, dark storm clouds fill the sky behind Pippa, and her face looks worried. The tiny crab is drawn right in the middle of the picture, bigger than everything else, so readers look at it first.</p></div>",
+extraLog:"[Picture] Dark storm clouds fill the sky behind Pippa, and her face looks worried. The tiny crab is drawn right in the middle of the picture, bigger than everything else, so readers look at it first."},
+E:{title:"Passage E — Bramble and the Rainy Day (a tale by Ana Sorrel)",
+text:"Bramble the hedgehog lived under the roots of an old oak in the middle of the forest. One grey morning, Bramble set out to visit his friend Mole, who lived across the stream. But rain had fallen all night, and the stream had grown wide and rushing. The little bridge of stones was hidden under the water.\n\nBramble did not turn back. He found a huge, dry leaf, curled it into a boat shape, and set it on the stream. Holding a fern stem as a paddle, he floated — wobble, splash, wobble — safely to the other side.\n\nMole blinked in surprise. \u201CYou crossed the stream in THAT?\u201D Bramble shook the rain from his spines and grinned. \u201CA leaf is a fine boat,\u201D he said, \u201Cif you are small and brave.\u201D",
+html:null},
+F:{title:"Passage F — Bramble and the Windy Day (a tale by Ana Sorrel)",
+text:"On a blustery autumn day, Bramble the hedgehog gathered red apples under the oak in the middle of the forest. He piled them into his leaf basket and started for home. But the wind kept snatching at the basket — whoosh! — and twice his apples rolled away down the path.\n\nBramble sat down and thought. Then he collected smooth, heavy stones and tucked them into the bottom of the basket, under the apples. The basket was heavier now, and harder to carry — but the wind could not tip it over.\n\nStep by slow step, Bramble carried every apple home. \u201CA heavy basket,\u201D he said, \u201Cis better than an empty one.\u201D",
+html:null},
+G:{title:"Passage G — The Busy Life of a Honeybee",
+text:"A honeybee's life is short — only about six weeks — but every day is packed with work. A young bee begins inside the hive, cleaning cells and feeding baby bees. When she is about three weeks old, she becomes a field bee and flies out to gather nectar and pollen from flowers.\n\nA field bee may visit fifty to one hundred flowers on a single trip. She carries the nectar back to the hive in a special stomach. Her dancing tells the other bees where the best flowers are: a round dance means the flowers are near, and a waggle dance means they are far away.\n\nAll this work helps more than the hive. As bees move from flower to flower, pollen sticks to their fuzzy bodies and rubs off on other flowers. This is how many plants make seeds and fruit. Without bees, many of the foods we love — apples, berries, and almonds — would be hard to find.",
+html:null},
+H:{title:"Passage H — From Caterpillar to Butterfly",
+text:"A caterpillar's change into a butterfly happens in a clear order of steps, and each step makes the next one possible.\n\nFirst, the caterpillar eats and eats — leaves, and more leaves. Because it grows so fast, its skin becomes too tight, so it sheds its skin four or five times.\n\nNext, when the caterpillar is fully grown, it attaches itself to a twig and forms a hard shell called a chrysalis. Inside the chrysalis, its whole body slowly changes. Legs shrink, wings grow, and even its mouth changes shape.\n\nFinally, after about two weeks, the chrysalis splits open. Because its wings are wet and folded at first, the new butterfly must pump them full of blood and let them dry in the sun. Only then — because of every step that came before — can it fly away.",
+html:null},
+I:{title:"Passage I — Volcanoes: Mountains That Wake Up",
+text:"A volcano is an opening in the Earth where hot, melted rock can burst out. Deep under the ground, rock melts into a thick liquid called magma. The magma collects in an underground pool.\n\nPressure builds and builds under the mountain. When the pressure grows too strong, the volcano erupts — magma explodes out of the top, throwing ash and glowing rocks into the sky. Once magma reaches the surface, it is called lava, and it flows downhill like a slow river of fire.\n\nNot every eruption is violent. Some volcanoes ooze lava gently for months. Scientists who study volcanoes watch for small earthquakes and swelling ground, which can warn people that an eruption is coming.",
+html:null},
+J:{title:"Passage J — Our Library on Wheels",
+text:"WHAT IS A BOOKMOBILE?\nA bookmobile is a library inside a big bus. Its shelves are packed with picture books, chapter books, and comics. The bookmobile drives to schools, parks, and small towns that have no library building of their own.\n\nWHERE DOES IT STOP?\nOn Mondays, the bookmobile parks beside Roosevelt School. On Wednesdays, it stops at Harbor Park, and on Fridays, it visits the town of Little Creek. At every stop, readers may check out two books and keep them for two weeks.\n\nSIDEBAR — FAST FACTS: Driver: Ms. Chen. Books on board: 1,200. Library card needed: any Redwood Library card.",
+html:"<h3>What Is a Bookmobile?</h3><p>A bookmobile is a library inside a big bus. Its shelves are packed with picture books, chapter books, and comics. The bookmobile drives to schools, parks, and small towns that have no library building of their own.</p>"
++"<h3>Where Does It Stop?</h3><p>On Mondays, the bookmobile parks beside Roosevelt School. On Wednesdays, it stops at Harbor Park, and on Fridays, it visits the town of Little Creek. At every stop, readers may check out two books and keep them for two weeks.</p>",
+playbox:"<div class='playbox'><h3>\uD83D\uDCCC Sidebar — Fast Facts</h3><p><strong>Driver:</strong> Ms. Chen</p><p><strong>Books on board:</strong> 1,200</p><p><strong>Library card needed:</strong> any Redwood Library card</p></div>"},
+K:{title:"Passage K — Save the Bees!",
+text:"Bees are in trouble. In many places, there are fewer bees than there used to be, because wildflower fields are disappearing and winters are changing.\n\nThis matters to everyone. Bees carry pollen from flower to flower, and that is how many plants make seeds, fruit, and vegetables. A world with fewer bees is a world with less food.\n\nSchools can help. A single pot of flowers on a windowsill gives bees food and a resting place. I believe every school should plant a flower garden for the bees. It costs little, it is beautiful, and it helps the whole Earth.",
+html:null},
+L:{title:"Passage L — The Harbor Ferry",
+text:"The little ferry named Otter crosses Harbor Bay every morning. The map below shows its stops and the times it reaches them.\n\nMAP — THE OTTER'S MORNING ROUTE: Harbor Town 8:00 \u2192 Gull Island 8:20 \u2192 Fisher's Cove 8:45 \u2192 Lighthouse Point 9:10.\n\nAt Lighthouse Point, the Otter rests until the afternoon, when it makes the whole trip back again.",
+html:"<p>The little ferry named <strong>Otter</strong> crosses Harbor Bay every morning. The map below shows its stops and the times it reaches them.</p>"
++"<div class='dictbox'><p><strong>\uD83D\uDDFA\uFE0F Map — The Otter's Morning Route</strong></p><p style='font-size:19px'>\u2693 <strong>Harbor Town</strong> 8:00 &nbsp;\u27A1&nbsp; \uD83C\uDFDD\uFE0F <strong>Gull Island</strong> 8:20 &nbsp;\u27A1&nbsp; \uD83C\uDFA3 <strong>Fisher's Cove</strong> 8:45 &nbsp;\u27A1&nbsp; \uD83D\uDD26 <strong>Lighthouse Point</strong> 9:10</p></div>"
++"<p>At Lighthouse Point, the Otter rests until the afternoon, when it makes the whole trip back again.</p>"},
+M:{title:"Passage M — Why Did the Town Plant Trees?",
+text:"Ten years ago, the main street of Alba had almost no shade. On summer afternoons, the sidewalks were too hot for dogs' paws, and shoppers hurried from one air-conditioned store to the next.\n\nBecause the street was so uncomfortably hot, the town decided to plant a row of young maple trees along both sidewalks. As a result, the street is shady and cool today, and birds nest in the branches above the benches.",
+html:null},
+N:{title:"Passage N — Penguins, Text 1: Built for Cold Water",
+text:"Emperor penguins live in Antarctica, the coldest place on Earth. Their bodies are built for that icy home. Under their smooth, waterproof feathers, a thick layer of fat keeps them warm. Their short, strong flippers work like paddles, and they are champion swimmers, zipping through the freezing water to catch fish and tiny shrimp-like animals called krill.\n\nOn land, emperor penguins huddle together in huge, tight groups. Huddling shares body heat and blocks the bitter wind, so every penguin in the group stays warmer.",
+html:null},
+O:{title:"Passage O — Penguins, Text 2: Fathers on the Ice",
+text:"Emperor penguins live in Antarctica, and like the penguins in Text 1, they are strong swimmers that huddle together against the cold. But the strangest part of their story happens in the middle of the dark winter.\n\nAfter the mother penguin lays one egg, she travels to the sea to feed. The father penguin stays behind. For about two months, he holds the egg on top of his feet, covered by a warm fold of his belly feathers, so it never touches the freezing ice. The whole time, he eats nothing at all. When the chick hatches, the mother returns with a belly full of food — and the hungry father finally gets his turn to eat.",
+html:null}};
+
+ 
+ 
+var QUESTIONS=[
+{n:1,sec:1,p:["A"],std:"RL.3.1",type:"mc",
+ q:"According to the story, why did Milo think Mrs. Rosa would be cold?",
+ opts:["Snow had covered the roof of her house.","No smoke rose from her chimney, so her fire must have gone out.","She had no blankets in her house.","Her front door was broken."],answer:1},
+{n:2,sec:1,p:["A"],std:"RL.3.1",type:"mc",
+ q:"What can the reader tell about the snow from the story?",
+ opts:["It was light snow that melted quickly.","It was deep snow — it reached Milo's knees, and the roads were too snowy for cars.","It snowed only on Milo's street.","It was warm, wet snow."],answer:1},
+{n:3,sec:1,p:["A"],std:"RL.3.2",type:"mc",
+ q:"What is the central message of the story?",
+ opts:["Snow days are best spent staying inside.","A small kindness can warm a whole house — helping a neighbour matters.","Soup is the healthiest food to eat in winter.","You should never walk in deep snow."],answer:1},
+{n:4,sec:1,p:["A"],std:"RL.3.2",type:"written",
+ q:"Recount the story in your own words. (1) What was the problem, and what did Milo do? (2) How did the story end?",
+ keys:[
+  {label:"(1) The problem and Milo's action: snow had covered everything and Mrs. Rosa's fire had gone out (no smoke from her chimney), so Milo carried a pot of hot soup through the deep snow to her house",terms:["soup","snow","chimney","fire","cold","carried","brought","pot"]},
+  {label:"(2) The ending: Mrs. Rosa welcomed Milo in, wrapped a blanket around him, and they shared the soup together — she said a small kindness can warm a whole house",terms:["shared","together","ate","eat","blanket","warm","kindness","bowl","welcomed","invited"]}],
+ sample:"Snow had fallen all night, and no smoke rose from Mrs. Rosa's chimney, so Milo knew her fire had gone out and she would be cold. He carried a pot of hot soup through the knee-deep snow to her house. At the end, Mrs. Rosa welcomed him in, they shared the soup together, and she said that a small kindness can warm a whole house."},
+{n:5,sec:1,p:["A"],std:"RL.3.3",type:"mc",
+ q:"Which words best describe Milo, based on what he says and does in the story?",
+ opts:["Lazy and careless — he forgets about his neighbour.","Kind and determined — he thinks of Mrs. Rosa and keeps going through knee-deep snow without turning back.","Silly and playful — he spends the snow day telling jokes.","Afraid of snow — he stays by his window all day."],answer:1},
+{n:6,sec:1,p:["A"],std:"RL.3.3",type:"mc",
+ q:"How did Milo's action change what happened next in the story?",
+ opts:["Because Milo carried the soup across the street, Mrs. Rosa's cold, lonely house became warm and full of company.","Because Milo stayed home, Mrs. Rosa walked to his house instead.","Milo's action did not change anything in the story.","Because Milo lost a mitten, the snow began to melt."],answer:0},
+{n:7,sec:1,p:["A"],std:"RL.3.4",type:"mc",
+ q:"When Mrs. Rosa opened her door, \u201Cher face lit up.\u201D What does \u201Clit up\u201D mean here? (It is NOT the literal meaning.)",
+ opts:["A lamp above her head switched on.","Her face suddenly showed that she was happy and surprised.","The sun came out from behind a cloud.","She opened the door very quickly."],answer:1},
+{n:8,sec:1,p:["B"],std:"RL.3.5",type:"mc",
+ q:"How does stanza 2 of the poem \u201CThe First Star\u201D build on stanza 1?",
+ opts:["Stanza 1 tells about the day ending as the sun goes away, and stanza 2 brings the first star — so the night begins.","Stanza 2 repeats exactly what stanza 1 said.","Stanza 2 tells about the next morning.","Stanza 2 introduces two new characters."],answer:0},
+{n:9,sec:1,p:["B"],std:"RL.3.5",type:"mc",
+ q:"How does Scene 2 of the play \u201CThe Garden Gate\u201D build on Scene 1?",
+ opts:["In Scene 1, Tia worries that the open gate let rabbits into the garden; in Scene 2, we learn Pablo fixed the gate, so the sprouts are safe.","Scene 2 happens before Scene 1.","Scene 2 takes place in a different garden.","Scene 2 is a song that the actors sing."],answer:0},
+{n:10,sec:1,p:["C"],std:"RL.3.6",type:"mc",
+ q:"Compare the point of view in the two versions. Which answer is correct?",
+ opts:["Both versions are told by June herself.","Version 1 is told by June herself — she says \u201CI\u201D and shares her own thoughts and feelings; Version 2 is told by a narrator outside the story, telling about June.","Version 2 lets the reader know June's secret thoughts better than Version 1.","Version 1 is told by the bell."],answer:1},
+{n:11,sec:2,p:["D"],std:"RL.3.7",type:"mc",
+ q:"How does the picture add to the story of Pippa and the tide pool?",
+ opts:["The dark storm clouds in the picture create a worried mood, and the crab is drawn big and in the middle, so the reader understands how important the tiny crab is.","The picture shows Pippa's grandmother's house.","The picture tells the reader how the story ends.","The picture is a map of the beach."],answer:0},
+{n:12,sec:2,p:["E","F"],std:"RL.3.9",type:"mc",
+ q:"Passages E and F are two tales by the same author, about the same character. How are the two tales ALIKE?",
+ opts:["Both tales happen in the same forest, star Bramble, and show him solving a weather problem with a clever idea.","Both tales are about Mole's house.","Both tales end with a big flood.","Both tales happen in winter."],answer:0},
+{n:13,sec:2,p:["E","F"],std:"RL.3.9",type:"mc",
+ q:"How are the two tales DIFFERENT?",
+ opts:["In Passage E the problem is rain and Bramble floats across the stream on a leaf boat; in Passage F the problem is wind and he weighs his basket down with smooth stones.","Only Passage F is about Bramble.","Passage E is a poem and Passage F is a play.","The two tales are exactly the same."],answer:0},
+{n:14,sec:2,p:["G"],std:"RI.3.1",type:"mc",
+ q:"According to Passage G, what does a honeybee's waggle dance tell the other bees?",
+ opts:["The best flowers are near the hive.","The best flowers are far away.","Rain is coming soon.","The hive is full of honey."],answer:1},
+{n:15,sec:2,p:["G"],std:"RI.3.1",type:"mc",
+ q:"Which detail from the text best supports the idea that a honeybee's life is packed with work?",
+ opts:["Bees have fuzzy bodies.","A field bee may visit fifty to one hundred flowers on a single trip.","Bees live together in a hive.","Many people love to eat almonds."],answer:1},
+{n:16,sec:2,p:["G"],std:"RI.3.2",type:"mc",
+ q:"What is the main idea of Passage G?",
+ opts:["Honeybees can dance in two different ways.","Honeybees work hard their whole lives — and their work helps their hive, plants, and people too.","Honeybees live for only about six weeks.","Pollen sticks to a bee's fuzzy body."],answer:1},
+{n:17,sec:2,p:["G"],std:"RI.3.2",type:"written",
+ q:"Write a short summary of the text. (1) The main idea. (2) One key detail that supports it.",
+ keys:[
+  {label:"(1) The main idea: honeybees work hard all their lives, and their work helps the hive, plants, and people",terms:["work","busy","help","hive","plants","important","whole life","all their lives"]},
+  {label:"(2) A supporting detail, e.g. a field bee visits fifty to one hundred flowers on one trip / her dances tell other bees where the flowers are / bees spread pollen so plants can make seeds and fruit",terms:["flower","nectar","pollen","dance","fifty","100","visit","cleaning","feeding","seeds","fruit"]}],
+ sample:"Honeybees work hard their whole lives, and their work helps the hive, plants, and people too. One key detail that supports this is that a field bee may visit fifty to one hundred flowers on a single trip to gather nectar and pollen."},
+{n:18,sec:2,p:["H"],std:"RI.3.3",type:"mc",
+ q:"According to Passage H, WHY does a caterpillar shed its skin four or five times?",
+ opts:["Because it grows so fast that its skin becomes too tight.","To hide from hungry birds.","Because the sun makes its skin hot.","So it can turn into a chrysalis right away."],answer:0},
+{n:19,sec:2,p:["H"],std:"RI.3.3",type:"mc",
+ q:"What must happen BEFORE the new butterfly can fly away?",
+ opts:["It must go back and eat more leaves.","Its wet, folded wings must be pumped full of blood and dried in the sun.","It must find a flower to sit on.","It must shed its skin one more time."],answer:1},
+{n:20,sec:3,p:["I"],std:"RI.3.4",type:"mc",
+ q:"In Passage I, the volcano \u201Cerupts\u201D when the pressure grows too strong. As it is used in this text, what does \u201Cerupts\u201D mean?",
+ opts:["Falls asleep for a long time.","Bursts out suddenly and powerfully.","Melts slowly and quietly.","Disappears under the ground."],answer:1},
+{n:21,sec:3,p:["J"],std:"RI.3.5",type:"mc",
+ q:"You want to find out the places the bookmobile visits. Under which heading should you look?",
+ opts:["\u201CWhat Is a Bookmobile?\u201D","\u201CWhere Does It Stop?\u201D","The Fast Facts sidebar","The title of the text"],answer:1},
+{n:22,sec:3,p:["J"],std:"RI.3.5",type:"mc",
+ q:"You want to know how many books the bookmobile carries. Where should you look FIRST?",
+ opts:["In the first paragraph of the text.","In the Fast Facts sidebar.","Under the last heading.","In the story's title."],answer:1},
+{n:23,sec:3,p:["K"],std:"RI.3.6",type:"mc",
+ q:"Which sentence tells the AUTHOR's own point of view in Passage K?",
+ opts:["\u201CBees carry pollen from flower to flower.\u201D","\u201CI believe every school should plant a flower garden for the bees.\u201D","\u201CA world with fewer bees is a world with less food.\u201D","\u201CBees are in trouble in many places.\u201D"],answer:1},
+{n:24,sec:3,p:["L"],std:"RI.3.7",type:"mc",
+ q:"Use the map and the words in Passage L. Where is the ferry at 8:45?",
+ opts:["Gull Island","Fisher's Cove","Harbor Town","Lighthouse Point"],answer:1},
+{n:25,sec:3,p:["M"],std:"RI.3.8",type:"mc",
+ q:"How are the two paragraphs in Passage M connected?",
+ opts:["The second paragraph tells what the town did BECAUSE of the problem in the first paragraph — and what happened as a result.","The second paragraph compares the town of Alba with another town.","The two paragraphs tell exactly the same thing twice.","The first paragraph defines the hard words in the second paragraph."],answer:0},
+{n:26,sec:3,p:["M"],std:"RI.3.8",type:"mc",
+ q:"Which words in the second paragraph of Passage M show the cause-and-effect connection between the sentences?",
+ opts:["\u201CTen years ago\u201D","\u201CBecause \u2026\u201D and \u201CAs a result \u2026\u201D","\u201CMaple trees\u201D","\u201CBoth sidewalks\u201D"],answer:1},
+{n:27,sec:3,p:["N","O"],std:"RI.3.9",type:"written",
+ q:"Use BOTH texts. (1) One important point that BOTH texts make. (2) One key detail you learn ONLY from Text 2.",
+ keys:[
+  {label:"(1) A point BOTH texts make, e.g. emperor penguins live in Antarctica and huddle together to stay warm / they are strong swimmers built for the cold",terms:["antarctica","huddle","warm","swim","cold","ice","feather","fat"]},
+  {label:"(2) A detail ONLY from Text 2, e.g. the father penguin holds the egg on his feet under his belly feathers for about two months without eating anything",terms:["father","dad","male","egg","feet","winter","without eating","doesn't eat","does not eat","not eat","two months"]}],
+ sample:"Both texts say that emperor penguins live in Antarctica and huddle together to stay warm against the cold. Only Text 2 tells us that the father penguin holds the egg on top of his feet, under his warm belly feathers, for about two months — and eats nothing at all the whole time."},
+{n:28,sec:3,p:["N","O"],std:"RI.3.9",type:"mc",
+ q:"What is the most important DIFFERENCE between the two penguin texts?",
+ opts:["Text 1 is mostly about how penguins' bodies are built for cold water; Text 2 is mostly about how father penguins care for the egg.","Text 1 is a poem about penguins.","Text 2 is about a completely different animal.","There is no difference between the texts."],answer:0},
+{n:29,sec:4,p:[],std:"RF.3.3",type:"mc",
+ q:"Choose the correct way to break the word \u201Ccaterpillar\u201D into syllables.",
+ opts:["cat\u00B7er\u00B7pil\u00B7lar","ca\u00B7terp\u00B7il\u00B7lar","cater\u00B7pill\u00B7ar","cat\u00B7erp\u00B7ill\u00B7ar"],answer:0},
+{n:30,sec:4,p:[],std:"RF.3.3",type:"mc",
+ q:"The word part \u201C-less\u201D means WITHOUT. Use it as a clue: what does \u201Ccareless\u201D mean?",
+ opts:["Full of care.","Without care — not paying attention.","Caring one more time.","Before care."],answer:1},
+{n:31,sec:4,p:[],std:"L.3.4a",type:"mc",
+ q:"Read the sentence: \u201CThe enormous elephant was so huge that it could not fit through the gate.\u201D Use the other words in the sentence as a clue. What does \u201Cenormous\u201D mean?",
+ opts:["Very, very small.","Very, very big.","Very old.","Very quiet."],answer:1},
+{n:32,sec:4,p:[],std:"L.3.4b",type:"mc",
+ q:"The prefix \u201Cpre-\u201D means BEFORE, and \u201Cheat\u201D means to make warm. Read the sentence: \u201CPreheat the oven before you put in the bread.\u201D What does \u201Cpreheat\u201D mean?",
+ opts:["To warm the oven up ahead of time.","To cool the oven down.","To clean the oven.","To open the oven door."],answer:0},
+{n:33,sec:4,p:[],std:"L.3.4c",type:"mc",
+ q:"You know the word \u201Ccompany\u201D — a group of people together. The word \u201Ccompanion\u201D has the same root. Use the root as a clue: what is a \u201Ccompanion\u201D?",
+ opts:["Someone who goes along with you and keeps you company.","A kind of bread.","A lonely, empty place.","A musical instrument."],answer:0},
+{n:34,sec:4,p:[],std:"L.3.4d",type:"mc",dict:true,
+ q:"Use the dictionary entry above. In the sentence \u201CThe box was light, so Eden carried it up the stairs by himself,\u201D which meaning of \u201Clight\u201D is used?",
+ opts:["Meaning 1 — brightness that makes it possible to see.","Meaning 2 — not heavy.","Meaning 3 — to turn on or set burning.","None of the meanings fit."],answer:1},
+{n:35,sec:4,p:[],std:"L.3.5a",type:"mc",
+ q:"Read the sentence: \u201CMom said, \u2018Let's take steps to fix the leaking sink.\u2019\u201D Here, \u201Ctake steps\u201D does NOT mean walking. What does it mean?",
+ opts:["Walk up the stairs.","Do the actions that are needed to solve a problem.","Count your footsteps.","Dance around the sink."],answer:1},
+{n:36,sec:4,p:[],std:"L.3.5b",type:"mc",
+ q:"Which person is best described by the word \u201Cgenerous\u201D?",
+ opts:["Sam keeps all of his stickers for himself.","Ana shares her lunch and gives her extra pencils to classmates who need them.","Ben hides his toys when friends visit.","Zoe never helps anyone."],answer:1},
+{n:37,sec:4,p:[],std:"L.3.5c",type:"mc",
+ q:"These words tell how SURE someone is: wondered, suspected, knew. Which word shows the person is MOST sure?",
+ opts:["wondered","suspected","knew","heard about"],answer:2},
+{n:38,sec:4,p:[],std:"L.3.6",type:"mc",
+ q:"Which sentence uses the academic word \u201Cpredict\u201D accurately?",
+ opts:["Before the experiment, the students predict that the ice will melt in the sun, and they write down their best guess.","I predict my shoes every morning before school.","She predict the soup with a spoon.","Please predict me the ball."],answer:0}
+];
+var DICT_ENTRY_HTML="<div class='dictbox'><p><strong>light</strong> (light)</p><p>1. <em>noun</em> — brightness that makes it possible to see.</p><p>2. <em>adjective</em> — not heavy.</p><p>3. <em>verb</em> — to turn on or set burning.</p></div>";
+var DICT_ENTRY_TEXT="Dictionary entry — light: 1. (noun) brightness that makes it possible to see. 2. (adjective) not heavy. 3. (verb) to turn on or set burning.";
+
+var SECTIONS=[
+ {num:1,name:"Section 1 — Stories, Poems & Plays",sub:"Literature: Meaning & Craft · Questions 1–10 · You have 15 minutes.",
+  layout:["p:A","q:1","q:2","q:3","q:4","q:5","q:6","q:7","p:B","q:8","q:9","p:C","q:10"],
+  tip:"Tip: reread the story details — messages and inferences hide in what characters say and do."},
+ {num:2,name:"Section 2 — Stories Meet Facts",sub:"Literature Connections + Informational Key Ideas · Questions 11–19 · You have 15 minutes.",
+  layout:["p:D","q:11","p:E","p:F","q:12","q:13","p:G","q:14","q:15","q:16","q:17","p:H","q:18","q:19"],
+  tip:"Tip: for main-idea questions, ask yourself what the WHOLE text is mostly about."},
+ {num:3,name:"Section 3 — How Texts Are Built",sub:"Informational: Structure, Evidence & Integration · Questions 20–28 · You have 15 minutes.",
+  layout:["p:I","q:20","p:J","q:21","q:22","p:K","q:23","p:L","q:24","p:M","q:25","q:26","p:N","p:O","q:27","q:28"],
+  tip:"Tip: use the headings, the sidebar, and the map — they are part of the text too."},
+ {num:4,name:"Section 4 — Word Detective",sub:"Word Study & Vocabulary · Questions 29–38 · You have 15 minutes.",
+  layout:["q:29","q:30","q:31","q:32","q:33","q:34","q:35","q:36","q:37","q:38"],
+  tip:"Tip: break big words into parts, and let the words around a new word give you clues."}
+];
+var STD_MAP=[
+ ["RL.3.1",[1,2]],["RL.3.2",[3,4]],["RL.3.3",[5,6]],["RL.3.4",[7]],["RL.3.5",[8,9]],
+ ["RL.3.6",[10]],["RL.3.7",[11]],["RL.3.9",[12,13]],["RL.3.10","design"],
+ ["RI.3.1",[14,15]],["RI.3.2",[16,17]],["RI.3.3",[18,19]],["RI.3.4",[20]],["RI.3.5",[21,22]],
+ ["RI.3.6",[23]],["RI.3.7",[24]],["RI.3.8",[25,26]],["RI.3.9",[27,28]],["RI.3.10","design"],
+ ["RF.3.3",[29,30]],["L.3.4",[31,32,33]],["L.3.4d",[34]],["L.3.5",[35,36,37]],["L.3.6",[38]]
+];
+
+ 
+var answers={};             
+var keyResults={};          
+var currentSection=0;
+var submitted=false;
+var attempt=1;
+var timerId=null, timerEnd=0, timerKind=null;  
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function show(id){
+  var screens=["screen-start","screen-section","screen-break","screen-results"];
+  for(var i=0;i<screens.length;i++){$(screens[i]).classList.toggle("active",screens[i]===id);}
+  window.scrollTo(0,0);
+}
+function fmt(sec){sec=Math.max(0,sec);var m=Math.floor(sec/60),s=sec%60;return m+":"+(s<10?"0":"")+s;}
+function levelFor(score,total){
+  var pct=total? (score/total*100):0;
+  if(pct>=80) return "Above Grade Level";
+  if(pct>=55) return "At Grade Level";
+  return "Below Grade Level";
+}
+function cheerFor(level){
+  if(level==="Above Grade Level") return "Amazing, Eden! You are reading above grade level — superstar work! 🌟";
+  if(level==="At Grade Level") return "Great job, Eden! You are reading right at grade level — keep growing! 🌱";
+  return "Good trying, Eden! Every reader grows with practice — we will keep building together! 💪";
+}
+function matchKey(text,terms){
+  var t=" "+String(text||"").toLowerCase()+" ";
+  for(var i=0;i<terms.length;i++){ if(t.indexOf(terms[i].toLowerCase())!==-1) return true; }
+  return false;
+}
+function gradeQuestion(q){
+  if(q.type==="mc"){
+    return (typeof answers[q.n]==="number" && answers[q.n]===q.answer);
+  }
+  var txt=answers[q.n];
+  if(typeof txt!=="string" || txt.trim()===""){ keyResults[q.n]=[false,false]; return false; }
+  var r=[matchKey(txt,q.keys[0].terms), matchKey(txt,q.keys[1].terms)];
+  keyResults[q.n]=r;
+  return r[0]&&r[1];
+}
+function questionByNum(n){ for(var i=0;i<QUESTIONS.length;i++) if(QUESTIONS[i].n===n) return QUESTIONS[i]; return null; }
+
+ 
+try{
+  var prev=parseInt(localStorage.getItem(LS_KEY)||"0",10);
+  if(isNaN(prev)) prev=0;
+  attempt=prev+1;
+}catch(e){ attempt=1; }
+$("attempt-display").textContent=attempt;
+
+ 
+function passageHTML(pid){
+  var p=PASSAGES[pid]; if(!p) return "";
+  var inner;
+  if(p.html){ inner=p.html; }
+  else{
+    inner="";
+    var paras=p.text.split("\n\n");
+    for(var i=0;i<paras.length;i++) inner+="<p>"+esc(paras[i]).replace(/\n/g,"<br/>")+"</p>";
+  }
+  if(p.playbox) inner+=p.playbox;
+  return "<div class='card passage'><h3 class='passage-title'>📖 "+esc(p.title)+"</h3>"+inner+"</div>";
+}
+function questionHTML(q){
+  var h="<div class='qcard' data-q='"+q.n+"'>";
+  h+="<div class='q-head'><span class='q-num'>"+q.n+"</span><div><div class='q-text'>"+esc(q.q)+"</div>"
+    +"<div class='q-std'>California standard "+esc(q.std)+"</div></div></div>";
+  if(q.dict) h+=DICT_ENTRY_HTML;
+  if(q.type==="mc"){
+    var letters=["A","B","C","D"];
+    for(var i=0;i<q.opts.length;i++){
+      var sel=(answers[q.n]===i)?" selected":"";
+      h+="<button type='button' class='opt"+sel+"' data-q='"+q.n+"' data-idx='"+i+"'><span class='letter'>"+letters[i]+"</span><span>"+esc(q.opts[i])+"</span></button>";
+    }
+  }else{
+    h+="<p class='q-hint'>✏️ Write your answer in your own words. Try to include BOTH parts (1) and (2)!</p>";
+    var val=(typeof answers[q.n]==="string")?answers[q.n]:"";
+    h+="<textarea data-written='"+q.n+"' placeholder='Write your answer here…'>"+esc(val)+"</textarea>";
+  }
+  h+="</div>";
+  return h;
+}
+function renderSection(idx){
+  var sec=SECTIONS[idx];
+  $("section-title").textContent=sec.name;
+  $("section-sub").textContent=sec.sub;
+  $("timer-label").textContent="Section "+sec.num+" of 4 · Time left";
+  var html="";
+  for(var i=0;i<sec.layout.length;i++){
+    var item=sec.layout[i], kind=item.split(":")[0], ref=item.split(":")[1];
+    if(kind==="p") html+=passageHTML(ref);
+    else html+=questionHTML(questionByNum(parseInt(ref,10)));
+  }
+  $("section-body").innerHTML=html;
+  $("finish-warn").style.display="none";
+  var opts=document.querySelectorAll(".opt");
+  for(var j=0;j<opts.length;j++){
+    opts[j].addEventListener("click",function(){
+      var qn=parseInt(this.getAttribute("data-q"),10), ix=parseInt(this.getAttribute("data-idx"),10);
+      answers[qn]=ix;
+      var siblings=document.querySelectorAll(".opt[data-q='"+qn+"']");
+      for(var k=0;k<siblings.length;k++) siblings[k].classList.remove("selected");
+      this.classList.add("selected");
+    });
+  }
+  var tas=document.querySelectorAll("textarea[data-written]");
+  for(var t=0;t<tas.length;t++){
+    tas[t].addEventListener("input",function(){
+      answers[parseInt(this.getAttribute("data-written"),10)]=this.value;
+    });
+  }
+}
+function collectVisible(){
+  var tas=document.querySelectorAll("textarea[data-written]");
+  for(var t=0;t<tas.length;t++){ answers[parseInt(tas[t].getAttribute("data-written"),10)]=tas[t].value; }
+}
+
+ 
+function stopTimer(){ if(timerId){ clearInterval(timerId); timerId=null; } }
+function startTimer(seconds,kind,onDone){
+  stopTimer();
+  timerKind=kind;
+  timerEnd=Date.now()+seconds*1000;
+  var tick=function(){
+    var remain=Math.round((timerEnd-Date.now())/1000);
+    if(kind==="section"){
+      $("timer-clock").textContent=fmt(remain);
+      $("timerbar").classList.toggle("danger",remain<=60&&remain>0);
+    }else{
+      $("break-clock").textContent=fmt(remain);
+    }
+    if(remain<=0){ stopTimer(); onDone(); }
+  };
+  tick();
+  timerId=setInterval(tick,250);
+}
+
+ 
+function startSection(idx){
+  currentSection=idx;
+  renderSection(idx);
+  show("screen-section");
+  startTimer(15*60,"section",function(){ endSection(); });
+}
+function endSection(){
+  collectVisible();
+  stopTimer();
+  if(currentSection>=3){ submitTest(); return; }
+  $("break-next").textContent="Next up: "+SECTIONS[currentSection+1].name;
+  show("screen-break");
+  startTimer(5*60,"break",function(){ startSection(currentSection+1); });
+}
+$("btn-start").addEventListener("click",function(){
+  try{ localStorage.setItem(LS_KEY,String(attempt)); }catch(e){}
+  startSection(0);
+});
+function unansweredInSection(idx){
+  var missing=[];
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q=QUESTIONS[i];
+    if(q.sec!==idx+1) continue;
+    if(q.type==="mc"){ if(typeof answers[q.n]!=="number") missing.push(q.n); }
+    else if(typeof answers[q.n]!=="string" || answers[q.n].trim()==="") missing.push(q.n);
+  }
+  return missing;
+}
+$("btn-finish").addEventListener("click",function(){
+  collectVisible();
+  var missing=unansweredInSection(currentSection);
+  if(missing.length){
+    var w=$("finish-warn");
+    w.textContent="Almost! Please answer question"+(missing.length>1?"s ":" ")+missing.join(", ")
+      +" first — finish all the questions, and then your break starts. 🌟";
+    w.style.display="block";
+    var card=document.querySelector(".qcard[data-q='"+missing[0]+"']");
+    if(card) card.scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  endSection();
+});
+$("btn-skip-break").addEventListener("click",function(){ stopTimer(); startSection(currentSection+1); });
+
+ 
+function passageLogText(pid){
+  var p=PASSAGES[pid]; var out=p.title+"\n"+p.text;
+  if(p.extraLog) out+="\n"+p.extraLog;
+  if(p.chartText) out+="\n"+p.chartText;
+  return out;
+}
+function submitTest(){
+  if(submitted) return;
+  submitted=true;
+  stopTimer();
+  collectVisible();
+
+  var total=QUESTIONS.length, score=0, results={};
+  var secScores={1:0,2:0,3:0,4:0}, secTotals={1:0,2:0,3:0,4:0};
+  var i,q;
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i];
+    secTotals[q.sec]++;
+    var ok=gradeQuestion(q);
+    results[q.n]=ok;
+    if(ok){ score++; secScores[q.sec]++; }
+  }
+  var overallLevel=levelFor(score,total);
+  var today=new Date();
+  var pad=function(x){return (x<10?"0":"")+x;};
+  var dateStr=today.getFullYear()+"-"+pad(today.getMonth()+1)+"-"+pad(today.getDate());
+
+   
+  $("res-score").textContent=score+" / "+total;
+  $("res-level").textContent=overallLevel;
+  var duckPct=overallLevel==="Above Grade Level"?70:(overallLevel==="At Grade Level"?50:37);
+  var duckCap=overallLevel==="Above Grade Level"?"Just past Grade 3 \u2014 Grade 4 is in sight! \uD83C\uDF1F":(overallLevel==="At Grade Level"?"Right in the middle of Grade 3 \u2014 great work, Eden! \uD83C\uDF31":"Still growing toward Grade 3 \u2014 keep reading, you will get there! \uD83D\uDCAA");
+  $("res-duck").style.left=duckPct+"%";
+  $("res-gb-caption").textContent=duckCap;
+  $("res-cheer").textContent=cheerFor(overallLevel);
+  var secHTML="";
+  for(i=0;i<SECTIONS.length;i++){
+    var s=SECTIONS[i], sc=secScores[s.num], st=secTotals[s.num], lv=levelFor(sc,st);
+    var cls=lv==="Above Grade Level"?"above":(lv==="At Grade Level"?"at":"below");
+    secHTML+="<div class='sec-card'><h3>"+esc(s.name)+"</h3><div class='s-score'>"+sc+" / "+st+"</div>"
+      +"<span class='pill "+cls+"'>"+lv+"</span><p class='tip'>"+esc(s.tip)+"</p></div>";
+  }
+  $("res-sections").innerHTML=secHTML;
+
+  var stdHTML="";
+  for(i=0;i<STD_MAP.length;i++){
+    var code=STD_MAP[i][0], qs=STD_MAP[i][1], status, cls2;
+    if(qs==="design"){ status="covered by design — all passages are written in the grades 2–3 text complexity band"; cls2="st-design"; }
+    else{
+      var any=false, all=true;
+      for(var j=0;j<qs.length;j++){ if(results[qs[j]]) any=true; else all=false; }
+      if(all){ status="✓ showed it"; cls2="st-showed"; }
+      else if(any){ status="almost — some questions right"; cls2="st-almost"; }
+      else{ status="not yet"; cls2="st-notyet"; }
+    }
+    var extra="";
+    stdHTML+="<div class='std-row'><span class='std-code'>"+esc(code)+"</span><span class='std-status "+cls2+"'>"+esc(status)+"</span>"+extra+"</div>";
+  }
+  $("res-standards").innerHTML=stdHTML;
+
+  var letters=["A","B","C","D"], revHTML="";
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i]; var ok2=results[q.n];
+    revHTML+="<div class='rev-item "+(ok2?"correct":"wrong")+"'>"
+      +"<p><span class='lbl'>Q"+q.n+".</span> "+esc(q.q)+" <span class='q-std'>["+esc(q.std)+"]</span></p>";
+    if(q.type==="mc"){
+      var yourAns=(typeof answers[q.n]==="number")? (letters[answers[q.n]]+". "+q.opts[answers[q.n]]) : "(no answer)";
+      revHTML+="<p><span class='lbl'>Your answer:</span> "+esc(yourAns)+"</p>"
+        +"<p><span class='lbl'>Correct answer:</span> "+esc(letters[q.answer]+". "+q.opts[q.answer])+"</p>";
+    }else{
+      var yourW=(typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")?answers[q.n]:"(no answer)";
+      var kr=keyResults[q.n]||[false,false];
+      revHTML+="<p><span class='lbl'>Your answer:</span> "+esc(yourW)+"</p>"
+        +"<p><span class='lbl'>Key point 1:</span> "+(kr[0]?"✅ found — ":"❌ missing — ")+esc(q.keys[0].label)+"</p>"
+        +"<p><span class='lbl'>Key point 2:</span> "+(kr[1]?"✅ found — ":"❌ missing — ")+esc(q.keys[1].label)+"</p>"
+        +"<p><span class='lbl'>Sample answer:</span> "+esc(q.sample)+"</p>";
+    }
+    revHTML+="<p class='rev-badge "+(ok2?"ok":"no")+"'>"+(ok2?"✅ Correct":"❌ Not yet")+"</p></div>";
+  }
+  $("res-review").innerHTML=revHTML;
+  show("screen-results");
+
+   
+  var log="Grade 3 Reading Placement Test — Full Coverage\n"
+    +"Student: Eden\nDate: "+dateStr+"\nAttempt: "+attempt+"\n"
+    +"Score: "+score+"/"+total+"\nForm: A\nOverall level: "+overallLevel+"\n";
+  for(i=0;i<SECTIONS.length;i++){
+    var s2=SECTIONS[i];
+    log+="Section "+s2.num+" ("+s2.name+"): "+secScores[s2.num]+"/"+secTotals[s2.num]+" — "+levelFor(secScores[s2.num],secTotals[s2.num])+"\n";
+  }
+  log+="\n";
+  var seenP={};
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i];
+    for(var pi=0;pi<q.p.length;pi++){
+      var pid=q.p[pi];
+      if(!seenP[pid]){ seenP[pid]=true; log+="----- "+passageLogText(pid)+"\n\n"; }
+    }
+    if(q.dict) log+=DICT_ENTRY_TEXT+"\n\n";
+    log+="Q"+q.n+". "+q.q+" [California standard "+q.std+"]\n";
+    if(q.type==="mc"){
+      for(var oi=0;oi<q.opts.length;oi++) log+="   "+letters[oi]+". "+q.opts[oi]+"\n";
+      log+="Student's answer: "+((typeof answers[q.n]==="number")? q.opts[answers[q.n]] : "(no answer)")+"\n";
+      log+="Correct answer: "+q.opts[q.answer]+"\n";
+    }else{
+      log+="Student's answer: "+((typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")? answers[q.n] : "(no answer)")+"\n";
+      log+="Correct answer (sample): "+q.sample+"\n";
+      var kr2=keyResults[q.n]||[false,false];
+      log+="Key point 1: "+(kr2[0]?"found":"missing")+" — "+q.keys[0].label+"\n";
+      log+="Key point 2: "+(kr2[1]?"found":"missing")+" — "+q.keys[1].label+"\n";
+    }
+    log+="Result: "+(results[q.n]?"Correct":"Wrong")+"\n\n";
+  }
+
+   
+  var wrongList=[];
+  for(i=0;i<QUESTIONS.length;i++) if(!results[QUESTIONS[i].n]) wrongList.push(QUESTIONS[i]);
+  var pdf="Grade 3 Reading Placement Test — Full Coverage — Try Again Sheet\n"
+    +"Student: Eden\nDate: "+dateStr+"\nAttempt: "+attempt+"\nForm: A\n\n";
+  if(wrongList.length===0){
+    pdf+="Wonderful — all answers were correct! Nothing to redo. 🎉\n";
+  }else{
+    for(i=0;i<wrongList.length;i++){
+      q=wrongList[i];
+      for(var pj=0;pj<q.p.length;pj++) pdf+="----- "+passageLogText(q.p[pj])+"\n\n";
+      if(q.dict) pdf+=DICT_ENTRY_TEXT+"\n\n";
+      pdf+="Q"+q.n+". "+q.q+"\n";
+      if(q.type==="mc"){
+        for(var oj=0;oj<q.opts.length;oj++) pdf+="   "+letters[oj]+". "+q.opts[oj]+"\n";
+      }else{
+        pdf+="Part 1: ____________________________________________________________\n";
+        pdf+="Part 2: ____________________________________________________________\n";
+      }
+      pdf+="\n";
+    }
+  }
+
+  var payload={ folder:"Eden", subfolder:"摸底測試", student:"Eden",
+    test:"Grade 3 Reading Placement Test — Full Coverage",
+    date:dateStr, attempt:attempt, score:score+"/"+total, log:log, pdfText:pdf };
+  
+  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
+     Google Apps Script, so google.script.run does not exist here. The answer
+     log is POSTed directly to the same receiver endpoint (its doPost), with
+     the identical payload shape the watcher already parses. fetch(no-cors)
+     first; sendBeacon as fallback; a second fetch as last resort. */
+  function postLog(payload){
+    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+    var body;
+    try { body = JSON.stringify(payload); } catch (e) { return false; }
+    function beacon(){
+      try {
+        if (navigator && typeof navigator.sendBeacon === "function") {
+          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
+        }
+      } catch (e) {}
+      return false;
+    }
+    function fetchPost(){
+      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
+    }
+    try {
+      if (window.fetch) {
+        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
+        return true;
+      }
+      return beacon();
+    } catch (e) {
+      return beacon();
+    }
+  }
+  try { postLog(payload); } catch(e){}
+}
+</script>
+</body>
+</html>

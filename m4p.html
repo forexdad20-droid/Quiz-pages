@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Grade 4 Math Placement Test</title>
+<style>
+:root{
+  --bg:#e8f4fc; --card:#ffffff; --ink:#1d2b3a; --muted:#4a6076;
+  --line:#c9dfef; --accent:#0e7c66; --accent-ink:#ffffff;
+  --amber:#ffb703; --amber-ink:#4a3200; --coral:#e4572e;
+  --good:#1a7f4b; --good-bg:#e2f5e9; --bad:#b3261e; --bad-bg:#fdecea;
+  --warn-bg:#fff3d6; --chip:#eef6fb; --shadow:0 4px 18px rgba(20,60,90,.12);
+  --radius:20px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101c28; --card:#1b2c3d; --ink:#eef5fa; --muted:#a9bfd1;
+    --line:#33506a; --accent:#2bb598; --accent-ink:#06231c;
+    --amber:#ffb703; --amber-ink:#3a2800; --coral:#ff8a5c;
+    --good:#5fd598; --good-bg:#143527; --bad:#ff9a94; --bad-bg:#40201e;
+    --warn-bg:#3d3413; --chip:#243b52; --shadow:0 4px 18px rgba(0,0,0,.4);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Arial Rounded MT Bold","Helvetica Rounded",ui-rounded,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  font-size:18px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:16px 14px 48px}
+h1{font-size:clamp(26px,6vw,40px);line-height:1.2;margin:6px 0 10px;text-align:center}
+h2{font-size:clamp(21px,4.5vw,27px);margin:0 0 8px}
+h3{font-size:20px;margin:0 0 6px}
+p{margin:0 0 10px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin:0 0 18px}
+.grade-bar-wrap{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:16px 16px 12px;margin:0 0 18px;text-align:center}
+.grade-bar-title{font-size:21px;font-weight:800;margin-bottom:12px}
+.grade-bar{position:relative;display:flex;border:2px solid var(--line);border-radius:999px;margin:28px 4px 8px}
+.gb-seg{flex:1;text-align:center;padding:10px 0;font-weight:800;font-size:17px}
+.gb-seg.g3{background:#dbeafe;border-radius:999px 0 0 999px}
+.gb-seg.g4{background:#fde68a}
+.gb-seg.g5{background:#bbf7d0;border-radius:0 999px 999px 0}
+.gb-duck{position:absolute;top:-40px;transform:translateX(-50%);line-height:1;transition:left .6s ease}.gb-duck svg{display:block}
+.grade-bar-caption{font-size:18px;font-weight:700;margin-top:4px}
+.subtitle{text-align:center;color:var(--muted);font-size:19px;margin-bottom:16px}
+button{font:inherit;cursor:pointer;border:none;border-radius:999px;min-height:52px;
+  padding:12px 26px;font-weight:700}
+.btn-big{background:var(--accent);color:var(--accent-ink);font-size:22px;width:100%;padding:16px}
+.btn-finish{background:var(--accent);color:var(--accent-ink);font-size:20px;width:100%}
+.btn-break{background:var(--accent);color:var(--accent-ink);font-size:21px;width:100%}
+button:active{transform:scale(.98)}
+.attempt-line{text-align:center;font-size:19px;margin:0 0 14px}
+.howto li{margin-bottom:8px;font-size:18px}
+.note{background:var(--warn-bg);border-radius:14px;padding:14px 16px;font-size:16.5px}
+.screen{display:none}
+.screen.active{display:block}
+.timerbar{position:sticky;top:8px;z-index:20;display:flex;align-items:center;gap:10px;
+  background:var(--card);border:3px solid var(--accent);border-radius:999px;
+  padding:8px 18px;box-shadow:var(--shadow);margin-bottom:16px;flex-wrap:wrap}
+.timerbar .t-label{font-weight:700;font-size:17px}
+.timerbar .t-clock{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;margin-left:auto}
+.timerbar.danger{border-color:var(--bad);background:var(--bad-bg)}
+.timerbar.danger .t-clock{color:var(--bad)}
+.t-warn{display:none;width:100%;text-align:center;color:var(--bad);font-weight:800;font-size:18px}
+.timerbar.danger .t-warn{display:block}
+.passage-title{font-size:21px;margin-bottom:8px}
+.passage p{margin-bottom:10px}
+.passage .stanza{margin-bottom:14px}
+.passage .stanza p{margin:0}
+.drama-line{margin-bottom:6px}
+.speaker{font-weight:800;text-transform:uppercase}
+.stage{font-style:italic;color:var(--muted)}
+.playbox{border:3px dashed var(--amber);border-radius:14px;padding:12px 14px;margin-top:12px;background:var(--warn-bg)}
+.dictbox{border:3px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--chip);margin-bottom:12px}
+.dictbox p{margin:0 0 6px}
+.bars{margin:12px 0 4px}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.bar-name{width:130px;flex:none;font-weight:700;font-size:16.5px}
+.bar-track{flex:1;background:var(--chip);border-radius:8px;height:30px;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px}
+.bar-val{width:74px;flex:none;font-weight:700;font-size:16.5px}
+.qcard{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:20px;margin:0 0 18px}
+.q-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px}
+.q-num{background:var(--accent);color:var(--accent-ink);border-radius:50%;width:40px;height:40px;
+  flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px}
+.q-text{font-size:19.5px;font-weight:700;padding-top:6px}
+.q-std{font-size:14.5px;color:var(--muted);font-weight:700}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--chip);
+  border:3px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 10px;
+  font-size:18.5px;font-weight:600;color:var(--ink);min-height:56px}
+.opt .letter{background:var(--card);border:2px solid var(--line);border-radius:50%;width:32px;height:32px;
+  flex:none;display:flex;align-items:center;justify-content:center;font-weight:800}
+.opt.selected{border-color:var(--accent);background:var(--good-bg)}
+.opt.selected .letter{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.fill-input{width:100%;font:inherit;font-size:19px;color:var(--ink);background:var(--chip);border:3px solid var(--line);border-radius:14px;padding:14px}
+.fill-input:focus{outline:3px solid var(--accent)}
+textarea{width:100%;font:inherit;font-size:18.5px;color:var(--ink);background:var(--chip);
+  border:3px solid var(--line);border-radius:14px;padding:14px;min-height:150px;resize:vertical}
+textarea:focus{outline:3px solid var(--accent)}
+.q-hint{font-size:16.5px;color:var(--muted);margin-bottom:8px}
+.section-actions{display:grid;gap:12px;margin-top:6px}
+.break-clock{font-size:clamp(64px,18vw,110px);font-weight:800;text-align:center;
+  font-variant-numeric:tabular-nums;color:var(--accent);line-height:1.1;margin:10px 0}
+.center{text-align:center}
+.score-big{font-size:clamp(40px,10vw,58px);font-weight:800;text-align:center;margin:4px 0}
+.level-line{text-align:center;font-size:23px;font-weight:800;margin-bottom:6px}
+.cheer{text-align:center;color:var(--muted);font-size:19px;margin-bottom:8px}
+.sec-grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.sec-grid{grid-template-columns:1fr 1fr}}
+.sec-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:18px}
+.sec-card .s-score{font-size:26px;font-weight:800}
+.pill{display:inline-block;border-radius:999px;padding:3px 14px;font-size:15.5px;font-weight:800;margin:4px 0}
+.pill.above{background:var(--good-bg);color:var(--good)}
+.pill.at{background:#dcefff;color:#14508c}
+@media (prefers-color-scheme: dark){.pill.at{background:#173a5c;color:#9fd0ff}}
+.pill.below{background:var(--bad-bg);color:var(--bad)}
+.tip{color:var(--muted);font-size:16.5px;margin-top:6px}
+.std-row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.std-row:last-child{border-bottom:none}
+.std-code{font-weight:800;min-width:74px;flex:none}
+.std-status{font-weight:700}
+.st-showed{color:var(--good)} .st-almost{color:#b97e00} .st-notyet{color:var(--bad)} .st-design{color:var(--muted)}
+@media (prefers-color-scheme: dark){.st-almost{color:#ffcf5c}}
+.rev-item{border:2px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px;background:var(--card)}
+.rev-item.correct{border-color:var(--good)}
+.rev-item.wrong{border-color:var(--bad)}
+.rev-badge{font-weight:800}
+.rev-badge.ok{color:var(--good)} .rev-badge.no{color:var(--bad)}
+.rev-item p{font-size:17px;margin-bottom:6px}
+.rev-item .lbl{font-weight:800}
+.small{font-size:15.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  
+  <section id="screen-start" class="screen active">
+    <h1>🧮 Grade 4 Math Placement Test</h1>
+    <p class="subtitle">Hi, Amber! Let's show what a super mathematician you are. 🌟</p>
+    
+    <div class="grade-bar-wrap">
+      <div class="grade-bar-title">🗺️ Where am I?</div>
+      <div class="grade-bar">
+        <div class="gb-seg g3">Grade 4</div><div class="gb-seg g4">Grade 5</div><div class="gb-seg g5">Grade 6</div>
+        <div class="gb-duck" style="left:17%"><svg width="44" height="44" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><clipPath id="ringClipA"><rect x="0" y="0" width="100" height="87"/></clipPath></defs><g clip-path="url(#ringClipA)"><ellipse cx="50" cy="59" rx="46" ry="43" fill="#E8A856" stroke="#C07F35" stroke-width="3"/><path d="M10 68 q-3 15 5 24 q9-7 7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><path d="M90 68 q3 15-5 24 q-9-7-7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="55" rx="38" ry="35" fill="#FFD93D" stroke="#D99A00" stroke-width="3"/><ellipse cx="50" cy="67" rx="21" ry="17" fill="#FFF3A3"/><ellipse cx="15" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(-18 15 59)"/><ellipse cx="85" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(18 85 59)"/><path d="M50 20 C47 12 42 9 37 7 M50 20 C50 11 54 7 58 4 M50 20 C53 13 58 11 62 9" fill="none" stroke="#D99A00" stroke-width="3" stroke-linecap="round"/><path d="M15 36 C18 15 33 7 50 7 C67 7 82 15 85 36 C75 24 64 20 50 20 C36 20 25 24 15 36 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><g transform="rotate(-8 50 6)"><ellipse cx="41" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><ellipse cx="59" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><circle cx="50" cy="6" r="4.2" fill="#FF5C96" stroke="#E5538B" stroke-width="2"/></g><ellipse cx="27" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><ellipse cx="73" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><circle cx="36" cy="44" r="5.5" fill="#2B2118"/><circle cx="64" cy="44" r="5.5" fill="#2B2118"/><circle cx="37.8" cy="42.2" r="1.8" fill="#ffffff"/><circle cx="65.8" cy="42.2" r="1.8" fill="#ffffff"/><path d="M29.5 39.5 q-3.5-3-7-3.5 M70.5 39.5 q3.5-3 7-3.5" fill="none" stroke="#2B2118" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="50" cy="52.5" rx="10" ry="6.5" fill="#FF8C1A" stroke="#D96A00" stroke-width="2"/><path d="M41 52.5 H59" stroke="#D96A00" stroke-width="1.6" stroke-linecap="round"/></g><g><path d="M2 64 Q50 56 98 64 C94 77 85 86.5 68 89.6 Q50 93.4 32 89.6 C15 86.5 6 77 2 64 Z" fill="#FF8FAB" stroke="#E5538B" stroke-width="3" stroke-linejoin="round"/><path d="M8 65 Q50 57.8 92 65" fill="none" stroke="#FFC2D4" stroke-width="4" stroke-linecap="round" opacity="0.9"/><ellipse cx="50" cy="62.5" rx="25" ry="6.5" fill="#E5538B"/><ellipse cx="50" cy="62" rx="17.5" ry="4.2" fill="#FFD93D" stroke="#E5538B" stroke-width="2"/></g></svg></div>
+      </div>
+      <div class="grade-bar-caption">Let's check your Grade 4 math! 🐤</div>
+    </div>
+    <div class="card howto">
+      <h2>📋 How this test works</h2>
+      <ul><li><strong>4 sections</strong> of math questions.</li><li>Each section gives you <strong>15 minutes</strong> — the timer is always at the top.</li><li>Between sections you get a <strong>5-minute break</strong> to rest, stretch, and get a drink.</li><li>While you are answering questions, there is <strong>no skipping</strong> — finish all the questions in the section, then tap the finish button to start your break.</li><li>On a break, you may <strong>skip the break</strong> and go straight to the next section whenever you are ready.</li><li>There are <strong>38 questions</strong> in all — try to answer every one before your 15 minutes run out.</li><li>For <strong>🔢 questions</strong>, work the answer out and type it in the box. For <strong>✏️ questions</strong>, write both parts (1) and (2).</li></ul>
+    </div>
+    <div class="card">
+      <p class="attempt-line">This is <strong>Attempt #<span id="attempt-display">1</span></strong></p>
+      <button class="btn-big" id="btn-start">▶ Start the Test</button>
+    </div>
+    <div class="note"><strong>About this test:</strong> This test checks all 28 California Grade 4 Math standards (CA CCSSM, California Department of Education). Some standards are about doing things with real tools — measuring with a ruler (4.MD.1), measuring angles with a protractor (4.MD.6), and drawing lines and shapes (4.G.1) — in this test they are checked with printed pictures, measurements and questions instead.</div>
+  </section>
+
+  
+  <section id="screen-section" class="screen">
+    <div class="timerbar" id="timerbar">
+      <span class="t-label" id="timer-label">Section 1 · Time left</span>
+      <span class="t-clock" id="timer-clock">15:00</span>
+      <span class="t-warn" id="timer-warn">⏰ 1 minute left!</span>
+    </div>
+    <h2 id="section-title"></h2>
+    <p class="subtitle" id="section-sub" style="text-align:left"></p>
+    <div id="section-body"></div>
+    <div class="section-actions">
+      <button class="btn-finish" id="btn-finish">✅ I finished all the questions — take my break</button>
+      <p class="note" id="finish-warn" style="display:none"></p>
+    </div>
+    <p class="small center" style="margin-top:10px">There is no skip button here — finish all the questions in this section to reach your break. If the 15 minutes run out, the section ends on its own.</p>
+  </section>
+
+  
+  <section id="screen-break" class="screen">
+    <div class="card center">
+      <h2 style="font-size:clamp(26px,6vw,36px)">Great job! 🎉 Break time</h2>
+      <div class="break-clock" id="break-clock">5:00</div>
+      <p style="font-size:20px">Rest your eyes, stretch your arms, roll your shoulders,<br/>and have a sip of water. 💧</p>
+      <p class="small" id="break-next"></p>
+      <button class="btn-break" id="btn-skip-break">⏩ Skip the break — start the next section</button>
+    </div>
+  </section>
+
+  
+  <section id="screen-results" class="screen">
+    <h1>🏆 Your Results</h1>
+    <div class="grade-bar-wrap">
+      <div class="grade-bar-title">🗺️ Where am I?</div>
+      <div class="grade-bar">
+        <div class="gb-seg g3">Grade 4</div><div class="gb-seg g4">Grade 5</div><div class="gb-seg g5">Grade 6</div>
+        <div class="gb-duck" id="res-duck" style="left:50%"><svg width="44" height="44" aria-hidden="true" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false"><defs><clipPath id="ringClipA2"><rect x="0" y="0" width="100" height="87"/></clipPath></defs><g clip-path="url(#ringClipA2)"><ellipse cx="50" cy="59" rx="46" ry="43" fill="#E8A856" stroke="#C07F35" stroke-width="3"/><path d="M10 68 q-3 15 5 24 q9-7 7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><path d="M90 68 q3 15-5 24 q-9-7-7-22 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="50" cy="55" rx="38" ry="35" fill="#FFD93D" stroke="#D99A00" stroke-width="3"/><ellipse cx="50" cy="67" rx="21" ry="17" fill="#FFF3A3"/><ellipse cx="15" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(-18 15 59)"/><ellipse cx="85" cy="59" rx="6.5" ry="11" fill="#FFC93C" stroke="#D99A00" stroke-width="2.5" transform="rotate(18 85 59)"/><path d="M50 20 C47 12 42 9 37 7 M50 20 C50 11 54 7 58 4 M50 20 C53 13 58 11 62 9" fill="none" stroke="#D99A00" stroke-width="3" stroke-linecap="round"/><path d="M15 36 C18 15 33 7 50 7 C67 7 82 15 85 36 C75 24 64 20 50 20 C36 20 25 24 15 36 Z" fill="#E8A856" stroke="#C07F35" stroke-width="2.5" stroke-linejoin="round"/><g transform="rotate(-8 50 6)"><ellipse cx="41" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><ellipse cx="59" cy="6" rx="8.5" ry="5.5" fill="#FF7BAC" stroke="#E5538B" stroke-width="2"/><circle cx="50" cy="6" r="4.2" fill="#FF5C96" stroke="#E5538B" stroke-width="2"/></g><ellipse cx="27" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><ellipse cx="73" cy="58" rx="10" ry="6.5" fill="#FF8FAB" opacity="0.95"/><circle cx="36" cy="44" r="5.5" fill="#2B2118"/><circle cx="64" cy="44" r="5.5" fill="#2B2118"/><circle cx="37.8" cy="42.2" r="1.8" fill="#ffffff"/><circle cx="65.8" cy="42.2" r="1.8" fill="#ffffff"/><path d="M29.5 39.5 q-3.5-3-7-3.5 M70.5 39.5 q3.5-3 7-3.5" fill="none" stroke="#2B2118" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="50" cy="52.5" rx="10" ry="6.5" fill="#FF8C1A" stroke="#D96A00" stroke-width="2"/><path d="M41 52.5 H59" stroke="#D96A00" stroke-width="1.6" stroke-linecap="round"/></g><g><path d="M2 64 Q50 56 98 64 C94 77 85 86.5 68 89.6 Q50 93.4 32 89.6 C15 86.5 6 77 2 64 Z" fill="#FF8FAB" stroke="#E5538B" stroke-width="3" stroke-linejoin="round"/><path d="M8 65 Q50 57.8 92 65" fill="none" stroke="#FFC2D4" stroke-width="4" stroke-linecap="round" opacity="0.9"/><ellipse cx="50" cy="62.5" rx="25" ry="6.5" fill="#E5538B"/><ellipse cx="50" cy="62" rx="17.5" ry="4.2" fill="#FFD93D" stroke="#E5538B" stroke-width="2"/></g></svg></div>
+      </div>
+      <div class="grade-bar-caption" id="res-gb-caption">Let's see where you land!</div>
+    </div>
+    <div class="card">
+      <p class="center" style="font-size:19px;margin:0">Your score</p>
+      <div class="score-big" id="res-score"></div>
+      <div class="level-line" id="res-level"></div>
+      <p class="cheer" id="res-cheer"></p>
+    </div>
+    <h2>📊 Your four sections</h2>
+    <div class="sec-grid" id="res-sections" style="margin-bottom:18px"></div>
+    <div class="card">
+      <h2>✅ Standards check</h2>
+      <p class="small">✓ showed it = you got every question for that standard right · almost = you got at least one right · not yet = keep practising!</p>
+      <div id="res-standards"></div>
+    </div>
+    <div class="card">
+      <h2>🔍 Review your answers</h2>
+      <div id="res-review"></div>
+    </div>
+    <div class="note"><strong>Blueprint note:</strong> This test checks all 28 California Grade 4 Math standards (CA CCSSM, California Department of Education). Standards about real tools — measuring with a ruler (4.MD.1), measuring angles with a protractor (4.MD.6), drawing lines and shapes (4.G.1) — are checked here with printed pictures, measurements and questions.</div>
+  </section>
+
+</div>
+<script>
+"use strict";
+var TEST_NAME = "Grade 4 Math Placement Test";
+var STUDENT_NAME = "Amber";
+var MEASURED_Q = {"Above Grade Level": 750, "At Grade Level": 600, "Below Grade Level": 450};
+var LS_KEY = "attempts::" + TEST_NAME;
+
+
+var TEST_MODE = false;
+function applyTestMode(){
+  if(!TEST_MODE) return;
+  STUDENT_NAME = "TEST";
+  LS_KEY = "attempts::TEST::" + TEST_NAME;
+  try{
+    var tp = parseInt(localStorage.getItem(LS_KEY) || "0", 10);
+    attempt = (isNaN(tp) ? 0 : tp) + 1;
+    var ad = $("attempt-display"); if(ad) ad.textContent = attempt;
+  }catch(e){}
+}
+try { if(new URLSearchParams(window.location.search).get("test") === "1") TEST_MODE = true; } catch(e) {}
+try {
+  if(window.google && google.script && google.script.url && google.script.url.getLocation) {
+    google.script.url.getLocation(function(loc){
+      try { if(loc && loc.parameter && loc.parameter.test === "1"){ TEST_MODE = true; applyTestMode(); } } catch(e) {}
+    });
+  }
+} catch(e) {}
+if(TEST_MODE) applyTestMode();
+
+
+ 
+var PASSAGES = {"B": {"title": "The Fruit Stand", "text": "At the school fruit stand, one apple pie is cut into 8 equal slices, and one berry pie is cut into 8 equal slices too.\n\nFour friends share the berry pie equally, and in the morning the stand sells slices of the apple pie."}, "C": {"title": "The Class Quilt", "text": "Amber's class is sewing a class quilt. The quilt is a rectangle 7 feet long and 3 feet wide.\n\nThe class started sewing at 10:15 in the morning and worked for 2 hours and 20 minutes."}, "D": {"title": "Pencil Lengths", "text": "The teacher measured the pencils in the class pencil box and made a line plot.", "chartText": "Line plot — pencil lengths in inches:\n4 1/2 inches: X X\n4 3/4 inches: X\n5 inches: X X X\n5 1/4 inches: X"}, "E": {"title": "Number Pattern", "text": "A number pattern follows this rule: start with 5, then add 3 each time.\n\nThe pattern goes: 5, 8, 11, 14, …"}};
+
+var QUESTIONS=[{"n": 1, "sec": 1, "std": "4.NBT.1", "p": [], "type": "mc", "q": "In the number 909,090, how many times greater is the value of the first 9 than the value of the second 9?", "opts": ["10 times", "100 times", "1,000 times", "9 times"], "answer": 1}, {"n": 2, "sec": 1, "std": "4.NBT.2", "p": [], "type": "mc", "q": "Which number has a 5 in the ten-thousands place?", "opts": ["352,481", "435,281", "481,352", "528,431"], "answer": 0}, {"n": 3, "sec": 1, "std": "4.NBT.3", "p": [], "type": "fill", "q": "Round 284,619 to the nearest thousand.", "accept": ["285000", "285,000"]}, {"n": 4, "sec": 1, "std": "4.NBT.2", "p": [], "type": "fill", "q": "What is the value of the digit 8 in the number 382,614?", "accept": ["80000", "80,000"]}, {"n": 5, "sec": 1, "std": "4.NBT.4", "p": [], "type": "fill", "q": "Work it out: 5,208 − 2,946 = ?", "accept": ["2262", "2,262"]}, {"n": 6, "sec": 1, "std": "4.NBT.4", "p": [], "type": "mc", "q": "Work it out: 3,475 + 2,858 = ?", "opts": ["6,233", "6,333", "6,433", "5,333"], "answer": 1}, {"n": 7, "sec": 1, "std": "4.NBT.5", "p": [], "type": "fill", "q": "Work it out: 43 × 7 = ?", "accept": ["301"]}, {"n": 8, "sec": 1, "std": "4.NBT.5", "p": [], "type": "mc", "q": "A theater has 16 rows with 28 seats in each row. How many seats are there in all?", "opts": ["428 seats", "448 seats", "408 seats", "468 seats"], "answer": 1}, {"n": 9, "sec": 1, "std": "4.NBT.6", "p": [], "type": "fill", "q": "Work it out: 135 ÷ 5 = ?", "accept": ["27"]}, {"n": 10, "sec": 1, "std": "4.NBT.6", "p": [], "type": "mc", "q": "Work it out: 144 ÷ 6 = ?", "opts": ["22", "26", "24", "28"], "answer": 2}, {"n": 11, "sec": 2, "std": "4.NF.1", "p": [], "type": "fill", "q": "2/3 = ?/9 — what number goes in the blank?", "accept": ["6"]}, {"n": 12, "sec": 2, "std": "4.NF.2", "p": [], "type": "mc", "q": "Which fraction is less than 3/4?", "opts": ["7/8", "5/8", "4/4", "9/8"], "answer": 1}, {"n": 13, "sec": 2, "std": "4.NF.3", "p": ["B"], "type": "mc", "q": "In the morning, the stand sold 3/8 of the apple pie and 2/8 of the berry pie. How much pie was sold in all?", "opts": ["5/16", "1/8", "5/8", "6/8"], "answer": 2}, {"n": 14, "sec": 2, "std": "4.NF.3", "p": [], "type": "fill", "q": "Work it out: 4/9 + 3/9 = ? (Type it like 7/9.)", "accept": ["7/9"]}, {"n": 15, "sec": 2, "std": "4.NF.4", "p": ["B"], "type": "written", "q": "Four friends each eat 1/8 of the berry pie. (1) Explain how you can find how much of the pie the friends eat in all. (2) How much of the pie do they eat in all?", "keys": [{"label": "Explains 4 × 1/8 as adding 1/8 four times (1/8 + 1/8 + 1/8 + 1/8) or as 4 copies of 1/8", "terms": ["1/8 + 1/8 + 1/8 + 1/8", "1/8+1/8+1/8+1/8", "four times", "4 times", "4 copies", "four copies", "add 1/8", "adding 1/8", "repeated"]}, {"label": "The friends eat 4/8 (one half) of the pie", "terms": ["4/8", "1/2"]}], "sample": "(1) 4 × 1/8 is 1/8 added four times: 1/8 + 1/8 + 1/8 + 1/8. (2) That makes 4/8 of a pie, which is 1/2 of a pie."}, {"n": 16, "sec": 2, "std": "4.NF.4", "p": [], "type": "mc", "q": "Work it out: 3 × 3/5 = ?", "opts": ["6/5", "3/15", "9/15", "9/5"], "answer": 3}, {"n": 17, "sec": 2, "std": "4.NF.5", "p": [], "type": "fill", "q": "Write 8/10 as a fraction with denominator 100. (Type it like 80/100.)", "accept": ["80/100"]}, {"n": 18, "sec": 2, "std": "4.NF.6", "p": [], "type": "mc", "q": "Which fraction equals 0.45?", "opts": ["45/10", "4/5", "45/1000", "45/100"], "answer": 3}, {"n": 19, "sec": 2, "std": "4.NF.7", "p": [], "type": "mc", "q": "Which decimal is less than 0.75?", "opts": ["0.8", "0.7", "0.75", "0.9"], "answer": 1}, {"n": 20, "sec": 3, "std": "4.MD.1", "p": [], "type": "fill", "q": "How many millimeters are in 6 centimeters?", "accept": ["60", "60 mm", "60 millimeters"]}, {"n": 21, "sec": 3, "std": "4.MD.2", "p": ["C"], "type": "written", "q": "The class started sewing the quilt at 10:15 in the morning and worked for 2 hours and 20 minutes. (1) Explain how you find the time they finished. (2) What time did they finish?", "keys": [{"label": "Adds 2 hours to 10:15 (getting 12:15), then adds the 20 minutes", "terms": ["add 2 hours", "then add 20", "add 20 minutes", "2 hours", "10:15"]}, {"label": "They finished at 12:35", "terms": ["12:35"]}], "sample": "(1) Start at 10:15 and add 2 hours to get 12:15, then add 20 minutes. (2) They finished at 12:35."}, {"n": 22, "sec": 3, "std": "4.MD.2", "p": [], "type": "fill", "q": "Tom has $3. He buys a sticker for 65 cents. How many cents does he have left?", "accept": ["235", "235 cents"]}, {"n": 23, "sec": 3, "std": "4.MD.3", "p": ["C"], "type": "mc", "q": "What is the area of the class quilt (7 feet long and 3 feet wide)?", "opts": ["20 square feet", "24 square feet", "21 square feet", "10 square feet"], "answer": 2}, {"n": 24, "sec": 3, "std": "4.MD.3", "p": [], "type": "fill", "q": "A rectangle is 9 cm long and 7 cm wide. What is its area in square centimeters?", "accept": ["63", "63 square cm", "63 square centimeters"]}, {"n": 25, "sec": 3, "std": "4.MD.4", "p": ["D"], "type": "fill", "q": "Look at the line plot. How many pencils are 5 inches long?", "accept": ["3"]}, {"n": 26, "sec": 3, "std": "4.MD.5", "p": [], "type": "mc", "q": "An angle that measures 35 degrees is called…", "opts": ["a right angle", "an obtuse angle", "an acute angle", "a straight angle"], "answer": 2}, {"n": 27, "sec": 3, "std": "4.MD.6", "p": [], "type": "fill", "q": "A protractor picture shows an angle opening of 120 marks from 0. How many degrees does the angle measure?", "accept": ["120", "120 degrees", "120°"]}, {"n": 28, "sec": 3, "std": "4.MD.7", "p": [], "type": "mc", "q": "An angle is split into two parts. One part measures 55°. The whole angle measures 90°. How many degrees does the other part measure?", "opts": ["45°", "35°", "145°", "25°"], "answer": 1}, {"n": 29, "sec": 4, "std": "4.OA.1", "p": [], "type": "mc", "q": "Which sentence matches the equation 63 = 9 × 7?", "opts": ["63 is 9 more than 7", "9 is 63 times as many as 7", "63 is 9 times as many as 7", "63 is 7 more than 9"], "answer": 2}, {"n": 30, "sec": 4, "std": "4.OA.2", "p": [], "type": "fill", "q": "A farmer packs 5 boxes with 24 apples in each box. Another farmer has 24 apples in all. How many times as many apples does the first farmer have?", "accept": ["5", "5 times"]}, {"n": 31, "sec": 4, "std": "4.OA.3", "p": [], "type": "written", "q": "Nora had 48 pencils. She bought 4 packs of 6 pencils. Then she shared all her pencils equally among 8 friends. (1) Show your steps. (2) How many pencils did each friend get?", "keys": [{"label": "Adds first: 48 + (4 × 6) = 72 pencils in all", "terms": ["48 + 24", "72", "4 × 6", "4 x 6"]}, {"label": "Each friend got 9 pencils", "terms": ["9 pencils", "9 each", "got 9", "= 9", "nine"]}], "sample": "First, 4 × 6 = 24 new pencils, and 48 + 24 = 72 pencils in all. Then 72 ÷ 8 = 9. Each friend got 9 pencils."}, {"n": 32, "sec": 4, "std": "4.OA.3", "p": [], "type": "fill", "q": "Ben had 73 cards. He bought 2 packs of 12 cards. Then he gave 15 cards to his friend. How many cards does Ben have now?", "accept": ["82"]}, {"n": 33, "sec": 4, "std": "4.OA.4", "p": [], "type": "mc", "q": "Which number is NOT a factor of 36?", "opts": ["9", "12", "16", "18"], "answer": 2}, {"n": 34, "sec": 4, "std": "4.OA.5", "p": ["E"], "type": "fill", "q": "Look at the number pattern: 5, 8, 11, 14, … What is the 7th number in the pattern?", "accept": ["23"]}, {"n": 35, "sec": 4, "std": "4.G.1", "p": [], "type": "mc", "q": "An angle measures 130°. What kind of angle is it?", "opts": ["an acute angle", "a right angle", "a straight angle", "an obtuse angle"], "answer": 3}, {"n": 36, "sec": 4, "std": "4.G.1", "p": [], "type": "fill", "q": "How many right angles does a square have?", "accept": ["4"]}, {"n": 37, "sec": 4, "std": "4.G.2", "p": [], "type": "mc", "q": "A triangle has one right angle. What kind of triangle is it?", "opts": ["a right triangle", "an acute triangle", "an obtuse triangle", "an equilateral triangle"], "answer": 0}, {"n": 38, "sec": 4, "std": "4.G.3", "p": [], "type": "mc", "q": "Which letter has NO line of symmetry?", "opts": ["A", "H", "F", "O"], "answer": 2}];
+var DICT_ENTRY_HTML="";
+var DICT_ENTRY_TEXT="";
+
+var SECTIONS=[{"num": 1, "name": "Section 1 — Numbers & Place Value", "sub": "Number & Operations in Base Ten · Questions 1–10 · You have 15 minutes.", "layout": ["q:1", "q:2", "q:3", "q:4", "q:5", "q:6", "q:7", "q:8", "q:9", "q:10"], "tip": "Tip: think about what each digit is worth — its place tells you its value."}, {"num": 2, "name": "Section 2 — Fractions & Decimals", "sub": "Number & Operations — Fractions · Questions 11–19 · You have 15 minutes.", "layout": ["p:B", "q:11", "q:12", "q:13", "q:14", "q:15", "q:16", "q:17", "q:18", "q:19"], "tip": "Tip: for fraction questions, picture the slices — the denominator tells you how many equal parts the whole is cut into."}, {"num": 3, "name": "Section 3 — Measurement, Data & Angles", "sub": "Measurement & Data · Questions 20–28 · You have 15 minutes.", "layout": ["q:20", "p:C", "q:21", "q:22", "q:23", "q:24", "p:D", "q:25", "q:26", "q:27", "q:28"], "tip": "Tip: perimeter goes around the outside; area covers the inside. Check the chart numbers carefully."}, {"num": 4, "name": "Section 4 — Patterns, Factors & Shapes", "sub": "Operations & Algebraic Thinking + Geometry · Questions 29–38 · You have 15 minutes.", "layout": ["q:29", "q:30", "q:31", "q:32", "q:33", "p:E", "q:34", "q:35", "q:36", "q:37", "q:38"], "tip": "Tip: for multi-step problems, do one step at a time and keep track of what each number means."}];
+var STD_MAP=[["4.NBT.1", [1]], ["4.NBT.2", [2, 4]], ["4.NBT.3", [3]], ["4.NBT.4", [5, 6]], ["4.NBT.5", [7, 8]], ["4.NBT.6", [9, 10]], ["4.NF.1", [11]], ["4.NF.2", [12]], ["4.NF.3", [13, 14]], ["4.NF.4", [15, 16]], ["4.NF.5", [17]], ["4.NF.6", [18]], ["4.NF.7", [19]], ["4.MD.1", [20]], ["4.MD.2", [21, 22]], ["4.MD.3", [23, 24]], ["4.MD.4", [25]], ["4.MD.5", [26]], ["4.MD.6", [27]], ["4.MD.7", [28]], ["4.OA.1", [29]], ["4.OA.2", [30]], ["4.OA.3", [31, 32]], ["4.OA.4", [33]], ["4.OA.5", [34]], ["4.G.1", [35, 36]], ["4.G.2", [37]], ["4.G.3", [38]]];
+ 
+var answers={};             
+var keyResults={};          
+var currentSection=0;
+var submitted=false;
+var testStartMs=0;
+var attempt=1;
+var timerId=null, timerEnd=0, timerKind=null;  
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function show(id){
+  var screens=["screen-start","screen-section","screen-break","screen-results"];
+  for(var i=0;i<screens.length;i++){$(screens[i]).classList.toggle("active",screens[i]===id);}
+  window.scrollTo(0,0);
+}
+function fmt(sec){sec=Math.max(0,sec);var m=Math.floor(sec/60),s=sec%60;return m+":"+(s<10?"0":"")+s;}
+function levelFor(score,total){
+  var pct=total? (score/total*100):0;
+  if(pct>=80) return "Above Grade Level";
+  if(pct>=55) return "At Grade Level";
+  return "Below Grade Level";
+}
+function cheerFor(level){
+  if(level==="Above Grade Level") return "Amazing, "+STUDENT_NAME+"! Your math is above grade level — superstar work! 🌟";
+  if(level==="At Grade Level") return "Great job, "+STUDENT_NAME+"! Your math is right at grade level — keep growing! 🌱";
+  return "Good trying, "+STUDENT_NAME+"! Every mathematician grows with practice — we will keep building together! 💪";
+}
+function matchKey(text,terms){
+  var t=" "+String(text||"").toLowerCase()+" ";
+  for(var i=0;i<terms.length;i++){ if(t.indexOf(terms[i].toLowerCase())!==-1) return true; }
+  return false;
+}
+
+function normNumVal(s){
+  var t = String(s == null ? "" : s).toLowerCase().trim();
+  t = t.replace(/[$,]/g, "").replace(/\u00a2/g, "").replace(/degrees?/g, "").replace(/\u00b0/g, "").trim();
+  var units = ["square feet", "square meters", "square units", "cubic feet", "cubic units", "unit cubes",
+    "centimeters", "centimeter", "meters", "meter", "inches", "inch", "feet", "foot", "liters", "liter",
+    "grams", "gram", "cents", "cent", "times", "hops", "cubes", "cm", "mm", "km", "kg", "ml", "in", "ft", "yd", "mi", "sq", "m", "g", "l"];
+  for(var ui = 0; ui < units.length; ui++){
+    var u = units[ui];
+    if(t.length > u.length && t.slice(t.length - u.length) === u && /[0-9>]/.test(t.charAt(t.length - u.length - 1)) ) { t = t.slice(0, t.length - u.length).trim(); break; }
+    if(t === u) { t = ""; break; }
+  }
+  if(t === ">" || t === "<" || t === "=") return t;
+  var m = t.match(/^(-?\d+)\s+(\d+)\s*\/\s*(\d+)$/);
+  if(m){ var whole = parseFloat(m[1]), num = parseFloat(m[2]), den = parseFloat(m[3]); if(den) return String(whole + num / den); }
+  m = t.match(/^(-?\d+)\s*\/\s*(\d+)$/);
+  if(m){ var n2 = parseFloat(m[1]), d2 = parseFloat(m[2]); if(d2) return String(n2 / d2); }
+  var v = parseFloat(t);
+  if(!isNaN(v) && /^-?[0-9]*\.?[0-9]+$/.test(t)) return String(v);
+  return t.replace(/\s+/g, " ");
+}
+function mathMatch(given, accept){
+  var g = normNumVal(given);
+  for(var i = 0; i < accept.length; i++){ if(g === normNumVal(accept[i])) return true; }
+  return false;
+}
+function gradeQuestion(q){
+  if(q.type==="fill"){
+    var ft=answers[q.n];
+    if(typeof ft!=="string" || ft.trim()==="") return false;
+    return mathMatch(ft, q.accept);
+  }
+  if(q.type==="mc"){
+    return (typeof answers[q.n]==="number" && answers[q.n]===q.answer);
+  }
+  var txt=answers[q.n];
+  if(typeof txt!=="string" || txt.trim()===""){ keyResults[q.n]=[false,false]; return false; }
+  var r=[matchKey(txt,q.keys[0].terms), matchKey(txt,q.keys[1].terms)];
+  keyResults[q.n]=r;
+  return r[0]&&r[1];
+}
+function questionByNum(n){ for(var i=0;i<QUESTIONS.length;i++) if(QUESTIONS[i].n===n) return QUESTIONS[i]; return null; }
+
+ 
+try{
+  var prev=parseInt(localStorage.getItem(LS_KEY)||"0",10);
+  if(isNaN(prev)) prev=0;
+  attempt=prev+1;
+}catch(e){ attempt=1; }
+$("attempt-display").textContent=attempt;
+
+ 
+function passageHTML(pid){
+  var p=PASSAGES[pid]; if(!p) return "";
+  var inner;
+  if(p.html){ inner=p.html; }
+  else{
+    inner="";
+    var paras=p.text.split("\n\n");
+    for(var i=0;i<paras.length;i++) inner+="<p>"+esc(paras[i]).replace(/\n/g,"<br/>")+"</p>";
+  }
+  if(p.playbox) inner+=p.playbox;
+  if(p.chartText) inner+="<p style='white-space:pre-line;background:#f4f7fb;border-radius:10px;padding:10px 12px'>"+esc(p.chartText)+"</p>";
+  return "<div class='card passage'><h3 class='passage-title'>🧮 "+esc(p.title)+"</h3>"+inner+"</div>";
+}
+function questionHTML(q){
+  var h="<div class='qcard' data-q='"+q.n+"'>";
+  h+="<div class='q-head'><span class='q-num'>"+q.n+"</span><div><div class='q-text'>"+esc(q.q)+"</div>"
+    +"<div class='q-std'>California standard "+esc(q.std)+"</div></div></div>";
+  if(q.dict) h+=DICT_ENTRY_HTML;
+  if(q.type==="mc"){
+    var letters=["A","B","C","D"];
+    for(var i=0;i<q.opts.length;i++){
+      var sel=(answers[q.n]===i)?" selected":"";
+      h+="<button type='button' class='opt"+sel+"' data-q='"+q.n+"' data-idx='"+i+"'><span class='letter'>"+letters[i]+"</span><span>"+esc(q.opts[i])+"</span></button>";
+    }
+  }else if(q.type==="fill"){
+    h+="<p class='q-hint'>🔢 Work it out, then type your answer in the box.</p>";
+    var fv=(typeof answers[q.n]==="string")?answers[q.n]:"";
+    h+="<input type='text' class='fill-input' data-fill='"+q.n+"' placeholder='Type your answer here…' value=\""+esc(fv).replace(/"/g,"&quot;")+"\"/>";
+  }else{
+    h+="<p class='q-hint'>✏️ Write your answer in your own words. Try to include BOTH parts (1) and (2)!</p>";
+    var val=(typeof answers[q.n]==="string")?answers[q.n]:"";
+    h+="<textarea data-written='"+q.n+"' placeholder='Write your answer here…'>"+esc(val)+"</textarea>";
+  }
+  h+="</div>";
+  return h;
+}
+function renderSection(idx){
+  var sec=SECTIONS[idx];
+  $("section-title").textContent=sec.name;
+  $("section-sub").textContent=sec.sub;
+  $("timer-label").textContent="Section "+sec.num+" of 4 · Time left";
+  var html="";
+  for(var i=0;i<sec.layout.length;i++){
+    var item=sec.layout[i], kind=item.split(":")[0], ref=item.split(":")[1];
+    if(kind==="p") html+=passageHTML(ref);
+    else html+=questionHTML(questionByNum(parseInt(ref,10)));
+  }
+  $("section-body").innerHTML=html;
+  $("finish-warn").style.display="none";
+  var opts=document.querySelectorAll(".opt");
+  for(var j=0;j<opts.length;j++){
+    opts[j].addEventListener("click",function(){
+      var qn=parseInt(this.getAttribute("data-q"),10), ix=parseInt(this.getAttribute("data-idx"),10);
+      answers[qn]=ix;
+      var siblings=document.querySelectorAll(".opt[data-q='"+qn+"']");
+      for(var k=0;k<siblings.length;k++) siblings[k].classList.remove("selected");
+      this.classList.add("selected");
+    });
+  }
+  var tas=document.querySelectorAll("textarea[data-written]");
+  for(var t=0;t<tas.length;t++){
+    tas[t].addEventListener("input",function(){
+      answers[parseInt(this.getAttribute("data-written"),10)]=this.value;
+    });
+  }
+  var fis=document.querySelectorAll("input[data-fill]");
+  for(var f=0;f<fis.length;f++){
+    fis[f].addEventListener("input",function(){
+      answers[parseInt(this.getAttribute("data-fill"),10)]=this.value;
+    });
+  }
+}
+function collectVisible(){
+  var tas=document.querySelectorAll("textarea[data-written]");
+  for(var t=0;t<tas.length;t++){ answers[parseInt(tas[t].getAttribute("data-written"),10)]=tas[t].value; }
+  var fis=document.querySelectorAll("input[data-fill]");
+  for(var f=0;f<fis.length;f++){ answers[parseInt(fis[f].getAttribute("data-fill"),10)]=fis[f].value; }
+}
+
+ 
+function stopTimer(){ if(timerId){ clearInterval(timerId); timerId=null; } }
+function startTimer(seconds,kind,onDone){
+  stopTimer();
+  timerKind=kind;
+  timerEnd=Date.now()+seconds*1000;
+  var tick=function(){
+    var remain=Math.round((timerEnd-Date.now())/1000);
+    if(kind==="section"){
+      $("timer-clock").textContent=fmt(remain);
+      $("timerbar").classList.toggle("danger",remain<=60&&remain>0);
+    }else{
+      $("break-clock").textContent=fmt(remain);
+    }
+    if(remain<=0){ stopTimer(); onDone(); }
+  };
+  tick();
+  timerId=setInterval(tick,250);
+}
+
+ 
+function startSection(idx){
+  currentSection=idx;
+  renderSection(idx);
+  show("screen-section");
+  startTimer(15*60,"section",function(){ endSection(); });
+}
+function endSection(){
+  collectVisible();
+  stopTimer();
+  if(currentSection>=3){ submitTest(); return; }
+  $("break-next").textContent="Next up: "+SECTIONS[currentSection+1].name;
+  show("screen-break");
+  startTimer(5*60,"break",function(){ startSection(currentSection+1); });
+}
+$("btn-start").addEventListener("click",function(){
+  try{ localStorage.setItem(LS_KEY,String(attempt)); }catch(e){}
+  testStartMs=Date.now();
+  startSection(0);
+});
+function unansweredInSection(idx){
+  var missing=[];
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q=QUESTIONS[i];
+    if(q.sec!==idx+1) continue;
+    if(q.type==="mc"){ if(typeof answers[q.n]!=="number") missing.push(q.n); }
+    else if(typeof answers[q.n]!=="string" || answers[q.n].trim()==="") missing.push(q.n);
+  }
+  return missing;
+}
+$("btn-finish").addEventListener("click",function(){
+  collectVisible();
+  var missing=unansweredInSection(currentSection);
+  if(missing.length){
+    var w=$("finish-warn");
+    w.textContent="Almost! Please answer question"+(missing.length>1?"s ":" ")+missing.join(", ")
+      +" first — finish all the questions, and then your break starts. 🌟";
+    w.style.display="block";
+    var card=document.querySelector(".qcard[data-q='"+missing[0]+"']");
+    if(card) card.scrollIntoView({behavior:"smooth",block:"center"});
+    return;
+  }
+  endSection();
+});
+$("btn-skip-break").addEventListener("click",function(){ stopTimer(); startSection(currentSection+1); });
+
+ 
+function passageLogText(pid){
+  var p=PASSAGES[pid]; var out=p.title+"\n"+p.text;
+  if(p.chartText) out+="\n"+p.chartText;
+  return out;
+}
+function submitTest(){
+  if(submitted) return;
+  submitted=true;
+  stopTimer();
+  collectVisible();
+
+  var total=QUESTIONS.length, score=0, results={};
+  var secScores={1:0,2:0,3:0,4:0}, secTotals={1:0,2:0,3:0,4:0};
+  var i,q;
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i];
+    secTotals[q.sec]++;
+    var ok=gradeQuestion(q);
+    results[q.n]=ok;
+    if(ok){ score++; secScores[q.sec]++; }
+  }
+  var overallLevel=levelFor(score,total);
+  var today=new Date();
+  var pad=function(x){return (x<10?"0":"")+x;};
+  var dateStr=today.getFullYear()+"-"+pad(today.getMonth()+1)+"-"+pad(today.getDate());
+
+   
+  $("res-score").textContent=score+" / "+total;
+  $("res-level").textContent=overallLevel;
+  var duckPct=overallLevel==="Above Grade Level"?37:(overallLevel==="At Grade Level"?17:8);
+  var duckCap=overallLevel==="Above Grade Level"?"Above Grade 4 level — swimming toward Grade 5! 🌟":(overallLevel==="At Grade Level"?"Right at Grade 4 level — Grade 5 is next! 🌱":"Building toward Grade 4 — keep going! 💪");
+  $("res-duck").style.left=duckPct+"%";
+  $("res-gb-caption").textContent=duckCap;
+  $("res-cheer").textContent=cheerFor(overallLevel);
+  var secHTML="";
+  for(i=0;i<SECTIONS.length;i++){
+    var s=SECTIONS[i], sc=secScores[s.num], st=secTotals[s.num], lv=levelFor(sc,st);
+    var cls=lv==="Above Grade Level"?"above":(lv==="At Grade Level"?"at":"below");
+    secHTML+="<div class='sec-card'><h3>"+esc(s.name)+"</h3><div class='s-score'>"+sc+" / "+st+"</div>"
+      +"<span class='pill "+cls+"'>"+lv+"</span><p class='tip'>"+esc(s.tip)+"</p></div>";
+  }
+  $("res-sections").innerHTML=secHTML;
+
+  var stdHTML="";
+  for(i=0;i<STD_MAP.length;i++){
+    var code=STD_MAP[i][0], qs=STD_MAP[i][1], status, cls2;
+    if(qs==="design"){ status="covered by design"; cls2="st-design"; }
+    else{
+      var any=false, all=true;
+      for(var j=0;j<qs.length;j++){ if(results[qs[j]]) any=true; else all=false; }
+      if(all){ status="✓ showed it"; cls2="st-showed"; }
+      else if(any){ status="almost — some questions right"; cls2="st-almost"; }
+      else{ status="not yet"; cls2="st-notyet"; }
+    }
+    var extra="";
+    stdHTML+="<div class='std-row'><span class='std-code'>"+esc(code)+"</span><span class='std-status "+cls2+"'>"+esc(status)+"</span>"+extra+"</div>";
+  }
+  $("res-standards").innerHTML=stdHTML;
+
+  var letters=["A","B","C","D"], revHTML="";
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i]; var ok2=results[q.n];
+    revHTML+="<div class='rev-item "+(ok2?"correct":"wrong")+"'>"
+      +"<p><span class='lbl'>Q"+q.n+".</span> "+esc(q.q)+" <span class='q-std'>["+esc(q.std)+"]</span></p>";
+    if(q.type==="mc"){
+      var yourAns=(typeof answers[q.n]==="number")? (letters[answers[q.n]]+". "+q.opts[answers[q.n]]) : "(no answer)";
+      revHTML+="<p><span class='lbl'>Your answer:</span> "+esc(yourAns)+"</p>"
+        +"<p><span class='lbl'>Correct answer:</span> "+esc(letters[q.answer]+". "+q.opts[q.answer])+"</p>";
+    }else if(q.type==="fill"){
+      var yourF=(typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")?answers[q.n]:"(no answer)";
+      revHTML+="<p><span class='lbl'>Your answer:</span> "+esc(yourF)+"</p>"
+        +"<p><span class='lbl'>Correct answer:</span> "+esc(q.accept[0])+"</p>";
+    }else{
+      var yourW=(typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")?answers[q.n]:"(no answer)";
+      var kr=keyResults[q.n]||[false,false];
+      revHTML+="<p><span class='lbl'>Your answer:</span> "+esc(yourW)+"</p>"
+        +"<p><span class='lbl'>Key point 1:</span> "+(kr[0]?"✅ found — ":"❌ missing — ")+esc(q.keys[0].label)+"</p>"
+        +"<p><span class='lbl'>Key point 2:</span> "+(kr[1]?"✅ found — ":"❌ missing — ")+esc(q.keys[1].label)+"</p>"
+        +"<p><span class='lbl'>Sample answer:</span> "+esc(q.sample)+"</p>";
+    }
+    revHTML+="<p class='rev-badge "+(ok2?"ok":"no")+"'>"+(ok2?"✅ Correct":"❌ Not yet")+"</p></div>";
+  }
+  $("res-review").innerHTML=revHTML;
+  show("screen-results");
+
+  var needsList=[];
+  for(var ni=0;ni<STD_MAP.length;ni++){
+    var nqs=STD_MAP[ni][1]; if(nqs==="design") continue;
+    for(var nj=0;nj<nqs.length;nj++){ if(!results[nqs[nj]]){ needsList.push(STD_MAP[ni][0]); break; } }
+  }
+  var needsWork=needsList.length?needsList.join(", "):"none";
+  var timeUsed=testStartMs?fmt(Math.max(0,Math.round((Date.now()-testStartMs)/1000))):"0:00";
+
+   
+  var log="Grade 4 Math Placement Test\n"
+    +"Student: "+STUDENT_NAME+"\nDate: "+dateStr+"\nAttempt: "+attempt+"\n"
+    +"Form: A\n"
+    +"Score: "+score+"/38\nOverall level: "+overallLevel+"\n"
+    +"Measured Quantile: "+MEASURED_Q[overallLevel]+"Q\n"
+    +"Needs work: "+needsWork+"\n"
+    +"Time used: "+timeUsed+"\n";
+  for(i=0;i<SECTIONS.length;i++){
+    var s2=SECTIONS[i];
+    log+="Section "+s2.num+" ("+s2.name+"): "+secScores[s2.num]+"/"+secTotals[s2.num]+" — "+levelFor(secScores[s2.num],secTotals[s2.num])+"\n";
+  }
+  log+="\n";
+  var seenP={};
+  for(i=0;i<QUESTIONS.length;i++){
+    q=QUESTIONS[i];
+    for(var pi=0;pi<q.p.length;pi++){
+      var pid=q.p[pi];
+      if(!seenP[pid]){ seenP[pid]=true; log+="----- "+passageLogText(pid)+"\n\n"; }
+    }
+    if(q.dict) log+=DICT_ENTRY_TEXT+"\n\n";
+    log+="Q"+q.n+". "+q.q+" [California standard "+q.std+"]\n";
+    if(q.type==="mc"){
+      for(var oi=0;oi<q.opts.length;oi++) log+="   "+letters[oi]+". "+q.opts[oi]+"\n";
+      log+="Student's answer: "+((typeof answers[q.n]==="number")? q.opts[answers[q.n]] : "(no answer)")+"\n";
+      log+="Correct answer: "+q.opts[q.answer]+"\n";
+    }else if(q.type==="fill"){
+      log+="Student's answer: "+((typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")? answers[q.n] : "(no answer)")+"\n";
+      log+="Correct answer: "+q.accept[0]+"\n";
+    }else{
+      log+="Student's answer: "+((typeof answers[q.n]==="string"&&answers[q.n].trim()!=="")? answers[q.n] : "(no answer)")+"\n";
+      log+="Correct answer (sample): "+q.sample+"\n";
+      var kr2=keyResults[q.n]||[false,false];
+      log+="Key point 1: "+(kr2[0]?"found":"missing")+" — "+q.keys[0].label+"\n";
+      log+="Key point 2: "+(kr2[1]?"found":"missing")+" — "+q.keys[1].label+"\n";
+    }
+    log+="Result: "+(results[q.n]?"Correct":"Wrong")+"\n\n";
+  }
+
+   
+  var wrongList=[];
+  for(i=0;i<QUESTIONS.length;i++) if(!results[QUESTIONS[i].n]) wrongList.push(QUESTIONS[i]);
+  var pdf="Grade 4 Math Placement Test — Try Again Sheet\n"
+    +"Student: "+STUDENT_NAME+"\nDate: "+dateStr+"\nAttempt: "+attempt+"\n\n";
+  if(wrongList.length===0){
+    pdf+="Wonderful — all answers were correct! Nothing to redo. 🎉\n";
+  }else{
+    for(i=0;i<wrongList.length;i++){
+      q=wrongList[i];
+      for(var pj=0;pj<q.p.length;pj++) pdf+="----- "+passageLogText(q.p[pj])+"\n\n";
+      if(q.dict) pdf+=DICT_ENTRY_TEXT+"\n\n";
+      pdf+="Q"+q.n+". "+q.q+"\n";
+      if(q.type==="mc"){
+        for(var oj=0;oj<q.opts.length;oj++) pdf+="   "+letters[oj]+". "+q.opts[oj]+"\n";
+      }else if(q.type==="fill"){
+        pdf+="Answer: ____________________________________________________________\n";
+      }else{
+        pdf+="Part 1: ____________________________________________________________\n";
+        pdf+="Part 2: ____________________________________________________________\n";
+      }
+      pdf+="\n";
+    }
+  }
+
+  var payload={ folder:"Amber", subfolder:"数学习题摸底测试", student:STUDENT_NAME,
+    test:TEST_NAME,
+    date:dateStr, attempt:attempt, score:score+"/38", log:log, pdfText:pdf };
+  
+  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
+     Google Apps Script, so google.script.run does not exist here. The answer
+     log is POSTed directly to the same receiver endpoint (its doPost), with
+     the identical payload shape the watcher already parses. fetch(no-cors)
+     first; sendBeacon as fallback; a second fetch as last resort. */
+  function postLog(payload){
+    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+    var body;
+    try { body = JSON.stringify(payload); } catch (e) { return false; }
+    function beacon(){
+      try {
+        if (navigator && typeof navigator.sendBeacon === "function") {
+          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
+        }
+      } catch (e) {}
+      return false;
+    }
+    function fetchPost(){
+      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
+    }
+    try {
+      if (window.fetch) {
+        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
+        return true;
+      }
+      return beacon();
+    } catch (e) {
+      return beacon();
+    }
+  }
+  try { postLog(payload); } catch(e){}
+}
+</script>
+</body>
+</html>

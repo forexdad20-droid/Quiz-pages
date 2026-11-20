@@ -1,0 +1,1250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Grade 2 Math Quiz — November 19, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eaf4f7;
+    --surface:#ffffff;
+    --surface-2:#f2f9fb;
+    --ink:#20303c;
+    --ink-soft:#526a7a;
+    --line:#cfe3ea;
+    --green:#1278a6;
+    --green-dark:#0d5d82;
+    --green-soft:#dcf0f8;
+    --teal:#0e8a7b;
+    --teal-soft:#d9f2ed;
+    --sun:#f2b705;
+    --sun-soft:#fff3cf;
+    --orange:#d96c06;
+    --orange-soft:#ffedda;
+    --red:#c0392b;
+    --red-soft:#fdecea;
+    --radius:20px;
+    --shadow:0 4px 18px rgba(18,70,95,.09);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#121c22;
+      --surface:#1d2c35;
+      --surface-2:#243842;
+      --ink:#eef6f9;
+      --ink-soft:#b7cbd4;
+      --line:#36505e;
+      --green:#4db2dd;
+      --green-dark:#8acfea;
+      --green-soft:#1e3a4a;
+      --teal:#3ec2ab;
+      --teal-soft:#1d3833;
+      --sun:#f2b705;
+      --sun-soft:#3a3317;
+      --orange:#f39a4a;
+      --orange-soft:#3d2c1b;
+      --red:#ff8a7a;
+      --red-soft:#402625;
+      --shadow:0 4px 18px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:"Fredoka","Nunito",sans-serif;line-height:1.15;margin:0}
+  button,input,textarea{font:inherit}
+  .wrap{max-width:780px;margin:0 auto;padding:20px 16px 56px}
+  .hidden{display:none !important}
+   
+  .start-stack{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+  @media (max-width:560px){ .start-stack{gap:16px} }
+   
+  .merged-tests{background:#fff;color:#20303c;--ink:#20303c;--ink-soft:#526a7a;--sun-soft:#fff3cf;border:2.5px solid #111;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;width:100%;margin:0 auto;text-align:center}
+  .start-stack .merged-tests{max-width:none;width:100%;margin:0}
+  .results-actions .merged-tests{width:100%;justify-self:center}
+  .merged-tests .growth-chart,.merged-tests .history{background:transparent;border:none;border-radius:0;box-shadow:none;margin:0;max-width:none;width:100%}
+  .merged-tests .history{border-top:2.5px solid #111}
+   
+  .top-dash{background:var(--surface);border:2px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:20px;text-align:center}
+  .att-head{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+  .att-title{font-size:24px;font-weight:700;line-height:1.2}
+  .att-count{display:inline-block;background:var(--green);color:#fff;font-weight:900;font-size:15px;padding:5px 13px;border-radius:999px;white-space:nowrap}
+  @media (prefers-color-scheme: dark){ .att-count{color:#0b2233} }
+  .att-sub{font-size:15px;font-weight:700;color:var(--ink-soft);margin:6px 0 0;line-height:1.45}
+  .punch-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
+  .punch-day{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+  .day-name{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:15.5px;line-height:1.2;white-space:nowrap}
+  .day-zh{display:block;font-family:"Nunito",sans-serif;font-size:11.5px;font-weight:800;color:var(--ink-soft);line-height:1.25}
+  .punch-circle{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;line-height:1;margin-top:2px}
+  .punch-circle.done{background:var(--green);border:2.5px solid var(--green-dark);color:#fff;font-size:23px}
+  @media (prefers-color-scheme: dark){ .punch-circle.done{color:#0b2233} }
+  .punch-circle.today-ring{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--sun)}
+  .punch-circle.empty{background:var(--surface-2);border:2.5px dashed var(--line);color:var(--ink-soft);font-size:20px}
+  .punch-circle.upcoming{background:var(--surface);border:2.5px solid var(--line);color:var(--ink-soft);font-size:16px}
+  .day-date{font-size:12.5px;font-weight:800;color:var(--ink-soft);font-variant-numeric:tabular-nums;line-height:1.3}
+  .punch-day.today .day-name{color:var(--green-dark)}
+  .att-message{margin:12px 0 0;font-size:16.5px;font-weight:800;line-height:1.45}
+  .att-message strong{color:var(--green-dark)}
+  .top-dash .lexile-banner{margin:16px auto 0;max-width:560px;width:100%}
+  .top-dash form{margin:0}
+  .top-dash .go-zone{margin-top:16px}
+  @media (max-width:560px){
+    .top-dash{padding:16px 12px 14px}
+    .att-title{font-size:21px}
+    .punch-row{gap:3px}
+    .punch-circle{width:38px;height:38px}
+    .punch-circle.done{font-size:20px}
+    .day-name{font-size:13.5px}
+    .att-message{font-size:15.5px}
+  }
+  .growth-chart{margin:18px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px 16px 14px;text-align:center}
+  .growth-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
+  .growth-title .gt-line{display:block}
+  .growth-title .gt-line-2{margin-top:26px}
+  .growth-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 8px;line-height:1.45}
+  .growth-chart svg{width:100%;height:auto;display:block}
+  .growth-celebration{margin:16px 0 14px;background:var(--sun-soft);border:2.5px solid var(--sun);border-radius:16px;padding:18px 20px;text-align:center}
+  .growth-celebration .celebration-label{font-size:16px;font-weight:800;color:var(--ink-soft);margin:0 0 6px;line-height:1.35}
+  .growth-note{font-size:20px;font-weight:700;color:var(--ink);margin:0;line-height:1.45;font-family:"Fredoka","Nunito",sans-serif}
+  .growth-note strong{color:var(--green-dark);font-weight:700}
+  @media (max-width:560px){ .growth-celebration{margin:14px 0 12px;padding:16px 14px} .growth-note{font-size:19px} }
+  .color-legend{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;align-items:center;margin:8px 0 2px;font-size:15.5px;font-weight:900;line-height:1.3;color:var(--ink);max-width:100%;width:100%;box-sizing:border-box;padding-left:4px;padding-right:4px}
+  .merged-tests .color-legend{margin:10px 0 2px;padding-left:4px;padding-right:4px}
+  .color-legend .legend-item{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .color-legend .swatch{width:14px;height:14px;border-radius:4px;display:inline-block;flex:0 0 auto;border:1.5px solid rgba(0,0,0,.22)}
+  @media (max-width:560px){ .color-legend{gap:4px 9px;font-size:13px} .color-legend .legend-item{gap:4px} .color-legend .swatch{width:12px;height:12px} }
+  .color-legend .swatch.green{background:#27a24b}
+  .color-legend .swatch.red{background:#d64541}
+  .color-legend .swatch.gold{background:#f2b705;border-color:#d9a400}
+  .color-legend .swatch.grey{background:#5b8db8}
+  .history{margin:14px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px 16px 10px;text-align:center}
+  .history-table-wrap{margin-top:12px;border:2px solid #111;border-radius:12px;overflow:hidden;width:100%;max-width:100%;background:#fff}
+  .history-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
+  .history-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 4px;line-height:1.45}
+  .history-grid{width:100%;font-size:17px;text-align:left}
+  .history-grid .date{white-space:nowrap}
+  .hg-row{display:grid;grid-template-columns:28% 29% 15% 28%;width:100%}
+  .hg-row>*{padding:11px 8px;font-weight:700;line-height:1.35;text-align:left;overflow-wrap:break-word;min-width:0}
+  .hg-row.hg-head>*{background:#111;color:#fff;font-weight:900;font-size:16.5px;line-height:1.3}
+  .hg-row .c{text-align:center}
+  .hg-row:not(.hg-head){color:#000}
+  .hg-row:not(.hg-head)>*{border-top:1.5px solid var(--line);background:#fff}
+  .hg-row .score{font-weight:900;white-space:nowrap}
+  .hg-row .lex{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:19px}
+  .hg-row .lex .lex-line{display:inline-flex;align-items:center;gap:5px}
+  .hg-row .lex .crown{font-size:.85em;line-height:1;display:inline-flex;align-items:center}
+  .hg-row .lex .delta{display:block;font-family:"Nunito",sans-serif;font-size:14.5px;font-weight:900;margin-top:2px;color:var(--ink);overflow-wrap:break-word}
+  .hg-row.best>*{background:var(--sun);color:#000;border-top-color:#d9a400}
+  .hg-row.best .lex .delta{color:#000}
+  .hg-row.improved>*{background:#27a24b;color:#000}
+  .hg-row.improved .lex .delta{color:#000}
+  .hg-row.down>*{background:#fbe3e0;color:#000}
+  .hg-row.down .lex .delta{color:#000}
+  .hg-row.same>*{background:#dbe7f0;color:#000}
+  .hg-row.same .lex .delta{color:#000}
+  @media (max-width:560px){
+    .merged-tests .history{padding:16px 10px 10px}
+    .merged-tests .growth-chart{padding:16px 10px 12px}
+    .history-grid{font-size:14.5px}
+    .hg-row.hg-head>*{font-size:13.5px;padding:9px 5px}
+    .hg-row>*{padding:9px 5px}
+    .hg-row .lex{font-size:16px}
+    .hg-row .lex .delta{font-size:13px}
+  }
+   
+  .go-zone{margin-top:4px;background:var(--green-soft);border:3px solid var(--green);border-radius:20px;padding:0 18px 18px;overflow:hidden;text-align:center;box-shadow:0 8px 22px rgba(13,93,130,.16)}
+  .go-checker{height:14px;margin:0 -18px;background:repeating-conic-gradient(var(--ink) 0% 25%, var(--surface) 0% 50%) 0 0/28px 28px;opacity:.92}
+  .ready-set-go{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin:16px 0 2px;font-family:"Fredoka","Nunito",sans-serif}
+  .rsg-step{display:inline-flex;align-items:center;gap:6px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;padding:9px 16px;border-radius:999px;border:2.5px solid}
+  .rsg-ready{background:var(--surface);border-color:var(--orange);color:var(--orange);font-size:17px}
+  .rsg-set{background:var(--sun-soft);border-color:var(--sun);color:#7a5b00;font-size:19px}
+  @media (prefers-color-scheme: dark){ .rsg-set{color:var(--sun)} }
+  .rsg-go{background:var(--green);border-color:var(--green-dark);color:#fff;font-size:23px;padding:11px 22px;box-shadow:0 4px 12px rgba(13,93,130,.3)}
+  @media (prefers-color-scheme: dark){ .rsg-go{color:#0b2233} }
+  .rsg-arrow{font-weight:900;color:var(--ink-soft);font-size:16px}
+  .go-zone .btn-primary{margin-top:14px;font-size:24px;padding:20px 28px;min-height:68px;letter-spacing:.01em;box-shadow:0 6px 0 var(--green-dark),0 12px 24px rgba(13,93,130,.25)}
+  .go-zone .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--green-dark),0 6px 14px rgba(13,93,130,.22)}
+  .go-zone .start-note{color:var(--ink);max-width:560px;margin-left:auto;margin-right:auto}
+  @media (max-width:560px){
+    .go-zone{padding:0 12px 14px}
+    .go-checker{margin:0 -12px}
+    .rsg-ready{font-size:15px;padding:8px 12px}
+    .rsg-set{font-size:16px;padding:8px 13px}
+    .rsg-go{font-size:20px;padding:10px 17px}
+    .go-zone .btn-primary{font-size:22px;padding:18px 20px}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rsg-go{animation:rsg-pop 1.6s ease-in-out infinite}
+    @keyframes rsg-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+  }
+  .badge{display:inline-block;background:var(--sun-soft);color:#7a5b00;border:1.5px solid var(--sun);font-weight:900;font-size:14px;letter-spacing:.04em;text-transform:uppercase;padding:7px 15px;border-radius:999px}
+  @media (prefers-color-scheme: dark){ .badge{color:var(--sun)} }
+  .lexile-banner{background:var(--sun-soft);border:3px solid var(--sun);color:var(--ink);border-radius:18px;padding:16px 20px;margin:20px auto 4px;max-width:560px;font-family:"Fredoka","Nunito",sans-serif;font-size:30px;font-weight:700;line-height:1.2;letter-spacing:.01em;box-shadow:var(--shadow)}
+  .lexile-banner-results{margin:16px auto 6px}
+  @media (max-width:560px){ .lexile-banner{font-size:26px;padding:14px 16px} }
+  .btn{appearance:none;border:none;cursor:pointer;border-radius:999px;font-weight:900;padding:16px 28px;font-size:20px;transition:transform .08s ease, background .15s ease, opacity .15s;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;min-height:58px}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--green);color:#fff;width:100%;margin-top:16px;font-size:22px;padding:18px 28px;min-height:64px}
+  .btn-primary:hover{background:var(--green-dark)}
+  @media (prefers-color-scheme: dark){ .btn-primary{color:#0b2233} .btn-primary:hover{color:#0b2233} }
+  .btn-ghost{background:var(--surface);color:var(--ink);border:2px solid var(--line)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .start-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:14px;line-height:1.55}
+  .quiz-bar{position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0 10px;border-bottom:2px solid var(--line)}
+  .quiz-bar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .student-chip{font-weight:900;font-size:17px;background:var(--surface);border:1.5px solid var(--line);padding:8px 15px;border-radius:999px;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .timer{font-family:"Fredoka",sans-serif;font-weight:700;font-size:24px;letter-spacing:.02em;background:var(--surface);border:2px solid var(--line);padding:7px 17px;border-radius:999px;font-variant-numeric:tabular-nums}
+  .timer.low{border-color:var(--orange);color:var(--orange)}
+  .timer.critical{border-color:var(--red);background:var(--red-soft);color:var(--red)}
+  .time-warning{margin-top:10px;background:var(--red-soft);border:2px solid var(--red);color:var(--red);border-radius:14px;padding:13px 16px;font-weight:900;font-size:18px;line-height:1.45;text-align:center}
+  .auto-note{margin:16px auto 0;max-width:560px;background:var(--orange-soft);border:2px solid var(--orange);color:var(--orange);border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45}
+  @media (prefers-reduced-motion: no-preference){ .timer.critical{animation:timer-pulse 1s ease-in-out infinite} @keyframes timer-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}} }
+  .progress-track{height:16px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;overflow:hidden;margin-top:10px}
+  .progress-fill{height:100%;background:var(--green);width:0%;transition:width .3s ease;border-radius:999px}
+  .progress-label{font-size:16px;font-weight:800;color:var(--ink-soft);margin-top:6px}
+  .section-head{margin:32px 0 14px}
+  .section-tag{display:inline-block;font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin-bottom:8px}
+  .tag-1{background:var(--green-soft);color:var(--green-dark)}
+  .tag-2{background:var(--teal-soft);color:var(--teal)}
+  .tag-3{background:var(--sun-soft);color:#7a5b00}
+  @media (prefers-color-scheme: dark){ .tag-3{color:var(--sun)} }
+  .section-head h2{font-size:29px;font-weight:700}
+  .section-head p{margin:4px 0 0;color:var(--ink-soft);font-weight:700;font-size:17px}
+  .passage{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:24px 24px 10px;box-shadow:var(--shadow)}
+  .passage h3{font-size:25px;margin-bottom:12px}
+  .passage h4.passage-subhead{font-family:"Fredoka","Nunito",sans-serif;font-size:21px;font-weight:700;color:var(--green-dark);margin:20px 0 8px;line-height:1.3}
+  .passage p{font-size:21px;line-height:1.85;margin:0 0 15px}
+  .passage .pnum{font-weight:900;color:var(--green)}
+  .passage-label{font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:18px 0 4px}
+  .passage-label:first-of-type{margin-top:0}
+  .chart{margin:6px 0 18px;border:1.5px solid var(--line);border-radius:16px;padding:18px;background:var(--surface-2)}
+  .chart h4{margin:0 0 4px;font-size:19px;font-family:"Fredoka",sans-serif}
+  .chart .chart-sub{font-size:15px;color:var(--ink-soft);font-weight:700;margin:0 0 16px}
+  .bar-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:12px;margin-bottom:12px}
+  @media (max-width:480px){ .bar-row{grid-template-columns:88px 1fr 54px} }
+  .bar-row .blabel{font-weight:800;font-size:17px;line-height:1.3}
+  .bar-track{height:30px;background:var(--surface);border:1.5px solid var(--line);border-radius:9px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:7px}
+  .bar-fill.apple{background:#e0533d}
+  .bar-fill.banana{background:#eab308}
+  .bar-fill.orange{background:#e67e22}
+  .bar-fill.teal{background:var(--teal)}
+  .bar-row .bval{font-weight:900;font-size:18px;font-variant-numeric:tabular-nums}
+  table.count-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:17px}
+  table.count-table th,table.count-table td{border:1.5px solid var(--line);padding:10px 13px;text-align:left}
+  table.count-table th{background:var(--surface);font-weight:900}
+  table.count-table td:last-child,table.count-table th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  .qcard{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:16px;box-shadow:var(--shadow)}
+  .qcard.answered{border-color:var(--green)}
+  .q-top{display:flex;gap:13px;align-items:flex-start}
+  .q-num{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;margin-top:1px}
+  .qcard.answered .q-num{background:var(--green);color:#fff}
+  @media (prefers-color-scheme: dark){ .qcard.answered .q-num{color:#0b2233} }
+  .q-text{font-size:21px;font-weight:800;line-height:1.5;padding-top:5px}
+  .q-type{font-size:14px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+  .options{margin-top:15px;display:grid;gap:11px}
+  .option{display:flex;gap:13px;align-items:flex-start;cursor:pointer;border:2px solid var(--line);border-radius:16px;padding:16px 17px;background:var(--surface);transition:border-color .12s, background .12s;min-height:62px}
+  .option:hover{border-color:var(--green)}
+  .option input{appearance:none;-webkit-appearance:none;flex:0 0 auto;cursor:pointer;width:30px;height:30px;border-radius:50%;border:2.5px solid var(--line);background:var(--surface);margin:2px 0 0;padding:0}
+  .option input:checked{border-color:var(--green);background:var(--green);box-shadow:inset 0 0 0 6px var(--surface)}
+  .option input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+  .option .otext{font-size:19px;font-weight:700;line-height:1.5;padding-top:3px}
+  .option .otext b{font-weight:900;margin-right:2px}
+  .option:has(input:checked){border-color:var(--green);background:var(--green-soft)}
+  textarea{width:100%;margin-top:10px;min-height:118px;resize:vertical;padding:15px 17px;font-size:19px;line-height:1.65;color:var(--ink);background:var(--surface-2);border:2px solid var(--line);border-radius:16px;outline:none}
+  textarea:focus{border-color:var(--green);background:var(--surface)}
+  textarea.part-box{min-height:84px;margin-top:8px}
+  .part-label{display:flex;align-items:center;gap:9px;margin-top:16px;font-weight:900;font-size:17.5px;line-height:1.4}
+  .part-chip{flex:0 0 auto;background:var(--teal);color:#fff;font-size:13.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+  @media (prefers-color-scheme: dark){ .part-chip{color:#07231f} }
+  .q-hint{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:8px}
+  .submit-zone{margin-top:34px;text-align:center}
+  .submit-zone .btn-primary{max-width:440px;margin-left:auto;margin-right:auto}
+  .submit-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:10px}
+  .modal-backdrop{position:fixed;inset:0;background:rgba(10,22,28,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px}
+  .modal{background:var(--surface);border-radius:22px;max-width:440px;width:100%;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
+  .modal h3{font-size:24px;margin-bottom:8px}
+  .modal p{font-weight:700;color:var(--ink-soft);margin:0 0 18px}
+  .modal .row{display:grid;gap:10px}
+  .modal .btn{width:100%;margin:0}
+  .results-head{background:var(--surface);border:2px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:30px 24px;text-align:center;margin-top:18px}
+  .results-head h2{font-size:32px;margin-bottom:8px}
+  .results-head p{color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
+  .score-big{font-family:"Fredoka",sans-serif;font-size:68px;font-weight:700;line-height:1;margin:14px 0 2px}
+  .score-big small{font-size:32px;color:var(--ink-soft)}
+  .score-pct{font-size:23px;font-weight:900;color:var(--green-dark)}
+  .attempt-badge{display:inline-block;margin-top:12px;background:var(--teal-soft);color:var(--teal);border:2px solid var(--teal);border-radius:999px;padding:8px 19px;font-weight:900;font-size:19px}
+  .stars{font-size:32px;letter-spacing:6px;color:var(--sun);margin:6px 0 2px}
+  .stars .off{color:var(--line)}
+  .friendly{font-size:21px;font-weight:800;margin-top:10px}
+  .saved-line{margin:14px 0 0;font-size:15px;font-weight:700;color:var(--ink-soft);text-align:center}
+  .meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .meta-chip{background:var(--surface-2);border:1.5px solid var(--line);border-radius:999px;padding:9px 17px;font-weight:800;font-size:16px}
+  .section-scores{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+  .section-scores .meta-chip{font-weight:900;background:var(--green-soft);border-color:var(--green);color:var(--green-dark)}
+  .breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
+  @media (max-width:560px){ .breakdown{grid-template-columns:1fr} }
+  .bd-card{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:17px;text-align:center;box-shadow:var(--shadow)}
+  .bd-card .bd-name{font-weight:900;font-size:16px;line-height:1.35;min-height:44px}
+  .bd-card .bd-score{font-family:"Fredoka",sans-serif;font-size:36px;font-weight:700}
+  .bd-card .bd-score small{font-size:19px;color:var(--ink-soft)}
+  .bd-dots{display:flex;gap:6px;justify-content:center;margin-top:6px}
+  .bd-dots i{width:15px;height:15px;border-radius:50%;background:var(--line);display:block}
+  .bd-dots i.on{background:var(--green)}
+  .review-title{font-size:26px;margin:34px 0 4px}
+  .review-sub{color:var(--ink-soft);font-weight:700;margin:0 0 6px}
+  .rev-card{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:19px 21px;margin-top:12px;box-shadow:var(--shadow)}
+  .rev-card.correct{border-color:var(--green)}
+  .rev-card.wrong{border-color:var(--orange)}
+  .rev-head{display:flex;gap:10px;align-items:flex-start}
+  .rev-badge{flex:0 0 auto;font-weight:900;font-size:14px;padding:6px 13px;border-radius:999px;margin-top:2px}
+  .rev-badge.ok{background:var(--green-soft);color:var(--green-dark)}
+  .rev-badge.no{background:var(--orange-soft);color:var(--orange)}
+  .rev-q{font-size:19px;font-weight:800;line-height:1.5}
+  .rev-line{font-size:17px;margin-top:8px;line-height:1.55}
+  .rev-line b{font-weight:900}
+  .rev-why{background:var(--surface-2);border-radius:10px;padding:11px 15px;margin-top:10px;font-size:17px;line-height:1.55}
+  .rev-why b{color:var(--teal)}
+  .answer-box{border-radius:12px;padding:12px 15px;margin-top:10px;font-size:17px;line-height:1.6}
+  .your-box{background:var(--surface-2);border:1.5px solid var(--line)}
+  .sample-box{background:var(--teal-soft)}
+  .ab-label{display:block;font-weight:900;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+  .empty-answer{color:var(--ink-soft);font-style:italic}
+  .kp-box{background:var(--surface-2);border-radius:10px;padding:11px 15px;margin-top:10px}
+  .kp-title{display:block;font-weight:900;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+  .kp-line{font-size:16.5px;line-height:1.55;margin-top:3px}
+  .kp-ok{color:var(--green-dark);font-weight:900}
+  .kp-miss{color:var(--orange);font-weight:900}
+  .results-actions{display:grid;gap:12px;margin-top:30px}
+  .results-actions .btn{width:100%;margin:0}
+  footer.note{text-align:center;color:var(--ink-soft);font-size:14px;font-weight:700;margin-top:36px}
+  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section id="view-start">
+    <div class="start-stack">
+    <div class="top-dash">
+      <div class="attendance">
+        <div class="att-head">
+          <h2 class="att-title">📅 My Attendance This Week</h2>
+          <span class="att-count" id="att-count">2 / 7 days</span>
+        </div>
+        <p class="att-sub">本周出席打卡 · Mon Nov 16 – Sun Nov 22 — finish a quiz, get a punch for that day!</p>
+        <div class="punch-row">
+          <div class="punch-day" data-date="2026-11-16">
+            <span class="day-name">Mon<span class="day-zh">周一</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/16</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-17">
+            <span class="day-name">Tue<span class="day-zh">周二</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/17</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-18">
+            <span class="day-name">Wed<span class="day-zh">周三</span></span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
+            <span class="day-date">11/18</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-19">
+            <span class="day-name">Thu<span class="day-zh">周四</span></span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
+            <span class="day-date">11/19</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-20">
+            <span class="day-name">Fri<span class="day-zh">周五</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/20</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-21">
+            <span class="day-name">Sat<span class="day-zh">周六</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/21</span>
+          </div>
+          <div class="punch-day" data-date="2026-11-22">
+            <span class="day-name">Sun<span class="day-zh">周日</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/22</span>
+          </div>
+        </div>
+        <p class="att-message" id="att-message">🎉 You showed up <strong>2 times</strong> this week — great job, Eden!</p>
+      </div>
+
+      <div class="lexile-banner" role="note" aria-label="My Quantile Level: 310Q">⭐ My Quantile Level: 310Q</div>
+
+      <form id="start-form">
+        <div class="go-zone">
+          <div class="go-checker" aria-hidden="true"></div>
+          <div class="ready-set-go" aria-hidden="true">
+            <span class="rsg-step rsg-ready">Ready</span>
+            <span class="rsg-arrow">›</span>
+            <span class="rsg-step rsg-set">Set</span>
+            <span class="rsg-arrow">›</span>
+            <span class="rsg-step rsg-go">Go! 🏁</span>
+          </div>
+          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions score 0, so try to finish before the timer ends!</p>
+          <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
+        </div>
+      </form>
+    </div>
+      <div class="merged-tests">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q, gold bar — your best ever, with a crown), 11/18/26 Daily Quiz 310Q (stayed the same)">
+        <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 310Q</strong> — that's <strong>+20Q</strong>! Keep going!</p></div>
+        <p class="growth-sub">Each bar is one test you finished.</p>
+        <div data-growth-chart></div>
+      </div>
+      <div class="history">
+        <h3 class="history-title">📋 My Last 12 Tests</h3>
+        <p class="history-sub">Every test you finished, newest first. The last number shows your Quantile after that test!</p>
+        <div class="history-table-wrap">
+        <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
+          <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>310Q</span><span class="delta">▲ +20Q</span></span></div>
+          </div>
+        </div>
+        <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-quiz" class="hidden">
+    <div class="quiz-bar">
+      <div class="quiz-bar-row">
+        <span class="student-chip" id="student-chip">Student</span>
+        <span class="timer" id="timer">20:00</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">0 of 12 answered</div>
+      <div class="time-warning hidden" id="time-warning" role="alert">⏰ 1 minute left! Finish your last answers — the quiz will send itself when time is up.</div>
+    </div>
+    <div id="quiz-body"></div>
+    <div class="submit-zone">
+      <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
+      <p class="submit-note">Your score will appear right away. If time runs out, your quiz will be sent with the answers you have so far.</p>
+    </div>
+  </section>
+
+  <section id="view-results" class="hidden">
+    <div class="results-head">
+      <span class="badge">Your Result</span>
+      <div class="lexile-banner lexile-banner-results" role="note" aria-label="My Quantile Level: 310Q">⭐ My Quantile Level: 310Q</div>
+      <h2 style="margin-top:12px">Great work, <span id="r-name">friend</span>!</h2>
+      <div class="stars" id="r-stars"></div>
+      <div class="score-big"><span id="r-score">0</span><small> / 12</small></div>
+      <div class="score-pct" id="r-pct">0%</div>
+      <div><span class="attempt-badge" id="r-attempt">Attempt #1</span></div>
+      <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was sent automatically.</div>
+      <p class="friendly" id="r-message"></p>
+      <div class="meta-row">
+        <span class="meta-chip">⏱ Time used: <span id="r-time">0:00</span></span>
+        <span class="meta-chip">Tap questions: <span id="r-mc">0 / 8</span></span>
+        <span class="meta-chip">Writing questions: <span id="r-wr">0 / 4</span></span>
+      </div>
+      <div class="section-scores" id="r-section-scores" aria-label="Scores by section">
+        <span class="meta-chip">Section 1: 0/4</span>
+        <span class="meta-chip">Section 2: 0/4</span>
+        <span class="meta-chip">Section 3: 0/4</span>
+      </div>
+      <p class="saved-line">Answers saved ✓</p>
+    </div>
+    <div class="breakdown" id="r-breakdown"></div>
+    <h3 class="review-title">Review: Tap-the-Answer Questions</h3>
+    <p class="review-sub">See what you got right and learn from any mistakes.</p>
+    <div id="r-mc-review"></div>
+    <h3 class="review-title">Review: Your Writing</h3>
+    <p class="review-sub">Checked for the key ideas. Your answers are shown next to the sample answers.</p>
+    <div id="r-wr-review"></div>
+    <div class="results-actions">
+      <div class="merged-tests">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q, gold bar — your best ever, with a crown), 11/18/26 Daily Quiz 310Q (stayed the same)">
+        <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 310Q</strong> — that's <strong>+20Q</strong>! Keep going!</p></div>
+        <p class="growth-sub">Each bar is one test you finished.</p>
+        <div data-growth-chart></div>
+      </div>
+      <div class="history">
+        <h3 class="history-title">📋 My Last 12 Tests</h3>
+        <p class="history-sub">Every test you finished, newest first. The last number shows your Quantile after that test!</p>
+        <div class="history-table-wrap">
+        <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
+          <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>310Q</span><span class="delta">▲ +20Q</span></span></div>
+          </div>
+        </div>
+        <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
+      </div>
+      </div>
+      <button class="btn btn-ghost" id="again-btn" type="button">↻ Try Again</button>
+    </div>
+  </section>
+
+  <footer class="note">Grade 2 · Math Practice · 12 questions · 20 minutes</footer>
+</div>
+
+<div class="modal-backdrop hidden" id="warn-modal" role="dialog" aria-modal="true" aria-labelledby="warn-title">
+  <div class="modal">
+    <h3 id="warn-title">Some questions are empty!</h3>
+    <p id="warn-text">You haven't answered some questions yet.</p>
+    <div class="row">
+      <button class="btn btn-primary" id="warn-back" type="button" style="margin-top:0">Go Back and Check</button>
+      <button class="btn btn-ghost" id="warn-submit" type="button">Submit Anyway</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  
+
+  var QUIZ_TITLE = "Grade 2 Math Quiz \u2014 November 19, 2026";
+  var QUIZ_DATE = "2026-11-19";
+var SECTIONS = [
+    {
+      id: 1, tag: "Section 1", tagClass: "tag-1",
+      title: "Adding, Mental Maths & Arrays",
+      subtitle: "Adding Four Numbers, 100 More, Star Arrays & Writing Numbers · 4 questions",
+      passageTitle: "Add It Up",
+      paragraphs: [
+        "You can add several two-digit numbers by adding the tens first, then the ones. For 26 + 13 + 30: the tens make 20 + 10 + 30 = 60, the ones make 6 + 3 + 0 = 9, so the answer is 69.",
+        "Finding 100 more is a mental trick: only the hundreds digit changes. 100 more than 283 is 383, and 10 more than 283 is 293 — the other digits stay the same.",
+        "An array is a neat block of rows. 3 rows of 4 stars can be counted as 4 + 4 + 4 = 12 stars. Numbers can also be written in words and expanded form: 389 is three hundred eighty-nine, and in expanded form it is 300 + 80 + 9."
+      ],
+      chart: null,
+      questions: [
+        { n:1, std:"2.NBT.6", type:"mc", text:"What is 21 + 14 + 25 + 12?",
+          options:["62", "82", "72", "71"],
+          correct:2,
+          why:"Add the tens: 20 + 10 + 20 + 10 = 60. Add the ones: 1 + 4 + 5 + 2 = 12. 60 + 12 = 72." },
+        { n:2, std:"2.NBT.8", type:"mc", text:"What number is 100 MORE than 457?",
+          options:["467", "547", "657", "557"],
+          correct:3,
+          why:"100 more only changes the hundreds digit: 4 hundreds + 1 hundred = 5 hundreds, so 457 becomes 557." },
+        { n:3, std:"2.OA.4", type:"mc", text:"Stars are put in 4 rows with 5 stars in every row. How many stars are there IN ALL?",
+          options:["9 stars", "20 stars", "15 stars", "25 stars"],
+          correct:1,
+          why:"Count row by row: 5 + 5 + 5 + 5 = 20 stars in all." },
+        { n:4, std:"2.NBT.3", type:"written", text:"Write the number 643 in WORDS, and also in EXPANDED form (hundreds + tens + ones).",
+          part1:"Write 643 in words.",
+          part2:"Write 643 in expanded form (hundreds + tens + ones).",
+          sample:"In words: six hundred forty-three. In expanded form: 600 + 40 + 3." }
+      ]
+    },
+    {
+      id: 2, tag: "Section 2", tagClass: "tag-2",
+      title: "Measuring, Lengths & Number Lines",
+      subtitle: "Two Units, How Much Longer, Growing Plants & Number Lines · 4 questions",
+      passageTitle: "Measure and Compare",
+      paragraphs: [
+        "The same object can be measured with different units. Centimetres are SMALLER than inches, so you need MORE of them: a book might measure 30 centimetres but only about 12 inches.",
+        "To find how much longer one thing is, subtract the shorter length from the longer one. A 17 cm pencil and a 12 cm pencil differ by 17 − 12 = 5 cm. The same adding and subtracting works with growing things: a plant of 46 cm that grows 18 cm becomes 46 + 18 = 64 cm tall.",
+        "A number line helps you jump. Starting at 52 and jumping BACK 20 lands you on 32, because 52 − 20 = 32."
+      ],
+      chart: null,
+      questions: [
+        { n:5, std:"2.MD.2", type:"mc", text:"You measure the SAME ribbon first in centimetres and then in inches. Which sentence is TRUE?",
+          options:["The number of inches is larger, because inches are smaller units", "Both numbers are exactly the same", "The number of centimetres is larger, because centimetres are smaller units", "You cannot measure a ribbon in inches"],
+          correct:2,
+          why:"Centimetres are smaller units than inches, so it takes more of them to cover the same ribbon — the centimetre number is larger." },
+        { n:6, std:"2.MD.4", type:"mc", text:"A green string is 17 cm long. A yellow string is 12 cm long. How much LONGER is the green string?",
+          options:["29 cm", "7 cm", "5 cm", "4 cm"],
+          correct:2,
+          why:"Subtract the shorter length from the longer one: 17 − 12 = 5, so the green string is 5 cm longer." },
+        { n:7, std:"2.MD.5", type:"written", text:"A bean plant was 46 cm tall. Then it grew 18 cm more. How tall is the plant NOW, and how did you work it out?",
+          part1:"How tall is the plant now?",
+          part2:"How did you work it out? (Write the adding you used.)",
+          sample:"64 cm tall now. I added: 46 + 18 = 64. Working: 6 ones + 8 ones = 14 ones, and 4 tens + 1 ten + 1 more ten = 6 tens, making 64." },
+        { n:8, std:"2.MD.6", type:"mc", text:"Sam stands on 52 on a number line. He jumps BACK 20. Where does he land?",
+          options:["72", "42", "30", "32"],
+          correct:3,
+          why:"Jumping back means subtracting: 52 − 20 = 32, so Sam lands on 32." }
+      ]
+    },
+    {
+      id: 3, tag: "Section 3", tagClass: "tag-3",
+      title: "Shapes, Data & Fair Shares",
+      subtitle: "Shape Sides, Pencil Data, Thirds & Comparing Numbers · 4 questions",
+      passageTitle: "Shapes, Charts and Fair Shares",
+      paragraphs: [
+        "Shapes are named by their sides and angles: a triangle has 3, a quadrilateral has 4, a pentagon has 5, and a hexagon has 6.",
+        "The chart below shows the lengths of some pencils the class measured. To answer questions about it, add the counts you need: the pencils that are 11 cm or longer are the ones counted in the 11 cm, 12 cm and 13 cm rows.",
+        "Cutting a whole into 3 EQUAL parts makes thirds, and 3 thirds make the whole again. To compare 534 and 543, the hundreds are the same, so look at the tens: 4 tens beats 3 tens, so 543 is greater."
+      ],
+      chart: {
+        title:"Pencil Lengths the Class Measured",
+        sub:"How many pencils of each length",
+        max: 4,
+        unit: "pencils",
+        col1: "Length",
+        col2: "Pencils",
+        rows:[
+          { label:"10 cm", count:2, cls:"apple" },
+          { label:"11 cm", count:4, cls:"teal" },
+          { label:"12 cm", count:3, cls:"banana" },
+          { label:"13 cm", count:1, cls:"orange" }
+        ]
+      },
+      questions: [
+        { n:9, std:"2.G.1", type:"mc", text:"Which shape has 5 sides and 5 angles?",
+          options:["A triangle", "A hexagon", "A quadrilateral", "A pentagon"],
+          correct:3,
+          why:"A pentagon has 5 sides and 5 angles. A triangle has 3, a quadrilateral has 4, and a hexagon has 6." },
+        { n:10, std:"2.MD.9", type:"mc", text:"Look at the chart. How many pencils are 11 cm OR LONGER?",
+          options:["4 pencils", "7 pencils", "8 pencils", "10 pencils"],
+          correct:2,
+          why:"Add the counts for 11 cm, 12 cm and 13 cm: 4 + 3 + 1 = 8 pencils." },
+        { n:11, std:"2.G.3", type:"written", text:"An orange is cut into 3 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole orange?",
+          part1:"What is each equal part called?",
+          part2:"How many of those parts make the whole orange?",
+          sample:"Each part is called a third. It takes 3 thirds to make the whole orange." },
+        { n:12, std:"2.NBT.4", type:"written", text:"Which number is GREATER, 672 or 627? Write the greater number, and tell how you know.",
+          part1:"Which number is greater, 672 or 627?",
+          part2:"How do you know? (Think about the hundreds and the tens.)",
+          sample:"672 is greater. The hundreds are the same (6 hundreds in both), so I looked at the tens place: 7 tens is more than 2 tens." }
+      ]
+    }
+
+  ];
+
+  var ALL_MC = [], ALL_WRITTEN = [];
+  SECTIONS.forEach(function(s){ s.questions.forEach(function(q){ q.section = s.id; if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q); }); });
+  var LETTERS = ["A","B","C","D"];
+  var TOTAL_SECONDS = 20 * 60;
+  try {
+    var _ts = parseInt(new URLSearchParams(window.location.search).get("testSeconds") || "", 10);
+    if(_ts >= 5 && _ts <= 1200) TOTAL_SECONDS = _ts;
+  } catch(e) {}
+
+  var studentName = "Eden";
+
+  
+
+  var TEST_MODE = false;
+  function applyTestMode(){
+    if(!TEST_MODE) return;
+    studentName = "TEST";
+    var chip = document.getElementById("student-chip");
+    if(chip) chip.textContent = "\uD83D\uDC64 TEST";
+  }
+  try {
+    if(new URLSearchParams(window.location.search).get("test") === "1") TEST_MODE = true;
+  } catch(e) {}
+  try {
+    if(window.google && google.script && google.script.url && google.script.url.getLocation) {
+      google.script.url.getLocation(function(loc){
+        try { if(loc && loc.parameter && loc.parameter.test === "1"){ TEST_MODE = true; applyTestMode(); } } catch(e) {}
+      });
+    }
+  } catch(e) {}
+  if(TEST_MODE) applyTestMode();
+  var startStamp = null;
+  var elapsedAtSubmit = 0;
+  var timerId = null;
+  var submitted = false;
+  var autoSubmitted = false;
+  var attemptCount = 0;
+  var answers = {};
+  var written = {};
+  var writtenParts = {};
+  var writtenGrades = {};
+  var lastResult = null;
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function fmtTime(sec){ sec = Math.max(0, Math.floor(sec)); var m = Math.floor(sec/60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
+  function show(viewId){ ["view-start","view-quiz","view-results"].forEach(function(v){ $(v).classList.toggle("hidden", v !== viewId); }); window.scrollTo(0,0); }
+
+  
+
+  var _memStore = {};
+  function storeGet(key){
+    try {
+      var store = window.localStorage;
+      if(store){
+        var v = store.getItem(key);
+        if(v !== null && v !== undefined) return v;
+      }
+    } catch(e) {}
+    return Object.prototype.hasOwnProperty.call(_memStore, key) ? _memStore[key] : null;
+  }
+  function storeSet(key, value){
+    var s = String(value);
+    _memStore[key] = s;
+    try {
+      var store = window.localStorage;
+      if(store) store.setItem(key, s);
+    } catch(e) {}
+  }
+
+  function computeQuizId(){
+    var raw = "";
+    SECTIONS.forEach(function(s){
+      raw += s.title + "|" + (s.passageTitle || "") + "|";
+      (s.paragraphs || []).forEach(function(p){ raw += p + "|"; });
+      if(s.texts) s.texts.forEach(function(t){ raw += t.title + "|" + t.body + "|"; });
+      s.questions.forEach(function(q){ raw += q.n + ":" + q.text + "|"; });
+    });
+    var h1 = 5381, h2 = 52711;
+    for(var i = 0; i < raw.length; i++){ var c = raw.charCodeAt(i); h1 = ((h1 * 33) ^ c) >>> 0; h2 = ((h2 * 31) ^ c) >>> 0; }
+    return "g2-2026-11-19-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
+  }
+  var QUIZ_ID = "2026-11-19-math1";
+  function normalizedStudentName(){ return String(studentName || "").trim().toLowerCase().replace(/\s+/g, " "); }
+  function attemptStorageKey(){ return "g2rq-attempts-v1:" + QUIZ_ID + ":" + normalizedStudentName(); }
+  function recordAttempt(){
+    var key = attemptStorageKey();
+    var prev = 0;
+    try { prev = parseInt(storeGet(key) || "0", 10) || 0; } catch(e) { prev = 0; }
+    var next = prev + 1;
+    storeSet(key, String(next));
+    return next;
+  }
+  function attemptLine(n){ n = n || attemptCount || 1; return n <= 1 ? "Attempt #1 \u2014 first try!" : "Attempt #" + n; }
+
+  
+
+  function pstTodayKey(){
+    try {
+      var parts = new Intl.DateTimeFormat("en-US", { timeZone:"America/Los_Angeles", year:"numeric", month:"2-digit", day:"2-digit" }).formatToParts(new Date());
+      var y = "", m = "", d = "";
+      for(var i = 0; i < parts.length; i++){
+        if(parts[i].type === "year") y = parts[i].value;
+        else if(parts[i].type === "month") m = parts[i].value;
+        else if(parts[i].type === "day") d = parts[i].value;
+      }
+      if(y && m && d) return y + "-" + m + "-" + d;
+    } catch(e) {}
+    var now = new Date();
+    function pad(n){ return (n < 10 ? "0" : "") + n; }
+    return now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
+  }
+  function refreshAttendance(){
+    var todayKey = pstTodayKey();
+    var days = document.querySelectorAll(".punch-day");
+    var doneCount = 0, todayDone = false, quizDone = false, todayInWeek = false;
+    Array.prototype.forEach.call(days, function(day){
+      var date = day.getAttribute("data-date");
+      var circle = day.querySelector(".punch-circle");
+      if(!circle) return;
+      var isDone = circle.classList.contains("done");
+      var isToday = date === todayKey;
+      if(isDone) doneCount++;
+      if(isToday){ todayInWeek = true; todayDone = isDone; }
+      if(date === QUIZ_DATE && isDone) quizDone = true;
+      day.classList.toggle("today", isToday);
+      circle.classList.toggle("today-ring", isToday);
+      if(!isDone){
+        if(isToday){
+          circle.classList.add("empty"); circle.classList.remove("upcoming");
+          circle.textContent = "\u00B7";
+        } else if(date < todayKey){
+          circle.classList.add("empty"); circle.classList.remove("upcoming");
+          circle.textContent = "\u00B7";
+        } else {
+          circle.classList.add("upcoming"); circle.classList.remove("empty");
+          circle.textContent = "\u2022";
+        }
+      }
+    });
+    var count = $("att-count");
+    if(count) count.textContent = doneCount + " / 7 days";
+    var msg = $("att-message");
+    if(msg){
+      var timesWord = doneCount === 1 ? "time" : "times";
+      if(quizDone){
+        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 great job, Eden!";
+      } else if(todayDone){
+        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 today's punch is already yours. Great job, Eden!";
+      } else if(todayInWeek){
+        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 finish today's quiz to earn today's punch, Eden!";
+      } else {
+        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 great job, Eden!";
+      }
+    }
+  }
+  function punchStorageKey(){ return "g2mq-punched:" + pstTodayKey() + ":" + normalizedStudentName(); }
+  function applyPunch(){
+    var punchDay = pstTodayKey();
+    var days = document.querySelectorAll(".punch-day");
+    Array.prototype.forEach.call(days, function(day){
+      if(day.getAttribute("data-date") !== punchDay) return;
+      var circle = day.querySelector(".punch-circle");
+      if(circle){ circle.classList.remove("empty","upcoming"); circle.classList.add("done"); circle.textContent = "\u2713"; }
+    });
+    refreshAttendance();
+  }
+  function punchToday(){
+    try { storeSet(punchStorageKey(), "1"); } catch(e) {}
+    applyPunch();
+  }
+  if(storeGet(punchStorageKey()) === "1") applyPunch(); else refreshAttendance();
+
+  
+
+  var GROWTH = [
+    { date:"11/17/26", type:"Daily Quiz", lexile:310, delta:"+20Q", kind:"best" },
+    { date:"11/18/26", type:"Daily Quiz", lexile:310, delta:"same", kind:"same" }
+  ];
+
+  function renderGrowthCharts(){
+    var bestLexile = 0;
+    GROWTH.forEach(function(d){ if(d.lexile > bestLexile) bestLexile = d.lexile; });
+    var axisMax = bestLexile + 250;
+    if(!(axisMax > 0)) axisMax = 250;
+    var PLOT_L = 56, PLOT_R = 554, BASE = 260, TOP = 30, MAXL = axisMax;
+    var n = GROWTH.length;
+    if(n === 0){ var mm = document.querySelectorAll("[data-growth-chart]"); for(var z=0; z<mm.length; z++){ mm[z].innerHTML = "<p style=\"font-weight:800;font-size:17px\">🌟 This is your very first math quiz — your growth chart starts today!</p>"; } return; }
+    var slotW = (PLOT_R - PLOT_L) / n;
+    var barW = Math.min(134, slotW * 0.7);
+    var fills = { base:"#5b8db8", same:"#5b8db8", up:"#27a24b", down:"#d64541", best:"#f2b705" };
+    var out = ['<svg viewBox="0 -6 560 328" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">',
+      '<g font-family="Nunito, system-ui, sans-serif">'];
+    [MAXL, MAXL * 3 / 4, MAXL / 2, MAXL / 4].forEach(function(v){
+      var y = BASE - (v / MAXL) * (BASE - TOP);
+      out.push('<line x1="' + PLOT_L + '" y1="' + y + '" x2="' + PLOT_R + '" y2="' + y + '" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5 5"/>');
+      out.push('<text x="48" y="' + (y + 5) + '" text-anchor="end" font-size="13" font-weight="800" fill="var(--ink-soft)">' + v + 'Q</text>');
+    });
+    out.push('<line x1="' + PLOT_L + '" y1="' + BASE + '" x2="' + PLOT_R + '" y2="' + BASE + '" stroke="var(--ink-soft)" stroke-width="2"/>');
+    out.push('<text x="48" y="265" text-anchor="end" font-size="13" font-weight="800" fill="var(--ink-soft)">0</text>');
+    GROWTH.forEach(function(d, i){
+      var cx = PLOT_L + slotW * (i + 0.5);
+      var x = cx - barW / 2;
+      var h = (d.lexile / MAXL) * (BASE - TOP);
+      var y = BASE - h;
+      var stroke = d.kind === "best" ? ' stroke="#d9a400" stroke-width="2.5"' : '';
+      out.push('<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="10" fill="' + fills[d.kind] + '"' + stroke + '/>');
+      out.push('<text x="' + cx.toFixed(1) + '" y="' + (y - 13).toFixed(1) + '" text-anchor="middle" font-size="21" font-weight="900" fill="var(--ink)" font-family="Fredoka, Nunito, sans-serif">' + d.lexile + 'Q</text>');
+      if(d.delta){
+        var arrow = d.kind === "down" ? "\u25BC " : d.kind === "same" ? "\u2192 " : "\u25B2 ";
+        var dcol = d.kind === "best" ? "#4a3500" : "#ffffff";
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (y + 29).toFixed(1) + '" text-anchor="middle" font-size="17" font-weight="900" fill="' + dcol + '">' + arrow + d.delta + '</text>');
+      }
+      if(d.kind === "best"){
+        var crownY = y + h / 2;
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (crownY + 9).toFixed(1) + '" text-anchor="middle" font-size="26" aria-hidden="true">\uD83D\uDC51</text>');
+      }
+      var dateSize = n > 4 ? 14 : 16, typeSize = n > 4 ? 12 : 13.5;
+      out.push('<text x="' + cx.toFixed(1) + '" y="284" text-anchor="middle" font-size="' + dateSize + '" font-weight="900" fill="var(--ink)">' + esc(d.date) + '</text>');
+      out.push('<text x="' + cx.toFixed(1) + '" y="304" text-anchor="middle" font-size="' + typeSize + '" font-weight="700" fill="var(--ink-soft)">' + esc(d.type) + '</text>');
+    });
+    out.push('</g></svg>');
+    var svg = out.join("");
+    var mounts = document.querySelectorAll("[data-growth-chart]");
+    for(var k = 0; k < mounts.length; k++){ mounts[k].innerHTML = svg; }
+  }
+  renderGrowthCharts();
+
+  function buildChart(chart){
+    var bars = chart.rows.map(function(r){
+      var pct = Math.round(r.count / chart.max * 100);
+      return '<div class="bar-row"><span class="blabel">'+esc(r.label)+'</span><span class="bar-track"><span class="bar-fill '+r.cls+'" style="display:block;width:'+pct+'%"></span></span><span class="bval">'+r.count+' '+(chart.unit || "")+'</span></div>';
+    }).join("");
+    var rows = chart.rows.map(function(r){ return "<tr><td>"+esc(r.label)+"</td><td>"+r.count+"</td></tr>"; }).join("");
+    return '<div class="chart"><h4>'+esc(chart.title)+'</h4><p class="chart-sub">'+esc(chart.sub)+'</p>'+ bars + '<table class="count-table"><tr><th>'+esc(chart.col1 || "Item")+'</th><th>'+esc(chart.col2 || "Count")+'</th></tr>'+rows+'</table></div>';
+  }
+
+  function writtenCombined(qn){
+    var p = writtenParts[qn] || ["",""];
+    return (String(p[0] || "") + " " + String(p[1] || "")).trim();
+  }
+  function writtenDisplay(qn){
+    var p = writtenParts[qn] || ["",""];
+    var a = String(p[0] || "").trim(), b = String(p[1] || "").trim();
+    if(!a && !b) return "";
+    return "Part 1: " + (a || "(blank)") + "\nPart 2: " + (b || "(blank)");
+  }
+  function syncWritten(qn){
+    written[qn] = writtenCombined(qn);
+  }
+
+  function buildQuiz(){
+    var html = "";
+    SECTIONS.forEach(function(s){
+      html += '<div class="section-head"><span class="section-tag '+s.tagClass+'">'+esc(s.tag)+' \u00B7 Questions '+ s.questions[0].n + '\u2013' + s.questions[s.questions.length-1].n + '</span><h2>'+esc(s.title)+'</h2><p>'+esc(s.subtitle)+'</p></div>';
+      html += '<div class="passage">';
+      if(s.passageTitle) html += '<h3>'+esc(s.passageTitle)+'</h3>';
+      if(s.paragraphs){ s.paragraphs.forEach(function(p){ if(p.indexOf("## ") === 0){ html += '<h4 class="passage-subhead">'+esc(p.slice(3))+'</h4>'; return; } var t = esc(p).replace(/^(\[\d\])/, '<span class="pnum">$1</span>'); html += '<p>'+t+'</p>'; }); }
+      if(s.texts){ s.texts.forEach(function(t){ html += '<div class="passage-label">'+esc(t.label)+' \u2014 '+esc(t.title)+'</div><p>'+esc(t.body)+'</p>'; }); }
+      if(s.chart) html += buildChart(s.chart);
+      html += '</div>';
+      s.questions.forEach(function(q){
+        html += '<div class="qcard" id="qcard-'+q.n+'">';
+        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div><div class="q-text">'+esc(q.text)+'</div><div class="q-type">'+(q.type === "mc" ? "Tap one answer" : "Write your answer \u00B7 two parts")+'</div></div></div>';
+        if(q.type === "mc"){
+          html += '<div class="options" role="radiogroup" aria-label="Question '+q.n+'">';
+          q.options.forEach(function(opt, i){ html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'"><span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>'; });
+          html += '</div>';
+        } else {
+          html += '<div class="part-label"><span class="part-chip">Part 1</span><span>'+esc(q.part1)+'</span></div>';
+          html += '<textarea class="part-box" id="ta-'+q.n+'-1" placeholder="Write Part 1 here\u2026" aria-label="Question '+q.n+' part 1 answer"></textarea>';
+          html += '<div class="part-label"><span class="part-chip">Part 2</span><span>'+esc(q.part2)+'</span></div>';
+          html += '<textarea class="part-box" id="ta-'+q.n+'-2" placeholder="Write Part 2 here\u2026" aria-label="Question '+q.n+' part 2 answer"></textarea>';
+          html += '<div class="q-hint">This question has TWO parts \u2014 write an answer in BOTH boxes. Your writing will be checked when you finish.</div>';
+        }
+        html += '</div>';
+      });
+    });
+    $("quiz-body").innerHTML = html;
+    ALL_MC.forEach(function(q){
+      var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
+      Array.prototype.forEach.call(radios, function(r){ r.addEventListener("change", function(){ answers[q.n] = parseInt(r.value, 10); updateProgress(); }); });
+    });
+    ALL_WRITTEN.forEach(function(q){
+      writtenParts[q.n] = ["",""];
+      [1,2].forEach(function(pi){
+        var ta = $("ta-"+q.n+"-"+pi);
+        if(ta) ta.addEventListener("input", function(e){ writtenParts[q.n][pi-1] = e.target.value; syncWritten(q.n); updateProgress(); });
+      });
+    });
+  }
+
+  function writtenDone(q){
+    var p = writtenParts[q.n] || ["",""];
+    return String(p[0] || "").trim().length > 0 && String(p[1] || "").trim().length > 0;
+  }
+  function answeredCount(){ var c = 0; ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; }); ALL_WRITTEN.forEach(function(q){ if(writtenDone(q)) c++; }); return c; }
+  function updateProgress(){
+    var c = answeredCount();
+    $("progress-fill").style.width = (c/12*100) + "%";
+    $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " \u2014 nice, you answered everything!" : "");
+    ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
+      var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenDone(q);
+      var card = $("qcard-"+q.n); if(card) card.classList.toggle("answered", done);
+    });
+  }
+
+  function startTimer(){
+    startStamp = Date.now(); submitted = false; autoSubmitted = false;
+    var w = $("time-warning"); if(w) w.classList.add("hidden");
+    var t0 = $("timer"); if(t0){ t0.classList.remove("low","critical"); }
+    updateTimer(); timerId = setInterval(updateTimer, 250);
+  }
+  function elapsedSeconds(){ if(!startStamp) return 0; return (Date.now() - startStamp) / 1000; }
+  function updateTimer(){
+    if(submitted) return;
+    var el = elapsedSeconds(); var left = TOTAL_SECONDS - el; var t = $("timer");
+    if(left > 0){
+      t.textContent = "\u23F1 " + fmtTime(Math.ceil(left));
+      var inLastMinute = left <= 60;
+      t.classList.toggle("critical", inLastMinute);
+      t.classList.toggle("low", !inLastMinute && left <= 120);
+      if(inLastMinute){ var w = $("time-warning"); if(w) w.classList.remove("hidden"); }
+    } else {
+      t.textContent = "\u23F1 0:00"; t.classList.add("critical"); t.classList.remove("low"); autoSubmit();
+    }
+  }
+  function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
+  function syncWrittenFromDom(){
+    ALL_WRITTEN.forEach(function(q){
+      var p = writtenParts[q.n] || ["",""];
+      var t1 = $("ta-" + q.n + "-1"); if(t1) p[0] = t1.value;
+      var t2 = $("ta-" + q.n + "-2"); if(t2) p[1] = t2.value;
+      writtenParts[q.n] = p;
+      syncWritten(q.n);
+    });
+  }
+  function autoSubmit(){ if(submitted) return; var wm = $("warn-modal"); if(wm) wm.classList.add("hidden"); goToResults(true); }
+
+  $("start-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    studentName = TEST_MODE ? "TEST" : "Eden";
+    $("student-chip").textContent = "\uD83D\uDC64 " + studentName;
+    buildQuiz(); updateProgress(); show("view-quiz"); startTimer();
+  });
+
+  $("submit-btn").addEventListener("click", function(){
+    if(submitted) return;
+    syncWrittenFromDom();
+    var missing = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; });
+    if(missing.length > 0){
+      var nums = missing.map(function(q){ return "Q" + q.n; }).join(", ");
+      $("warn-text").textContent = "You haven't answered " + nums + " yet. Empty questions score 0 points.";
+      $("warn-modal").classList.remove("hidden"); return;
+    }
+    goToResults(false);
+  });
+  $("warn-back").addEventListener("click", function(){
+    $("warn-modal").classList.add("hidden");
+    var first = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; })[0];
+    if(first){ var card = $("qcard-"+first.n); if(card) card.scrollIntoView({behavior:"smooth", block:"center"}); }
+  });
+  $("warn-submit").addEventListener("click", function(){ $("warn-modal").classList.add("hidden"); goToResults(false); });
+
+  function passageTextForSection(sec){
+    var parts = [];
+    if(!sec) return "";
+    if(sec.passageTitle) parts.push(sec.passageTitle);
+    if(sec.paragraphs && sec.paragraphs.length){
+      sec.paragraphs.forEach(function(p){ parts.push(String(p)); });
+    }
+    if(sec.texts && sec.texts.length){
+      sec.texts.forEach(function(t){ parts.push(t.label + " \u2014 " + t.title + "\n" + t.body); });
+    }
+    if(sec.chart){
+      var c = sec.chart;
+      var chartLines = [];
+      chartLines.push("Chart: " + c.title + " (" + c.sub + ")");
+      (c.rows || []).forEach(function(r){ chartLines.push(r.label + ": " + r.count + " " + (c.unit || "")); });
+      parts.push(chartLines.join("\n"));
+    }
+    return parts.join("\n");
+  }
+  function buildAnswerLog(totalScore){
+    var lines = [];
+    lines.push("Grade 2 Math Quiz \u2014 Answer Log");
+    lines.push("Student: " + studentName);
+    lines.push("Quiz: " + QUIZ_TITLE);
+    lines.push("Date: " + QUIZ_DATE);
+    lines.push("Attempt: " + attemptCount);
+    lines.push("Score: " + totalScore + "/12");
+    lines.push("Time used: " + fmtTime(elapsedAtSubmit) + (autoSubmitted ? " (auto-submitted \u2014 time ran out)" : ""));
+    lines.push("Per-section scores:");
+    SECTIONS.forEach(function(s){
+      var label = "Section " + s.id + " \u2014 " + s.title + (s.passageTitle ? " (" + s.passageTitle + ")" : "");
+      lines.push("  " + label + ": " + sectionScore(s.id) + "/" + s.questions.length);
+    });
+    var mcScore = 0, wrScore = 0;
+    ALL_MC.forEach(function(q){ if(answers[q.n] === q.correct) mcScore++; });
+    ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
+    lines.push("Tap-the-answer questions: " + mcScore + "/8");
+    lines.push("Writing questions: " + wrScore + "/4");
+    lines.push("");
+    lines.push("====================");
+    lines.push("");
+    var ordered = [];
+    SECTIONS.forEach(function(s){ s.questions.forEach(function(q){ ordered.push(q); }); });
+    ordered.sort(function(a, b){ return a.n - b.n; });
+    ordered.forEach(function(q){
+      var sec = SECTIONS[q.section - 1];
+      lines.push("Q" + q.n + " (Section " + q.section + " \u2014 " + (sec ? sec.title : "") + ")");
+      var pText = passageTextForSection(sec);
+      if(pText){
+        lines.push("Passage:");
+        lines.push(pText);
+      }
+      lines.push("Question: " + q.text);
+      if(q.std) lines.push("Standard: " + q.std);
+      if(q.type === "mc"){
+        var correctText = LETTERS[q.correct] + ". " + q.options[q.correct];
+        lines.push("Correct answer: " + correctText);
+        var mine = answers[q.n];
+        if(typeof mine === "number"){
+          lines.push("Student's answer: " + LETTERS[mine] + ". " + q.options[mine]);
+        } else {
+          lines.push("Student's answer: No answer");
+        }
+        var isRight = mine === q.correct;
+        lines.push("Result: " + (isRight ? "Correct \u2713" : "Wrong \u2717"));
+      } else {
+        lines.push("Correct answer (sample answer): " + q.sample);
+        var keys = (typeof GRADE_KEYS !== "undefined" && GRADE_KEYS[q.n]) ? GRADE_KEYS[q.n] : [];
+        if(keys && keys.length){
+          lines.push("Key points:");
+          keys.forEach(function(k, i){ lines.push("  " + (i + 1) + ". " + k.found); });
+        }
+        var disp = writtenDisplay(q.n);
+        lines.push("Student's answer: " + (disp ? disp : "No answer"));
+        var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
+        lines.push("Result: " + (g.earned ? "Correct \u2713" : "Wrong \u2717"));
+        if(keys && keys.length){
+          keys.forEach(function(k, i){
+            if(g.points && g.points[i]) lines.push("  Key point found: " + k.found);
+            else lines.push("  Key point missing: " + k.missing);
+          });
+        }
+      }
+      lines.push("");
+    });
+    return lines.join("\n");
+  }
+  function saveAnswerLog(totalScore){
+    var logText = "";
+    try { logText = buildAnswerLog(totalScore); } catch(e) { logText = ""; }
+    var payload = { folder: "Eden", subfolder: "數學习题", student: studentName, test: QUIZ_TITLE, date: QUIZ_DATE, attempt: attemptCount, score: totalScore + "/12", log: logText };
+    
+  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
+     Google Apps Script, so google.script.run does not exist here. The answer
+     log is POSTed directly to the same receiver endpoint (its doPost), with
+     the identical payload shape the watcher already parses. fetch(no-cors)
+     first; sendBeacon as fallback; a second fetch as last resort. */
+  function postLog(payload){
+    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+    var body;
+    try { body = JSON.stringify(payload); } catch (e) { return false; }
+    function beacon(){
+      try {
+        if (navigator && typeof navigator.sendBeacon === "function") {
+          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
+        }
+      } catch (e) {}
+      return false;
+    }
+    function fetchPost(){
+      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
+    }
+    try {
+      if (window.fetch) {
+        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
+        return true;
+      }
+      return beacon();
+    } catch (e) {
+      return beacon();
+    }
+  }
+    try { postLog(payload); } catch (e) {}
+  }
+  function goToResults(isAuto){
+    if(submitted) return;
+    submitted = true; autoSubmitted = !!isAuto;
+    attemptCount = recordAttempt();
+    syncWrittenFromDom();
+    elapsedAtSubmit = autoSubmitted ? TOTAL_SECONDS : Math.min(elapsedSeconds(), TOTAL_SECONDS);
+    stopTimer(); gradeAllWritten(); buildResults(); show("view-results");
+    punchToday();
+    try { saveAnswerLog(lastResult ? lastResult.total : 0); } catch(e) {}
+  }
+
+  
+
+  function normalizeAnswer(str){ return String(str == null ? "" : str).toLowerCase().replace(/[’‘]/g, "'").replace(/'/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim(); }
+  function altMatches(norm, alt){ for(var i = 0; i < alt.length; i++){ if(norm.indexOf(normalizeAnswer(alt[i])) === -1) return false; } return true; }
+  function pointFound(norm, alternatives){ for(var i = 0; i < alternatives.length; i++){ if(altMatches(norm, alternatives[i])) return true; } return false; }
+var GRADE_KEYS = {
+    4: [
+      { found: "643 in words: six hundred forty-three",
+        missing: "643 written in words (six hundred forty-three)",
+        alt: [["six hundred forty-three"],["six hundred and forty-three"],["six hundred forty three"]] },
+      { found: "643 in expanded form: 600 + 40 + 3",
+        missing: "643 in expanded form (600 + 40 + 3)",
+        alt: [["600 + 40 + 3"],["600+40+3"]] }
+    ],
+    7: [
+      { found: "How tall the plant is now: 64 cm",
+        missing: "how tall the plant is now — 64 cm",
+        alt: [["64"]] },
+      { found: "How you worked it out: adding 46 + 18",
+        missing: "how you worked it out — say that you added (46 + 18)",
+        alt: [["46 + 18"],["46+18"],["add"],["plus"]] }
+    ],
+    11: [
+      { found: "Each part is called a third",
+        missing: "what each part is called — a third",
+        alt: [["third"]] },
+      { found: "It takes 3 parts (thirds) to make the whole orange",
+        missing: "how many parts make the whole — 3",
+        alt: [["3 parts"],["three parts"],["3 thirds"],["three thirds"],["takes 3"],["3"]] }
+    ],
+    12: [
+      { found: "The greater number is 672",
+        missing: "which number is greater — 672",
+        alt: [["672"]] },
+      { found: "How you know: the tens place — 7 tens beats 2 tens",
+        missing: "how you know — the hundreds are the same, so compare the tens (7 tens is more than 2 tens)",
+        alt: [["tens"],["hundreds are the same"],["same hundreds"]] }
+    ]
+
+  };
+  function gradeWrittenAnswer(qn, rawText){
+    var keys = GRADE_KEYS[qn];
+    var norm = normalizeAnswer(rawText);
+    var words = norm ? norm.split(" ").length : 0;
+    var points = keys.map(function(k){ return pointFound(norm, k.alt); });
+    var earned = words >= 2 && points.length === 2 && points[0] && points[1];
+    return { earned: earned, points: points };
+  }
+  function gradeAllWritten(){ writtenGrades = {}; ALL_WRITTEN.forEach(function(q){ writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || ""); }); }
+
+  function sectionScore(secId){
+    var sec = SECTIONS[secId - 1], pts = 0;
+    sec.questions.forEach(function(q){ if(q.type === "mc"){ if(answers[q.n] === q.correct) pts++; } else if(writtenGrades[q.n] && writtenGrades[q.n].earned) pts++; });
+    return pts;
+  }
+
+  function buildResults(){
+    var mcScore = 0, wrScore = 0;
+    ALL_MC.forEach(function(q){ if(answers[q.n] === q.correct) mcScore++; });
+    ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
+    var total = mcScore + wrScore;
+    var pct = Math.round(total / 12 * 100);
+    lastResult = { total: total, pct: pct, mcScore: mcScore, wrScore: wrScore, attempt: attemptCount };
+    $("r-name").textContent = studentName;
+    $("r-attempt").textContent = attemptLine(attemptCount);
+    var autoNote = $("r-auto-note"); if(autoNote) autoNote.classList.toggle("hidden", !autoSubmitted);
+    $("r-score").textContent = total;
+    $("r-pct").textContent = pct + "% correct";
+    $("r-time").textContent = fmtTime(elapsedAtSubmit);
+    $("r-mc").textContent = mcScore + " / 8";
+    $("r-wr").textContent = wrScore + " / 4";
+    var secScoresEl = $("r-section-scores");
+    if(secScoresEl){
+      var s1 = sectionScore(1), s2 = sectionScore(2), s3 = sectionScore(3);
+      secScoresEl.innerHTML = '<span class="meta-chip">Section 1: ' + s1 + '/4</span><span class="meta-chip">Section 2: ' + s2 + '/4</span><span class="meta-chip">Section 3: ' + s3 + '/4</span>';
+    }
+    var filled = total >= 11 ? 5 : total >= 9 ? 4 : total >= 6 ? 3 : total >= 4 ? 2 : 1;
+    var stars = "";
+    for(var i = 0; i < 5; i++) stars += i < filled ? "\u2605" : '<span class="off">\u2605</span>';
+    $("r-stars").innerHTML = stars;
+    var msg;
+    if(total === 12) msg = "Perfect score! You are a math superstar! \uD83C\uDF1F";
+    else if(total >= 10) msg = "Excellent work! You worked very carefully. \uD83C\uDF89";
+    else if(total >= 6) msg = "Good job! Keep practising and you'll get even better. \uD83D\uDCAA";
+    else if(total >= 4) msg = "Nice try! Look at the review below, then try again \u2014 you can do it! \uD83C\uDF31";
+    else msg = "Good effort finishing the quiz! Look at the review below and try again. \uD83C\uDF31";
+    $("r-message").textContent = msg;
+    var bd = "";
+    SECTIONS.forEach(function(s){
+      var pts = sectionScore(s.id); var totalQ = s.questions.length; var dots = "";
+      for(var i = 0; i < totalQ; i++) dots += '<i class="'+(i < pts ? "on" : "")+'"></i>';
+      bd += '<div class="bd-card"><div class="bd-name">Section '+s.id+': '+pts+'/'+totalQ+'<br>'+esc(s.title)+'</div><div class="bd-score">'+pts+'<small> / '+totalQ+'</small></div><div class="bd-dots">'+dots+'</div></div>';
+    });
+    $("r-breakdown").innerHTML = bd;
+    var rev = "";
+    ALL_MC.forEach(function(q){
+      var sec = SECTIONS[q.section - 1]; var mine = answers[q.n]; var isRight = mine === q.correct;
+      rev += '<div class="rev-card '+(isRight ? "correct" : "wrong")+'"><div class="rev-head"><span class="rev-badge '+(isRight ? "ok" : "no")+'">'+(isRight ? "\u2713 Correct" : "\u2717 Not quite")+'</span><span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div><div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
+      if(!isRight){ rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>'; }
+      rev += '<div class="rev-why"><b>Why:</b> ' + esc(q.why) + ' <span style="color:var(--ink-soft);font-weight:700">(' + esc(sec.title) + ')</span></div></div>';
+    });
+    $("r-mc-review").innerHTML = rev;
+    var wr = "";
+    ALL_WRITTEN.forEach(function(q){
+      var disp = writtenDisplay(q.n);
+      var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
+      var keys = GRADE_KEYS[q.n];
+      wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'"><div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "\u2713 Correct" : "\u2717 Not quite")+'</span><span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div><div class="answer-box your-box"><span class="ab-label">Your answer</span>'+ (disp ? esc(disp).replace(/\n/g, "<br>") : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div><div class="kp-box"><span class="kp-title">Key points</span>';
+      keys.forEach(function(k, i){
+        if(g.points[i]){ wr += '<div class="kp-line"><span class="kp-ok">\u2713 Found:</span> ' + esc(k.found) + '</div>'; }
+        else { wr += '<div class="kp-line"><span class="kp-miss">\u2717 Missing:</span> ' + esc(k.missing) + '</div>'; }
+      });
+      wr += '</div><div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div></div>';
+    });
+    $("r-wr-review").innerHTML = wr;
+  }
+
+  $("again-btn").addEventListener("click", function(){
+    answers = {}; written = {}; writtenParts = {}; writtenGrades = {}; submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
+    stopTimer();
+    var w = $("time-warning"); if(w) w.classList.add("hidden");
+    var an = $("r-auto-note"); if(an) an.classList.add("hidden");
+    var tm = $("timer"); if(tm){ tm.textContent = "\u23F1 " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical"); }
+    studentName = TEST_MODE ? "TEST" : "Eden";
+    show("view-start");
+  });
+})();
+</script>
+</body>
+</html>
