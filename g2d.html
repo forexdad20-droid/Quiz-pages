@@ -407,7 +407,7 @@
       </form>
     </div>
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/15/26 Daily Quiz 650L (down 20L), 11/16/26 Daily Quiz 650L (the same), 11/16/26 Daily Quiz 700L (up 50L), 11/17/26 Daily Quiz 710L (up 10L, gold bar — your best ever, with a crown), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/16/26 Daily Quiz 650L (the same), 11/16/26 Daily Quiz 700L (up 50L), 11/17/26 Daily Quiz 710L (up 10L), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Reading Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
         <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>530L to 710L</strong> — that's <strong>+180L</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
@@ -419,9 +419,10 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Lexile</span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">▲ +10L</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">710L<span class="delta">▲ +10L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">700L<span class="delta">▲ +50L</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">650L<span class="delta">→ same</span></span></div>
           <div class="hg-row down" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell">650L<span class="delta">▼ -20L</span></span></div>
@@ -430,7 +431,6 @@
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell">670L<span class="delta">▲ +20L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Placement</span><span class="c score" role="cell">18/20</span><span class="c lex" role="cell">650L<span class="delta">▲ +120L</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/13/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">530L<span class="delta">→ same</span></span></div>
-          <div class="hg-row" role="row"><span class="date" role="cell">11/12/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">11/12</span><span class="c lex" role="cell">530L</span></div>
         </div>
         </div>
         <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
@@ -502,7 +502,7 @@
         <span class="meta-chip">Section 2: 0/4</span>
         <span class="meta-chip">Section 3: 0/4</span>
       </div>
-      <p class="saved-line">Answers saved ✓</p>
+      <p class="saved-line" id="saved-line">Answers saved ✓</p>
     </div>
     <div class="breakdown" id="r-breakdown"></div>
     <h3 class="review-title">Review: Tap-the-Answer Questions</h3>
@@ -513,7 +513,7 @@
     <div id="r-wr-review"></div>
     <div class="results-actions">
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/15/26 Daily Quiz 650L (down 20L), 11/16/26 Daily Quiz 650L (the same), 11/16/26 Daily Quiz 700L (up 50L), 11/17/26 Daily Quiz 710L (up 10L, gold bar — your best ever, with a crown), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/16/26 Daily Quiz 650L (the same), 11/16/26 Daily Quiz 700L (up 50L), 11/17/26 Daily Quiz 710L (up 10L), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Reading Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
         <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>530L to 710L</strong> — that's <strong>+180L</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
@@ -525,9 +525,10 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Lexile</span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">▲ +10L</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">710L<span class="delta">▲ +10L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">700L<span class="delta">▲ +50L</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/16/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">650L<span class="delta">→ same</span></span></div>
           <div class="hg-row down" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell">650L<span class="delta">▼ -20L</span></span></div>
@@ -536,7 +537,6 @@
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell">670L<span class="delta">▲ +20L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Placement</span><span class="c score" role="cell">18/20</span><span class="c lex" role="cell">650L<span class="delta">▲ +120L</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/13/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">530L<span class="delta">→ same</span></span></div>
-          <div class="hg-row" role="row"><span class="date" role="cell">11/12/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">11/12</span><span class="c lex" role="cell">530L</span></div>
         </div>
         </div>
         <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
@@ -571,93 +571,90 @@
     {
       id: 1, tag: "Section 1", tagClass: "tag-1",
       title: "Key Ideas and Details",
-      subtitle: "Nonfiction \u00B7 How Frogs Grow \u00B7 4 questions",
-      passageTitle: "How Frogs Grow",
+      subtitle: "Nonfiction \u00B7 Why Rainbows Appear \u00B7 4 questions",
+      passageTitle: "Why Rainbows Appear",
       paragraphs: [
-        "## Eggs in the Water",
-        "A mother frog lays many eggs in a pond. She may lay hundreds of eggs at one time. Why so many? Many of the eggs will not live to grow up. Birds and fish eat some of them. Others dry out in the sun. Only some of the eggs will hatch and grow into frogs. That is why the mother frog lays so many eggs.",
-        "[Picture: A mother frog sits by the pond. Under the water, a bunch of tiny black eggs sticks to a green plant.]",
-        "## A Swimming Tadpole",
-        "After some days, each egg hatches. Out comes a tiny tadpole. A tadpole does not look like a frog at all. It has a round head and a long tail. The tadpole swims in the pond with its tail. It breathes under the water, just like a fish. It eats tiny green plants in the water and grows bigger and bigger.",
-        "## Growing Legs",
-        "As the tadpole grows, its body begins to change. First, two back legs grow. Then two front legs grow. The tadpole can still swim, but now it can push with its legs too. Day by day, its tail gets shorter and shorter. At last, the tail is all gone.",
-        "## A Frog on Land",
-        "Now the tadpole has become a frog. The frog can hop on land with its strong legs. It can swim in the pond too. The frog is hungry. It sees a bug fly past. Out shoots its long, sticky tongue \u2014 snap! The frog catches the bug and eats it. One day, this frog may lay eggs of its own in the pond."
+        "## Sun and Rain Together",
+        "Have you ever seen a rainbow after a rain shower? A rainbow is a bow of colours in the sky. It cannot happen with rain alone, and it cannot happen with sun alone. A rainbow needs two things at the same time: falling rain and shining sun.",
+        "## How a Rainbow Forms",
+        "Here is how a rainbow forms, step by step. First, sunlight shines through the raindrops that are falling from a rain cloud. When the light goes into a raindrop, it bends a little. Next, the light bends again as it comes back out of the drop. White sunlight is really made of many colours mixed together, and bending the light pulls those colours apart. Last, the colours spread out across the sky and line up in a row. That row of colours is the rainbow you see.",
+        "## When Can You See One?",
+        "You can see a rainbow when the sun is low in the sky and rain is falling on the other side of the sky. This often happens late in the day, after a short rain shower, when the sun comes out again. The sun must be behind you, and the rain must be in front of you. If the sun is too high in the sky, the rainbow hides where you cannot see it.",
+        "## Why It Looks Like a Bow",
+        "A rainbow looks like a giant bow in the sky. Its colours always come in the same order: red, orange, yellow, green, blue, and purple. Red is always on the top edge of the bow, and purple is always on the bottom edge. No one can walk to the end of a rainbow, because a rainbow is made of light, not of anything you can touch. It moves as you move."
       ],
       chart: null,
       questions: [
-        { n:1, std:"RI.2.5", type:"mc", text:"The heading \u201CGrowing Legs\u201D tells you this part of the text will be mostly about \u2014", options:["how eggs hatch in the water","a tadpole growing legs","how a frog catches bugs with its tongue","why frogs live in ponds"], correct:1, why:"A heading tells you what that part of the text is mostly about. The part under \u201CGrowing Legs\u201D tells how a tadpole grows back legs and then front legs." },
-        { n:2, std:"RI.2.8", type:"mc", text:"Why does the author say a mother frog lays MANY eggs?", options:["So the pond will look full of eggs","Because frogs like big families","Because many eggs will not live to grow up","So the tadpoles will have friends to play with"], correct:2, why:"The author gives this reason: many eggs will not live to grow up \u2014 birds and fish eat some, and others dry out \u2014 so the mother frog lays many eggs." },
-        { n:3, std:"RF.2.3", type:"mc", text:"Which word has the long o sound you hear in \u201Cgrow\u201D?", options:["frog","pond","snow","hop"], correct:2, why:"\u201CGrow\u201D has the long o sound. \u201CSnow\u201D has the same long o sound. Frog, pond, and hop have a short o sound." },
-        { n:4, std:"RI.2.10", type:"written", text:"Name TWO ways a tadpole changes as it grows into a frog.",
-          part1:"First way a tadpole changes:",
-          part2:"Second way a tadpole changes:",
-          sample:"A tadpole grows legs, and its tail gets shorter until it is gone." }
+        { n:1, std:"RI.2.1", type:"mc", text:"According to the text, what TWO things must happen at the same time for a rainbow to appear?", options:["Rain must be falling and the sun must be shining","Rain must be falling and the moon must be shining","Snow must be falling and the sun must be shining","Rain must be falling and the wind must be blowing"], correct:0, why:"The text says a rainbow needs two things at the same time: falling rain and shining sun. It cannot happen with rain alone or sun alone." },
+        { n:2, std:"RI.2.2", type:"mc", text:"What is this text mostly about?", options:["How rain falls from clouds and makes the big puddles","How rainbows appear in the sky and when to see them","How rainbows are drawn with crayons and bright pens","How sunlight feels warm and makes the days longer"], correct:1, why:"The whole text tells how a rainbow forms, when you can see one, and why it looks like a bow of colours. That is the main topic." },
+        { n:3, std:"RI.2.4", type:"mc", text:"In the text, the light \u201Cbends\u201D when it goes into a raindrop. What does \u201Cbends\u201D mean here?", options:["Breaks or splits apart into smaller pieces","Turns or curves away from a straight line","Shines or glows much brighter in the drop","Drops or falls straight down to the ground"], correct:1, why:"In this text, \u201Cbends\u201D means the light turns or curves away from going straight. The bending is what pulls the colours of sunlight apart." },
+        { n:4, std:"RI.2.3", type:"written", text:"Tell how a rainbow forms. Write the FIRST step and the LAST step.",
+          part1:"First step \u2014 what happens first:",
+          part2:"Last step \u2014 what happens last:",
+          sample:"First, sunlight shines through the falling raindrops. Last, the colours spread out across the sky and form a bow." }
       ]
     },
     {
       id: 2, tag: "Section 2", tagClass: "tag-2",
       title: "Reading Comprehension",
-      subtitle: "Fiction \u00B7 Lila and the Kind Snowman \u00B7 4 questions",
-      passageTitle: "Lila and the Kind Snowman",
+      subtitle: "Fiction \u00B7 Pippa and the Night Train \u00B7 4 questions",
+      passageTitle: "Pippa and the Night Train",
       paragraphs: [
-        "On a cold, snowy morning, Lila went outside to build a snowman. She rolled a big ball of snow for his body. Then she rolled a smaller ball for his head. Pat, pat, pat \u2014 Lila patted the snow with her hands to make the snowman strong and round. She named him Milo.",
-        "\u201CThere, Milo,\u201D said Lila. \u201CNow you need eyes and a smile.\u201D She put two black stones on his face for eyes. She used a carrot for his nose. Then she wrapped her red scarf around Milo\u2019s neck.",
-        "Lila looked at Milo and frowned. \u201CHe looks cold and lonely,\u201D she said. \u201CAnd the wind is so strong today. I am worried. The wind might knock Milo over. It might blow his scarf right off!\u201D",
-        "Her brother Ben came out and laughed. \u201CMilo does not look cold,\u201D said Ben. \u201CHe looks brave and funny! Look at his big smile. The wind cannot knock him down.\u201D",
-        "Just then, a big wind blew \u2014 whoosh! It lifted Milo\u2019s red scarf off his neck and blew it into a bush. \u201COh no! Milo\u2019s scarf!\u201D cried Lila.",
-        "Lila and Ben ran to the bush together. Ben held the bush still, and Lila pulled the scarf out. Then they wrapped the scarf snug around Milo\u2019s neck again, so the wind could not take it. Ben put his own warm hat on Milo\u2019s head too.",
-        "\u201CNow Milo looks warm,\u201D said Ben. Lila smiled. She felt happy and proud. \u201CWe fixed him together,\u201D she said. \u201CMilo is not lonely anymore. He has us.\u201D"
+        "Pippa was going on a night train with Grandpa. They were riding to Aunt Rosa\u2019s town, far away. Pippa had never been on a train in the dark before. As they climbed the steps into the train car, she held Grandpa\u2019s hand tightly.",
+        "The train began to move \u2014 clickety-clack, clickety-clack. Outside the window, the sky turned deep blue, then black. Pippa pressed her nose to the glass, but she could see almost nothing. \u201CIt\u2019s so dark out there,\u201D she whispered. Her tummy felt fluttery, the way it did before a test at school. \u201CWhat if we can\u2019t see where we are going?\u201D",
+        "Grandpa smiled and patted her hand. \u201CThe driver knows the way, even in the dark,\u201D he said. \u201CAnd look \u2014 we are not the only lights out here.\u201D Just then, the train passed a small town. Rows of golden windows twinkled below them, and street lamps glowed like a line of tiny suns. Pippa counted the lights. \u201COne, two, three\u2026\u201D Counting made her feel calmer.",
+        "A kind conductor named Mr. Okafor came down the aisle with a lantern and a tray of warm cocoa. \u201CFirst night train?\u201D he asked. Pippa nodded. \u201CThen you are in for a treat,\u201D he said with a wink. \u201CWatch for the river bridge. The water sparkles like silver in the dark.\u201D He gave Pippa a paper star to stick on her window. \u201CFor bravery,\u201D he said.",
+        "Soon the train rolled over the long bridge. Below, the river shone silver in the moonlight, just as Mr. Okafor had promised. Pippa laughed out loud. The dark did not feel scary anymore. It felt full of sparkles. She sipped her cocoa and watched the towns go by, one bright town after another.",
+        "Late that night, the train slowed down. Aunt Rosa was waiting on the platform, waving. Pippa waved back with both hands. \u201CGrandpa,\u201D she said, \u201CI was scared of the dark at first. But the night train was wonderful. Can we ride it again?\u201D Grandpa laughed. \u201CAny time, brave Pippa. Any time.\u201D"
       ],
       chart: null,
       questions: [
-        { n:5, std:"RL.2.4", type:"mc", text:"Why does the author repeat the words \u201Cpat, pat, pat\u201D?", options:["To show the sound Lila makes as she pats the snow to build Milo","To show that Lila is tired of building","To tell the words that Milo says","To show the sound of the wind blowing"], correct:0, why:"The author repeats \u201Cpat, pat, pat\u201D to show the sound and the way Lila pats the snow with her hands as she builds Milo." },
-        { n:6, std:"RL.2.6", type:"mc", text:"How do Lila and Ben feel DIFFERENTLY about Milo?", options:["Both Lila and Ben think Milo looks brave and funny","Lila thinks Milo looks cold and lonely, but Ben thinks Milo looks brave and funny","Ben thinks Milo looks cold and lonely, but Lila thinks Milo looks brave and funny","Both Lila and Ben think Milo looks cold and lonely"], correct:1, why:"Lila and Ben have different points of view. Lila thinks Milo looks cold and lonely, but Ben thinks Milo looks brave and funny." },
-        { n:7, std:"RL.2.10", type:"mc", text:"What happens RIGHT AFTER the wind blows Milo\u2019s scarf into the bush?", options:["Lila goes inside to eat lunch","Ben builds another snowman","All the snow melts away","Lila and Ben fetch the scarf together and wrap it snug around Milo"], correct:3, why:"Right after the wind blows the scarf into the bush, Lila and Ben run to the bush together, fetch the scarf, and wrap it snug around Milo again." },
-        { n:8, std:"RL.2.2", type:"written", text:"Tell the problem in the story AND how it was solved.",
-          part1:"The problem in the story was:",
-          part2:"The problem was solved when:",
-          sample:"The wind blew Milo\u2019s scarf into a bush. Lila and Ben fetched the scarf and wrapped it snug around Milo again." }
+        { n:5, std:"RL.2.1", type:"mc", text:"Who does Pippa ride the night train with, and where are they going?", options:["She rides with Mr. Okafor to Aunt Rosa\u2019s town","She rides with her Grandpa to Aunt Rosa\u2019s town","She rides with her Grandpa to Mr. Okafor\u2019s town","She rides with Aunt Rosa to her Grandpa\u2019s town"], correct:1, why:"The story says Pippa was going on a night train with Grandpa, and they were riding to Aunt Rosa\u2019s town, far away." },
+        { n:6, std:"RL.2.3", type:"mc", text:"What does Pippa do when the train passes the small town with twinkling lights?", options:["She counts the lights, and counting makes her feel more afraid","She counts the towns, and counting makes her feel much calmer","She counts the lights, and counting makes her feel much calmer","She counts the lights, and counting makes Grandpa feel calmer"], correct:2, why:"When the train passes the town, Pippa counts the golden windows and street lamps \u2014 one, two, three \u2014 and counting makes her feel calmer." },
+        { n:7, std:"RL.2.5", type:"mc", text:"How is the END of the story different from the BEGINNING?", options:["At the beginning Pippa is brave about the dark, but at the end she is nervous and wants to go back home","At the beginning Pippa is happy about the dark, but at the end she is nervous and wants to ride it again","At the beginning Pippa is nervous about the dark, but at the end she is brave and wants to ride it again","At the beginning Pippa is nervous about the dark, but at the end she is scared and wants to go back home"], correct:2, why:"The story begins with Pippa nervous about the dark, holding Grandpa\u2019s hand tightly. It ends with brave, happy Pippa asking, \u201CCan we ride it again?\u201D" },
+        { n:8, std:"RL.2.2", type:"written", text:"Recount the story. What was Pippa\u2019s problem at the start, and how did she feel at the end?",
+          part1:"Pippa\u2019s problem at the start was:",
+          part2:"At the end, Pippa felt:",
+          sample:"At the start, Pippa was scared and nervous about riding a train in the dark. At the end, she felt brave and happy, and she wanted to ride the night train again." }
       ]
     },
     {
       id: 3, tag: "Section 3", tagClass: "tag-3",
       title: "Integration of Knowledge and Ideas",
-      subtitle: "Two tellings and a chart \u00B7 Goldilocks and Baby Bear \u00B7 4 questions",
+      subtitle: "Two tellings and a chart \u00B7 Hansel and Gretel in the Woods \u00B7 4 questions",
       passageTitle: null,
       paragraphs: [],
       texts: [
-        { label:"Text A", title:"Goldilocks Tells It",
-          body:"I am Goldilocks, and I want to tell you what really happened. That morning I walked in the woods for a long time, and I was famished \u2014 that means very, very hungry. Then I saw a small house. The door was open, so I went in. On the table were three bowls of porridge. I tasted Papa Bear\u2019s big bowl, but it was too hot. I tasted Mama Bear\u2019s bowl, but it was too cold. Then I tasted Baby Bear\u2019s little bowl, and it was just right, so I ate it all up. Next I sat in the chairs. Papa Bear\u2019s chair was too hard, and Mama Bear\u2019s chair was too soft. Baby Bear\u2019s chair was just right, but it broke! I felt bad about that. I was so tired that I lay down in the beds, and Baby Bear\u2019s little bed was just right, so I fell fast asleep. When the bears came home and found me, I woke up and ran away. But later I went back, because I felt sorry. I said sorry to Baby Bear for eating his porridge and breaking his chair, and I helped him fix his chair." },
-        { label:"Text B", title:"Baby Bear Tells It",
-          body:"I am Baby Bear, and this is my side of the story. One morning, my family went for a walk while our porridge cooled. When we came home, I saw that someone had tasted my porridge. \u201CSomeone has eaten all my porridge up!\u201D I cried. It was all gone. Then I saw my tiny chair. Goldilocks had sat in it, and it was broken into pieces. I was very upset. We looked in the bedroom, and there she was \u2014 Goldilocks, asleep in my little bed! She woke up, saw us, and ran away fast. At first I was upset and a little angry. But the next day, Goldilocks came back. She said she was sorry, and she helped me fix my tiny chair. I forgave her, and we became friends. Now she knocks on the door before she comes in." }
+        { label:"Text A", title:"Hansel Tells the Story",
+          body:"I am Hansel, and I will tell you how our walk in the woods happened. One morning, Gretel and I went deep into the woods to pick berries. Before we left home, I filled my pockets with smooth white stones. As we walked, I dropped the stones behind us, one by one, to mark our path. Deep in the woods, we found a little house. Its walls were made of bread, and its roof was made of sweet cakes. We were hungry, so we nibbled the roof. To nibble means to take small, gentle bites, and that is just what we did. An old woman lived in the house. She smiled at us, gave us warm milk, and let us rest in soft beds. In the morning, we followed my line of white stones all the way home. I tell this story so that other children will make a plan and mark their path before they go into the woods." },
+        { label:"Text B", title:"Gretel Tells the Story",
+          body:"I am Gretel, and I remember our walk in the woods a little differently. Hansel is right that we went to pick berries, and he is right about the white stones. He dropped them behind us to mark our path, and together we collected white stones on many days. But Hansel forgets some things. It was I who found the little house, because I heard a bird singing and followed the sound. The old woman did not smile at first. She looked cross, and her voice was sharp. Only after we said we were sorry for nibbling her roof did she smile and give us warm milk. Hansel also forgets that I carried the heavy basket of berries all the way home while he followed the stones. I tell this story so that everyone will know the whole truth: my brother\u2019s plan helped us, but we got home because we helped each other." }
       ],
       chart: {
-        title:"What Goldilocks Tried",
-        sub:"How many of each thing Goldilocks tried",
-        max: 3,
+        title:"White Stones the Children Collected Each Day",
+        sub:"How many white stones Hansel and Gretel collected on each day",
+        max: 12,
         unit: "",
-        col1: "Thing",
-        col2: "How many",
+        col1: "Day",
+        col2: "White stones",
         rows:[
-          { label:"Papa Bear\u2019s bowl", count:1, cls:"banana" },
-          { label:"Mama Bear\u2019s bowl", count:1, cls:"teal" },
-          { label:"Baby Bear\u2019s bowl", count:1, cls:"apple" },
-          { label:"Chairs sat in", count:3, cls:"teal" },
-          { label:"Beds lay in", count:3, cls:"banana" }
+          { label:"Monday", count:6, cls:"teal" },
+          { label:"Tuesday", count:9, cls:"banana" },
+          { label:"Wednesday", count:4, cls:"apple" },
+          { label:"Thursday", count:12, cls:"orange" }
         ]
       },
       questions: [
-        { n:9, std:"RL.2.9", type:"mc", text:"How are the two tellings the SAME?", options:["Both tellings say Goldilocks never went into the bears\u2019 house","Both tellings say Baby Bear broke his own chair","Both tellings say Goldilocks tasted Baby Bear\u2019s porridge and sat in Baby Bear\u2019s chair","Both tellings say Goldilocks ran away and never said sorry"], correct:2, why:"Both tellings agree on this: Goldilocks tasted Baby Bear\u2019s porridge \u2014 she ate it all up \u2014 and she sat in Baby Bear\u2019s chair, and it broke." },
-        { n:10, std:"RL.2.7", type:"mc", text:"Use the chart. How many porridge bowls did Goldilocks taste in all?", options:["1","2","3","6"], correct:2, why:"The chart \u201CWhat Goldilocks Tried\u201D shows 1 bowl for Papa Bear, 1 bowl for Mama Bear, and 1 bowl for Baby Bear. 1 + 1 + 1 = 3 bowls in all." },
-        { n:11, std:"L.2.5", type:"written", text:"The texts use two words that mean almost the same as SMALL. Write BOTH words.",
-          part1:"First word that means almost the same as SMALL:",
-          part2:"Second word that means almost the same as SMALL:",
-          sample:"tiny and little" },
-        { n:12, std:"L.2.6", type:"written", text:"Write how the story ends. Use what happened with Goldilocks and Baby Bear.",
-          part1:"What did Goldilocks do at the end?",
-          part2:"What did Baby Bear do?",
-          sample:"Goldilocks said sorry, and Baby Bear forgave her. Then they became friends." }
+        { n:9, std:"RI.2.7", type:"mc", text:"Use the chart. On which day did the children collect the MOST white stones?", options:["Monday","Tuesday","Wednesday","Thursday"], correct:3, why:"The chart shows Monday 6, Tuesday 9, Wednesday 4, and Thursday 12 white stones. 12 is the most, so the children collected the most stones on Thursday." },
+        { n:10, std:"RL.2.9", type:"mc", text:"What do BOTH tellings agree happened on the walk in the woods?", options:["Gretel found the house by following a singing bird, and the children ate the sweet roof","Hansel dropped white stones to mark the path, and the children followed the stones home","The old woman looked cross at first with a sharp voice, and then she gave them warm milk","Gretel carried the heavy basket of berries all the way home while Hansel followed stones"], correct:1, why:"Both tellings agree that Hansel dropped white stones to mark the path and that the children followed the stones home. The bird, the cross old woman, and carrying the basket are only in Gretel\u2019s telling." },
+        { n:11, std:"RI.2.6", type:"written", text:"Each child tells the story for a reason. Write Hansel\u2019s main reason AND Gretel\u2019s main reason.",
+          part1:"Hansel tells the story to:",
+          part2:"Gretel tells the story to:",
+          sample:"Hansel tells the story to teach children to make a plan and mark their path. Gretel tells the story so everyone knows the whole truth \u2014 the children got home because they helped each other." },
+        { n:12, std:"L.2.4", type:"written", text:"In Text A, Hansel says, \u201Cwe nibbled the roof.\u201D What does \u201Cnibbled\u201D mean, and which words in the text are the clues?",
+          part1:"\u201CNibbled\u201D means:",
+          part2:"The clue words in the text are:",
+          sample:"\u201CNibbled\u201D means took small, gentle bites. The clue words are \u201Csmall, gentle bites,\u201D in the sentence that tells what to nibble means." }
       ]
     }
   ];
@@ -740,9 +737,9 @@
     });
     var h1 = 5381, h2 = 52711;
     for(var i = 0; i < raw.length; i++){ var c = raw.charCodeAt(i); h1 = ((h1 * 33) ^ c) >>> 0; h2 = ((h2 * 31) ^ c) >>> 0; }
-    return "g2-2026-11-19-seq9";
+    return "g2-2026-11-19-seq10";
   }
-  var QUIZ_ID = "2026-11-19-seq9";
+  var QUIZ_ID = "2026-11-19-seq10";
   function normalizedStudentName(){ return String(studentName || "").trim().toLowerCase().replace(/\s+/g, " "); }
   function attemptStorageKey(){ return "g2rq-attempts-v1:" + QUIZ_ID + ":" + normalizedStudentName() + (TEST_MODE ? ":TEST" : ""); }
   function recordAttempt(){
@@ -836,12 +833,12 @@
   
 
   var GROWTH = [
-    { date:"11/15/26", type:"Daily Quiz", lexile:650, delta:"-20L", kind:"down" },
     { date:"11/16/26", type:"Daily Quiz", lexile:650, delta:null, kind:"same" },
     { date:"11/16/26", type:"Daily Quiz", lexile:700, delta:"+50L", kind:"up" },
-    { date:"11/17/26", type:"Daily Quiz", lexile:710, delta:"+10L", kind:"best" },
+    { date:"11/17/26", type:"Daily Quiz", lexile:710, delta:"+10L", kind:"up" },
     { date:"11/17/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" },
-    { date:"11/18/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" }
+    { date:"11/18/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" },
+    { date:"11/19/26", type:"Daily Quiz", lexile:710, delta:null, kind:"best" }
   ];
 
   function renderGrowthCharts(){
@@ -1121,7 +1118,7 @@
     var payload = { folder: "Eden", subfolder: "阅读理解", student: studentName, test: QUIZ_TITLE, date: QUIZ_DATE, attempt: attemptCount, score: totalScore + "/12", log: logText };
     
   /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
-     Google Apps Script, so google.script.run does not exist here. The answer
+     Google Apps Script, so the Apps Script runner does not exist here. The answer
      log is POSTed directly to the same receiver endpoint (its doPost), with
      the identical payload shape the watcher already parses. fetch(no-cors)
      first; sendBeacon as fallback; a second fetch as last resort. */
@@ -1171,36 +1168,36 @@
   function pointFound(norm, alternatives){ for(var i = 0; i < alternatives.length; i++){ if(altMatches(norm, alternatives[i])) return true; } return false; }
   var GRADE_KEYS = {
     4: [
-      { found: "A tadpole grows legs",
-        missing: "a tadpole grows legs",
-        alt: [["leg"]] },
-      { found: "Its tail gets shorter and shorter until it is gone",
-        missing: "its tail gets shorter, smaller, or goes away",
-        alt: [["tail","short"],["tail","small"],["tail","gone"],["tail","disappear"],["tail","shrink"],["tail","away"],["tail","no more"]] }
+      { found: "First step \u2014 sunlight shines through the falling raindrops",
+        missing: "the first step \u2014 sunlight shines through the rain or raindrops",
+        alt: [["sun","rain"],["sun","drop"],["sunlight","rain"],["sunlight","drop"],["sun","shine","rain"],["sun","shines","rain"],["sun","shining","rain"],["light","rain"],["light","drop"],["sun","through"]] },
+      { found: "Last step \u2014 the colours spread out across the sky and form a bow",
+        missing: "the last step \u2014 the colours spread out and make a bow",
+        alt: [["colour","spread"],["color","spread"],["colours","spread"],["colors","spread"],["colour","bow"],["color","bow"],["colours","bow"],["spread","out"],["rainbow","form"],["rainbow","appear"]] }
     ],
     8: [
-      { found: "The problem \u2014 the wind blew Milo\u2019s scarf away into a bush",
-        missing: "the problem \u2014 the wind blew Milo\u2019s scarf away",
-        alt: [["wind","scarf","bush"],["wind","scarf","away"],["wind","scarf","blew"],["wind","scarf","blow"],["scarf","bush"],["scarf","blew"],["scarf","blown"]] },
-      { found: "How it was solved \u2014 Lila and Ben fetched the scarf and wrapped it snug around Milo again",
-        missing: "how it was solved \u2014 Lila and Ben got the scarf back and put it on Milo again",
-        alt: [["fetch","scarf"],["fetched","scarf"],["got","scarf","back"],["get","scarf","back"],["brought","scarf","back"],["scarf","wrap"],["scarf","wrapped"],["scarf","put"],["scarf","back"],["took","scarf","bush"]] }
+      { found: "Pippa\u2019s problem \u2014 she was scared or nervous about the dark at the start",
+        missing: "Pippa\u2019s problem \u2014 she was afraid of the dark at the start",
+        alt: [["scared","dark"],["afraid","dark"],["nervous","dark"],["worried","dark"],["frightened","dark"],["scared","night"],["afraid","night"],["nervous","night"],["scared","train"],["afraid","train"],["nervous","train"],["scared","first"],["nervous","first"],["afraid","first"]] },
+      { found: "At the end, Pippa felt brave and happy",
+        missing: "how Pippa felt at the end \u2014 brave, happy, or not scared anymore",
+        alt: [["brave"],["happy"],["not scared"],["not afraid"],["felt better"],["calm"],["proud"],["wonderful"],["loved it"],["want","again"],["wants","again"]] }
     ],
     11: [
-      { found: "tiny \u2014 a word that means almost the same as SMALL",
-        missing: "tiny",
-        alt: [["tiny"],["tini"],["tinee"]] },
-      { found: "little \u2014 a word that means almost the same as SMALL",
-        missing: "little",
-        alt: [["little"],["litle"],["littl"]] }
+      { found: "Hansel\u2019s reason \u2014 to teach children to make a plan and mark their path",
+        missing: "Hansel\u2019s reason \u2014 to make a plan and mark the path",
+        alt: [["plan"],["mark","path"],["mark","way"],["mark the"],["be ready"],["prepare"],["mark","stone"]] },
+      { found: "Gretel\u2019s reason \u2014 so everyone knows the whole truth, that they helped each other",
+        missing: "Gretel\u2019s reason \u2014 to tell the whole truth, or that they helped each other",
+        alt: [["truth"],["help","each"],["helping","each"],["whole"],["togeth"],["her side"],["real story"],["what really"]] }
     ],
     12: [
-      { found: "Goldilocks said sorry (she apologized)",
-        missing: "Goldilocks said sorry",
-        alt: [["sorry"],["apolog"],["sory"],["sorri"]] },
-      { found: "Baby Bear forgave her, and they became friends",
-        missing: "Baby Bear forgave her, or they became friends",
-        alt: [["forgav"],["forgiv"],["friend"],["frend"]] }
+      { found: "\u201CNibbled\u201D means took small, gentle bites",
+        missing: "the meaning of \u201Cnibbled\u201D \u2014 took small bites",
+        alt: [["small","bite"],["small","bites"],["little","bite"],["little","bites"],["tiny","bite"],["gentle","bite"],["gentle","bites"],["small","gentle"]] },
+      { found: "The clue words are \u201Csmall, gentle bites\u201D",
+        missing: "the clue words \u2014 \u201Csmall, gentle bites\u201D",
+        alt: [["small","gentle"],["gentle","bites"],["small","gentle","bites"],["clue"]] }
     ]
   };
   function gradeWrittenAnswer(qn, rawText){
@@ -1295,14 +1292,14 @@
     var total = lastResult ? lastResult.total : 0;
     var delta = lexileDeltaFor(total);
     if(REDO_MODE){
-      var sn = document.querySelector(".saved-note");
+      var sn = document.getElementById("saved-line");
       if(sn) sn.textContent = "Practice try \u2014 this one is not recorded.";
     }
     if(delta < 0){
       $("d-score").textContent = total;
       $("d-lexile").textContent = "\u2B50 Your Lexile went DOWN by 20L this time.";
       var redo = $("redo-link");
-      if(redo) redo.href = QUIZ_URL + "&redo=1" + (TEST_MODE ? "&test=1" : "");
+      if(redo) redo.href = QUIZ_URL + "redo=1" + (TEST_MODE ? "&test=1" : "");
       show("view-redo");
     } else {
       $("p-score").textContent = total;
