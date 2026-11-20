@@ -263,6 +263,15 @@
   .part-chip{flex:0 0 auto;background:var(--teal);color:#fff;font-size:13.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
   @media (prefers-color-scheme: dark){ .part-chip{color:#07231f} }
   .q-hint{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:8px}
+  .written-parts{display:grid;gap:16px;margin-top:16px}
+  .written-part{background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;padding:16px}
+  .written-part .part-label{display:block;margin-top:0;font-size:18.5px;font-weight:800}
+  .written-part .part-label strong{font-weight:900}
+  .written-part textarea{margin-top:10px;background:var(--surface);min-height:88px}
+  .written-part .q-hint{margin-top:6px}
+  .rev-part{border-top:2px solid var(--line);margin-top:16px;padding-top:14px}
+  .rev-part:first-of-type{margin-top:14px}
+  .rev-part-title{font-size:17.5px;font-weight:900;line-height:1.4;margin:0}
   .submit-zone{margin-top:34px;text-align:center}
   .submit-zone .btn-primary{max-width:440px;margin-left:auto;margin-right:auto}
   .submit-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:10px}
@@ -588,10 +597,12 @@
         { n:1, std:"RI.2.1", type:"mc", text:"According to the text, what TWO things must happen at the same time for a rainbow to appear?", options:["Rain must be falling and the sun must be shining","Rain must be falling and the moon must be shining","Snow must be falling and the sun must be shining","Rain must be falling and the wind must be blowing"], correct:0, why:"The text says a rainbow needs two things at the same time: falling rain and shining sun. It cannot happen with rain alone or sun alone." },
         { n:2, std:"RI.2.2", type:"mc", text:"What is this text mostly about?", options:["How rain falls from clouds and makes the big puddles","How rainbows appear in the sky and when to see them","How rainbows are drawn with crayons and bright pens","How sunlight feels warm and makes the days longer"], correct:1, why:"The whole text tells how a rainbow forms, when you can see one, and why it looks like a bow of colours. That is the main topic." },
         { n:3, std:"RI.2.4", type:"mc", text:"In the text, the light \u201Cbends\u201D when it goes into a raindrop. What does \u201Cbends\u201D mean here?", options:["Breaks or splits apart into smaller pieces","Turns or curves away from a straight line","Shines or glows much brighter in the drop","Drops or falls straight down to the ground"], correct:1, why:"In this text, \u201Cbends\u201D means the light turns or curves away from going straight. The bending is what pulls the colours of sunlight apart." },
-        { n:4, std:"RI.2.3", type:"written", text:"Tell how a rainbow forms. Write the FIRST step and the LAST step.",
-          part1:"First step \u2014 what happens first:",
-          part2:"Last step \u2014 what happens last:",
-          sample:"First, sunlight shines through the falling raindrops. Last, the colours spread out across the sky and form a bow." }
+        { n:4, std:"RI.2.3", type:"written", text:"How a rainbow forms",
+          sample:"First, sunlight shines through the falling raindrops. Last, the colours spread out across the sky and form a bow.",
+          parts:[
+            { text:"Tell how a rainbow forms. What is the FIRST step \u2014 what happens first?", sample:"First, sunlight shines through the falling raindrops." },
+            { text:"Tell how a rainbow forms. What is the LAST step \u2014 what happens last?", sample:"Last, the colours spread out across the sky and form a bow." }
+          ] }
       ]
     },
     {
@@ -612,10 +623,12 @@
         { n:5, std:"RL.2.1", type:"mc", text:"Who does Pippa ride the night train with, and where are they going?", options:["She rides with Mr. Okafor to Aunt Rosa\u2019s town","She rides with her Grandpa to Aunt Rosa\u2019s town","She rides with her Grandpa to Mr. Okafor\u2019s town","She rides with Aunt Rosa to her Grandpa\u2019s town"], correct:1, why:"The story says Pippa was going on a night train with Grandpa, and they were riding to Aunt Rosa\u2019s town, far away." },
         { n:6, std:"RL.2.3", type:"mc", text:"What does Pippa do when the train passes the small town with twinkling lights?", options:["She counts the lights, and counting makes her feel more afraid","She counts the towns, and counting makes her feel much calmer","She counts the lights, and counting makes her feel much calmer","She counts the lights, and counting makes Grandpa feel calmer"], correct:2, why:"When the train passes the town, Pippa counts the golden windows and street lamps \u2014 one, two, three \u2014 and counting makes her feel calmer." },
         { n:7, std:"RL.2.5", type:"mc", text:"How is the END of the story different from the BEGINNING?", options:["At the beginning Pippa is brave about the dark, but at the end she is nervous and wants to go back home","At the beginning Pippa is happy about the dark, but at the end she is nervous and wants to ride it again","At the beginning Pippa is nervous about the dark, but at the end she is brave and wants to ride it again","At the beginning Pippa is nervous about the dark, but at the end she is scared and wants to go back home"], correct:2, why:"The story begins with Pippa nervous about the dark, holding Grandpa\u2019s hand tightly. It ends with brave, happy Pippa asking, \u201CCan we ride it again?\u201D" },
-        { n:8, std:"RL.2.2", type:"written", text:"Recount the story. What was Pippa\u2019s problem at the start, and how did she feel at the end?",
-          part1:"Pippa\u2019s problem at the start was:",
-          part2:"At the end, Pippa felt:",
-          sample:"At the start, Pippa was scared and nervous about riding a train in the dark. At the end, she felt brave and happy, and she wanted to ride the night train again." }
+        { n:8, std:"RL.2.2", type:"written", text:"Pippa\u2019s problem and how she felt",
+          sample:"At the start, Pippa was scared and nervous about riding a train in the dark. At the end, she felt brave and happy, and she wanted to ride the night train again.",
+          parts:[
+            { text:"Recount the story. What was Pippa\u2019s problem at the start?", sample:"At the start, Pippa was scared and nervous about riding a train in the dark." },
+            { text:"Recount the story. How did Pippa feel at the end?", sample:"At the end, she felt brave and happy, and she wanted to ride the night train again." }
+          ] }
       ]
     },
     {
@@ -647,14 +660,18 @@
       questions: [
         { n:9, std:"RI.2.7", type:"mc", text:"Use the chart. On which day did the children collect the MOST white stones?", options:["Monday","Tuesday","Wednesday","Thursday"], correct:3, why:"The chart shows Monday 6, Tuesday 9, Wednesday 4, and Thursday 12 white stones. 12 is the most, so the children collected the most stones on Thursday." },
         { n:10, std:"RL.2.9", type:"mc", text:"What do BOTH tellings agree happened on the walk in the woods?", options:["Gretel found the house by following a singing bird, and the children ate the sweet roof","Hansel dropped white stones to mark the path, and the children followed the stones home","The old woman looked cross at first with a sharp voice, and then she gave them warm milk","Gretel carried the heavy basket of berries all the way home while Hansel followed stones"], correct:1, why:"Both tellings agree that Hansel dropped white stones to mark the path and that the children followed the stones home. The bird, the cross old woman, and carrying the basket are only in Gretel\u2019s telling." },
-        { n:11, std:"RI.2.6", type:"written", text:"Each child tells the story for a reason. Write Hansel\u2019s main reason AND Gretel\u2019s main reason.",
-          part1:"Hansel tells the story to:",
-          part2:"Gretel tells the story to:",
-          sample:"Hansel tells the story to teach children to make a plan and mark their path. Gretel tells the story so everyone knows the whole truth \u2014 the children got home because they helped each other." },
-        { n:12, std:"L.2.4", type:"written", text:"In Text A, Hansel says, \u201Cwe nibbled the roof.\u201D What does \u201Cnibbled\u201D mean, and which words in the text are the clues?",
-          part1:"\u201CNibbled\u201D means:",
-          part2:"The clue words in the text are:",
-          sample:"\u201CNibbled\u201D means took small, gentle bites. The clue words are \u201Csmall, gentle bites,\u201D in the sentence that tells what to nibble means." }
+        { n:11, std:"RI.2.6", type:"written", text:"Why each child tells the story",
+          sample:"Hansel tells the story to teach children to make a plan and mark their path. Gretel tells the story so everyone knows the whole truth \u2014 the children got home because they helped each other.",
+          parts:[
+            { text:"Each child tells the story for a reason. What is Hansel\u2019s main reason for telling the story?", sample:"Hansel tells the story to teach children to make a plan and mark their path." },
+            { text:"Each child tells the story for a reason. What is Gretel\u2019s main reason for telling the story?", sample:"Gretel tells the story so everyone knows the whole truth \u2014 the children got home because they helped each other." }
+          ] },
+        { n:12, std:"L.2.4", type:"written", text:"The word \u201Cnibbled\u201D in Text A",
+          sample:"\u201CNibbled\u201D means took small, gentle bites. The clue words are \u201Csmall, gentle bites,\u201D in the sentence that tells what to nibble means.",
+          parts:[
+            { text:"In Text A, Hansel says, \u201Cwe nibbled the roof.\u201D What does \u201Cnibbled\u201D mean?", sample:"\u201CNibbled\u201D means took small, gentle bites." },
+            { text:"Which words in the text are the clues that tell you what \u201Cnibbled\u201D means?", sample:"The clue words are \u201Csmall, gentle bites,\u201D in the sentence that tells what to nibble means." }
+          ] }
       ]
     }
   ];
@@ -910,6 +927,11 @@
   function syncWritten(qn){
     written[qn] = writtenCombined(qn);
   }
+  function getWrittenPart(qn, partIdx){
+    var p = writtenParts[qn];
+    if(p && typeof p[partIdx] === "string") return p[partIdx];
+    return "";
+  }
 
   function buildQuiz(){
     var html = "";
@@ -923,10 +945,18 @@
       html += '</div>';
       s.questions.forEach(function(q){
         html += '<div class="qcard" id="qcard-'+q.n+'">';
-        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div><div class="q-text">'+esc(q.text)+'</div><div class="q-type">'+(q.type === "mc" ? "Tap one answer" : "Write your answer \u00B7 two parts")+'</div></div></div>';
+        var isWrittenParts = q.type !== "mc" && q.parts && q.parts.length === 2;
+        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div><div class="q-text">'+esc(q.text)+'</div><div class="q-type">'+(q.type === "mc" ? "Tap one answer" : (isWrittenParts ? "Write your answers \u00B7 2 parts \u2014 one box for each part" : "Write your answer \u00B7 two parts"))+'</div></div></div>';
         if(q.type === "mc"){
           html += '<div class="options" role="radiogroup" aria-label="Question '+q.n+'">';
           q.options.forEach(function(opt, i){ html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'"><span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>'; });
+          html += '</div>';
+        } else if(isWrittenParts){
+          html += '<div class="written-parts">';
+          q.parts.forEach(function(part, pi){
+            var partNo = pi + 1;
+            html += '<div class="written-part"><div class="part-label"><strong>Part '+partNo+':</strong> '+esc(part.text)+'</div><textarea class="part-box" id="ta-'+q.n+'-'+partNo+'" placeholder="Write your answer for Part '+partNo+' here\u2026" aria-label="Question '+q.n+' Part '+partNo+' written answer"></textarea><div class="q-hint">Write 1\u20132 sentences for this part only.</div></div>';
+          });
           html += '</div>';
         } else {
           html += '<div class="part-label"><span class="part-chip">Part 1</span><span>'+esc(q.part1)+'</span></div>';
@@ -1208,7 +1238,16 @@
     var earned = words >= 2 && points.length === 2 && points[0] && points[1];
     return { earned: earned, points: points };
   }
-  function gradeAllWritten(){ writtenGrades = {}; ALL_WRITTEN.forEach(function(q){ writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || ""); }); }
+  function gradeWrittenParts(qn){
+    var keys = GRADE_KEYS[qn] || [];
+    var points = keys.map(function(k, i){
+      var norm = normalizeAnswer(getWrittenPart(qn, i) || "");
+      return pointFound(norm, k.alt);
+    });
+    var earned = points.length === 2 && points[0] && points[1];
+    return { earned: earned, points: points };
+  }
+  function gradeAllWritten(){ writtenGrades = {}; ALL_WRITTEN.forEach(function(q){ writtenGrades[q.n] = (q.parts && q.parts.length === 2) ? gradeWrittenParts(q.n) : gradeWrittenAnswer(q.n, written[q.n] || ""); }); }
 
   function sectionScore(secId){
     var sec = SECTIONS[secId - 1], pts = 0;
@@ -1264,15 +1303,29 @@
     $("r-mc-review").innerHTML = rev;
     var wr = "";
     ALL_WRITTEN.forEach(function(q){
-      var disp = writtenDisplay(q.n);
       var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
       var keys = GRADE_KEYS[q.n];
-      wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'"><div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "\u2713 Correct" : "\u2717 Not quite")+'</span><span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div><div class="answer-box your-box"><span class="ab-label">Your answer</span>'+ (disp ? esc(disp).replace(/\n/g, "<br>") : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div><div class="kp-box"><span class="kp-title">Key points</span>';
-      keys.forEach(function(k, i){
-        if(g.points[i]){ wr += '<div class="kp-line"><span class="kp-ok">\u2713 Found:</span> ' + esc(k.found) + '</div>'; }
-        else { wr += '<div class="kp-line"><span class="kp-miss">\u2717 Missing:</span> ' + esc(k.missing) + '</div>'; }
-      });
-      wr += '</div><div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div></div>';
+      wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'"><div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "\u2713 Correct" : "\u2717 Not quite")+'</span><span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>';
+      if(q.parts && q.parts.length === 2){
+        q.parts.forEach(function(part, i){
+          var partNo = i + 1;
+          var partMine = getWrittenPart(q.n, i).trim();
+          var k = keys[i] || { found:"", missing:"" };
+          wr += '<div class="rev-part"><p class="rev-part-title">Part '+partNo+': '+esc(part.text)+'</p><div class="answer-box your-box"><span class="ab-label">Your answer \u2014 Part '+partNo+'</span>'+ (partMine ? esc(partMine) : '<span class="empty-answer">(You did not write an answer for this part.)</span>')+'</div><div class="kp-box"><span class="kp-title">Key point \u2014 Part '+partNo+'</span>';
+          if(g.points[i]){ wr += '<div class="kp-line"><span class="kp-ok">\u2713 Found:</span> ' + esc(k.found) + '</div>'; }
+          else { wr += '<div class="kp-line"><span class="kp-miss">\u2717 Missing:</span> ' + esc(k.missing) + '</div>'; }
+          wr += '</div><div class="answer-box sample-box"><span class="ab-label">Sample answer \u2014 Part '+partNo+'</span>'+esc(part.sample)+'</div></div>';
+        });
+      } else {
+        var disp = writtenDisplay(q.n);
+        wr += '<div class="answer-box your-box"><span class="ab-label">Your answer</span>'+ (disp ? esc(disp).replace(/\n/g, "<br>") : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div><div class="kp-box"><span class="kp-title">Key points</span>';
+        keys.forEach(function(k, i){
+          if(g.points[i]){ wr += '<div class="kp-line"><span class="kp-ok">\u2713 Found:</span> ' + esc(k.found) + '</div>'; }
+          else { wr += '<div class="kp-line"><span class="kp-miss">\u2717 Missing:</span> ' + esc(k.missing) + '</div>'; }
+        });
+        wr += '</div><div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div>';
+      }
+      wr += '</div>';
     });
     $("r-wr-review").innerHTML = wr;
   }
