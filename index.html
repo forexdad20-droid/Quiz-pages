@@ -1661,7 +1661,7 @@
 
   
 
-  var QUIZ_URL = window.location.origin + window.location.pathname + "?";
+  var QUIZ_URL = window.location.origin + window.location.pathname.replace(/[^\/]*$/, "backup-b.html") + "?";
   function lexileDeltaFor(total){
     if(total >= 11) return 30;
     if(total === 10) return 20;
