@@ -135,6 +135,16 @@ textarea:focus{outline:3px solid var(--accent)}
 .rev-item p{font-size:17px;margin-bottom:6px}
 .rev-item .lbl{font-weight:800}
 .small{font-size:15.5px;color:var(--muted)}
+.bottom-timer-panel{position:sticky;bottom:10px;z-index:30;display:flex;align-items:center;justify-content:center;gap:10px 14px;flex-wrap:wrap;background:var(--card);border:3px solid #1a6fc4;border-radius:999px;box-shadow:var(--shadow);padding:10px 20px;margin-top:16px;text-align:center;color:#14508c}
+@media (prefers-color-scheme: dark){.bottom-timer-panel{color:#8ec9ff;border-color:#3a8dde}}
+.bottom-timer-panel .bt-label{font-weight:800;font-size:18px;color:inherit}
+.bottom-timer-panel .bt-clock{font-weight:800;font-size:22px;font-variant-numeric:tabular-nums;color:inherit}
+.bottom-timer-panel .bt-frac{font-weight:900;font-size:26px;font-variant-numeric:tabular-nums;color:inherit;display:inline-block;line-height:1}
+.bottom-timer-panel.danger{border-color:var(--bad);color:var(--bad)}
+.bottom-timer-panel.danger .bt-clock{color:var(--bad)}
+@keyframes progPop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.bottom-timer-panel .bt-frac.pop{animation:progPop .45s ease}
+@media (prefers-reduced-motion: reduce){.bottom-timer-panel .bt-frac.pop{animation:none}}
 </style>
 </head>
 <body>
@@ -179,6 +189,10 @@ textarea:focus{outline:3px solid var(--accent)}
       <p class="note" id="finish-warn" style="display:none"></p>
     </div>
     <p class="small center" style="margin-top:10px">There is no skip button here — finish all the questions in this section to reach your break. If the 15 minutes run out, the section ends on its own.</p>
+    <div class="bottom-timer-panel" id="bottom-timer-panel" aria-live="polite">
+      <span class="bt-label">Timer:</span><span class="bt-clock" id="bottom-timer-clock">15:00</span>
+      <span class="bt-label">Progression:</span><span class="bt-frac" id="bottom-progression">0 / 10</span>
+    </div>
   </section>
 
   
@@ -397,6 +411,7 @@ function renderSection(idx){
   }
   $("section-body").innerHTML=html;
   $("finish-warn").style.display="none";
+  lastProgDone=-1; updateProgression(false); updateBottomClock(15*60);
   var opts=document.querySelectorAll(".opt");
   for(var j=0;j<opts.length;j++){
     opts[j].addEventListener("click",function(){
@@ -405,18 +420,21 @@ function renderSection(idx){
       var siblings=document.querySelectorAll(".opt[data-q='"+qn+"']");
       for(var k=0;k<siblings.length;k++) siblings[k].classList.remove("selected");
       this.classList.add("selected");
+      updateProgression(true);
     });
   }
   var tas=document.querySelectorAll("textarea[data-written]");
   for(var t=0;t<tas.length;t++){
     tas[t].addEventListener("input",function(){
       answers[parseInt(this.getAttribute("data-written"),10)]=this.value;
+      updateProgression(true);
     });
   }
   var fis=document.querySelectorAll("input[data-fill]");
   for(var f=0;f<fis.length;f++){
     fis[f].addEventListener("input",function(){
       answers[parseInt(this.getAttribute("data-fill"),10)]=this.value;
+      updateProgression(true);
     });
   }
 }
@@ -425,6 +443,36 @@ function collectVisible(){
   for(var t=0;t<tas.length;t++){ answers[parseInt(tas[t].getAttribute("data-written"),10)]=tas[t].value; }
   var fis=document.querySelectorAll("input[data-fill]");
   for(var f=0;f<fis.length;f++){ answers[parseInt(fis[f].getAttribute("data-fill"),10)]=fis[f].value; }
+}
+var lastProgDone=-1;
+function sectionTotalsFor(idx){
+  var total=0;
+  for(var i=0;i<QUESTIONS.length;i++) if(QUESTIONS[i].sec===idx+1) total++;
+  return total;
+}
+function doneInSection(idx){
+  var done=0;
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q=QUESTIONS[i];
+    if(q.sec!==idx+1) continue;
+    if(q.type==="mc"){ if(typeof answers[q.n]==="number") done++; }
+    else if(typeof answers[q.n]==="string" && answers[q.n].trim()!=="") done++;
+  }
+  return done;
+}
+function updateProgression(animate){
+  var el=$("bottom-progression"); if(!el) return;
+  var total=sectionTotalsFor(currentSection);
+  var done=doneInSection(currentSection);
+  el.textContent=done+" / "+total;
+  if(animate && lastProgDone!==-1 && done!==lastProgDone){
+    el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop");
+  }
+  lastProgDone=done;
+}
+function updateBottomClock(remain){
+  var bc=$("bottom-timer-clock"); if(bc) bc.textContent=fmt(remain);
+  var bp=$("bottom-timer-panel"); if(bp) bp.classList.toggle("danger", remain<=60 && remain>0);
 }
 
  
@@ -438,6 +486,7 @@ function startTimer(seconds,kind,onDone){
     if(kind==="section"){
       $("timer-clock").textContent=fmt(remain);
       $("timerbar").classList.toggle("danger",remain<=60&&remain>0);
+      updateBottomClock(remain);
     }else{
       $("break-clock").textContent=fmt(remain);
     }

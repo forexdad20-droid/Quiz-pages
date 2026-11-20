@@ -133,6 +133,18 @@ textarea:focus{outline:3px solid var(--accent)}
 .rev-item p{font-size:17px;margin-bottom:6px}
 .rev-item .lbl{font-weight:800}
 .small{font-size:15.5px;color:var(--muted)}
+.bottom-timer{position:sticky;bottom:10px;z-index:20;display:flex;align-items:center;justify-content:center;width:100%;
+  gap:10px 22px;flex-wrap:wrap;background:var(--card);border:3px solid #1565c0;border-radius:999px;
+  padding:10px 22px;box-shadow:var(--shadow);margin-top:16px;color:#0b5cad;text-align:center}
+@media (prefers-color-scheme: dark){.bottom-timer{border-color:#5aa9e6;color:#8ecbff}}
+.bottom-timer.danger{border-color:var(--bad);background:var(--bad-bg);color:var(--bad)}
+.bottom-timer.danger .bt-clock{color:var(--bad)}
+.bottom-timer .bt-item{font-size:19px;font-weight:700;white-space:nowrap}
+.bottom-timer .bt-clock{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.bottom-timer .prog-frac{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;display:inline-block}
+.bottom-timer .prog-frac.pop{animation:progPop .45s ease}
+@keyframes progPop{0%{transform:scale(1)}40%{transform:scale(1.3)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion: reduce){.bottom-timer .prog-frac.pop{animation:none}}
 </style>
 </head>
 <body>
@@ -155,7 +167,7 @@ textarea:focus{outline:3px solid var(--accent)}
       <h2>📋 How this test works</h2>
       <ul>
         <li><strong>4 sections</strong> of reading and word questions.</li>
-        <li>Each section gives you <strong>15 minutes</strong> — the timer is always at the top.</li>
+        <li>Each section gives you <strong>15 minutes</strong> — the timer is always at the bottom.</li>
         <li>Between sections you get a <strong>5-minute break</strong> to rest, stretch, and get a drink.</li>
         <li>While you are answering questions, there is <strong>no skipping</strong> — finish all the questions in the section, then tap the finish button to start your break.</li>
         <li>On a break, you may <strong>skip the break</strong> and go straight to the next section whenever you are ready.</li>
@@ -176,11 +188,6 @@ textarea:focus{outline:3px solid var(--accent)}
 
   
   <section id="screen-section" class="screen">
-    <div class="timerbar" id="timerbar">
-      <span class="t-label" id="timer-label">Section 1 · Time left</span>
-      <span class="t-clock" id="timer-clock">15:00</span>
-      <span class="t-warn" id="timer-warn">⏰ 1 minute left!</span>
-    </div>
     <h2 id="section-title"></h2>
     <p class="subtitle" id="section-sub" style="text-align:left"></p>
     <div id="section-body"></div>
@@ -189,6 +196,10 @@ textarea:focus{outline:3px solid var(--accent)}
       <p class="note" id="finish-warn" style="display:none"></p>
     </div>
     <p class="small center" style="margin-top:10px">There is no skip button here — finish all the questions in this section to reach your break. If the 15 minutes run out, the section ends on its own.</p>
+    <div class="bottom-timer" id="bottom-timer" role="status" aria-live="polite">
+      <span class="bt-item">Timer: <span class="bt-clock" id="bottom-timer-clock">15:00</span></span>
+      <span class="bt-item">Progression: <span class="prog-frac" id="progression-frac">0 / 38</span></span>
+    </div>
   </section>
 
   
@@ -505,6 +516,28 @@ function gradeQuestion(q){
 }
 function questionByNum(n){ for(var i=0;i<QUESTIONS.length;i++) if(QUESTIONS[i].n===n) return QUESTIONS[i]; return null; }
 
+var lastProgCount=-1;
+function answeredCount(){
+  var c=0;
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q=QUESTIONS[i], a=answers[q.n];
+    if(q.type==="mc"){ if(typeof a==="number") c++; }
+    else if(typeof a==="string" && a.trim()!=="") c++;
+  }
+  return c;
+}
+function updateProgression(pop){
+  var el=$("progression-frac"); if(!el) return;
+  var c=answeredCount();
+  el.textContent=c+" / "+QUESTIONS.length;
+  if(pop && lastProgCount!==-1 && c!==lastProgCount){
+    el.classList.remove("pop");
+    void el.offsetWidth;
+    el.classList.add("pop");
+  }
+  lastProgCount=c;
+}
+
  
 try{
   var prev=parseInt(localStorage.getItem(LS_KEY)||"0",10);
@@ -549,7 +582,6 @@ function renderSection(idx){
   var sec=SECTIONS[idx];
   $("section-title").textContent=sec.name;
   $("section-sub").textContent=sec.sub;
-  $("timer-label").textContent="Section "+sec.num+" of 4 · Time left";
   var html="";
   for(var i=0;i<sec.layout.length;i++){
     var item=sec.layout[i], kind=item.split(":")[0], ref=item.split(":")[1];
@@ -558,6 +590,7 @@ function renderSection(idx){
   }
   $("section-body").innerHTML=html;
   $("finish-warn").style.display="none";
+  updateProgression(false);
   var opts=document.querySelectorAll(".opt");
   for(var j=0;j<opts.length;j++){
     opts[j].addEventListener("click",function(){
@@ -566,12 +599,14 @@ function renderSection(idx){
       var siblings=document.querySelectorAll(".opt[data-q='"+qn+"']");
       for(var k=0;k<siblings.length;k++) siblings[k].classList.remove("selected");
       this.classList.add("selected");
+      updateProgression(true);
     });
   }
   var tas=document.querySelectorAll("textarea[data-written]");
   for(var t=0;t<tas.length;t++){
     tas[t].addEventListener("input",function(){
       answers[parseInt(this.getAttribute("data-written"),10)]=this.value;
+      updateProgression(true);
     });
   }
 }
@@ -589,8 +624,8 @@ function startTimer(seconds,kind,onDone){
   var tick=function(){
     var remain=Math.round((timerEnd-Date.now())/1000);
     if(kind==="section"){
-      $("timer-clock").textContent=fmt(remain);
-      $("timerbar").classList.toggle("danger",remain<=60&&remain>0);
+      var bc=$("bottom-timer-clock"); if(bc) bc.textContent=fmt(remain);
+      var bt=$("bottom-timer"); if(bt) bt.classList.toggle("danger",remain<=300&&remain>0);
     }else{
       $("break-clock").textContent=fmt(remain);
     }
@@ -788,7 +823,7 @@ function submitTest(){
     date:dateStr, attempt:attempt, score:score+"/"+total, log:log, pdfText:pdf };
   
   /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
-     Google Apps Script, so google.script.run does not exist here. The answer
+     Google Apps Script, so the Apps Script bridge does not exist here. The answer
      log is POSTed directly to the same receiver endpoint (its doPost), with
      the identical payload shape the watcher already parses. fetch(no-cors)
      first; sendBeacon as fallback; a second fetch as last resort. */

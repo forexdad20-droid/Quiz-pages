@@ -135,6 +135,16 @@ textarea:focus{outline:3px solid var(--accent)}
 .rev-item p{font-size:17px;margin-bottom:6px}
 .rev-item .lbl{font-weight:800}
 .small{font-size:15.5px;color:var(--muted)}
+.bottom-panel{display:flex;justify-content:center;align-items:baseline;gap:10px;flex-wrap:wrap;
+  background:var(--card);border:2px solid var(--line);border-radius:999px;box-shadow:var(--shadow);
+  padding:12px 18px;margin:18px 0 0;text-align:center;color:#14508c}
+@media (prefers-color-scheme: dark){.bottom-panel{color:#9fd0ff}}
+.bottom-panel .bp-label{font-weight:700;font-size:18px}
+.bottom-panel .bp-clock{font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
+.bottom-panel .bp-prog{font-size:27px;font-weight:900;font-variant-numeric:tabular-nums;line-height:1}
+@keyframes bp-pop{0%{transform:scale(1)}40%{transform:scale(1.28)}100%{transform:scale(1)}}
+.bottom-panel .bp-prog.pop{animation:bp-pop .35s ease}
+@media (prefers-reduced-motion: reduce){.bottom-panel .bp-prog.pop{animation:none}}
 </style>
 </head>
 <body>
@@ -223,6 +233,13 @@ textarea:focus{outline:3px solid var(--accent)}
     <div class="note"><strong>Blueprint note:</strong> This test checks all 26 California Grade 2 Math standards (CA CCSSM, California Department of Education). Standards about real tools — measuring with a ruler (2.MD.1), telling time on a clock (2.MD.7), drawing shapes (2.G.1) — are checked here with printed pictures, measurements and questions.</div>
   </section>
 
+  <div class="bottom-panel" id="bottom-panel" aria-live="polite">
+    <span class="bp-label">Timer:</span>
+    <span class="bp-clock" id="bp-clock">15:00</span>
+    <span class="bp-label">Progression:</span>
+    <span class="bp-prog" id="bp-prog">0 / 38</span>
+  </div>
+
 </div>
 <script>
 "use strict";
@@ -280,6 +297,27 @@ function show(id){
   window.scrollTo(0,0);
 }
 function fmt(sec){sec=Math.max(0,sec);var m=Math.floor(sec/60),s=sec%60;return m+":"+(s<10?"0":"")+s;}
+var lastProg=-1;
+function countAnswered(){
+  var c=0;
+  for(var i=0;i<QUESTIONS.length;i++){
+    var q=QUESTIONS[i], a=answers[q.n];
+    if(q.type==="mc"){ if(typeof a==="number") c++; }
+    else if(typeof a==="string" && a.trim()!=="") c++;
+  }
+  return c;
+}
+function updateProgression(animate){
+  var el=$("bp-prog"); if(!el) return;
+  var c=countAnswered();
+  el.textContent=c+" / "+QUESTIONS.length;
+  if(animate && lastProg!==-1 && c!==lastProg){
+    el.classList.remove("pop");
+    void el.offsetWidth;
+    el.classList.add("pop");
+  }
+  lastProg=c;
+}
 function levelFor(score,total){
   var pct=total? (score/total*100):0;
   if(pct>=80) return "Above Grade Level";
@@ -346,6 +384,7 @@ try{
   attempt=prev+1;
 }catch(e){ attempt=1; }
 $("attempt-display").textContent=attempt;
+updateProgression(false);
 
  
 function passageHTML(pid){
@@ -405,18 +444,21 @@ function renderSection(idx){
       var siblings=document.querySelectorAll(".opt[data-q='"+qn+"']");
       for(var k=0;k<siblings.length;k++) siblings[k].classList.remove("selected");
       this.classList.add("selected");
+      updateProgression(true);
     });
   }
   var tas=document.querySelectorAll("textarea[data-written]");
   for(var t=0;t<tas.length;t++){
     tas[t].addEventListener("input",function(){
       answers[parseInt(this.getAttribute("data-written"),10)]=this.value;
+      updateProgression(true);
     });
   }
   var fis=document.querySelectorAll("input[data-fill]");
   for(var f=0;f<fis.length;f++){
     fis[f].addEventListener("input",function(){
       answers[parseInt(this.getAttribute("data-fill"),10)]=this.value;
+      updateProgression(true);
     });
   }
 }
@@ -425,6 +467,7 @@ function collectVisible(){
   for(var t=0;t<tas.length;t++){ answers[parseInt(tas[t].getAttribute("data-written"),10)]=tas[t].value; }
   var fis=document.querySelectorAll("input[data-fill]");
   for(var f=0;f<fis.length;f++){ answers[parseInt(fis[f].getAttribute("data-fill"),10)]=fis[f].value; }
+  updateProgression(true);
 }
 
  
@@ -435,6 +478,7 @@ function startTimer(seconds,kind,onDone){
   timerEnd=Date.now()+seconds*1000;
   var tick=function(){
     var remain=Math.round((timerEnd-Date.now())/1000);
+    var bpClock=$("bp-clock"); if(bpClock) bpClock.textContent=fmt(remain);
     if(kind==="section"){
       $("timer-clock").textContent=fmt(remain);
       $("timerbar").classList.toggle("danger",remain<=60&&remain>0);
@@ -451,6 +495,7 @@ function startTimer(seconds,kind,onDone){
 function startSection(idx){
   currentSection=idx;
   renderSection(idx);
+  updateProgression(false);
   show("screen-section");
   startTimer(15*60,"section",function(){ endSection(); });
 }
@@ -656,7 +701,7 @@ function submitTest(){
     date:dateStr, attempt:attempt, score:score+"/"+total, log:log, pdfText:pdf };
   
   /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
-     Google Apps Script, so google.script.run does not exist here. The answer
+     Google Apps Script, so the Apps Script run API does not exist here. The answer
      log is POSTed directly to the same receiver endpoint (its doPost), with
      the identical payload shape the watcher already parses. fetch(no-cors)
      first; sendBeacon as fallback; a second fetch as last resort. */

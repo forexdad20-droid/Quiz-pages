@@ -58,11 +58,18 @@ button:active{transform:scale(.98)}
 .note{background:var(--warn-bg);border-radius:14px;padding:14px 16px;font-size:16.5px}
 .screen{display:none}
 .screen.active{display:block}
-.timerbar{position:sticky;top:8px;z-index:20;display:flex;align-items:center;gap:10px;
-  background:var(--card);border:3px solid var(--accent);border-radius:999px;
-  padding:8px 18px;box-shadow:var(--shadow);margin-bottom:16px;flex-wrap:wrap}
-.timerbar .t-label{font-weight:700;font-size:17px}
-.timerbar .t-clock{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;margin-left:auto}
+.timerbar{position:sticky;bottom:10px;z-index:20;display:flex;align-items:center;justify-content:center;gap:10px 14px;
+  background:var(--card);border:3px solid #1d6fd1;border-radius:999px;
+  padding:10px 18px;box-shadow:var(--shadow);margin-top:16px;flex-wrap:wrap;text-align:center;color:#1d6fd1}
+@media (prefers-color-scheme: dark){.timerbar{border-color:#6db3f2;color:#6db3f2}}
+.timerbar .t-label{font-weight:800;font-size:19px;color:#1d6fd1}
+.timerbar .t-clock{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;color:#1d6fd1}
+.timerbar .t-prog-label{font-weight:800;font-size:19px;color:#1d6fd1}
+.timerbar .t-prog{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;color:#1d6fd1;display:inline-block}
+@media (prefers-color-scheme: dark){.timerbar .t-label,.timerbar .t-clock,.timerbar .t-prog-label,.timerbar .t-prog{color:#6db3f2}}
+@keyframes progPop{0%{transform:scale(1)}40%{transform:scale(1.28)}100%{transform:scale(1)}}
+.timerbar .t-prog.pop{animation:progPop .45s ease}
+@media (prefers-reduced-motion: reduce){.timerbar .t-prog.pop{animation:none}}
 .timerbar.danger{border-color:var(--bad);background:var(--bad-bg)}
 .timerbar.danger .t-clock{color:var(--bad)}
 .t-warn{display:none;width:100%;text-align:center;color:var(--bad);font-weight:800;font-size:18px}
@@ -155,7 +162,7 @@ textarea:focus{outline:3px solid var(--accent)}
       <h2>📋 How this test works</h2>
       <ul>
         <li><strong>4 sections</strong> of reading and word questions.</li>
-        <li>Each section gives you <strong>15 minutes</strong> — the timer is always at the top.</li>
+        <li>Each section gives you <strong>15 minutes</strong> — the timer is in the bottom row of the page.</li>
         <li>Between sections you get a <strong>5-minute break</strong> to rest, stretch, and get a drink.</li>
         <li>While you are answering questions, there is <strong>no skipping</strong> — finish all the questions in the section, then tap the finish button to start your break.</li>
         <li>On a break, you may <strong>skip the break</strong> and go straight to the next section whenever you are ready.</li>
@@ -176,11 +183,6 @@ textarea:focus{outline:3px solid var(--accent)}
 
   
   <section id="screen-section" class="screen">
-    <div class="timerbar" id="timerbar">
-      <span class="t-label" id="timer-label">Section 1 · Time left</span>
-      <span class="t-clock" id="timer-clock">15:00</span>
-      <span class="t-warn" id="timer-warn">⏰ 1 minute left!</span>
-    </div>
     <h2 id="section-title"></h2>
     <p class="subtitle" id="section-sub" style="text-align:left"></p>
     <div id="section-body"></div>
@@ -189,6 +191,13 @@ textarea:focus{outline:3px solid var(--accent)}
       <p class="note" id="finish-warn" style="display:none"></p>
     </div>
     <p class="small center" style="margin-top:10px">There is no skip button here — finish all the questions in this section to reach your break. If the 15 minutes run out, the section ends on its own.</p>
+    <div class="timerbar" id="timerbar">
+      <span class="t-label">Timer:</span>
+      <span class="t-clock" id="timer-clock">15:00</span>
+      <span class="t-prog-label">Progression:</span>
+      <span class="t-prog" id="prog-frac">0 / 10</span>
+      <span class="t-warn" id="timer-warn">⏰ 1 minute left!</span>
+    </div>
   </section>
 
   
@@ -549,11 +558,35 @@ function questionHTML(q){
   h+="</div>";
   return h;
 }
+var lastProgDone=-1;
+function sectionQuestions(idx){
+  var list=[];
+  for(var i=0;i<QUESTIONS.length;i++) if(QUESTIONS[i].sec===idx+1) list.push(QUESTIONS[i]);
+  return list;
+}
+function updateProgression(animate){
+  var qs=sectionQuestions(currentSection);
+  var done=0;
+  for(var i=0;i<qs.length;i++){
+    var q=qs[i];
+    if(q.type==="mc"){ if(typeof answers[q.n]==="number") done++; }
+    else if(typeof answers[q.n]==="string" && answers[q.n].trim()!=="") done++;
+  }
+  var el=$("prog-frac");
+  if(!el) return;
+  el.textContent=done+" / "+qs.length;
+  if(animate && lastProgDone!==-1 && done!==lastProgDone){
+    el.classList.remove("pop");
+    void el.offsetWidth;
+    el.classList.add("pop");
+  }
+  lastProgDone=done;
+}
 function renderSection(idx){
   var sec=SECTIONS[idx];
   $("section-title").textContent=sec.name;
   $("section-sub").textContent=sec.sub;
-  $("timer-label").textContent="Section "+sec.num+" of 4 · Time left";
+  lastProgDone=-1;
   var html="";
   for(var i=0;i<sec.layout.length;i++){
     var item=sec.layout[i], kind=item.split(":")[0], ref=item.split(":")[1];
@@ -562,6 +595,7 @@ function renderSection(idx){
   }
   $("section-body").innerHTML=html;
   $("finish-warn").style.display="none";
+  updateProgression(false);
   var opts=document.querySelectorAll(".opt");
   for(var j=0;j<opts.length;j++){
     opts[j].addEventListener("click",function(){
@@ -570,12 +604,14 @@ function renderSection(idx){
       var siblings=document.querySelectorAll(".opt[data-q='"+qn+"']");
       for(var k=0;k<siblings.length;k++) siblings[k].classList.remove("selected");
       this.classList.add("selected");
+      updateProgression(true);
     });
   }
   var tas=document.querySelectorAll("textarea[data-written]");
   for(var t=0;t<tas.length;t++){
     tas[t].addEventListener("input",function(){
       answers[parseInt(this.getAttribute("data-written"),10)]=this.value;
+      updateProgression(true);
     });
   }
 }
