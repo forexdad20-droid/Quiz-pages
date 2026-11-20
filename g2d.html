@@ -266,6 +266,15 @@
   .submit-zone{margin-top:34px;text-align:center}
   .submit-zone .btn-primary{max-width:440px;margin-left:auto;margin-right:auto}
   .submit-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:10px}
+  .bottom-timer-panel{margin-top:28px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;justify-content:center;align-items:center;gap:8px 16px;flex-wrap:wrap;text-align:center;color:var(--green)}
+  .bottom-timer-panel .bt-item{display:inline-flex;align-items:baseline;gap:7px;white-space:nowrap}
+  .bottom-timer-panel .bt-label{font-weight:900;color:var(--green);font-size:18px;letter-spacing:.01em}
+  .bottom-timer-panel .bt-time{font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;color:var(--green);font-variant-numeric:tabular-nums;line-height:1}
+  .bottom-timer-panel .bt-prog{font-family:"Fredoka",sans-serif;font-weight:700;font-size:28px;color:var(--green-dark);font-variant-numeric:tabular-nums;line-height:1;display:inline-block}
+  .bottom-timer-panel .bt-prog.pop{animation:bt-pop .45s ease}
+  @keyframes bt-pop{0%{transform:scale(1)}35%{transform:scale(1.28)}100%{transform:scale(1)}}
+  @media (prefers-reduced-motion: reduce){ .bottom-timer-panel .bt-prog.pop{animation:none} }
+  @media (max-width:560px){ .bottom-timer-panel{gap:6px 12px;padding:12px 10px} .bottom-timer-panel .bt-label{font-size:16px} .bottom-timer-panel .bt-time{font-size:20px} .bottom-timer-panel .bt-prog{font-size:25px} }
   .modal-backdrop{position:fixed;inset:0;background:rgba(10,22,28,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px}
   .modal{background:var(--surface);border-radius:22px;max-width:440px;width:100%;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
   .modal h3{font-size:24px;margin-bottom:8px}
@@ -323,7 +332,7 @@
   .results-actions{display:grid;gap:12px;margin-top:30px}
   .results-actions .btn{width:100%;margin:0}
   footer.note{text-align:center;color:var(--ink-soft);font-size:14px;font-weight:700;margin-top:36px}
-  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
+  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.bottom-timer-panel,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
 
    
   .outcome{text-align:center;padding:52px 24px 44px;border-radius:24px;margin-top:26px}
@@ -453,6 +462,10 @@
     <div class="submit-zone">
       <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
       <p class="submit-note">Your score will appear right away. If time runs out, your quiz will be sent with the answers you have so far.</p>
+    </div>
+    <div class="bottom-timer-panel" id="bottom-timer-panel" aria-live="polite" aria-label="Timer and progression">
+      <span class="bt-item"><span class="bt-label">Timer:</span><span class="bt-time" id="bottom-timer">20:00</span></span>
+      <span class="bt-item"><span class="bt-label">Progression:</span><span class="bt-prog" id="bottom-progression">0 / 12</span></span>
     </div>
   </section>
 
@@ -948,11 +961,22 @@
     var p = writtenParts[q.n] || ["",""];
     return String(p[0] || "").trim().length > 0 && String(p[1] || "").trim().length > 0;
   }
+  var _lastProgCount = 0;
   function answeredCount(){ var c = 0; ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; }); ALL_WRITTEN.forEach(function(q){ if(writtenDone(q)) c++; }); return c; }
   function updateProgress(){
     var c = answeredCount();
     $("progress-fill").style.width = (c/12*100) + "%";
     $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " \u2014 nice, you answered everything!" : "");
+    var bp = $("bottom-progression");
+    if(bp){
+      bp.textContent = c + " / 12";
+      if(c !== _lastProgCount){
+        bp.classList.remove("pop");
+        void bp.offsetWidth;
+        bp.classList.add("pop");
+      }
+    }
+    _lastProgCount = c;
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
       var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenDone(q);
       var card = $("qcard-"+q.n); if(card) card.classList.toggle("answered", done);
@@ -963,20 +987,26 @@
     startStamp = Date.now(); submitted = false; autoSubmitted = false;
     var w = $("time-warning"); if(w) w.classList.add("hidden");
     var t0 = $("timer"); if(t0){ t0.classList.remove("low","critical"); }
+    _lastProgCount = 0;
+    var bp0 = $("bottom-progression"); if(bp0) bp0.textContent = "0 / 12";
+    var bt0 = $("bottom-timer"); if(bt0) bt0.textContent = fmtTime(TOTAL_SECONDS);
     updateTimer(); timerId = setInterval(updateTimer, 250);
   }
   function elapsedSeconds(){ if(!startStamp) return 0; return (Date.now() - startStamp) / 1000; }
   function updateTimer(){
     if(submitted) return;
     var el = elapsedSeconds(); var left = TOTAL_SECONDS - el; var t = $("timer");
+    var bt = $("bottom-timer");
     if(left > 0){
-      t.textContent = "\u23F1 " + fmtTime(Math.ceil(left));
+      var timeStr = fmtTime(Math.ceil(left));
+      t.textContent = "\u23F1 " + timeStr;
+      if(bt) bt.textContent = timeStr;
       var inLastMinute = left <= 60;
       t.classList.toggle("critical", inLastMinute);
       t.classList.toggle("low", !inLastMinute && left <= 120);
       if(inLastMinute){ var w = $("time-warning"); if(w) w.classList.remove("hidden"); }
     } else {
-      t.textContent = "\u23F1 0:00"; t.classList.add("critical"); t.classList.remove("low"); autoSubmit();
+      t.textContent = "\u23F1 0:00"; if(bt) bt.textContent = "0:00"; t.classList.add("critical"); t.classList.remove("low"); autoSubmit();
     }
   }
   function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
@@ -1310,6 +1340,9 @@
     var w = $("time-warning"); if(w) w.classList.add("hidden");
     var an = $("r-auto-note"); if(an) an.classList.add("hidden");
     var tm = $("timer"); if(tm){ tm.textContent = "\u23F1 " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical"); }
+    var btm = $("bottom-timer"); if(btm) btm.textContent = fmtTime(TOTAL_SECONDS);
+    var bpg = $("bottom-progression"); if(bpg) bpg.textContent = "0 / 12";
+    _lastProgCount = 0;
     studentName = TEST_MODE ? "TEST" : "Eden";
     show("view-start");
   });

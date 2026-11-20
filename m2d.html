@@ -267,6 +267,20 @@
   .submit-zone{margin-top:34px;text-align:center}
   .submit-zone .btn-primary{max-width:440px;margin-left:auto;margin-right:auto}
   .submit-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:10px}
+  /* Bottom status row — Timer + Progression on the very last row of the paper.
+     Centre-aligned, blue, ONLY these elements (no name / no extra title).
+     Sticky to the bottom of the viewport while the quiz is open. */
+  .bottom-status-bar{position:sticky;bottom:10px;z-index:18;margin-top:22px;background:var(--surface);border:2px solid var(--green);border-radius:999px;box-shadow:0 6px 20px rgba(13,93,130,.18);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:10px 16px;flex-wrap:wrap;text-align:center;color:var(--green-dark)}
+  .bs-item{display:inline-flex;align-items:baseline;gap:7px;white-space:nowrap}
+  .bs-label{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:var(--green-dark)}
+  .bs-time{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:21px;color:var(--green-dark);font-variant-numeric:tabular-nums}
+  .bs-fraction{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:27px;line-height:1;color:var(--green);font-variant-numeric:tabular-nums;display:inline-block}
+  .bs-sep{color:var(--green);font-weight:900;opacity:.55}
+  @media (max-width:560px){ .bottom-status-bar{gap:6px 10px;padding:10px 12px} .bs-label{font-size:17px} .bs-time{font-size:19px} .bs-fraction{font-size:24px} }
+  @media (prefers-reduced-motion: no-preference){
+    .bs-fraction.pop{animation:prog-pop .38s ease}
+    @keyframes prog-pop{0%{transform:scale(1)}40%{transform:scale(1.22)}100%{transform:scale(1)}}
+  }
   .modal-backdrop{position:fixed;inset:0;background:rgba(10,22,28,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px}
   .modal{background:var(--surface);border-radius:22px;max-width:440px;width:100%;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
   .modal h3{font-size:24px;margin-bottom:8px}
@@ -324,7 +338,7 @@
   .results-actions{display:grid;gap:12px;margin-top:30px}
   .results-actions .btn{width:100%;margin:0}
   footer.note{text-align:center;color:var(--ink-soft);font-size:14px;font-weight:700;margin-top:36px}
-  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
+  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.bottom-status-bar,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
 </style>
 </head>
 <body>
@@ -391,13 +405,13 @@
             <span class="rsg-arrow">›</span>
             <span class="rsg-step rsg-go">Go! 🏁</span>
           </div>
-          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions score 0, so try to finish before the timer ends!</p>
+          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will finish itself automatically — you don't need to press anything. Unanswered questions score 0, so try to finish before the timer ends!</p>
           <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
         </div>
       </form>
     </div>
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Placement 310Q (stayed the same), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q, gold bar — your best ever, with a crown)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
         <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 320Q</strong> — that's <strong>+30Q</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
@@ -411,7 +425,6 @@
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
           <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>320Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
-          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">▲ +20Q</span></span></div>
           </div>
         </div>
@@ -434,7 +447,12 @@
     <div id="quiz-body"></div>
     <div class="submit-zone">
       <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
-      <p class="submit-note">Your score will appear right away. If time runs out, your quiz will be sent with the answers you have so far.</p>
+      <p class="submit-note">Your score will appear right away. If time runs out, your quiz will be finished with the answers you have so far.</p>
+    </div>
+    <div class="bottom-status-bar" id="bottom-status-bar" aria-live="polite" aria-label="Timer and progression">
+      <span class="bs-item"><span class="bs-label">Timer:</span><span class="bs-time" id="timer-bottom">20:00</span></span>
+      <span class="bs-sep" aria-hidden="true">·</span>
+      <span class="bs-item"><span class="bs-label">Progression:</span><span class="bs-fraction" id="progression-bottom">0 / 12</span></span>
     </div>
   </section>
 
@@ -447,7 +465,7 @@
       <div class="score-big"><span id="r-score">0</span><small> / 12</small></div>
       <div class="score-pct" id="r-pct">0%</div>
       <div><span class="attempt-badge" id="r-attempt">Attempt #1</span></div>
-      <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was sent automatically.</div>
+      <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was finished automatically.</div>
       <p class="friendly" id="r-message"></p>
       <div class="meta-row">
         <span class="meta-chip">⏱ Time used: <span id="r-time">0:00</span></span>
@@ -459,7 +477,7 @@
         <span class="meta-chip">Section 2: 0/4</span>
         <span class="meta-chip">Section 3: 0/4</span>
       </div>
-      <p class="saved-line">Answers saved ✓</p>
+      <p class="saved-line">Answers checked ✓</p>
     </div>
     <div class="breakdown" id="r-breakdown"></div>
     <h3 class="review-title">Review: Tap-the-Answer Questions</h3>
@@ -470,7 +488,7 @@
     <div id="r-wr-review"></div>
     <div class="results-actions">
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Placement 310Q (stayed the same), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q, gold bar — your best ever, with a crown)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
         <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 320Q</strong> — that's <strong>+30Q</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
@@ -484,7 +502,6 @@
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
           <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>320Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
-          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">▲ +20Q</span></span></div>
           </div>
         </div>
@@ -535,10 +552,9 @@
      graded across both boxes combined (method/step AND result).
      Points: least-recently covered first (2.NBT.2, 2.NBT.9, 2.OA.1,
      2.NBT.7, 2.MD.7, 2.MD.1, 2.G.2, 2.MD.10) + weak revisits 2.NBT.3,
-     2.G.3, 2.MD.5, 2.MD.8. Answer saving uses the postLog POST
-     transport (sendBeacon, then fetch no-cors keepalive) to the
-     receiver endpoint \u2014 the artifact-hosted page runs outside
-     Apps Script, so it posts its log instead of calling the host.
+     2.G.3, 2.MD.5, 2.MD.8. Grading and results run on this page;
+     on submit the built answer log is saved via postLog (POST to
+     the receiver endpoint) in saveAnswerLog below.
      No problem repeats the Day 5 quiz. */
   var QUIZ_TITLE = "Grade 2 Math Quiz \u2014 November 20, 2026";
   var QUIZ_DATE = "2026-11-20";
@@ -865,7 +881,6 @@ var SECTIONS = [
      Chart scale top is best + 250 = 570. */
   var GROWTH = [
     { date:"11/17/26", type:"Daily Quiz", lexile:310, delta:"+20Q", kind:"up" },
-    { date:"11/18/26", type:"Placement", lexile:310, delta:"same", kind:"same" },
     { date:"11/18/26", type:"Daily Quiz", lexile:310, delta:"same", kind:"same" },
     { date:"11/19/26", type:"Daily Quiz", lexile:320, delta:"+10Q", kind:"best" }
   ];
@@ -991,6 +1006,14 @@ var SECTIONS = [
     var c = answeredCount();
     $("progress-fill").style.width = (c/12*100) + "%";
     $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " \u2014 nice, you answered everything!" : "");
+    var pb = $("progression-bottom");
+    if(pb){
+      var nextText = c + " / 12";
+      if(pb.textContent !== nextText){
+        pb.textContent = nextText;
+        pb.classList.remove("pop"); void pb.offsetWidth; pb.classList.add("pop");
+      }
+    }
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
       var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenDone(q);
       var card = $("qcard-"+q.n); if(card) card.classList.toggle("answered", done);
@@ -1007,14 +1030,18 @@ var SECTIONS = [
   function updateTimer(){
     if(submitted) return;
     var el = elapsedSeconds(); var left = TOTAL_SECONDS - el; var t = $("timer");
+    var tb = $("timer-bottom");
     if(left > 0){
       t.textContent = "\u23F1 " + fmtTime(Math.ceil(left));
+      if(tb) tb.textContent = fmtTime(Math.ceil(left));
       var inLastMinute = left <= 60;
       t.classList.toggle("critical", inLastMinute);
       t.classList.toggle("low", !inLastMinute && left <= 120);
       if(inLastMinute){ var w = $("time-warning"); if(w) w.classList.remove("hidden"); }
     } else {
-      t.textContent = "\u23F1 0:00"; t.classList.add("critical"); t.classList.remove("low"); autoSubmit();
+      t.textContent = "\u23F1 0:00"; t.classList.add("critical"); t.classList.remove("low");
+      if(tb) tb.textContent = "0:00";
+      autoSubmit();
     }
   }
   function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
@@ -1141,24 +1168,42 @@ var SECTIONS = [
     });
     return lines.join("\n");
   }
-  var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
-  function postLog(payload){
-    var body = "";
-    try { body = JSON.stringify(payload); } catch(e) { return; }
-    try {
-      if(navigator && navigator.sendBeacon){
-        var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
-        if(navigator.sendBeacon(RECEIVER_URL, blob)) return;
-      }
-    } catch(e) {}
-    try {
-      fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body });
-    } catch(e) {}
-  }
   function saveAnswerLog(totalScore){
     var logText = "";
     try { logText = buildAnswerLog(totalScore); } catch(e) { logText = ""; }
     var payload = { folder: "Eden", subfolder: "數學习题", student: studentName, test: QUIZ_TITLE, date: QUIZ_DATE, attempt: attemptCount, score: totalScore + "/12", log: logText };
+
+  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
+     Google Apps Script, so the Apps Script runner does not exist here. The answer
+     log is POSTed directly to the same receiver endpoint (its doPost), with
+     the identical payload shape the watcher already parses. fetch(no-cors)
+     first; sendBeacon as fallback; a second fetch as last resort. */
+  function postLog(payload){
+    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+    var body;
+    try { body = JSON.stringify(payload); } catch (e) { return false; }
+    function beacon(){
+      try {
+        if (navigator && typeof navigator.sendBeacon === "function") {
+          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
+        }
+      } catch (e) {}
+      return false;
+    }
+    function fetchPost(){
+      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
+        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
+    }
+    try {
+      if (window.fetch) {
+        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
+        return true;
+      }
+      return beacon();
+    } catch (e) {
+      return beacon();
+    }
+  }
     try { postLog(payload); } catch (e) {}
   }
   function goToResults(isAuto){
@@ -1300,6 +1345,8 @@ var GRADE_KEYS = {
     var w = $("time-warning"); if(w) w.classList.add("hidden");
     var an = $("r-auto-note"); if(an) an.classList.add("hidden");
     var tm = $("timer"); if(tm){ tm.textContent = "\u23F1 " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical"); }
+    var tb2 = $("timer-bottom"); if(tb2) tb2.textContent = fmtTime(TOTAL_SECONDS);
+    var pb2 = $("progression-bottom"); if(pb2) pb2.textContent = "0 / 12";
     studentName = TEST_MODE ? "TEST" : "Eden";
     show("view-start");
   });

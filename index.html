@@ -316,6 +316,42 @@
   .progress-fill{height:100%;background:var(--green);width:0%;transition:width .3s ease;border-radius:999px}
   .progress-label{font-size:15px;font-weight:800;color:var(--ink-soft);margin-top:6px}
 
+  /* Bottom row on every paper: Timer: + Progression: — centred, blue, live */
+  :root{ --timer-blue:#1d4ed8; }
+  @media (prefers-color-scheme: dark){ :root{ --timer-blue:#8ab6ff; } }
+  .bottom-timer-bar{
+    position:sticky;bottom:10px;z-index:25;
+    margin-top:22px;
+    background:var(--surface);border:2px solid var(--timer-blue);border-radius:16px;
+    box-shadow:0 6px 20px rgba(20,50,120,.16);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    display:flex;align-items:center;justify-content:center;gap:10px 26px;flex-wrap:wrap;
+    text-align:center;color:var(--timer-blue);
+  }
+  .bt-group{display:inline-flex;align-items:baseline;gap:8px;white-space:nowrap}
+  .bt-label{font-weight:900;font-size:18px;color:var(--timer-blue);letter-spacing:.01em}
+  .bt-time{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;color:var(--timer-blue);
+    font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  }
+  .bt-time.low{color:var(--orange)}
+  .bt-time.critical{color:var(--red)}
+  .bt-fraction{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:28px;line-height:1;color:var(--timer-blue);
+    font-variant-numeric:tabular-nums;letter-spacing:.02em;display:inline-block;
+  }
+  @media (max-width:560px){
+    .bottom-timer-bar{gap:6px 18px;padding:10px 10px calc(10px + env(safe-area-inset-bottom, 0px))}
+    .bt-label{font-size:16px}
+    .bt-time{font-size:20px}
+    .bt-fraction{font-size:25px}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .bt-fraction.pop{animation:prog-pop .38s ease}
+    @keyframes prog-pop{0%{transform:scale(1)}35%{transform:scale(1.22)}100%{transform:scale(1)}}
+    .bt-time.critical{animation:timer-pulse 1s ease-in-out infinite}
+  }
+
    
   .section-head{margin:30px 0 14px}
   .section-tag{
@@ -487,7 +523,7 @@
 
   @media print{
     body{background:#fff}
-    .quiz-bar,.submit-zone,.results-actions,.no-print{display:none !important}
+    .quiz-bar,.submit-zone,.results-actions,.bottom-timer-bar,.no-print{display:none !important}
     .wrap{max-width:100%}
     .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid}
   }
@@ -630,6 +666,11 @@
     <div class="submit-zone">
       <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
       <p class="submit-note">Your score will appear right away — your written answers are checked automatically. If time runs out, your quiz will be sent automatically with the answers you have so far.</p>
+    </div>
+
+    <div class="bottom-timer-bar" id="bottom-timer-bar" role="status" aria-label="Timer and progression">
+      <span class="bt-group"><span class="bt-label">Timer:</span><span class="bt-time" id="bottom-timer">20:00</span></span>
+      <span class="bt-group"><span class="bt-label">Progression:</span><span class="bt-fraction" id="bottom-progression">0 / 12</span></span>
     </div>
   </section>
 
@@ -1270,10 +1311,21 @@
     ALL_WRITTEN.forEach(function(q){ if(writtenQuestionAnswered(q)) c++; });
     return c;
   }
+  var lastProgression = 0;
   function updateProgress(){
     var c = answeredCount();
     $("progress-fill").style.width = (c/12*100) + "%";
     $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " — nice, you answered everything!" : "");
+    var bp = $("bottom-progression");
+    if(bp){
+      bp.textContent = c + " / 12";
+      if(c !== lastProgression){
+        bp.classList.remove("pop");
+        void bp.offsetWidth;
+        bp.classList.add("pop");
+      }
+    }
+    lastProgression = c;
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
       var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenQuestionAnswered(q);
       var card = $("qcard-"+q.n);
@@ -1290,6 +1342,11 @@
     if(w) w.classList.add("hidden");
     var t0 = $("timer");
     if(t0){ t0.classList.remove("low","critical","done"); }
+    var bt0 = $("bottom-timer");
+    if(bt0){ bt0.textContent = fmtTime(TOTAL_SECONDS); bt0.classList.remove("low","critical"); }
+    var bp0 = $("bottom-progression");
+    if(bp0){ bp0.textContent = "0 / 12"; }
+    lastProgression = 0;
     updateTimer();
     timerId = setInterval(updateTimer, 250);
   }
@@ -1302,18 +1359,25 @@
     var el = elapsedSeconds();
     var left = TOTAL_SECONDS - el;
     var t = $("timer");
+    var bt = $("bottom-timer");
     if(left > 0){
       t.textContent = "⏱ " + fmtTime(Math.ceil(left));
+      if(bt) bt.textContent = fmtTime(Math.ceil(left));
       var inLastMinute = left <= 60;
       t.classList.toggle("critical", inLastMinute);
       t.classList.toggle("low", !inLastMinute && left <= 120);
       t.classList.remove("done");
+      if(bt){
+        bt.classList.toggle("critical", inLastMinute);
+        bt.classList.toggle("low", !inLastMinute && left <= 120);
+      }
       if(inLastMinute){
         var w = $("time-warning");
         if(w) w.classList.remove("hidden");
       }
     } else {
       t.textContent = "⏱ 0:00";
+      if(bt){ bt.textContent = "0:00"; bt.classList.add("critical"); bt.classList.remove("low"); }
       t.classList.add("critical");
       t.classList.remove("low","done");
       autoSubmit();
@@ -1757,7 +1821,7 @@
     return lines.join("\n");
   }
   function saveAnswerLog(){
-    if(REDO_MODE || TEST_MODE) return; 
+    if(REDO_MODE) return;
     var total = lastResult ? lastResult.total : 0;
     var payload = {
       folder: "Amber",
@@ -1769,9 +1833,9 @@
       score: total + "/12",
       log: buildAnswerLog(total)
     };
-    
+
   /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
-     Google Apps Script, so the old in-page save bridge does not exist here. The answer
+     Google Apps Script, so google.script.run does not exist here. The answer
      log is POSTed directly to the same receiver endpoint (its doPost), with
      the identical payload shape the watcher already parses. fetch(no-cors)
      first; sendBeacon as fallback; a second fetch as last resort. */
@@ -1792,14 +1856,13 @@
         headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
     }
     try {
-      if (beacon()) return true;
       if (window.fetch) {
-        fetchPost().catch(function(){});
+        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
         return true;
       }
-      return false;
+      return beacon();
     } catch (e) {
-      try { fetchPost().catch(function(){}); return true; } catch (e2) { return false; }
+      return beacon();
     }
   }
     try { postLog(payload); } catch (e) {}
@@ -1846,6 +1909,9 @@
     var w = $("time-warning"); if(w) w.classList.add("hidden");
     var an = $("r-auto-note"); if(an) an.classList.add("hidden");
     var tm = $("timer"); if(tm){ tm.textContent = "⏱ " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical","done"); }
+    var btm = $("bottom-timer"); if(btm){ btm.textContent = fmtTime(TOTAL_SECONDS); btm.classList.remove("low","critical"); }
+    var bpr = $("bottom-progression"); if(bpr){ bpr.textContent = "0 / 12"; }
+    lastProgression = 0;
     studentName = TEST_MODE ? "TEST" : "Amber";
     show("view-start");
   });
