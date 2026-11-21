@@ -218,8 +218,8 @@
   .passage{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:24px 24px 10px;box-shadow:var(--shadow)}
   .passage h3{font-size:25px;margin-bottom:12px}
   .passage h4.passage-subhead{font-family:"Fredoka","Nunito",sans-serif;font-size:21px;font-weight:700;color:var(--green-dark);margin:20px 0 8px;line-height:1.3}
-  .passage p{font-size:21px;line-height:1.85;margin:0 0 15px;font-family:Georgia,"Times New Roman",serif}
-  .passage .pnum{font-weight:700;color:var(--ink);font-size:1.81em;line-height:0;font-family:inherit}
+  .passage p{font-size:21px;line-height:1.85;margin:0 0 15px}
+  .passage .pnum{font-family:Georgia,"Times New Roman",serif;font-size:1.85em;font-weight:700;color:var(--green);line-height:1;margin-right:3px}
   .passage-label{font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:18px 0 4px}
   .passage-label:first-of-type{margin-top:0}
   .chart{margin:6px 0 18px;border:1.5px solid var(--line);border-radius:16px;padding:18px;background:var(--surface-2)}
@@ -256,6 +256,14 @@
   .option .otext{font-size:19px;font-weight:700;line-height:1.5;padding-top:3px}
   .option .otext b{font-weight:900;margin-right:2px}
   .option:has(input:checked){border-color:var(--green);background:var(--green-soft)}
+  .evidence{margin-top:16px;border-top:2px dashed var(--line);padding-top:14px}
+  .ev-label{font-weight:900;font-size:17px;line-height:1.4}
+  .ev-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .ev-btn{appearance:none;-webkit-appearance:none;cursor:pointer;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 16px;font-weight:900;font-size:17px;min-height:46px;line-height:1.2}
+  .ev-btn:hover{border-color:var(--teal)}
+  .ev-btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+  .ev-btn.selected{background:var(--teal);border-color:var(--teal);color:#fff}
+  @media (prefers-color-scheme: dark){ .ev-btn.selected{color:#07231f} }
   textarea{width:100%;margin-top:10px;min-height:118px;resize:vertical;padding:15px 17px;font-size:19px;line-height:1.65;color:var(--ink);background:var(--surface-2);border:2px solid var(--line);border-radius:16px;outline:none}
   textarea:focus{border-color:var(--green);background:var(--surface)}
   textarea.part-box{min-height:84px;margin-top:8px}
@@ -344,12 +352,6 @@
   .outcome-score{font-size:20px;margin:8px 0 22px}
   .outcome a.outcome-btn,.outcome button.outcome-btn{display:inline-block;width:auto;font-size:24px;padding:16px 42px;margin-top:8px;text-decoration:none}
   .outcome-note{font-size:17px;margin-top:16px}
-  .ev-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1.5px dashed var(--line)}
-  .ev-label{font-weight:900;font-size:15.5px;color:var(--ink-soft);margin-right:2px}
-  .ev-btn{appearance:none;-webkit-appearance:none;width:42px;height:42px;border-radius:50%;border:2.5px solid var(--line);background:var(--surface);color:var(--ink);font-weight:900;font-size:18px;cursor:pointer;padding:0;line-height:1}
-  .ev-btn:hover{border-color:var(--green)}
-  .ev-btn.sel{border-color:var(--green);background:var(--green);color:#fff}
-  @media (prefers-color-scheme: dark){ .ev-btn.sel{color:#0b2233} }
 </style>
 </head>
 <body>
@@ -422,7 +424,7 @@
       </form>
     </div>
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/16/26 Daily Quiz 700L (up 50L), 11/17/26 Daily Quiz 710L (up 10L), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/17/26 Daily Quiz 710L (the same), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same), 11/20/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Reading Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
         <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>530L to 710L</strong> — that's <strong>+180L</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
@@ -434,7 +436,8 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Lexile</span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">5/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
@@ -445,7 +448,6 @@
           <div class="hg-row down" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">2/12</span><span class="c lex" role="cell">670L<span class="delta">▼ -20L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell">690L<span class="delta">▲ +20L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell">670L<span class="delta">▲ +20L</span></span></div>
-          <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Placement</span><span class="c score" role="cell">18/20</span><span class="c lex" role="cell">650L<span class="delta">▲ +120L</span></span></div>
         </div>
         </div>
         <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
@@ -532,7 +534,7 @@
     <div id="r-wr-review"></div>
     <div class="results-actions">
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/16/26 Daily Quiz 700L (up 50L), 11/17/26 Daily Quiz 710L (up 10L), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/17/26 Daily Quiz 710L (the same), 11/17/26 Daily Quiz 710L (the same), 11/18/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same), 11/19/26 Daily Quiz 710L (the same), 11/20/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Reading Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
         <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>530L to 710L</strong> — that's <strong>+180L</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
@@ -544,7 +546,8 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Lexile</span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">5/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>710L</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">6/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">710L<span class="delta">→ same</span></span></div>
@@ -555,7 +558,6 @@
           <div class="hg-row down" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">2/12</span><span class="c lex" role="cell">670L<span class="delta">▼ -20L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/15/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell">690L<span class="delta">▲ +20L</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell">670L<span class="delta">▲ +20L</span></span></div>
-          <div class="hg-row improved" role="row"><span class="date" role="cell">11/14/26</span><span role="cell">Placement</span><span class="c score" role="cell">18/20</span><span class="c lex" role="cell">650L<span class="delta">▲ +120L</span></span></div>
         </div>
         </div>
         <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
@@ -587,255 +589,94 @@
   var QUIZ_TITLE = "Grade 2 Reading Quiz \u2014 November 20, 2026";
   var QUIZ_DATE = "2026-11-20";
   var SECTIONS = [
-  {
-    "id": 1,
-    "tag": "Section 1",
-    "tagClass": "tag-1",
-    "title": "Key Ideas and Details",
-    "subtitle": "Nonfiction · How Hummingbirds Fly and Eat · 4 questions",
-    "passageTitle": "How Hummingbirds Fly and Eat",
-    "paragraphs": [
-      "[1] Hummingbirds are the smallest birds in the world. Some are no bigger than a bee. They live where flowers grow, in gardens and in woods.",
-      "[2] A hummingbird's wings beat very fast, about fifty times in one second. The fast wings make a soft humming sound. That sound is how the bird gets its name.",
-      "[3] Hummingbirds can fly in ways no other bird can. They can hover in front of a flower, and they are the only birds that can fly backward.",
-      "[4] A mother hummingbird builds a tiny cup nest on a branch. She lays two small eggs. When the chicks hatch, she feeds them many times a day until their wings grow strong and they can fly.",
-      "## A Bill Like a Straw",
-      "[5] A hummingbird has a long, thin bill. It pushes its bill deep into a flower and drinks the sweet juice, called nectar, with its long tongue, like drinking through a straw.",
-      "[6] Hummingbirds also catch tiny bugs to eat. Flying fast uses a lot of energy, so a hummingbird must eat many times a day to stay strong."
-    ],
-    "chart": null,
-    "questions": [
-      {
-        "n": 1,
-        "std": "RI.2.5",
-        "type": "mc",
-        "text": "How does the heading “A Bill Like a Straw” help the reader?",
-        "options": [
-          "It tells readers this part is about the bird's tiny cup nest",
-          "It tells readers this part is about where the bird got its name",
-          "It tells readers this part is about the birds drinking nectar",
-          "It tells readers this part is about the bird that flies backward"
-        ],
-        "correct": 2,
-        "evidence": 5,
-        "why": "The heading names what that part of the text is about: the hummingbird's long, thin bill, and how it drinks nectar with it, like drinking through a straw."
-      },
-      {
-        "n": 2,
-        "std": "RI.2.8",
-        "type": "mc",
-        "text": "Why does the author tell that hummingbirds are the only birds that can fly backward?",
-        "options": [
-          "To show that hummingbirds are the smallest birds of all",
-          "To show that hummingbirds can fly in a very special way",
-          "To show that hummingbirds must eat lots of tiny bugs daily",
-          "To show that mother hummingbirds build tiny cup nests"
-        ],
-        "correct": 1,
-        "evidence": 3,
-        "why": "The author gives this detail to support the idea that hummingbirds fly in ways no other bird can. Flying backward is one of those special ways."
-      },
-      {
-        "n": 3,
-        "std": "RF.2.3",
-        "type": "mc",
-        "text": "Which word from the passage has the long-o sound in “boat”?",
-        "options": [
-          "cup",
-          "only",
-          "wings",
-          "flowers"
-        ],
-        "correct": 1,
-        "evidence": 3,
-        "why": "“Only” has the long-o sound, just like “boat.” The words cup, wings, and flowers do not have the long-o sound."
-      },
-      {
-        "n": 4,
-        "std": "RI.2.3",
-        "type": "written",
-        "text": "Answer both parts about the mother hummingbird and her chicks.",
-        "part1": "What does the mother hummingbird do after her eggs hatch?",
-        "part2": "What must happen before the young birds can fly?",
-        "sample": "After the eggs hatch, the mother hummingbird feeds her chicks many times a day. Before the young birds can fly, their wings must grow strong."
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "tag": "Section 2",
-    "tagClass": "tag-2",
-    "title": "Reading Comprehension",
-    "subtitle": "Fiction · Marco and the Big Drum · 4 questions",
-    "passageTitle": "Marco and the Big Drum",
-    "paragraphs": [
-      "[1] Marco loved parade day at his school. This year, his teacher asked him to carry the big drum at the front of the line. Marco smiled and said yes right away.",
-      "[2] But the drum was round and heavy. When Marco picked it up, his arms shook. “Oh no,” he thought. “This drum is too heavy for me to carry all that way.”",
-      "[3] Marco did not give up. Every day after school, he practised in the yard. He carried the drum up and down the path, and his arms grew stronger and stronger.",
-      "[4] On parade day, the drum still felt heavy. Marco's friend Ana walked beside him. “I can hold one side of the drum when you get tired,” she said.",
-      "[5] Marco marched with the line and beat the drum — boom, boom, boom! When his arms got tired, Ana held one side of the drum, and Marco kept on playing.",
-      "[6] At the end, the teacher clapped for him. “You did not quit, Marco,” she said. Marco grinned. He had learned that hard things get easier when you practise and let friends help."
-    ],
-    "chart": null,
-    "questions": [
-      {
-        "n": 5,
-        "std": "RL.2.4",
-        "type": "mc",
-        "text": "What does the word “marched” mean in the story?",
-        "options": [
-          "Played a drum loudly with the school band",
-          "Walked in a line in a slow, steady way",
-          "Carried a heavy drum up and down a path",
-          "Held one side of a friend's big drum"
-        ],
-        "correct": 1,
-        "evidence": 5,
-        "why": "In the story, Marco marched with the line — he walked along in the parade line in a steady way while he played the drum."
-      },
-      {
-        "n": 6,
-        "std": "RL.2.6",
-        "type": "mc",
-        "text": "Who is telling this story?",
-        "options": [
-          "Marco is telling the story about himself",
-          "Ana is telling the story about herself",
-          "An outside narrator is telling the story",
-          "The teacher is telling the story in the class"
-        ],
-        "correct": 2,
-        "evidence": 1,
-        "why": "The story calls Marco “he” and tells what he thought and felt, but Marco is not telling it himself. A narrator outside the story tells it."
-      },
-      {
-        "n": 7,
-        "std": "RL.2.3",
-        "type": "mc",
-        "text": "How does Marco solve his problem with the heavy drum?",
-        "options": [
-          "He asks his teacher to carry the big drum for him",
-          "He lets Ana carry the big drum all by herself",
-          "He practises every day until he grows stronger",
-          "He beats the drum loudly so no one sees it shake"
-        ],
-        "correct": 2,
-        "evidence": 3,
-        "why": "Marco practised in the yard every day after school. He carried the drum up and down the path until his arms grew stronger."
-      },
-      {
-        "n": 8,
-        "std": "RL.2.2",
-        "type": "written",
-        "text": "Answer both parts about Marco and the drum.",
-        "part1": "What problem did Marco have at the start of the story?",
-        "part2": "What did Marco learn at the end of the story?",
-        "sample": "At the start, the drum was too heavy for Marco, and his arms shook when he picked it up. At the end, Marco learned that hard things get easier when you practise and let friends help."
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "tag": "Section 3",
-    "tagClass": "tag-3",
-    "title": "Integration of Knowledge and Ideas",
-    "subtitle": "Two texts and a chart · The Class Picnic · 4 questions",
-    "passageTitle": null,
-    "paragraphs": [],
-    "texts": [
-      {
-        "label": "Text A",
-        "title": "The Class Picnic — Told by Ana",
-        "body": "[1] Last Friday, our class had a picnic at Sunny Apple Orchard. I helped Teacher Rosa carry a big basket of bread to the tables under the trees.\n\n[2] First, we picked apples in teams. My team, Team Star, picked seven apples. The apples were red and crisp, and they crunched when we bit them.\n\n[3] Then dark clouds came, and rain began to fall. We all ran under the biggest tree and ate our sandwiches there, out of the rain.\n\n[4] Ben dropped his sandwich in the wet grass. I gave him half of my sandwich, and soon he was smiling again.\n\n[5] After the rain stopped, a rainbow came out. We finished our picnic in the warm sun, and nobody wanted to go home."
-      },
-      {
-        "label": "Text B",
-        "title": "The Class Picnic — Told by Ben",
-        "body": "[6] I will never forget our class picnic at Sunny Apple Orchard. I carried the cups and a big jug of lemonade to the tables for Teacher Rosa.\n\n[7] In the apple teams, I was on Team Sky. Team Sky picked fourteen apples that day, more than any other team.\n\n[8] When the rain came, we all squeezed under the biggest tree to stay dry. My sandwich fell into the wet grass, and I felt sad.\n\n[9] Then Ana gave me half of her sandwich. Her sharing made the whole picnic feel warm, even in the rain.\n\n[10] Ana and I are telling about the same picnic — the apple teams, the rain, and the kind sharing under the big tree."
-      }
-    ],
-    "chart": {
-      "title": "Apples Each Team Picked",
-      "sub": "How many apples each team picked at the picnic",
-      "max": 15,
-      "unit": "",
-      "col1": "Team",
-      "col2": "Apples",
-      "rows": [
-        {
-          "label": "Team Sun",
-          "count": 9,
-          "cls": "teal"
-        },
-        {
-          "label": "Team Moon",
-          "count": 12,
-          "cls": "banana"
-        },
-        {
-          "label": "Team Star",
-          "count": 7,
-          "cls": "apple"
-        },
-        {
-          "label": "Team Sky",
-          "count": 14,
-          "cls": "orange"
-        }
+    {
+      id: 1, tag: "Section 1", tagClass: "tag-1",
+      title: "Key Ideas and Details",
+      subtitle: "Nonfiction \u00B7 How Earthworms Help the Garden \u00B7 4 questions",
+      passageTitle: "How Earthworms Help the Garden",
+      paragraphs: [
+        "[1] Earthworms live under gardens in dark, damp soil. You may not see them, because they stay down in the dirt for most of the day. These small animals are quiet helpers, and they work hard to keep the soil healthy for plants.",
+        "[2] A worm has no legs and no eyes. Its long, soft body is made of many small parts, like a row of tiny rings. A worm moves by squeezing its body tight and then stretching it long, pushing itself through the soil.",
+        "[3] As worms dig through the soil, they make long holes called tunnels. The tunnels let air move down into the ground. They also let rain water go deep into the soil, so the water can reach the roots of plants.",
+        "[4] Worms eat food that they find under the soil. They pull dead leaves and old bits of plants down into the ground. Then they chew the dead leaves and old plant bits into tiny pieces and eat them.",
+        "[5] After a worm eats, the food passes through its body. Then the worm leaves castings behind. Castings are tiny, dark balls of soil that come out of the worm. Castings are full of food that plants need to grow.",
+        "[6] Earthworms help garden plants in many ways. Their tunnels let air and water move through the soil, and the soil gets mixed up as they dig. Their castings feed the plants. With tunnels, mixed soil, and castings, plant roots grow strong, and garden plants grow tall and green."
+      ],
+      chart: null,
+      questions: [
+        { n:1, std:"RI.2.1", type:"mc", text:"What do earthworms eat under the soil?", options:["Small stones and bits of hard old wood","Dead leaves and old bits of plants","Fresh green grass and new flowers","Tiny seeds and sweet red apple bits"], correct:1, evidence:4, why:"Paragraph 4 says worms pull dead leaves and old bits of plants down into the ground and eat them." },
+        { n:2, std:"RI.2.2", type:"mc", text:"What is this text mostly about?", options:["How worms hide from birds in the garden soil","How to catch worms and keep them safe in a box","How earthworms help garden plants grow strong","How rain water falls on a garden in spring"], correct:2, evidence:6, why:"The whole text tells how earthworms help the garden. Paragraph 6 sums it up: with tunnels, mixed soil, and castings, plant roots grow strong and garden plants grow tall and green." },
+        { n:3, std:"RI.2.4", type:"mc", text:"In the text, tunnels let rain water go deep. What is a tunnel here?", options:["A small ball of dark, wet soil","A tiny room where worms sleep","A soft line of dirt on the ground","A long hole dug under the soil"], correct:3, evidence:3, why:"Paragraph 3 says that as worms dig through the soil, they make long holes called tunnels." },
+        { n:4, std:"RI.2.3", type:"written", text:"Answer both parts about how earthworms help the garden.",
+          part1:"What is the FIRST thing a worm does to help the soil?",
+          part2:"What happens LAST so plants can grow strong?",
+          sample:"First, a worm digs through the soil and makes tunnels. Last, after eating, the worm leaves castings behind. The castings are full of food for plants, so plant roots grow strong." }
       ]
     },
-    "questions": [
-      {
-        "n": 9,
-        "std": "RL.2.9",
-        "type": "mc",
-        "text": "How are Text A and Text B the same?",
-        "options": [
-          "Both tell how Ana carried a big basket of bread",
-          "Both tell how Ben carried the cups and lemonade jug",
-          "Both tell about the same class picnic in the rain",
-          "Both tell how Team Star picked seven red apples"
-        ],
-        "correct": 2,
-        "evidence": 10,
-        "why": "Ana and Ben are both telling about the same class picnic — the apple teams, the rain, and the sharing under the big tree. Ben says this right in paragraph 10."
+    {
+      id: 2, tag: "Section 2", tagClass: "tag-2",
+      title: "Reading Comprehension",
+      subtitle: "Fiction \u00B7 Tomas and the Little Wooden Horse \u00B7 4 questions",
+      passageTitle: "Tomas and the Little Wooden Horse",
+      paragraphs: [
+        "[1] Tomas is seven years old. He has a small wooden horse that his grandpa carved for him out of wood. Tomorrow, his school will have a pet parade. Tomas cannot bring a real pet, so he will carry his little wooden horse in the parade.",
+        "[2] That night at home, Tomas polished the horse until it shone. He tied a red ribbon around its neck and held it up high. Tomas felt proud and happy, and he could not wait to show the horse to his class.",
+        "[3] The next morning, Tomas put the horse in his backpack and rode the bus to school. When he got off the bus, his backpack was open. The horse was gone! Tomas felt worried. He checked his pockets and looked all over his seat, but the horse was not there.",
+        "[4] Back at home, his little sister Lucia found the horse under the couch, where it had fallen out of the bag. Lucia ran with Mum to the school gate. She held the horse up high so that Tomas could see it.",
+        "[5] At the parade, Tomas carried the little wooden horse proudly past all the classes. The red ribbon shone in the sun. When the parade ended, Tomas ran to Lucia and said, \u201CThank you for finding my horse!\u201D",
+        "[6] On the way home, Tomas zipped his backpack shut and checked his things one more time. He had learned to take care of his things. Tomas felt happy and careful now. Then he let Lucia hold the horse all the way home."
+      ],
+      chart: null,
+      questions: [
+        { n:5, std:"RL.2.1", type:"mc", text:"Who carved the little wooden horse, and why does Tomas take it to school?", options:["Mum carved it, and Tomas takes it to show his baby sister","Grandpa carved it; Tomas takes it for the school pet parade","Lucia carved it, and Tomas takes it to sell at the parade","Grandpa bought it, and Tomas takes it to ride on the school bus"], correct:1, evidence:1, why:"Paragraph 1 says Tomas has a small wooden horse that his grandpa carved for him, and he will carry it in the school pet parade." },
+        { n:6, std:"RL.2.5", type:"mc", text:"How is the END of the story different from the BEGINNING?", options:["At first Tomas ties a red ribbon on the horse; at the end he takes the ribbon off and throws it far away","At first Tomas is sad and never smiles at all; at the end he is still sad and will not share anything","At first Tomas is proud but careless with his bag; at the end he checks his things and shares the horse","At first Tomas loses his horse on the bus ride; at the end Lucia keeps the horse at her home for herself"], correct:2, evidence:6, why:"At the beginning Tomas is proud but careless \u2014 his backpack is open and the horse falls out. In paragraph 6, at the end, he zips his bag shut, checks his things, and lets Lucia hold the horse." },
+        { n:7, std:"RL.2.6", type:"mc", text:"In paragraph 4, who finds the horse and brings it to school?", options:["Grandpa finds it at home and brings it alone","Lucia finds it at home and brings it with Mum","Tomas finds it on the bus and brings it back","Mum finds it at the school and brings it with Dad"], correct:1, evidence:4, why:"Paragraph 4 says Lucia found the horse under the couch at home, and she ran with Mum to the school gate." },
+        { n:8, std:"RL.2.2", type:"written", text:"Answer both parts about Tomas and the wooden horse.",
+          part1:"What was Tomas's problem in the middle of the story?",
+          part2:"What did Tomas learn at the end?",
+          sample:"In the middle of the story, Tomas's problem was that his wooden horse was lost \u2014 it had fallen out of his open backpack, and he could not find it. At the end, Tomas learned to zip his bag and check his things so he would not lose them again." }
+      ]
+    },
+    {
+      id: 3, tag: "Section 3", tagClass: "tag-3",
+      title: "Integration of Knowledge and Ideas",
+      subtitle: "Two texts and a chart \u00B7 Our School Garden \u00B7 4 questions",
+      passageTitle: null,
+      paragraphs: [],
+      texts: [
+        { label:"Text A", title:"Our School Garden \u2014 Told by Maya",
+          body:"[1] Our class planted a garden behind our school this spring. We planted rows of pepper seeds in the dark soil. I am Maya, and the garden is my favourite place in the whole school.\n\n[2] Every morning, I came to school early and watered the little plants. I carried water in a blue can and poured it slowly on each row. The warm sun shone down, and the dry soil drank the water fast.\n\n[3] After some weeks, small green peppers began to grow on the plants. Day by day, the peppers grew bigger and bigger. Soon some peppers turned red and ready to pick. When a pepper is ripe, it is red and ready to pick.\n\n[4] Our class picked the peppers and counted them each week. We put the peppers into baskets and shared them with the school cook. I felt proud every time a basket was full to the top.\n\n[5] I tell this story to show that watering plants every day helps them grow. A garden needs care, little by little, day after day. That is how our pepper plants grew so well this spring." },
+        { label:"Text B", title:"Our School Garden \u2014 Told by Leo",
+          body:"[6] I am Leo, and I helped in our school garden too. My job was different from Maya's job. I built a low fence all around the garden to keep the rabbits out.\n\n[7] Each week, I counted the peppers on the plants. I wrote the numbers in a small notebook with a pencil. Week by week, the plants had more and more peppers for our class to pick.\n\n[8] I agree with Maya that our pepper plants grew well this spring. We picked many peppers from the garden. I think the plants grew because our class took good care of them every day.\n\n[9] The bees helped our garden too. Bees flew from flower to flower on the pepper plants all morning. When bees visit the flowers, the plants can make more peppers.\n\n[10] I tell this story to show that our whole class worked as a team. Maya watered, I built the fence and counted, and we all picked peppers together. A team can do big things when everyone helps." }
+      ],
+      chart: {
+        title:"Peppers Picked Each Week",
+        sub:"How many peppers the class picked each week",
+        max: 12,
+        unit: "",
+        col1: "Week",
+        col2: "Peppers",
+        rows:[
+          { label:"Week 1", count:5, cls:"teal" },
+          { label:"Week 2", count:8, cls:"banana" },
+          { label:"Week 3", count:6, cls:"apple" },
+          { label:"Week 4", count:11, cls:"orange" }
+        ]
       },
-      {
-        "n": 10,
-        "std": "RI.2.7",
-        "type": "mc",
-        "text": "Which team picked the most apples?",
-        "options": [
-          "Team Sun — 9 apples",
-          "Team Moon — 12 apples",
-          "Team Star — 7 apples",
-          "Team Sky — 14 apples"
-        ],
-        "correct": 3,
-        "evidence": 7,
-        "why": "The chart shows Team Sun: 9, Team Moon: 12, Team Star: 7, and Team Sky: 14 apples. 14 is the most, and Ben tells about Team Sky in paragraph 7."
-      },
-      {
-        "n": 11,
-        "std": "L.2.5",
-        "type": "written",
-        "text": "Answer both parts about the word “crisp” in Text A.",
-        "part1": "What does the word “crisp” mean in Text A?",
-        "part2": "What food in Text A is crisp?",
-        "sample": "“Crisp” means hard and fresh, so it crunches when you bite it. In Text A, the apples are crisp."
-      },
-      {
-        "n": 12,
-        "std": "L.2.6",
-        "type": "written",
-        "text": "Answer both parts about the word “squeezed” in Text B.",
-        "part1": "What does the word “squeezed” mean in Text B?",
-        "part2": "Why did the class squeeze under the big tree?",
-        "sample": "“Squeezed” means pressed close together in a small space. The class squeezed under the big tree to stay dry and out of the rain."
-      }
-    ]
-  }
-]
+      questions: [
+        { n:9, std:"RI.2.9", type:"mc", text:"What do BOTH Maya and Leo agree about?", options:["The pepper plants needed water every morning to grow well","The class built a low fence to keep the rabbits out of it","The bees flew to the flowers and helped the plants to grow well","The pepper plants grew well and the class picked many peppers"], correct:3, evidence:8, why:"In paragraph 8, Leo says he agrees with Maya that the pepper plants grew well, and that the class picked many peppers." },
+        { n:10, std:"RL.2.9", type:"mc", text:"How is Leo's telling DIFFERENT from Maya's?", options:["Leo talks about building the fence and the bees; Maya talks about watering","Leo talks about watering the plants; Maya talks about building the fence","Leo tells how the class picked peppers; Maya tells how the class counted them","Leo says the garden was very hard work; Maya says the garden was easy work"], correct:0, evidence:10, why:"Maya's telling is about watering the plants every morning. Leo's telling is about building the fence, counting the peppers, and the bees. In paragraph 10 he says: Maya watered, I built the fence and counted." },
+        { n:11, std:"RI.2.6", type:"written", text:"Answer both parts about why Maya and Leo tell their stories.",
+          part1:"Why does Maya tell her story?",
+          part2:"Why does Leo tell his story?",
+          sample:"Maya tells her story to show that watering plants every day helps them grow. Leo tells his story to show that the whole class worked as a team and helped together." },
+        { n:12, std:"L.2.4", type:"written", text:"Answer both parts about the word \u201Cripe\u201D in Text A.",
+          part1:"What does \u201Cripe\u201D mean?",
+          part2:"Which words in the text are the clues?",
+          sample:"\u201CRipe\u201D means the pepper is fully grown and ready to pick and eat. The clue words in the text are \u201Cred\u201D and \u201Cready to pick.\u201D" }
+      ]
+    }
+  ];
   var ALL_MC = [], ALL_WRITTEN = [];
   SECTIONS.forEach(function(s){ s.questions.forEach(function(q){ q.section = s.id; if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q); }); });
   var LETTERS = ["A","B","C","D"];
@@ -873,7 +714,7 @@
   var autoSubmitted = false;
   var attemptCount = 0;
   var answers = {};
-  var evidenceAnswers = {};
+  var evidence = {};
   var written = {};
   var writtenParts = {};
   var writtenGrades = {};
@@ -916,9 +757,9 @@
     });
     var h1 = 5381, h2 = 52711;
     for(var i = 0; i < raw.length; i++){ var c = raw.charCodeAt(i); h1 = ((h1 * 33) ^ c) >>> 0; h2 = ((h2 * 31) ^ c) >>> 0; }
-    return "g2-2026-11-20-seq11";
+    return "g2-2026-11-20-seq12";
   }
-  var QUIZ_ID = "2026-11-20-seq11";
+  var QUIZ_ID = "2026-11-20-seq12";
   function normalizedStudentName(){ return String(studentName || "").trim().toLowerCase().replace(/\s+/g, " "); }
   function attemptStorageKey(){ return "g2rq-attempts-v1:" + QUIZ_ID + ":" + normalizedStudentName() + (TEST_MODE ? ":TEST" : ""); }
   function recordAttempt(){
@@ -1012,12 +853,12 @@
   
 
   var GROWTH = [
-    { date:"11/16/26", type:"Daily Quiz", lexile:700, delta:"+50L", kind:"up" },
-    { date:"11/17/26", type:"Daily Quiz", lexile:710, delta:"+10L", kind:"up" },
+    { date:"11/17/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" },
     { date:"11/17/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" },
     { date:"11/18/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" },
     { date:"11/19/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" },
-    { date:"11/19/26", type:"Daily Quiz", lexile:710, delta:null, kind:"best" }
+    { date:"11/19/26", type:"Daily Quiz", lexile:710, delta:null, kind:"same" },
+    { date:"11/20/26", type:"Daily Quiz", lexile:710, delta:null, kind:"best" }
   ];
 
   function renderGrowthCharts(){
@@ -1090,19 +931,24 @@
     written[qn] = writtenCombined(qn);
   }
 
-  function evParagraphs(sec){
-    var out = [];
-    if(sec.paragraphs && sec.paragraphs.length){
-      var n = 0;
-      sec.paragraphs.forEach(function(p){ if(String(p).indexOf("## ") === 0) return; n++; var m = String(p).match(/^\[(\d+)\]\s*/); out.push({ n: m ? parseInt(m[1], 10) : n, text: String(p).replace(/^\[\d+\]\s*/, "") }); });
-    }
-    if(sec.texts && sec.texts.length){
-      sec.texts.forEach(function(t){ String(t.body).split("\n\n").forEach(function(chunk){ var m = chunk.match(/^\[(\d+)\]\s*/); if(m) out.push({ n: parseInt(m[1], 10), text: chunk.replace(/^\[\d+\]\s*/, "") }); }); });
-    }
-    return out;
+  function sectionParaList(sec){
+    var list = [];
+    if(!sec) return list;
+    if(sec.paragraphs){ sec.paragraphs.forEach(function(p){ if(p.indexOf("## ") !== 0) list.push(p); }); }
+    if(sec.texts){ sec.texts.forEach(function(t){ String(t.body).split("\n\n").forEach(function(c){ list.push(c); }); }); }
+    return list;
   }
-  function mcDone(q){ return typeof answers[q.n] === "number" && typeof evidenceAnswers[q.n] === "number"; }
-  function mcCorrect(q){ return answers[q.n] === q.correct && evidenceAnswers[q.n] === q.evidence; }
+  function sectionParaCount(sec){ return sectionParaList(sec).length; }
+  function getParaText(sec, num){
+    var list = sectionParaList(sec);
+    for(var i = 0; i < list.length; i++){
+      var m = /^\[(\d+)\]\s*/.exec(list[i]);
+      if(m && parseInt(m[1], 10) === num) return list[i].replace(/^\[\d+\]\s*/, "");
+    }
+    return "";
+  }
+  function mcRight(q){ return answers[q.n] === q.correct && evidence[q.n] === q.evidence; }
+
   function buildQuiz(){
     var html = "";
     SECTIONS.forEach(function(s){
@@ -1115,15 +961,15 @@
       html += '</div>';
       s.questions.forEach(function(q){
         html += '<div class="qcard" id="qcard-'+q.n+'">';
-        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div><div class="q-text">'+esc(q.text)+'</div><div class="q-type">'+(q.type === "mc" ? "Tap one answer \u00B7 then tap the paragraph number" : "Write your answer \u00B7 two parts")+'</div></div></div>';
+        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div><div class="q-text">'+esc(q.text)+'</div><div class="q-type">'+(q.type === "mc" ? "Tap one answer" : "Write your answer \u00B7 two parts")+'</div></div></div>';
         if(q.type === "mc"){
           html += '<div class="options" role="radiogroup" aria-label="Question '+q.n+'">';
           q.options.forEach(function(opt, i){ html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'"><span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>'; });
           html += '</div>';
-          var evList = evParagraphs(s);
-          html += '<div class="ev-row" role="group" aria-label="Question '+q.n+' evidence paragraph"><span class="ev-label">\uD83D\uDCD6 Which paragraph tells the answer? Tap one:</span>';
-          evList.forEach(function(ep){ html += '<button type="button" class="ev-btn" data-q="'+q.n+'" data-ev="'+ep.n+'" aria-label="Paragraph '+ep.n+'">'+ep.n+'</button>'; });
-          html += '</div>';
+          var pcount = sectionParaCount(s);
+          html += '<div class="evidence"><div class="ev-label">\uD83D\uDCD6 Which paragraph tells you the answer? Tap one paragraph.</div><div class="ev-row" role="radiogroup" aria-label="Question '+q.n+' evidence paragraph">';
+          for(var pi2 = 1; pi2 <= pcount; pi2++){ html += '<button type="button" class="ev-btn" data-q="'+q.n+'" data-p="'+pi2+'" aria-pressed="false">\u00B6'+pi2+'</button>'; }
+          html += '</div></div>';
         } else {
           html += '<div class="part-label"><span class="part-chip">Part 1</span><span>'+esc(q.part1)+'</span></div>';
           html += '<textarea class="part-box" id="ta-'+q.n+'-1" placeholder="Write Part 1 here\u2026" aria-label="Question '+q.n+' part 1 answer"></textarea>';
@@ -1138,10 +984,12 @@
     ALL_MC.forEach(function(q){
       var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
       Array.prototype.forEach.call(radios, function(r){ r.addEventListener("change", function(){ answers[q.n] = parseInt(r.value, 10); updateProgress(); }); });
-    });
-    ALL_MC.forEach(function(q){
-      var btns = document.querySelectorAll('.ev-btn[data-q="'+q.n+'"]');
-      Array.prototype.forEach.call(btns, function(b){ b.addEventListener("click", function(){ evidenceAnswers[q.n] = parseInt(b.getAttribute("data-ev"), 10); Array.prototype.forEach.call(btns, function(x){ x.classList.toggle("sel", x === b); }); updateProgress(); }); });
+      var evBtns = document.querySelectorAll('.ev-btn[data-q="'+q.n+'"]');
+      Array.prototype.forEach.call(evBtns, function(b){ b.addEventListener("click", function(){
+        evidence[q.n] = parseInt(b.getAttribute("data-p"), 10);
+        Array.prototype.forEach.call(evBtns, function(x){ var on = x === b; x.classList.toggle("selected", on); x.setAttribute("aria-pressed", on ? "true" : "false"); });
+        updateProgress();
+      }); });
     });
     ALL_WRITTEN.forEach(function(q){
       writtenParts[q.n] = ["",""];
@@ -1157,7 +1005,7 @@
     return String(p[0] || "").trim().length > 0 && String(p[1] || "").trim().length > 0;
   }
   var _lastProgCount = 0;
-  function answeredCount(){ var c = 0; ALL_MC.forEach(function(q){ if(mcDone(q)) c++; }); ALL_WRITTEN.forEach(function(q){ if(writtenDone(q)) c++; }); return c; }
+  function answeredCount(){ var c = 0; ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number" && typeof evidence[q.n] === "number") c++; }); ALL_WRITTEN.forEach(function(q){ if(writtenDone(q)) c++; }); return c; }
   function updateProgress(){
     var c = answeredCount();
     $("progress-fill").style.width = (c/12*100) + "%";
@@ -1173,7 +1021,7 @@
     }
     _lastProgCount = c;
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
-      var done = q.type === "mc" ? mcDone(q) : writtenDone(q);
+      var done = q.type === "mc" ? (typeof answers[q.n] === "number" && typeof evidence[q.n] === "number") : writtenDone(q);
       var card = $("qcard-"+q.n); if(card) card.classList.toggle("answered", done);
     });
   }
@@ -1226,7 +1074,7 @@
   $("submit-btn").addEventListener("click", function(){
     if(submitted) return;
     syncWrittenFromDom();
-    var missing = ALL_MC.filter(function(q){ return !mcDone(q); });
+    var missing = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number" || typeof evidence[q.n] !== "number"; });
     if(missing.length > 0){
       var nums = missing.map(function(q){ return "Q" + q.n; }).join(", ");
       $("warn-text").textContent = "You haven't answered " + nums + " yet. Empty questions score 0 points.";
@@ -1236,7 +1084,7 @@
   });
   $("warn-back").addEventListener("click", function(){
     $("warn-modal").classList.add("hidden");
-    var first = ALL_MC.filter(function(q){ return !mcDone(q); })[0];
+    var first = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number" || typeof evidence[q.n] !== "number"; })[0];
     if(first){ var card = $("qcard-"+first.n); if(card) card.scrollIntoView({behavior:"smooth", block:"center"}); }
   });
   $("warn-submit").addEventListener("click", function(){ $("warn-modal").classList.add("hidden"); goToResults(false); });
@@ -1275,7 +1123,7 @@
       lines.push("  " + label + ": " + sectionScore(s.id) + "/" + s.questions.length);
     });
     var mcScore = 0, wrScore = 0;
-    ALL_MC.forEach(function(q){ if(mcCorrect(q)) mcScore++; });
+    ALL_MC.forEach(function(q){ if(mcRight(q)) mcScore++; });
     ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
     lines.push("Tap-the-answer questions: " + mcScore + "/8");
     lines.push("Writing questions: " + wrScore + "/4");
@@ -1298,23 +1146,20 @@
       if(q.type === "mc"){
         var correctText = LETTERS[q.correct] + ". " + q.options[q.correct];
         lines.push("Correct answer: " + correctText);
+        lines.push("Correct evidence: Paragraph " + q.evidence);
         var mine = answers[q.n];
         if(typeof mine === "number"){
           lines.push("Student's answer: " + LETTERS[mine] + ". " + q.options[mine]);
         } else {
           lines.push("Student's answer: No answer");
         }
-        lines.push("Correct evidence paragraph: " + q.evidence);
-        var evChosen = evidenceAnswers[q.n];
-        if(typeof evChosen === "number"){
-          lines.push("Student's evidence choice: paragraph " + evChosen + (evChosen === q.evidence ? " (correct)" : " (wrong)"));
+        var evMine = evidence[q.n];
+        if(typeof evMine === "number"){
+          lines.push("Student's evidence: Paragraph " + evMine + (evMine === q.evidence ? " (correct)" : " (wrong)"));
         } else {
-          lines.push("Student's evidence choice: No evidence chosen (wrong)");
+          lines.push("Student's evidence: No evidence chosen");
         }
-        var optRight = mine === q.correct;
-        var evRight = evChosen === q.evidence;
-        lines.push("Option correct: " + (optRight ? "Yes" : "No") + " \u00B7 Evidence correct: " + (evRight ? "Yes" : "No"));
-        var isRight = mcCorrect(q);
+        var isRight = mcRight(q);
         lines.push("Result: " + (isRight ? "Correct \u2713" : "Wrong \u2717"));
       } else {
         lines.push("Correct answer (sample answer): " + q.sample);
@@ -1347,8 +1192,8 @@
   /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
      Google Apps Script, so the Apps Script runner does not exist here. The answer
      log is POSTed directly to the same receiver endpoint (its doPost), with
-     the identical payload shape the watcher already parses. fetch(no-cors)
-     first; sendBeacon as fallback; a second fetch as last resort. */
+     the identical payload shape the watcher already parses. sendBeacon
+     first; fetch(no-cors, keepalive) as fallback. */
   function postLog(payload){
     var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
     var body;
@@ -1366,13 +1211,12 @@
         headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
     }
     try {
-      if (window.fetch) {
-        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
-        return true;
-      }
-      return beacon();
+      if (beacon()) return true;
+      if (window.fetch) { fetchPost().catch(function(){}); return true; }
+      return false;
     } catch (e) {
-      return beacon();
+      try { if (window.fetch) { fetchPost().catch(function(){}); return true; } } catch (e2) {}
+      return false;
     }
   }
     try { postLog(payload); } catch (e) {}
@@ -1394,213 +1238,39 @@
   function altMatches(norm, alt){ for(var i = 0; i < alt.length; i++){ if(norm.indexOf(normalizeAnswer(alt[i])) === -1) return false; } return true; }
   function pointFound(norm, alternatives){ for(var i = 0; i < alternatives.length; i++){ if(altMatches(norm, alternatives[i])) return true; } return false; }
   var GRADE_KEYS = {
-  "4": [
-    {
-      "found": "The mother feeds her chicks many times a day after they hatch",
-      "missing": "what the mother does after the eggs hatch — she feeds her chicks",
-      "alt": [
-        [
-          "feeds"
-        ],
-        [
-          "feed"
-        ],
-        [
-          "fed"
-        ],
-        [
-          "gives",
-          "food"
-        ],
-        [
-          "brings",
-          "food"
-        ]
-      ]
-    },
-    {
-      "found": "The young birds' wings must grow strong before they can fly",
-      "missing": "what must happen first — their wings must grow strong",
-      "alt": [
-        [
-          "wings",
-          "strong"
-        ],
-        [
-          "grow",
-          "strong"
-        ],
-        [
-          "strong",
-          "wings"
-        ],
-        [
-          "wings",
-          "grow"
-        ]
-      ]
-    }
-  ],
-  "8": [
-    {
-      "found": "The drum was too heavy for Marco, and his arms shook",
-      "missing": "Marco's problem — the drum was too heavy and his arms shook",
-      "alt": [
-        [
-          "heavy"
-        ],
-        [
-          "shook"
-        ],
-        [
-          "shake"
-        ],
-        [
-          "shaking"
-        ],
-        [
-          "arms",
-          "shook"
-        ],
-        [
-          "hard",
-          "carry"
-        ],
-        [
-          "could",
-          "not",
-          "carry"
-        ]
-      ]
-    },
-    {
-      "found": "Hard things get easier when you practise and let friends help",
-      "missing": "the lesson — practise, and let friends help you",
-      "alt": [
-        [
-          "practise"
-        ],
-        [
-          "practice"
-        ],
-        [
-          "practised"
-        ],
-        [
-          "practiced"
-        ],
-        [
-          "friends",
-          "help"
-        ],
-        [
-          "help",
-          "friends"
-        ],
-        [
-          "not",
-          "quit"
-        ],
-        [
-          "never",
-          "quit"
-        ],
-        [
-          "do",
-          "not",
-          "give",
-          "up"
-        ]
-      ]
-    }
-  ],
-  "11": [
-    {
-      "found": "Crisp means hard and fresh, and it crunches when you bite it",
-      "missing": "what “crisp” means — hard and fresh, it crunches when you bite",
-      "alt": [
-        [
-          "hard"
-        ],
-        [
-          "fresh"
-        ],
-        [
-          "crunch"
-        ],
-        [
-          "crunches"
-        ],
-        [
-          "crunchy"
-        ],
-        [
-          "snap"
-        ],
-        [
-          "firm"
-        ],
-        [
-          "crispy"
-        ]
-      ]
-    },
-    {
-      "found": "The apples in Text A are crisp",
-      "missing": "the food that is crisp — the apples",
-      "alt": [
-        [
-          "apple"
-        ],
-        [
-          "apples"
-        ]
-      ]
-    }
-  ],
-  "12": [
-    {
-      "found": "Squeezed means pressed close together in a small space",
-      "missing": "what “squeezed” means — pressed close together in a small space",
-      "alt": [
-        [
-          "close",
-          "together"
-        ],
-        [
-          "pressed"
-        ],
-        [
-          "tight"
-        ],
-        [
-          "small",
-          "space"
-        ],
-        [
-          "pushed",
-          "together"
-        ],
-        [
-          "fit",
-          "together"
-        ]
-      ]
-    },
-    {
-      "found": "They squeezed under the tree to stay dry and out of the rain",
-      "missing": "why they squeezed under the tree — to stay dry and out of the rain",
-      "alt": [
-        [
-          "rain"
-        ],
-        [
-          "dry"
-        ]
-      ]
-    }
-  ]
-}
+    4: [
+      { found: "First, the worm digs through the soil and makes tunnels",
+        missing: "the first thing \u2014 the worm digs and makes tunnels (holes) in the soil",
+        alt: [["dig"],["digs"],["digging"],["dug"],["tunnel"],["tunnels"],["hole"],["holes"],["burrow"]] },
+      { found: "Last, the worm leaves castings that are full of food for plants",
+        missing: "the last thing \u2014 the worm leaves castings that feed the plants",
+        alt: [["casting"],["castings"],["poop"],["droppings"],["manure"]] }
+    ],
+    8: [
+      { found: "Tomas's problem was that his wooden horse was lost",
+        missing: "Tomas's problem \u2014 the horse was lost / gone / had fallen out of his bag",
+        alt: [["lost"],["gone"],["missing"],["fell"],["dropped"],["could","not","find"],["couldn't","find"],["not","there"],["disappeared"]] },
+      { found: "Tomas learned to zip his bag and check his things",
+        missing: "what Tomas learned \u2014 to zip his bag, check his things, be careful",
+        alt: [["zip"],["zipped"],["check"],["checks"],["careful"],["close","bag"],["shut","bag"],["take","care"],["look","after"]] }
+    ],
+    11: [
+      { found: "Maya tells her story to show that watering every day helps plants grow",
+        missing: "Maya's reason \u2014 to show that watering plants every day helps them grow",
+        alt: [["water"],["watering"],["watered"],["every","day"],["daily"]] },
+      { found: "Leo tells his story to show that the whole class worked as a team",
+        missing: "Leo's reason \u2014 to show the class worked as a team / helped together",
+        alt: [["team"],["together"],["helped","together"],["worked","together"],["class","helped"],["helping","each","other"]] }
+    ],
+    12: [
+      { found: "\u201CRipe\u201D means fully grown and ready to pick or eat",
+        missing: "the meaning of \u201Cripe\u201D \u2014 ready to pick / ready to eat / fully grown",
+        alt: [["ready","pick"],["ready","to","pick"],["ready","eat"],["ready","to","eat"],["fully","grown"],["finished","growing"]] },
+      { found: "The clue words are \u201Cred\u201D and \u201Cready to pick\u201D",
+        missing: "the clue words \u2014 \u201Cred\u201D and \u201Cready to pick\u201D",
+        alt: [["red"],["ready","to","pick"]] }
+    ]
+  };
   function gradeWrittenAnswer(qn, rawText){
     var keys = GRADE_KEYS[qn];
     var norm = normalizeAnswer(rawText);
@@ -1613,13 +1283,13 @@
 
   function sectionScore(secId){
     var sec = SECTIONS[secId - 1], pts = 0;
-    sec.questions.forEach(function(q){ if(q.type === "mc"){ if(mcCorrect(q)) pts++; } else if(writtenGrades[q.n] && writtenGrades[q.n].earned) pts++; });
+    sec.questions.forEach(function(q){ if(q.type === "mc"){ if(mcRight(q)) pts++; } else if(writtenGrades[q.n] && writtenGrades[q.n].earned) pts++; });
     return pts;
   }
 
   function buildResults(){
     var mcScore = 0, wrScore = 0;
-    ALL_MC.forEach(function(q){ if(mcCorrect(q)) mcScore++; });
+    ALL_MC.forEach(function(q){ if(mcRight(q)) mcScore++; });
     ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
     var total = mcScore + wrScore;
     var pct = Math.round(total / 12 * 100);
@@ -1657,16 +1327,12 @@
     $("r-breakdown").innerHTML = bd;
     var rev = "";
     ALL_MC.forEach(function(q){
-      var sec = SECTIONS[q.section - 1]; var mine = answers[q.n]; var isRight = mcCorrect(q);
+      var sec = SECTIONS[q.section - 1]; var mine = answers[q.n]; var isRight = mcRight(q);
       rev += '<div class="rev-card '+(isRight ? "correct" : "wrong")+'"><div class="rev-head"><span class="rev-badge '+(isRight ? "ok" : "no")+'">'+(isRight ? "\u2713 Correct" : "\u2717 Not quite")+'</span><span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div><div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
+      var evMine2 = evidence[q.n];
+      rev += '<div class="rev-line">Your evidence: <b>' + (typeof evMine2 === "number" ? "Paragraph " + evMine2 : "(No paragraph chosen)") + '</b></div>';
+      rev += '<div class="rev-line">Correct evidence: <b>Paragraph ' + q.evidence + '</b> \u2014 ' + esc(getParaText(sec, q.evidence)) + '</div>';
       if(!isRight){ rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>'; }
-      var evMine = evidenceAnswers[q.n];
-      rev += '<div class="rev-line">Evidence paragraph: you picked <b>' + (typeof evMine === "number" ? "paragraph " + evMine : "no paragraph") + '</b> \u00B7 Correct paragraph: <b>paragraph ' + q.evidence + '</b></div>';
-      var evText = "";
-      var evList2 = evParagraphs(sec);
-      for(var ei = 0; ei < evList2.length; ei++){ if(evList2[ei].n === q.evidence){ evText = evList2[ei].text; break; } }
-      if(evText) rev += '<div class="rev-line">Paragraph ' + q.evidence + ' says: <i>\u201C' + esc(evText) + '\u201D</i></div>';
-      if(mine === q.correct && evMine !== q.evidence){ rev += '<div class="rev-line">Your answer was right, but the evidence paragraph was wrong \u2014 a point needs BOTH the right answer AND the right paragraph.</div>'; }
       rev += '<div class="rev-why"><b>Why:</b> ' + esc(q.why) + ' <span style="color:var(--ink-soft);font-weight:700">(' + esc(sec.title) + ')</span></div></div>';
     });
     $("r-mc-review").innerHTML = rev;
@@ -1721,7 +1387,7 @@
   $("redo-review-btn").addEventListener("click", function(){ show("view-results"); });
 
   $("again-btn").addEventListener("click", function(){
-    answers = {}; evidenceAnswers = {}; written = {}; writtenParts = {}; writtenGrades = {}; submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
+    answers = {}; evidence = {}; written = {}; writtenParts = {}; writtenGrades = {}; submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
     stopTimer();
     var w = $("time-warning"); if(w) w.classList.add("hidden");
     var an = $("r-auto-note"); if(an) an.classList.add("hidden");
