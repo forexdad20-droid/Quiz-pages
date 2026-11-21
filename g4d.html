@@ -369,8 +369,13 @@
     padding:22px 22px 8px;box-shadow:var(--shadow);
   }
   .passage h3{font-size:23px;margin-bottom:10px}
-  .passage p{font-size:18.5px;line-height:1.75;margin:0 0 14px}
-  .passage .pnum{font-weight:900;color:var(--green)}
+  .passage p{font-family:Georgia,"Times New Roman",serif;font-size:19px;line-height:1.75;margin:0 0 18px}
+  .passage .pnum{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:38px;line-height:1;color:var(--ink);margin-right:8px}
+  .evidence{margin-top:12px;padding-top:10px;border-top:2px dashed var(--line)}
+  .ev-label{font-weight:800;font-size:15.5px;color:var(--ink-soft);margin-bottom:8px}
+  .ev-row{display:flex;gap:8px;flex-wrap:wrap}
+  .ev-btn{width:44px;height:44px;border-radius:50%;border:2.5px solid var(--ink-soft);background:var(--card,#fff);color:var(--ink);font-family:"Fredoka",sans-serif;font-size:19px;font-weight:700;cursor:pointer;padding:0}
+  .ev-btn.sel{background:#27a24b;border-color:#27a24b;color:#fff}
   .passage-label{font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:18px 0 4px}
   .passage-label:first-of-type{margin-top:0}
 
@@ -846,129 +851,134 @@
   } catch(e) {}
 
    
-  var SECTIONS = [
+var SECTIONS = [
     {
       id: 1, tag: "Section 1", tagClass: "tag-1",
       title: "Key Ideas & Details",
-      subtitle: "Nonfiction · How Rain Gardens Clean Water · 4 questions",
-      passageTitle: "How Rain Gardens Clean Water",
+      subtitle: "Nonfiction · How Tide Pools Form · 4 questions",
+      passageTitle: "How Tide Pools Form",
       paragraphs: [
-        "After a heavy rain, water rushes across roads and roofs. It picks up dirt, oil, and bits of trash as it runs toward the storm drain. A rain garden helps slow this water down. A rain garden is a shallow bowl planted with grasses and flowers whose roots grow deep. Workers dig the bowl in a low spot where rain already gathers. First, the bowl holds the water so it does not rush away. Next, the soil acts like a sponge and soaks the water up slowly. Then the roots and tiny living things in the soil trap dirt and clean the water as it sinks. Finally, the cleaned water slips underground, where it can refill the water stored below the town. Rain gardens also give bees and butterflies a place to feed."
+        "[1] When the ocean tide goes out, it leaves behind small pools of seawater trapped among the rocks along the shore. These pools are called tide pools, and they form in low spots and cracks in the rock. Each pool is like a tiny ocean world of its own. The water stays behind because the rock around the pool stands higher than the water itself.",
+        "[2] A tide pool must be deep enough to hold its water for many hours. Shallow pools dry up quickly under the hot sun, long before the tide returns. Deeper pools keep their water safely until the sea comes back. When the tide returns, it brings fresh water and food into every pool, and it carries away the waste that has collected there.",
+        "[3] Many small animals make their home in a tide pool. Sea stars cling to the rocks with hundreds of tiny tube feet. Anemones wave their soft arms to catch bits of food drifting past. Small crabs hide beneath stones, and tiny fish dart quickly between the shadows. Each animal has its own way of staying safe when the pool grows warm or salty.",
+        "[4] Life in a tide pool is not easy, because conditions there change again and again. The sun can heat the water and make it saltier as the water dries up. A sudden rain can fill the pool with fresh water in minutes. At high tide, waves crash over the rocks, and animals must hold on tightly or be swept away.",
+        "[5] Scientists visit tide pools to study how animals live in such changing conditions. They count the animals and measure the temperature and salt in the water. They are careful to put every rock back exactly where they found it, because a rock dropped in the wrong place can crush the small animals hiding beneath it. By studying tide pools, scientists learn how ocean life responds when the sea itself changes.",
+        "[6] Visitors can enjoy tide pools too, if they walk gently and leave every animal where it belongs. The best time to come is just after the tide goes out. Then the pools are full, calm, and easy to see into. Every pool the tide leaves behind is a small, busy world waiting to be discovered."
       ],
       chart: null,
-      table: {
-        title: "Plants in the Elm Street Rain Garden",
-        col1: "Plant", col2: "How many",
-        rows: [
-          { label: "Native grass", value: "14 clumps" },
-          { label: "Purple flowers", value: "9 clumps" },
-          { label: "Yellow flowers", value: "11 clumps" },
-          { label: "Small shrubs", value: "6 shrubs" }
-        ]
-      },
+      table: null,
       questions: [
-        { n:1, std:"RI.4.2", type:"mc", text:"What is the main idea of the passage?",
-          options:["Rain gardens slow rainwater down and clean it before it sinks underground", "Rain gardens give storm drains more water to carry away from town roads", "Rain gardens help workers dig deep bowls beside roads and busy roofs", "Rain gardens feed bees and butterflies that visit grasses and flowers daily"],
-          correct:0,
-          why:"The passage is mostly about how a rain garden slows rainwater down and cleans it — the bowl holds the water, the soil soaks it up, and the roots trap dirt before the cleaned water sinks underground. The other choices name only small details, or things the passage does not say." },
-        { n:2, std:"RI.4.5", type:"mc", text:"How is the middle of the passage mostly organized?",
-          options:["It lists the colours of flowers that grow inside one rain garden", "It steps through how water moves and changes inside the garden bowl", "It compares rain gardens in two towns during one heavy rainstorm", "It tells a story about bees visiting flowers after a heavy rain"],
-          correct:1,
-          why:"The middle of the passage uses the order words First, Next, Then, and Finally to step through what happens to the water: the bowl holds it, the soil soaks it up slowly, the roots clean it, and it slips underground. It does not list flower colours, compare two towns, or tell a story about bees." },
-        { n:3, std:"RI.4.10", type:"mc", text:"What can the reader learn from the passage?",
-          options:["Soil and roots can trap dirt while water sinks slowly underground", "Storm drains can clean dirty water before it reaches the town", "Bees and butterflies can dig bowls where rainwater gathers slowly", "Roads and roofs can soak up rainwater like a garden sponge"],
-          correct:0,
-          why:"The passage says the soil soaks the water up slowly, and the roots and tiny living things in the soil trap dirt and clean the water as it sinks. Storm drains only carry water away, bees and butterflies do not dig the bowl, and roads and roofs shed water instead of soaking it up." },
-        { n:4, std:"RI.4.7", type:"written", text:"Use the table and the passage",
-          sample:"Native grass has the most, with 14 clumps. The garden helps feed bees (or butterflies).",
+        { n:1, std:"RI.4.1", type:"mc", text:"Why do shallow tide pools not keep their water?",
+          options:["Their rocks stand lower than the water inside the pool", "The hot sun dries them out long before the tide comes back", "The returning tide carries all of their water away as waste", "Crashing waves wash their water out over the wet rocks"],
+          correct:1, evidence:2, evLabel:"the passage",
+          why:"Paragraph 2 says shallow pools dry up quickly under the hot sun, long before the tide returns. The rocks around a pool stand higher, not lower; the returning tide brings water in rather than carrying it away; and the crashing waves arrive at high tide, when the pool is refilling." },
+        { n:2, std:"RI.4.3", type:"mc", text:"Why do scientists put every rock back exactly where they found it?",
+          options:["Animals hiding underneath can be crushed by a rock dropped there", "The rocks hold the pool's water in place until the tide comes back", "They count the animals hiding beneath each rock before lifting it", "Fresh rainwater collects under rocks for the animals to drink"],
+          correct:0, evidence:5, evLabel:"the passage",
+          why:"Paragraph 5 says a rock dropped in the wrong place can crush the small animals hiding beneath it. Scientists do count animals, but the passage gives the crushing danger as the reason for putting rocks back carefully." },
+        { n:3, std:"RI.4.4", type:"mc", text:"In paragraph 3, what does the word \"cling\" most likely mean?",
+          options:["Wave slowly in the water to catch food", "Hold on tightly to a rock's surface", "Hide quietly beneath the stones", "Move quickly between the shadows"],
+          correct:1, evidence:3, evLabel:"the passage",
+          why:"In paragraph 3, sea stars cling to the rocks with hundreds of tiny tube feet — they hold on tightly. Waving describes the anemones, hiding describes the crabs, and moving quickly describes the tiny fish." },
+        { n:4, std:"RI.4.8", type:"written", text:"The author makes a point about life in a tide pool, and supports it with evidence.",
+          sample:"The author's point is that life in a tide pool is not easy. One piece of evidence is that the sun heats the water and makes it saltier (or: sudden rain fills the pool with fresh water; or: waves crash over the rocks at high tide).",
           parts:[
-            { text:"Which plant group in the table has the MOST clumps or shrubs, and how many does it have?", sample:"Native grass has the most, with 14 clumps." },
-            { text:"Name ONE kind of living visitor the passage says the garden helps feed.", sample:"The garden helps feed bees (or butterflies)." }
+            { text:"What point does the author make about life in a tide pool?", sample:"Life in a tide pool is not easy." },
+            { text:"Give ONE piece of evidence from the passage that the author uses to support that point.", sample:"The sun heats the water and makes it saltier as it dries up." }
           ] }
       ]
     },
     {
       id: 2, tag: "Section 2", tagClass: "tag-2",
       title: "Reading Comprehension",
-      subtitle: "Fiction · Leo and the Museum Sleepover · 4 questions",
-      passageTitle: "Leo and the Museum Sleepover",
+      subtitle: "Fiction · Kenji and the Hundredth Crane · 4 questions",
+      passageTitle: "Kenji and the Hundredth Crane",
       paragraphs: [
-        "Leo clutched his sleeping bag as his class filed into the science museum for the night. 'I have never slept under a dinosaur before,' he whispered to Maya. Their teacher, Ms. Park, handed each group a museum map. The map showed the Dino Hall on the left, the Ocean Room at the back, and the Planet Room on the right, up the stairs. First the class ate supper in the Ocean Room, where a huge whale model hung above the tables. Then, in the Planet Room, Leo read a poem on the wall: 'Stars keep watch while children dream, / Silver rivers softly gleam, / Night will guard each sleepy head, / Till the sun lifts from its bed.' Later, back in Dino Hall, a strange tapping echoed through the dark room. Leo's heart thumped. Maya grinned and pointed at the tall windows, where rain had begun to tap the glass. Leo laughed with relief and snuggled into his bag, glad the mystery had such a simple answer."
+        "[1] Every evening after supper, Kenji sat at the kitchen table and folded one paper crane. He had begun in early spring, when the plum tree outside the window was still bare. Tomorrow, his grandmother would celebrate her one hundredth birthday. Kenji planned to give her one hundred cranes, one for each year of her life, because he believed a gift made slowly carried more love than anything a store could sell.",
+        "[2] Folding a crane was harder than it looked. The paper had to be perfectly square, and every fold had to line up exactly, or the wings would tilt to one side. Kenji's first cranes had crooked necks and wings that would not open. His grandmother, who had taught him the folds when he was very small, only smiled and said, \"A crane folded with patience stands straighter than one folded in a hurry.\"",
+        "[3] By the final week, ninety-nine cranes stood in neat rows on Kenji's windowsill. They were red, gold, green, and blue, and in the morning light they seemed ready to fly away. But the hundredth crane would not fold. Three times the paper tore right at the beak. Three times Kenji smoothed out a fresh sheet and began again, his fingers growing slower and more careful each time.",
+        "[4] That night, Kenji carried the torn papers down to the kitchen, where his grandmother was shelling peas into a bowl. \"I wanted everything to be perfect for you,\" he admitted quietly. His grandmother took the torn crane and turned it slowly in her wrinkled hands. \"Then let this one be the most loved of all,\" she said. \"It shows everyone how hard you tried.\"",
+        "[5] On the morning of the birthday, Kenji arranged the ninety-nine bright cranes on a wide tray, with the torn one set right in the middle. When his grandmother saw the tray, her eyes shone. She lifted the torn crane first, before touching any of the perfect ones. \"One hundred years,\" she whispered, \"and this is the crane I will keep closest to my heart.\"",
+        "[6] Standing there, Kenji finally understood what his grandmother had always known. The worth of a gift is not measured by how flawless it is. It is measured by the time, the care, and the love folded into it. Every one of his hundred quiet evenings, he realised, had been folded at last into a single morning."
       ],
       chart: null,
-      table: {
-        title: "Museum Map",
-        col1: "Room", col2: "Where it is",
-        rows: [
-          { label: "Dino Hall", value: "Left side" },
-          { label: "Ocean Room", value: "Back of museum" },
-          { label: "Planet Room", value: "Right side, up the stairs" }
-        ]
-      },
+      table: null,
       questions: [
-        { n:5, std:"RL.4.4", type:"mc", text:"In the passage, what does the word \"echoed\" most likely mean?",
-          options:["Bounced back and was heard again across the dark hall", "Stopped suddenly and was never heard in the dark hall", "Changed into music that played softly across the museum rooms", "Moved the rain toward windows on the museum wall outside"],
-          correct:0,
-          why:"Echoed means a sound bounced back and was heard again — the strange tapping echoed through the dark room. The tapping did not stop, it did not turn into music, and it did not move the rain toward the windows." },
-        { n:6, std:"RL.4.5", type:"mc", text:"What does the poem on the Planet Room wall do in the story?",
-          options:["It gives directions from the Planet Room back toward the Dino Hall", "It explains how the whale model hangs above the supper tables", "It adds a calm night feeling before the class goes to sleep", "It tells which group found the museum map near the stairs"],
-          correct:2,
-          why:"The poem's gentle words about stars keeping watch, night guarding sleepy heads, and the sun lifting from its bed add a calm, sleepy night feeling just before the children go to sleep. It gives no directions, and it does not explain the whale model or the map." },
-        { n:7, std:"RL.4.7", type:"mc", text:"Using the Museum Map box, where did the class eat supper?",
-          options:["In the Dino Hall, on the left side of the museum", "In the Planet Room, up the stairs on the right", "In the Ocean Room, at the back of the museum", "In the Dino Hall, at the back of the museum"],
-          correct:2,
-          why:"The Museum Map box shows the Ocean Room at the back of the museum, and the passage says the class ate supper in the Ocean Room, under the whale model. The Dino Hall is on the left side, and the Planet Room is on the right, up the stairs." },
-        { n:8, std:"RL.4.6", type:"written", text:"Who tells the story, and what do we learn from Leo?",
-          sample:"A narrator outside the story tells it. We learn Leo felt nervous when his heart thumped (or relieved at the end).",
+        { n:5, std:"RL.4.1", type:"mc", text:"Why did Kenji fold one paper crane every evening?",
+          options:["To make a birthday gift of one hundred cranes for his dear grandmother", "To practise his folding until every crane's wings stood perfectly straight", "To teach his grandmother the paper folds she had taught him long ago", "To fill his windowsill with neat rows of brightly coloured paper birds"],
+          correct:0, evidence:1, evLabel:"the passage",
+          why:"Paragraph 1 says Kenji planned to give his grandmother one hundred cranes for her one hundredth birthday, one for each year of her life. Practising, teaching his grandmother, and filling the windowsill are things connected to the story, but they are not the reason he folded a crane every evening." },
+        { n:6, std:"RL.4.2", type:"mc", text:"What is the main lesson of this story?",
+          options:["A gift must be flawless before it is worth giving to someone", "A torn gift should be hidden behind the perfect ones on the tray", "A gift's worth comes from the time, care, and love folded into it", "Folding slowly is the only way to make a paper crane stand straight"],
+          correct:2, evidence:6, evLabel:"the passage",
+          why:"Paragraph 6 says the worth of a gift is measured by the time, the care, and the love folded into it — not by how flawless it is. Kenji placed the torn crane in the middle of the tray, not hidden, and his grandmother lifted it first." },
+        { n:7, std:"RL.4.3", type:"mc", text:"What does Kenji do right after the paper tears for the third time?",
+          options:["He brings the torn papers to his grandmother in the kitchen", "He takes a fresh sheet, smooths it out, and starts over", "He asks his grandmother to fold the last crane for him", "He sets the torn crane in the middle of the wide tray"],
+          correct:1, evidence:3, evLabel:"the passage",
+          why:"Paragraph 3 says that each time the paper tore, Kenji smoothed out a fresh sheet and began again. He carried the torn papers to the kitchen later that night, and he set the torn crane on the tray the next morning." },
+        { n:8, std:"RL.4.6", type:"written", text:"Point of view — who tells the story, and what do we learn about Kenji?",
+          sample:"A narrator outside the story tells it. We learn Kenji wanted everything to be perfect (or: his fingers grew slower and more careful; or: at last he understood what his grandmother had always known).",
           parts:[
-            { text:"Who tells this story — Leo himself, or a narrator outside the story?", sample:"A narrator outside the story tells it." },
-            { text:"Name ONE thought or feeling the reader learns directly from Leo.", sample:"We learn Leo felt nervous when his heart thumped (or relieved at the end)." }
+            { text:"Who tells this story — Kenji himself, or a narrator outside the story?", sample:"A narrator outside the story tells it." },
+            { text:"Name ONE thought or feeling of Kenji's that the reader learns from his words or actions.", sample:"Kenji wanted everything to be perfect for his grandmother." }
           ] }
       ]
     },
     {
       id: 3, tag: "Section 3", tagClass: "tag-3",
       title: "Integration of Knowledge & Ideas",
-      subtitle: "Two Texts + Chart · Riding Trains, Long Ago and Today · 4 questions",
+      subtitle: "Two Texts + Chart · Riding the Ferry, Long Ago and Today · 4 questions",
       passageTitle: null,
       texts: [
-        { label:"Text A", title:"Riding Trains Long Ago",
-          body:"Long ago, children who rode trains bought a paper ticket from a clerk at the station window. A conductor in a dark uniform walked through each car, punched every ticket with a metal tool, and called out the next stop in a loud voice. Trains burned coal, so smoke drifted back over the cars, and riders often arrived with dusty coats. There were no screens or speakers, so families brought books, cards, and snacks to pass the long hours." },
-        { label:"Text B", title:"Riding Trains Today",
-          body:"Today, many families buy train tickets on a phone before they leave home, and the conductor scans a code instead of punching paper. Electric trains run more quietly and leave the air cleaner than coal trains did. Speakers announce each stop, and bright signs show the name of the next station. Riders still bring snacks, but many now watch shows or play games while they travel. As one driver says, staying 'on the right track' means following the plan and reaching the station safely and on time." }
+        { label:"Text A", title:"Riding the Ferry Long Ago",
+          paragraphs:[
+            "[1] A hundred years ago, the ferry was the only way for many families to cross the wide river between the two towns. The roads ended at the water's edge, and no bridge yet joined the two banks. People walked down to a wooden dock and waited there for the ferry to return from the far side.",
+            "[2] Tickets cost only a few pennies, and the ferryman collected them in a leather bag as passengers stepped aboard. Farmers brought baskets of eggs and vegetables to sell at the market across the river. Horses and wagons rolled onto the lower deck, where they stood between ropes during the crossing.",
+            "[3] The earliest ferries were pushed along by long poles and, later, pulled across by ropes stretched over the river. On windy days the crossing could take a whole hour, and the boat rocked until some passengers felt ill. In winter, floating ice sometimes trapped the ferry in the middle of the river for an entire day.",
+            "[4] There was no schedule the passengers could check before leaving home. Instead, the ferryman rang a great bell on the dock when the boat was ready to leave. Families who lived near the river learned to hurry at the sound of the bell. Anyone who missed the boat simply waited on the dock for it to come back.",
+            "[5] The trip was slow, yet many passengers loved it dearly. Children counted the herons standing along the banks, and neighbours shared their news during the long crossing. The ferry was far more than a boat to the people who rode it. It was the thread that tied the two towns together."
+          ] },
+        { label:"Text B", title:"Riding the Ferry Today",
+          paragraphs:[
+            "[1] Today the ferry still crosses the very same river, but nearly everything about the trip has changed. A steel bridge now stands half a mile away, yet thousands of riders still choose the ferry every week. For many of them, the short trip across the water is the calmest part of the whole day.",
+            "[2] Riders now buy their tickets with a card or a phone, and a machine checks each ticket before the gate opens. The modern ferry carries cars on its lower deck and passengers on the upper deck, where wide windows face the water. Bicycles roll aboard through their own gate, and their riders walk them to racks near the front of the boat.",
+            "[3] A strong diesel engine turns great wheels that push the ferry steadily through the water. The crossing now takes only twelve minutes in almost any weather. Bright screens on the dock and on board show the exact minute of the next departure, so nobody has to guess, and nobody has to hurry at the sound of a bell.",
+            "[4] The ferry company publishes its full schedule a month ahead, and riders can follow the boat's position on their phones. If ice forms on the river in winter, a smaller ice-breaking boat clears a path before the first crossing of the day. Delays are rare, and when one does happen, the company sends a message to every rider right away.",
+            "[5] Some things, though, have not changed at all in a hundred years. Children still count the herons standing along the banks, just as children did long ago. Neighbours still share their news as the far shore draws closer. The ferry remains what it always was — the thread that ties the two towns together."
+          ] }
       ],
       chart: {
-        title:"Riders on the City Loop Train in One Week",
-        sub:"Number of riders on the City Loop Train each day",
-        col1:"Day", col2:"Riders",
+        title:"Passengers on the River Ferry in One Week",
+        sub:"Number of passengers who rode the River Ferry each day",
+        col1:"Day", col2:"Passengers",
         rows:[
-          { label:"Monday", value:34, cls:"canopy" },
-          { label:"Tuesday", value:39, cls:"tree" },
-          { label:"Wednesday", value:36, cls:"canopy" },
-          { label:"Thursday", value:48, cls:"tree" },
-          { label:"Friday", value:57, cls:"sunny" }
+          { label:"Monday", value:212, cls:"canopy" },
+          { label:"Tuesday", value:198, cls:"tree" },
+          { label:"Wednesday", value:205, cls:"canopy" },
+          { label:"Thursday", value:236, cls:"tree" },
+          { label:"Friday", value:289, cls:"sunny" }
         ]
       },
       questions: [
-        { n:9, std:"RI.4.8", type:"mc", text:"Which evidence from Text B supports the point that trains today are cleaner?",
-          options:["Families buy their tickets on a phone before leaving home today", "Electric trains leave the air cleaner than coal trains did before", "Conductors scan a code instead of punching paper tickets today", "Speakers announce each stop while bright signs show station names"],
-          correct:1,
-          why:"Text B says electric trains run more quietly and leave the air cleaner than coal trains did — that is the evidence about trains being cleaner today. Buying tickets on a phone, scanning a code, and speakers and signs are about other changes, not cleaner air." },
-        { n:10, std:"RF.4.3", type:"mc", text:"The word \"conductor\" is used in both texts. What does a conductor do?",
-          options:["Burns coal so the train can travel between far stations", "Checks riders' tickets while the train travels its route", "Builds train tracks so riders can reach stations safely", "Sells snacks so families can eat during long train rides"],
-          correct:1,
-          why:"In Text A the conductor walks through each car and punches every ticket, and in Text B the conductor scans a code instead of punching paper — in both texts, the conductor checks riders' tickets. The conductor does not burn the coal, build the tracks, or sell the snacks." },
-        { n:11, std:"RI.4.9", type:"written", text:"Conductors — long ago and today",
-          sample:"Long ago the conductor punched every ticket with a metal tool. Today the conductor scans a code.",
+        { n:9, std:"RI.4.7", type:"mc", text:"How do riders today know exactly when the next ferry will leave?",
+          options:["A bell on the dock rings out when the boat is ready to leave", "Each ticket is checked by a machine at the entrance gate", "Screens at the dock display when the next boat will leave", "Riders track where the boat is by looking at their phones"],
+          correct:2, evidence:3, evLabel:"Text B",
+          why:"Text B, paragraph 3 says bright screens on the dock and on board show the exact minute of the next departure. The bell belongs to long ago, the machine checks tickets, and following the boat's position on a phone does not give the departure minute." },
+        { n:10, std:"RF.4.3", type:"mc", text:"In paragraph 4 of Text B, what does the word \"ice-breaking\" describe?",
+          options:["A boat that breaks river ice so other boats can pass", "A message that warns riders about delays on the river", "A path that the ferry follows across the winter river", "A schedule that the company publishes a month ahead"],
+          correct:0, evidence:4, evLabel:"Text B",
+          why:"Text B, paragraph 4 says a smaller ice-breaking boat clears a path when ice forms — it is a boat that breaks up river ice so the ferry can pass. The message, the path, and the schedule are other details from the same paragraph." },
+        { n:11, std:"RI.4.9", type:"written", text:"The ferry — different today, and the same as long ago",
+          sample:"Today riders buy tickets with a card or a phone (or: the crossing takes twelve minutes; or: screens show the departure time). The same: children still count the herons along the banks (or: neighbours still share news; or: the ferry is still the thread that ties the two towns together).",
           parts:[
-            { text:"Name ONE thing a conductor did long ago from Text A.", sample:"Long ago the conductor punched every ticket with a metal tool." },
-            { text:"Name ONE thing a conductor does today from Text B.", sample:"Today the conductor scans a code." }
+            { text:"Name ONE way the ferry trip is DIFFERENT today, from Text B.", sample:"Today riders buy tickets with a card or a phone." },
+            { text:"Name ONE way the ferry trip is the SAME as it was long ago, from the two texts.", sample:"Children still count the herons along the banks." }
           ] },
-        { n:12, std:"L.4.5", type:"written", text:"The saying \"on the right track\"",
-          sample:"It means following the plan and reaching the station safely and on time. A real train must stay on its track to get to the station.",
+        { n:12, std:"L.4.5", type:"written", text:"Both texts call the ferry \"the thread that ties the two towns together.\"",
+          sample:"It means the ferry connects the two towns to each other. A thread is a good comparison because a thread joins two pieces of cloth together, just as the ferry joins the two towns.",
           parts:[
-            { text:"What does this saying really mean in Text B?", sample:"It means following the plan and reaching the station safely and on time." },
-            { text:"How does the saying connect to a real train?", sample:"A real train must stay on its track to get to the station." }
+            { text:"What does this saying mean about the ferry and the two towns?", sample:"It means the ferry connects the two towns to each other." },
+            { text:"Why is a thread a good comparison for the ferry?", sample:"A thread joins two pieces of cloth together, just as the ferry joins the two towns." }
           ] }
       ]
     }
@@ -999,6 +1009,7 @@
   var autoSubmitted = false;
   var attemptCount = 0;  
   var answers = {};
+  var evidenceSel = {};
   var written = {};
   var writtenParts = {};
   var writtenGrades = {};
@@ -1218,16 +1229,22 @@
       if(s.passageTitle) html += '<h3>'+esc(s.passageTitle)+'</h3>';
       if(s.paragraphs){
         s.paragraphs.forEach(function(p){
-          var t = esc(p).replace(/^(\[\d\])/, '<span class="pnum">$1</span>');
+          var t = esc(p).replace(/^\[(\d+)\]/, '<span class="pnum">$1</span>');
           t = t.replace(/\n/g, "<br>");
-          if(p.charAt(0) === "[") t = "<em>" + t + "</em>";
-          t = t.replace(/^([A-Z][A-Z ]{2,}:)/, "<b>$1</b>");
           html += '<p>'+t+'</p>';
         });
       }
       if(s.texts){
         s.texts.forEach(function(t){
-          html += '<div class="passage-label">'+esc(t.label)+' — '+esc(t.title)+'</div><p>'+esc(t.body)+'</p>';
+          html += '<div class="passage-label">'+esc(t.label)+' — '+esc(t.title)+'</div>';
+          if(t.paragraphs){
+            t.paragraphs.forEach(function(p){
+              var tp = esc(p).replace(/^\[(\d+)\]/, '<span class="pnum">$1</span>');
+              html += '<p>'+tp+'</p>';
+            });
+          } else {
+            html += '<p>'+esc(t.body)+'</p>';
+          }
         });
       }
       if(s.chart) html += buildChart(s.chart);
@@ -1248,6 +1265,14 @@
               '<span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>';
           });
           html += '</div>';
+          var evCount = 0;
+          if(s.paragraphs) evCount = s.paragraphs.length;
+          if(s.texts){ s.texts.forEach(function(tt){ if(tt.label === q.evLabel) evCount = (tt.paragraphs || []).length; }); }
+          html += '<div class="evidence"><div class="ev-label">Which paragraph in '+esc(q.evLabel || "the passage")+' gives the answer? Tap one number.</div><div class="ev-row" role="radiogroup" aria-label="Question '+q.n+' evidence paragraph">';
+          for(var evi = 1; evi <= evCount; evi++){
+            html += '<button type="button" class="ev-btn" data-q="'+q.n+'" data-ev="'+evi+'" aria-label="Paragraph '+evi+'">'+evi+'</button>';
+          }
+          html += '</div></div>';
         } else if(isWrittenParts){
           html += '<div class="written-parts">';
           q.parts.forEach(function(part, pi){
@@ -1274,6 +1299,16 @@
       Array.prototype.forEach.call(radios, function(r){
         r.addEventListener("change", function(){
           answers[q.n] = parseInt(r.value, 10);
+          updateProgress();
+        });
+      });
+    });
+    ALL_MC.forEach(function(q){
+      var btns = document.querySelectorAll('.ev-btn[data-q="'+q.n+'"]');
+      Array.prototype.forEach.call(btns, function(b){
+        b.addEventListener("click", function(){
+          evidenceSel[q.n] = parseInt(b.getAttribute("data-ev"), 10);
+          Array.prototype.forEach.call(btns, function(x){ x.classList.toggle("sel", x === b); });
           updateProgress();
         });
       });
@@ -1307,7 +1342,7 @@
   }
   function answeredCount(){
     var c = 0;
-    ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; });
+    ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number" && typeof evidenceSel[q.n] === "number") c++; });
     ALL_WRITTEN.forEach(function(q){ if(writtenQuestionAnswered(q)) c++; });
     return c;
   }
@@ -1327,7 +1362,7 @@
     }
     lastProgression = c;
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
-      var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenQuestionAnswered(q);
+      var done = q.type === "mc" ? (typeof answers[q.n] === "number" && typeof evidenceSel[q.n] === "number") : writtenQuestionAnswered(q);
       var card = $("qcard-"+q.n);
       if(card) card.classList.toggle("answered", done);
     });
@@ -1435,7 +1470,7 @@
   $("submit-btn").addEventListener("click", function(){
     if(submitted) return;
     syncWrittenFromDom();
-    var missing = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; });
+    var missing = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number" || typeof evidenceSel[q.n] !== "number"; });
     if(missing.length > 0){
       var nums = missing.map(function(q){ return "Q" + q.n; }).join(", ");
       $("warn-text").textContent = "You haven't answered " + nums + " yet. Unanswered questions score 0 points.";
@@ -1446,7 +1481,7 @@
   });
   $("warn-back").addEventListener("click", function(){
     $("warn-modal").classList.add("hidden");
-    var first = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; })[0];
+    var first = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number" || typeof evidenceSel[q.n] !== "number"; })[0];
     if(first){
       var card = $("qcard-"+first.n);
       if(card) card.scrollIntoView({behavior:"smooth", block:"center"});
@@ -1508,38 +1543,38 @@
     }
     return out;
   }
-  var GRADE_KEYS = {
+var GRADE_KEYS = {
     4: [
-      { found: "The plant group with the most: native grass, with 14 clumps",
-        missing: "the plant group with the MOST — native grass, with 14 clumps",
-        alt: [["native grass","14"],["grass","14"]] },
-      { found: "A living visitor the garden helps feed: bees (or butterflies)",
-        missing: "ONE living visitor the garden helps feed — bees or butterflies",
-        alt: [["bees"],["bee"],["butterflies"],["butterfly"]] }
+      { found: "The author's point: life in a tide pool is not easy (it is hard)",
+        missing: "the author's point — life in a tide pool is NOT easy",
+        alt: [["not easy"],["hard"],["difficult"],["tough"]] },
+      { found: "Evidence: the sun heats the water and makes it saltier (or: sudden rain fills the pool with fresh water; or: waves crash over the rocks at high tide)",
+        missing: "ONE piece of evidence — the sun heating the water / saltier water / sudden rain filling the pool / waves crashing over the rocks",
+        alt: [["sun"],["heat"],["hot"],["salt"],["rain"],["fresh water"],["waves"],["crash"],["swept"]] }
     ],
     8: [
-      { found: "Who tells the story: a narrator outside the story (not Leo himself)",
-        missing: "who tells the story — a narrator outside the story, not Leo himself",
-        alt: [["narrator"],["third person"],["outside the story"],["outside"],["not leo"]] },
-      { found: "A thought or feeling from Leo: he had never slept under a dinosaur before / his heart thumped, so he felt nervous / he laughed with relief and felt glad",
-        missing: "ONE thought or feeling from Leo — never slept under a dinosaur before, heart thumped / nervous, or relief / glad",
-        alt: [["never slept"],["dinosaur"],["heart thumped"],["thumped"],["nervous"],["scared"],["afraid"],["relief"],["relieved"],["glad"],["laughed"]] }
+      { found: "Who tells the story: a narrator outside the story (not Kenji himself)",
+        missing: "who tells the story — a narrator outside the story, not Kenji himself",
+        alt: [["narrator"],["third person"],["outside the story"],["outside"],["not kenji"]] },
+      { found: "A thought or feeling from Kenji: he wanted everything to be perfect / his fingers grew slower and more careful / at last he understood what his grandmother had always known",
+        missing: "ONE thought or feeling from Kenji — wanted everything perfect, fingers slower / more careful, or he understood at last",
+        alt: [["perfect"],["slower"],["more careful"],["understood"],["wanted everything"]] }
     ],
     11: [
-      { found: "Long ago: the conductor punched every ticket with a metal tool (or called out the next stop in a loud voice)",
-        missing: "ONE thing a conductor did long ago — punched every ticket, or called out the next stop in a loud voice",
-        alt: [["punched"],["punch"],["called out"],["next stop"],["loud voice"]] },
-      { found: "Today: the conductor scans a code",
-        missing: "ONE thing a conductor does today — scans a code",
-        alt: [["scans"],["scan"],["code"]] }
+      { found: "Different today: tickets bought with a card or phone (or tickets checked by machine, the twelve-minute crossing, screens showing departure times, cars and bicycles carried)",
+        missing: "ONE way the trip is different today — card/phone tickets, machine-checked tickets, twelve-minute crossing, screens, cars or bicycles",
+        alt: [["card"],["phone"],["ticket"],["machine"],["twelve minutes"],["12 minutes"],["engine"],["screens"],["schedule"],["cars"],["bicycle"],["gate"],["month ahead"]] },
+      { found: "The same as long ago: children still count the herons along the banks (or: neighbours still share news; or: the ferry is still the thread that ties the two towns together)",
+        missing: "ONE way the trip is the same — children counting herons, neighbours sharing news, or the ferry as the thread tying the towns together",
+        alt: [["herons"],["heron"],["news"],["thread"],["ties the two towns"],["tied the two towns"]] }
     ],
     12: [
-      { found: "What the saying means: following the plan and reaching the station safely and on time",
-        missing: "what the saying really means — following the plan / doing things the right way / reaching the station safely and on time",
-        alt: [["following the plan"],["follow the plan"],["the plan"],["right way"],["safely"],["on time"]] },
-      { found: "The train link: a real train must stay on its track (its rails) to travel and reach the station",
-        missing: "the train link — a real train must stay on its track to travel and reach the station",
-        alt: [["stay on its track"],["on its track"],["track"],["rails"],["rail"]] }
+      { found: "What the saying means: the ferry connects (joins) the two towns to each other",
+        missing: "what the saying means — the ferry connects / joins the two towns",
+        alt: [["connect"],["connects"],["join"],["joins"],["link"],["links"],["together"],["brings"]] },
+      { found: "Why a thread fits: a thread joins two pieces of cloth together, just as the ferry joins the two towns",
+        missing: "why a thread fits — a thread joins two pieces of cloth, just as the ferry joins the two towns",
+        alt: [["joins"],["join"],["cloth"],["pieces"],["holds"],["sew"],["sews"]] }
     ]
   };
 
@@ -1569,10 +1604,14 @@
   }
 
    
+  function mcCorrect(q){
+    return answers[q.n] === q.correct && evidenceSel[q.n] === q.evidence;
+  }
+
   function sectionScore(secId){
     var sec = SECTIONS[secId - 1], pts = 0;
     sec.questions.forEach(function(q){
-      if(q.type === "mc"){ if(answers[q.n] === q.correct) pts++; }
+      if(q.type === "mc"){ if(mcCorrect(q)) pts++; }
       else if(writtenGrades[q.n] && writtenGrades[q.n].earned) pts++;
     });
     return pts;
@@ -1580,7 +1619,7 @@
 
   function buildResults(){
     var mcScore = 0, wrScore = 0;
-    ALL_MC.forEach(function(q){ if(answers[q.n] === q.correct) mcScore++; });
+    ALL_MC.forEach(function(q){ if(mcCorrect(q)) mcScore++; });
     ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
     var total = mcScore + wrScore;
     var pct = Math.round(total / 12 * 100);
@@ -1628,13 +1667,19 @@
     ALL_MC.forEach(function(q){
       var sec = SECTIONS[q.section - 1];
       var mine = answers[q.n];
-      var isRight = mine === q.correct;
+      var isRight = mcCorrect(q);
       rev += '<div class="rev-card '+(isRight ? "correct" : "wrong")+'">'+
         '<div class="rev-head"><span class="rev-badge '+(isRight ? "ok" : "no")+'">'+(isRight ? "✓ Correct" : "✗ Not quite")+'</span>'+
         '<span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>'+
         '<div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
-      if(!isRight){
+      if(mine !== q.correct){
         rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>';
+      }
+      var myEv = evidenceSel[q.n];
+      var evRight = myEv === q.evidence;
+      rev += '<div class="rev-line">Your evidence: <b>' + (typeof myEv === "number" ? "Paragraph " + myEv + " of " + esc(q.evLabel || "the passage") : "(No paragraph chosen)") + '</b>' + (evRight ? " \u2713" : "") + '</div>';
+      if(!evRight){
+        rev += '<div class="rev-line">Correct evidence: <b>Paragraph ' + q.evidence + ' of ' + esc(q.evLabel || "the passage") + '</b></div>';
       }
       rev += '<div class="rev-why"><b>Why:</b> ' + esc(q.why) + ' <span style="color:var(--ink-soft);font-weight:700">(' + esc(sec.title) + ')</span></div></div>';
     });
@@ -1698,7 +1743,7 @@
     if(sec.passageTitle) parts.push(sec.passageTitle);
     if(sec.paragraphs) sec.paragraphs.forEach(function(p){ parts.push(p); });
     if(sec.texts) sec.texts.forEach(function(t){
-      parts.push(t.label + " — " + t.title + "\n" + t.body);
+      parts.push(t.label + " — " + t.title + "\n" + (t.paragraphs ? t.paragraphs.join("\n") : t.body));
     });
     if(sec.chart){
       var lines = [sec.chart.title + " (" + sec.chart.sub + ")"];
@@ -1738,7 +1783,10 @@
           var mine = answers[q.n];
           lines.push("Correct answer: " + LETTERS[q.correct] + ". " + q.options[q.correct]);
           lines.push("Student's answer: " + (typeof mine === "number" ? LETTERS[mine] + ". " + q.options[mine] : "No answer"));
-          lines.push("Result: " + (mine === q.correct ? "✓ Correct" : "✗ Wrong"));
+          lines.push("Correct evidence paragraph: Paragraph " + q.evidence + " of " + (q.evLabel || "the passage"));
+          var myEvL = evidenceSel[q.n];
+          lines.push("Student's evidence paragraph: " + (typeof myEvL === "number" ? "Paragraph " + myEvL : "No answer") + " (" + (myEvL === q.evidence ? "✓ Correct" : "✗ Wrong") + ")");
+          lines.push("Result: " + (mcCorrect(q) ? "✓ Correct" : "✗ Wrong"));
         } else {
           var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
           var keys = GRADE_KEYS[q.n] || [];
@@ -1779,7 +1827,7 @@
     var anyRedo = false;
     SECTIONS.forEach(function(sec){
       var redoQs = sec.questions.filter(function(q){
-        if(q.type === "mc") return answers[q.n] !== q.correct;
+        if(q.type === "mc") return !mcCorrect(q);
         var g = writtenGrades[q.n] || { earned:false };
         return !g.earned;
       });
@@ -1903,7 +1951,7 @@
   $("redo-review-btn").addEventListener("click", function(){ show("view-results"); });
 
   $("again-btn").addEventListener("click", function(){
-    answers = {}; written = {}; writtenParts = {}; writtenGrades = {};
+    answers = {}; evidenceSel = {}; written = {}; writtenParts = {}; writtenGrades = {};
     submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
     stopTimer();
     var w = $("time-warning"); if(w) w.classList.add("hidden");
