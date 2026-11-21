@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Grade 4 Math Quiz — November 19, 2026</title>
+<title>Grade 4 Math Quiz — November 20, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#eef6ee;
@@ -66,18 +66,20 @@
   .wrap{max-width:780px;margin:0 auto;padding:20px 16px 26px}
   .hidden{display:none !important}
 
-   
+  /* ---------- Start ---------- */
   .start-card{
     background:var(--surface);border:2px solid var(--line);border-radius:24px;
     box-shadow:var(--shadow);padding:32px 24px 28px;text-align:center;margin-top:18px;
   }
-   
+  /* Start view: three peer boxes (Start the Quiz / Math Growth / Last 12 Tests)
+     stacked with one even gap and matching full-width edges. */
   .start-stack{display:flex;flex-direction:column;gap:18px;margin-top:18px}
   .start-stack .start-card{margin-top:0}
   .start-stack .growth-chart,.start-stack .history{max-width:none;width:100%;margin:0}
   @media (max-width:560px){ .start-stack{gap:16px} }
-   
-   
+  /* Merged: My Last 6 Tests (growth chart) + My Last 12 Tests (table) in ONE box */
+  /* Black-and-white frame for the merged tests box: white background, black
+     border, black title bar — no green frame, no green title. */
   .merged-tests{background:#fff;color:#1d2b1f;--ink:#1d2b1f;--ink-soft:#4a5d4e;--sun-soft:#fff3cf;border:2.5px solid #111;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;width:100%;max-width:560px;margin:0 auto;text-align:center}
   .start-stack .merged-tests{max-width:none;width:100%;margin:0}
   .results-actions .merged-tests{width:100%;justify-self:center}
@@ -89,7 +91,7 @@
     padding:6px 14px;border-radius:999px;
   }
   @media (prefers-color-scheme: dark){ .badge{color:var(--sun)} }
-   
+  /* Top badge on two lines: grade + date, then the quiz name */
   .badge-top{border-radius:18px;padding:9px 20px 10px;line-height:1.4}
   .badge-top .badge-line{display:block}
   .badge-top .badge-line + .badge-line{margin-top:1px}
@@ -101,7 +103,7 @@
   }
   @media (max-width:560px){ .lexile-banner{font-size:23px} }
 
-   
+  /* ---------- Top dash: (1) attendance punch card → (2) Lexile → (3) Ready, Set, Go ---------- */
   .top-dash{
     background:var(--surface);border:2px solid var(--line);border-radius:24px;
     box-shadow:var(--shadow);padding:20px 20px 20px;text-align:center;
@@ -172,7 +174,10 @@
   }
   .history-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
   .history-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 4px;line-height:1.45}
-   
+  /* "My Last 12 Tests" rows are CSS grid, not a <table>: the fixed-layout
+     table rendered narrower than its frame in the phone webview (Safari),
+     leaving a white strip on the right of the header and gold rows. Grid
+     tracks sized in % of the frame span its full width in every engine. */
   .history-grid{width:100%;font-size:17px;text-align:left}
   .hg-row{display:grid;grid-template-columns:28% 29% 15% 28%;width:100%}
   .hg-row>*{
@@ -183,7 +188,9 @@
     background:#111;color:#fff;font-weight:900;font-size:16.5px;line-height:1.3;
   }
   .hg-row .c{text-align:center}
-   
+  /* Entry rows always carry BLACK text on a solid fill (white / deep green /
+     gold), in light and dark mode alike — the colour lives in the row
+     background, never in the words. */
   .hg-row:not(.hg-head){color:#000}
   .hg-row:not(.hg-head)>*{border-top:1.5px solid var(--line);background:#fff}
   .hg-row .score{font-weight:900;white-space:nowrap}
@@ -198,7 +205,10 @@
   .hg-row.best>*{background:var(--sun);color:#000;border-top-color:#d9a400}
   .hg-row.best .lex.up{color:#000}
   .hg-row.best .lex .delta{color:#000}
-   
+  /* Whole-row highlight for any test where the Lexile went UP vs the previous
+     test: the SAME deep green as the "went up" bars in the growth chart above
+     (#27a24b — also the green legend swatch), not the pale green-soft wash.
+     Text on the highlight stays black. */
   .hg-row.improved>*{background:#27a24b;color:#000}
   .hg-row.improved .lex.up{color:#000}
   .hg-row.improved .lex .delta{color:#000}
@@ -238,7 +248,7 @@
   .btn:disabled{opacity:.45;cursor:not-allowed}
   .start-note{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:14px}
 
-   
+  /* ---------- Ready, Set, Go! launch zone ---------- */
   .go-zone{
     margin-top:4px;background:var(--green-soft);border:3px solid var(--green);
     border-radius:20px;padding:0 18px 18px;overflow:hidden;text-align:center;
@@ -285,7 +295,7 @@
     @keyframes rsg-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
   }
 
-   
+  /* ---------- Sticky quiz bar ---------- */
   .quiz-bar{
     position:sticky;top:0;z-index:20;background:var(--bg);
     padding:12px 0 10px;border-bottom:2px solid var(--line);
@@ -316,7 +326,7 @@
   .progress-fill{height:100%;background:var(--green);width:0%;transition:width .3s ease;border-radius:999px}
   .progress-label{font-size:15px;font-weight:800;color:var(--ink-soft);margin-top:6px}
 
-   
+  /* ---------- Sections & passages ---------- */
   .section-head{margin:30px 0 14px}
   .section-tag{
     display:inline-block;font-weight:900;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;
@@ -338,7 +348,7 @@
   .passage-label{font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:18px 0 4px}
   .passage-label:first-of-type{margin-top:0}
 
-   
+  /* chart */
   .chart{margin:6px 0 18px;border:1.5px solid var(--line);border-radius:14px;padding:16px;background:var(--surface-2)}
   .chart h4{margin:0 0 4px;font-size:17px;font-family:"Fredoka",sans-serif}
   .chart .chart-sub{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:0 0 14px}
@@ -356,7 +366,7 @@
   table.temp-table th{background:var(--surface);font-weight:900}
   table.temp-table td:last-child,table.temp-table th:last-child{text-align:right;font-variant-numeric:tabular-nums}
 
-   
+  /* ---------- Questions ---------- */
   .qcard{
     background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
     padding:20px;margin-top:16px;box-shadow:var(--shadow);
@@ -398,7 +408,6 @@
   .submit-zone{margin-top:32px;text-align:center}
   .submit-zone .btn-primary{max-width:420px;margin-left:auto;margin-right:auto}
   .submit-note{font-size:15.5px;color:var(--ink-soft);font-weight:700;margin-top:10px}
-
   /* Bottom row of the paper: Timer + Progression (Ellis's settled panel) */
   .bottom-panel{
     margin-top:28px;background:var(--surface);border:2px solid var(--line);border-radius:16px;
@@ -426,7 +435,8 @@
     .bottom-panel .bp-frac{font-size:27px}
   }
 
-   
+
+  /* ---------- Modal ---------- */
   .modal-backdrop{
     position:fixed;inset:0;background:rgba(10,20,12,.55);z-index:50;
     display:flex;align-items:center;justify-content:center;padding:20px;
@@ -437,14 +447,14 @@
   .modal .row{display:grid;gap:10px}
   .modal .btn{width:100%;margin:0}
 
-   
+  /* ---------- Results head ---------- */
   .results-head{
     background:var(--surface);border:2px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
     padding:28px 24px;text-align:center;margin-top:18px;
   }
   .results-head h2{font-size:30px;margin-bottom:8px}
   .results-head p{color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
-   
+  /* ---------- Results ---------- */
   .score-big{font-family:"Fredoka",sans-serif;font-size:64px;font-weight:700;line-height:1;margin:14px 0 2px}
   .score-big small{font-size:30px;color:var(--ink-soft)}
   .score-pct{font-size:22px;font-weight:900;color:var(--green-dark)}
@@ -505,14 +515,14 @@
 <body>
 <div class="wrap">
 
-  
+  <!-- ================= START ================= -->
   <section id="view-start">
     <div class="start-stack">
     <div class="top-dash">
       <div class="attendance">
         <div class="att-head">
           <h2 class="att-title">📅 My Attendance This Week</h2>
-          <span class="att-count">1 / 7 days</span>
+          <span class="att-count">3 / 7 days</span>
         </div>
         <p class="att-sub">本周出席打卡 · Mon Nov 16 – Sun Nov 22 — finish a quiz, get a punch for that day!</p>
         <div class="punch-row">
@@ -528,17 +538,17 @@
           </div>
           <div class="punch-day" data-date="2026-11-18">
             <span class="day-name">Wed<span class="day-zh">周三</span></span>
-            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
             <span class="day-date">11/18</span>
           </div>
-          <div class="punch-day today" data-date="2026-11-19">
+          <div class="punch-day" data-date="2026-11-19">
             <span class="day-name">Thu<span class="day-zh">周四</span></span>
             <span class="punch-circle done" aria-hidden="true">✓</span>
             <span class="day-date">11/19</span>
           </div>
-          <div class="punch-day" data-date="2026-11-20">
+          <div class="punch-day today" data-date="2026-11-20">
             <span class="day-name">Fri<span class="day-zh">周五</span></span>
-            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
             <span class="day-date">11/20</span>
           </div>
           <div class="punch-day" data-date="2026-11-21">
@@ -552,10 +562,10 @@
             <span class="day-date">11/22</span>
           </div>
         </div>
-        <p class="att-message">🎉 You showed up <strong>1 time</strong> this week — great job, Amber!</p>
+        <p class="att-message">🎉 You showed up <strong>3 times</strong> this week — great job, Amber!</p>
       </div>
 
-      <span class="lexile-banner" role="note">⭐ My Quantile Level: 600Q</span>
+      <span class="lexile-banner" role="note">⭐ My Quantile Level: 610Q</span>
 
       <form id="start-form">
         <div class="go-zone">
@@ -579,9 +589,9 @@
       </div>
     </div>
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth, last 6 tests: 11/18/26 Daily Quiz 600Q (stayed the same, gold bar with a crown — your best ever)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth, last 6 tests: 11/18/26 Placement 600Q (stayed the same), 11/18/26 Daily Quiz 600Q (stayed the same), 11/19/26 Daily Quiz 610Q (up 10Q, gold bar with a crown — your best ever)">
         <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
-        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You finished your <strong>very first math quiz</strong> — 8/12! Your Quantile is <strong>600Q</strong>. Keep going!</p></div>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew to <strong>610Q</strong> — a brand-new best! Your last quiz was <strong>9/12</strong>. Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
         <div data-growth-chart></div>
       </div>
@@ -591,7 +601,9 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>600Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>610Q</span><span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
           </div>
         </div>
         <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
@@ -600,7 +612,7 @@
     </div>
   </section>
 
-  
+  <!-- ================= QUIZ ================= -->
   <section id="view-quiz" class="hidden">
     <div class="quiz-bar">
       <div class="quiz-bar-row">
@@ -618,21 +630,21 @@
       <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
       <p class="submit-note">Your score will appear right away — your written answers are checked automatically. If time runs out, your quiz will be sent automatically with the answers you have so far.</p>
     </div>
-
     <div class="bottom-panel" aria-label="Timer and progression">
       <span class="bp-label">Timer:</span>
       <span class="bp-time" id="bottom-timer">20:00</span>
       <span class="bp-label">Progression:</span>
       <span class="bp-frac" id="bottom-prog">0 / 12</span>
     </div>
+
   </section>
 
-  
+  <!-- ================= RESULTS ================= -->
   <section id="view-results" class="hidden">
     <div class="results-head">
       <span class="badge">Your Result</span>
       <h2 style="margin-top:12px">Great work, <span id="r-name">Amber</span>!</h2>
-      <span class="lexile-banner" role="note">⭐ My Quantile Level: 600Q</span>
+      <span class="lexile-banner" role="note">⭐ My Quantile Level: 610Q</span>
       <div class="stars" id="r-stars"></div>
       <div class="score-big"><span id="r-score">0</span><small> / 12</small></div>
       <div class="score-pct" id="r-pct">0%</div>
@@ -649,7 +661,7 @@
         <span class="meta-chip">Choice questions: <span id="r-mc">0 / 8</span></span>
         <span class="meta-chip">Written questions: <span id="r-wr">0 / 4</span></span>
       </div>
-      <p class="saved-note">Answers checked on this page ✓</p>
+      <p class="saved-note">Answers saved ✓</p>
     </div>
 
     <div class="breakdown" id="r-breakdown"></div>
@@ -664,9 +676,9 @@
 
     <div class="results-actions">
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth, last 6 tests: 11/18/26 Daily Quiz 600Q (stayed the same, gold bar with a crown — your best ever)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth, last 6 tests: 11/18/26 Placement 600Q (stayed the same), 11/18/26 Daily Quiz 600Q (stayed the same), 11/19/26 Daily Quiz 610Q (up 10Q, gold bar with a crown — your best ever)">
         <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
-        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You finished your <strong>very first math quiz</strong> — 8/12! Your Quantile is <strong>600Q</strong>. Keep going!</p></div>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew to <strong>610Q</strong> — a brand-new best! Your last quiz was <strong>9/12</strong>. Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
         <div data-growth-chart></div>
       </div>
@@ -676,7 +688,9 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>600Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>610Q</span><span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
           </div>
         </div>
         <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
@@ -689,7 +703,7 @@
   <footer class="note">Grade 4 · Math Practice · 12 questions</footer>
 </div>
 
-
+<!-- Unanswered warning modal -->
 <div class="modal-backdrop hidden" id="warn-modal" role="dialog" aria-modal="true" aria-labelledby="warn-title">
   <div class="modal">
     <h3 id="warn-title">Some questions are empty!</h3>
@@ -702,8 +716,11 @@
 </div>
 
 <script>
-
-
+/* Attendance "today" ring — NEVER hard-coded from this quiz's edition date.
+   At page open, today is derived from the live date in America/Los_Angeles
+   (PST): the gold ring and green day name land on the real PST day in the
+   Mon Nov 16 – Sun Nov 22 week; days still to come stay plain empty circles
+   until their day actually arrives. Same rule as Eden's quiz page. */
 (function(){
   function pstTodayLabel(){
     try{
@@ -736,111 +753,126 @@
 (function(){
   "use strict";
 
-   
-
-
+  /* ---------------- Data (exactly from the practice sheet) ---------------- */
+/* ---------- November 20, 2026 math quiz (2026-11-20-math1, Cycle 1 Day 4) ----------
+     Per-submit rebuild: Amber submitted the November 19 quiz on
+     2026-11-20 18:51 PST (9/12, 17:47, Attempt 1 formal record;
+     her morning attempt never landed server-side and is not
+     counted). Quantile rose to 610Q (9/12 = +10, PASS, new peak):
+     Section 1 \u2248560Q, Section 2 \u2248610Q, Section 3 \u2248660Q.
+     Attendance baked 3/7 \u2014 Wednesday 11/18 (math placement),
+     Thursday 11/19 (Nov 18-dated daily submitted that morning),
+     Friday 11/20 (tonight's submission). Growth shows THREE
+     records: 11/18/26 Placement 27/38 -> 600Q (same), 11/18/26
+     Daily Quiz 8/12 -> 600Q (same), 11/19/26 Daily Quiz 9/12 ->
+     610Q (+10Q, best ever, gold + crown). Points: tonight's three
+     misses revisited (4.NBT.6, 4.MD.4, 4.MD.1) + never-graded
+     4.OA.1, 4.NBT.4, 4.NF.1, 4.NF.2, 4.MD.2, 4.MD.3, 4.G.1 +
+     placement-weak revisits 4.NBT.3, 4.OA.3. Bottom
+     Timer:/Progression: panel carried in its settled live form.
+     Hidden ?test=1 backdoor carried over (student TEST, isolated). */
   var SECTIONS = [
     {
       id: 1, tag: "Section 1", tagClass: "tag-1",
-      title: "Factors, Place Value & Division",
-      subtitle: "Factor Pairs, 10 Times Greater, Comparing Numbers & Remainders · 4 questions",
-      passageTitle: "Number Detectives",
+      title: "Rounding, Comparing & Dividing",
+      subtitle: "Rounding, Times-As-Many, Adding Big Numbers & Remainders · 4 questions",
+      passageTitle: "Number Builders",
       paragraphs: [
-        "Factor pairs multiply to make a number: 24 = 1 × 24, 2 × 12, 3 × 8 and 4 × 6, so the factors of 24 are 1, 2, 3, 4, 6, 8, 12 and 24. A number with only two factors — 1 and itself, like 7 — is prime; a number with more factors, like 24, is composite.",
-        "Each place is 10 times the place to its right: in 770, the 7 in the hundreds place is worth 700 and the 7 in the tens place is worth 70, and 700 is 10 times 70. To compare big numbers, start at the left: compare the hundred-thousands first, then the ten-thousands, and keep moving right until the digits differ.",
-        "Division can leave a remainder: 149 ÷ 6 = 24 remainder 5, because 6 × 24 = 144 and 149 − 144 = 5. The remainder is always smaller than the number you divide by."
+        "To round a number, look at the digit to the right of the place you are rounding to. If that digit is 5 or more, round up; if it is 4 or less, round down. 48,362 rounded to the nearest thousand is 48,000, because the hundreds digit is 3.",
+        "A comparison sentence uses multiplication: 35 is 7 times as many as 5, written 35 = 7 × 5. Big numbers add with the standard algorithm — line up the places and carry when a column makes 10 or more: 27,458 + 15,376 = 42,834.",
+        "Division can leave a remainder: 257 ÷ 7 = 36 remainder 5, because 7 × 36 = 252 and 257 − 252 = 5. The remainder is always smaller than the number you divide by."
       ],
       chart: null,
       questions: [
-        { n:1, std:"4.OA.4", type:"mc", text:"Which list shows ALL the factor pairs of 24?",
-          options:["1 × 24, 2 × 12, 3 × 8, 4 × 6", "1 × 24, 2 × 12, 4 × 6", "1 × 24, 2 × 12, 3 × 8, 4 × 6, 5 × 5", "2 × 12, 3 × 8, 4 × 6"],
+        { n:1, std:"4.NBT.3", type:"mc", text:"What is 48,362 rounded to the nearest thousand?",
+          options:["48,000", "49,000", "48,300", "48,400"],
           correct:0,
-          why:"Every pair multiplies to 24: 1 × 24, 2 × 12, 3 × 8 and 4 × 6. One list misses 3 × 8, one adds 5 × 5 = 25, and one misses 1 × 24." },
-        { n:2, std:"4.NBT.1", type:"mc", text:"In the number 770, how many TIMES greater is the 7 in the hundreds place than the 7 in the tens place?",
-          options:["100 times", "10 times", "7 times", "1 time"],
+          why:"Look at the hundreds digit: 3 is less than 5, so round down. 48,362 rounds to 48,000." },
+        { n:2, std:"4.OA.1", type:"mc", text:"Which number sentence means the same as “35 is 7 times as many as 5”?",
+          options:["35 = 7 + 5", "7 = 35 − 5", "35 = 7 × 5", "35 = 5 + 7"],
+          correct:2,
+          why:"“Times as many” means multiply: 35 is 7 times as many as 5 is written 35 = 7 × 5." },
+        { n:3, std:"4.NBT.4", type:"mc", text:"What is 27,458 + 15,376?",
+          options:["42,734", "42,834", "43,834", "42,824"],
           correct:1,
-          why:"The hundreds 7 is worth 700 and the tens 7 is worth 70. 700 is 10 times 70 — each place is 10 times the place to its right." },
-        { n:3, std:"4.NBT.2", type:"mc", text:"Which number is the GREATEST?",
-          options:["506,099", "560,099", "506,909", "560,909"],
-          correct:3,
-          why:"Compare from the left: 560,909 and 560,099 have the biggest hundred-thousands and ten-thousands digits, and 560,909 has more hundreds than 560,099, so 560,909 is greatest." },
-        { n:4, std:"4.NBT.6", type:"written", text:"Divide: 149 ÷ 6.",
+          why:"Add column by column and carry: 27,458 + 15,376 = 42,834." },
+        { n:4, std:"4.NBT.6", type:"written", text:"Divide: 257 ÷ 7.",
           part1:"What is the quotient (the whole-number answer)?",
           part2:"What is the remainder?",
-          sample:"149 ÷ 6 = 24 remainder 5, because 6 × 24 = 144 and 149 − 144 = 5." }
+          sample:"257 ÷ 7 = 36 remainder 5, because 7 × 36 = 252 and 257 − 252 = 5." }
       ]
     },
     {
       id: 2, tag: "Section 2", tagClass: "tag-2",
-      title: "Angles, Data & Units",
-      subtitle: "Kinds of Angles, Protractors, Line Plots & Converting Units · 4 questions",
-      passageTitle: "Measuring Angles and More",
+      title: "Fractions, Data & Units",
+      subtitle: "Equal Fractions, Comparing Fractions, Line Plots & Converting Units · 4 questions",
+      passageTitle: "Fractions and Measures",
       paragraphs: [
-        "Angles are measured in degrees. A right angle measures exactly 90°. An acute angle measures LESS than 90°, an obtuse angle measures MORE than 90° but less than 180°, and a straight angle measures exactly 180°.",
-        "A protractor measures an angle: line one ray up with the 0° mark, then read where the other ray points. The chart below shows seedlings the class measured to the nearest quarter inch. Four seedlings are 3½ inches tall, and the tallest ones are 4 inches.",
-        "Bigger units change into smaller ones by multiplying: 1 kilogram = 1,000 grams, so 4 kilograms = 4,000 grams. And 1 litre = 1,000 millilitres, so 2,500 mL is 2 whole litres (2,000 mL) with 500 mL left over — written 2 L 500 mL."
+        "Fractions can be equal in size: multiply the numerator and the denominator by the same number — 2/3 = 4/6. To compare fractions, think about the benchmark 1/2: 5/8 is more than 1/2 and 3/8 is less than 1/2, so 5/8 is greater than 3/8.",
+        "The chart below shows crayons the class measured to the nearest quarter inch. Four crayons are 4¼ inches long, and the longest ones are 4¾ inches.",
+        "Bigger units change into smaller ones by multiplying: 1 metre = 100 centimetres, so 6 metres = 600 centimetres. And 1 kilogram = 1,000 grams, so 3,250 g is 3 whole kilograms (3,000 g) with 250 g left over — written 3 kg 250 g."
       ],
       chart: {
-        title:"Seedling Heights We Measured",
-        sub:"How many seedlings of each height",
+        title:"Crayon Lengths We Measured",
+        sub:"How many crayons of each length",
         max: 4,
-        unit: "seedlings",
-        col1: "Height",
-        col2: "Seedlings",
+        unit: "crayons",
+        col1: "Length",
+        col2: "Crayons",
         rows:[
-          { label:"3¼ in", count:2, value:2, cls:"teal" },
-          { label:"3½ in", count:4, value:4, cls:"apple" },
-          { label:"3¾ in", count:1, value:1, cls:"banana" },
-          { label:"4 in", count:3, value:3, cls:"orange" }
+          { label:"3¾ in", count:2, value:2, cls:"teal" },
+          { label:"4 in", count:3, value:3, cls:"apple" },
+          { label:"4¼ in", count:4, value:4, cls:"banana" },
+          { label:"4¾ in", count:2, value:2, cls:"orange" }
         ]
       },
       questions: [
-        { n:5, std:"4.MD.5", type:"mc", text:"An angle measures 135°. What KIND of angle is it?",
-          options:["Acute angle", "Right angle", "Obtuse angle", "Straight angle"],
-          correct:2,
-          why:"135° is more than 90° and less than 180°, so it is an obtuse angle." },
-        { n:6, std:"4.MD.6", type:"mc", text:"Mia measures an angle with a protractor. One ray lines up with the 0° mark, and the other ray points to the 70 mark. What is the measure of the angle?",
-          options:["110 degrees", "70 degrees", "90 degrees", "20 degrees"],
+        { n:5, std:"4.NF.1", type:"mc", text:"Which fraction is EQUAL to 2/3?",
+          options:["3/4", "4/6", "5/6", "2/6"],
           correct:1,
-          why:"Start at 0° and read where the second ray points: 70 − 0 = 70, so the angle measures 70 degrees." },
-        { n:7, std:"4.MD.4", type:"written", text:"Look at the seedling chart in this section.",
-          part1:"How many seedlings are 3½ inches tall?",
-          part2:"How many seedlings are TALLER than 3½ inches?",
-          sample:"4 seedlings are 3½ inches tall. The seedlings taller than 3½ inches are the 3¾-inch one and the 4-inch ones: 1 + 3 = 4 seedlings." },
-        { n:8, std:"4.MD.1", type:"written", text:"A bag of rice weighs 4 kilograms. A jug holds 2,500 millilitres of water. Use 1 kilogram = 1,000 grams and 1 litre = 1,000 millilitres.",
-          part1:"How many grams does the bag of rice weigh?",
-          part2:"Write the jug's water (2,500 mL) in litres and millilitres.",
-          sample:"The rice weighs 4,000 g (4 × 1,000). The jug holds 2 L 500 mL (2,000 mL + 500 mL)." }
+          why:"Multiply the numerator and denominator of 2/3 by 2: 2/3 = 4/6, so 4/6 is equal to 2/3." },
+        { n:6, std:"4.NF.2", type:"mc", text:"Which of these fractions is the GREATEST?",
+          options:["2/8", "4/8", "3/8", "5/8"],
+          correct:3,
+          why:"All four are eighths, so the biggest numerator wins: 5/8 is the greatest. (5/8 is also more than 1/2.)" },
+        { n:7, std:"4.MD.4", type:"written", text:"Look at the crayon chart in this section.",
+          part1:"How many crayons are 4¼ inches long?",
+          part2:"How many crayons are LONGER than 4¼ inches?",
+          sample:"4 crayons are 4¼ inches long. Only the 4¾-inch crayons are longer than 4¼ inches, and there are 2 of them." },
+        { n:8, std:"4.MD.1", type:"written", text:"A ribbon is 6 metres long. A bag of flour weighs 3,250 grams. Use 1 metre = 100 centimetres and 1 kilogram = 1,000 grams.",
+          part1:"How many centimetres long is the ribbon?",
+          part2:"Write the flour's weight (3,250 g) in kilograms and grams.",
+          sample:"The ribbon is 600 cm long (6 × 100). The flour weighs 3 kg 250 g (3,000 g + 250 g)." }
       ]
     },
     {
       id: 3, tag: "Section 3", tagClass: "tag-3",
-      title: "Angle Sums, Patterns, Symmetry & Fractions",
-      subtitle: "Angles That Add Up, Number Patterns, Symmetry & Adding Fractions · 4 questions",
-      passageTitle: "Putting Pieces Together",
+      title: "Problems, Area & Lines",
+      subtitle: "Money Problems, Perimeter & Area, Lines & Multi-Step Problems · 4 questions",
+      passageTitle: "Solving and Shaping",
       paragraphs: [
-        "When an angle is split into parts, the parts add up to the whole angle. A straight angle measures 180°, so if one part is 65°, the other part is 180 − 65 = 115°.",
-        "A pattern follows a rule: in 5, 9, 13, 17, … each number is 4 more than the one before, so the next number is 17 + 4 = 21. Shapes have symmetry too: a rectangle that is NOT a square folds in half only 2 ways — top-to-bottom and side-to-side — so it has 2 lines of symmetry (its diagonals do not match).",
-        "Fractions with the same denominator add easily: keep the denominator the same and add the numerators. 3/8 + 2/8 = 5/8, because you are joining 3 eighths and 2 eighths to make 5 eighths."
+        "Measurement problems use the four operations. If one notebook costs $3 and Maya buys 4 notebooks with a $20 bill, she spends 4 × $3 = $12 and gets $20 − $12 = $8 back.",
+        "A rectangle's perimeter is the distance all the way around it: add the lengths of all four sides. Its area is length × width. A garden 9 m long and 6 m wide has perimeter 9 + 6 + 9 + 6 = 30 m and area 9 × 6 = 54 m².",
+        "Lines that never meet and stay the same distance apart are parallel lines. Lines that cross to make square corners (right angles) are perpendicular lines. A ray starts at one point and goes on forever in one direction."
       ],
       chart: null,
       questions: [
-        { n:9, std:"4.MD.7", type:"mc", text:"A straight angle (180°) is split into two angles. One of them measures 65°. What does the OTHER angle measure?",
-          options:["115 degrees", "125 degrees", "95 degrees", "25 degrees"],
+        { n:9, std:"4.MD.2", type:"mc", text:"One notebook costs $3. Maya buys 4 notebooks and pays with a $20 bill. How much change does she get?",
+          options:["$8", "$12", "$7", "$17"],
           correct:0,
-          why:"The parts of a straight angle add to 180°: 180 − 65 = 115, so the other angle measures 115 degrees." },
-        { n:10, std:"4.OA.5", type:"mc", text:"Look at the pattern: 5, 9, 13, 17, … What is the NEXT number in the pattern?",
-          options:["19", "21", "23", "25"],
+          why:"4 notebooks cost 4 × $3 = $12. Her change is $20 − $12 = $8." },
+        { n:10, std:"4.MD.3", type:"mc", text:"A garden is 9 metres long and 6 metres wide. What is the AREA of the garden?",
+          options:["30 m²", "54 m²", "15 m²", "45 m²"],
           correct:1,
-          why:"Each number is 4 more than the one before: 5, 9, 13, 17, so the next number is 17 + 4 = 21." },
-        { n:11, std:"4.G.3", type:"mc", text:"How many lines of symmetry does a rectangle that is NOT a square have?",
-          options:["4", "2", "1", "0"],
-          correct:1,
-          why:"A non-square rectangle folds in half 2 ways: top-to-bottom and side-to-side. Folding along a diagonal does not make the halves match, so it has 2 lines of symmetry." },
-        { n:12, std:"4.NF.3", type:"written", text:"Liam ate 3/8 of a pizza. Sofia ate 2/8 of the same pizza. How much pizza did they eat ALTOGETHER?",
-          part1:"How much pizza did they eat altogether?",
-          part2:"Show your working: how did you add the two fractions?",
-          sample:"Together they ate 5/8 of the pizza. The denominators are the same (eighths), so I added the numerators: 3 + 2 = 5, and the denominator stayed 8." }
+          why:"Area = length × width = 9 × 6 = 54, so the area is 54 m². (30 m would be the perimeter.)" },
+        { n:11, std:"4.G.1", type:"mc", text:"Two lines stay the same distance apart and never meet. What kind of lines are they?",
+          options:["Perpendicular lines", "Intersecting lines", "Parallel lines", "Rays"],
+          correct:2,
+          why:"Lines that never meet and stay the same distance apart are parallel lines." },
+        { n:12, std:"4.OA.3", type:"written", text:"28 students are going on a field trip. Each van can carry 5 students. How many vans are needed so that EVERY student can go?",
+          part1:"How many vans are needed?",
+          part2:"Show your working: how do you know 5 vans are not enough?",
+          sample:"6 vans are needed. 5 vans carry 5 × 5 = 25 students, so 3 students would be left over — one more van makes 6 vans, and every student can go." }
       ]
     }
 
@@ -855,18 +887,24 @@
   });
   var LETTERS = ["A","B","C","D"];
   var TOTAL_SECONDS = 20 * 60;
-  
-  
+  // Test hook: ?testSeconds=12 shortens the limit so expiry can be verified
+  // quickly. Normal student links have no parameter and always get 20:00.
   try {
     var _ts = parseInt(new URLSearchParams(window.location.search).get("testSeconds") || "", 10);
     if(_ts >= 5 && _ts <= 1200) TOTAL_SECONDS = _ts;
   } catch(e) {}
 
-   
+  /* ---------------- State ---------------- */
   var studentName = "Amber";
 
-  
-
+  /* Test hook (Tuesday's hidden QC backdoor, Ellis Nov 18, 2026):
+     opening this page with ?test=1 turns it into a test drive — the
+     student name becomes "TEST", so the saved answer log is filed
+     under TEST in Amber's own math folder and the watcher skips it,
+     and the attempt + punch storage keys are namespaced under TEST,
+     so a test drive never touches Amber's real records or punches.
+     Nothing on the page shows test mode; normal student links carry
+     no parameter and behave exactly as before. */
   var TEST_MODE = false;
   function applyTestMode(){
     if(!TEST_MODE) return;
@@ -890,13 +928,16 @@
   var timerId = null;
   var submitted = false;
   var autoSubmitted = false;
-  var attemptCount = 0;  
-  var answers = {};      
-  var written = {};      
-  var writtenGrades = {}; 
+  var attemptCount = 0;  // attempts completed for THIS quiz + THIS student (incl. current)
+  var answers = {};      // qn -> option index
+  var written = {};      // qn -> text
+  var writtenGrades = {}; // qn -> { earned:bool, points:[bool,bool] } from the auto-grader
 
-  
-
+  /* ---------------- Defensive storage ----------------
+     Every localStorage read/write goes through these helpers. Inside a
+     sandboxed iframe host, storage access can throw or be unavailable;
+     the in-memory map keeps the page (and attempt counting) working for
+     the whole page session in that case. */
   var memoryStore = {};
   function storeGet(key){
     try {
@@ -922,10 +963,20 @@
     return m + ":" + (s < 10 ? "0" : "") + s;
   }
 
-  
-
+  /* ---------------- Math-growth bar chart ----------------
+     Same format as the English page: bars in EQUAL slots spanning the
+     full plot width (axis at x=56 to the right edge at x=554), last 6
+     tests, best bar gold with a crown in the middle of the bar.
+     Amber's math history has THREE records: 11/18/26 Placement
+     (27/38, measured 600Q — stayed the same), 11/18/26 Daily Quiz
+     (8/12, submitted 2026-11-19 07:05 PST, held the 600Q anchor —
+     stayed the same) and 11/19/26 Daily Quiz (9/12, submitted
+     2026-11-20 18:51 PST, +10Q to 610Q — her best ever, gold).
+     Chart scale top is best + 250 = 860. */
   var GROWTH = [
-    { date:"11/18/26", type:"Daily Quiz", lexile:600, delta:"same", same:true, kind:"best" }
+    { date:"11/18/26", type:"Placement", lexile:600, delta:"same", kind:"same" },
+    { date:"11/18/26", type:"Daily Quiz", lexile:600, delta:"same", same:true, kind:"same" },
+    { date:"11/19/26", type:"Daily Quiz", lexile:610, delta:"+10Q", kind:"best" }
   ];
 
   function renderGrowthCharts(){
@@ -983,8 +1034,12 @@
     window.scrollTo(0,0);
   }
 
-  
-
+  /* ---------------- Attempt count (Amber + quiz date) ----------------
+     This quiz is Amber's only. Keyed by the fixed name "Amber" plus this
+     quiz's date / identity — a fingerprint of its passages and questions,
+     so a different daily test (different date and content) starts fresh
+     from Attempt #1. Stored in localStorage; only a completed submission
+     increments it. */
   function computeQuizId(){
     var raw = "";
     SECTIONS.forEach(function(s){
@@ -1001,7 +1056,7 @@
     }
     return "g4-2026-11-19-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
   }
-  var QUIZ_ID = "2026-11-19-math1";
+  var QUIZ_ID = "2026-11-20-math1";
   function attemptStorageKey(){
     return "g4rq-attempts-v1:amber:" + todayStr() + ":" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
   }
@@ -1013,8 +1068,12 @@
     return next;
   }
 
-  
-
+  /* ---------------- Attendance punch (submission-day rule) ----------------
+     A punch belongs to the CALENDAR DAY the quiz is submitted, in
+     America/Los_Angeles — NOT the date written on the quiz. One punch
+     per day; a day already punched simply stays punched. The punch is
+     stored keyed by that submission day, and on page open any stored
+     punches for the displayed week are restored onto the card. */
   function pstTodayKey(){
     try{
       var parts = new Intl.DateTimeFormat("en-US", {
@@ -1033,9 +1092,9 @@
     return "g4mq-punch-v1:amber:" + dayKey + (TEST_MODE ? ":TEST" : "");
   }
   var PUNCH_WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-  
-  
-  
+  // Marks the punch-day cell for dayKey done. Returns its weekday name
+  // when it newly punches, or null when there is no such cell in the
+  // displayed week or the day is already punched.
   function markPunchDay(dayKey){
     var days = document.querySelectorAll(".punch-day");
     for(var i = 0; i < days.length; i++){
@@ -1072,7 +1131,7 @@
     var weekday = markPunchDay(dayKey);
     refreshAttendance(weekday);
   }
-  
+  // Restore punches earned on earlier days of this displayed week.
   (function restorePunches(){
     var days = document.querySelectorAll(".punch-day");
     var lastWeekday = null, changed = false;
@@ -1086,7 +1145,7 @@
     if(changed) refreshAttendance(lastWeekday);
   })();
 
-   
+  /* ---------------- Build quiz ---------------- */
   function buildChart(chart){
     var max = 0;
     chart.rows.forEach(function(r){ if(r.value > max) max = r.value; });
@@ -1162,7 +1221,7 @@
     });
     $("quiz-body").innerHTML = html;
 
-    
+    // wire events
     ALL_MC.forEach(function(q){
       var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
       Array.prototype.forEach.call(radios, function(r){
@@ -1208,7 +1267,7 @@
     });
   }
 
-   
+  /* ---------------- Timer (hard 20-minute limit) ---------------- */
   function startTimer(){
     startStamp = Date.now();
     submitted = false;
@@ -1266,13 +1325,13 @@
   }
   function autoSubmit(){
     if(submitted) return;
-    
+    // No unanswered-warning modal on auto-submit — there is no time to confirm.
     var wm = $("warn-modal");
     if(wm) wm.classList.add("hidden");
     goToResults(true);
   }
 
-   
+  /* ---------------- Start ---------------- */
   $("start-form").addEventListener("submit", function(e){
     e.preventDefault();
     studentName = TEST_MODE ? "TEST" : "Amber";
@@ -1283,7 +1342,7 @@
     startTimer();
   });
 
-   
+  /* ---------------- Submit flow ---------------- */
   $("submit-btn").addEventListener("click", function(){
     if(submitted) return;
     syncWrittenFromDom();
@@ -1313,14 +1372,14 @@
     if(submitted) return;
     submitted = true;
     autoSubmitted = !!isAuto;
-    
-    
+    // Count this completed submission (manual and auto-submit both count,
+    // exactly once — the submitted flag above blocks any double-fire).
     attemptCount = recordAttempt();
-    
-    
+    // Punch the SUBMISSION day (today in America/Los_Angeles), not the
+    // date written on this quiz — see the attendance punch section.
     applyPunch();
     syncWrittenFromDom();
-    
+    // Auto-submit always reports the full limit (20:00 for real quizzes).
     elapsedAtSubmit = autoSubmitted ? TOTAL_SECONDS : Math.min(elapsedSeconds(), TOTAL_SECONDS);
     stopTimer();
     gradeAllWritten();
@@ -1329,9 +1388,14 @@
     show("view-results");
   }
 
-  
-
-   
+  /* ---------------- Auto-grading: written answers ----------------
+     Static, in-browser grading. Each written question earns its 1 point
+     only when BOTH key points are found. Matching is tolerant: text is
+     lower-cased, punctuation is ignored, and word stems / synonyms /
+     paraphrases count (e.g. "water" matches "watering", "smil" matches
+     "smiled"). An alternative is a group of stems that must ALL appear;
+     a point is found when ANY of its alternative groups matches. */
+  /* GRADE-CORE-START */
   function normalizeAnswer(str){
     return String(str == null ? "" : str)
       .toLowerCase()
@@ -1362,36 +1426,36 @@
   }
 var GRADE_KEYS = {
     4: [
-      { found: "Quotient of 149 ÷ 6: 24",
-        missing: "the quotient — 24",
-        alt: [["24"],["twenty four"]] },
-      { found: "Remainder of 149 ÷ 6: 5",
+      { found: "Quotient of 257 ÷ 7: 36",
+        missing: "the quotient — 36",
+        alt: [["36"],["thirty six"]] },
+      { found: "Remainder of 257 ÷ 7: 5",
         missing: "the remainder — 5",
         alt: [["remainder 5"],["r 5"],["r5"],["rem 5"],["5 left over"],["left over 5"],["5 remains"]] }
     ],
     7: [
-      { found: "Seedlings that are 3½ inches tall: 4",
-        missing: "how many seedlings are 3½ inches tall — 4",
-        alt: [["4 seedlings"],["four seedlings"],["4 are"],["4 of them"]] },
-      { found: "Seedlings taller than 3½ inches: 4",
-        missing: "how many seedlings are taller than 3½ inches — 4 (1 at 3¾ in + 3 at 4 in)",
-        alt: [["1 + 3"],["4 taller"],["taller 4"],["four taller"],["4 are taller"],["4 seedlings taller"]] }
+      { found: "Crayons that are 4¼ inches long: 4",
+        missing: "how many crayons are 4¼ inches long — 4",
+        alt: [["4 crayons"],["four crayons"],["4 are"],["4 of them"]] },
+      { found: "Crayons longer than 4¼ inches: 2",
+        missing: "how many crayons are longer than 4¼ inches — 2 (the 4¾-inch ones)",
+        alt: [["2 longer"],["two longer"],["2 are longer"],["2 crayons longer"],["2 of them longer"],["2 of them"]] }
     ],
     8: [
-      { found: "The bag of rice: 4,000 g",
-        missing: "the rice in grams — 4,000 g",
-        alt: [["4000 g"],["4000 grams"],["4000g"],["4000 gram"],["4 000 g"],["4 000 grams"],["4000"],["4 000"]] },
-      { found: "The 2,500 mL jug: 2 L 500 mL",
-        missing: "the jug in litres and millilitres — 2 L 500 mL",
-        alt: [["2 l 500"],["2 litres 500"],["2 liters 500"],["2 litre 500"],["2 liter 500"],["2.5 l"],["2.5 litres"],["2.5 liters"]] }
+      { found: "The ribbon: 600 cm",
+        missing: "the ribbon in centimetres — 600 cm",
+        alt: [["600 cm"],["600 centimetres"],["600 centimeters"],["600cm"],["600"]] },
+      { found: "The 3,250 g of flour: 3 kg 250 g",
+        missing: "the flour in kilograms and grams — 3 kg 250 g",
+        alt: [["3 kg 250"],["3 kilograms 250"],["3 kilogram 250"],["3.25 kg"],["3.25 kilograms"]] }
     ],
     12: [
-      { found: "Pizza eaten altogether: 5/8",
-        missing: "how much pizza they ate altogether — 5/8",
-        alt: [["5/8"],["5 8"],["five eighths"],["0.625"]] },
-      { found: "Working: same denominator, add the numerators 3 + 2 = 5",
-        missing: "the working — the denominators are the same, so add the numerators (3 + 2 = 5) and keep the denominator 8",
-        alt: [["3 + 2"],["add the numerators"],["added the numerators"],["adding the numerators"],["same denominator"],["denominator stayed"],["denominator stays"]] }
+      { found: "Vans needed: 6",
+        missing: "how many vans are needed — 6",
+        alt: [["6 vans"],["six vans"],["need 6"],["needs 6"],["6 are needed"]] },
+      { found: "Working: 5 vans carry 25 students, 3 left over, so one more van",
+        missing: "the working — 5 vans carry only 25 students, so 3 students are left over and one more van is needed",
+        alt: [["5 × 5"],["5 x 5"],["carry 25"],["25 students"],["3 left over"],["3 students left"],["28 ÷ 5"]] }
     ]
 
   };
@@ -1401,11 +1465,11 @@ var GRADE_KEYS = {
     var norm = normalizeAnswer(rawText);
     var words = norm ? norm.split(" ").length : 0;
     var points = keys.map(function(k){ return pointFound(norm, k.alt); });
-    
+    // Empty or far too short answers cannot earn the point.
     var earned = words >= 3 && points.length === 2 && points[0] && points[1];
     return { earned: earned, points: points };
   }
-   
+  /* GRADE-CORE-END */
   function gradeAllWritten(){
     writtenGrades = {};
     ALL_WRITTEN.forEach(function(q){
@@ -1413,7 +1477,7 @@ var GRADE_KEYS = {
     });
   }
 
-   
+  /* ---------------- Results ---------------- */
   function sectionScore(secId){
     var sec = SECTIONS[secId - 1], pts = 0;
     sec.questions.forEach(function(q){
@@ -1457,7 +1521,7 @@ var GRADE_KEYS = {
     else msg = "Good effort finishing the quiz! Read the review below and try again. 🌱";
     $("r-message").textContent = msg;
 
-    
+    // breakdown
     var bd = "";
     SECTIONS.forEach(function(s){
       var pts = sectionScore(s.id);
@@ -1468,7 +1532,7 @@ var GRADE_KEYS = {
     });
     $("r-breakdown").innerHTML = bd;
 
-    
+    // MC review
     var rev = "";
     ALL_MC.forEach(function(q){
       var sec = SECTIONS[q.section - 1];
@@ -1485,7 +1549,7 @@ var GRADE_KEYS = {
     });
     $("r-mc-review").innerHTML = rev;
 
-    
+    // Written review (auto-graded)
     var wr = "";
     ALL_WRITTEN.forEach(function(q){
       var mine = (written[q.n] || "").trim();
@@ -1512,10 +1576,14 @@ var GRADE_KEYS = {
 
   var lastResult = null;
 
-  
-
+  /* ---------------- Automatic answer saving ----------------
+     On finish (manual submit AND timer auto-submit both funnel through
+     goToResults, which calls this exactly once per finished attempt),
+     the full answer log is POSTed to the receiver endpoint below
+     (navigator.sendBeacon first, fetch no-cors as fallback) — the same
+     transport as the GitHub-hosted English and Grade 2 math pages. */
   function todayStr(){
-    return "2026-11-19";
+    return "2026-11-20";
   }
   function sectionPassageText(sec){
     var parts = [];
@@ -1621,6 +1689,20 @@ var GRADE_KEYS = {
     }
     return lines.join("\n");
   }
+  var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+  function postLog(payload){
+    var body = "";
+    try { body = JSON.stringify(payload); } catch(e) { return; }
+    try {
+      if(navigator && navigator.sendBeacon){
+        var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+        if(navigator.sendBeacon(RECEIVER_URL, blob)) return;
+      }
+    } catch(e) {}
+    try {
+      fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body });
+    } catch(e) {}
+  }
   function saveAnswerLog(){
     var total = lastResult ? lastResult.total : 0;
     var payload = {
@@ -1633,41 +1715,8 @@ var GRADE_KEYS = {
       score: total + "/12",
       log: buildAnswerLog(total)
     };
-    lastAnswerLog = payload;
-    /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
-       Google Apps Script, so google.script.run does not exist here. The answer
-       log is POSTed directly to the same receiver endpoint (its doPost), with
-       the identical payload shape the watcher already parses. fetch(no-cors)
-       first; sendBeacon as fallback; a second fetch as last resort. */
-    function postLog(payload){
-      var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
-      var body;
-      try { body = JSON.stringify(payload); } catch (e) { return false; }
-      function beacon(){
-        try {
-          if (navigator && typeof navigator.sendBeacon === "function") {
-            return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
-          }
-        } catch (e) {}
-        return false;
-      }
-      function fetchPost(){
-        return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
-          headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
-      }
-      try {
-        if (window.fetch) {
-          fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
-          return true;
-        }
-        return beacon();
-      } catch (e) {
-        return beacon();
-      }
-    }
-    try { postLog(payload); } catch(e){}
+    try { postLog(payload); } catch (e) {}
   }
-  var lastAnswerLog = null;
   $("again-btn").addEventListener("click", function(){
     answers = {}; written = {}; writtenGrades = {};
     submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
