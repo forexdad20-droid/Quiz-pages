@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Grade 2 Math Quiz — November 20, 2026</title>
+<title>Grade 2 Math Quiz — November 21, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -267,20 +267,6 @@
   .submit-zone{margin-top:34px;text-align:center}
   .submit-zone .btn-primary{max-width:440px;margin-left:auto;margin-right:auto}
   .submit-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:10px}
-  /* Bottom status row — Timer + Progression on the very last row of the paper.
-     Centre-aligned, blue, ONLY these elements (no name / no extra title).
-     Sticky to the bottom of the viewport while the quiz is open. */
-  .bottom-status-bar{position:sticky;bottom:10px;z-index:18;margin-top:22px;background:var(--surface);border:2px solid var(--green);border-radius:999px;box-shadow:0 6px 20px rgba(13,93,130,.18);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:10px 16px;flex-wrap:wrap;text-align:center;color:var(--green-dark)}
-  .bs-item{display:inline-flex;align-items:baseline;gap:7px;white-space:nowrap}
-  .bs-label{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:var(--green-dark)}
-  .bs-time{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:21px;color:var(--green-dark);font-variant-numeric:tabular-nums}
-  .bs-fraction{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:27px;line-height:1;color:var(--green);font-variant-numeric:tabular-nums;display:inline-block}
-  .bs-sep{color:var(--green);font-weight:900;opacity:.55}
-  @media (max-width:560px){ .bottom-status-bar{gap:6px 10px;padding:10px 12px} .bs-label{font-size:17px} .bs-time{font-size:19px} .bs-fraction{font-size:24px} }
-  @media (prefers-reduced-motion: no-preference){
-    .bs-fraction.pop{animation:prog-pop .38s ease}
-    @keyframes prog-pop{0%{transform:scale(1)}40%{transform:scale(1.22)}100%{transform:scale(1)}}
-  }
   .modal-backdrop{position:fixed;inset:0;background:rgba(10,22,28,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px}
   .modal{background:var(--surface);border-radius:22px;max-width:440px;width:100%;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
   .modal h3{font-size:24px;margin-bottom:8px}
@@ -338,7 +324,7 @@
   .results-actions{display:grid;gap:12px;margin-top:30px}
   .results-actions .btn{width:100%;margin:0}
   footer.note{text-align:center;color:var(--ink-soft);font-size:14px;font-weight:700;margin-top:36px}
-  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.bottom-status-bar,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
+  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
 </style>
 </head>
 <body>
@@ -350,7 +336,7 @@
       <div class="attendance">
         <div class="att-head">
           <h2 class="att-title">📅 My Attendance This Week</h2>
-          <span class="att-count" id="att-count">3 / 7 days</span>
+          <span class="att-count" id="att-count">4 / 7 days</span>
         </div>
         <p class="att-sub">本周出席打卡 · Mon Nov 16 – Sun Nov 22 — finish a quiz, get a punch for that day!</p>
         <div class="punch-row">
@@ -381,7 +367,7 @@
           </div>
           <div class="punch-day" data-date="2026-11-21">
             <span class="day-name">Sat<span class="day-zh">周六</span></span>
-            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
             <span class="day-date">11/21</span>
           </div>
           <div class="punch-day" data-date="2026-11-22">
@@ -390,10 +376,10 @@
             <span class="day-date">11/22</span>
           </div>
         </div>
-        <p class="att-message" id="att-message">🎉 You showed up <strong>3 times</strong> this week — great job, Eden!</p>
+        <p class="att-message" id="att-message">🎉 You showed up <strong>4 times</strong> this week — great job, Eden!</p>
       </div>
 
-      <div class="lexile-banner" role="note" aria-label="My Quantile Level: 320Q">⭐ My Quantile Level: 320Q</div>
+      <div class="lexile-banner" role="note" aria-label="My Quantile Level: 330Q">⭐ My Quantile Level: 330Q</div>
 
       <form id="start-form">
         <div class="go-zone">
@@ -405,15 +391,15 @@
             <span class="rsg-arrow">›</span>
             <span class="rsg-step rsg-go">Go! 🏁</span>
           </div>
-          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will finish itself automatically — you don't need to press anything. Unanswered questions score 0, so try to finish before the timer ends!</p>
+          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions score 0, so try to finish before the timer ends!</p>
           <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
         </div>
       </form>
     </div>
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q, gold bar — your best ever, with a crown)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Placement 310Q (stayed the same), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q), 11/20/26 Daily Quiz 330Q (up 10Q, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
-        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 320Q</strong> — that's <strong>+30Q</strong>! Keep going!</p></div>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 330Q</strong> — that's <strong>+40Q</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
         <div data-growth-chart></div>
       </div>
@@ -423,8 +409,10 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>320Q</span><span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>330Q</span><span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line">320Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">▲ +20Q</span></span></div>
           </div>
         </div>
@@ -447,25 +435,20 @@
     <div id="quiz-body"></div>
     <div class="submit-zone">
       <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
-      <p class="submit-note">Your score will appear right away. If time runs out, your quiz will be finished with the answers you have so far.</p>
-    </div>
-    <div class="bottom-status-bar" id="bottom-status-bar" aria-live="polite" aria-label="Timer and progression">
-      <span class="bs-item"><span class="bs-label">Timer:</span><span class="bs-time" id="timer-bottom">20:00</span></span>
-      <span class="bs-sep" aria-hidden="true">·</span>
-      <span class="bs-item"><span class="bs-label">Progression:</span><span class="bs-fraction" id="progression-bottom">0 / 12</span></span>
+      <p class="submit-note">Your score will appear right away. If time runs out, your quiz will be sent with the answers you have so far.</p>
     </div>
   </section>
 
   <section id="view-results" class="hidden">
     <div class="results-head">
       <span class="badge">Your Result</span>
-      <div class="lexile-banner lexile-banner-results" role="note" aria-label="My Quantile Level: 320Q">⭐ My Quantile Level: 320Q</div>
+      <div class="lexile-banner lexile-banner-results" role="note" aria-label="My Quantile Level: 330Q">⭐ My Quantile Level: 330Q</div>
       <h2 style="margin-top:12px">Great work, <span id="r-name">friend</span>!</h2>
       <div class="stars" id="r-stars"></div>
       <div class="score-big"><span id="r-score">0</span><small> / 12</small></div>
       <div class="score-pct" id="r-pct">0%</div>
       <div><span class="attempt-badge" id="r-attempt">Attempt #1</span></div>
-      <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was finished automatically.</div>
+      <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was sent automatically.</div>
       <p class="friendly" id="r-message"></p>
       <div class="meta-row">
         <span class="meta-chip">⏱ Time used: <span id="r-time">0:00</span></span>
@@ -477,7 +460,7 @@
         <span class="meta-chip">Section 2: 0/4</span>
         <span class="meta-chip">Section 3: 0/4</span>
       </div>
-      <p class="saved-line">Answers checked ✓</p>
+      <p class="saved-line">Answers saved ✓</p>
     </div>
     <div class="breakdown" id="r-breakdown"></div>
     <h3 class="review-title">Review: Tap-the-Answer Questions</h3>
@@ -488,9 +471,9 @@
     <div id="r-wr-review"></div>
     <div class="results-actions">
       <div class="merged-tests">
-      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q, gold bar — your best ever, with a crown)">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth: 11/17/26 Daily Quiz 310Q (up 20Q), 11/18/26 Placement 310Q (stayed the same), 11/18/26 Daily Quiz 310Q (stayed the same), 11/19/26 Daily Quiz 320Q (up 10Q), 11/20/26 Daily Quiz 330Q (up 10Q, gold bar — your best ever, with a crown)">
         <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
-        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 320Q</strong> — that's <strong>+30Q</strong>! Keep going!</p></div>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 330Q</strong> — that's <strong>+40Q</strong>! Keep going!</p></div>
         <p class="growth-sub">Each bar is one test you finished.</p>
         <div data-growth-chart></div>
       </div>
@@ -500,8 +483,10 @@
         <div class="history-table-wrap">
         <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
           <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
-          <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>320Q</span><span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>330Q</span><span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row improved" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line">320Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">▲ +20Q</span></span></div>
           </div>
         </div>
@@ -529,137 +514,135 @@
 <script>
 (function(){
   "use strict";
-  /* ---------- November 20, 2026 math quiz (2026-11-20-math1, Cycle 1 Day 6) ----------
-     Per-submit rebuild: Eden submitted the November 19 quiz on
-     2026-11-20 05:34 PST (9/12, 10:20) \u2014 STEP 0 gate (a). His
-     Quantile peak rose to 320Q (9/12 = +10, new peak), so this page
-     is built at the 320Q centre: Section 1 \u2248270Q, Section 2
-     \u2248320Q, Section 3 \u2248370Q. Attendance baked 3/7 \u2014
-     Wednesday 11/18 (submitted the Nov 17 quiz), Thursday 11/19
-     (submitted the Nov 18 quiz) and Friday 11/20 (submitted the
-     Nov 19 quiz, the triggering submission). Growth shows THREE
-     daily records: 11/17/26 Daily Quiz 10/12 -> 310Q (+20Q, up),
-     11/18/26 Daily Quiz 8/12 -> 310Q (same) and 11/19/26 Daily Quiz
-     9/12 -> 320Q (+10Q, best). The Nov 18 math placement (27/38) is
-     not a daily quiz and stays out of the growth box. Every question
-     carries its California (CDE) Grade 2 math standard code in its
-     "std" field \u2014 kept in the question data and in the saved
-     answer log, NOT printed on the cards. Distribution: Section 1
-     (stories, counting & big adding) 3 MC + 1 written; Section 2
-     (time, money & measuring) 3 MC + 1 written; Section 3 (shapes,
-     graphs & explaining) 2 MC + 2 written. Every written question is
-     a visible TWO-PART question with two separate answer boxes,
-     graded across both boxes combined (method/step AND result).
-     Points: least-recently covered first (2.NBT.2, 2.NBT.9, 2.OA.1,
-     2.NBT.7, 2.MD.7, 2.MD.1, 2.G.2, 2.MD.10) + weak revisits 2.NBT.3,
-     2.G.3, 2.MD.5, 2.MD.8. Grading and results run on this page;
-     on submit the built answer log is saved via postLog (POST to
-     the receiver endpoint) in saveAnswerLog below.
-     No problem repeats the Day 5 quiz. */
-  var QUIZ_TITLE = "Grade 2 Math Quiz \u2014 November 20, 2026";
-  var QUIZ_DATE = "2026-11-20";
+  /* ---------- November 21, 2026 math quiz (2026-11-21-math1, Cycle 1 Day 7) ----------
+     Per-submit rebuild: Eden submitted the November 20 quiz on
+     2026-11-21 06:38 PST (9/12, 10:58) \u2014 STEP 0 gate (a), and the
+     live banner 320Q was stale vs the 330Q peak (gate (b)). Peak rose
+     to 330Q (9/12 = +10, new peak): S1 \u2248280Q, S2 \u2248330Q, S3 \u2248380Q.
+     Attendance baked 4/7 \u2014 Wed 11/18, Thu 11/19, Fri 11/20 and Sat
+     11/21 (the triggering submission day). Growth: five records before
+     today incl. the Nov 18 Placement (27/38 -> 310Q, same). Points:
+     weak revisits 2.NBT.3 + 2.G.3 (both 0% after five sittings),
+     2.MD.5, 2.MD.9, plus least-recently covered points. No problem
+     repeats the Day 6 quiz. Backups B and C are parallel forms on the
+     same points at the same positions, held unpublished for redos. */
+  var QUIZ_TITLE = "Grade 2 Math Quiz \u2014 November 21, 2026";
+  var QUIZ_DATE = "2026-11-21";
 var SECTIONS = [
     {
       id: 1, tag: "Section 1", tagClass: "tag-1",
-      title: "Stories, Counting & Big Adding",
-      subtitle: "Two-Step Stories, Skip Counting, Big Adding & Writing Numbers · 4 questions",
-      passageTitle: "Work It Out Step by Step",
+      title: "Odd or Even, Place Value & Subtracting",
+      subtitle: "Pairs & Leftovers, Hundreds Tens & Ones, Subtracting & Writing Numbers · 4 questions",
+      passageTitle: "Pairs, Places and Careful Subtracting",
       paragraphs: [
-        "Some stories take TWO steps. Mia had 47 stickers, gave away 18, then bought 25 more: first 47 − 18 = 29, then 29 + 25 = 54. Always finish the first step before you start the next one.",
-        "Skip counting by tens adds 10 every time: 340, 350, 360, 370, 380. The ones digit never changes — only the tens digit grows by one each jump.",
-        "Adding big numbers works column by column: 468 + 275 — ones 8 + 5 = 13 (write 3, carry 1), tens 6 + 7 + 1 = 14 (write 4, carry 1), hundreds 4 + 2 + 1 = 7, making 743. Numbers can also be written in words and expanded form: 324 is three hundred twenty-four, and in expanded form it is 300 + 20 + 4."
+        "To tell if a number is odd or even, make pairs. 15 counters make 7 pairs with 1 left over, so 15 is odd. 16 counters make 8 pairs with none left over, so 16 is even.",
+        "In the number 264, the digit 2 means 2 hundreds, the digit 6 means 6 tens, and the digit 4 means 4 ones. The place of a digit tells what it is worth.",
+        "Subtract in columns: 73 − 35 — ones 3 − 5 needs a trade, so 13 − 5 = 8; tens 6 − 3 = 3, making 38. Numbers can also be written in words and expanded form: 312 is three hundred twelve, and in expanded form it is 300 + 10 + 2."
       ],
       chart: null,
       questions: [
-        { n:1, std:"2.OA.1", type:"mc", text:"Mia had 47 stickers. She gave 18 stickers to her friend, then she bought 25 more stickers. How many stickers does Mia have NOW?",
-          options:["65 stickers", "54 stickers", "29 stickers", "72 stickers"],
+        { n:1, std:"2.OA.3", type:"mc", text:"Maya has 17 marbles. She puts them into pairs. Will there be one marble left over?",
+          options:["Yes, one marble is left over", "No, no marble is left over", "Yes, two marbles are left over", "No, three marbles are left over"],
+          correct:0,
+          why:"17 makes 8 pairs with 1 left over, so yes — one marble is left over, and 17 is odd." },
+        { n:2, std:"2.NBT.1", type:"mc", text:"What does the digit 4 mean in the number 438?",
+          options:["4 hundreds in the number", "4 tens in the number", "4 ones in the number", "40 ones in the number"],
+          correct:0,
+          why:"The 4 sits in the hundreds place of 438, so it means 4 hundreds." },
+        { n:3, std:"2.NBT.5", type:"mc", text:"What is 64 − 28?",
+          options:["46", "36", "42", "38"],
           correct:1,
-          why:"Step 1: 47 − 18 = 29 stickers left. Step 2: 29 + 25 = 54, so Mia has 54 stickers now." },
-        { n:2, std:"2.NBT.2", type:"mc", text:"Count by tens: 340, 350, 360, ___ , 380. What number comes in the blank?",
-          options:["365", "460", "370", "375"],
-          correct:2,
-          why:"Counting by tens adds 10 each time: 360 + 10 = 370, so the missing number is 370." },
-        { n:3, std:"2.NBT.7", type:"mc", text:"What is 468 + 275?",
-          options:["733", "743", "753", "643"],
-          correct:1,
-          why:"Ones: 8 + 5 = 13, write 3 and carry 1. Tens: 6 + 7 + 1 = 14, write 4 and carry 1. Hundreds: 4 + 2 + 1 = 7. The answer is 743." },
-        { n:4, std:"2.NBT.3", type:"written", text:"Write the number 576 in WORDS, and also in EXPANDED form (hundreds + tens + ones).",
-          part1:"Write 576 in words.",
-          part2:"Write 576 in expanded form (hundreds + tens + ones).",
-          sample:"In words: five hundred seventy-six. In expanded form: 500 + 70 + 6." }
+          why:"Ones: 14 − 8 = 6 after trading a ten. Tens: 5 − 2 = 3. The answer is 36." },
+        { n:4, std:"2.NBT.3", type:"written", text:"Write the number 489 in WORDS, and also in EXPANDED form (hundreds + tens + ones).",
+          part1:"Write 489 in words.",
+          part2:"Write 489 in expanded form (hundreds + tens + ones).",
+          sample:"In words: four hundred eighty-nine. In expanded form: 400 + 80 + 9." }
       ]
     },
     {
       id: 2, tag: "Section 2", tagClass: "tag-2",
-      title: "Time, Money & Measuring",
-      subtitle: "Clock Time, Coins, Ribbon Lengths & Measuring Tools · 4 questions",
-      passageTitle: "Time, Coins and Tools",
+      title: "Estimating, Comparing & Measuring",
+      subtitle: "Best Estimates, Longer or Shorter, Ribbon Lengths & Leaf Charts · 4 questions",
+      passageTitle: "Estimates, Differences and Charts",
       paragraphs: [
-        "On a clock, the short hand tells the hour and the long hand tells the minutes. When the long hand points at the 5, that is 5 × 5 = 25 minutes, so a short hand just past the 4 with the long hand at the 5 reads 4:25.",
-        "Coins have values: a quarter is 25 cents, a dime is 10 cents, a nickel is 5 cents and a penny is 1 cent. Two quarters, one dime and three pennies make 50 + 10 + 3 = 63 cents.",
-        "To find how much longer one ribbon is than another, subtract: an 82 cm ribbon and a 37 cm ribbon differ by 82 − 37 = 45 cm. And pick the right tool for the job — a ruler measures length, a clock tells time, a scale weighs things, and a cup measures liquid."
+        "An estimate is a sensible guess. A crayon is about 9 centimetres long — not 9 metres, which is longer than a classroom. Always ask: does this length make sense?",
+        "To find how much longer one string is than another, subtract: a 65 cm string and a 48 cm string differ by 65 − 48 = 17 cm.",
+        "The chart below shows leaf lengths the class measured. To answer 'how many leaves are 7 cm or longer', add the counts for 7 cm and for every length above it."
       ],
-      chart: null,
+      chart: {
+        title:"Leaf Lengths We Measured",
+        sub:"How many leaves of each length",
+        max: 6,
+        unit: "leaves",
+        col1: "Length",
+        col2: "Leaves",
+        rows:[
+          { label:"5 cm", count:3, cls:"apple" },
+          { label:"6 cm", count:5, cls:"teal" },
+          { label:"7 cm", count:2, cls:"banana" },
+          { label:"8 cm", count:4, cls:"orange" }
+        ]
+      },
       questions: [
-        { n:5, std:"2.MD.7", type:"mc", text:"The short hand on a clock is just past the 4. The long hand points at the 5. What time is it?",
-          options:["5:25", "4:25", "5:20", "4:20"],
-          correct:1,
-          why:"The short hand just past the 4 means the hour is 4. The long hand at the 5 means 5 × 5 = 25 minutes. The time is 4:25." },
-        { n:6, std:"2.MD.8", type:"mc", text:"Leo has 2 quarters, 1 dime and 3 pennies. How much money does Leo have?",
-          options:["53 cents", "43 cents", "63 cents", "73 cents"],
-          correct:2,
-          why:"Two quarters are 25 + 25 = 50 cents. Add the dime: 50 + 10 = 60 cents. Add 3 pennies: 60 + 3 = 63 cents." },
-        { n:7, std:"2.MD.5", type:"written", text:"A red ribbon is 82 cm long. A blue ribbon is 37 cm long. How much LONGER is the red ribbon, and how did you work it out?",
-          part1:"How much longer is the red ribbon?",
-          part2:"How did you work it out? (Write the subtracting you used.)",
-          sample:"45 cm longer. I subtracted: 82 − 37 = 45. Working: 82 − 30 = 52, then 52 − 7 = 45." },
-        { n:8, std:"2.MD.1", type:"mc", text:"Which tool is BEST for measuring the length of a book?",
-          options:["A ruler is best for it", "A clock is best for it", "A scale is best for it", "A cup is best for it"],
+        { n:5, std:"2.MD.3", type:"mc", text:"Which is the BEST estimate for the length of a new pencil?",
+          options:["About 18 centimetres in length", "About 18 metres in length", "About 180 centimetres in length", "About 2 metres in length"],
           correct:0,
-          why:"A ruler measures length, so it is the best tool for measuring a book. A clock tells time, a scale weighs things, and a cup measures liquid." }
+          why:"A pencil is short — about 18 centimetres. Metres are far too long for a pencil." },
+        { n:6, std:"2.MD.4", type:"mc", text:"A green string is 74 cm long. A yellow string is 59 cm long. How much LONGER is the green string?",
+          options:["13 centimetres longer", "15 centimetres longer", "25 centimetres longer", "133 centimetres longer"],
+          correct:1,
+          why:"Subtract: 74 − 59 = 15, so the green string is 15 centimetres longer." },
+        { n:7, std:"2.MD.5", type:"written", text:"A toy track is made of a 57 cm piece and a 26 cm piece joined end to end. How long is the WHOLE track, and how did you work it out?",
+          part1:"How long is the whole track?",
+          part2:"How did you work it out? (Write the adding you used.)",
+          sample:"83 cm long. I added: 57 + 26 = 83. Working: 57 + 20 = 77, then 77 + 6 = 83." },
+        { n:8, std:"2.MD.9", type:"mc", text:"Look at the chart. How many leaves are 6 cm or longer?",
+          options:["8 leaves", "11 leaves", "14 leaves", "5 leaves"],
+          correct:1,
+          why:"Add the counts for 6 cm, 7 cm and 8 cm: 5 + 2 + 4 = 11 leaves." }
       ]
     },
     {
       id: 3, tag: "Section 3", tagClass: "tag-3",
       title: "Shapes, Graphs & Explaining",
-      subtitle: "Rows of Squares, Seashell Graph, Fair Shares & Smart Adding · 4 questions",
+      subtitle: "Quadrilaterals, Book Graph, Fair Shares & Comparing Numbers · 4 questions",
       passageTitle: "Shapes, Graphs and Fair Shares",
       paragraphs: [
-        "A rectangle can be split into rows and columns of same-size squares. A rectangle with 2 rows and 4 columns has 4 + 4 = 8 squares in all.",
-        "The chart below shows how many seashells four children collected. To compare two children, subtract the smaller count from the larger one: Cleo collected 8 and Ben collected 4, and 8 − 4 = 4, so Cleo collected 4 more than Ben — check the chart to be sure.",
-        "Cutting a whole into 4 EQUAL parts makes fourths (also called quarters), and 4 fourths make the whole again. Smart adding can break a number apart: 25 is 20 and 5 more, so 49 + 25 can be done as 49 + 20 = 69, then 69 + 5 = 74."
+        "A quadrilateral is a shape with 4 sides and 4 vertices (corners). A square and a rectangle are quadrilaterals; a triangle has only 3 sides, and a pentagon has 5.",
+        "The chart below shows how many books four children read this week. To compare two children, subtract the smaller count from the larger one.",
+        "Cutting a whole into 2 EQUAL parts makes halves, and 2 halves make the whole again. To compare big numbers, look at the hundreds first, then the tens: 248 and 254 both have 2 hundreds, but 5 tens beats 4 tens, so 254 is greater."
       ],
       chart: {
-        title:"Seashells the Class Collected",
-        sub:"How many seashells each child collected",
-        max: 8,
-        unit: "shells",
+        title:"Books Read This Week",
+        sub:"How many books each child read",
+        max: 9,
+        unit: "books",
         col1: "Child",
-        col2: "Shells",
+        col2: "Books",
         rows:[
-          { label:"Ana", count:6, cls:"apple" },
-          { label:"Ben", count:4, cls:"teal" },
-          { label:"Cleo", count:8, cls:"banana" },
-          { label:"Dan", count:5, cls:"orange" }
+          { label:"Eli", count:7, cls:"apple" },
+          { label:"Ivy", count:5, cls:"teal" },
+          { label:"Sam", count:9, cls:"banana" },
+          { label:"Zoe", count:6, cls:"orange" }
         ]
       },
       questions: [
-        { n:9, std:"2.G.2", type:"mc", text:"A rectangle is split into 2 rows and 4 columns of SAME-SIZE squares. How many squares are there IN ALL?",
-          options:["6 squares", "10 squares", "8 squares", "12 squares"],
-          correct:2,
-          why:"Each row has 4 squares and there are 2 rows: 4 + 4 = 8 squares in all." },
-        { n:10, std:"2.MD.10", type:"mc", text:"Look at the chart. How many MORE seashells did Cleo collect than Ben?",
-          options:["12 seashells", "4 seashells", "6 seashells", "8 seashells"],
+        { n:9, std:"2.G.1", type:"mc", text:"Which of these shapes is a quadrilateral (4 sides and 4 corners)?",
+          options:["A square is one of them", "A triangle is one of them", "A circle is one of them", "A pentagon is one of them"],
+          correct:0,
+          why:"A square has 4 sides and 4 corners, so it is a quadrilateral. A triangle has 3 sides and a pentagon has 5." },
+        { n:10, std:"2.MD.10", type:"mc", text:"Look at the chart. How many MORE books did Sam read than Ivy?",
+          options:["2 more books", "4 more books", "5 more books", "14 more books"],
           correct:1,
-          why:"Cleo collected 8 seashells and Ben collected 4. Subtract: 8 − 4 = 4, so Cleo collected 4 more seashells." },
-        { n:11, std:"2.G.3", type:"written", text:"A pie is cut into 4 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole pie?",
+          why:"Sam read 9 books and Ivy read 5. Subtract: 9 − 5 = 4, so Sam read 4 more books." },
+        { n:11, std:"2.G.3", type:"written", text:"A sandwich is cut into 2 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole sandwich?",
           part1:"What is each equal part called?",
-          part2:"How many of those parts make the whole pie?",
-          sample:"Each part is called a fourth (a quarter). It takes 4 fourths to make the whole pie." },
-        { n:12, std:"2.NBT.9", type:"written", text:"Sam added 49 + 25 by first adding 49 + 20, then adding 5 more. What is Sam's final answer, and what were his two steps?",
-          part1:"What is the final answer to 49 + 25?",
-          part2:"What were Sam's two steps? (Write the two adding steps he used.)",
-          sample:"The final answer is 74. Sam's steps: 49 + 20 = 69, then 69 + 5 = 74, because 25 is 20 and 5 more." }
+          part2:"How many of those parts make the whole sandwich?",
+          sample:"Each part is called a half. It takes 2 halves to make the whole sandwich." },
+        { n:12, std:"2.NBT.4", type:"written", text:"Which number is GREATER, 356 or 365, and how do you know by looking at the TENS place?",
+          part1:"Which number is greater, 356 or 365?",
+          part2:"How do you know from the tens place?",
+          sample:"365 is greater. Both numbers have 3 hundreds, but 365 has 6 tens and 356 has only 5 tens, and 6 tens is more than 5 tens." }
       ]
     }
 
@@ -754,9 +737,9 @@ var SECTIONS = [
     });
     var h1 = 5381, h2 = 52711;
     for(var i = 0; i < raw.length; i++){ var c = raw.charCodeAt(i); h1 = ((h1 * 33) ^ c) >>> 0; h2 = ((h2 * 31) ^ c) >>> 0; }
-    return "g2-2026-11-20-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
+    return "g2-2026-11-21-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
   }
-  var QUIZ_ID = "2026-11-20-math1";
+  var QUIZ_ID = "2026-11-21-math1";
   function normalizedStudentName(){ return String(studentName || "").trim().toLowerCase().replace(/\s+/g, " "); }
   function attemptStorageKey(){ return "g2rq-attempts-v1:" + QUIZ_ID + ":" + normalizedStudentName(); }
   function recordAttempt(){
@@ -881,8 +864,10 @@ var SECTIONS = [
      Chart scale top is best + 250 = 570. */
   var GROWTH = [
     { date:"11/17/26", type:"Daily Quiz", lexile:310, delta:"+20Q", kind:"up" },
+    { date:"11/18/26", type:"Placement", lexile:310, delta:"same", kind:"same" },
     { date:"11/18/26", type:"Daily Quiz", lexile:310, delta:"same", kind:"same" },
-    { date:"11/19/26", type:"Daily Quiz", lexile:320, delta:"+10Q", kind:"best" }
+    { date:"11/19/26", type:"Daily Quiz", lexile:320, delta:"+10Q", kind:"up" },
+    { date:"11/20/26", type:"Daily Quiz", lexile:330, delta:"+10Q", kind:"best" }
   ];
 
   function renderGrowthCharts(){
@@ -1006,14 +991,6 @@ var SECTIONS = [
     var c = answeredCount();
     $("progress-fill").style.width = (c/12*100) + "%";
     $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " \u2014 nice, you answered everything!" : "");
-    var pb = $("progression-bottom");
-    if(pb){
-      var nextText = c + " / 12";
-      if(pb.textContent !== nextText){
-        pb.textContent = nextText;
-        pb.classList.remove("pop"); void pb.offsetWidth; pb.classList.add("pop");
-      }
-    }
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
       var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenDone(q);
       var card = $("qcard-"+q.n); if(card) card.classList.toggle("answered", done);
@@ -1030,18 +1007,14 @@ var SECTIONS = [
   function updateTimer(){
     if(submitted) return;
     var el = elapsedSeconds(); var left = TOTAL_SECONDS - el; var t = $("timer");
-    var tb = $("timer-bottom");
     if(left > 0){
       t.textContent = "\u23F1 " + fmtTime(Math.ceil(left));
-      if(tb) tb.textContent = fmtTime(Math.ceil(left));
       var inLastMinute = left <= 60;
       t.classList.toggle("critical", inLastMinute);
       t.classList.toggle("low", !inLastMinute && left <= 120);
       if(inLastMinute){ var w = $("time-warning"); if(w) w.classList.remove("hidden"); }
     } else {
-      t.textContent = "\u23F1 0:00"; t.classList.add("critical"); t.classList.remove("low");
-      if(tb) tb.textContent = "0:00";
-      autoSubmit();
+      t.textContent = "\u23F1 0:00"; t.classList.add("critical"); t.classList.remove("low"); autoSubmit();
     }
   }
   function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
@@ -1168,42 +1141,24 @@ var SECTIONS = [
     });
     return lines.join("\n");
   }
+  var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+  function postLog(payload){
+    var body = "";
+    try { body = JSON.stringify(payload); } catch(e) { return; }
+    try {
+      if(navigator && navigator.sendBeacon){
+        var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
+        if(navigator.sendBeacon(RECEIVER_URL, blob)) return;
+      }
+    } catch(e) {}
+    try {
+      fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body });
+    } catch(e) {}
+  }
   function saveAnswerLog(totalScore){
     var logText = "";
     try { logText = buildAnswerLog(totalScore); } catch(e) { logText = ""; }
     var payload = { folder: "Eden", subfolder: "數學习题", student: studentName, test: QUIZ_TITLE, date: QUIZ_DATE, attempt: attemptCount, score: totalScore + "/12", log: logText };
-
-  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
-     Google Apps Script, so the Apps Script runner does not exist here. The answer
-     log is POSTed directly to the same receiver endpoint (its doPost), with
-     the identical payload shape the watcher already parses. fetch(no-cors)
-     first; sendBeacon as fallback; a second fetch as last resort. */
-  function postLog(payload){
-    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
-    var body;
-    try { body = JSON.stringify(payload); } catch (e) { return false; }
-    function beacon(){
-      try {
-        if (navigator && typeof navigator.sendBeacon === "function") {
-          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
-        }
-      } catch (e) {}
-      return false;
-    }
-    function fetchPost(){
-      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
-        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
-    }
-    try {
-      if (window.fetch) {
-        fetchPost().catch(function(){ if (!beacon()) { try { fetchPost().catch(function(){}); } catch (e) {} } });
-        return true;
-      }
-      return beacon();
-    } catch (e) {
-      return beacon();
-    }
-  }
     try { postLog(payload); } catch (e) {}
   }
   function goToResults(isAuto){
@@ -1229,36 +1184,36 @@ var SECTIONS = [
   function pointFound(norm, alternatives){ for(var i = 0; i < alternatives.length; i++){ if(altMatches(norm, alternatives[i])) return true; } return false; }
 var GRADE_KEYS = {
     4: [
-      { found: "576 in words: five hundred seventy-six",
-        missing: "576 written in words (five hundred seventy-six)",
-        alt: [["five hundred seventy-six"],["five hundred and seventy-six"],["five hundred seventy six"]] },
-      { found: "576 in expanded form: 500 + 70 + 6",
-        missing: "576 in expanded form (500 + 70 + 6)",
-        alt: [["500 + 70 + 6"],["500+70+6"]] }
+      { found: "489 in words: four hundred eighty-nine",
+        missing: "489 written in words (four hundred eighty-nine)",
+        alt: [["four hundred eighty-nine"],["four hundred and eighty-nine"],["four hundred eighty nine"]] },
+      { found: "489 in expanded form: 400 + 80 + 9",
+        missing: "489 in expanded form (400 + 80 + 9)",
+        alt: [["400 + 80 + 9"],["400+80+9"]] }
     ],
     7: [
-      { found: "How much longer the red ribbon is: 45 cm",
-        missing: "how much longer the red ribbon is — 45 cm",
-        alt: [["45"]] },
-      { found: "How you worked it out: subtracting 82 − 37",
-        missing: "how you worked it out — say that you subtracted (82 − 37)",
-        alt: [["82 - 37"],["82-37"],["subtract"],["minus"],["took away"]] }
+      { found: "How long the whole track is: 83 cm",
+        missing: "how long the whole track is — 83 cm",
+        alt: [["83"]] },
+      { found: "How you worked it out: adding 57 + 26",
+        missing: "how you worked it out — say that you added (57 + 26)",
+        alt: [["57 + 26"],["57+26"],["add"],["plus"]] }
     ],
     11: [
-      { found: "Each part is called a fourth (a quarter)",
-        missing: "what each part is called — a fourth (a quarter)",
-        alt: [["fourth"],["quarter"],["fourths"],["quarters"]] },
-      { found: "It takes 4 parts (fourths) to make the whole pie",
-        missing: "how many parts make the whole — 4",
-        alt: [["4 parts"],["four parts"],["4 fourths"],["four fourths"],["takes 4"],["4"]] }
+      { found: "Each part is called a half",
+        missing: "what each part is called — a half",
+        alt: [["half"],["halves"]] },
+      { found: "It takes 2 parts (halves) to make the whole sandwich",
+        missing: "how many parts make the whole — 2",
+        alt: [["2 parts"],["two parts"],["2 halves"],["two halves"],["takes 2"],["2"]] }
     ],
     12: [
-      { found: "The final answer to 49 + 25 is 74",
-        missing: "the final answer — 74",
-        alt: [["74"]] },
-      { found: "Sam's two steps: 49 + 20 = 69, then 69 + 5 = 74",
-        missing: "Sam's two steps — first add 49 + 20, then add 5 more",
-        alt: [["49 + 20"],["49+20"],["69 + 5"],["69+5"],["add 5 more"]] }
+      { found: "The greater number is 365",
+        missing: "the greater number — 365",
+        alt: [["365"]] },
+      { found: "The tens place shows it: 365 has 6 tens, 356 has 5 tens",
+        missing: "the tens-place reason — 6 tens is more than 5 tens",
+        alt: [["tens"],["6 tens"],["60"],["six tens"]] }
     ]
 
   };
@@ -1345,8 +1300,6 @@ var GRADE_KEYS = {
     var w = $("time-warning"); if(w) w.classList.add("hidden");
     var an = $("r-auto-note"); if(an) an.classList.add("hidden");
     var tm = $("timer"); if(tm){ tm.textContent = "\u23F1 " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical"); }
-    var tb2 = $("timer-bottom"); if(tb2) tb2.textContent = fmtTime(TOTAL_SECONDS);
-    var pb2 = $("progression-bottom"); if(pb2) pb2.textContent = "0 / 12";
     studentName = TEST_MODE ? "TEST" : "Eden";
     show("view-start");
   });
