@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Grade 4 Reading Quiz — November 20, 2026</title>
+<title>Grade 4 Reading Quiz — November 22, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -555,7 +555,7 @@
       <div class="attendance">
         <div class="att-head">
           <h2 class="att-title">📅 My Attendance This Week</h2>
-          <span class="att-count">5 / 7 days</span>
+          <span class="att-count">6 / 7 days</span>
         </div>
         <p class="att-sub">本周出席打卡 · Mon Nov 16 – Sun Nov 22 — finish a quiz, get a punch for that day!</p>
         <div class="punch-row">
@@ -579,23 +579,23 @@
             <span class="punch-circle done" aria-hidden="true">✓</span>
             <span class="day-date">11/19</span>
           </div>
-          <div class="punch-day today" data-date="2026-11-20">
+          <div class="punch-day" data-date="2026-11-20">
             <span class="day-name">Fri<span class="day-zh">周五</span></span>
-            <span class="punch-circle done today-ring" aria-hidden="true">✓</span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
             <span class="day-date">11/20</span>
           </div>
           <div class="punch-day" data-date="2026-11-21">
             <span class="day-name">Sat<span class="day-zh">周六</span></span>
-            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="punch-circle done" aria-hidden="true">✓</span>
             <span class="day-date">11/21</span>
           </div>
-          <div class="punch-day" data-date="2026-11-22">
+          <div class="punch-day today" data-date="2026-11-22">
             <span class="day-name">Sun<span class="day-zh">周日</span></span>
-            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="punch-circle upcoming today-ring" aria-hidden="true">·</span>
             <span class="day-date">11/22</span>
           </div>
         </div>
-        <p class="att-message">🎉 Great job, Amber! You showed up <strong>5 days</strong> this week — Monday, Tuesday, Wednesday, Thursday and Friday done! Let's fill the whole week!</p>
+        <p class="att-message">🎉 Great job, Amber! You showed up <strong>6 days</strong> this week — Monday, Tuesday, Wednesday, Thursday, Friday and Saturday done! Let's fill the whole week!</p>
       </div>
 
       <span class="lexile-banner" role="note">⭐ My Lexile Level: 1110L</span>
@@ -852,137 +852,310 @@
 
    
 var SECTIONS = [
-    {
-      id: 1, tag: "Section 1", tagClass: "tag-1",
-      title: "Key Ideas & Details",
-      subtitle: "Nonfiction · How Tide Pools Form · 4 questions",
-      passageTitle: "How Tide Pools Form",
-      paragraphs: [
-        "[1] When the ocean tide goes out, it leaves behind small pools of seawater trapped among the rocks along the shore. These pools are called tide pools, and they form in low spots and cracks in the rock. Each pool is like a tiny ocean world of its own. The water stays behind because the rock around the pool stands higher than the water itself.",
-        "[2] A tide pool must be deep enough to hold its water for many hours. Shallow pools dry up quickly under the hot sun, long before the tide returns. Deeper pools keep their water safely until the sea comes back. When the tide returns, it brings fresh water and food into every pool, and it carries away the waste that has collected there.",
-        "[3] Many small animals make their home in a tide pool. Sea stars cling to the rocks with hundreds of tiny tube feet. Anemones wave their soft arms to catch bits of food drifting past. Small crabs hide beneath stones, and tiny fish dart quickly between the shadows. Each animal has its own way of staying safe when the pool grows warm or salty.",
-        "[4] Life in a tide pool is not easy, because conditions there change again and again. The sun can heat the water and make it saltier as the water dries up. A sudden rain can fill the pool with fresh water in minutes. At high tide, waves crash over the rocks, and animals must hold on tightly or be swept away.",
-        "[5] Scientists visit tide pools to study how animals live in such changing conditions. They count the animals and measure the temperature and salt in the water. They are careful to put every rock back exactly where they found it, because a rock dropped in the wrong place can crush the small animals hiding beneath it. By studying tide pools, scientists learn how ocean life responds when the sea itself changes.",
-        "[6] Visitors can enjoy tide pools too, if they walk gently and leave every animal where it belongs. The best time to come is just after the tide goes out. Then the pools are full, calm, and easy to see into. Every pool the tide leaves behind is a small, busy world waiting to be discovered."
-      ],
-      chart: null,
-      table: null,
-      questions: [
-        { n:1, std:"RI.4.1", type:"mc", text:"Why do shallow tide pools not keep their water?",
-          options:["Their rocks stand lower than the water inside the pool", "The hot sun dries them out long before the tide comes back", "The returning tide carries all of their water away as waste", "Crashing waves wash their water out over the wet rocks"],
-          correct:1, evidence:2, evLabel:"the passage",
-          why:"Paragraph 2 says shallow pools dry up quickly under the hot sun, long before the tide returns. The rocks around a pool stand higher, not lower; the returning tide brings water in rather than carrying it away; and the crashing waves arrive at high tide, when the pool is refilling." },
-        { n:2, std:"RI.4.3", type:"mc", text:"Why do scientists put every rock back exactly where they found it?",
-          options:["Animals hiding underneath can be crushed by a rock dropped there", "The rocks hold the pool's water in place until the tide comes back", "They count the animals hiding beneath each rock before lifting it", "Fresh rainwater collects under rocks for the animals to drink"],
-          correct:0, evidence:5, evLabel:"the passage",
-          why:"Paragraph 5 says a rock dropped in the wrong place can crush the small animals hiding beneath it. Scientists do count animals, but the passage gives the crushing danger as the reason for putting rocks back carefully." },
-        { n:3, std:"RI.4.4", type:"mc", text:"In paragraph 3, what does the word \"cling\" most likely mean?",
-          options:["Wave slowly in the water to catch food", "Hold on tightly to a rock's surface", "Hide quietly beneath the stones", "Move quickly between the shadows"],
-          correct:1, evidence:3, evLabel:"the passage",
-          why:"In paragraph 3, sea stars cling to the rocks with hundreds of tiny tube feet — they hold on tightly. Waving describes the anemones, hiding describes the crabs, and moving quickly describes the tiny fish." },
-        { n:4, std:"RI.4.8", type:"written", text:"The author makes a point about life in a tide pool, and supports it with evidence.",
-          sample:"The author's point is that life in a tide pool is not easy. One piece of evidence is that the sun heats the water and makes it saltier (or: sudden rain fills the pool with fresh water; or: waves crash over the rocks at high tide).",
-          parts:[
-            { text:"What point does the author make about life in a tide pool?", sample:"Life in a tide pool is not easy." },
-            { text:"Give ONE piece of evidence from the passage that the author uses to support that point.", sample:"The sun heats the water and makes it saltier as it dries up." }
-          ] }
-      ]
-    },
-    {
-      id: 2, tag: "Section 2", tagClass: "tag-2",
-      title: "Reading Comprehension",
-      subtitle: "Fiction · Kenji and the Hundredth Crane · 4 questions",
-      passageTitle: "Kenji and the Hundredth Crane",
-      paragraphs: [
-        "[1] Every evening after supper, Kenji sat at the kitchen table and folded one paper crane. He had begun in early spring, when the plum tree outside the window was still bare. Tomorrow, his grandmother would celebrate her one hundredth birthday. Kenji planned to give her one hundred cranes, one for each year of her life, because he believed a gift made slowly carried more love than anything a store could sell.",
-        "[2] Folding a crane was harder than it looked. The paper had to be perfectly square, and every fold had to line up exactly, or the wings would tilt to one side. Kenji's first cranes had crooked necks and wings that would not open. His grandmother, who had taught him the folds when he was very small, only smiled and said, \"A crane folded with patience stands straighter than one folded in a hurry.\"",
-        "[3] By the final week, ninety-nine cranes stood in neat rows on Kenji's windowsill. They were red, gold, green, and blue, and in the morning light they seemed ready to fly away. But the hundredth crane would not fold. Three times the paper tore right at the beak. Three times Kenji smoothed out a fresh sheet and began again, his fingers growing slower and more careful each time.",
-        "[4] That night, Kenji carried the torn papers down to the kitchen, where his grandmother was shelling peas into a bowl. \"I wanted everything to be perfect for you,\" he admitted quietly. His grandmother took the torn crane and turned it slowly in her wrinkled hands. \"Then let this one be the most loved of all,\" she said. \"It shows everyone how hard you tried.\"",
-        "[5] On the morning of the birthday, Kenji arranged the ninety-nine bright cranes on a wide tray, with the torn one set right in the middle. When his grandmother saw the tray, her eyes shone. She lifted the torn crane first, before touching any of the perfect ones. \"One hundred years,\" she whispered, \"and this is the crane I will keep closest to my heart.\"",
-        "[6] Standing there, Kenji finally understood what his grandmother had always known. The worth of a gift is not measured by how flawless it is. It is measured by the time, the care, and the love folded into it. Every one of his hundred quiet evenings, he realised, had been folded at last into a single morning."
-      ],
-      chart: null,
-      table: null,
-      questions: [
-        { n:5, std:"RL.4.1", type:"mc", text:"Why did Kenji fold one paper crane every evening?",
-          options:["To make a birthday gift of one hundred cranes for his dear grandmother", "To practise his folding until every crane's wings stood perfectly straight", "To teach his grandmother the paper folds she had taught him long ago", "To fill his windowsill with neat rows of brightly coloured paper birds"],
-          correct:0, evidence:1, evLabel:"the passage",
-          why:"Paragraph 1 says Kenji planned to give his grandmother one hundred cranes for her one hundredth birthday, one for each year of her life. Practising, teaching his grandmother, and filling the windowsill are things connected to the story, but they are not the reason he folded a crane every evening." },
-        { n:6, std:"RL.4.2", type:"mc", text:"What is the main lesson of this story?",
-          options:["A gift must be flawless before it is worth giving to someone", "A torn gift should be hidden behind the perfect ones on the tray", "A gift's worth comes from the time, care, and love folded into it", "Folding slowly is the only way to make a paper crane stand straight"],
-          correct:2, evidence:6, evLabel:"the passage",
-          why:"Paragraph 6 says the worth of a gift is measured by the time, the care, and the love folded into it — not by how flawless it is. Kenji placed the torn crane in the middle of the tray, not hidden, and his grandmother lifted it first." },
-        { n:7, std:"RL.4.3", type:"mc", text:"What does Kenji do right after the paper tears for the third time?",
-          options:["He brings the torn papers to his grandmother in the kitchen", "He takes a fresh sheet, smooths it out, and starts over", "He asks his grandmother to fold the last crane for him", "He sets the torn crane in the middle of the wide tray"],
-          correct:1, evidence:3, evLabel:"the passage",
-          why:"Paragraph 3 says that each time the paper tore, Kenji smoothed out a fresh sheet and began again. He carried the torn papers to the kitchen later that night, and he set the torn crane on the tray the next morning." },
-        { n:8, std:"RL.4.6", type:"written", text:"Point of view — who tells the story, and what do we learn about Kenji?",
-          sample:"A narrator outside the story tells it. We learn Kenji wanted everything to be perfect (or: his fingers grew slower and more careful; or: at last he understood what his grandmother had always known).",
-          parts:[
-            { text:"Who tells this story — Kenji himself, or a narrator outside the story?", sample:"A narrator outside the story tells it." },
-            { text:"Name ONE thought or feeling of Kenji's that the reader learns from his words or actions.", sample:"Kenji wanted everything to be perfect for his grandmother." }
-          ] }
-      ]
-    },
-    {
-      id: 3, tag: "Section 3", tagClass: "tag-3",
-      title: "Integration of Knowledge & Ideas",
-      subtitle: "Two Texts + Chart · Riding the Ferry, Long Ago and Today · 4 questions",
-      passageTitle: null,
-      texts: [
-        { label:"Text A", title:"Riding the Ferry Long Ago",
-          paragraphs:[
-            "[1] A hundred years ago, the ferry was the only way for many families to cross the wide river between the two towns. The roads ended at the water's edge, and no bridge yet joined the two banks. People walked down to a wooden dock and waited there for the ferry to return from the far side.",
-            "[2] Tickets cost only a few pennies, and the ferryman collected them in a leather bag as passengers stepped aboard. Farmers brought baskets of eggs and vegetables to sell at the market across the river. Horses and wagons rolled onto the lower deck, where they stood between ropes during the crossing.",
-            "[3] The earliest ferries were pushed along by long poles and, later, pulled across by ropes stretched over the river. On windy days the crossing could take a whole hour, and the boat rocked until some passengers felt ill. In winter, floating ice sometimes trapped the ferry in the middle of the river for an entire day.",
-            "[4] There was no schedule the passengers could check before leaving home. Instead, the ferryman rang a great bell on the dock when the boat was ready to leave. Families who lived near the river learned to hurry at the sound of the bell. Anyone who missed the boat simply waited on the dock for it to come back.",
-            "[5] The trip was slow, yet many passengers loved it dearly. Children counted the herons standing along the banks, and neighbours shared their news during the long crossing. The ferry was far more than a boat to the people who rode it. It was the thread that tied the two towns together."
-          ] },
-        { label:"Text B", title:"Riding the Ferry Today",
-          paragraphs:[
-            "[1] Today the ferry still crosses the very same river, but nearly everything about the trip has changed. A steel bridge now stands half a mile away, yet thousands of riders still choose the ferry every week. For many of them, the short trip across the water is the calmest part of the whole day.",
-            "[2] Riders now buy their tickets with a card or a phone, and a machine checks each ticket before the gate opens. The modern ferry carries cars on its lower deck and passengers on the upper deck, where wide windows face the water. Bicycles roll aboard through their own gate, and their riders walk them to racks near the front of the boat.",
-            "[3] A strong diesel engine turns great wheels that push the ferry steadily through the water. The crossing now takes only twelve minutes in almost any weather. Bright screens on the dock and on board show the exact minute of the next departure, so nobody has to guess, and nobody has to hurry at the sound of a bell.",
-            "[4] The ferry company publishes its full schedule a month ahead, and riders can follow the boat's position on their phones. If ice forms on the river in winter, a smaller ice-breaking boat clears a path before the first crossing of the day. Delays are rare, and when one does happen, the company sends a message to every rider right away.",
-            "[5] Some things, though, have not changed at all in a hundred years. Children still count the herons standing along the banks, just as children did long ago. Neighbours still share their news as the far shore draws closer. The ferry remains what it always was — the thread that ties the two towns together."
-          ] }
-      ],
-      chart: {
-        title:"Passengers on the River Ferry in One Week",
-        sub:"Number of passengers who rode the River Ferry each day",
-        col1:"Day", col2:"Passengers",
-        rows:[
-          { label:"Monday", value:212, cls:"canopy" },
-          { label:"Tuesday", value:198, cls:"tree" },
-          { label:"Wednesday", value:205, cls:"canopy" },
-          { label:"Thursday", value:236, cls:"tree" },
-          { label:"Friday", value:289, cls:"sunny" }
+  {
+    "id": 1,
+    "tag": "Section 1",
+    "tagClass": "tag-1",
+    "title": "Key Ideas & Details",
+    "subtitle": "Nonfiction · Why Mangrove Trees Protect the Shore · 4 questions",
+    "passageTitle": "Why Mangrove Trees Protect the Shore",
+    "paragraphs": [
+      "[1] Along warm, muddy coasts, a special kind of tree grows right where the land meets the sea. These trees are called mangroves, and they protect the shore in several important ways. Their roots stand in salty water, their branches shelter young animals, and their leaves drop food into the shallows for tiny sea creatures.",
+      "[2] A mangrove's roots grow down from its branches and trunk like long, curved legs. The roots push deep into the soft mud and hold the tree steady when waves roll in. They also trap mud and sand that the water carries, so the shoreline slowly builds up instead of washing away.",
+      "[3] The tangle of roots is a safe nursery for young sea animals. Small fish hide between the roots, where bigger fish cannot easily chase them. Young crabs and shrimps find food and shelter there too. Because so many babies grow up among the roots, fishermen call the mangrove forest a nursery of the sea.",
+      "[4] Mangroves protect people as well as animals. When a storm pushes huge waves toward the land, the thick forest of roots slows the water down. Villages behind a mangrove forest often suffer less flooding than villages where the trees have been cut. The trees work like a soft wall that breaks the wave's power.",
+      "[5] Sadly, many mangrove forests have been cleared to build ponds, farms, and hotels. When the trees disappear, the mud washes away and young fish lose their hiding places. Storm waves then reach the villages with nothing to slow them. Losing the forest harms the coast, the animals, and the people all at once.",
+      "[6] Today, many coastal towns are planting mangroves again. Volunteers push young seedlings into the mud at low tide and guard them until their roots grow strong. Each new tree adds shelter for animals and safety for the shore. Protecting mangroves is one of the simplest ways people can protect the coast."
+    ],
+    "chart": null,
+    "table": null,
+    "questions": [
+      {
+        "n": 1,
+        "std": "RI.4.2",
+        "type": "mc",
+        "text": "What is the main idea of this passage?",
+        "options": [
+          "Mangrove forests shelter animals but cannot protect people on coast",
+          "Mangrove trees protect the shore, sea animals, and coastal people together",
+          "Mangrove seedlings need volunteers to guard them while their roots grow",
+          "Mangrove roots hold mud in place so shorelines can slowly grow wider over time"
+        ],
+        "correct": 1,
+        "evidence": 1,
+        "evLabel": "the passage",
+        "why": "Paragraph 1 introduces the whole passage: mangroves protect the shore in several ways, shelter young animals, and feed sea creatures, and later paragraphs add protection for people. The other choices name only one detail each, and the first reverses the passage — the trees do protect people."
+      },
+      {
+        "n": 2,
+        "std": "RI.4.5",
+        "type": "mc",
+        "text": "How is paragraph 4 mostly organised?",
+        "options": [
+          "It compares villages with mangrove forests to villages without any trees",
+          "It lists the kinds of animals that grow up among the mangrove roots",
+          "It explains how mangrove roots slow storm water and reduce flooding harm",
+          "It describes the steps volunteers follow when planting young mangrove seedlings"
+        ],
+        "correct": 2,
+        "evidence": 4,
+        "evLabel": "the passage",
+        "why": "Paragraph 4 is organised as cause and effect: storm waves rush in, the thick roots slow the water, and villages behind the forest suffer less flooding. The comparison wording is only one supporting detail, the animals belong to paragraph 3, and the planting steps belong to paragraph 6."
+      },
+      {
+        "n": 3,
+        "std": "RI.4.4",
+        "type": "mc",
+        "text": "In paragraph 3, what does the word \"nursery\" most likely mean?",
+        "options": [
+          "A garden plot where volunteers plant young coastal trees",
+          "A safe place where young living things grow up protected",
+          "A deep pool where small fish hide from hungry bigger fish",
+          "A muddy shore where crabs and shrimps look for food"
+        ],
+        "correct": 1,
+        "evidence": 3,
+        "evLabel": "the passage",
+        "why": "Paragraph 3 says the roots are a safe nursery where small fish hide and young crabs and shrimps grow up — a protected place for the young. It is not a tree garden, a pool, or just a feeding shore."
+      },
+      {
+        "n": 4,
+        "std": "RI.4.8",
+        "type": "written",
+        "text": "The author makes a point about cutting down mangrove forests, and supports it with evidence.",
+        "sample": "The author's point is that losing mangrove forests harms the coast, the animals, and the people. One piece of evidence is that the mud washes away and young fish lose their hiding places (or: storm waves reach the villages with nothing to slow them).",
+        "parts": [
+          {
+            "text": "What point does the author make about clearing mangrove forests?",
+            "sample": "Clearing mangrove forests harms the coast, the animals, and the people all at once."
+          },
+          {
+            "text": "Give ONE piece of evidence from the passage that the author uses to support that point.",
+            "sample": "When the trees disappear, the mud washes away and young fish lose their hiding places."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "tag": "Section 2",
+    "tagClass": "tag-2",
+    "title": "Reading Comprehension",
+    "subtitle": "Fiction · Sofia and the Night Bakery · 4 questions",
+    "passageTitle": "Sofia and the Night Bakery",
+    "paragraphs": [
+      "[1] Sofia had never stayed up past midnight before, but tonight was different. Tomorrow the whole town would gather for the Harvest Festival, and her family's little bakery had promised one hundred loaves of bread. So at nine o'clock, Sofia pulled on her apron, tied her hair back, and joined her mother and grandmother among the warm ovens.",
+      "[2] From the very first hour, the night felt like an adventure Sofia would remember forever. 'I can knead dough as well as anyone,' she said, pressing her palms into the soft, floury mound. But her arms soon ached, the dough stuck to her fingers, and her first loaf came out lopsided, with one side puffed high and the other flat as a stone.",
+      "[3] Grandmother did not laugh at the crooked loaf. Instead, she told Sofia the old tale of the Crab and the Moon, a story her own grandmother had told her in this same bakery. In the tale, a little crab tried to carry the moon home in one proud trip, failed again and again, and finally learned to carry small pieces of moonlight, one shellful at a time.",
+      "[4] While the dough rested, Grandmother sang the bakers' old work song, the one the family had sung for a hundred years:\n\"Small hands, steady hands, fold the dough and wait;\nSmall steps, steady steps, open the morning gate.\nOne loaf, then another, till the sky turns light —\nKind hands feed the whole town by the end of the night.\"",
+      "[5] Sofia set the crooked loaf aside and began again, this time in small, steady steps. She weighed each piece of dough, folded it twice, and lined the loaves in even rows. When one loaf tore, she patched it calmly and kept going. Loaf by loaf, the trays filled, until the hundredth loaf slid into the oven just as the sky began to pale.",
+      "[6] At the festival, Sofia's mother placed the crooked first loaf in the very centre of the table, tied with a red ribbon. 'This one taught us how the night was won,' she said. Sofia smiled, because she understood at last: big jobs are not finished in one proud leap. They are finished the crab's way — one small, steady shellful at a time."
+    ],
+    "chart": null,
+    "table": null,
+    "questions": [
+      {
+        "n": 5,
+        "std": "RL.4.3",
+        "type": "mc",
+        "text": "How does Sofia change from the start of the story to the end?",
+        "options": [
+          "She begins proud of her skill, then works in steady steps",
+          "She begins afraid of the ovens, then joins in the family's singing",
+          "She begins wide awake, then falls asleep long before dawn",
+          "She begins helping her grandmother, then bakes the loaves all alone"
+        ],
+        "correct": 0,
+        "evidence": 2,
+        "evLabel": "the passage",
+        "why": "In paragraph 2 Sofia proudly says she can knead as well as anyone, but after the crooked loaf she works, in paragraph 5, in small, steady steps. She never falls asleep, she does not bake alone, and Grandmother — not Sofia — sings the song."
+      },
+      {
+        "n": 6,
+        "std": "RL.4.5",
+        "type": "mc",
+        "text": "What does the bakers' work song in paragraph 4 add to the story?",
+        "options": [
+          "It lists the ingredients the family needs for the loaves",
+          "It repeats the story's lesson about steady hands and small steps",
+          "It explains why the first loaf came out crooked and badly lopsided",
+          "It tells how the little crab carried moonlight home at night"
+        ],
+        "correct": 1,
+        "evidence": 4,
+        "evLabel": "the passage",
+        "why": "The song's lines — small hands, steady hands, small steps, steady steps, one loaf then another — repeat the lesson Sofia is learning. It gives no ingredients, does not explain the crooked loaf, and the crab's tale is Grandmother's story in paragraph 3, not the song."
+      },
+      {
+        "n": 7,
+        "std": "RL.4.9",
+        "type": "mc",
+        "text": "How are Sofia's story and Grandmother's tale of the Crab and the Moon alike?",
+        "options": [
+          "Both end with a festival table where a crooked loaf is honoured at last",
+          "Both are about bakers who must finish loaves overnight",
+          "Both teach that big jobs are done in small, steady steps",
+          "Both tell how a grandmother's song helps the workers keep going"
+        ],
+        "correct": 2,
+        "evidence": 6,
+        "evLabel": "the passage",
+        "why": "Paragraph 6 makes the shared theme plain: Sofia finishes the big job the crab's way — one small, steady shellful at a time — just as the crab in the tale learned to carry moonlight piece by piece. The festival, the loaves, and the song belong only to Sofia's story."
+      },
+      {
+        "n": 8,
+        "std": "RL.4.6",
+        "type": "written",
+        "text": "Point of view — who tells the story, and what do we learn about Sofia?",
+        "sample": "A narrator outside the story tells it. We learn that at first Sofia thinks she can knead dough as well as anyone (or: her arms ached and her first loaf came out lopsided; or: at the end she understood that big jobs are finished in small, steady steps).",
+        "parts": [
+          {
+            "text": "Who tells this story — Sofia herself, or a narrator outside the story?",
+            "sample": "A narrator outside the story tells it."
+          },
+          {
+            "text": "Name ONE thought or feeling of Sofia's that the reader learns from her words or actions.",
+            "sample": "At first Sofia thinks she can knead dough as well as anyone."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "tag": "Section 3",
+    "tagClass": "tag-3",
+    "title": "Integration of Knowledge & Ideas",
+    "subtitle": "Two Texts + Chart · Public Libraries, Long Ago and Today · 4 questions",
+    "passageTitle": null,
+    "texts": [
+      {
+        "label": "Text A",
+        "title": "Public Libraries Long Ago",
+        "paragraphs": [
+          "[1] About a hundred and fifty years ago, most towns had no public library at all. Books were expensive, and only rich families owned more than a few. A worker who wanted to read a novel, or a child who longed for stories, usually had to borrow from a friend or go without.",
+          "[2] The first public libraries changed that. They were built with money given by towns and by wealthy givers, and anyone could walk in and read for free. Long wooden tables filled the reading room, and readers sat shoulder to shoulder under tall, narrow windows, turning the pages quietly so they would not disturb their neighbours.",
+          "[3] Borrowing a book long ago was slow work. The librarian wrote each borrower's name in a great ledger book by hand, together with the date. There was no catalogue on a screen; readers searched through heavy drawers of small paper cards, one card for every book, to find the title they wanted.",
+          "[4] Most libraries long ago would not lend books to young children at all. Librarians feared that children would tear the pages or lose the books on the way home. A child under twelve could only read inside the building, sitting very still at the long tables while a parent waited nearby.",
+          "[5] Even with these strict rules, the early libraries opened doors for ordinary people. A farmer could study a book about better seeds, and a young worker could teach herself mathematics at night. For many readers, the library was the first place where learning belonged to everyone, not only to the rich."
         ]
       },
-      questions: [
-        { n:9, std:"RI.4.7", type:"mc", text:"How do riders today know exactly when the next ferry will leave?",
-          options:["A bell on the dock rings out when the boat is ready to leave", "Each ticket is checked by a machine at the entrance gate", "Screens at the dock display when the next boat will leave", "Riders track where the boat is by looking at their phones"],
-          correct:2, evidence:3, evLabel:"Text B",
-          why:"Text B, paragraph 3 says bright screens on the dock and on board show the exact minute of the next departure. The bell belongs to long ago, the machine checks tickets, and following the boat's position on a phone does not give the departure minute." },
-        { n:10, std:"RF.4.3", type:"mc", text:"In paragraph 4 of Text B, what does the word \"ice-breaking\" describe?",
-          options:["A boat that breaks river ice so other boats can pass", "A message that warns riders about delays on the river", "A path that the ferry follows across the winter river", "A schedule that the company publishes a month ahead"],
-          correct:0, evidence:4, evLabel:"Text B",
-          why:"Text B, paragraph 4 says a smaller ice-breaking boat clears a path when ice forms — it is a boat that breaks up river ice so the ferry can pass. The message, the path, and the schedule are other details from the same paragraph." },
-        { n:11, std:"RI.4.9", type:"written", text:"The ferry — different today, and the same as long ago",
-          sample:"Today riders buy tickets with a card or a phone (or: the crossing takes twelve minutes; or: screens show the departure time). The same: children still count the herons along the banks (or: neighbours still share news; or: the ferry is still the thread that ties the two towns together).",
-          parts:[
-            { text:"Name ONE way the ferry trip is DIFFERENT today, from Text B.", sample:"Today riders buy tickets with a card or a phone." },
-            { text:"Name ONE way the ferry trip is the SAME as it was long ago, from the two texts.", sample:"Children still count the herons along the banks." }
-          ] },
-        { n:12, std:"L.4.5", type:"written", text:"Both texts call the ferry \"the thread that ties the two towns together.\"",
-          sample:"It means the ferry connects the two towns to each other. A thread is a good comparison because a thread joins two pieces of cloth together, just as the ferry joins the two towns.",
-          parts:[
-            { text:"What does this saying mean about the ferry and the two towns?", sample:"It means the ferry connects the two towns to each other." },
-            { text:"Why is a thread a good comparison for the ferry?", sample:"A thread joins two pieces of cloth together, just as the ferry joins the two towns." }
-          ] }
+      {
+        "label": "Text B",
+        "title": "Public Libraries Today",
+        "paragraphs": [
+          "[1] Today a public library still lends books for free, but the building offers far more than shelves. Visitors borrow music, films, tools, and even baking pans, and computers line one wall for anyone who needs them. The library has grown into a busy centre for the whole neighbourhood.",
+          "[2] Finding a book today takes only a moment. Readers search the library's catalogue on a screen or on their phones, and the catalogue shows every copy in every branch across the city. If the book they want sits on a shelf across town, the library will carry it to their own branch within a few days.",
+          "[3] Fridays are the busiest day at the Elm Street branch, because story time for young children fills the reading corner in the morning. Unlike long ago, children today borrow armfuls of books with their own library cards. Librarians say the Friday crowd borrows more books than any other day of the week, just as the chart below shows.",
+          "[4] Libraries today also bring books to people who cannot come in. A small library van drives a weekly route through villages and old people's homes, carrying shelves of books to readers' doors. Readers who cannot see well can borrow books printed in large, clear letters, or listen to stories read aloud on recordings.",
+          "[5] Some things have not changed since the first libraries opened. Readers still discover new worlds between the pages of a borrowed book, and learning still belongs to everyone who walks in. The modern library, like the old one, still opens doors — only now the doors swing wider than ever before."
+        ]
+      }
+    ],
+    "chart": {
+      "title": "Books Borrowed at Elm Street Library in One Week",
+      "sub": "Number of books borrowed at the Elm Street branch each day",
+      "col1": "Day",
+      "col2": "Books Borrowed",
+      "rows": [
+        {
+          "label": "Monday",
+          "value": 148,
+          "cls": "canopy"
+        },
+        {
+          "label": "Tuesday",
+          "value": 162,
+          "cls": "tree"
+        },
+        {
+          "label": "Wednesday",
+          "value": 155,
+          "cls": "canopy"
+        },
+        {
+          "label": "Thursday",
+          "value": 171,
+          "cls": "tree"
+        },
+        {
+          "label": "Friday",
+          "value": 203,
+          "cls": "sunny"
+        }
       ]
-    }
-  ];
+    },
+    "questions": [
+      {
+        "n": 9,
+        "std": "RI.4.7",
+        "type": "mc",
+        "text": "The chart shows Friday with the most books borrowed. What reason does Text B give for Friday being so busy?",
+        "options": [
+          "The library van follows its weekly route through villages that morning",
+          "Morning story time draws young children into the reading corner each Friday",
+          "Books come back from readers at branches across the city",
+          "The catalogue lists copies that are due to arrive at the branch that day"
+        ],
+        "correct": 1,
+        "evidence": 3,
+        "evLabel": "Text B",
+        "why": "Text B, paragraph 3 says Fridays are busiest because story time for young children fills the reading corner, and the chart agrees — Friday's 203 books are the most of the week. The van, the returns, and the catalogue are other details that do not explain Friday."
+      },
+      {
+        "n": 10,
+        "std": "L.4.4",
+        "type": "mc",
+        "text": "In paragraph 2 of Text B, what does the word \"catalogue\" most likely mean?",
+        "options": [
+          "A list showing every book the library owns and where it sits",
+          "A van that carries shelves of books to readers in small faraway villages",
+          "A card letting a young reader borrow armfuls of books",
+          "A screen that readers use to search for a book they want"
+        ],
+        "correct": 0,
+        "evidence": 2,
+        "evLabel": "Text B",
+        "why": "Text B, paragraph 2 says readers search the catalogue and it shows every copy in every branch — it is the library's complete list of its books and where they are. The van belongs to paragraph 4, the card to paragraph 3, and the screen is the tool used to search the catalogue, not the catalogue itself."
+      },
+      {
+        "n": 11,
+        "std": "RI.4.9",
+        "type": "written",
+        "text": "The library — different today, and the same as long ago",
+        "sample": "Today readers search a catalogue on a screen or phone (or: children borrow books with their own cards; or: a library van carries books to readers' doors). The same: books are still lent for free and learning still belongs to everyone (or: readers still discover new worlds in borrowed books; or: the library still opens doors).",
+        "parts": [
+          {
+            "text": "Name ONE way the library is DIFFERENT today, from Text B.",
+            "sample": "Today readers search the catalogue on a screen or on their phones."
+          },
+          {
+            "text": "Name ONE way the library is the SAME as it was long ago, from the two texts.",
+            "sample": "Books are still lent for free, and learning still belongs to everyone."
+          }
+        ]
+      },
+      {
+        "n": 12,
+        "std": "L.4.5",
+        "type": "written",
+        "text": "Both texts say the library \"opens doors\" for people.",
+        "sample": "It means the library gives people chances to learn and to do new things. Doors are a good comparison because a door lets you walk into a new place, just as the library lets readers enter new learning and new worlds.",
+        "parts": [
+          {
+            "text": "What does \"opens doors\" mean about what the library does for people?",
+            "sample": "It means the library gives people chances to learn and to do new things."
+          },
+          {
+            "text": "Why are doors a good comparison for the library?",
+            "sample": "A door lets you walk into a new place, just as the library lets readers enter new learning and new worlds."
+          }
+        ]
+      }
+    ]
+  }
+];
 
   var ALL_MC = [], ALL_WRITTEN = [];
   SECTIONS.forEach(function(s){
@@ -1104,9 +1277,9 @@ var SECTIONS = [
   
 
   function computeQuizId(){
-    return "g4-2026-11-20-seq2";
+    return "g4-2026-11-22-seq1";
   }
-  var QUIZ_ID = "2026-11-20-seq2";
+  var QUIZ_ID = "2026-11-22-seq1";
   function attemptStorageKey(){
     return "g4rq-attempts-v1:amber:" + todayStr() + ":" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
   }
@@ -1544,39 +1717,242 @@ var SECTIONS = [
     return out;
   }
 var GRADE_KEYS = {
-    4: [
-      { found: "The author's point: life in a tide pool is not easy (it is hard)",
-        missing: "the author's point — life in a tide pool is NOT easy",
-        alt: [["not easy"],["hard"],["difficult"],["tough"]] },
-      { found: "Evidence: the sun heats the water and makes it saltier (or: sudden rain fills the pool with fresh water; or: waves crash over the rocks at high tide)",
-        missing: "ONE piece of evidence — the sun heating the water / saltier water / sudden rain filling the pool / waves crashing over the rocks",
-        alt: [["sun"],["heat"],["hot"],["salt"],["rain"],["fresh water"],["waves"],["crash"],["swept"]] }
-    ],
-    8: [
-      { found: "Who tells the story: a narrator outside the story (not Kenji himself)",
-        missing: "who tells the story — a narrator outside the story, not Kenji himself",
-        alt: [["narrator"],["third person"],["outside the story"],["outside"],["not kenji"]] },
-      { found: "A thought or feeling from Kenji: he wanted everything to be perfect / his fingers grew slower and more careful / at last he understood what his grandmother had always known",
-        missing: "ONE thought or feeling from Kenji — wanted everything perfect, fingers slower / more careful, or he understood at last",
-        alt: [["perfect"],["slower"],["more careful"],["understood"],["wanted everything"]] }
-    ],
-    11: [
-      { found: "Different today: tickets bought with a card or phone (or tickets checked by machine, the twelve-minute crossing, screens showing departure times, cars and bicycles carried)",
-        missing: "ONE way the trip is different today — card/phone tickets, machine-checked tickets, twelve-minute crossing, screens, cars or bicycles",
-        alt: [["card"],["phone"],["ticket"],["machine"],["twelve minutes"],["12 minutes"],["engine"],["screens"],["schedule"],["cars"],["bicycle"],["gate"],["month ahead"]] },
-      { found: "The same as long ago: children still count the herons along the banks (or: neighbours still share news; or: the ferry is still the thread that ties the two towns together)",
-        missing: "ONE way the trip is the same — children counting herons, neighbours sharing news, or the ferry as the thread tying the towns together",
-        alt: [["herons"],["heron"],["news"],["thread"],["ties the two towns"],["tied the two towns"]] }
-    ],
-    12: [
-      { found: "What the saying means: the ferry connects (joins) the two towns to each other",
-        missing: "what the saying means — the ferry connects / joins the two towns",
-        alt: [["connect"],["connects"],["join"],["joins"],["link"],["links"],["together"],["brings"]] },
-      { found: "Why a thread fits: a thread joins two pieces of cloth together, just as the ferry joins the two towns",
-        missing: "why a thread fits — a thread joins two pieces of cloth, just as the ferry joins the two towns",
-        alt: [["joins"],["join"],["cloth"],["pieces"],["holds"],["sew"],["sews"]] }
-    ]
-  };
+  "4": [
+    {
+      "found": "The author's point: clearing mangrove forests harms the coast, the animals, and the people all at once",
+      "missing": "the author's point — clearing the forests harms the coast, the animals AND the people",
+      "alt": [
+        [
+          "harms"
+        ],
+        [
+          "harm"
+        ],
+        [
+          "hurts"
+        ],
+        [
+          "damages"
+        ],
+        [
+          "bad for"
+        ],
+        [
+          "harms the coast"
+        ],
+        [
+          "animals",
+          "people"
+        ],
+        [
+          "coast",
+          "animals"
+        ]
+      ]
+    },
+    {
+      "found": "Evidence: when the trees disappear, the mud washes away and young fish lose their hiding places (or: storm waves reach the villages with nothing to slow them)",
+      "missing": "ONE piece of evidence — mud washing away / young fish losing hiding places / storm waves reaching villages with nothing to slow them",
+      "alt": [
+        [
+          "mud",
+          "washes"
+        ],
+        [
+          "washes away"
+        ],
+        [
+          "fish",
+          "hiding"
+        ],
+        [
+          "lose their hiding"
+        ],
+        [
+          "storm waves"
+        ],
+        [
+          "nothing to slow"
+        ],
+        [
+          "waves",
+          "villages"
+        ]
+      ]
+    }
+  ],
+  "8": [
+    {
+      "found": "Who tells the story: a narrator outside the story (not Sofia herself)",
+      "missing": "who tells the story — a narrator outside the story, not Sofia herself",
+      "alt": [
+        [
+          "narrator"
+        ],
+        [
+          "third person"
+        ],
+        [
+          "outside the story"
+        ],
+        [
+          "outside"
+        ],
+        [
+          "not sofia"
+        ]
+      ]
+    },
+    {
+      "found": "A thought or feeling from Sofia: she thinks she can knead as well as anyone / her arms ached and her first loaf was lopsided / at last she understood big jobs are finished in small steady steps",
+      "missing": "ONE thought or feeling from Sofia — she can knead as well as anyone, her arms ached, or she understood the lesson at last",
+      "alt": [
+        [
+          "knead"
+        ],
+        [
+          "as well as anyone"
+        ],
+        [
+          "ached"
+        ],
+        [
+          "lopsided"
+        ],
+        [
+          "understood"
+        ],
+        [
+          "small",
+          "steady"
+        ],
+        [
+          "proud"
+        ]
+      ]
+    }
+  ],
+  "11": [
+    {
+      "found": "Different today: readers search a catalogue on a screen or phone (or children borrow with their own cards, or a library van carries books to readers' doors, or readers borrow music, films and tools)",
+      "missing": "ONE way the library is different today — screen/phone catalogue, children's own cards, the library van, or borrowing music/films/tools",
+      "alt": [
+        [
+          "catalogue"
+        ],
+        [
+          "screen"
+        ],
+        [
+          "phone"
+        ],
+        [
+          "own library cards"
+        ],
+        [
+          "children",
+          "cards"
+        ],
+        [
+          "van"
+        ],
+        [
+          "music"
+        ],
+        [
+          "films"
+        ],
+        [
+          "tools"
+        ],
+        [
+          "computers"
+        ]
+      ]
+    },
+    {
+      "found": "The same as long ago: books are still lent for free and learning still belongs to everyone (or readers still discover new worlds in borrowed books, or the library still opens doors)",
+      "missing": "ONE way the library is the same — free lending, learning belongs to everyone, discovering new worlds, or opening doors",
+      "alt": [
+        [
+          "free"
+        ],
+        [
+          "belongs to everyone"
+        ],
+        [
+          "everyone"
+        ],
+        [
+          "new worlds"
+        ],
+        [
+          "opens doors"
+        ],
+        [
+          "still",
+          "borrow"
+        ]
+      ]
+    }
+  ],
+  "12": [
+    {
+      "found": "What it means: the library gives people chances to learn and to do new things",
+      "missing": "what \"opens doors\" means — the library gives people chances / opportunities to learn and do new things",
+      "alt": [
+        [
+          "chances"
+        ],
+        [
+          "opportunities"
+        ],
+        [
+          "opportunity"
+        ],
+        [
+          "chance to learn"
+        ],
+        [
+          "learn"
+        ],
+        [
+          "new things"
+        ],
+        [
+          "possibilities"
+        ]
+      ]
+    },
+    {
+      "found": "Why doors fit: a door lets you walk into a new place, just as the library lets readers enter new learning and new worlds",
+      "missing": "why doors fit — a door lets you into a new place, just as the library lets readers into new learning / new worlds",
+      "alt": [
+        [
+          "new place"
+        ],
+        [
+          "into"
+        ],
+        [
+          "walk in"
+        ],
+        [
+          "enter"
+        ],
+        [
+          "new worlds"
+        ],
+        [
+          "new learning"
+        ],
+        [
+          "go into"
+        ]
+      ]
+    }
+  ]
+};
 
   function gradeWrittenAnswer(qn, rawText){
     var keys = GRADE_KEYS[qn];
@@ -1736,7 +2112,7 @@ var GRADE_KEYS = {
   
 
   function todayStr(){
-    return "2026-11-20";
+    return "2026-11-22";
   }
   function sectionPassageText(sec){
     var parts = [];
