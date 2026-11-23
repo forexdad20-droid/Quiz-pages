@@ -2191,12 +2191,21 @@ var GRADE_KEYS = {
     for(var i = 0; i < tries.length; i++) if(WL_DICT[tries[i]]) return WL_DICT[tries[i]];
     return null;
   }
-  /* Wrap every word of an ALREADY-ESCAPED passage string in a tappable span. */
+  /* Wrap every word of an ALREADY-ESCAPED passage string in a tappable span.
+     HTML entities in the escaped string (&quot; &amp; &lt; &gt;) must pass
+     through untouched: wrapping the letters inside an entity (e.g. "quot")
+     destroys it and the page shows the literal text "&quot;". Split the
+     entities out first and only wrap words in the plain-text segments. */
   function wrapWords(escaped){
-    return String(escaped).replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, function(w){
-      var k = w.toLowerCase();
-      return '<span class="wlk" data-w="' + k + '" role="button" tabindex="0" aria-label="查单词：' + k + '">' + w + '</span>';
-    });
+    function wrapSegment(seg){
+      return seg.replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, function(w){
+        var k = w.toLowerCase();
+        return '<span class="wlk" data-w="' + k + '" role="button" tabindex="0" aria-label="查单词：' + k + '">' + w + '</span>';
+      });
+    }
+    return String(escaped).split(/(&[a-zA-Z#0-9]+;)/g).map(function(part){
+      return part.charAt(0) === "&" ? part : wrapSegment(part);
+    }).join("");
   }
   function wlListenHtml(id){
     return '<span class="listen-row"><button type="button" class="listen-btn" data-listen="' + id + '" aria-pressed="false" aria-label="Listen：播放文章錄音" title="Listen"><span class="listen-icon">' + WL_MIC_ICON + '</span></button><span class="listen-status" id="listenStatus-' + id + '" aria-live="polite"></span><audio class="listen-audio" id="audio-' + id + '" preload="auto"></audio></span>';
