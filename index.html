@@ -497,7 +497,7 @@
   @media (prefers-color-scheme: dark){ .section-score-chip.sec-3{color:var(--sun)} }
   @media (max-width:560px){ .section-scores{gap:8px} .section-score-chip{font-size:16px;padding:9px 14px} }
   .saved-note{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:14px 0 0}
-  .breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
+  .breakdown{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
   @media (max-width:560px){ .breakdown{grid-template-columns:1fr} }
   .bd-card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:16px;text-align:center;box-shadow:var(--shadow)}
   .bd-card .bd-name{font-weight:900;font-size:15px;line-height:1.35;min-height:42px}
@@ -737,7 +737,7 @@
     </div>
     <div class="bottom-timer-bar" id="bottom-timer-bar" role="status" aria-label="Timer and progression">
       <span class="bt-group"><span class="bt-label">Timer:</span><span class="bt-time" id="bottom-timer">20:00</span></span>
-      <span class="bt-group"><span class="bt-label">Progression:</span><span class="bt-fraction" id="bottom-progression">0 / 12</span></span>
+      <span class="bt-group"><span class="bt-label">Progression:</span><span class="bt-fraction" id="bottom-progression">0 / 10</span></span>
     </div>
     </div>
   </section>
@@ -749,7 +749,7 @@
       <div class="outcome-emoji" aria-hidden="true">🎉</div>
       <h2 class="outcome-title">You passed today's test.</h2>
       <p class="outcome-lexile" id="p-lexile"></p>
-      <p class="outcome-score">Your score: <span id="p-score">0</span> / 12</p>
+      <p class="outcome-score">Your score: <span id="p-score">0</span> / 10</p>
       <button class="btn btn-primary outcome-btn" id="passed-review-btn" type="button">See My Answers &amp; Growth →</button>
     </div>
   </section>
@@ -760,7 +760,7 @@
       <div class="outcome-emoji" aria-hidden="true">🌱</div>
       <h2 class="outcome-title">今天你的 Lexile level 退步了，你要重做一次。</h2>
       <p class="outcome-lexile" id="d-lexile"></p>
-      <p class="outcome-score">Your score this time: <span id="d-score">0</span> / 12</p>
+      <p class="outcome-score">Your score this time: <span id="d-score">0</span> / 10</p>
       <a class="btn btn-primary outcome-btn" id="redo-link" href="?redo=1" target="_top">Do it again</a>
       <p class="outcome-note">Press the button to start a brand-new test.</p>
       <button class="btn btn-ghost outcome-btn" id="redo-review-btn" type="button">Look at my answers first</button>
@@ -774,20 +774,18 @@
       <h2 style="margin-top:12px">Great work, <span id="r-name">Amber</span>!</h2>
       <span class="lexile-banner" role="note">⭐ My Lexile Level: 1110L</span>
       <div class="stars" id="r-stars"></div>
-      <div class="score-big"><span id="r-score">0</span><small> / 12</small></div>
+      <div class="score-big"><span id="r-score">0</span><small> / 10</small></div>
       <div class="score-pct" id="r-pct">0%</div>
       <div><span class="attempt-badge" id="r-attempt">Attempt #1</span></div>
       <div class="section-scores" id="r-section-scores" aria-label="Scores by section">
-        <span class="section-score-chip sec-1">Section 1: <span id="r-sec1">0 / 4</span></span>
-        <span class="section-score-chip sec-2">Section 2: <span id="r-sec2">0 / 4</span></span>
-        <span class="section-score-chip sec-3">Section 3: <span id="r-sec3">0 / 4</span></span>
+        <span class="section-score-chip sec-1">Section 1: <span id="r-sec1">0 / 10</span></span>
       </div>
       <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was sent automatically.</div>
       <p class="friendly" id="r-message"></p>
       <div class="meta-row">
         <span class="meta-chip">⏱ Time used: <span id="r-time">0:00</span></span>
         <span class="meta-chip">Choice questions: <span id="r-mc">0 / 8</span></span>
-        <span class="meta-chip">Written questions: <span id="r-wr">0 / 4</span></span>
+        <span class="meta-chip">Written questions: <span id="r-wr">0 / 2</span></span>
       </div>
       <p class="saved-note">Answers saved ✓</p>
     </div>
@@ -838,7 +836,7 @@
     </div>
   </section>
 
-  <footer class="note">Grade 4 · Targeted Reading Practice · 12 questions</footer>
+  <footer class="note">Grade 4 · Targeted Reading Practice · 10 questions</footer>
 </div>
 
 
@@ -920,16 +918,17 @@ var SECTIONS = [
     "id": 1,
     "tag": "Section 1",
     "tagClass": "tag-1",
-    "title": "Key Ideas & Details",
-    "subtitle": "Nonfiction · How Desert Foxes Stay Cool · 4 questions",
-    "passageTitle": "How Desert Foxes Stay Cool",
+    "title": "One Passage, Ten Questions",
+    "subtitle": "A true-to-life story · Nico and the Night Owl · 10 questions",
+    "passageTitle": "Nico and the Night Owl",
     "paragraphs": [
-      "[1] The fennec fox lives in the Sahara Desert, where the sand grows fiercely hot under the midday sun. This small fox solves the problem of heat in several clever ways. Its pale fur, huge ears, and nighttime habits all help it stay cool in a place with almost no shade or water.",
-      "[2] A fennec fox has the largest ears of any fox for its body size. The ears work like fans for the whole body. Blood flows through the thin skin of the ears, the desert breeze touches that skin, and the blood returns to the body a little cooler than before.",
-      "[3] During the hottest hours, the fox rests underground in a deep burrow it digs in the sand. The burrow stays far cooler than the surface above it. Whole families share these tunnels, and a single burrow may have ten entrances, so the foxes can escape quickly if danger comes near.",
-      "[4] The fox hunts only after the sun goes down. At night it listens for small rodents, birds, and insects moving across the sand. Its kidneys are built to save water, so the fox can survive for long stretches on the liquid it gets from its food alone, without drinking at all.",
-      "[5] Pale, sandy fur helps the fox in two ways at once. In daylight, the light colour throws back the sun's heat instead of soaking it up. The same colour also blends with the sand, hiding the fox from eagles that hunt from the sky above the desert.",
-      "[6] Thick fur covers even the bottoms of the fox's feet. This furry padding shields its paws from the burning sand as it runs. It also gives the fox a firm grip on loose sand, much like wide shoes help a person walk across a beach without sinking down."
+      "[1] On the first morning of spring break, Nico found a young owl sitting under the pine tree behind his house. The owl did not fly away when he came near. One wing hung low and brushed the ground, and its round eyes blinked slowly in the bright sun. Nico knew that owls sleep in the day and hunt at night, so an owl sitting awake on the ground meant something was wrong.",
+      "[2] Nico ran inside for his mother, and together they carried the owl to the Pine Creek Wildlife Center in a soft towel. Dr. Ruiz, the animal doctor there, lifted the wing gently with two fingers. \"The wing is hurt, but it is not broken,\" she said. \"This is a barn owl. She hunts mice at night, and her soft feathers let her fly without a sound.\"",
+      "[3] Dr. Ruiz told Nico the owl had to go back to the wild when she was well. \"A wild owl is not a pet,\" she said. \"Out in the fields, one owl catches hundreds of mice every year, and the farmers' corn stays safe. If she stays with people too long, she will forget how to hunt, and then she can never live free again.\"",
+      "[4] The owl, whom the workers named Alba, stayed in a large, quiet cage. On her first day, she weighed only 290 grams and would not eat at all. By the end of the first week, she weighed 330 grams and ate two mice every night. In the third week, she flew from one end of the long cage to the other, twenty strong wing beats, without stopping once.",
+      "[5] From Dr. Ruiz's diary, March 14: Today Nico asked me if Alba likes us. I told him the truth. She does not hate us, but she does not love us either. She watches my hands, not my face. That is good. A wild heart should stay a little wild. Tonight she caught a live mouse for the first time since she came to us. I stood in the dark and cried happy tears.",
+      "[6] A photo on the center's wall shows Alba on her first day, small and still in the towel. Under the photo, a card says, \"Day One — too weak to stand.\" Next to it hangs a newer photo of Alba on a high branch, wings wide and eyes bright. Nico read both cards and said, \"She really did recover.\" Dr. Ruiz smiled. \"To recover means to get well again,\" she said, \"and Alba has done it herself, one day at a time.\"",
+      "[7] On a warm evening in April, Nico and his mother stood with Dr. Ruiz at the edge of the pine woods. Dr. Ruiz opened the cage door, and Alba stepped out onto her glove. For one long moment, the owl looked at the dark trees. Then she spread her silent wings and flew up into the branches, free and wild again. Nico felt sad and glad at the same time. \"Letting her go is how I help her most,\" he whispered."
     ],
     "chart": null,
     "table": null,
@@ -938,284 +937,163 @@ var SECTIONS = [
         "n": 1,
         "std": "RI.4.1",
         "type": "mc",
-        "text": "What does paragraph 4 tell us about the fox?",
+        "text": "Why did Nico think something was wrong with the owl?",
         "options": [
-          "It must drink water every night before it hunts.",
-          "It can live a long time on water from its food.",
-          "It hunts big birds in the hot sun in the day.",
-          "It shares its hunting ground with mice at night."
+          "It sat awake on the ground in the bright day sun.",
+          "It flew away over the roof when he walked up.",
+          "It hooted loudly all through the cold night.",
+          "It sat high in the pine tree and stared down at him."
         ],
-        "correct": 1,
-        "evidence": 4,
+        "correct": 0,
+        "evidence": 1,
         "evLabel": "the passage",
-        "why": "Paragraph 4 says the fox's kidneys save water and it can survive on liquid from its food alone, without drinking. It hunts at night, not in daylight heat, and rodents are its prey, not its partners."
+        "why": "Paragraph 1 says owls sleep in the day and hunt at night, so an owl sitting awake on the ground in bright sun meant something was wrong. It did not fly away, and owls fly without a sound."
       },
       {
         "n": 2,
         "std": "RI.4.3",
         "type": "mc",
-        "text": "How do the fox's big ears help it stay cool?",
+        "text": "Which of these things happened FIRST in the passage?",
         "options": [
-          "They cover its body and keep the hot sun off.",
-          "They help it hear eagles flying in the sky.",
-          "They cool the blood that flows through them.",
-          "They dig the deep holes where the fox sleeps."
+          "The workers at the center named the owl Alba.",
+          "Nico found the owl under the pine tree at home.",
+          "She flew across the long cage and did not stop once.",
+          "Nico and his mother watched the owl fly free."
         ],
-        "correct": 2,
-        "evidence": 2,
+        "correct": 1,
+        "evidence": 1,
         "evLabel": "the passage",
-        "why": "Paragraph 2 explains that blood flows through the thin skin of the ears, the breeze cools it, and it returns cooler to the body. The ears do not shade the body, dig, or serve mainly to listen for eagles."
+        "why": "Paragraph 1 begins with Nico finding the owl under the pine tree. The naming, the cage flight, and the release all came later."
       },
       {
         "n": 3,
-        "std": "RI.4.10",
+        "std": "RI.4.7",
         "type": "mc",
-        "text": "Which sentence shows this text is nonfiction?",
+        "text": "What do the numbers in paragraph 4 show about Alba?",
         "options": [
-          "It gives true facts about one real desert animal.",
-          "It tells a fun tale of a fox running from an eagle.",
-          "It has a fox who talks and plans like a person.",
-          "It makes up a desert town where foxes build homes."
+          "She grew weaker and ate less with each week.",
+          "She flew from end to end on her very first day.",
+          "She grew stronger and ate more in each new week.",
+          "She ate two whole mice during her first night there."
         ],
-        "correct": 0,
-        "evidence": 1,
+        "correct": 2,
+        "evidence": 4,
         "evLabel": "the passage",
-        "why": "Paragraph 1 introduces true facts — pale fur, huge ears, and nighttime habits that help a real animal stay cool. The passage has no talking character, escape tale, or invented village."
+        "why": "Paragraph 4 says Alba weighed 290 grams and ate nothing on day one, then 330 grams and two mice a night by the end of week one, and flew the long cage in week three — she grew stronger week by week."
       },
       {
         "n": 4,
         "std": "RI.4.8",
         "type": "written",
-        "text": "The author makes a point about the fox's pale fur.",
-        "sample": "The author's point is that the pale fur helps the fox in two ways at once. One reason is that the light colour throws back the sun's heat (or: the same colour blends with the sand and hides the fox from eagles).",
+        "text": "Dr. Ruiz makes a point about Alba and the wild.",
+        "sample": "Dr. Ruiz's point is that Alba must go back to the wild when she is well, because a wild owl is not a pet. One reason is that one owl catches hundreds of mice every year and keeps the farmers' corn safe (or: if Alba stays with people too long, she will forget how to hunt and can never live free again).",
         "parts": [
           {
-            "text": "What does the author say about the fox's pale fur?",
-            "sample": "The pale fur helps the fox in two ways at once."
+            "text": "What does Dr. Ruiz say must happen to Alba when she is well?",
+            "sample": "Alba must go back to the wild when she is well."
           },
           {
-            "text": "Give one reason from the passage that shows this.",
-            "sample": "The light colour throws back the sun's heat instead of soaking it up."
+            "text": "Give one reason Dr. Ruiz gives for this.",
+            "sample": "One owl catches hundreds of mice every year, so the farmers' corn stays safe."
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "tag": "Section 2",
-    "tagClass": "tag-2",
-    "title": "Reading Comprehension",
-    "subtitle": "Fiction · Leo and the Lost Library Book · 4 questions",
-    "passageTitle": "Leo and the Lost Library Book",
-    "paragraphs": [
-      "[1] Leo loved the school library more than any other room in the building. Every Friday he borrowed one adventure book, read it twice over the weekend, and returned it on Monday morning. But this Monday, when he opened his backpack by the library door, the book was simply not there.",
-      "[2] Leo's stomach tightened as he searched every pocket twice. 'I carried it home on Friday,' he whispered to himself. 'I read it under the plum tree. I know I did.' The memory of the plum tree stopped him cold — he could picture the book lying in the grass beneath its branches, where he had left it when his sister called him in for dinner.",
-      "[3] At recess, Leo ran to the plum tree behind the school garden. Rain had fallen on Sunday night, and the book lay in the wet grass with its cover curled and its pages wavy and damp. Leo picked it up gently with both hands, as if it were a small injured bird, and carried it straight to Mrs. Okafor, the librarian.",
-      "[4] Leo expected Mrs. Okafor to be angry, but she only nodded slowly. 'Books can be dried,' she said, 'but only if we start at once.' She showed Leo how to stand the book upright with its pages fanned open, and how to slip clean paper between the damp leaves so they would not stick together as they dried.",
-      "[5] That afternoon, the library class performed a short play about returning books, and Leo watched his own morning acted out on the little stage:\nMRS. OKAFOR (calmly): A wet book is not a lost book, Leo.\nLEO (holding the book carefully): Then I will dry every page myself.\nMRS. OKAFOR (smiling): And I will help you begin.",
-      "[6] By Friday, the book stood dry on the shelf again, its pages only slightly wavy. Leo borrowed a new adventure that afternoon, but first he wrote a small note and tucked it inside his backpack: 'Books come home before dinner.' He smiled as he zipped the bag shut — some lessons, he decided, are worth a curled cover."
-    ],
-    "chart": null,
-    "table": null,
-    "questions": [
+      },
       {
         "n": 5,
         "std": "RL.4.1",
         "type": "mc",
-        "text": "What shows where Leo left the book?",
+        "text": "What did Alba do just before she flew into the trees?",
         "options": [
-          "He sees the book lying in grass under the plum tree.",
-          "He finds the book standing up dry on the library shelf.",
-          "He takes the book home in his school bag on Friday.",
-          "He writes a small note and puts it in his school bag."
+          "She ate two mice off the top of the cage door.",
+          "She watched the dark trees for one long moment.",
+          "Her eyes blinked in the bright morning sun.",
+          "She sat in the soft towel and watched his hands."
         ],
-        "correct": 0,
-        "evidence": 2,
+        "correct": 1,
+        "evidence": 7,
         "evLabel": "the passage",
-        "why": "In paragraph 2 Leo remembers the plum tree and pictures the book lying in the grass beneath its branches. The shelf, backpack, and note all belong to other moments in the story."
+        "why": "Paragraph 7 says that for one long moment, the owl looked at the dark trees, and then she spread her wings and flew up into the branches."
       },
       {
         "n": 6,
         "std": "RL.4.2",
         "type": "mc",
-        "text": "What lesson does Leo learn in this story?",
+        "text": "What is the big lesson of this story?",
         "options": [
-          "A wet book can never be opened by anyone again.",
-          "It is best to say you made a mistake and fix it.",
-          "Librarians should lock all the books away from kids.",
-          "Reading one book two times helps you remember it."
+          "Keeping a hurt wild animal as a pet keeps it safest.",
+          "Finding a wild animal makes it yours to keep.",
+          "Helping an animal means doing all things for it.",
+          "Letting a wild animal go can be the best help."
         ],
-        "correct": 1,
-        "evidence": 3,
+        "correct": 3,
+        "evidence": 7,
         "evLabel": "the passage",
-        "why": "Leo carries the wet book straight to Mrs. Okafor instead of hiding it, and together they repair it. The book is borrowed again, librarians do not lock books away, and reading twice is only his habit."
+        "why": "At the end Nico whispers, \"Letting her go is how I help her most.\" The story's lesson is that setting a wild animal free can be the best way to help it."
       },
       {
         "n": 7,
         "std": "RL.4.7",
         "type": "mc",
-        "text": "What is different about the play in paragraph 5?",
+        "text": "How do the two photos on the wall help the reader?",
         "options": [
-          "It shows the same morning, but written as a play.",
-          "It adds a new person who finds the book by the tree.",
-          "It changes the end, so the wet book never gets dry.",
-          "It tells how to dry wet pages with clean paper."
+          "They show what the wildlife center looks like.",
+          "They show how Alba changed from weak to strong.",
+          "They show the worker who fed Alba every single night.",
+          "They show the dark pine woods behind Nico's house."
         ],
-        "correct": 0,
-        "evidence": 5,
+        "correct": 1,
+        "evidence": 6,
         "evLabel": "the passage",
-        "why": "Paragraph 5 presents the same morning as a play, with characters' names, spoken lines, and stage directions in brackets. It adds no new character, keeps the same ending, and the drying steps are Mrs. Okafor's instructions in paragraph 4."
+        "why": "Paragraph 6 describes the first photo — Alba small and still, \"too weak to stand\" — beside a newer photo of her on a high branch with wings wide, so the photos show how she changed from weak to strong."
       },
       {
         "n": 8,
-        "std": "RL.4.10",
+        "std": "RL.4.6",
         "type": "written",
-        "text": "Think about the words in the story, and its big idea.",
-        "sample": "One challenging word is 'injured' (or 'curled' / 'fanned'), which describes the wet book. The main idea is that Leo loses a library book, owns up to the damage, and helps repair it (or: Leo learns to take better care of borrowed books).",
+        "text": "This passage is told in two ways — the main story, and a diary.",
+        "sample": "The main story is told by a voice outside the story; it says \"Nico found\" and \"he whispered\", not \"I\". Dr. Ruiz writes the diary, and it tells us her own feelings — she stood in the dark and cried happy tears — which the main story does not tell us.",
         "parts": [
           {
-            "text": "Name one hard word from the story and say what it describes.",
-            "sample": "'Injured' describes the wet book Leo carries gently, like a small injured bird."
+            "text": "Who tells the main story? How can you tell?",
+            "sample": "A voice outside the story tells it. The story says \"Nico found\" and \"he whispered\", not \"I found\"."
           },
           {
-            "text": "In your own words, what is the main idea of the story?",
-            "sample": "Leo leaves a library book outside, tells the librarian, and helps dry it, learning to care for borrowed books."
+            "text": "Who writes the diary? What does it tell us that the main story does not?",
+            "sample": "Dr. Ruiz writes the diary. It tells us her feelings — she cried happy tears — which the main story does not say."
           }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "tag": "Section 3",
-    "tagClass": "tag-3",
-    "title": "Integration of Knowledge & Ideas",
-    "subtitle": "Two Texts + Chart · School Breakfast, Long Ago and Today · 4 questions",
-    "passageTitle": null,
-    "texts": [
-      {
-        "label": "Text A",
-        "title": "School Breakfast Long Ago",
-        "paragraphs": [
-          "[1] A hundred years ago, most schools offered no breakfast at all. Children ate whatever their families could give them at home before they walked to school. A child whose family had little food might sit through the whole morning with an empty, growling stomach.",
-          "[2] Teachers were often the first to notice the problem. A hungry child could not concentrate on lessons, forgot spellings he had known the day before, and sometimes fell asleep at his desk. In their reports, teachers wrote that hunger, not laziness, explained many poor marks.",
-          "[3] The first school breakfasts were simple and were paid for by charities and town councils. Volunteers cooked huge pots of porridge in the schoolyard and served it in tin mugs. Children queued in the cold before the bell, and each child received the same plain meal, whatever his family could afford.",
-          "[4] Not everyone agreed with the new breakfasts at first. Some town leaders argued that feeding children was a family's job, not a school's. Others answered that a fed child learned better and missed fewer days of school, which saved the town money in the long run.",
-          "[5] By the middle of the last century, school breakfast had become a normal part of the school day in many towns. Kitchens were built beside the dining hall, paid cooks replaced the volunteers, and menus began to include bread, milk, and fruit alongside the porridge."
         ]
       },
       {
-        "label": "Text B",
-        "title": "School Breakfast Today",
-        "paragraphs": [
-          "[1] Today, many schools serve breakfast to every student who wants it, free of charge. The dining hall opens early, and students choose between hot dishes, cereal, fruit, and yogurt. Breakfast is treated as part of learning, not as charity for a few children.",
-          "[2] Menus today are planned by nutrition experts who study what growing bodies need. A modern school breakfast limits sugar, offers protein for lasting energy, and always includes fruit or vegetables. Students with allergies can pick safe dishes clearly marked with coloured labels.",
-          "[3] Fridays bring the largest breakfast crowd of the week at River School, when the kitchen serves its popular fruit pancakes. On Fridays, 186 students eat breakfast at school, more than on any other day of the week, just as the chart below shows. Teachers say the Friday crowd arrives cheerful and ready to learn.",
-          "[4] Some schools today carry breakfast beyond the dining hall. Carts of fruit and cereal bars roll to classroom doors for students whose buses arrive late. A few schools even send weekend food bags home with children whose families need extra help between Friday and Monday.",
-          "[5] One thing has not changed in a hundred years. A child who has eaten learns better, concentrates longer, and joins in class with more energy. Teachers long ago wrote that hunger explained poor marks; teachers today say the same thing in different words."
-        ]
-      }
-    ],
-    "chart": {
-      "title": "Students Eating Breakfast at River School in One Week",
-      "sub": "Number of students who ate breakfast at River School each day",
-      "col1": "Day",
-      "col2": "Students",
-      "rows": [
-        {
-          "label": "Monday",
-          "value": 142,
-          "cls": "canopy"
-        },
-        {
-          "label": "Tuesday",
-          "value": 158,
-          "cls": "tree"
-        },
-        {
-          "label": "Wednesday",
-          "value": 151,
-          "cls": "canopy"
-        },
-        {
-          "label": "Thursday",
-          "value": 169,
-          "cls": "tree"
-        },
-        {
-          "label": "Friday",
-          "value": 186,
-          "cls": "sunny"
-        }
-      ]
-    },
-    "questions": [
-      {
         "n": 9,
-        "std": "RI.4.7",
+        "std": "RI.4.9",
         "type": "mc",
-        "text": "Why do the most students eat breakfast on Friday?",
+        "text": "What do you learn from the diary that the main story does not tell you?",
         "options": [
-          "Late buses bring extra kids to the breakfast carts.",
-          "The kitchen serves fruit pancakes that kids love.",
-          "Food experts come to plan menus with the students.",
-          "Weekend food bags are handed out before classes."
+          "By week's end, Alba's weight had reached 330 grams.",
+          "She cried happy tears when Alba caught a mouse.",
+          "Alba's wing was hurt, but it was not broken at all.",
+          "Alba flew to the high branches one evening."
         ],
         "correct": 1,
-        "evidence": 3,
-        "evLabel": "Text B",
-        "why": "Text B paragraph 3 says Fridays bring the largest crowd because the kitchen serves popular fruit pancakes, and the chart agrees — Friday's 186 is the week's highest. The carts, experts, and food bags do not explain Friday."
+        "evidence": 5,
+        "evLabel": "the passage",
+        "why": "Only the diary in paragraph 5 tells us Dr. Ruiz stood in the dark and cried happy tears when Alba caught a live mouse. The weight, the wing, and the release are all in the main story."
       },
       {
         "n": 10,
-        "std": "RF.4.3",
-        "type": "mc",
-        "text": "What does the word \"porridge\" mean in Text A?",
-        "options": [
-          "A hot, soft food made from grains, served warm.",
-          "A cold drink served in tin mugs in the schoolyard.",
-          "A tin mug used by helpers in the morning line.",
-          "A meal ticket given to kids before the bell rings."
-        ],
-        "correct": 0,
-        "evidence": 3,
-        "evLabel": "Text A",
-        "why": "Text A paragraph 3 says volunteers cooked huge pots of porridge and served it in tin mugs — porridge is the hot cooked grain food, not the mug, a drink, or a ticket."
-      },
-      {
-        "n": 11,
-        "std": "RI.4.9",
-        "type": "written",
-        "text": "School breakfast today, and long ago.",
-        "sample": "Today every student who wants breakfast can eat free (or: menus are planned by nutrition experts; or: carts carry breakfast to classroom doors). The same: a child who has eaten learns better and concentrates longer (or: teachers still say hunger explains poor marks).",
-        "parts": [
-          {
-            "text": "Name one way school breakfast is different today, from Text B.",
-            "sample": "Today breakfast is free for every student who wants it."
-          },
-          {
-            "text": "Name one way school breakfast is the same as long ago.",
-            "sample": "A child who has eaten still learns better and concentrates longer."
-          }
-        ]
-      },
-      {
-        "n": 12,
         "std": "L.4.6",
-        "type": "written",
-        "text": "Two words from the texts: 'concentrate' and 'charity'.",
-        "sample": "To concentrate means to focus all your attention on one thing. In Text B, breakfast today is not charity because it is given to every student as part of learning, not as help only for a few poor children.",
-        "parts": [
-          {
-            "text": "What does the word 'concentrate' mean?",
-            "sample": "To concentrate means to focus your attention on your lessons."
-          },
-          {
-            "text": "What does the word 'charity' mean in Text B?",
-            "sample": "Charity means help given to people who are poor or in need."
-          }
-        ]
+        "type": "mc",
+        "text": "What does the word \"recover\" mean in paragraph 6?",
+        "options": [
+          "To fly away from people into the dark pine trees.",
+          "To catch mice at night without any sound.",
+          "To get well again after being hurt or sick.",
+          "To stay with people and forget how to hunt."
+        ],
+        "correct": 2,
+        "evidence": 6,
+        "evLabel": "the passage",
+        "why": "In paragraph 6 Dr. Ruiz says it herself: \"To recover means to get well again.\" Alba recovered from her hurt wing."
       }
     ]
   }
@@ -1583,11 +1461,11 @@ var SECTIONS = [
   var lastProgression = 0;
   function updateProgress(){
     var c = answeredCount();
-    var pfEl = $("progress-fill"); if(pfEl) pfEl.style.width = (c/12*100) + "%";
-    var plEl = $("progress-label"); if(plEl) plEl.textContent = c + " of 12 answered" + (c === 12 ? " — nice, you answered everything!" : "");
+    var pfEl = $("progress-fill"); if(pfEl) pfEl.style.width = (c/10*100) + "%";
+    var plEl = $("progress-label"); if(plEl) plEl.textContent = c + " of 10 answered" + (c === 10 ? " — nice, you answered everything!" : "");
     var bp = $("bottom-progression");
     if(bp){
-      bp.textContent = c + " / 12";
+      bp.textContent = c + " / 10";
       if(c !== lastProgression){
         bp.classList.remove("pop");
         void bp.offsetWidth;
@@ -1614,7 +1492,7 @@ var SECTIONS = [
     var bt0 = $("bottom-timer");
     if(bt0){ bt0.textContent = fmtTime(TOTAL_SECONDS); bt0.classList.remove("low","critical"); }
     var bp0 = $("bottom-progression");
-    if(bp0){ bp0.textContent = "0 / 12"; }
+    if(bp0){ bp0.textContent = "0 / 10"; }
     lastProgression = 0;
     updateTimer();
     timerId = setInterval(updateTimer, 250);
@@ -1785,193 +1663,106 @@ var SECTIONS = [
 var GRADE_KEYS = {
   "4": [
     {
-      "found": "The author's point: the pale fur helps the fox in two ways at once",
-      "missing": "the author's point — the pale fur helps the fox in two ways at once",
+      "found": "Dr. Ruiz's point: Alba must go back to the wild when she is well (a wild owl is not a pet)",
+      "missing": "Dr. Ruiz's point — Alba must go back to the wild when she is well",
       "alt": [
         [
-          "two ways"
+          "back to the wild"
         ],
         [
-          "helps",
-          "two"
+          "go back",
+          "wild"
         ],
         [
-          "pale fur",
-          "helps"
+          "return",
+          "wild"
         ],
         [
-          "fur",
-          "two ways"
+          "not a pet"
+        ],
+        [
+          "live free"
+        ],
+        [
+          "set free"
+        ],
+        [
+          "go free"
         ]
       ]
     },
     {
-      "found": "A supporting reason: the light colour throws back the sun's heat (or: the colour blends with the sand and hides the fox from eagles)",
-      "missing": "ONE supporting reason — light colour throwing back heat, or colour blending with sand to hide from eagles",
+      "found": "A reason: one owl catches hundreds of mice a year and keeps farmers' corn safe (or: if she stays too long she will forget how to hunt and never live free)",
+      "missing": "ONE reason — the mice-and-corn reason, or forgetting how to hunt if she stays",
       "alt": [
         [
-          "throws back"
+          "mice"
         ],
         [
-          "heat"
+          "corn"
         ],
         [
-          "blends"
+          "forget",
+          "hunt"
         ],
         [
-          "hides"
+          "hundreds"
         ],
         [
-          "eagles"
-        ],
-        [
-          "sand",
-          "hides"
+          "farmers"
         ]
       ]
     }
   ],
   "8": [
     {
-      "found": "A challenging word such as 'injured', 'curled' or 'fanned', tied to what it describes (the wet book / its cover / its pages)",
-      "missing": "ONE challenging word from the story and what it describes",
+      "found": "The main story is told by a voice/narrator outside the story — it uses 'he/she' and names, not 'I'",
+      "missing": "who tells the main story — a voice outside the story (it says 'he', not 'I')",
       "alt": [
         [
-          "injured"
+          "narrator"
         ],
         [
-          "curled"
+          "outside"
         ],
         [
-          "fanned"
+          "voice outside"
         ],
         [
-          "damp"
+          "not i"
         ],
         [
-          "wavy"
+          "he found"
+        ],
+        [
+          "third person"
+        ],
+        [
+          "someone outside"
         ]
       ]
     },
     {
-      "found": "Main idea: Leo leaves/loses a library book, owns up, and helps repair it / learns to care for borrowed books",
-      "missing": "the main idea — Leo loses a library book, owns up to it, and helps fix it",
+      "found": "Dr. Ruiz writes the diary; it tells her own feelings (she cried happy tears), which the main story does not say",
+      "missing": "the diary is Dr. Ruiz's, and it tells her feelings — she cried happy tears",
       "alt": [
         [
-          "lost",
-          "book"
+          "ruiz"
         ],
         [
-          "library book"
+          "cried"
         ],
         [
-          "repair"
+          "happy tears"
         ],
         [
-          "dry"
+          "feelings"
         ],
         [
-          "care",
-          "books"
+          "she felt"
         ],
         [
-          "tells",
-          "librarian"
-        ],
-        [
-          "owns up"
-        ]
-      ]
-    }
-  ],
-  "11": [
-    {
-      "found": "Different today: breakfast free for every student (or menus planned by nutrition experts, or carts to classroom doors, or weekend food bags)",
-      "missing": "ONE way breakfast is different today — free for all, expert-planned menus, classroom carts, or weekend bags",
-      "alt": [
-        [
-          "free"
-        ],
-        [
-          "nutrition"
-        ],
-        [
-          "experts"
-        ],
-        [
-          "carts"
-        ],
-        [
-          "weekend"
-        ],
-        [
-          "every student"
-        ],
-        [
-          "allergies"
-        ]
-      ]
-    },
-    {
-      "found": "The same: a fed child learns better / concentrates longer (or teachers still say hunger explains poor marks)",
-      "missing": "ONE way it is the same — a fed child learns better and concentrates longer",
-      "alt": [
-        [
-          "learns better"
-        ],
-        [
-          "concentrates"
-        ],
-        [
-          "hunger",
-          "poor marks"
-        ],
-        [
-          "more energy"
-        ],
-        [
-          "eaten",
-          "learn"
-        ]
-      ]
-    }
-  ],
-  "12": [
-    {
-      "found": "Concentrate means to focus your attention on one thing / your lessons",
-      "missing": "what 'concentrate' means — to focus your attention",
-      "alt": [
-        [
-          "focus"
-        ],
-        [
-          "attention"
-        ],
-        [
-          "pay attention"
-        ]
-      ]
-    },
-    {
-      "found": "Charity means help given to people who are poor or in need",
-      "missing": "what 'charity' means — help given to poor people / people in need",
-      "alt": [
-        [
-          "poor"
-        ],
-        [
-          "in need"
-        ],
-        [
-          "help",
-          "poor"
-        ],
-        [
-          "helping",
-          "need"
-        ],
-        [
-          "given to"
+          "her feelings"
         ]
       ]
     }
@@ -2022,7 +1813,7 @@ var GRADE_KEYS = {
     ALL_MC.forEach(function(q){ if(mcCorrect(q)) mcScore++; });
     ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
     var total = mcScore + wrScore;
-    var pct = Math.round(total / 12 * 100);
+    var pct = Math.round(total / 10 * 100);
     lastResult = { total: total, pct: pct, mcScore: mcScore, wrScore: wrScore, attempt: attemptCount };
 
     $("r-name").textContent = studentName;
@@ -2033,20 +1824,18 @@ var GRADE_KEYS = {
     $("r-pct").textContent = pct + "% correct";
     $("r-time").textContent = fmtTime(elapsedAtSubmit);
     $("r-mc").textContent = mcScore + " / 8";
-    $("r-wr").textContent = wrScore + " / 4";
-    $("r-sec1").textContent = sectionScore(1) + " / 4";
-    $("r-sec2").textContent = sectionScore(2) + " / 4";
-    $("r-sec3").textContent = sectionScore(3) + " / 4";
+    $("r-wr").textContent = wrScore + " / 2";
+    $("r-sec1").textContent = sectionScore(1) + " / 10";
 
-    var filled = total >= 11 ? 5 : total >= 9 ? 4 : total >= 6 ? 3 : total >= 3 ? 2 : 1;
+    var filled = total >= 10 ? 5 : total >= 8 ? 4 : total >= 6 ? 3 : total >= 3 ? 2 : 1;
     var stars = "";
     for(var i = 0; i < 5; i++) stars += i < filled ? "★" : '<span class="off">★</span>';
     $("r-stars").innerHTML = stars;
 
     var msg;
-    if(total === 12) msg = "Perfect score! You are a reading superstar! 🌟";
-    else if(total >= 9) msg = "Excellent work! You understood the passages really well. 🎉";
-    else if(total >= 6) msg = "Good job! Keep reading carefully and you'll get even better. 💪";
+    if(total === 10) msg = "Perfect score! You are a reading superstar! 🌟";
+    else if(total >= 8) msg = "Excellent work! You understood the passage really well. 🎉";
+    else if(total >= 5) msg = "Good job! Keep reading carefully and you'll get even better. 💪";
     else if(total >= 3) msg = "Nice try! Read the review below, then try again — you can do it! 🌱";
     else msg = "Good effort finishing the quiz! Read the review below and try again. 🌱";
     $("r-message").textContent = msg;
@@ -2056,9 +1845,9 @@ var GRADE_KEYS = {
     SECTIONS.forEach(function(s){
       var pts = sectionScore(s.id);
       var dots = "";
-      for(var i = 0; i < 4; i++) dots += '<i class="'+(i < pts ? "on" : "")+'"></i>';
+      for(var i = 0; i < 10; i++) dots += '<i class="'+(i < pts ? "on" : "")+'"></i>';
       bd += '<div class="bd-card"><div class="bd-name">Section '+s.id+'<br>'+esc(s.title)+'</div>'+
-        '<div class="bd-score">'+pts+'<small> / 4</small></div><div class="bd-dots">'+dots+'</div></div>';
+        '<div class="bd-score">'+pts+'<small> / 10</small></div><div class="bd-dots">'+dots+'</div></div>';
     });
     $("r-breakdown").innerHTML = bd;
 
@@ -2163,10 +1952,10 @@ var GRADE_KEYS = {
     lines.push("Student: " + studentName);
     lines.push("Date: " + todayStr());
     lines.push("Attempt: " + attemptCount);
-    lines.push("Score: " + total + "/12");
+    lines.push("Score: " + total + "/10");
     lines.push("Time used: " + fmtTime(elapsedAtSubmit));
     var secParts = SECTIONS.map(function(s){
-      return "Section " + s.id + " (" + s.title + "): " + sectionScore(s.id) + "/4";
+      return "Section " + s.id + " (" + s.title + "): " + sectionScore(s.id) + "/" + s.questions.length;
     });
     lines.push("Section scores: " + secParts.join(" · "));
 
@@ -2228,7 +2017,7 @@ var GRADE_KEYS = {
     lines.push(document.title);
     lines.push("Student: " + studentName);
     lines.push("Date: " + todayStr());
-    lines.push("Score: " + total + "/12");
+    lines.push("Score: " + total + "/10");
     var anyRedo = false;
     SECTIONS.forEach(function(sec){
       var redoQs = sec.questions.filter(function(q){
@@ -2283,7 +2072,7 @@ var GRADE_KEYS = {
       test: document.title,
       date: todayStr(),
       attempt: attemptCount,
-      score: total + "/12",
+      score: total + "/10",
       log: buildAnswerLog(total)
     };
 
@@ -2325,10 +2114,10 @@ var GRADE_KEYS = {
 
   var QUIZ_URL = window.location.origin + window.location.pathname + "?";
   function lexileDeltaFor(total){
-    if(total >= 11) return 30;
-    if(total === 10) return 20;
-    if(total === 9) return 10;
-    if(total === 8) return 0;
+    if(total === 10) return 30;
+    if(total === 9) return 20;
+    if(total === 8) return 10;
+    if(total === 7) return 0;
     return -20;
   }
   function showOutcome(){
@@ -2363,7 +2152,7 @@ var GRADE_KEYS = {
     var an = $("r-auto-note"); if(an) an.classList.add("hidden");
     var tm = $("timer"); if(tm){ tm.textContent = "⏱ " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical","done"); }
     var btm = $("bottom-timer"); if(btm){ btm.textContent = fmtTime(TOTAL_SECONDS); btm.classList.remove("low","critical"); }
-    var bpr = $("bottom-progression"); if(bpr){ bpr.textContent = "0 / 12"; }
+    var bpr = $("bottom-progression"); if(bpr){ bpr.textContent = "0 / 10"; }
     lastProgression = 0;
     studentName = TEST_MODE ? "TEST" : "Amber";
     show("view-start");
@@ -2371,7 +2160,7 @@ var GRADE_KEYS = {
 
   /* ===== Listen + Words Look Up (added Nov 22, 2026 — dragon-sample
      features graduated to Amber's daily paper at Ellis's order) ===== */
-  var WL_DICT = {"a":{"en":"One; any single thing.","ex":"I see a bird in the tree.","pos":"article","zh":"一个","zhEx":"我看见树上有一只鸟。"},"about":{"en":"On the subject of; having to do with.","ex":"This book is about animals.","pos":"preposition","zh":"关于","zhEx":"这本书是关于动物的。"},"above":{"en":"Higher than; over.","ex":"The sun is above the hills.","pos":"preposition","zh":"在……上面","zhEx":"太阳在小山上面。"},"across":{"en":"From one side to the other side.","ex":"We walked across the bridge.","pos":"preposition","zh":"穿过、横过","zhEx":"我们走过这座桥。"},"acted":{"en":"Did something; behaved in a way.","ex":"He acted quickly to help.","pos":"verb","zh":"行动了、表现了","zhEx":"他很快地行动起来帮忙。"},"adventure":{"en":"An exciting trip or experience.","ex":"The trip was a big adventure.","pos":"noun","zh":"冒险、奇遇","zhEx":"这次旅行是一次大冒险。"},"afford":{"en":"To have enough money to buy or do something.","ex":"They could not afford new shoes.","pos":"verb","zh":"买得起、负担得起","zhEx":"他们买不起新鞋。"},"after":{"en":"Later than; following.","ex":"We play after school.","pos":"preposition","zh":"在……之后","zhEx":"我们放学后玩耍。"},"afternoon":{"en":"The time between noon and evening.","ex":"We read in the afternoon.","pos":"noun","zh":"下午","zhEx":"我们下午读书。"},"again":{"en":"One more time.","ex":"Please say it again.","pos":"adverb","zh":"再一次","zhEx":"请再说一遍。"},"ago":{"en":"Before now; in the past.","ex":"He left two days ago.","pos":"adverb","zh":"以前","zhEx":"他两天前离开了。"},"agreed":{"en":"Said yes; had the same idea.","ex":"Everyone agreed with the plan.","pos":"verb","zh":"同意了","zhEx":"大家都同意这个计划。"},"all":{"en":"Every one of; the whole of.","ex":"All the children smiled.","pos":"adjective","zh":"所有的、全部的","zhEx":"所有的孩子都笑了。"},"allergies":{"en":"Sicknesses some people get from certain foods or dust.","ex":"Her allergies make her sneeze near cats.","pos":"noun","zh":"过敏","zhEx":"她的过敏让她在猫旁边打喷嚏。"},"almost":{"en":"Very nearly; not quite.","ex":"We are almost home.","pos":"adverb","zh":"几乎、差不多","zhEx":"我们快到家了。"},"alone":{"en":"Without other people.","ex":"The fox can live alone.","pos":"adverb","zh":"独自、单独","zhEx":"这只狐狸可以独自生活。"},"alongside":{"en":"Next to; beside.","ex":"Kitchens were built alongside the hall.","pos":"preposition","zh":"在……旁边","zhEx":"厨房建在大厅旁边。"},"also":{"en":"Too; as well.","ex":"She also likes milk.","pos":"adverb","zh":"也","zhEx":"她也喜欢牛奶。"},"always":{"en":"At all times; every time.","ex":"He always brushes his teeth.","pos":"adverb","zh":"总是、一直","zhEx":"他总是刷牙。"},"an":{"en":"One; used before a vowel sound.","ex":"She ate an apple.","pos":"article","zh":"一个","zhEx":"她吃了一个苹果。"},"and":{"en":"Joins words or ideas together.","ex":"I like rice and fish.","pos":"conjunction","zh":"和、与","zhEx":"我喜欢米饭和鱼。"},"angry":{"en":"Feeling mad at someone or something.","ex":"He felt angry about the noise.","pos":"adjective","zh":"生气的","zhEx":"他对噪音感到生气。"},"answered":{"en":"Replied; said something back.","ex":"She answered the question.","pos":"verb","zh":"回答了","zhEx":"她回答了这个问题。"},"any":{"en":"One or some, no matter which.","ex":"Do you have any water?","pos":"adjective","zh":"任何的、一些","zhEx":"你有水吗？"},"are":{"en":"A form of 'be' used with you, we, or they.","ex":"They are my friends.","pos":"verb","zh":"是（用于复数）","zhEx":"他们是我的朋友。"},"argued":{"en":"Said that something is true, or fought with words.","ex":"The leaders argued about the plan.","pos":"verb","zh":"争论了、主张了","zhEx":"领导们争论这个计划。"},"arrive":{"en":"To get to a place.","ex":"Buses arrive late sometimes.","pos":"verb","zh":"到达","zhEx":"公交车有时会晚到。"},"arrives":{"en":"Gets to a place.","ex":"The bus arrives at eight.","pos":"verb","zh":"到达","zhEx":"公交车八点到达。"},"as":{"en":"While; like; in the way that.","ex":"She sang as she worked.","pos":"conjunction","zh":"当……时、像","zhEx":"她一边工作一边唱歌。"},"asleep":{"en":"Sleeping; not awake.","ex":"The baby is asleep.","pos":"adjective","zh":"睡着的","zhEx":"宝宝睡着了。"},"at":{"en":"Shows a place or a time.","ex":"We eat at school.","pos":"preposition","zh":"在（某处、某时）","zhEx":"我们在学校吃饭。"},"ate":{"en":"Took food into the body (past of eat).","ex":"He ate two apples.","pos":"verb","zh":"吃了","zhEx":"他吃了两个苹果。"},"b":{"en":"The second letter of the alphabet; a name for the second text.","ex":"Text B tells about today.","pos":"noun","zh":"字母 B；乙（文）","zhEx":"乙文讲的是今天的事。"},"back":{"en":"The part of the body behind the chest; the rear side.","ex":"He carried the bag on his back.","pos":"noun","zh":"背部、后面","zhEx":"他把包背在背上。"},"backpack":{"en":"A bag you carry on your back.","ex":"Her backpack is full of books.","pos":"noun","zh":"背包、书包","zhEx":"她的书包里装满了书。"},"bag":{"en":"A soft container for carrying things.","ex":"Put the apples in the bag.","pos":"noun","zh":"袋子、包","zhEx":"把苹果放进袋子里。"},"bags":{"en":"Soft containers for carrying things.","ex":"We packed two bags of food.","pos":"noun","zh":"袋子（复数）","zhEx":"我们装了两袋食物。"},"bars":{"en":"Long, thin pieces; also snack blocks like cereal bars.","ex":"She ate two cereal bars.","pos":"noun","zh":"条、棒；条状食品","zhEx":"她吃了两根谷物棒。"},"be":{"en":"To exist; to be something.","ex":"I want to be a teacher.","pos":"verb","zh":"是、成为","zhEx":"我想成为一名老师。"},"beach":{"en":"Sandy land beside the sea.","ex":"We played on the beach.","pos":"noun","zh":"海滩、沙滩","zhEx":"我们在沙滩上玩。"},"become":{"en":"To grow into; to turn into.","ex":"Breakfast became a normal part of the day.","pos":"verb","zh":"成为、变成","zhEx":"早餐成了日常的一部分。"},"before":{"en":"Earlier than.","ex":"Wash your hands before lunch.","pos":"preposition","zh":"在……之前","zhEx":"午饭前要洗手。"},"began":{"en":"Started (past of begin).","ex":"The lesson began at nine.","pos":"verb","zh":"开始了","zhEx":"课程九点开始了。"},"begin":{"en":"To start.","ex":"Menus began to include fruit.","pos":"verb","zh":"开始","zhEx":"菜单开始包括水果了。"},"behind":{"en":"At the back of.","ex":"The garden is behind the house.","pos":"preposition","zh":"在……后面","zhEx":"花园在房子后面。"},"bell":{"en":"A metal object that rings; a school signal.","ex":"Children waited for the bell.","pos":"noun","zh":"铃、铃声","zhEx":"孩子们等着铃声响起。"},"below":{"en":"Lower than; under.","ex":"The chart below shows the numbers.","pos":"preposition","zh":"在……下面","zhEx":"下面的图表显示了数字。"},"beneath":{"en":"Under; below.","ex":"The cat slept beneath the table.","pos":"preposition","zh":"在……下面","zhEx":"猫睡在桌子下面。"},"beside":{"en":"Next to; at the side of.","ex":"She sat beside her friend.","pos":"preposition","zh":"在……旁边","zhEx":"她坐在朋友旁边。"},"better":{"en":"Of higher quality; more well.","ex":"A fed child learns better.","pos":"adjective","zh":"更好的","zhEx":"吃饱的孩子学得更好。"},"between":{"en":"In the middle of two things.","ex":"Choose between hot dishes and cereal.","pos":"preposition","zh":"在……之间","zhEx":"在热菜和麦片之间选择。"},"beyond":{"en":"Farther than; past.","ex":"Some schools carry breakfast beyond the hall.","pos":"preposition","zh":"超出、越过","zhEx":"有些学校把早餐送到大厅之外。"},"bird":{"en":"An animal with wings and feathers.","ex":"A small bird sang in the tree.","pos":"noun","zh":"鸟","zhEx":"一只小鸟在树上唱歌。"},"birds":{"en":"Animals with wings and feathers.","ex":"The fox listens for birds.","pos":"noun","zh":"鸟（复数）","zhEx":"狐狸听着鸟的动静。"},"blends":{"en":"Mixes in so it is hard to see.","ex":"Its fur blends with the sand.","pos":"verb","zh":"融入、混合","zhEx":"它的皮毛和沙子融为一体。"},"blood":{"en":"The red liquid that moves through the body.","ex":"Blood flows through the ears.","pos":"noun","zh":"血液","zhEx":"血液流过耳朵。"},"bodies":{"en":"The physical forms of people or animals.","ex":"Growing bodies need good food.","pos":"noun","zh":"身体（复数）","zhEx":"成长中的身体需要好食物。"},"body":{"en":"The physical form of a person or animal.","ex":"The ears cool the whole body.","pos":"noun","zh":"身体","zhEx":"耳朵让整个身体凉快。"},"book":{"en":"Pages of writing fastened together inside a cover.","ex":"Leo lost his library book.","pos":"noun","zh":"书","zhEx":"利奥把他的图书弄丢了。"},"books":{"en":"Sets of written pages inside covers (more than one).","ex":"The library has many books.","pos":"noun","zh":"书（复数）","zhEx":"图书馆里有很多书。"},"borrowed":{"en":"Took something to use and give back later (past of borrow).","ex":"He borrowed a book from the library.","pos":"verb","zh":"借了","zhEx":"他从图书馆借了一本书。"},"both":{"en":"The two of them together.","ex":"Both schools serve breakfast.","pos":"adjective","zh":"两者、两个都","zhEx":"两所学校都供应早餐。"},"bottoms":{"en":"The lowest parts of things.","ex":"Fur covers the bottoms of its feet.","pos":"noun","zh":"底部","zhEx":"皮毛盖住它脚的底部。"},"branches":{"en":"The arms of a tree that grow from the trunk.","ex":"Birds sit on the branches.","pos":"noun","zh":"树枝","zhEx":"鸟儿坐在树枝上。"},"bread":{"en":"A food made from flour and baked.","ex":"We ate bread and milk.","pos":"noun","zh":"面包","zhEx":"我们吃面包喝牛奶。"},"breakfast":{"en":"The first meal of the day.","ex":"We eat breakfast at seven.","pos":"noun","zh":"早餐","zhEx":"我们七点吃早餐。"},"breakfasts":{"en":"The first meals of the day (more than one).","ex":"The first school breakfasts were simple.","pos":"noun","zh":"早餐（复数）","zhEx":"最早的学校早餐很简单。"},"breeze":{"en":"A light, gentle wind.","ex":"A cool breeze touched her face.","pos":"noun","zh":"微风","zhEx":"凉爽的微风拂过她的脸。"},"bring":{"en":"To carry something to a place.","ex":"Fridays bring the largest crowd.","pos":"verb","zh":"带来","zhEx":"星期五带来最多的人。"},"building":{"en":"A structure with walls and a roof, like a school or house.","ex":"The school building is big.","pos":"noun","zh":"建筑物、楼房","zhEx":"学校大楼很大。"},"built":{"en":"Made by putting parts together (past of build).","ex":"Kitchens were built beside the hall.","pos":"verb","zh":"建造了","zhEx":"厨房建在大厅旁边。"},"burning":{"en":"Very hot; on fire.","ex":"The fox runs on the burning sand.","pos":"adjective","zh":"灼热的、燃烧的","zhEx":"狐狸在灼热的沙子上跑。"},"burrow":{"en":"A hole or tunnel an animal digs to live in.","ex":"The fox rests in its burrow.","pos":"noun","zh":"洞穴、地洞","zhEx":"狐狸在洞穴里休息。"},"buses":{"en":"Large vehicles that carry many people.","ex":"Some buses arrive late.","pos":"noun","zh":"公交车（复数）","zhEx":"有些公交车会晚到。"},"but":{"en":"Joins an idea that is different or surprising.","ex":"It is small but strong.","pos":"conjunction","zh":"但是","zhEx":"它虽小但很强壮。"},"by":{"en":"Near; through the work of; not later than.","ex":"Menus are planned by experts.","pos":"preposition","zh":"由、被；在……旁","zhEx":"菜单由专家制定。"},"called":{"en":"Named; shouted to someone.","ex":"The day is called Friday.","pos":"verb","zh":"被称为、叫喊了","zhEx":"这一天叫星期五。"},"calmly":{"en":"In a quiet, relaxed way.","ex":"She spoke calmly to the class.","pos":"adverb","zh":"平静地","zhEx":"她平静地对全班说话。"},"can":{"en":"To be able to do something.","ex":"The fox can survive without water.","pos":"verb","zh":"能、可以","zhEx":"狐狸不用喝水也能生存。"},"carefully":{"en":"In a safe way, paying attention.","ex":"He carried the hot pot carefully.","pos":"adverb","zh":"小心地、仔细地","zhEx":"他小心地端着热锅。"},"carried":{"en":"Took something from one place to another (past of carry).","ex":"She carried the book up the ladder.","pos":"verb","zh":"搬运了、携带了","zhEx":"她把书搬上了梯子。"},"carry":{"en":"To take something from one place to another.","ex":"Some schools carry breakfast to classrooms.","pos":"verb","zh":"搬运、携带","zhEx":"有些学校把早餐送到教室。"},"carts":{"en":"Small vehicles on wheels used to move things.","ex":"Carts of fruit roll to the doors.","pos":"noun","zh":"小推车（复数）","zhEx":"装水果的小推车推到门口。"},"century":{"en":"A period of one hundred years.","ex":"A century is a hundred years.","pos":"noun","zh":"世纪、一百年","zhEx":"一个世纪是一百年。"},"cereal":{"en":"A breakfast food made from grains, often eaten with milk.","ex":"He ate cereal with milk.","pos":"noun","zh":"麦片、谷物早餐","zhEx":"他吃麦片配牛奶。"},"changed":{"en":"Became different (past of change).","ex":"One thing has not changed.","pos":"verb","zh":"改变了","zhEx":"有一件事没有改变。"},"charge":{"en":"A price asked for something; 'free of charge' means no price.","ex":"Breakfast is free of charge.","pos":"noun","zh":"费用","zhEx":"早餐是免费的。"},"charities":{"en":"Groups that help people in need.","ex":"Charities paid for the breakfasts.","pos":"noun","zh":"慈善机构（复数）","zhEx":"慈善机构为早餐付钱。"},"charity":{"en":"Help given to people in need; a group that gives such help.","ex":"Breakfast is not treated as charity.","pos":"noun","zh":"慈善、慈善机构","zhEx":"早餐不被当作慈善施舍。"},"chart":{"en":"A picture or table that shows information with numbers.","ex":"The chart shows how many students ate.","pos":"noun","zh":"图表","zhEx":"图表显示了有多少学生吃了早餐。"},"cheerful":{"en":"Happy and bright in mood.","ex":"The children arrive cheerful.","pos":"adjective","zh":"高兴的、愉快的","zhEx":"孩子们高高兴兴地来到学校。"},"child":{"en":"A young person; a son or daughter.","ex":"Each child received the same meal.","pos":"noun","zh":"孩子","zhEx":"每个孩子都得到同样的饭菜。"},"children":{"en":"Young people (more than one child).","ex":"Children queued in the cold.","pos":"noun","zh":"孩子们","zhEx":"孩子们在寒冷中排队。"},"choose":{"en":"To pick one thing from several.","ex":"Students choose between hot dishes and fruit.","pos":"verb","zh":"选择","zhEx":"学生在热菜和水果之间选择。"},"class":{"en":"A group of students who learn together; a lesson.","ex":"She joins in class with energy.","pos":"noun","zh":"班级、课堂","zhEx":"她在课堂上积极参与。"},"classroom":{"en":"A room where students have lessons.","ex":"Carts roll to classroom doors.","pos":"noun","zh":"教室","zhEx":"小推车推到教室门口。"},"clean":{"en":"Not dirty; free of dirt.","ex":"The kitchen is clean.","pos":"adjective","zh":"干净的","zhEx":"厨房很干净。"},"clearly":{"en":"In a way that is easy to see or understand.","ex":"Safe dishes are clearly marked.","pos":"adverb","zh":"清楚地","zhEx":"安全的菜清楚地标了出来。"},"clever":{"en":"Smart; good at solving problems.","ex":"The fox has clever ways to stay cool.","pos":"adjective","zh":"聪明的","zhEx":"狐狸有聪明的办法保持凉爽。"},"cold":{"en":"Having a low temperature; not warm.","ex":"Children waited in the cold morning.","pos":"adjective","zh":"寒冷的、冷的","zhEx":"孩子们在寒冷的早晨等待。"},"colour":{"en":"Red, blue, green, and so on; how something looks.","ex":"The light colour throws back the heat.","pos":"noun","zh":"颜色","zhEx":"浅色把热量反射回去。"},"coloured":{"en":"Having a colour; marked with colour.","ex":"Dishes are marked with coloured labels.","pos":"adjective","zh":"彩色的、有颜色的","zhEx":"菜用彩色标签标出来。"},"come":{"en":"To move toward a place; to arrive.","ex":"Danger may come near.","pos":"verb","zh":"来、来到","zhEx":"危险可能会靠近。"},"comes":{"en":"Moves toward a place; arrives.","ex":"Friday comes after Thursday.","pos":"verb","zh":"来、来到","zhEx":"星期五在星期四之后。"},"concentrate":{"en":"To give all your attention to one thing.","ex":"A hungry child cannot concentrate.","pos":"verb","zh":"集中注意力、专心","zhEx":"饿着的孩子无法专心。"},"concentrates":{"en":"Gives all attention to one thing.","ex":"She concentrates longer after breakfast.","pos":"verb","zh":"集中注意力","zhEx":"吃过早餐后她能更久地专心。"},"cooked":{"en":"Made food ready by heating it (past of cook).","ex":"Volunteers cooked pots of porridge.","pos":"verb","zh":"煮了、烹饪了","zhEx":"志愿者煮了大锅的粥。"},"cooks":{"en":"People who make food as their job.","ex":"Paid cooks replaced the volunteers.","pos":"noun","zh":"厨师（复数）","zhEx":"有工资的厨师代替了志愿者。"},"cool":{"en":"A little cold; not hot.","ex":"The burrow stays cool.","pos":"adjective","zh":"凉爽的","zhEx":"洞穴里保持凉爽。"},"cooler":{"en":"More cool; less hot.","ex":"The blood returns a little cooler.","pos":"adjective","zh":"更凉的","zhEx":"血液回来时凉了一点。"},"could":{"en":"Was able to; past of 'can'.","ex":"A child could not concentrate.","pos":"verb","zh":"能够（过去式）","zhEx":"孩子无法集中注意力。"},"councils":{"en":"Groups of people chosen to run a town or area.","ex":"Town councils paid for the food.","pos":"noun","zh":"议会、理事会（复数）","zhEx":"镇议会为食物付钱。"},"cover":{"en":"To put something over or on top of.","ex":"Fur covers its feet.","pos":"verb","zh":"覆盖","zhEx":"皮毛覆盖着它的脚。"},"covers":{"en":"Puts something over or on top of.","ex":"Thick fur covers the bottoms of its feet.","pos":"verb","zh":"覆盖","zhEx":"厚厚的皮毛盖住它的脚底。"},"crowd":{"en":"A large group of people together.","ex":"Friday brings the largest crowd.","pos":"noun","zh":"人群","zhEx":"星期五的人最多。"},"curled":{"en":"Rolled into a round shape (past of curl).","ex":"The cat curled up and slept.","pos":"verb","zh":"蜷缩了、卷起了","zhEx":"猫蜷缩起来睡着了。"},"damp":{"en":"A little wet.","ex":"The grass was damp in the morning.","pos":"adjective","zh":"潮湿的","zhEx":"早晨的草有点潮湿。"},"danger":{"en":"Something that can hurt you.","ex":"The foxes escape if danger comes near.","pos":"noun","zh":"危险","zhEx":"危险靠近时狐狸会逃走。"},"day":{"en":"The 24 hours from one midnight to the next; the light part of it.","ex":"Friday is the busiest day of the week.","pos":"noun","zh":"一天、白天","zhEx":"星期五是一周中最忙的一天。"},"daylight":{"en":"The light of the sun during the day.","ex":"In daylight, the light colour throws back the heat.","pos":"noun","zh":"日光、白天","zhEx":"在日光下，浅色把热量反射回去。"},"days":{"en":"Each 24-hour period (more than one day).","ex":"He missed fewer days of school.","pos":"noun","zh":"天（复数）","zhEx":"他缺课的天数变少了。"},"decided":{"en":"Made a choice after thinking (past of decide).","ex":"Amber decided to train the dragon.","pos":"verb","zh":"决定了","zhEx":"Amber 决定训练小龙。"},"deep":{"en":"Going far down.","ex":"The fox rests in a deep burrow.","pos":"adjective","zh":"深的","zhEx":"狐狸在深洞里休息。"},"desert":{"en":"A very dry place with lots of sand and little rain.","ex":"The Sahara is a huge desert.","pos":"noun","zh":"沙漠","zhEx":"撒哈拉是一片大沙漠。"},"desk":{"en":"A table used for writing or studying.","ex":"He fell asleep at his desk.","pos":"noun","zh":"书桌、课桌","zhEx":"他在课桌上睡着了。"},"did":{"en":"Performed an action (past of do).","ex":"Did you finish your work?","pos":"verb","zh":"做了（过去式）","zhEx":"你做完功课了吗？"},"different":{"en":"Not the same as another.","ex":"Teachers say it in different words.","pos":"adjective","zh":"不同的","zhEx":"老师们用不同的说法讲这件事。"},"digs":{"en":"Makes a hole in the ground.","ex":"The fox digs in the sand.","pos":"verb","zh":"挖","zhEx":"狐狸在沙子里挖洞。"},"dining":{"en":"Having to do with eating meals.","ex":"The dining hall opens early.","pos":"adjective","zh":"用餐的、餐厅的","zhEx":"餐厅很早就开门。"},"dinner":{"en":"The main meal eaten in the evening.","ex":"We ate fish for dinner.","pos":"noun","zh":"晚餐","zhEx":"我们晚餐吃鱼。"},"dishes":{"en":"Plates and bowls; also prepared foods served at a meal.","ex":"Students choose between hot dishes and cereal.","pos":"noun","zh":"菜肴、盘子（复数）","zhEx":"学生在热菜和麦片之间选择。"},"door":{"en":"A flat piece that opens and closes the way into a room or building.","ex":"Please close the door.","pos":"noun","zh":"门","zhEx":"请把门关上。"},"doors":{"en":"Flat pieces that open and close entrances (more than one).","ex":"Carts roll to classroom doors.","pos":"noun","zh":"门（复数）","zhEx":"小推车推到教室的门边。"},"down":{"en":"Toward the ground; to a lower place.","ex":"The sun goes down at night.","pos":"adverb","zh":"向下","zhEx":"太阳在夜里落下。"},"dried":{"en":"Made dry; with the water taken out.","ex":"We ate dried fruit.","pos":"adjective","zh":"干的、风干的","zhEx":"我们吃了果干。"},"drinking":{"en":"Taking liquid into the body through the mouth.","ex":"The fox survives without drinking at all.","pos":"verb","zh":"喝（水）","zhEx":"这只狐狸不用喝水也能生存。"},"dry":{"en":"With no water; not wet.","ex":"The desert sand is dry.","pos":"adjective","zh":"干燥的","zhEx":"沙漠的沙子是干的。"},"during":{"en":"All through a period of time.","ex":"The fox rests during the hottest hours.","pos":"preposition","zh":"在……期间","zhEx":"狐狸在最热的时段休息。"},"each":{"en":"Every one, looked at one by one.","ex":"Each child received the same meal.","pos":"adjective","zh":"每一个","zhEx":"每个孩子都得到同样的饭菜。"},"eagles":{"en":"Large, strong birds that hunt other animals.","ex":"Its colour hides it from eagles.","pos":"noun","zh":"鹰（复数）","zhEx":"它的颜色让它躲开鹰。"},"early":{"en":"Before the usual time; near the start.","ex":"The dining hall opens early.","pos":"adverb","zh":"早、提前","zhEx":"餐厅很早就开门。"},"ears":{"en":"The parts of the head used for hearing.","ex":"The fox has huge ears.","pos":"noun","zh":"耳朵（复数）","zhEx":"狐狸有大大的耳朵。"},"eat":{"en":"To take food into the body.","ex":"Students eat breakfast at school.","pos":"verb","zh":"吃","zhEx":"学生在学校吃早餐。"},"eaten":{"en":"Having taken food into the body (past form of eat).","ex":"A child who has eaten learns better.","pos":"verb","zh":"吃过了","zhEx":"吃过饭的孩子学得更好。"},"eating":{"en":"Taking food into the body.","ex":"Students eating breakfast learn better.","pos":"verb","zh":"吃（东西）","zhEx":"吃早餐的学生学得更好。"},"empty":{"en":"With nothing inside.","ex":"He sat with an empty stomach.","pos":"adjective","zh":"空的","zhEx":"他饿着空肚子坐着。"},"energy":{"en":"The strength to move, play, and learn.","ex":"Protein gives lasting energy.","pos":"noun","zh":"能量、精力","zhEx":"蛋白质提供持久的能量。"},"entrances":{"en":"Ways into a place (more than one).","ex":"A burrow may have ten entrances.","pos":"noun","zh":"入口（复数）","zhEx":"一个洞穴可能有十个入口。"},"escape":{"en":"To get away from danger.","ex":"The foxes can escape quickly.","pos":"verb","zh":"逃脱、逃跑","zhEx":"狐狸能很快逃走。"},"even":{"en":"Used to add something surprising; also flat and smooth.","ex":"Fur covers even the bottoms of its feet.","pos":"adverb","zh":"甚至、连","zhEx":"皮毛甚至盖住了它的脚底。"},"every":{"en":"Each one of a group; all.","ex":"Every student who wants it can eat.","pos":"adjective","zh":"每一个、所有的","zhEx":"每个想吃的学生都能吃。"},"everyone":{"en":"Every person.","ex":"Not everyone agreed at first.","pos":"pronoun","zh":"每个人、大家","zhEx":"一开始不是每个人都同意。"},"expected":{"en":"Thought something would happen (past of expect).","ex":"We expected rain today.","pos":"verb","zh":"预料了、期待了","zhEx":"我们预料今天会下雨。"},"experts":{"en":"People who know a lot about a subject.","ex":"Menus are planned by nutrition experts.","pos":"noun","zh":"专家（复数）","zhEx":"菜单由营养专家制定。"},"explained":{"en":"Made something clear; gave the reason (past of explain).","ex":"Hunger explained many poor marks.","pos":"verb","zh":"解释了、说明了","zhEx":"饥饿说明了许多差成绩的原因。"},"extra":{"en":"More than is needed or usual.","ex":"Some families need extra help.","pos":"adjective","zh":"额外的、多余的","zhEx":"有些家庭需要额外的帮助。"},"fallen":{"en":"Having dropped down (past form of fall).","ex":"The leaves have fallen from the tree.","pos":"verb","zh":"落下了、倒下了","zhEx":"树叶从树上落下了。"},"families":{"en":"Groups of parents and children who live together (more than one).","ex":"Whole families share these tunnels.","pos":"noun","zh":"家庭（复数）","zhEx":"整个家庭共用这些地道。"},"family":{"en":"A group of parents and children who live together.","ex":"His family had little food.","pos":"noun","zh":"家庭、家人","zhEx":"他的家人食物很少。"},"family's":{"en":"Belonging to a family.","ex":"Feeding children is a family's job.","pos":"adjective","zh":"家庭的","zhEx":"喂养孩子是一个家庭的责任。"},"fanned":{"en":"Moved air with something flat (past of fan).","ex":"She fanned her face with the book.","pos":"verb","zh":"扇了","zhEx":"她用书扇了扇脸。"},"fans":{"en":"Things that move air to cool you; also people who love something.","ex":"The ears work like fans.","pos":"noun","zh":"扇子、风扇（复数）","zhEx":"耳朵像扇子一样工作。"},"far":{"en":"At a great distance; much.","ex":"The burrow stays far cooler.","pos":"adverb","zh":"远、得多","zhEx":"洞穴里凉快得多。"},"fed":{"en":"Having been given food.","ex":"A fed child learned better.","pos":"adjective","zh":"吃饱了的","zhEx":"吃饱的孩子学得更好。"},"feeding":{"en":"Giving food to someone.","ex":"Feeding children was a family's job.","pos":"verb","zh":"喂养","zhEx":"喂养孩子是家庭的责任。"},"feet":{"en":"The parts at the end of the legs that you stand on (more than one foot).","ex":"Fur covers the bottoms of the fox's feet.","pos":"noun","zh":"脚（复数）","zhEx":"皮毛盖住狐狸脚的底部。"},"fell":{"en":"Dropped down (past of fall).","ex":"He sometimes fell asleep at his desk.","pos":"verb","zh":"落下了、跌倒了","zhEx":"他有时在课桌上睡着了。"},"fennec":{"en":"A small fox with very big ears that lives in the Sahara Desert.","ex":"The fennec fox lives in the desert.","pos":"noun","zh":"耳廓狐","zhEx":"耳廓狐生活在沙漠里。"},"few":{"en":"A small number of.","ex":"Only a few children came early.","pos":"adjective","zh":"少数、几个","zhEx":"只有几个孩子早到。"},"fewer":{"en":"A smaller number of.","ex":"He missed fewer days of school.","pos":"adjective","zh":"更少的","zhEx":"他缺课的日子更少了。"},"fiercely":{"en":"In a very strong, wild way.","ex":"The sand grows fiercely hot.","pos":"adverb","zh":"猛烈地、强烈地","zhEx":"沙子变得热得厉害。"},"firm":{"en":"Solid and strong; not soft or shaky.","ex":"The padding gives the fox a firm grip.","pos":"adjective","zh":"牢固的、结实的","zhEx":"肉垫让狐狸抓得牢。"},"first":{"en":"Before all others; number one.","ex":"Teachers were the first to notice.","pos":"adjective","zh":"第一的、最先的","zhEx":"老师是最先注意到的人。"},"flows":{"en":"Moves along like water.","ex":"Blood flows through the thin skin.","pos":"verb","zh":"流动","zhEx":"血液在薄皮肤里流动。"},"food":{"en":"Things people and animals eat.","ex":"The fox gets liquid from its food.","pos":"noun","zh":"食物","zhEx":"狐狸从食物中得到水分。"},"for":{"en":"Meant for; because of; during.","ex":"Protein is good for lasting energy.","pos":"preposition","zh":"为了、给","zhEx":"蛋白质有助于持久的能量。"},"forgot":{"en":"Did not remember (past of forget).","ex":"He forgot spellings he had known.","pos":"verb","zh":"忘记了","zhEx":"他忘记了以前会拼的单词。"},"fox":{"en":"A wild animal like a small dog with a bushy tail.","ex":"The fox hunts at night.","pos":"noun","zh":"狐狸","zhEx":"狐狸在夜里捕猎。"},"fox's":{"en":"Belonging to the fox.","ex":"Fur covers the fox's feet.","pos":"adjective","zh":"狐狸的","zhEx":"皮毛盖住狐狸的脚。"},"foxes":{"en":"Wild animals like small dogs with bushy tails (more than one).","ex":"The foxes can escape quickly.","pos":"noun","zh":"狐狸（复数）","zhEx":"狐狸们能很快逃走。"},"free":{"en":"Costing no money; not busy or trapped.","ex":"Breakfast is free of charge.","pos":"adjective","zh":"免费的、自由的","zhEx":"早餐是免费的。"},"friday":{"en":"The fifth day of the week, after Thursday.","ex":"Friday brings the largest crowd.","pos":"noun","zh":"星期五","zhEx":"星期五人最多。"},"fridays":{"en":"Every Friday; Fridays in general.","ex":"Fridays bring the largest breakfast crowd.","pos":"noun","zh":"每逢星期五","zhEx":"每逢星期五吃早餐的人最多。"},"from":{"en":"Starting at; out of; sent by.","ex":"The fox gets liquid from its food.","pos":"preposition","zh":"从、来自","zhEx":"狐狸从食物中得到水分。"},"fruit":{"en":"Sweet food that grows on trees or plants, like apples.","ex":"Menus include bread, milk, and fruit.","pos":"noun","zh":"水果","zhEx":"菜单包括面包、牛奶和水果。"},"fur":{"en":"The soft, thick hair covering an animal.","ex":"Pale fur helps the fox in two ways.","pos":"noun","zh":"皮毛、毛皮","zhEx":"浅色的皮毛在两方面帮助狐狸。"},"furry":{"en":"Covered with soft, thick hair.","ex":"The furry padding shields its paws.","pos":"adjective","zh":"毛茸茸的","zhEx":"毛茸茸的肉垫保护着它的爪子。"},"garden":{"en":"Land where flowers or vegetables grow.","ex":"We grow tomatoes in the garden.","pos":"noun","zh":"花园、菜园","zhEx":"我们在菜园里种西红柿。"},"gently":{"en":"In a soft, careful way.","ex":"She held the baby bird gently.","pos":"adverb","zh":"轻轻地、温柔地","zhEx":"她轻轻地捧着小鸟。"},"gets":{"en":"Receives; becomes.","ex":"The fox gets liquid from its food.","pos":"verb","zh":"得到、变得","zhEx":"狐狸从食物中得到水分。"},"give":{"en":"To hand something to someone.","ex":"Families give them food at home.","pos":"verb","zh":"给","zhEx":"家人在家里给他们食物。"},"gives":{"en":"Hands something to someone.","ex":"The padding gives the fox a firm grip.","pos":"verb","zh":"给、提供","zhEx":"肉垫让狐狸抓地牢固。"},"goes":{"en":"Moves; travels.","ex":"The fox hunts after the sun goes down.","pos":"verb","zh":"去、走、落下","zhEx":"太阳落山后狐狸出去捕猎。"},"grass":{"en":"A green plant with thin leaves that covers the ground.","ex":"The rabbit hides in the grass.","pos":"noun","zh":"草","zhEx":"兔子躲在草丛里。"},"grip":{"en":"A tight hold on something.","ex":"It gives the fox a firm grip on loose sand.","pos":"noun","zh":"抓握、抓力","zhEx":"这让狐狸在松沙上抓得牢。"},"growing":{"en":"Getting bigger; in the stage of growth.","ex":"Growing bodies need good food.","pos":"adjective","zh":"成长中的","zhEx":"成长中的身体需要好食物。"},"growling":{"en":"Making a low, angry sound; an empty stomach can 'growl'.","ex":"He sat with a growling stomach.","pos":"adjective","zh":"咕咕叫的、低吼的","zhEx":"他饿得肚子咕咕叫。"},"grows":{"en":"Gets bigger; becomes.","ex":"The sand grows fiercely hot.","pos":"verb","zh":"生长、变得","zhEx":"沙子变得热得厉害。"},"habits":{"en":"Things a person or animal does again and again.","ex":"Its nighttime habits help it stay cool.","pos":"noun","zh":"习惯（复数）","zhEx":"它夜间的习惯帮助它保持凉爽。"},"had":{"en":"Owned or experienced (past of have).","ex":"His family had little food.","pos":"verb","zh":"有、拥有（过去式）","zhEx":"他的家人食物很少。"},"hall":{"en":"A large room for meetings or meals.","ex":"The dining hall opens early.","pos":"noun","zh":"大厅","zhEx":"餐厅很早就开门。"},"hands":{"en":"The parts at the ends of the arms used for holding.","ex":"Wash your hands before lunch.","pos":"noun","zh":"手（复数）","zhEx":"午饭前要洗手。"},"has":{"en":"Owns; a form of 'have' for he, she, or it.","ex":"The fox has huge ears.","pos":"verb","zh":"有（第三人称单数）","zhEx":"狐狸有大大的耳朵。"},"have":{"en":"To own or hold something.","ex":"A burrow may have ten entrances.","pos":"verb","zh":"有、拥有","zhEx":"一个洞穴可能有十个入口。"},"he":{"en":"The word for a man or a boy.","ex":"He fell asleep at his desk.","pos":"pronoun","zh":"他","zhEx":"他在课桌上睡着了。"},"heat":{"en":"Warmth; hotness.","ex":"The fur throws back the sun's heat.","pos":"noun","zh":"热、热量","zhEx":"皮毛把太阳的热量反射回去。"},"help":{"en":"To make something easier for someone; aid.","ex":"Its ears help it stay cool.","pos":"verb","zh":"帮助","zhEx":"它的耳朵帮助它保持凉爽。"},"helps":{"en":"Makes something easier; aids.","ex":"Pale fur helps the fox.","pos":"verb","zh":"帮助","zhEx":"浅色的皮毛对狐狸有帮助。"},"hiding":{"en":"Staying where no one can see you.","ex":"The colour also helps with hiding.","pos":"verb","zh":"躲藏","zhEx":"这种颜色也有助于躲藏。"},"him":{"en":"The word for a man or boy when he receives an action.","ex":"Amber told him a story.","pos":"pronoun","zh":"他（宾格）","zhEx":"Amber 给他讲了一个故事。"},"himself":{"en":"The same man or boy, acting on his own.","ex":"He made the bed himself.","pos":"pronoun","zh":"他自己","zhEx":"他自己整理了床铺。"},"his":{"en":"Belonging to a man or a boy.","ex":"He fell asleep at his desk.","pos":"adjective","zh":"他的","zhEx":"他在自己的课桌上睡着了。"},"holding":{"en":"Keeping something in your hands.","ex":"She was holding a warm mug.","pos":"verb","zh":"拿着、握着","zhEx":"她拿着一个暖暖的杯子。"},"home":{"en":"The place where you live.","ex":"Children ate at home before school.","pos":"noun","zh":"家","zhEx":"孩子们上学前在家里吃饭。"},"hot":{"en":"Having a high temperature; very warm.","ex":"The sand grows fiercely hot.","pos":"adjective","zh":"热的、烫的","zhEx":"沙子变得热得厉害。"},"hottest":{"en":"The most hot of all.","ex":"It rests during the hottest hours.","pos":"adjective","zh":"最热的","zhEx":"它在最热的时段休息。"},"hours":{"en":"Periods of sixty minutes (more than one).","ex":"During the hottest hours, the fox rests.","pos":"noun","zh":"小时（复数）","zhEx":"在最热的那几个小时，狐狸在休息。"},"how":{"en":"In what way; by what means.","ex":"How does the fox stay cool?","pos":"adverb","zh":"怎样、如何","zhEx":"狐狸是怎样保持凉爽的？"},"huge":{"en":"Very, very big.","ex":"Volunteers cooked huge pots of porridge.","pos":"adjective","zh":"巨大的","zhEx":"志愿者煮了大锅大锅的粥。"},"hundred":{"en":"The number 100.","ex":"A hundred years ago, schools had no breakfast.","pos":"number","zh":"一百","zhEx":"一百年前，学校没有早餐。"},"hunger":{"en":"The feeling of needing food.","ex":"Hunger explained many poor marks.","pos":"noun","zh":"饥饿","zhEx":"饥饿说明了许多差成绩的原因。"},"hungry":{"en":"Feeling the need to eat.","ex":"A hungry child could not concentrate.","pos":"adjective","zh":"饥饿的、饿的","zhEx":"饿着的孩子无法专心。"},"hunt":{"en":"To chase and catch animals for food.","ex":"Eagles hunt from the sky.","pos":"verb","zh":"捕猎、打猎","zhEx":"鹰从空中捕猎。"},"hunts":{"en":"Chases and catches animals for food.","ex":"The fox hunts only after dark.","pos":"verb","zh":"捕猎","zhEx":"狐狸只在天黑后捕猎。"},"i":{"en":"The word a person uses for themselves.","ex":"I like to read books.","pos":"pronoun","zh":"我","zhEx":"我喜欢读书。"},"if":{"en":"In the case that; when something might happen.","ex":"The foxes escape if danger comes near.","pos":"conjunction","zh":"如果","zhEx":"如果危险靠近，狐狸就会逃走。"},"in":{"en":"Inside; within.","ex":"The fox rests in a deep burrow.","pos":"preposition","zh":"在……里面","zhEx":"狐狸在深洞里休息。"},"include":{"en":"To have as a part of something.","ex":"Menus began to include bread and fruit.","pos":"verb","zh":"包括","zhEx":"菜单开始包括面包和水果。"},"includes":{"en":"Has as a part of something.","ex":"A modern breakfast includes fruit.","pos":"verb","zh":"包括","zhEx":"现代早餐包括水果。"},"injured":{"en":"Hurt; damaged.","ex":"The injured bird could not fly.","pos":"adjective","zh":"受伤的","zhEx":"受伤的小鸟飞不了了。"},"insects":{"en":"Very small animals with six legs, like ants and bees.","ex":"It listens for insects moving on the sand.","pos":"noun","zh":"昆虫（复数）","zhEx":"它听着昆虫在沙子上爬动。"},"inside":{"en":"In the inner part of something.","ex":"The children waited inside the school.","pos":"preposition","zh":"在……里面","zhEx":"孩子们在学校里面等待。"},"instead":{"en":"In place of something else.","ex":"The light colour throws back heat instead of soaking it up.","pos":"adverb","zh":"代替、反而","zhEx":"浅色把热量反射回去，而不是吸收。"},"is":{"en":"A form of 'be' for he, she, or it.","ex":"The burrow is cool.","pos":"verb","zh":"是（第三人称单数）","zhEx":"洞穴是凉爽的。"},"it":{"en":"The word for a thing or an animal.","ex":"It rests underground.","pos":"pronoun","zh":"它","zhEx":"它在地下休息。"},"its":{"en":"Belonging to a thing or an animal.","ex":"Its pale fur helps it stay cool.","pos":"adjective","zh":"它的","zhEx":"它浅色的皮毛帮助它保持凉爽。"},"job":{"en":"Work that someone does; a task.","ex":"Feeding children was a family's job.","pos":"noun","zh":"工作、职责","zhEx":"喂养孩子是家庭的职责。"},"joins":{"en":"Takes part; comes together with others.","ex":"She joins in class with more energy.","pos":"verb","zh":"加入、参加","zhEx":"她更有精力地参与课堂。"},"just":{"en":"Only; exactly; a very short time ago.","ex":"It is just as the chart shows.","pos":"adverb","zh":"只是、正是","zhEx":"正如图表所示。"},"kidneys":{"en":"Two organs inside the body that clean the blood and save water.","ex":"Its kidneys are built to save water.","pos":"noun","zh":"肾脏（复数）","zhEx":"它的肾脏天生能保存水分。"},"kitchen":{"en":"A room where food is cooked.","ex":"The kitchen serves fruit pancakes.","pos":"noun","zh":"厨房","zhEx":"厨房供应水果煎饼。"},"kitchens":{"en":"Rooms where food is cooked (more than one).","ex":"Kitchens were built beside the dining hall.","pos":"noun","zh":"厨房（复数）","zhEx":"厨房建在餐厅旁边。"},"know":{"en":"To have information in your mind.","ex":"Do you know this word?","pos":"verb","zh":"知道、认识","zhEx":"你知道这个词吗？"},"known":{"en":"Famous; understood by people.","ex":"He forgot spellings he had known.","pos":"adjective","zh":"已知的、知道的","zhEx":"他忘记了以前知道的拼写。"},"labels":{"en":"Small pieces of paper or signs that tell what something is.","ex":"Safe dishes are marked with coloured labels.","pos":"noun","zh":"标签（复数）","zhEx":"安全的菜用彩色标签标出来。"},"largest":{"en":"The biggest of all.","ex":"It has the largest ears of any fox.","pos":"adjective","zh":"最大的","zhEx":"它的耳朵是所有狐狸中最大的。"},"last":{"en":"After all others; most recent.","ex":"By the middle of the last century, things changed.","pos":"adjective","zh":"最后的、上一个的","zhEx":"到上个世纪中叶，情况变了。"},"lasting":{"en":"Going on for a long time.","ex":"Protein gives lasting energy.","pos":"adjective","zh":"持久的","zhEx":"蛋白质提供持久的能量。"},"late":{"en":"After the usual or planned time.","ex":"Some buses arrive late.","pos":"adjective","zh":"迟的、晚的","zhEx":"有些公交车会晚到。"},"lay":{"en":"Was lying down (past of lie); also to put something down flat.","ex":"The book lay on the desk.","pos":"verb","zh":"躺着、放着（过去式）","zhEx":"书放在课桌上。"},"laziness":{"en":"Not wanting to work or try.","ex":"Hunger, not laziness, explained the poor marks.","pos":"noun","zh":"懒惰","zhEx":"是饥饿，而不是懒惰，说明了差成绩。"},"leaders":{"en":"People who are in charge of a group or town.","ex":"Some town leaders argued about it.","pos":"noun","zh":"领导者（复数）","zhEx":"一些镇领导为此争论。"},"learn":{"en":"To get new knowledge or skills.","ex":"A fed child can learn better.","pos":"verb","zh":"学习","zhEx":"吃饱的孩子能学得更好。"},"learned":{"en":"Got new knowledge (past of learn).","ex":"He learned better after eating.","pos":"verb","zh":"学会了、学习了","zhEx":"吃过饭后他学得更好。"},"learning":{"en":"The act of getting new knowledge.","ex":"Breakfast is part of learning.","pos":"noun","zh":"学习","zhEx":"早餐是学习的一部分。"},"learns":{"en":"Gets new knowledge or skills.","ex":"A child who has eaten learns better.","pos":"verb","zh":"学习","zhEx":"吃过饭的孩子学得更好。"},"leaves":{"en":"The flat green parts of a plant or tree.","ex":"The leaves fell from the tree.","pos":"noun","zh":"叶子（复数）","zhEx":"叶子从树上落下来。"},"left":{"en":"Went away (past of leave); also the side opposite the right.","ex":"He left two days ago.","pos":"verb","zh":"离开了","zhEx":"他两天前离开了。"},"leo":{"en":"A boy's name.","ex":"Leo lost his library book.","pos":"noun","zh":"利奥（人名）","zhEx":"利奥把图书弄丢了。"},"leo's":{"en":"Belonging to Leo.","ex":"Leo's backpack was heavy.","pos":"adjective","zh":"利奥的","zhEx":"利奥的书包很重。"},"lessons":{"en":"Times when someone teaches you something; classes.","ex":"He could not concentrate on lessons.","pos":"noun","zh":"课程、课（复数）","zhEx":"他无法专心上课。"},"librarian":{"en":"A person who works in a library and helps people find books.","ex":"The librarian helped Leo look for the book.","pos":"noun","zh":"图书管理员","zhEx":"图书管理员帮利奥找书。"},"library":{"en":"A place where books are kept for people to read or borrow.","ex":"Leo went back to the library.","pos":"noun","zh":"图书馆","zhEx":"利奥回到了图书馆。"},"light":{"en":"Brightness from the sun or a lamp; also not heavy.","ex":"Its light colour throws back the heat.","pos":"noun","zh":"光、光线；浅色的","zhEx":"它的浅色把热量反射回去。"},"like":{"en":"Similar to; the same way as.","ex":"The ears work like fans.","pos":"preposition","zh":"像、如同","zhEx":"耳朵像扇子一样工作。"},"limits":{"en":"Keeps something within a set amount.","ex":"A modern breakfast limits sugar.","pos":"verb","zh":"限制","zhEx":"现代早餐限制糖的量。"},"liquid":{"en":"Something that flows like water.","ex":"The fox gets liquid from its food.","pos":"noun","zh":"液体","zhEx":"狐狸从食物中得到液体。"},"listens":{"en":"Pays attention to sounds.","ex":"At night it listens for small rodents.","pos":"verb","zh":"听、倾听","zhEx":"夜里它听着小动物的动静。"},"little":{"en":"Small in size or amount.","ex":"His family had little food.","pos":"adjective","zh":"小的、很少的","zhEx":"他的家人食物很少。"},"lives":{"en":"Is alive; makes a home in a place.","ex":"The fennec fox lives in the Sahara Desert.","pos":"verb","zh":"生活、居住","zhEx":"耳廓狐生活在撒哈拉沙漠。"},"long":{"en":"Measuring a great length; lasting a long time.","ex":"It can survive for long stretches.","pos":"adjective","zh":"长的、长时间的","zhEx":"它能长时间生存下去。"},"longer":{"en":"More long; for a greater time.","ex":"She concentrates longer after eating.","pos":"adjective","zh":"更久地、更长的","zhEx":"吃过饭后她能专心更久。"},"loose":{"en":"Not tight; free to move.","ex":"It gives a firm grip on loose sand.","pos":"adjective","zh":"松的、松散的","zhEx":"这让它在松沙上抓得牢。"},"lost":{"en":"Not able to be found; missing.","ex":"Leo and the Lost Library Book.","pos":"adjective","zh":"丢失的、迷失的","zhEx":"利奥和丢失的图书。"},"loved":{"en":"Felt strong liking for (past of love).","ex":"She loved the story very much.","pos":"verb","zh":"热爱了、喜欢了","zhEx":"她非常喜欢这个故事。"},"lying":{"en":"Resting flat on a surface.","ex":"The book was lying on the desk.","pos":"verb","zh":"躺着、放着","zhEx":"书放在课桌上。"},"many":{"en":"A large number of.","ex":"Many schools serve breakfast.","pos":"adjective","zh":"许多","zhEx":"许多学校供应早餐。"},"marked":{"en":"Showed with a sign or label (past of mark).","ex":"Dishes are marked with coloured labels.","pos":"verb","zh":"标记了、标明了","zhEx":"菜用彩色标签标出来。"},"marks":{"en":"Scores on a test; grades.","ex":"Hunger explained many poor marks.","pos":"noun","zh":"成绩、分数（复数）","zhEx":"饥饿说明了许多差成绩的原因。"},"may":{"en":"Might; it is possible that.","ex":"A burrow may have ten entrances.","pos":"verb","zh":"可能、可以","zhEx":"一个洞穴可能有十个入口。"},"meal":{"en":"Food eaten at one time, like breakfast or dinner.","ex":"Each child received the same plain meal.","pos":"noun","zh":"一餐、饭菜","zhEx":"每个孩子都得到同样的简单饭菜。"},"memory":{"en":"Something you remember; the ability to remember.","ex":"The trip is a happy memory.","pos":"noun","zh":"记忆、回忆","zhEx":"这次旅行是一段快乐的回忆。"},"menus":{"en":"Lists of foods served at a meal (more than one).","ex":"Menus began to include bread and fruit.","pos":"noun","zh":"菜单（复数）","zhEx":"菜单开始包括面包和水果。"},"midday":{"en":"The middle of the day; noon.","ex":"The sand grows hot under the midday sun.","pos":"noun","zh":"正午、中午","zhEx":"沙子在正午的阳光下变得很热。"},"middle":{"en":"The centre part, with things on both sides.","ex":"By the middle of the last century, things changed.","pos":"noun","zh":"中间、中部","zhEx":"到上个世纪中叶，情况变了。"},"might":{"en":"It is possible that; may.","ex":"A child might sit through the morning hungry.","pos":"verb","zh":"可能、也许","zhEx":"一个孩子可能饿着肚子坐一上午。"},"milk":{"en":"A white drink from cows, often eaten with cereal.","ex":"Menus include bread, milk, and fruit.","pos":"noun","zh":"牛奶","zhEx":"菜单包括面包、牛奶和水果。"},"missed":{"en":"Did not attend; failed to hit or notice (past of miss).","ex":"He missed fewer days of school.","pos":"verb","zh":"错过了、缺席了","zhEx":"他缺课的日子更少了。"},"modern":{"en":"Of the present time; new in style.","ex":"A modern school breakfast limits sugar.","pos":"adjective","zh":"现代的","zhEx":"现代学校早餐限制糖的量。"},"monday":{"en":"The first day of the school week, after Sunday.","ex":"Monday is the first day of the week.","pos":"noun","zh":"星期一","zhEx":"星期一是一周的第一天。"},"money":{"en":"Coins and paper used to buy things.","ex":"It saved the town money in the long run.","pos":"noun","zh":"钱","zhEx":"从长远看，这为镇上省了钱。"},"more":{"en":"A greater amount or number.","ex":"On Fridays, more students eat breakfast.","pos":"adjective","zh":"更多的","zhEx":"星期五吃早餐的学生更多。"},"morning":{"en":"The first part of the day, before noon.","ex":"He might sit through the whole morning hungry.","pos":"noun","zh":"早晨、上午","zhEx":"他可能饿着肚子坐一上午。"},"most":{"en":"The greatest amount or number.","ex":"Most schools offered no breakfast at all.","pos":"adjective","zh":"大多数的、最多的","zhEx":"大多数学校根本不提供早餐。"},"moving":{"en":"Going from one place to another.","ex":"It listens for insects moving across the sand.","pos":"verb","zh":"移动着","zhEx":"它听着昆虫在沙子上爬动。"},"mrs":{"en":"A title used before the name of a married woman.","ex":"Mrs. Okafor is the librarian.","pos":"noun","zh":"夫人、太太（称呼）","zhEx":"奥卡福夫人是图书管理员。"},"much":{"en":"A large amount of.","ex":"Much like wide shoes help a person walk.","pos":"adjective","zh":"许多、很","zhEx":"就像宽鞋帮助人走路一样。"},"mugs":{"en":"Large cups with handles.","ex":"Porridge was served in tin mugs.","pos":"noun","zh":"大杯子（复数）","zhEx":"粥盛在锡杯里端上来。"},"myself":{"en":"The same person as me, acting on my own.","ex":"I made breakfast myself.","pos":"pronoun","zh":"我自己","zhEx":"我自己做了早餐。"},"near":{"en":"Close to; not far from.","ex":"Danger may come near.","pos":"preposition","zh":"靠近、附近","zhEx":"危险可能会靠近。"},"need":{"en":"To require something; to must have.","ex":"Growing bodies need good food.","pos":"verb","zh":"需要","zhEx":"成长中的身体需要好食物。"},"new":{"en":"Made or seen for the first time; not old.","ex":"Not everyone agreed with the new breakfasts.","pos":"adjective","zh":"新的","zhEx":"不是每个人都同意新的早餐计划。"},"night":{"en":"The dark part of the day, when the sun is down.","ex":"The fox hunts only after the sun goes down at night.","pos":"noun","zh":"夜晚","zhEx":"狐狸只在夜里太阳落山后捕猎。"},"nighttime":{"en":"The time when it is night.","ex":"Its nighttime habits help it stay cool.","pos":"noun","zh":"夜间、夜晚","zhEx":"它夜间的习惯帮助它保持凉爽。"},"no":{"en":"Not any; not one.","ex":"Most schools offered no breakfast at all.","pos":"adjective","zh":"没有、不是","zhEx":"大多数学校根本不提供早餐。"},"nodded":{"en":"Moved the head up and down to say yes (past of nod).","ex":"She nodded and smiled.","pos":"verb","zh":"点了点头","zhEx":"她点了点头，笑了。"},"normal":{"en":"Usual; what happens most of the time.","ex":"Breakfast became a normal part of the school day.","pos":"adjective","zh":"正常的、平常的","zhEx":"早餐成了学校日常的一部分。"},"not":{"en":"Used to make a word or sentence mean the opposite.","ex":"One thing has not changed.","pos":"adverb","zh":"不、没有","zhEx":"有一件事没有改变。"},"note":{"en":"A short piece of writing; also to notice something.","ex":"She wrote a note to her friend.","pos":"noun","zh":"笔记、便条","zhEx":"她给朋友写了一张便条。"},"notice":{"en":"To see or become aware of something.","ex":"Teachers were the first to notice the problem.","pos":"verb","zh":"注意到","zhEx":"老师是最先注意到问题的人。"},"number":{"en":"A word or sign that shows how many or how much.","ex":"The number of students grows on Fridays.","pos":"noun","zh":"数字、数目","zhEx":"星期五学生的数目增加了。"},"nutrition":{"en":"The food the body needs to grow and stay healthy.","ex":"Menus are planned by nutrition experts.","pos":"noun","zh":"营养","zhEx":"菜单由营养专家制定。"},"of":{"en":"Belonging to; part of; made from.","ex":"The largest ears of any fox.","pos":"preposition","zh":"的、属于","zhEx":"所有狐狸中最大的耳朵。"},"offered":{"en":"Gave someone the chance to have something (past of offer).","ex":"Most schools offered no breakfast at all.","pos":"verb","zh":"提供了","zhEx":"大多数学校根本不提供早餐。"},"offers":{"en":"Gives someone the chance to have something.","ex":"A modern breakfast offers protein.","pos":"verb","zh":"提供","zhEx":"现代早餐提供蛋白质。"},"often":{"en":"Many times; frequently.","ex":"Teachers were often the first to notice.","pos":"adverb","zh":"经常、常常","zhEx":"老师常常是最先注意到的人。"},"okafor":{"en":"A family name (Mrs. Okafor, the librarian).","ex":"Mrs. Okafor works in the library.","pos":"noun","zh":"奥卡福（姓氏）","zhEx":"奥卡福夫人在图书馆工作。"},"on":{"en":"On top of; touching a surface.","ex":"Fur covers the bottoms of its feet on the sand.","pos":"preposition","zh":"在……上面","zhEx":"皮毛盖住它在沙子上的脚底。"},"once":{"en":"One single time.","ex":"He read the book once.","pos":"adverb","zh":"一次","zhEx":"他把这本书读了一遍。"},"one":{"en":"The number 1; a single thing or person.","ex":"One thing has not changed.","pos":"number","zh":"一、一个","zhEx":"有一件事没有改变。"},"only":{"en":"Just; no more than.","ex":"The fox hunts only after the sun goes down.","pos":"adverb","zh":"只、仅仅","zhEx":"狐狸只在太阳落山后捕猎。"},"open":{"en":"To make not closed; to start business.","ex":"The dining hall opens early.","pos":"verb","zh":"打开、开门","zhEx":"餐厅很早就开门。"},"opened":{"en":"Made not closed (past of open).","ex":"She opened the book.","pos":"verb","zh":"打开了","zhEx":"她打开了书。"},"opens":{"en":"Makes not closed; starts business.","ex":"The dining hall opens early.","pos":"verb","zh":"开门、打开","zhEx":"餐厅很早就开门。"},"or":{"en":"Used between choices.","ex":"Do you want fruit or yogurt?","pos":"conjunction","zh":"或者、还是","zhEx":"你想要水果还是酸奶？"},"other":{"en":"Different; the second of two; more.","ex":"Some schools do other things.","pos":"adjective","zh":"其他的","zhEx":"有些学校做其他的事。"},"others":{"en":"Other people or things.","ex":"Others answered that a fed child learned better.","pos":"pronoun","zh":"其他人、其他事物","zhEx":"其他人回答说吃饱的孩子学得更好。"},"out":{"en":"Away from the inside; outside.","ex":"The sun comes out in the morning.","pos":"adverb","zh":"出、外面","zhEx":"太阳在早晨出来。"},"over":{"en":"Above; across the top of.","ex":"Eagles hunt from the sky over the desert.","pos":"preposition","zh":"在……上方、越过","zhEx":"鹰在沙漠上空捕猎。"},"own":{"en":"Belonging to a particular person or thing.","ex":"Each school has its own kitchen.","pos":"adjective","zh":"自己的","zhEx":"每所学校都有自己的厨房。"},"padding":{"en":"Soft material used to protect something.","ex":"This furry padding shields its paws.","pos":"noun","zh":"垫子、衬垫","zhEx":"毛茸茸的垫子保护着它的爪子。"},"page":{"en":"One side of a sheet of paper in a book.","ex":"Leo turned the page slowly.","pos":"noun","zh":"页、页面","zhEx":"利奥慢慢地翻过一页。"},"pages":{"en":"Sides of sheets of paper in a book (more than one).","ex":"The book has many pages.","pos":"noun","zh":"页（复数）","zhEx":"这本书有很多页。"},"paid":{"en":"Given money for work done.","ex":"Paid cooks replaced the volunteers.","pos":"adjective","zh":"有工资的、付了钱的","zhEx":"有工资的厨师代替了志愿者。"},"pale":{"en":"Light in colour; not bright or dark.","ex":"Pale, sandy fur helps the fox.","pos":"adjective","zh":"浅色的、苍白的","zhEx":"浅色的沙色皮毛帮助狐狸。"},"pancakes":{"en":"Flat, round cakes cooked in a pan, often eaten at breakfast.","ex":"The kitchen serves fruit pancakes on Fridays.","pos":"noun","zh":"煎饼（复数）","zhEx":"厨房星期五供应水果煎饼。"},"paper":{"en":"Thin material used for writing, printing, and books.","ex":"She wrote her name on the paper.","pos":"noun","zh":"纸","zhEx":"她在纸上写下自己的名字。"},"part":{"en":"A piece of a larger thing.","ex":"Breakfast is part of learning.","pos":"noun","zh":"部分","zhEx":"早餐是学习的一部分。"},"paws":{"en":"The feet of an animal like a dog, cat, or fox.","ex":"The padding shields its paws from the sand.","pos":"noun","zh":"爪子（复数）","zhEx":"垫子保护它的爪子不被沙子烫伤。"},"performed":{"en":"Did a show or an action in front of others (past of perform).","ex":"The class performed a short play.","pos":"verb","zh":"表演了","zhEx":"全班表演了一个短剧。"},"person":{"en":"A human being; one man, woman, or child.","ex":"Much like wide shoes help a person walk.","pos":"noun","zh":"人","zhEx":"就像宽鞋帮助一个人走路一样。"},"pick":{"en":"To choose; to take something up.","ex":"Students with allergies can pick safe dishes.","pos":"verb","zh":"挑选、捡起","zhEx":"过敏的学生可以挑选安全的菜。"},"picked":{"en":"Chose; took something up (past of pick).","ex":"He picked the red book.","pos":"verb","zh":"挑选了、捡起了","zhEx":"他挑选了那本红色的书。"},"picture":{"en":"A drawing, painting, or photo.","ex":"She drew a picture of a fox.","pos":"noun","zh":"图画、照片","zhEx":"她画了一幅狐狸的画。"},"place":{"en":"A particular area or spot.","ex":"It stays cool in a place with almost no shade.","pos":"noun","zh":"地方、地点","zhEx":"它待在一个几乎没有阴凉的地方保持凉爽。"},"plain":{"en":"Simple; with nothing added.","ex":"Each child received the same plain meal.","pos":"adjective","zh":"简单的、朴素的","zhEx":"每个孩子都得到同样的简单饭菜。"},"planned":{"en":"Decided in detail beforehand (past of plan).","ex":"Menus are planned by nutrition experts.","pos":"verb","zh":"计划了、制定了","zhEx":"菜单由营养专家制定。"},"play":{"en":"A story acted on a stage; also fun activity.","ex":"The class performed a short play.","pos":"noun","zh":"戏剧、剧本；玩耍","zhEx":"全班表演了一个短剧。"},"plum":{"en":"A small, round, juicy fruit with a stone inside.","ex":"She ate a sweet plum.","pos":"noun","zh":"李子、梅子","zhEx":"她吃了一个甜李子。"},"pocket":{"en":"A small bag sewn into clothing for carrying things.","ex":"He kept the note in his pocket.","pos":"noun","zh":"口袋","zhEx":"他把便条放在口袋里。"},"poor":{"en":"Having little money; of low quality.","ex":"Hunger explained many poor marks.","pos":"adjective","zh":"差的、贫穷的","zhEx":"饥饿说明了许多差成绩的原因。"},"popular":{"en":"Liked by many people.","ex":"The kitchen serves its popular fruit pancakes.","pos":"adjective","zh":"受欢迎的、流行的","zhEx":"厨房供应受欢迎的水果煎饼。"},"porridge":{"en":"A soft food made by boiling grains in water or milk.","ex":"Volunteers cooked huge pots of porridge.","pos":"noun","zh":"粥、燕麦粥","zhEx":"志愿者煮了大锅大锅的粥。"},"pots":{"en":"Deep round containers used for cooking (more than one).","ex":"Volunteers cooked huge pots of porridge.","pos":"noun","zh":"锅（复数）","zhEx":"志愿者煮了大锅大锅的粥。"},"problem":{"en":"A difficulty that needs to be fixed.","ex":"Teachers were the first to notice the problem.","pos":"noun","zh":"问题、困难","zhEx":"老师是最先注意到问题的人。"},"protein":{"en":"A part of food that helps the body grow and stay strong.","ex":"A modern breakfast offers protein for lasting energy.","pos":"noun","zh":"蛋白质","zhEx":"现代早餐提供蛋白质，带来持久的能量。"},"queued":{"en":"Waited in a line (past of queue).","ex":"Children queued in the cold before the bell.","pos":"verb","zh":"排队了","zhEx":"孩子们在铃声前在寒冷中排队。"},"quickly":{"en":"In a short time; fast.","ex":"The foxes can escape quickly.","pos":"adverb","zh":"快速地","zhEx":"狐狸能很快逃走。"},"rain":{"en":"Water that falls from clouds.","ex":"Rain fell all night.","pos":"noun","zh":"雨","zhEx":"雨下了一整夜。"},"ran":{"en":"Moved fast on foot (past of run).","ex":"He ran to the library.","pos":"verb","zh":"跑了","zhEx":"他跑向图书馆。"},"read":{"en":"To look at words and understand them.","ex":"We read the story together.","pos":"verb","zh":"读、阅读","zhEx":"我们一起读这个故事。"},"ready":{"en":"Prepared; able to start.","ex":"The Friday crowd arrives ready to learn.","pos":"adjective","zh":"准备好的","zhEx":"星期五的人群准备好来学习了。"},"received":{"en":"Got something that was given (past of receive).","ex":"Each child received the same plain meal.","pos":"verb","zh":"收到了、得到了","zhEx":"每个孩子都得到同样的简单饭菜。"},"recess":{"en":"A break during the school day for play.","ex":"We play outside at recess.","pos":"noun","zh":"课间休息","zhEx":"课间休息时我们在外面玩。"},"replaced":{"en":"Took the place of something (past of replace).","ex":"Paid cooks replaced the volunteers.","pos":"verb","zh":"代替了、替换了","zhEx":"有工资的厨师代替了志愿者。"},"reports":{"en":"Written accounts that tell what happened (more than one).","ex":"In their reports, teachers wrote about hunger.","pos":"noun","zh":"报告（复数）","zhEx":"老师们在报告中写到了饥饿问题。"},"rests":{"en":"Relaxes and stops working for a while.","ex":"The fox rests underground.","pos":"verb","zh":"休息","zhEx":"狐狸在地下休息。"},"returned":{"en":"Came back (past of return).","ex":"She returned the book to the library.","pos":"verb","zh":"返回了、归还了","zhEx":"她把书还给了图书馆。"},"returning":{"en":"Coming back.","ex":"Students returning to class felt happy.","pos":"verb","zh":"返回、回来","zhEx":"回到教室的学生感到高兴。"},"returns":{"en":"Comes back; goes back.","ex":"The blood returns to the body a little cooler.","pos":"verb","zh":"返回、回来","zhEx":"血液回到身体时凉了一点。"},"river":{"en":"A long, flowing stream of water.","ex":"River School is beside the water.","pos":"noun","zh":"河、河流","zhEx":"河畔学校在水边。"},"rodents":{"en":"Small animals with sharp front teeth, like mice and rats.","ex":"It listens for small rodents on the sand.","pos":"noun","zh":"啮齿动物（复数）","zhEx":"它听着沙子上的小啮齿动物。"},"roll":{"en":"To move by turning over and over; to push on wheels.","ex":"Carts of fruit roll to classroom doors.","pos":"verb","zh":"滚动、推行","zhEx":"装水果的小推车推到教室门口。"},"room":{"en":"A part of a building with walls, like a classroom.","ex":"The dining room was full of students.","pos":"noun","zh":"房间","zhEx":"餐厅里满是学生。"},"run":{"en":"A period of time; 'in the long run' means over a long time.","ex":"It saved the town money in the long run.","pos":"noun","zh":"一段时间；长远来看","zhEx":"从长远看，这为镇上省了钱。"},"runs":{"en":"Moves fast on foot.","ex":"The fox runs across the sand.","pos":"verb","zh":"跑","zhEx":"狐狸跑过沙地。"},"safe":{"en":"Not dangerous; protected from harm.","ex":"Students can pick safe dishes.","pos":"adjective","zh":"安全的","zhEx":"学生可以挑选安全的菜。"},"sahara":{"en":"The largest hot desert in the world, in Africa.","ex":"The fennec fox lives in the Sahara Desert.","pos":"noun","zh":"撒哈拉（沙漠）","zhEx":"耳廓狐生活在撒哈拉沙漠。"},"said":{"en":"Spoke words (past of say).","ex":"Teachers said the same thing.","pos":"verb","zh":"说了","zhEx":"老师们说了同样的话。"},"same":{"en":"Exactly alike; not different.","ex":"Each child received the same plain meal.","pos":"adjective","zh":"同样的","zhEx":"每个孩子都得到同样的饭菜。"},"sand":{"en":"Tiny, loose grains of rock found on beaches and in deserts.","ex":"The fox digs in the sand.","pos":"noun","zh":"沙子","zhEx":"狐狸在沙子里挖洞。"},"sandy":{"en":"Covered with sand; the colour of sand.","ex":"Pale, sandy fur helps the fox.","pos":"adjective","zh":"沙色的、多沙的","zhEx":"浅沙色的皮毛帮助狐狸。"},"save":{"en":"To keep something for later use; to rescue.","ex":"Its kidneys are built to save water.","pos":"verb","zh":"保存、节省；拯救","zhEx":"它的肾脏天生能保存水分。"},"saved":{"en":"Kept for later use (past of save).","ex":"It saved the town money.","pos":"verb","zh":"节省了、保存了","zhEx":"这为镇上省了钱。"},"say":{"en":"To speak words.","ex":"Teachers today say the same thing.","pos":"verb","zh":"说","zhEx":"今天的老师们说着同样的话。"},"school":{"en":"A place where children learn.","ex":"Breakfast became a normal part of the school day.","pos":"noun","zh":"学校","zhEx":"早餐成了学校日常的一部分。"},"school's":{"en":"Belonging to a school.","ex":"Feeding children was not a school's job, some said.","pos":"adjective","zh":"学校的","zhEx":"有人说喂养孩子不是学校的职责。"},"schools":{"en":"Places where children learn (more than one).","ex":"Many schools serve breakfast today.","pos":"noun","zh":"学校（复数）","zhEx":"今天许多学校供应早餐。"},"schoolyard":{"en":"The open ground around a school building.","ex":"Volunteers cooked porridge in the schoolyard.","pos":"noun","zh":"校园、学校操场","zhEx":"志愿者在校园里煮粥。"},"searched":{"en":"Looked carefully for something (past of search).","ex":"Leo searched the shelf for the book.","pos":"verb","zh":"寻找了、搜寻了","zhEx":"利奥在书架上寻找那本书。"},"send":{"en":"To cause something to go somewhere.","ex":"Some schools send food bags home.","pos":"verb","zh":"送、发送","zhEx":"有些学校把食物袋送到家里。"},"serve":{"en":"To give food or help to people.","ex":"Many schools serve breakfast to every student.","pos":"verb","zh":"供应、服务","zhEx":"许多学校为每个学生供应早餐。"},"served":{"en":"Gave food or help (past of serve).","ex":"Porridge was served in tin mugs.","pos":"verb","zh":"供应了、端上了","zhEx":"粥盛在锡杯里端上来。"},"serves":{"en":"Gives food or help.","ex":"The kitchen serves fruit pancakes.","pos":"verb","zh":"供应、服务","zhEx":"厨房供应水果煎饼。"},"several":{"en":"More than two, but not many.","ex":"The fox solves the problem in several clever ways.","pos":"adjective","zh":"几个、数个","zhEx":"狐狸用几个聪明的办法解决这个问题。"},"shade":{"en":"A place sheltered from the sun; shadow.","ex":"It stays cool in a place with almost no shade.","pos":"noun","zh":"阴凉、树荫","zhEx":"它待在一个几乎没有阴凉的地方。"},"share":{"en":"To use something together with others.","ex":"Whole families share these tunnels.","pos":"verb","zh":"分享、共用","zhEx":"整个家庭共用这些地道。"},"she":{"en":"The word for a woman or a girl.","ex":"She carried the book up the ladder.","pos":"pronoun","zh":"她","zhEx":"她把书搬上了梯子。"},"shelf":{"en":"A flat board on a wall or in a bookcase for holding things.","ex":"Leo searched the shelf for the book.","pos":"noun","zh":"架子、书架","zhEx":"利奥在书架上寻找那本书。"},"shields":{"en":"Protects from harm.","ex":"This furry padding shields its paws.","pos":"verb","zh":"保护、遮挡","zhEx":"毛茸茸的垫子保护着它的爪子。"},"shoes":{"en":"Coverings worn on the feet (more than one).","ex":"Wide shoes help a person walk across a beach.","pos":"noun","zh":"鞋子（复数）","zhEx":"宽鞋帮助人在沙滩上走路。"},"short":{"en":"Not long; small in length or time.","ex":"The play was short but fun.","pos":"adjective","zh":"短的","zhEx":"这个短剧很短但很有趣。"},"showed":{"en":"Let someone see something (past of show).","ex":"She showed him the picture.","pos":"verb","zh":"展示了、显示了","zhEx":"她给他看了那幅画。"},"shows":{"en":"Lets someone see; displays.","ex":"The chart shows how many students ate.","pos":"verb","zh":"显示、展示","zhEx":"图表显示了有多少学生吃了早餐。"},"shut":{"en":"To close something.","ex":"Please shut the door.","pos":"verb","zh":"关上、关闭","zhEx":"请把门关上。"},"simple":{"en":"Easy to understand; not complicated.","ex":"The first school breakfasts were simple.","pos":"adjective","zh":"简单的","zhEx":"最早的学校早餐很简单。"},"simply":{"en":"Just; in a simple way.","ex":"He simply forgot the book.","pos":"adverb","zh":"简直、简单地","zhEx":"他就是把书忘了。"},"single":{"en":"Only one.","ex":"A single burrow may have ten entrances.","pos":"adjective","zh":"单个的、唯一的","zhEx":"一个洞穴可能有十个入口。"},"sinking":{"en":"Going down below the surface.","ex":"Wide shoes stop you from sinking into the sand.","pos":"verb","zh":"下沉","zhEx":"宽鞋让你不会陷进沙子里。"},"sister":{"en":"A girl or woman who has the same parents as you.","ex":"His sister walked to school with him.","pos":"noun","zh":"姐姐、妹妹","zhEx":"他的姐姐和他一起走去学校。"},"sit":{"en":"To rest on a chair or on the ground.","ex":"A child might sit through the whole morning.","pos":"verb","zh":"坐","zhEx":"一个孩子可能坐一上午。"},"size":{"en":"How big or small something is.","ex":"It has the largest ears for its body size.","pos":"noun","zh":"大小、尺寸","zhEx":"以它的体型来说，它的耳朵最大。"},"skin":{"en":"The outer covering of the body.","ex":"Blood flows through the thin skin of the ears.","pos":"noun","zh":"皮肤","zhEx":"血液流过耳朵薄薄的皮肤。"},"sky":{"en":"The space above the earth where clouds and the sun are.","ex":"Eagles hunt from the sky above the desert.","pos":"noun","zh":"天空","zhEx":"鹰从沙漠上空捕猎。"},"slightly":{"en":"A little bit; by a small amount.","ex":"The door opened slightly.","pos":"adverb","zh":"稍微、轻微地","zhEx":"门稍微开了一点。"},"slip":{"en":"To slide suddenly and lose balance.","ex":"Be careful not to slip on the wet floor.","pos":"verb","zh":"滑倒、滑落","zhEx":"小心别在湿地板上滑倒。"},"slowly":{"en":"At a low speed; not quickly.","ex":"He turned the pages slowly.","pos":"adverb","zh":"慢慢地","zhEx":"他慢慢地翻着书页。"},"small":{"en":"Little in size; not big.","ex":"This small fox solves the problem of heat.","pos":"adjective","zh":"小的","zhEx":"这只小狐狸解决了炎热的问题。"},"smiled":{"en":"Showed a happy face (past of smile).","ex":"She smiled and nodded.","pos":"verb","zh":"微笑了","zhEx":"她微笑着点了点头。"},"smiling":{"en":"Showing a happy face.","ex":"The smiling children ran to class.","pos":"verb","zh":"微笑着","zhEx":"微笑的孩子们跑向教室。"},"so":{"en":"For that reason; therefore.","ex":"The burrow stays cool, so the fox rests there.","pos":"conjunction","zh":"所以","zhEx":"洞穴里凉爽，所以狐狸在那里休息。"},"soaking":{"en":"Taking in liquid like a sponge.","ex":"The colour throws back heat instead of soaking it up.","pos":"verb","zh":"吸收、浸泡","zhEx":"这种颜色把热量反射回去，而不是吸收。"},"solves":{"en":"Finds the answer to a problem.","ex":"This small fox solves the problem of heat.","pos":"verb","zh":"解决","zhEx":"这只小狐狸解决了炎热的问题。"},"some":{"en":"A part of a group; an amount that is not all.","ex":"Some schools send weekend food bags home.","pos":"adjective","zh":"一些、有些","zhEx":"有些学校把周末食物袋送到家里。"},"sometimes":{"en":"At some times; now and then.","ex":"He sometimes fell asleep at his desk.","pos":"adverb","zh":"有时","zhEx":"他有时在课桌上睡着。"},"spellings":{"en":"The ways words are written with letters (more than one).","ex":"He forgot spellings he had known.","pos":"noun","zh":"拼写（复数）","zhEx":"他忘记了以前会拼的单词拼写。"},"stage":{"en":"A raised floor where actors perform a play.","ex":"The actors stood on the stage.","pos":"noun","zh":"舞台","zhEx":"演员们站在舞台上。"},"stand":{"en":"To be on your feet in an upright position.","ex":"Please stand in a line.","pos":"verb","zh":"站立","zhEx":"请排队站好。"},"start":{"en":"To begin something.","ex":"The lessons start at nine.","pos":"verb","zh":"开始","zhEx":"课程九点开始。"},"stay":{"en":"To remain in a place; not to leave.","ex":"Its habits help it stay cool.","pos":"verb","zh":"停留、保持","zhEx":"它的习惯帮助它保持凉爽。"},"stays":{"en":"Remains in a place; keeps being.","ex":"The burrow stays far cooler than the surface.","pos":"verb","zh":"停留、保持","zhEx":"洞穴里比地面凉快得多。"},"stick":{"en":"A thin piece of wood; also to fix in place.","ex":"He picked up a stick from the ground.","pos":"noun","zh":"棍子、树枝","zhEx":"他从地上捡起一根树枝。"},"stomach":{"en":"The organ in the body where food goes after you eat.","ex":"He sat with an empty, growling stomach.","pos":"noun","zh":"胃、肚子","zhEx":"他饿着咕咕叫的肚子坐着。"},"stood":{"en":"Was on one's feet (past of stand).","ex":"The actors stood on the stage.","pos":"verb","zh":"站立了","zhEx":"演员们站在舞台上。"},"stopped":{"en":"Came to an end; no longer moved (past of stop).","ex":"The bus stopped at the school gate.","pos":"verb","zh":"停下了","zhEx":"公交车在校门口停下。"},"straight":{"en":"In a line that does not bend.","ex":"Draw a straight line.","pos":"adjective","zh":"直的","zhEx":"画一条直线。"},"stretches":{"en":"Periods of time (more than one).","ex":"It can survive for long stretches without drinking.","pos":"noun","zh":"一段时间（复数）","zhEx":"它能长时间不喝水生存。"},"student":{"en":"A person who learns at a school.","ex":"Every student who wants it can eat.","pos":"noun","zh":"学生","zhEx":"每个想吃的学生都能吃。"},"students":{"en":"People who learn at a school (more than one).","ex":"On Fridays, 186 students eat breakfast.","pos":"noun","zh":"学生（复数）","zhEx":"星期五有 186 名学生吃早餐。"},"study":{"en":"To learn about a subject carefully.","ex":"Experts study what growing bodies need.","pos":"verb","zh":"学习、研究","zhEx":"专家研究成长中的身体需要什么。"},"sugar":{"en":"A sweet white or brown substance used in food and drinks.","ex":"A modern school breakfast limits sugar.","pos":"noun","zh":"糖","zhEx":"现代学校早餐限制糖的量。"},"sun":{"en":"The hot, bright star that gives Earth light and heat.","ex":"The fox hunts after the sun goes down.","pos":"noun","zh":"太阳","zhEx":"太阳落山后狐狸出去捕猎。"},"sun's":{"en":"Belonging to the sun.","ex":"The light colour throws back the sun's heat.","pos":"adjective","zh":"太阳的","zhEx":"浅色把太阳的热量反射回去。"},"sunday":{"en":"The last day of the week, after Saturday.","ex":"Some schools send weekend bags home before Sunday.","pos":"noun","zh":"星期日","zhEx":"有些学校在星期日前把周末食物袋送到家里。"},"surface":{"en":"The outside or top layer of something.","ex":"The burrow stays cooler than the surface above it.","pos":"noun","zh":"表面、地面","zhEx":"洞穴里比上面的地面凉快。"},"survive":{"en":"To stay alive through something hard.","ex":"The fox can survive without drinking at all.","pos":"verb","zh":"生存、存活","zhEx":"这只狐狸不用喝水也能生存。"},"teachers":{"en":"People whose job is to help students learn (more than one).","ex":"Teachers were the first to notice the problem.","pos":"noun","zh":"老师（复数）","zhEx":"老师是最先注意到问题的人。"},"ten":{"en":"The number 10.","ex":"A single burrow may have ten entrances.","pos":"number","zh":"十","zhEx":"一个洞穴可能有十个入口。"},"text":{"en":"A piece of writing; the words of a book or article.","ex":"Text A tells about long ago.","pos":"noun","zh":"文本、课文","zhEx":"甲文讲的是很久以前的事。"},"than":{"en":"Used when comparing two things.","ex":"The burrow stays far cooler than the surface.","pos":"conjunction","zh":"比","zhEx":"洞穴里比地面凉快得多。"},"that":{"en":"The thing mentioned; used to point to something.","ex":"Others answered that a fed child learned better.","pos":"pronoun","zh":"那个、那","zhEx":"其他人回答说吃饱的孩子学得更好。"},"the":{"en":"Used before a noun to show which one is meant.","ex":"The fox rests in the burrow.","pos":"article","zh":"这、那（定冠词）","zhEx":"狐狸在洞穴里休息。"},"their":{"en":"Belonging to them.","ex":"Children ate whatever their families could give them.","pos":"adjective","zh":"他们的","zhEx":"孩子们吃家人能给他们的任何东西。"},"them":{"en":"The people or things already mentioned.","ex":"Children ate whatever their families could give them.","pos":"pronoun","zh":"他们、它们（宾格）","zhEx":"孩子们吃家人能给他们的东西。"},"then":{"en":"After that; next.","ex":"First he ate, then he went to school.","pos":"adverb","zh":"然后、那时","zhEx":"他先吃饭，然后去上学。"},"there":{"en":"In or to that place.","ex":"The fox rests there in the cool burrow.","pos":"adverb","zh":"那里","zhEx":"狐狸在凉爽的洞穴里休息。"},"these":{"en":"The things close by or just mentioned (more than one).","ex":"Whole families share these tunnels.","pos":"adjective","zh":"这些","zhEx":"整个家庭共用这些地道。"},"they":{"en":"The word for people or things already mentioned.","ex":"They would send him away.","pos":"pronoun","zh":"他们、它们","zhEx":"他们会把他送走。"},"thick":{"en":"Having a large distance between two sides; not thin.","ex":"Thick fur covers even the bottoms of its feet.","pos":"adjective","zh":"厚的","zhEx":"厚厚的皮毛甚至盖住了它的脚底。"},"thin":{"en":"Having a small distance between two sides; not thick.","ex":"Blood flows through the thin skin of the ears.","pos":"adjective","zh":"薄的","zhEx":"血液流过耳朵薄薄的皮肤。"},"thing":{"en":"An object; anything that can be named.","ex":"One thing has not changed in a hundred years.","pos":"noun","zh":"事情、东西","zhEx":"一百年里有一件事没有改变。"},"this":{"en":"The one close by or just mentioned.","ex":"This small fox solves the problem of heat.","pos":"adjective","zh":"这、这个","zhEx":"这只小狐狸解决了炎热的问题。"},"through":{"en":"From one end or side to the other; during all of.","ex":"Blood flows through the thin skin.","pos":"preposition","zh":"穿过、通过","zhEx":"血液流过薄薄的皮肤。"},"throws":{"en":"Sends something through the air; here, pushes back.","ex":"The light colour throws back the sun's heat.","pos":"verb","zh":"反射、扔","zhEx":"浅色把太阳的热量反射回去。"},"thursday":{"en":"The fourth day of the school week, after Wednesday.","ex":"Thursday comes before Friday.","pos":"noun","zh":"星期四","zhEx":"星期四在星期五之前。"},"tightened":{"en":"Made tighter or more firm (past of tighten).","ex":"He tightened the strap on his backpack.","pos":"verb","zh":"拉紧了、系紧了","zhEx":"他拉紧了书包的带子。"},"tin":{"en":"A light, silvery metal.","ex":"Porridge was served in tin mugs.","pos":"noun","zh":"锡","zhEx":"粥盛在锡杯里端上来。"},"to":{"en":"Toward; in the direction of.","ex":"The foxes can escape if danger comes near.","pos":"preposition","zh":"到、向","zhEx":"危险靠近时狐狸能逃走。"},"today":{"en":"This present day.","ex":"Today, many schools serve breakfast.","pos":"noun","zh":"今天","zhEx":"今天，许多学校供应早餐。"},"together":{"en":"With each other; in one group.","ex":"We read the story together.","pos":"adverb","zh":"一起","zhEx":"我们一起读这个故事。"},"touches":{"en":"Puts a hand or part lightly on something.","ex":"The desert breeze touches that skin.","pos":"verb","zh":"触碰、轻抚","zhEx":"沙漠的微风轻抚着那片皮肤。"},"town":{"en":"A place with houses and shops, smaller than a city.","ex":"It saved the town money in the long run.","pos":"noun","zh":"镇、小镇","zhEx":"从长远看，这为镇上省了钱。"},"towns":{"en":"Places smaller than cities (more than one).","ex":"Many towns built school kitchens.","pos":"noun","zh":"镇（复数）","zhEx":"许多镇建起了学校厨房。"},"treated":{"en":"Behaved toward someone in a certain way (past of treat).","ex":"Breakfast is treated as part of learning.","pos":"verb","zh":"被对待、被看作","zhEx":"早餐被看作学习的一部分。"},"tree":{"en":"A tall plant with a thick trunk and branches.","ex":"Birds sat in the tree.","pos":"noun","zh":"树","zhEx":"鸟儿坐在树上。"},"tucked":{"en":"Pushed into a small space to keep safe (past of tuck).","ex":"He tucked the note into his pocket.","pos":"verb","zh":"塞进了、藏好了","zhEx":"他把便条塞进口袋里。"},"tuesday":{"en":"The second day of the school week, after Monday.","ex":"On Tuesday, 158 students ate breakfast.","pos":"noun","zh":"星期二","zhEx":"星期二有 158 名学生吃早餐。"},"tunnels":{"en":"Long holes dug under the ground (more than one).","ex":"Whole families share these tunnels.","pos":"noun","zh":"地道、隧道（复数）","zhEx":"整个家庭共用这些地道。"},"twice":{"en":"Two times.","ex":"The whistle blew twice.","pos":"adverb","zh":"两次","zhEx":"口哨吹了两次。"},"two":{"en":"The number 2.","ex":"Pale fur helps the fox in two ways at once.","pos":"number","zh":"二、两","zhEx":"浅色皮毛同时在两方面帮助狐狸。"},"under":{"en":"Below; beneath.","ex":"The sand grows hot under the midday sun.","pos":"preposition","zh":"在……下面","zhEx":"沙子在正午的阳光下变得很热。"},"underground":{"en":"Below the surface of the earth.","ex":"The fox rests underground in a deep burrow.","pos":"adverb","zh":"在地下","zhEx":"狐狸在地下的深洞里休息。"},"up":{"en":"Toward a higher place; upward.","ex":"The light colour throws back heat instead of soaking it up.","pos":"adverb","zh":"向上、起来","zhEx":"浅色把热量反射回去，而不是吸收。"},"upright":{"en":"Standing straight up.","ex":"He sat upright at his desk.","pos":"adjective","zh":"直立的、端正的","zhEx":"他端正地坐在课桌前。"},"vegetables":{"en":"Plants or parts of plants eaten as food, like carrots.","ex":"Breakfast always includes fruit or vegetables.","pos":"noun","zh":"蔬菜（复数）","zhEx":"早餐总是包括水果或蔬菜。"},"volunteers":{"en":"People who do work without being paid (more than one).","ex":"Volunteers cooked huge pots of porridge.","pos":"noun","zh":"志愿者（复数）","zhEx":"志愿者煮了大锅大锅的粥。"},"walk":{"en":"To move on foot at a normal speed.","ex":"Wide shoes help a person walk across a beach.","pos":"verb","zh":"走路、步行","zhEx":"宽鞋帮助人在沙滩上走路。"},"walked":{"en":"Moved on foot (past of walk).","ex":"Children walked to school.","pos":"verb","zh":"走了、步行了","zhEx":"孩子们走路去学校。"},"wants":{"en":"Wishes for something.","ex":"Every student who wants it can eat breakfast.","pos":"verb","zh":"想要","zhEx":"每个想吃的学生都能吃早餐。"},"was":{"en":"A past form of 'be' for he, she, or it.","ex":"Breakfast was served in tin mugs.","pos":"verb","zh":"是（过去式）","zhEx":"早餐盛在锡杯里端上来。"},"watched":{"en":"Looked at something for a while (past of watch).","ex":"She watched the fox run.","pos":"verb","zh":"观看了、注视了","zhEx":"她看着狐狸跑。"},"water":{"en":"The clear liquid in rivers and seas that living things drink.","ex":"The fox can survive with almost no water.","pos":"noun","zh":"水","zhEx":"狐狸几乎不用水也能生存。"},"wavy":{"en":"Having curves like waves.","ex":"She drew a wavy line.","pos":"adjective","zh":"波浪形的","zhEx":"她画了一条波浪线。"},"ways":{"en":"Methods of doing something (more than one).","ex":"Pale fur helps the fox in two ways at once.","pos":"noun","zh":"方法、方式（复数）","zhEx":"浅色皮毛同时在两种方式上帮助狐狸。"},"we":{"en":"The word for the speaker and others together.","ex":"We eat breakfast at seven.","pos":"pronoun","zh":"我们","zhEx":"我们七点吃早餐。"},"wednesday":{"en":"The middle day of the school week, after Tuesday.","ex":"Wednesday comes after Tuesday.","pos":"noun","zh":"星期三","zhEx":"星期三在星期二之后。"},"week":{"en":"A period of seven days.","ex":"Friday brings the largest crowd of the week.","pos":"noun","zh":"一周、星期","zhEx":"星期五是一周中人最多的一天。"},"weekend":{"en":"Saturday and Sunday, the days without school or work.","ex":"A few schools send weekend food bags home.","pos":"noun","zh":"周末","zhEx":"有些学校把周末食物袋送到家里。"},"were":{"en":"A past form of 'be' for you, we, or they.","ex":"Teachers were the first to notice.","pos":"verb","zh":"是（复数过去式）","zhEx":"老师是最先注意到的人。"},"wet":{"en":"Covered with or full of water; not dry.","ex":"Be careful not to slip on the wet floor.","pos":"adjective","zh":"湿的","zhEx":"小心别在湿地板上滑倒。"},"what":{"en":"Which thing; used in questions.","ex":"Experts study what growing bodies need.","pos":"pronoun","zh":"什么","zhEx":"专家研究成长中的身体需要什么。"},"whatever":{"en":"Anything at all; no matter what.","ex":"Children ate whatever their families could give them.","pos":"pronoun","zh":"无论什么、任何东西","zhEx":"孩子们吃家人能给他们的任何东西。"},"when":{"en":"At the time that.","ex":"When the whistle blew twice, he stopped.","pos":"conjunction","zh":"当……时","zhEx":"当口哨吹两声时，他停了下来。"},"where":{"en":"In or to what place.","ex":"The fox lives where the sand is hot.","pos":"adverb","zh":"哪里、在哪里","zhEx":"狐狸生活在沙子很热的地方。"},"which":{"en":"The one or ones being talked about; used in questions.","ex":"Breakfast is treated as part of learning, which helps everyone.","pos":"pronoun","zh":"哪一个、那一个","zhEx":"早餐被看作学习的一部分，这对大家都有帮助。"},"whispered":{"en":"Spoke very quietly (past of whisper).","ex":"She whispered the answer to her friend.","pos":"verb","zh":"低声说了、耳语了","zhEx":"她低声把答案告诉朋友。"},"who":{"en":"Which person; used in questions.","ex":"Every student who wants it can eat.","pos":"pronoun","zh":"谁、那个人","zhEx":"每个想吃的学生都能吃。"},"whole":{"en":"All of something; complete.","ex":"Whole families share these tunnels.","pos":"adjective","zh":"整个的、全部的","zhEx":"整个家庭共用这些地道。"},"whose":{"en":"Belonging to which person.","ex":"A child whose family had little food might go hungry.","pos":"adjective","zh":"谁的","zhEx":"家里食物很少的孩子可能会挨饿。"},"wide":{"en":"Measuring a lot from side to side; broad.","ex":"Much like wide shoes help a person walk.","pos":"adjective","zh":"宽的","zhEx":"就像宽鞋帮助人走路一样。"},"will":{"en":"Used to show something is going to happen.","ex":"The quiz will send itself when time is up.","pos":"verb","zh":"将要、会","zhEx":"时间到了，试卷会自己交上去。"},"with":{"en":"Together with; using; having.","ex":"She joins in class with more energy.","pos":"preposition","zh":"和、与；带着","zhEx":"她带着更多精力参与课堂。"},"without":{"en":"Not having; not using.","ex":"The fox can survive without drinking at all.","pos":"preposition","zh":"没有、不带","zhEx":"这只狐狸不用喝水也能生存。"},"words":{"en":"Units of language that carry meaning (more than one).","ex":"Teachers today say the same thing in different words.","pos":"noun","zh":"词、话语（复数）","zhEx":"今天的老师们用不同的说法讲同一件事。"},"work":{"en":"A job or task; the things someone does to earn or help.","ex":"The ears work like fans for the whole body.","pos":"noun","zh":"工作；运转","zhEx":"耳朵像扇子一样为整个身体工作。"},"worth":{"en":"Having value; good enough for.","ex":"The book is worth reading.","pos":"adjective","zh":"值得的","zhEx":"这本书值得一读。"},"would":{"en":"Used to say what might happen or what someone was willing to do.","ex":"They would send him away.","pos":"verb","zh":"会、将（过去将来）","zhEx":"他们会把他送走。"},"wrote":{"en":"Put words on paper (past of write).","ex":"In their reports, teachers wrote that hunger explained poor marks.","pos":"verb","zh":"写了","zhEx":"老师们在报告中写道，饥饿说明了差成绩。"},"years":{"en":"Periods of twelve months (more than one).","ex":"A hundred years ago, schools had no breakfast.","pos":"noun","zh":"年（复数）","zhEx":"一百年前，学校没有早餐。"},"yogurt":{"en":"A soft, thick food made from milk, often eaten at breakfast.","ex":"Students choose between cereal, fruit, and yogurt.","pos":"noun","zh":"酸奶","zhEx":"学生在麦片、水果和酸奶之间选择。"},"you":{"en":"The person or people being spoken to.","ex":"You can pick safe dishes.","pos":"pronoun","zh":"你、你们","zhEx":"你可以挑选安全的菜。"},"zipped":{"en":"Fastened with a zipper (past of zip).","ex":"He zipped up his backpack.","pos":"verb","zh":"拉上拉链了","zhEx":"他拉上了书包的拉链。"}};
+  var WL_DICT = {"a":{"pos":"article","en":"One; any single thing.","ex":"I see a bird in the tree.","zh":"一个","zhEx":"我看见树上有一只鸟。"},"again":{"pos":"adverb","en":"One more time.","ex":"Please say it again.","zh":"再一次","zhEx":"请再说一遍。"},"alba":{"pos":"name","en":"The mother owl in this story.","ex":"Alba is the owl's name.","zh":"阿尔芭（故事里猫头鹰的名字）","zhEx":"阿尔芭是这只猫头鹰的名字。"},"all":{"pos":"adjective","en":"Every one of; the whole of.","ex":"All the children smiled.","zh":"所有的、全部的","zhEx":"所有的孩子都笑了。"},"an":{"pos":"article","en":"One; used before a vowel sound.","ex":"She ate an apple.","zh":"一个","zhEx":"她吃了一个苹果。"},"and":{"pos":"conjunction","en":"Joins words or ideas together.","ex":"I like rice and fish.","zh":"和、与","zhEx":"我喜欢米饭和鱼。"},"animal":{"pos":"noun","en":"A living thing that can move, like a dog or a bird.","ex":"The owl is a night animal.","zh":"动物","zhEx":"猫头鹰是夜行动物。"},"april":{"pos":"noun","en":"The fourth month of the year.","ex":"Flowers open in April.","zh":"四月","zhEx":"花儿在四月开放。"},"asked":{"pos":"verb","en":"Said something to get an answer.","ex":"She asked me a question.","zh":"问了","zhEx":"她问了我一个问题。"},"at":{"pos":"preposition","en":"Shows a place or a time.","ex":"We eat at school.","zh":"在（某处、某时）","zhEx":"我们在学校吃饭。"},"ate":{"pos":"verb","en":"Took food into the body (past of eat).","ex":"He ate two apples.","zh":"吃了","zhEx":"他吃了两个苹果。"},"awake":{"pos":"adjective","en":"Not sleeping.","ex":"The baby is awake now.","zh":"醒着的","zhEx":"宝宝现在醒着。"},"away":{"pos":"adverb","en":"To another place; not here.","ex":"The bird flew away.","zh":"离开、远离","zhEx":"小鸟飞走了。"},"back":{"pos":"noun","en":"The part of the body behind the chest; the rear side.","ex":"He carried the bag on his back.","zh":"背部、后面","zhEx":"他把包背在背上。"},"barn":{"pos":"noun","en":"A farm building where animals or food are kept.","ex":"The cows sleep in the barn.","zh":"谷仓、牲口棚","zhEx":"牛在谷仓里睡觉。"},"beats":{"pos":"verb","en":"Hits again and again; also, a heart moving.","ex":"My heart beats fast when I run.","zh":"跳动、敲打","zhEx":"我跑步时心跳得很快。"},"behind":{"pos":"preposition","en":"At the back of.","ex":"The garden is behind the house.","zh":"在……后面","zhEx":"花园在房子后面。"},"blinked":{"pos":"verb","en":"Closed and opened the eyes quickly.","ex":"She blinked in the bright light.","zh":"眨了眼","zhEx":"她在强光下眨了眨眼。"},"both":{"pos":"adjective","en":"The two of them together.","ex":"Both schools serve breakfast.","zh":"两者、两个都","zhEx":"两所学校都供应早餐。"},"branch":{"pos":"noun","en":"A part of a tree that grows out from the trunk.","ex":"A bird sat on the branch.","zh":"树枝","zhEx":"一只鸟停在树枝上。"},"branches":{"pos":"noun","en":"The arms of a tree that grow from the trunk.","ex":"Birds sit on the branches.","zh":"树枝","zhEx":"鸟儿坐在树枝上。"},"break":{"pos":"noun","en":"A short rest; also to fall into pieces.","ex":"We took a short break.","zh":"休息；打破","zhEx":"我们休息了一会儿。"},"bright":{"pos":"adjective","en":"Giving much light; shining.","ex":"The sun is bright today.","zh":"明亮的","zhEx":"今天阳光明亮。"},"broken":{"pos":"adjective","en":"In pieces; not working.","ex":"The broken wing must heal.","zh":"断了的、坏了的","zhEx":"断了的翅膀必须养好。"},"brushed":{"pos":"verb","en":"Cleaned or smoothed with a brush, or touched lightly.","ex":"She brushed her hair.","zh":"刷了、擦过","zhEx":"她梳了梳头发。"},"but":{"pos":"conjunction","en":"Joins an idea that is different or surprising.","ex":"It is small but strong.","zh":"但是","zhEx":"它虽小但很强壮。"},"by":{"pos":"preposition","en":"Near; through the work of; not later than.","ex":"Menus are planned by experts.","zh":"由、被；在……旁","zhEx":"菜单由专家制定。"},"cage":{"pos":"noun","en":"A box with bars where an animal is kept.","ex":"The bird is in a cage.","zh":"笼子","zhEx":"小鸟在笼子里。"},"came":{"pos":"verb","en":"Arrived; moved to a place.","ex":"She came home at five.","zh":"来了","zhEx":"她五点回到家。"},"can":{"pos":"verb","en":"To be able to do something.","ex":"The fox can survive without water.","zh":"能、可以","zhEx":"狐狸不用喝水也能生存。"},"card":{"pos":"noun","en":"A small, stiff piece of paper with words or a picture.","ex":"He wrote his name on the card.","zh":"卡片","zhEx":"他在卡片上写了自己的名字。"},"cards":{"pos":"noun","en":"Small, stiff pieces of paper with words or pictures.","ex":"The cards say the birds' names.","zh":"卡片（复数）","zhEx":"这些卡片上写着鸟的名字。"},"carried":{"pos":"verb","en":"Took something from one place to another (past of carry).","ex":"She carried the book up the ladder.","zh":"搬运了、携带了","zhEx":"她把书搬上了梯子。"},"catches":{"pos":"verb","en":"Grabs and holds something that is moving.","ex":"The owl catches mice at night.","zh":"抓住","zhEx":"猫头鹰在夜里抓老鼠。"},"caught":{"pos":"verb","en":"Grabbed and held something that was moving.","ex":"She caught the ball.","zh":"抓住了","zhEx":"她接住了球。"},"center":{"pos":"noun","en":"The middle; also a place for one special job.","ex":"The wildlife center helps hurt animals.","zh":"中心","zhEx":"野生动物中心帮助受伤的动物。"},"center's":{"pos":"noun","en":"Belonging to the center.","ex":"The center's workers are kind.","zh":"中心的","zhEx":"中心的工作人员很友善。"},"corn":{"pos":"noun","en":"A tall plant with yellow seeds that we eat.","ex":"Farmers grow corn in the fields.","zh":"玉米","zhEx":"农民在田里种玉米。"},"creek":{"pos":"noun","en":"A small, narrow river.","ex":"Fish swim in the creek.","zh":"小溪","zhEx":"鱼在小溪里游。"},"cried":{"pos":"verb","en":"Called out loudly; also, shed tears.","ex":"\"Look!\" she cried.","zh":"喊了、哭了","zhEx":"“看！”她喊道。"},"dark":{"pos":"adjective","en":"With little or no light.","ex":"It is dark at night.","zh":"黑暗的","zhEx":"夜里很黑。"},"day":{"pos":"noun","en":"The 24 hours from one midnight to the next; the light part of it.","ex":"Friday is the busiest day of the week.","zh":"一天、白天","zhEx":"星期五是一周中最忙的一天。"},"diary":{"pos":"noun","en":"A book where a person writes what they think and feel each day.","ex":"She writes in her diary every night.","zh":"日记","zhEx":"她每天晚上写日记。"},"did":{"pos":"verb","en":"Performed an action (past of do).","ex":"Did you finish your work?","zh":"做了（过去式）","zhEx":"你做完功课了吗？"},"doctor":{"pos":"noun","en":"A person whose job is to help sick or hurt people and animals get well.","ex":"The doctor looked at the owl's wing.","zh":"医生","zhEx":"医生看了看猫头鹰的翅膀。"},"does":{"pos":"verb","en":"A form of 'do' used with he, she, or it.","ex":"She does her work well.","zh":"做（用于第三人称）","zhEx":"她把工作做得很好。"},"done":{"pos":"adjective","en":"Finished.","ex":"The work is done.","zh":"做完了的","zhEx":"工作做完了。"},"door":{"pos":"noun","en":"A flat piece that opens and closes the way into a room or building.","ex":"Please close the door.","zh":"门","zhEx":"请把门关上。"},"dr":{"pos":"noun","en":"A short way to write 'Doctor'.","ex":"Dr. Ruiz helps hurt animals.","zh":"医生（缩写）","zhEx":"鲁伊斯医生帮助受伤的动物。"},"eat":{"pos":"verb","en":"To take food into the body.","ex":"Students eat breakfast at school.","zh":"吃","zhEx":"学生在学校吃早餐。"},"edge":{"pos":"noun","en":"The line or part where a thing ends.","ex":"The caterpillar ate the edge of the leaf.","zh":"边缘","zhEx":"毛毛虫吃了叶子的边缘。"},"either":{"pos":"conjunction","en":"One of two; this one or that one.","ex":"You can sit on either side.","zh":"（两者中）任一","zhEx":"你可以坐在任意一边。"},"end":{"pos":"noun","en":"The last part of something.","ex":"We clapped at the end of the story.","zh":"结尾、末端","zhEx":"故事结尾时我们鼓了掌。"},"evening":{"pos":"adverb","en":"Used to add something surprising; also flat and smooth.","ex":"Fur covers even the bottoms of its feet.","zh":"甚至、连","zhEx":"皮毛甚至盖住了它的脚底。"},"every":{"pos":"adjective","en":"Each one of a group; all.","ex":"Every student who wants it can eat.","zh":"每一个、所有的","zhEx":"每个想吃的学生都能吃。"},"eyes":{"pos":"noun","en":"The parts of the body we see with.","ex":"Her eyes were wet but she smiled.","zh":"眼睛","zhEx":"她的眼睛湿润了，但她在微笑。"},"face":{"pos":"noun","en":"The front part of the head, with the eyes, nose, and mouth.","ex":"She has a kind face.","zh":"脸","zhEx":"她有一张亲切的脸。"},"farmers":{"pos":"noun","en":"People who grow food or keep animals on a farm.","ex":"Farmers plant corn in spring.","zh":"农民们","zhEx":"农民们在春天种玉米。"},"feathers":{"pos":"noun","en":"The soft, light things that cover a bird's body.","ex":"The owl's feathers are soft.","zh":"羽毛","zhEx":"猫头鹰的羽毛很柔软。"},"felt":{"pos":"verb","en":"Had a feeling in the body or heart.","ex":"She felt sad and happy at the same time.","zh":"感觉到了","zhEx":"她又难过又开心。"},"fields":{"pos":"noun","en":"Open pieces of land, often where food grows.","ex":"Corn grows in the fields.","zh":"田野","zhEx":"玉米长在田野里。"},"fingers":{"pos":"noun","en":"The five long parts at the end of a hand.","ex":"She held the owl with gentle fingers.","zh":"手指（复数）","zhEx":"她用轻柔的手指托着猫头鹰。"},"first":{"pos":"adjective","en":"Before all others; number one.","ex":"Teachers were the first to notice.","zh":"第一的、最先的","zhEx":"老师是最先注意到的人。"},"flew":{"pos":"verb","en":"Moved through the air.","ex":"The owl flew over the field.","zh":"飞了","zhEx":"猫头鹰飞过田野。"},"fly":{"pos":"verb","en":"To move through the air.","ex":"Birds fly south in the fall.","zh":"飞","zhEx":"鸟儿在秋天飞向南方。"},"for":{"pos":"preposition","en":"Meant for; because of; during.","ex":"Protein is good for lasting energy.","zh":"为了、给","zhEx":"蛋白质有助于持久的能量。"},"forget":{"pos":"verb","en":"To not remember.","ex":"Do not forget your book.","zh":"忘记","zhEx":"不要忘记你的书。"},"found":{"pos":"verb","en":"Saw or got something after looking for it.","ex":"She found a caterpillar.","zh":"找到了","zhEx":"她找到了一条毛毛虫。"},"free":{"pos":"adjective","en":"Costing no money; not busy or trapped.","ex":"Breakfast is free of charge.","zh":"免费的、自由的","zhEx":"早餐是免费的。"},"from":{"pos":"preposition","en":"Starting at; out of; sent by.","ex":"The fox gets liquid from its food.","zh":"从、来自","zhEx":"狐狸从食物中得到水分。"},"gently":{"pos":"adverb","en":"In a soft, careful way.","ex":"She held the baby bird gently.","zh":"轻轻地、温柔地","zhEx":"她轻轻地捧着小鸟。"},"get":{"pos":"verb","en":"To become; to receive; to reach.","ex":"The owl will get well soon.","zh":"变得；得到","zhEx":"猫头鹰很快就会好起来。"},"glad":{"pos":"adjective","en":"Happy about something.","ex":"I am glad you came.","zh":"高兴的","zhEx":"你来了我很高兴。"},"glove":{"pos":"noun","en":"A soft cover for the hand, with parts for each finger.","ex":"She wore a glove to hold the owl.","zh":"手套","zhEx":"她戴着手套托着猫头鹰。"},"go":{"pos":"verb","en":"To move to another place; to leave.","ex":"It is time to go home.","zh":"去、走","zhEx":"是时候回家了。"},"good":{"pos":"adjective","en":"Nice; right; of high quality.","ex":"She is a good reader.","zh":"好的","zhEx":"她是个爱读书的人。"},"grams":{"pos":"noun","en":"Small units for measuring how heavy something is.","ex":"The owl weighs ninety grams.","zh":"克","zhEx":"这只猫头鹰重九十克。"},"ground":{"pos":"noun","en":"The solid surface of the earth.","ex":"Move the cars to high ground.","zh":"地面","zhEx":"把车开到高处去。"},"had":{"pos":"verb","en":"Owned or experienced (past of have).","ex":"His family had little food.","zh":"有、拥有（过去式）","zhEx":"他的家人食物很少。"},"hands":{"pos":"noun","en":"The parts at the ends of the arms used for holding.","ex":"Wash your hands before lunch.","zh":"手（复数）","zhEx":"午饭前要洗手。"},"hangs":{"pos":"verb","en":"Stays up in the air, held from above.","ex":"The chrysalis hangs from the twig.","zh":"挂着","zhEx":"蛹挂在小树枝上。"},"happy":{"pos":"adjective","en":"Feeling good and pleased.","ex":"She felt happy and sad at once.","zh":"开心的","zhEx":"她既开心又有点难过。"},"has":{"pos":"verb","en":"Owns; a form of 'have' for he, she, or it.","ex":"The fox has huge ears.","zh":"有（第三人称单数）","zhEx":"狐狸有大大的耳朵。"},"hate":{"pos":"verb","en":"To dislike something very much.","ex":"I hate to say goodbye.","zh":"讨厌、不喜欢","zhEx":"我不喜欢说再见。"},"he":{"pos":"pronoun","en":"The word for a man or a boy.","ex":"He fell asleep at his desk.","zh":"他","zhEx":"他在课桌上睡着了。"},"heart":{"pos":"noun","en":"The part inside the body that moves the blood; also where feelings live.","ex":"Her heart felt full.","zh":"心、心脏","zhEx":"她心里满满的。"},"help":{"pos":"verb","en":"To make something easier for someone; aid.","ex":"Its ears help it stay cool.","zh":"帮助","zhEx":"它的耳朵帮助它保持凉爽。"},"her":{"pos":"pronoun","en":"Belonging to a girl or woman; also used for a girl or woman.","ex":"Her eyes were wet.","zh":"她的；她","zhEx":"她的眼睛湿润了。"},"herself":{"pos":"pronoun","en":"The same girl or woman, and nobody else.","ex":"She did it herself.","zh":"她自己","zhEx":"这是她自己做的。"},"high":{"pos":"adjective","en":"Far up; tall.","ex":"The river is high after the rain.","zh":"高的","zhEx":"下雨后河水涨高了。"},"him":{"pos":"pronoun","en":"The word for a man or boy when he receives an action.","ex":"Amber told him a story.","zh":"他（宾格）","zhEx":"Amber 给他讲了一个故事。"},"his":{"pos":"adjective","en":"Belonging to a man or a boy.","ex":"He fell asleep at his desk.","zh":"他的","zhEx":"他在自己的课桌上睡着了。"},"house":{"pos":"noun","en":"A building where people live.","ex":"Not one house was flooded.","zh":"房子","zhEx":"没有一栋房子被淹。"},"how":{"pos":"adverb","en":"In what way; by what means.","ex":"How does the fox stay cool?","zh":"怎样、如何","zhEx":"狐狸是怎样保持凉爽的？"},"hundreds":{"pos":"number","en":"The number 100.","ex":"A hundred years ago, schools had no breakfast.","zh":"一百","zhEx":"一百年前，学校没有早餐。"},"hung":{"pos":"verb","en":"Stayed up in the air, held from above.","ex":"It hung upside down from a twig.","zh":"挂着（过去式）","zhEx":"它倒挂在小树枝上。"},"hunt":{"pos":"verb","en":"To chase and catch animals for food.","ex":"Eagles hunt from the sky.","zh":"捕猎、打猎","zhEx":"鹰从空中捕猎。"},"hunts":{"pos":"verb","en":"Chases and catches animals for food.","ex":"The fox hunts only after dark.","zh":"捕猎","zhEx":"狐狸只在天黑后捕猎。"},"hurt":{"pos":"adjective","en":"Having pain because of a wound.","ex":"The hurt owl cannot fly.","zh":"受伤的","zhEx":"受伤的猫头鹰飞不了。"},"i":{"pos":"pronoun","en":"The word a person uses for themselves.","ex":"I like to read books.","zh":"我","zhEx":"我喜欢读书。"},"if":{"pos":"conjunction","en":"In the case that; when something might happen.","ex":"The foxes escape if danger comes near.","zh":"如果","zhEx":"如果危险靠近，狐狸就会逃走。"},"in":{"pos":"preposition","en":"Inside; within.","ex":"The fox rests in a deep burrow.","zh":"在……里面","zhEx":"狐狸在深洞里休息。"},"inside":{"pos":"preposition","en":"In the inner part of something.","ex":"The children waited inside the school.","zh":"在……里面","zhEx":"孩子们在学校里面等待。"},"into":{"pos":"preposition","en":"To the inside of; toward the inside.","ex":"She put the owl into the cage.","zh":"进入……里面","zhEx":"她把猫头鹰放进笼子里。"},"is":{"pos":"verb","en":"A form of 'be' for he, she, or it.","ex":"The burrow is cool.","zh":"是（第三人称单数）","zhEx":"洞穴是凉爽的。"},"it":{"pos":"pronoun","en":"The word for a thing or an animal.","ex":"It rests underground.","zh":"它","zhEx":"它在地下休息。"},"its":{"pos":"adjective","en":"Belonging to a thing or an animal.","ex":"Its pale fur helps it stay cool.","zh":"它的","zhEx":"它浅色的皮毛帮助它保持凉爽。"},"knew":{"pos":"verb","en":"Had the information in the mind.","ex":"She knew the road south.","zh":"知道（过去式）","zhEx":"它知道向南的路。"},"large":{"pos":"adjective","en":"Big in size.","ex":"It is a large garden.","zh":"大的","zhEx":"这是一个大花园。"},"let":{"pos":"verb","en":"To allow; to not stop someone.","ex":"She let Jun write in the log book.","zh":"让、允许","zhEx":"她让小俊在日志本上写字。"},"letting":{"pos":"verb","en":"Allowing; not stopping.","ex":"Letting her go was hard.","zh":"放走、让……去","zhEx":"放它走很难。"},"lifted":{"pos":"verb","en":"Raised up.","ex":"She lifted the cage gently.","zh":"抬起了、举起了","zhEx":"她轻轻地抬起笼子。"},"likes":{"pos":"preposition","en":"Similar to; the same way as.","ex":"The ears work like fans.","zh":"像、如同","zhEx":"耳朵像扇子一样工作。"},"little":{"pos":"adjective","en":"Small in size or amount.","ex":"His family had little food.","zh":"小的、很少的","zhEx":"他的家人食物很少。"},"live":{"pos":"verb","en":"To be alive; to stay in a place.","ex":"Monarchs live in warm places.","zh":"生活、居住","zhEx":"帝王蝶生活在温暖的地方。"},"long":{"pos":"adjective","en":"Measuring a great length; lasting a long time.","ex":"It can survive for long stretches.","zh":"长的、长时间的","zhEx":"它能长时间生存下去。"},"looked":{"pos":"verb","en":"Used the eyes to see.","ex":"He looked down at the town.","zh":"看了","zhEx":"他低头看着小镇。"},"love":{"pos":"verb","en":"To like someone or something very, very much.","ex":"She loves this small station.","zh":"爱、非常喜欢","zhEx":"她非常喜欢这个小气象站。"},"low":{"pos":"adjective","en":"Not high; near the ground.","ex":"The river was low in the morning.","zh":"低的","zhEx":"早上河水很低。"},"march":{"pos":"noun","en":"The third month of the year.","ex":"The owl came to the center in March.","zh":"三月","zhEx":"猫头鹰在三月来到中心。"},"me":{"pos":"pronoun","en":"The person who is speaking.","ex":"She gave the cage to me.","zh":"我（宾格）","zhEx":"她把笼子给了我。"},"means":{"pos":"verb","en":"Has as its meaning; stands for.","ex":"To migrate means to travel far.","zh":"意思是","zhEx":"迁徙的意思是远行。"},"meant":{"pos":"verb","en":"Had as its meaning.","ex":"She meant what she said.","zh":"意思是（过去式）","zhEx":"她说的是真心话。"},"mice":{"pos":"noun","en":"Small grey animals with long tails; more than one mouse.","ex":"The owl caught two mice.","zh":"老鼠（复数）","zhEx":"猫头鹰抓了两只老鼠。"},"moment":{"pos":"noun","en":"A very short time.","ex":"For one quiet moment, it sat still.","zh":"片刻、一会儿","zhEx":"有那么安静的一刻，它一动不动。"},"morning":{"pos":"noun","en":"The first part of the day, before noon.","ex":"He might sit through the whole morning hungry.","zh":"早晨、上午","zhEx":"他可能饿着肚子坐一上午。"},"most":{"pos":"adjective","en":"The greatest amount or number.","ex":"Most schools offered no breakfast at all.","zh":"大多数的、最多的","zhEx":"大多数学校根本不提供早餐。"},"mother":{"pos":"noun","en":"A female parent.","ex":"The mother owl feeds her babies.","zh":"妈妈、母亲","zhEx":"猫头鹰妈妈喂她的宝宝。"},"mouse":{"pos":"noun","en":"A small grey animal with a long tail.","ex":"The owl caught a mouse.","zh":"老鼠","zhEx":"猫头鹰抓了一只老鼠。"},"my":{"pos":"pronoun","en":"Belonging to the person who is speaking.","ex":"This is my notebook.","zh":"我的","zhEx":"这是我的笔记本。"},"named":{"pos":"adjective","en":"Called by a name; having a name.","ex":"A boy named Nico found the owl.","zh":"名叫……的","zhEx":"一个名叫尼科的男孩发现了猫头鹰。"},"near":{"pos":"preposition","en":"Close to; not far from.","ex":"Danger may come near.","zh":"靠近、附近","zhEx":"危险可能会靠近。"},"never":{"pos":"adverb","en":"At no time; not ever.","ex":"She never forgot that night.","zh":"从不、永不","zhEx":"她永远不会忘记那天晚上。"},"newer":{"pos":"adjective","en":"More new; made more lately.","ex":"The newer photo shows the butterfly.","zh":"更新的","zhEx":"更新的那张照片上是蝴蝶。"},"next":{"pos":"adjective","en":"Coming right after this one.","ex":"The next morning was sunny.","zh":"下一个的、接下来的","zhEx":"第二天早上阳光明媚。"},"nico":{"pos":"name","en":"The boy in this story.","ex":"Nico found a hurt owl.","zh":"尼科（故事里的男孩）","zhEx":"尼科发现了一只受伤的猫头鹰。"},"night":{"pos":"noun","en":"The dark part of the day, when the sun is down.","ex":"The fox hunts only after the sun goes down at night.","zh":"夜晚","zhEx":"狐狸只在夜里太阳落山后捕猎。"},"not":{"pos":"adverb","en":"Used to make a word or sentence mean the opposite.","ex":"One thing has not changed.","zh":"不、没有","zhEx":"有一件事没有改变。"},"of":{"pos":"preposition","en":"Belonging to; part of; made from.","ex":"The largest ears of any fox.","zh":"的、属于","zhEx":"所有狐狸中最大的耳朵。"},"on":{"pos":"preposition","en":"On top of; touching a surface.","ex":"Fur covers the bottoms of its feet on the sand.","zh":"在……上面","zhEx":"皮毛盖住它在沙子上的脚底。"},"once":{"pos":"adverb","en":"One single time.","ex":"He read the book once.","zh":"一次","zhEx":"他把这本书读了一遍。"},"one":{"pos":"number","en":"The number 1; a single thing or person.","ex":"One thing has not changed.","zh":"一、一个","zhEx":"有一件事没有改变。"},"only":{"pos":"adverb","en":"Just; no more than.","ex":"The fox hunts only after the sun goes down.","zh":"只、仅仅","zhEx":"狐狸只在太阳落山后捕猎。"},"onto":{"pos":"preposition","en":"To a place on top of something.","ex":"The butterfly stepped onto her finger.","zh":"到……上面","zhEx":"蝴蝶爬到了她的手指上。"},"opened":{"pos":"verb","en":"Made not closed (past of open).","ex":"She opened the book.","zh":"打开了","zhEx":"她打开了书。"},"other":{"pos":"adjective","en":"Different; the second of two; more.","ex":"Some schools do other things.","zh":"其他的","zhEx":"有些学校做其他的事。"},"out":{"pos":"adverb","en":"Away from the inside; outside.","ex":"The sun comes out in the morning.","zh":"出、外面","zhEx":"太阳在早晨出来。"},"owl":{"pos":"noun","en":"A bird with big eyes that hunts at night.","ex":"The owl sleeps in the day.","zh":"猫头鹰","zhEx":"猫头鹰白天睡觉。"},"owls":{"pos":"noun","en":"Birds with big eyes that hunt at night.","ex":"Owls hunt mice at night.","zh":"猫头鹰（复数）","zhEx":"猫头鹰在夜里抓老鼠。"},"people":{"pos":"noun","en":"Men, women, and children; humans.","ex":"People moved their cars.","zh":"人们","zhEx":"人们把车挪走了。"},"pet":{"pos":"noun","en":"An animal that people keep at home and love.","ex":"She is not a pet.","zh":"宠物","zhEx":"它不是宠物。"},"photo":{"pos":"noun","en":"A picture made with a camera.","ex":"The photo shows the owl in March.","zh":"照片","zhEx":"照片上是三月的猫头鹰。"},"pine":{"pos":"noun","en":" A tree with long, thin green leaves that stay all year.","ex":"The owl sat in the pine tree.","zh":"松树","zhEx":"猫头鹰停在松树上。"},"quiet":{"pos":"adjective","en":"Making little or no sound; calm.","ex":"For one quiet moment, it sat still.","zh":"安静的","zhEx":"有那么安静的一刻，它一动不动。"},"ran":{"pos":"verb","en":"Moved fast on foot (past of run).","ex":"He ran to the library.","zh":"跑了","zhEx":"他跑向图书馆。"},"read":{"pos":"verb","en":"To look at words and understand them.","ex":"We read the story together.","zh":"读、阅读","zhEx":"我们一起读这个故事。"},"really":{"pos":"adverb","en":"Truly; very much.","ex":"She really loves the station.","zh":"真的、非常","zhEx":"她真的非常喜欢这个气象站。"},"recover":{"pos":"verb","en":"To get well again after being hurt or sick.","ex":"The owl needs weeks to recover.","zh":"恢复、康复","zhEx":"猫头鹰需要几周来恢复。"},"round":{"pos":"adjective","en":"Shaped like a circle or ball.","ex":"It ate round holes in the leaf.","zh":"圆的","zhEx":"它在叶子上吃出了圆圆的洞。"},"ruiz":{"pos":"name","en":"Dr. Ruiz, the animal doctor in this story.","ex":"Dr. Ruiz helps hurt animals.","zh":"鲁伊斯（故事里的人名）","zhEx":"鲁伊斯医生帮助受伤的动物。"},"ruiz's":{"pos":"name","en":"Belonging to Dr. Ruiz.","ex":"It is Dr. Ruiz's diary.","zh":"鲁伊斯医生的","zhEx":"这是鲁伊斯医生的日记。"},"sad":{"pos":"adjective","en":"Feeling unhappy.","ex":"She felt sad to say goodbye.","zh":"难过的","zhEx":"说再见让她很难过。"},"safe":{"pos":"adjective","en":"Not dangerous; protected from harm.","ex":"Students can pick safe dishes.","zh":"安全的","zhEx":"学生可以挑选安全的菜。"},"said":{"pos":"verb","en":"Spoke words (past of say).","ex":"Teachers said the same thing.","zh":"说了","zhEx":"老师们说了同样的话。"},"same":{"pos":"adjective","en":"Exactly alike; not different.","ex":"Each child received the same plain meal.","zh":"同样的","zhEx":"每个孩子都得到同样的饭菜。"},"says":{"pos":"verb","en":"To speak words.","ex":"Teachers today say the same thing.","zh":"说","zhEx":"今天的老师们说着同样的话。"},"she":{"pos":"pronoun","en":"The word for a woman or a girl.","ex":"She carried the book up the ladder.","zh":"她","zhEx":"她把书搬上了梯子。"},"should":{"pos":"verb","en":"Ought to; it is the right thing to do.","ex":"Every garden should plant milkweed.","zh":"应该","zhEx":"每个花园都应该种乳草。"},"shows":{"pos":"verb","en":"Lets someone see; displays.","ex":"The chart shows how many students ate.","zh":"显示、展示","zhEx":"图表显示了有多少学生吃了早餐。"},"silent":{"pos":"adjective","en":"With no sound at all.","ex":"The room was silent.","zh":"安静的、无声的","zhEx":"房间里一片安静。"},"since":{"pos":"preposition","en":"From a past time until now.","ex":"Since that night, she watches the sky.","zh":"自从","zhEx":"自从那天晚上起，她就观察着天空。"},"sitting":{"pos":"verb","en":"Resting on a chair or the ground, not standing.","ex":"The owl was sitting in the tree.","zh":"坐着、停着","zhEx":"猫头鹰停在树上。"},"sleep":{"pos":"verb","en":"To rest with the eyes closed and the mind quiet.","ex":"Owls sleep in the day.","zh":"睡觉","zhEx":"猫头鹰白天睡觉。"},"slowly":{"pos":"adverb","en":"At a low speed; not quickly.","ex":"He turned the pages slowly.","zh":"慢慢地","zhEx":"他慢慢地翻着书页。"},"small":{"pos":"adjective","en":"Little in size; not big.","ex":"This small fox solves the problem of heat.","zh":"小的","zhEx":"这只小狐狸解决了炎热的问题。"},"smiled":{"pos":"verb","en":"Showed a happy face (past of smile).","ex":"She smiled and nodded.","zh":"微笑了","zhEx":"她微笑着点了点头。"},"so":{"pos":"conjunction","en":"For that reason; therefore.","ex":"The burrow stays cool, so the fox rests there.","zh":"所以","zhEx":"洞穴里凉爽，所以狐狸在那里休息。"},"soft":{"pos":"adjective","en":"Not hard; gentle to touch.","ex":"Her feathers are soft.","zh":"柔软的","zhEx":"它的羽毛很柔软。"},"something":{"pos":"pronoun","en":"A thing, but we do not say which.","ex":"Something was wrong.","zh":"某件事、某样东西","zhEx":"有什么地方不对劲。"},"sound":{"pos":"noun","en":"Anything that you hear.","ex":"The only sound was the wind.","zh":"声音","zhEx":"唯一的声音是风声。"},"spread":{"pos":"verb","en":"Opened out wide.","ex":"The owl spread its wings.","zh":"展开了","zhEx":"猫头鹰展开了翅膀。"},"spring":{"pos":"noun","en":"The season after winter, when plants start to grow.","ex":"Last spring, the garden was full of them.","zh":"春天","zhEx":"去年春天，花园里到处都是它们。"},"stand":{"pos":"verb","en":"To be on your feet in an upright position.","ex":"Please stand in a line.","zh":"站立","zhEx":"请排队站好。"},"stay":{"pos":"verb","en":"To remain in a place; not to leave.","ex":"Its habits help it stay cool.","zh":"停留、保持","zhEx":"它的习惯帮助它保持凉爽。"},"stayed":{"pos":"verb","en":"To remain in a place; not to leave.","ex":"Its habits help it stay cool.","zh":"停留、保持","zhEx":"它的习惯帮助它保持凉爽。"},"stays":{"pos":"verb","en":"Remains in a place; keeps being.","ex":"The burrow stays far cooler than the surface.","zh":"停留、保持","zhEx":"洞穴里比地面凉快得多。"},"stepped":{"pos":"verb","en":"Put the foot down in a step.","ex":"The butterfly stepped onto her finger.","zh":"迈步了、踏上了","zhEx":"蝴蝶踏上了她的手指。"},"still":{"pos":"adjective","en":"Not moving; also up to now.","ex":"It sat still as a tiny jewel.","zh":"静止的；仍然","zhEx":"它静得像一颗小小的宝石。"},"stood":{"pos":"verb","en":"Was on one's feet (past of stand).","ex":"The actors stood on the stage.","zh":"站立了","zhEx":"演员们站在舞台上。"},"stopping":{"pos":"verb","en":"Coming to an end; not moving any more.","ex":"The rain is stopping.","zh":"正在停","zhEx":"雨正在停下来。"},"strong":{"pos":"adjective","en":"Having much power; not weak.","ex":"Her wings grew strong again.","zh":"强壮的","zhEx":"它的翅膀又恢复了力量。"},"sun":{"pos":"noun","en":"The hot, bright star that gives Earth light and heat.","ex":"The fox hunts after the sun goes down.","zh":"太阳","zhEx":"太阳落山后狐狸出去捕猎。"},"tears":{"pos":"noun","en":"Drops of water that come from the eyes when we cry.","ex":"Tears came to her eyes.","zh":"眼泪","zhEx":"她的眼里涌出了泪水。"},"that":{"pos":"pronoun","en":"The thing mentioned; used to point to something.","ex":"Others answered that a fed child learned better.","zh":"那个、那","zhEx":"其他人回答说吃饱的孩子学得更好。"},"the":{"pos":"article","en":"Used before a noun to show which one is meant.","ex":"The fox rests in the burrow.","zh":"这、那（定冠词）","zhEx":"狐狸在洞穴里休息。"},"then":{"pos":"adverb","en":"After that; next.","ex":"First he ate, then he went to school.","zh":"然后、那时","zhEx":"他先吃饭，然后去上学。"},"there":{"pos":"adverb","en":"In or to that place.","ex":"The fox rests there in the cool burrow.","zh":"那里","zhEx":"狐狸在凉爽的洞穴里休息。"},"they":{"pos":"pronoun","en":"The word for people or things already mentioned.","ex":"They would send him away.","zh":"他们、它们","zhEx":"他们会把他送走。"},"third":{"pos":"adjective","en":"Number 3 in a line or list.","ex":"It is the third photo.","zh":"第三","zhEx":"这是第三张照片。"},"this":{"pos":"adjective","en":"The one close by or just mentioned.","ex":"This small fox solves the problem of heat.","zh":"这、这个","zhEx":"这只小狐狸解决了炎热的问题。"},"time":{"pos":"noun","en":"Hours, minutes, and days; also one occasion.","ex":"It is time to go.","zh":"时间；一次","zhEx":"是时候走了。"},"to":{"pos":"preposition","en":"Toward; in the direction of.","ex":"The foxes can escape if danger comes near.","zh":"到、向","zhEx":"危险靠近时狐狸能逃走。"},"today":{"pos":"noun","en":"This present day.","ex":"Today, many schools serve breakfast.","zh":"今天","zhEx":"今天，许多学校供应早餐。"},"together":{"pos":"adverb","en":"With each other; in one group.","ex":"We read the story together.","zh":"一起","zhEx":"我们一起读这个故事。"},"told":{"pos":"verb","en":"Said something to someone; gave information.","ex":"She told him the story.","zh":"告诉了","zhEx":"她把故事告诉了他。"},"tonight":{"pos":"noun","en":"The night of today.","ex":"Tonight she will hunt.","zh":"今晚","zhEx":"今晚它要去捕猎。"},"too":{"pos":"adverb","en":"Also; more than enough.","ex":"Maya's eyes were wet too.","zh":"也；太","zhEx":"玛雅的眼睛也湿润了。"},"towel":{"pos":"noun","en":"A soft cloth used for drying things.","ex":"The owl sat on a soft towel.","zh":"毛巾","zhEx":"猫头鹰停在一条柔软的毛巾上。"},"tree":{"pos":"noun","en":"A tall plant with a thick trunk and branches.","ex":"Birds sat in the tree.","zh":"树","zhEx":"鸟儿坐在树上。"},"trees":{"pos":"noun","en":"A tall plant with a thick trunk and branches.","ex":"Birds sat in the tree.","zh":"树","zhEx":"鸟儿坐在树上。"},"truth":{"pos":"noun","en":"The thing that is true; what really happened.","ex":"The diary tells the truth about her feelings.","zh":"真相、实话","zhEx":"日记写出了她真实的感受。"},"twenty":{"pos":"number","en":"The number 20.","ex":"The wind blew at twenty kilometres an hour.","zh":"二十","zhEx":"风速是每小时二十公里。"},"two":{"pos":"number","en":"The number 2.","ex":"Pale fur helps the fox in two ways at once.","zh":"二、两","zhEx":"浅色皮毛同时在两方面帮助狐狸。"},"under":{"pos":"preposition","en":"Below; beneath.","ex":"The sand grows hot under the midday sun.","zh":"在……下面","zhEx":"沙子在正午的阳光下变得很热。"},"up":{"pos":"adverb","en":"Toward a higher place; upward.","ex":"The light colour throws back heat instead of soaking it up.","zh":"向上、起来","zhEx":"浅色把热量反射回去，而不是吸收。"},"us":{"pos":"pronoun","en":"The speaker and the people with the speaker.","ex":"The barometer tells us about the air.","zh":"我们（宾格）","zhEx":"气压计告诉我们空气的情况。"},"wall":{"pos":"noun","en":"The side of a building or room, standing up.","ex":"Two photos hang on the wall.","zh":"墙","zhEx":"墙上挂着两张照片。"},"warm":{"pos":"adjective","en":"A little hot; not cold.","ex":"She flies to a warmer place.","zh":"温暖的","zhEx":"它飞去一个更温暖的地方。"},"was":{"pos":"verb","en":"A past form of 'be' for he, she, or it.","ex":"Breakfast was served in tin mugs.","zh":"是（过去式）","zhEx":"早餐盛在锡杯里端上来。"},"watches":{"pos":"verb","en":"Looks at something for a time.","ex":"Aunt Rosa watches the sky.","zh":"观察（第三人称）","zhEx":"罗莎阿姨观察着天空。"},"weak":{"pos":"adjective","en":"Not strong.","ex":"The hurt owl was weak.","zh":"虚弱的","zhEx":"受伤的猫头鹰很虚弱。"},"week":{"pos":"noun","en":"A period of seven days.","ex":"Friday brings the largest crowd of the week.","zh":"一周、星期","zhEx":"星期五是一周中人最多的一天。"},"weighed":{"pos":"verb","en":"Measured how heavy something is.","ex":"They weighed the owl each week.","zh":"称了重量","zhEx":"他们每周给猫头鹰称重。"},"well":{"pos":"adjective","en":"Healthy; not sick any more.","ex":"The owl will get well soon.","zh":"健康的、康复的","zhEx":"猫头鹰很快就会康复。"},"when":{"pos":"conjunction","en":"At the time that.","ex":"When the whistle blew twice, he stopped.","zh":"当……时","zhEx":"当口哨吹两声时，他停了下来。"},"whispered":{"pos":"verb","en":"Spoke very quietly (past of whisper).","ex":"She whispered the answer to her friend.","zh":"低声说了、耳语了","zhEx":"她低声把答案告诉朋友。"},"whom":{"pos":"pronoun","en":"A word for the person something is done to.","ex":"The scientist whom she told smiled.","zh":"（宾格）谁","zhEx":"她告诉的那位科学家笑了。"},"wide":{"pos":"adjective","en":"Measuring a lot from side to side; broad.","ex":"Much like wide shoes help a person walk.","zh":"宽的","zhEx":"就像宽鞋帮助人走路一样。"},"wild":{"pos":"adjective","en":"Living free in nature, not with people; also stormy.","ex":"The weather can turn wild.","zh":"野生的；狂暴的","zhEx":"天气可能会变得狂暴。"},"wildlife":{"pos":"noun","en":"Animals that live free in nature.","ex":"The wildlife center helps hurt animals.","zh":"野生动物","zhEx":"野生动物中心帮助受伤的动物。"},"will":{"pos":"verb","en":"Used to show something is going to happen.","ex":"The quiz will send itself when time is up.","zh":"将要、会","zhEx":"时间到了，试卷会自己交上去。"},"wing":{"pos":"noun","en":"The flat part of a bird or insect that it uses to fly.","ex":"Her broken wing must heal.","zh":"翅膀","zhEx":"它断了的翅膀必须养好。"},"wings":{"pos":"noun","en":"The flat parts of a bird or insect used for flying.","ex":"The butterfly dried its wide wings.","zh":"翅膀（复数）","zhEx":"蝴蝶晾干了它宽大的翅膀。"},"with":{"pos":"preposition","en":"Together with; using; having.","ex":"She joins in class with more energy.","zh":"和、与；带着","zhEx":"她带着更多精力参与课堂。"},"without":{"pos":"preposition","en":"Not having; not using.","ex":"The fox can survive without drinking at all.","zh":"没有、不带","zhEx":"这只狐狸不用喝水也能生存。"},"woods":{"pos":"noun","en":"A place with many trees; a small forest.","ex":"Owls live in the woods.","zh":"树林","zhEx":"猫头鹰住在树林里。"},"workers":{"pos":"noun","en":"People who do a job.","ex":"The center's workers feed the owl.","zh":"工作人员","zhEx":"中心的工作人员喂猫头鹰。"},"would":{"pos":"verb","en":"Used to say what might happen or what someone was willing to do.","ex":"They would send him away.","zh":"会、将（过去将来）","zhEx":"他们会把他送走。"},"wrong":{"pos":"adjective","en":"Not right; not true.","ex":"Something was wrong in the garden.","zh":"不对的、出了问题","zhEx":"花园里有什么地方不对劲。"},"year":{"pos":"noun","en":"Twelve months; the time from one January to the next.","ex":"I planted my first milkweed that year.","zh":"年","zhEx":"那一年我种下了第一株乳草。"},"young":{"pos":"adjective","en":"Not old; in the early part of life.","ex":"A young boy found the owl.","zh":"年轻的、年幼的","zhEx":"一个小男孩发现了猫头鹰。"}};
 
   var WL_MIC_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>';
   var WL_STOP_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
@@ -2523,8 +2312,8 @@ var GRADE_KEYS = {
      recording). URLs are resolved against the page address, with one
      plain-relative retry; if loading truly fails the student sees an
      honest error — there is NO speechSynthesis fallback here. */
-  var WL_FILES = { s1: "amber-seq2-s1.mp3", s2: "amber-seq2-s2.mp3", s3a: "amber-seq2-s3.mp3", s3b: "amber-seq2-s3.mp3" };
-  var WL_IDS = ["s1", "s2", "s3a", "s3b"];
+  var WL_FILES = { s1: "amber-nico-s1.mp3" };
+  var WL_IDS = ["s1"];
   var wlAudios = {}, wlTriedAlt = {}, wlWantPlay = {}, wlCurrentId = null;
   function wlAssetUrl(file){
     var href = window.location.href.split("#")[0].split("?")[0];
