@@ -41,27 +41,17 @@ button:disabled{opacity:.55;cursor:default}
 .ghost{background:#fff;border:2px solid #f0c987}
 </style></head><body><div class="wrap">
 
-<!-- ================= WEEKLY PACK: PAPER PICKER ================= -->
-<section id="view-days">
-  <div class="card">
-    <h1 class="pack-title">🗓️ My Word Week — 7 Quizzes</h1>
-    <p class="pack-sub">Seven word quizzes, in order — one quiz a day. Finish today's quiz, and the next one opens tomorrow. Miss a day? No problem — the next quiz will be waiting for you when you come back. Tap a finished quiz to see your questions and result again.</p>
-    <span class="level-banner" role="note">⭐ Words you know: 268 / 800</span>
-    <p class="pack-progress" id="pack-progress"></p>
-    <div class="day-grid" id="day-grid"></div>
-  </div>
-</section>
-
 <!-- ================= START ================= -->
-<section id="view-start" class="hidden">
+<section id="view-start">
   <div class="card">
     <h1 id="start-title">📚 Saturday Vocabulary Quiz</h1>
     <p style="font-size:19px">Hi Eden! 🌟</p>
     <span class="level-banner" role="note">⭐ Words you know: 268 / 800</span>
+    <p class="pack-progress" id="pack-progress"></p>
     <p style="font-size:17px">100 words · 60 minutes · Read the meaning, then pick the word that matches it.<br>
     When the timer reaches 0:00, your answers are sent in all by themselves.</p>
     <button id="start-btn" type="button">Ready, Set, Go! ▶</button>
-    <p><button class="ghost" id="back-days-btn" type="button">🗓️ Back to this week's quizzes</button></p>
+    <p id="pack-state-msg" style="font-size:19px;font-weight:bold"></p>
   </div>
 </section>
 
@@ -90,7 +80,7 @@ button:disabled{opacity:.55;cursor:default}
     <p id="saveLine"></p>
     <p id="learnedLine"></p>
     <div class="review" id="review"></div>
-    <p><button class="ghost" id="results-days-btn" type="button">🗓️ Back to this week's quizzes</button></p>
+    <p><button class="ghost" id="results-days-btn" type="button">🏠 Back to Start</button></p>
   </div>
 </section>
 
@@ -136,7 +126,7 @@ function esc(s){
 function pad(n){ return (n < 10 ? "0" : "") + n; }
 function fmtTime(sec){ sec = Math.max(0, Math.floor(sec)); return Math.floor(sec/60) + ":" + pad(sec % 60); }
 function show(viewId){
-  ["view-days","view-start","view-quiz","view-sending","view-results"].forEach(function(v){
+  ["view-start","view-quiz","view-sending","view-results"].forEach(function(v){
     $(v).classList.toggle("hidden", v !== viewId);
   });
   window.scrollTo(0,0);
@@ -344,8 +334,7 @@ $("start-btn").addEventListener("click", function(){
   if (resumeStamp && elapsedSeconds() >= TOTAL_SECONDS) autoSubmit();
 });
 $("submit-btn").addEventListener("click", function(){ if (!submitted) goToResults(false); });
-$("back-days-btn").addEventListener("click", function(){ stopTimer(); renderPicker(); show("view-days"); });
-$("results-days-btn").addEventListener("click", function(){ renderPicker(); show("view-days"); });
+$("results-days-btn").addEventListener("click", function(){ goStart(); });
 
 /* ---------------- Submit: confirmed delivery, DOUBLE VERIFY ----------------
    Sending is not submitting. A submission counts ONLY when the receiver
@@ -522,37 +511,34 @@ function fetchJson(url, opts, cb){
 }
 
 /* ---------------- Paper picker ---------------- */
+function goStart(){
+  renderPicker();
+  var idx = -1;
+  for (var i = 0; i < PACK_DAYS.length; i++){ if (paperStatus(i) !== "done"){ idx = i; break; } }
+  var btn = $("start-btn");
+  var msg = $("pack-state-msg");
+  if (idx < 0){
+    if (btn) btn.style.display = "none";
+    if (msg) msg.textContent = "🎉 You finished all 7 quizzes!";
+    show("view-start");
+    return;
+  }
+  setDayData(idx);
+  if (paperStatus(idx) === "wait"){
+    if (btn) btn.style.display = "none";
+    if (msg) msg.textContent = "🌙 All done for today! Come back tomorrow for the next quiz.";
+  } else {
+    if (btn) btn.style.display = "";
+    if (msg) msg.textContent = "";
+  }
+  show("view-start");
+}
 function renderPicker(){
   var doneCount = 0;
   PACK_DAYS.forEach(function(day){ if (getDayResult(day)) doneCount++; });
   var pp = $("pack-progress");
   if (pp) pp.textContent = "⭐ Finished " + doneCount + " of 7 quizzes";
-  var grid = "";
-  PACK_DAYS.forEach(function(day, i){
-    var st = paperStatus(i);
-    var rec = getDayResult(day);
-    var btnText = st === "done" ? ("✓ Done — " + rec.score + "/100 · View result")
-      : st === "next" ? "▶ Ready Set Go — start this one"
-      : st === "wait" ? "🌙 All done for today! Come back tomorrow for the next quiz."
-      : "🔒 Locked — finish Paper #" + i + " first";
-    var cls = st === "done" ? "done" : st === "next" ? "today" : "locked";
-    grid += '<button type="button" class="day-card ' + cls + '" data-day="' + i + '"' +
-      ((st === "done" || st === "next") ? "" : " disabled") + ">" +
-      '<span class="dc-weekday">Paper #' + day.paper + "</span>" +
-      '<span class="dc-date">' + esc(day.title) + " · 100 questions · 60 minutes</span>" +
-      '<span class="dc-status">' + esc(btnText) + "</span></button>";
-  });
-  var dg = $("day-grid");
-  if (dg) dg.innerHTML = grid;
-  Array.prototype.forEach.call(document.querySelectorAll(".day-card"), function(card){
-    card.addEventListener("click", function(){
-      var i = parseInt(card.getAttribute("data-day"), 10);
-      var st = paperStatus(i);
-      if (st === "next") openDay(i);
-      else if (st === "done") openReview(i);
-    });
-  });
 }
-renderPicker();
+goStart();
 </script>
 </body></html>

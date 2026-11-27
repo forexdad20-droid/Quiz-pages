@@ -627,22 +627,10 @@
 </head>
 <body>
 <div class="wrap">
-  <!-- ================= WEEKLY PACK: DAY PICKER ================= -->
-  <section id="view-days">
-    <div class="start-stack">
-      <div class="top-dash">
-        <h2 class="pack-title">🗓️ My Reading Week — 7 Quizzes</h2>
-        <p class="pack-sub">Seven quizzes, in order — one quiz a day. Finish today's quiz, and the next one opens tomorrow. Miss a day? No problem — the next quiz will be waiting for you when you come back. The day you finish a quiz is the day that earns your punch. Tap a finished quiz to see your questions and result again.</p>
-        <p class="pack-progress" id="pack-progress"></p>
-        <div class="day-grid" id="day-grid"></div>
-        <span class="lexile-banner" role="note">⭐ My Lexile Level: 1110L</span>
-      </div>
-    </div>
-  </section>
 
 
   
-  <section id="view-start" class="hidden">
+  <section id="view-start">
     <div class="start-stack">
     <div class="top-dash">
       <div class="attendance">
@@ -693,6 +681,7 @@
 
       <span class="lexile-banner" role="note">⭐ My Lexile Level: 1110L</span>
 
+      <p class="pack-progress" id="pack-progress"></p>
       <p class="pack-day-head" id="start-day-head"></p>
       <form id="start-form">
         <div class="go-zone">
@@ -708,7 +697,6 @@
           <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions will score 0, so try to finish before the timer ends!</p>
         </div>
       </form>
-      <button class="btn btn-ghost" id="back-days-btn" type="button">📅 Back to this week's days</button>
 
       <div class="how" role="list" aria-label="How the quiz works">
         <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">1</span><span class="how-text" style="font-weight:800">Read and answer</span></div>
@@ -872,8 +860,7 @@
         <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
       </div>
       </div>
-      <button class="btn btn-ghost" id="again-btn" type="button">↻ Try Again</button>
-      <button class="btn btn-ghost" id="results-days-btn" type="button">📅 Back to this week's days</button>
+      <button class="btn btn-ghost" id="again-btn" type="button">🏠 Back to Start</button>
     </div>
   </section>
 
@@ -1073,7 +1060,7 @@ var PACK_DAYS = [{"paper": 1, "cycleDay": 6, "seq": 1, "date": "2026-11-30", "da
   }
   renderGrowthCharts();
   function show(viewId){
-    ["view-days","view-start","view-quiz","view-sending","view-results","view-passed","view-redo"].forEach(function(v){
+    ["view-start","view-quiz","view-sending","view-results","view-passed","view-redo"].forEach(function(v){
       $(v).classList.toggle("hidden", v !== viewId);
     });
     window.scrollTo(0,0);
@@ -2012,8 +1999,7 @@ var GRADE_KEYS = {};
 $("again-btn").addEventListener("click", function(){
     stopTimer();
     PACK_PRACTICE = false;
-    renderPicker();
-    show("view-days");
+    goStart();
   });
 
   /* ===== Listen + Words Look Up (added Nov 22, 2026 — dragon-sample
@@ -2292,7 +2278,7 @@ $("again-btn").addEventListener("click", function(){
     document.title = CURRENT_DAY.title;
     var head = $("start-day-head");
     if(head) head.innerHTML = "📦 <b>Paper #" + CURRENT_DAY.paper + "</b> · Cycle 2 Day " +
-      CURRENT_DAY.cycleDay + " · " + CURRENT_DAY.dateLabel + " · 10 questions · 20 minutes";
+      CURRENT_DAY.cycleDay + " · 10 questions · 20 minutes";
   }
   function openDay(i){
     if(paperStatus(i) !== "next") return;
@@ -2326,40 +2312,33 @@ $("again-btn").addEventListener("click", function(){
     PACK_PRACTICE = true;
     show("view-start");
   }
-  function renderPicker(){
+  function goStart(){
+    renderPicker();
+    var idx = -1;
+    for(var i = 0; i < PACK_DAYS.length; i++){ if(paperStatus(i) !== "done"){ idx = i; break; } }
+    var form = $("start-form");
+    var head = $("start-day-head");
+    if(idx < 0){
+      if(form) form.style.display = "none";
+      if(head) head.innerHTML = "🎉 You finished all 7 quizzes!";
+      show("view-start");
+      return;
+    }
+    setDayData(idx);
+    if(paperStatus(idx) === "wait"){
+      if(form) form.style.display = "none";
+      if(head) head.innerHTML = "🌙 All done for today! Come back tomorrow for the next quiz.";
+    } else if(form) form.style.display = "";
+    show("view-start");
+  }
+    function renderPicker(){
     var doneCount = 0;
     PACK_DAYS.forEach(function(day){ if(getDayResult(day)) doneCount++; });
     var pp = $("pack-progress");
     if(pp) pp.textContent = "⭐ Finished " + doneCount + " of 7 quizzes";
-    var grid = "";
-    PACK_DAYS.forEach(function(day, i){
-      var st = paperStatus(i);
-      var rec = getDayResult(day);
-      var btnText = st === "done" ? ("✓ Done — " + rec.score + "/10 · View result")
-        : st === "next" ? "▶ Ready Set Go — start this one"
-        : st === "wait" ? "🌙 All done for today! Come back tomorrow for the next quiz."
-        : "🔒 Locked — finish Paper #" + i + " first";
-      var cls = st === "done" ? "done" : st === "next" ? "today" : "locked";
-      grid += '<button type="button" class="day-card ' + cls + '" data-day="' + i + '"' +
-        ((st === "done" || st === "next") ? "" : " disabled") + '>' +
-        '<span class="dc-weekday">Paper #' + day.paper + '</span>' +
-        '<span class="dc-date">Cycle 2 Day ' + day.cycleDay + ' · ' + day.dateLabel + ' · 10 questions</span>' +
-        '<span class="dc-status">' + esc(btnText) + '</span></button>';
-    });
-    var dg = $("day-grid"); if(dg) dg.innerHTML = grid;
-    Array.prototype.forEach.call(document.querySelectorAll(".day-card"), function(card){
-      card.addEventListener("click", function(){
-        var i = parseInt(card.getAttribute("data-day"), 10);
-        var st = paperStatus(i);
-        if(st === "next") openDay(i);
-        else if(st === "done") openReview(i);
-      });
-    });
   }
-  $("back-days-btn").addEventListener("click", function(){ stopTimer(); renderPicker(); show("view-days"); });
-  $("results-days-btn").addEventListener("click", function(){ renderPicker(); show("view-days"); });
   $("redo-link").addEventListener("click", function(e){ e.preventDefault(); openPractice(); });
-  renderPicker();
+  goStart();
 })();
 </script>
 </body>

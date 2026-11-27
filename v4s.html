@@ -43,26 +43,16 @@ button:disabled{opacity:.5;cursor:default}
 .btn-ghost{background:#fff;border:2px solid #e5d9c5}
 </style></head><body><div class="wrap">
 
-<section id="view-days">
-  <div class="card">
-    <h1>🗓️ My Word Week — 7 Quizzes</h1>
-    <p style="font-size:17px">Seven vocabulary quizzes, in order — one quiz a day. Finish today's quiz, and the next one opens tomorrow. Miss a day? No problem — the next quiz will be waiting for you when you come back. Tap a finished quiz to see your result again.</p>
-    <p class="pack-progress" id="pack-progress"></p>
-    <div class="day-grid" id="day-grid"></div>
-    <span class="level-banner" role="note">⭐ My Word Level: Pool 1000 — I know 214 / 800 words</span>
-  </div>
-</section>
-
-<section id="view-start" class="hidden">
+<section id="view-start">
   <div class="card">
     <h1 id="start-title">📚 Saturday Vocabulary Quiz</h1>
     <p style="font-size:19px">Hi Amber! 🌟</p>
+    <p class="pack-progress" id="pack-progress"></p>
     <p class="pack-day-head" id="start-day-head" style="font-weight:bold"></p>
     <span class="level-banner" role="note">⭐ My Word Level: Pool 1000 — I know 214 / 800 words</span>
     <p style="font-size:17px">100 words · 60 minutes · Read the meaning, then pick the word that matches it. If you don't know a word, pick <b>IDK</b>.<br>
     When the timer reaches 0:00, your answers are sent in all by themselves.</p>
     <form id="start-form"><button type="submit">Ready, Set, Go! ▶</button></form>
-    <p><button class="btn-ghost" id="back-days-btn" type="button">📅 Back to this week's days</button></p>
   </div>
 </section>
 
@@ -85,7 +75,7 @@ button:disabled{opacity:.5;cursor:default}
     <p id="learnedLine"></p>
     <p style="font-size:17px">Great work, <span id="r-name">Amber</span>!</p>
     <div class="review" id="review"></div>
-    <p><button class="btn-ghost" id="days-btn" type="button">📅 Back to this week's days</button></p>
+    <p><button class="btn-ghost" id="days-btn" type="button">🏠 Back to Start</button></p>
   </div>
 </section>
 
@@ -111,7 +101,7 @@ function storeDel(k){ try{ delete memoryStore[k]; }catch(e){} try{ window.localS
 function $(id){ return document.getElementById(id); }
 function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 function pad(n){ return (n<10?"0":"")+n; }
-function show(id){ ["view-days","view-start","view-quiz","view-sending","view-results"].forEach(function(v){ $(v).classList.toggle("hidden", v!==id); }); window.scrollTo(0,0); }
+function show(id){ ["view-start","view-quiz","view-sending","view-results"].forEach(function(v){ $(v).classList.toggle("hidden", v!==id); }); window.scrollTo(0,0); }
 
 function pstTodayKey(){
   try{
@@ -151,34 +141,34 @@ function paperStatus(i){
 
 var CURRENT=null, answers={}, startStamp=null, timerId=null, left=LIMIT, done=false, pendingSubmission=null, deliveryTimer=null, lastResult=null, autoFlag=false;
 
+function goStart(){
+  renderPicker();
+  var idx=-1;
+  for(var i=0;i<PACK_DAYS.length;i++){ if(paperStatus(i)!=="done"){ idx=i; break; } }
+  var form=$("start-form");
+  var head=$("start-day-head");
+  if(idx<0){
+    if(form) form.style.display="none";
+    if(head) head.innerHTML="🎉 You finished all 7 quizzes!";
+    show("view-start");
+    return;
+  }
+  setDay(idx);
+  if(paperStatus(idx)==="wait"){
+    if(form) form.style.display="none";
+    if(head) head.innerHTML="🌙 All done for today! Come back tomorrow.";
+  } else if(form) form.style.display="";
+  show("view-start");
+}
+
 function renderPicker(){
   var doneCount=0; PACK_DAYS.forEach(function(d){ if(getDayResult(d)) doneCount++; });
   $("pack-progress").textContent="⭐ Finished "+doneCount+" of 7 quizzes";
-  var grid="";
-  PACK_DAYS.forEach(function(day,i){
-    var st=paperStatus(i); var rec=getDayResult(day);
-    var txt= st==="done" ? ("✓ Done — "+rec.score+"/100 · View result")
-      : st==="next" ? "▶ Ready — start this one"
-      : st==="wait" ? "🌙 All done for today! Come back tomorrow."
-      : "🔒 Locked — finish Paper #"+i+" first";
-    var cls= st==="done"?"done":(st==="next"?"today":"locked");
-    grid+='<button type="button" class="day-card '+cls+'" data-day="'+i+'"'+((st==="done"||st==="next")?"":" disabled")+'>'
-      +'<span class="dc-weekday">Paper #'+day.paper+'</span>'
-      +'<span class="dc-date">'+esc(day.weekday)+' · Saturday Vocabulary Quiz #'+day.sat+' · 100 questions</span>'
-      +'<span class="dc-status">'+esc(txt)+'</span></button>';
-  });
-  $("day-grid").innerHTML=grid;
-  Array.prototype.forEach.call(document.querySelectorAll(".day-card"),function(card){
-    card.addEventListener("click",function(){
-      var i=parseInt(card.getAttribute("data-day"),10); var st=paperStatus(i);
-      if(st==="next") openDay(i); else if(st==="done") openReview(i);
-    });
-  });
 }
 
 function setDay(i){ CURRENT=PACK_DAYS[i]; answers={}; startStamp=null; done=false; autoFlag=false; lastResult=null; pendingSubmission=null;
   document.title="Saturday Vocabulary Quiz #"+CURRENT.sat+" — Amber (Weekly Pack Paper #"+CURRENT.paper+")";
-  $("start-day-head").innerHTML="📦 <b>Paper #"+CURRENT.paper+" of 7</b> · "+esc(CURRENT.weekday)+" · Saturday Vocabulary Quiz #"+CURRENT.sat+" · 100 words · 60 minutes";
+  $("start-day-head").innerHTML="📦 <b>Paper #"+CURRENT.paper+" of 7</b> · Saturday Vocabulary Quiz #"+CURRENT.sat+" · 100 words · 60 minutes";
   $("start-title").textContent="📚 Saturday Vocabulary Quiz #"+CURRENT.sat;
 }
 function openDay(i){ if(paperStatus(i)!=="next") return; setDay(i); show("view-start"); }
@@ -255,8 +245,7 @@ $("start-form").addEventListener("submit",function(e){
   show("view-quiz"); startTimer(null); saveDraft();
 });
 function onAnswerChangeSilent(){ var n=Object.keys(answers).length; var el=$("barProg"); if(el) el.textContent=n+" / "+TOTAL; }
-$("back-days-btn").addEventListener("click",function(){ if(timerId)clearInterval(timerId); renderPicker(); show("view-days"); });
-$("days-btn").addEventListener("click",function(){ renderPicker(); show("view-days"); });
+$("days-btn").addEventListener("click",function(){ goStart(); });
 
 /* ---- grading + payload (log header format as current v4s, incl. Own-pool learned line) ---- */
 function grade(){
@@ -337,7 +326,7 @@ function buildResults(){
   $("saveLine").textContent="Answers saved ✓";
   var g=grade(); $("review").innerHTML=g.review;
 }
-renderPicker();
+goStart();
 })();
 
 </script></body></html>

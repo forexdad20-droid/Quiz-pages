@@ -370,20 +370,7 @@
 <body>
 <div class="wrap">
 
-
-  <section id="view-days">
-    <div class="start-stack">
-      <div class="top-dash">
-        <h2 class="pack-title">🗓️ My Reading Week — 7 Quizzes</h2>
-        <p class="pack-sub">Seven quizzes, in order — one quiz a day. Finish today's quiz, and the next one opens tomorrow. Miss a day? No problem — the next quiz will be waiting for you when you come back. The day you finish a quiz is the day that earns your punch. Tap a finished quiz to see your questions and result again.</p>
-        <p class="pack-progress" id="pack-progress"></p>
-        <div class="day-grid" id="day-grid"></div>
-        <div class="lexile-banner" role="note" aria-label="My Lexile Level: 710L">⭐ My Lexile Level: 710L</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="view-start" class="hidden">
+  <section id="view-start">
     <div class="start-stack">
     <div class="top-dash">
       <div class="attendance">
@@ -434,6 +421,7 @@
 
       <div class="lexile-banner" role="note" aria-label="My Lexile Level: 710L">⭐ My Lexile Level: 710L</div>
 
+      <p class="pack-progress" id="pack-progress"></p>
       <p class="pack-day-head" id="start-day-head"></p>
       <form id="start-form">
         <div class="go-zone">
@@ -449,7 +437,6 @@
           <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
         </div>
       </form>
-      <button class="btn btn-ghost" id="back-days-btn" type="button">📅 Back to this week's days</button>
     </div>
       <div class="merged-tests">
       <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/22/26 Daily Quiz 710L (the same), 11/22/26 Daily Quiz 710L (the same), 11/23/26 Daily Quiz 710L (the same), 11/23/26 Daily Quiz 710L (the same), 11/24/26 Daily Quiz 710L (the same), 11/25/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
@@ -524,7 +511,7 @@
       <p class="outcome-lexile" id="p-lexile"></p>
       <p class="outcome-score">Your score: <span id="p-score">0</span> / 12</p>
       <button class="btn btn-primary outcome-btn" id="passed-review-btn" type="button">See My Answers →</button>
-      <button class="btn btn-ghost outcome-btn" id="passed-days-btn" type="button">📅 Back to this week's days</button>
+      <button class="btn btn-ghost outcome-btn" id="passed-days-btn" type="button">🏠 Back to Start</button>
     </div>
   </section>
 
@@ -537,7 +524,7 @@
       <p class="outcome-score">Your score this time: <span id="d-score">0</span> / 12</p>
       <p class="outcome-note">Tomorrow you can start the next quiz in this week's pack.</p>
       <button class="btn btn-ghost outcome-btn" id="redo-review-btn" type="button">Look at my answers first</button>
-      <button class="btn btn-ghost outcome-btn" id="redo-days-btn" type="button">📅 Back to this week's days</button>
+      <button class="btn btn-ghost outcome-btn" id="redo-days-btn" type="button">🏠 Back to Start</button>
     </div>
   </section>
 
@@ -602,7 +589,7 @@
         <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
       </div>
       </div>
-      <button class="btn btn-ghost" id="days-btn" type="button">📅 Back to this week's days</button>
+      <button class="btn btn-ghost" id="days-btn" type="button">🏠 Back to Start</button>
     </div>
   </section>
 
@@ -3542,7 +3529,7 @@
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function fmtTime(sec){ sec = Math.max(0, Math.floor(sec)); var m = Math.floor(sec/60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
-  function show(viewId){ ["view-days","view-start","view-quiz","view-sending","view-results","view-passed","view-redo"].forEach(function(v){ var el = $(v); if(el) el.classList.toggle("hidden", v !== viewId); }); window.scrollTo(0,0); }
+  function show(viewId){ ["view-start","view-quiz","view-sending","view-results","view-passed","view-redo"].forEach(function(v){ var el = $(v); if(el) el.classList.toggle("hidden", v !== viewId); }); window.scrollTo(0,0); }
 
   
 
@@ -4357,9 +4344,8 @@
      ?test=1 is the hidden TEST backdoor; ?testSeconds as on the daily
      page; ?testDayOffset=N (TEST only) shifts the pack gate's "today"
      by N days so the one-per-day lock can be test-driven. */
-  function backToDays(){ stopTimer(); renderPicker(); show("view-days"); }
+  function backToDays(){ stopTimer(); goStart(); }
   $("days-btn").addEventListener("click", backToDays);
-  $("back-days-btn").addEventListener("click", backToDays);
   $("passed-days-btn").addEventListener("click", backToDays);
   $("redo-days-btn").addEventListener("click", backToDays);
 
@@ -4439,39 +4425,32 @@
     buildResults();
     show("view-results");
   }
-  function renderPicker(){
+  function goStart(){
+    renderPicker();
+    var idx = -1;
+    for(var i = 0; i < PACK_DAYS.length; i++){ if(paperStatus(i) !== "done"){ idx = i; break; } }
+    var form = $("start-form");
+    var head = $("start-day-head");
+    if(idx < 0){
+      if(form) form.style.display = "none";
+      if(head) head.innerHTML = "🎉 You finished all 7 quizzes!";
+      show("view-start");
+      return;
+    }
+    setDayData(idx);
+    if(paperStatus(idx) === "wait"){
+      if(form) form.style.display = "none";
+      if(head) head.innerHTML = "🌙 All done for today! Come back tomorrow for the next quiz.";
+    } else if(form) form.style.display = "";
+    show("view-start");
+  }
+    function renderPicker(){
     var doneCount = 0;
     PACK_DAYS.forEach(function(day){ if(getDayResult(day)) doneCount++; });
     var pp = $("pack-progress");
     if(pp) pp.textContent = "⭐ Finished " + doneCount + " of 7 quizzes";
-    var grid = "";
-    PACK_DAYS.forEach(function(day, i){
-      var st = paperStatus(i);
-      var rec = getDayResult(day);
-      var btnText = st === "done" ? ("✓ Done — " + rec.score + "/12 · View result")
-        : st === "next" ? "▶ Ready Set Go — start this one"
-        : st === "wait" ? "🌙 All done for today! Come back tomorrow for the next quiz."
-        : "🔒 Locked — finish Paper #" + i + " first";
-      var cls = st === "done" ? "done" : st === "next" ? "today" : "locked";
-      grid += '<button type="button" class="day-card ' + cls + '" data-day="' + i + '"' +
-        ((st === "done" || st === "next") ? "" : " disabled") + '>' +
-        '<span class="dc-weekday">Paper #' + day.paper + '</span>' +
-        '<span class="dc-date">Seq ' + day.seq + ' · Cycle 2 Day ' + day.cycleDay + ' · 12 questions</span>' +
-        '<span class="dc-status">' + esc(btnText) + '</span></button>';
-    });
-    var dg = $("day-grid"); if(dg) dg.innerHTML = grid;
-    Array.prototype.forEach.call(document.querySelectorAll(".day-card"), function(card){
-      card.addEventListener("click", function(){
-        var i = parseInt(card.getAttribute("data-day"), 10);
-        var st = paperStatus(i);
-        if(st === "next") openDay(i);
-        else if(st === "done") openReview(i);
-      });
-    });
-    var nx = document.querySelector(".day-card.today");
-    if(nx && nx.scrollIntoView) nx.scrollIntoView({ block: "center" });
   }
-  renderPicker();
+  goStart();
 })();
 </script>
 </body>
