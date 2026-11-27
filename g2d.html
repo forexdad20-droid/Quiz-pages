@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Grade 2 Reading Quiz — November 26, 2026</title>
+<title>Grade 2 Reading Quiz — Weekly Pack · Nov 30 – Dec 6, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -352,62 +352,89 @@
   .outcome-score{font-size:20px;margin:8px 0 22px}
   .outcome a.outcome-btn,.outcome button.outcome-btn{display:inline-block;width:auto;font-size:24px;padding:16px 42px;margin-top:8px;text-decoration:none}
   .outcome-note{font-size:17px;margin-top:16px}
+
+  .pack-title{font-family:Fredoka,Nunito,sans-serif;font-size:26px;font-weight:900;text-align:center;margin:0 0 8px}
+  .pack-sub{font-weight:700;color:var(--ink-soft);text-align:center;margin:0 auto 14px;max-width:560px;line-height:1.5}
+  .pack-progress{font-family:Fredoka,Nunito,sans-serif;font-size:20px;font-weight:900;text-align:center;margin:0 0 14px}
+  .day-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 16px}
+  .day-card{border:2.5px solid var(--line);border-radius:16px;padding:14px 10px;background:var(--card,#fff);cursor:pointer;text-align:center;font-family:inherit}
+  .day-card .dc-weekday{display:block;font-family:Fredoka,Nunito,sans-serif;font-size:19px;font-weight:900}
+  .day-card .dc-date{display:block;color:var(--ink-soft);font-weight:800;font-size:13px;margin:3px 0 7px}
+  .day-card .dc-status{display:block;font-weight:900;font-size:14px}
+  .day-card.today{border-color:#f2b705;background:#fff8e1}
+  .day-card.done{border-color:#27a24b;background:#eafaf0}
+  .day-card:disabled{cursor:default;opacity:.6}
+  .pack-day-head{font-size:17px;font-weight:800;text-align:center;margin:0 0 10px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <section id="view-start">
+
+  <section id="view-days">
+    <div class="start-stack">
+      <div class="top-dash">
+        <h2 class="pack-title">🗓️ My Reading Week — 7 Quizzes</h2>
+        <p class="pack-sub">Seven quizzes, in order — one quiz a day. Finish today's quiz, and the next one opens tomorrow. Miss a day? No problem — the next quiz will be waiting for you when you come back. The day you finish a quiz is the day that earns your punch. Tap a finished quiz to see your questions and result again.</p>
+        <p class="pack-progress" id="pack-progress"></p>
+        <div class="day-grid" id="day-grid"></div>
+        <div class="lexile-banner" role="note" aria-label="My Lexile Level: 710L">⭐ My Lexile Level: 710L</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-start" class="hidden">
     <div class="start-stack">
     <div class="top-dash">
       <div class="attendance">
         <div class="att-head">
           <h2 class="att-title">📅 My Attendance This Week</h2>
-          <span class="att-count" id="att-count">4 / 7 days</span>
+          <span class="att-count" id="att-count">0 / 7 days</span>
         </div>
-        <p class="att-sub">本周出席打卡 · Mon Nov 23 – Sun Nov 29 — finish a quiz, get a punch for that day!</p>
+        <p class="att-sub">本周出席打卡 · Mon Nov 30 – Sun Dec 6 — finish a quiz, get a punch for that day!</p>
         <div class="punch-row">
-          <div class="punch-day" data-date="2026-11-23">
+          <div class="punch-day" data-date="2026-11-30">
             <span class="day-name">Mon<span class="day-zh">周一</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/23</span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">11/30</span>
           </div>
-          <div class="punch-day" data-date="2026-11-24">
+          <div class="punch-day" data-date="2026-12-01">
             <span class="day-name">Tue<span class="day-zh">周二</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/24</span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">12/1</span>
           </div>
-          <div class="punch-day" data-date="2026-11-25">
+          <div class="punch-day" data-date="2026-12-02">
             <span class="day-name">Wed<span class="day-zh">周三</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/25</span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">12/2</span>
           </div>
-          <div class="punch-day today" data-date="2026-11-26">
+          <div class="punch-day" data-date="2026-12-03">
             <span class="day-name">Thu<span class="day-zh">周四</span></span>
-            <span class="punch-circle done today-ring" aria-hidden="true">✓</span>
-            <span class="day-date">11/26</span>
+            <span class="punch-circle upcoming" aria-hidden="true">·</span>
+            <span class="day-date">12/3</span>
           </div>
-          <div class="punch-day" data-date="2026-11-27">
+          <div class="punch-day" data-date="2026-12-04">
             <span class="day-name">Fri<span class="day-zh">周五</span></span>
             <span class="punch-circle upcoming" aria-hidden="true">·</span>
-            <span class="day-date">11/27</span>
+            <span class="day-date">12/4</span>
           </div>
-          <div class="punch-day" data-date="2026-11-28">
+          <div class="punch-day" data-date="2026-12-05">
             <span class="day-name">Sat<span class="day-zh">周六</span></span>
             <span class="punch-circle upcoming" aria-hidden="true">·</span>
-            <span class="day-date">11/28</span>
+            <span class="day-date">12/5</span>
           </div>
-          <div class="punch-day" data-date="2026-11-29">
+          <div class="punch-day" data-date="2026-12-06">
             <span class="day-name">Sun<span class="day-zh">周日</span></span>
             <span class="punch-circle upcoming" aria-hidden="true">·</span>
-            <span class="day-date">11/29</span>
+            <span class="day-date">12/6</span>
           </div>
         </div>
-        <p class="att-message" id="att-message">🎉 You showed up <strong>4 times</strong> this week — great job, Eden!</p>
+        <p class="att-message" id="att-message">🎉 A brand-new week, Eden — finish a quiz each day to fill all 7 punches!</p>
       </div>
 
       <div class="lexile-banner" role="note" aria-label="My Lexile Level: 710L">⭐ My Lexile Level: 710L</div>
 
+      <p class="pack-day-head" id="start-day-head"></p>
       <form id="start-form">
         <div class="go-zone">
           <div class="go-checker" aria-hidden="true"></div>
@@ -422,6 +449,7 @@
           <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
         </div>
       </form>
+      <button class="btn btn-ghost" id="back-days-btn" type="button">📅 Back to this week's days</button>
     </div>
       <div class="merged-tests">
       <div class="growth-chart" role="img" aria-label="Bar chart showing Lexile growth: 11/22/26 Daily Quiz 710L (the same), 11/22/26 Daily Quiz 710L (the same), 11/23/26 Daily Quiz 710L (the same), 11/23/26 Daily Quiz 710L (the same), 11/24/26 Daily Quiz 710L (the same), 11/25/26 Daily Quiz 710L (the same, gold bar — your best ever, with a crown)">
@@ -473,19 +501,30 @@
     </div>
     <div class="bottom-timer-panel" id="bottom-timer-panel" aria-live="polite" aria-label="Timer and progression">
       <span class="bt-item"><span class="bt-label">Timer:</span><span class="bt-time" id="bottom-timer">20:00</span></span>
-      <span class="bt-item"><span class="bt-label">Progression:</span><span class="bt-prog" id="bottom-progression">0 / 12</span></span>
+      <span class="bt-item"><span class="bt-label">Done:</span><span class="bt-prog" id="bottom-progression">0 / 12</span></span>
     </div>
   </section>
 
 
   
+
+  <section id="view-sending" class="hidden">
+    <div class="outcome outcome-pass">
+      <div class="outcome-emoji" aria-hidden="true">📡</div>
+      <h2 class="outcome-title">Sending your answers…</h2>
+      <p class="outcome-lexile" id="sending-text">No internet yet — your answers are saved here. This page will send them when the internet comes back.</p>
+      <p class="outcome-score">Please keep this page open. You do not need to do anything — it keeps trying by itself. ⏳</p>
+    </div>
+  </section>
+
   <section id="view-passed" class="hidden">
     <div class="outcome outcome-pass">
       <div class="outcome-emoji" aria-hidden="true">🎉</div>
       <h2 class="outcome-title">You passed today's test.</h2>
       <p class="outcome-lexile" id="p-lexile"></p>
       <p class="outcome-score">Your score: <span id="p-score">0</span> / 12</p>
-      <button class="btn btn-primary outcome-btn" id="passed-review-btn" type="button">See My Answers &amp; Growth →</button>
+      <button class="btn btn-primary outcome-btn" id="passed-review-btn" type="button">See My Answers →</button>
+      <button class="btn btn-ghost outcome-btn" id="passed-days-btn" type="button">📅 Back to this week's days</button>
     </div>
   </section>
 
@@ -496,9 +535,9 @@
       <h2 class="outcome-title">今天你的 Lexile level 退步了，你要重做一次。</h2>
       <p class="outcome-lexile" id="d-lexile"></p>
       <p class="outcome-score">Your score this time: <span id="d-score">0</span> / 12</p>
-      <a class="btn btn-primary outcome-btn" id="redo-link" href="?redo=1" target="_top">Do it again</a>
-      <p class="outcome-note">Press the button to start a brand-new test.</p>
+      <p class="outcome-note">Tomorrow you can start the next quiz in this week's pack.</p>
       <button class="btn btn-ghost outcome-btn" id="redo-review-btn" type="button">Look at my answers first</button>
+      <button class="btn btn-ghost outcome-btn" id="redo-days-btn" type="button">📅 Back to this week's days</button>
     </div>
   </section>
 
@@ -563,11 +602,11 @@
         <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
       </div>
       </div>
-      <button class="btn btn-ghost" id="again-btn" type="button">↻ Try Again</button>
+      <button class="btn btn-ghost" id="days-btn" type="button">📅 Back to this week's days</button>
     </div>
   </section>
 
-  <footer class="note">Grade 2 · Reading Practice · 12 questions · 20 minutes</footer>
+  <footer class="note">Grade 2 · Reading Weekly Pack · 7 papers × 12 questions · 20 minutes</footer>
 </div>
 
 <div class="modal-backdrop hidden" id="warn-modal" role="dialog" aria-modal="true" aria-labelledby="warn-title">
@@ -586,251 +625,2879 @@
   "use strict";
   
 
-  var QUIZ_TITLE = "Grade 2 Reading Quiz \u2014 November 26, 2026";
-  var QUIZ_DATE = "2026-11-26";
-    var SECTIONS = [
-  {
+  var QUIZ_TITLE = "Grade 2 Reading Quiz — Weekly Pack Paper #1 (Seq 22, Cycle 2 Day 10)";
+  var QUIZ_DATE = "2026-11-30";
+  /* ---------- WEEKLY PACK — Eden Reading, Seq 22-28, Cycle 2 Days 10-16, Mon Nov 30 - Sun Dec 6, 2026 ----------
+     One page, seven papers. Weak points RI.2.3 / RI.2.6 / RL.2.2 / L.2.4 / L.2.5
+     recur at high frequency (written slots); the other points rotate by
+     longest-uncovered. Passages: S1 610-660L, S2 ~710L, S3 760-810L (L = 710L peak). */
+  var PACK_DAYS = [
+ {
+  "paper": 1,
+  "seq": 22,
+  "cycleDay": 10,
+  "quizId": "eden-reading-weeklypack-2026-11-30-p1",
+  "date": "2026-11-30",
+  "title": "Grade 2 Reading Quiz — Weekly Pack Paper #1 (Seq 22, Cycle 2 Day 10)",
+  "sections": [
+   {
     "id": 1,
     "tag": "Section 1",
     "tagClass": "tag-1",
     "title": "Key Ideas and Details",
-    "subtitle": "Nonfiction · How Ducks Stay Dry in Water · 4 questions",
-    "passageTitle": "How Ducks Stay Dry in Water",
+    "subtitle": "Nonfiction · How Moles Dig Tunnels · 4 questions",
+    "passageTitle": "How Moles Dig Tunnels",
     "paragraphs": [
-      "[1] A duck is a bird that swims on ponds and lakes. It has wide webbed feet for paddling and soft, thick feathers all over its body. A duck can swim for a long time and never look wet.",
-      "[2] Near its tail, a duck has a small oil spot on its skin. The duck rubs its beak on the spot, then rubs the oil over its feathers. Soon every feather wears a thin coat of oil.",
-      "[3] Water cannot soak through the duck's oily feathers. Drops of water sit on the feathers in round beads and roll off into the pond. Under the feathers, the duck's skin stays warm and dry.",
-      "[4] A duck can dive under the water and pop back up again. It shakes its body hard, and the last drops fly off. Its dry skin keeps it warm while it swims and dives.",
-      "[5] A duck spends part of each day preening its feathers. The word preen means to clean and smooth feathers with the beak. Preening keeps every feather neat, so the oil coat spreads well.",
-      "[6] People who watch ducks see dry birds on wet ponds. They learn how oil, neat feathers, and preening work together. A duck stays dry in water because its body is built for swimming."
+     "[1] A mole is a small animal that lives under the ground. It has strong front paws like tiny shovels and soft dark fur. A mole spends almost all of its life in the dark soil.",
+     "[2] First, a mole digs with its front paws. It pushes the loose soil behind its body. Then it turns and shoves the soil up to the top of the ground, which makes a small hill.",
+     "[3] A mole's tunnels have many rooms. One room is for sleeping, and it is lined with dry grass. Another room stores food, such as worms, for later meals.",
+     "[4] Because a mole lives in the dark, its eyes are very small and weak. It finds its way by smell and by touch. Its nose and whiskers tell it where to go.",
+     "[5] Digging is hard work, so a mole must eat a lot. It hunts worms and bugs in its tunnels all day. The word tunnel means a long hole dug under the ground.",
+     "[6] Farmers see mole hills in their fields. The hills show that a mole is busy below. A mole's strong paws, sharp nose, and hard work help it live under the ground."
     ],
     "chart": null,
     "questions": [
-      {
-        "n": 1,
-        "std": "RI.2.2",
-        "type": "mc",
-        "text": "What is this whole text mostly about?",
-        "options": [
-          "How ducks build their nests beside quiet green ponds",
-          "How oil and smooth feathers help a duck stay dry in water",
-          "Why baby ducks follow their mother in a long line",
-          "How webbed feet help ducks paddle, steer, and dive deep under pond water"
-        ],
-        "correct": 1,
-        "evidence": 3,
-        "why": "Paragraph 3 tells the main idea in action: water beads on the oily feathers and rolls off, and the duck's skin stays dry."
-      },
-      {
-        "n": 2,
-        "std": "RI.2.5",
-        "type": "mc",
-        "text": "Which paragraph tells how a duck spreads oil over its feathers?",
-        "options": [
-          "Paragraph one, where the duck swims across the wide pond",
-          "Paragraph two, where the duck rubs its beak by its tail",
-          "Paragraph four, where the duck shakes cold water off",
-          "Paragraph six, where people watch ducks and learn from the shore quietly"
-        ],
-        "correct": 1,
-        "evidence": 2,
-        "why": "Paragraph 2 tells the duck rubs its beak on the oil spot near its tail and rubs the oil over its feathers."
-      },
-      {
-        "n": 3,
-        "std": "L.2.4",
-        "type": "mc",
-        "text": "What does the word preen mean in this text?",
-        "options": [
-          "To splash in the pond on hot days",
-          "To hunt for fish under deep water",
-          "To clean and smooth its feathers with its beak",
-          "To rub oil over the whole body at night time"
-        ],
-        "correct": 2,
-        "evidence": 5,
-        "why": "Paragraph 5 says preen means to clean and smooth feathers with the beak."
-      },
-      {
-        "n": 4,
-        "std": "RI.2.3",
-        "type": "written",
-        "text": "How does the oil on a duck's feathers help it, and how does preening help it?",
-        "sample": "The oil makes water sit in beads and roll off the feathers, so the duck's skin stays warm and dry. Preening cleans and smooths the feathers with the beak, so the oil coat spreads well."
-      }
+     {
+      "n": 1,
+      "std": "RI.2.1",
+      "type": "mc",
+      "text": "What does a mole use to dig its tunnels?",
+      "options": [
+       "Its tail, which sweeps soil away",
+       "Its strong front paws, like tiny shovels",
+       "Its small weak eyes, which see in the dark",
+       "Its soft dark fur, which keeps the soil off"
+      ],
+      "correct": 1,
+      "evidence": 1,
+      "why": "Paragraph 1 says a mole has strong front paws like tiny shovels, and paragraph 2 tells it digs with them."
+     },
+     {
+      "n": 2,
+      "std": "RI.2.5",
+      "type": "mc",
+      "text": "Which paragraph tells what a mole's tunnel rooms are for?",
+      "options": [
+       "Paragraph two, where the mole digs soil",
+       "Paragraph three, where the rooms hold sleep and food",
+       "Paragraph five, where the mole hunts worms and bugs all day",
+       "Paragraph six, where farmers see hills in their wide green fields"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 tells one room is for sleeping and another room stores food."
+     },
+     {
+      "n": 3,
+      "std": "L.2.4",
+      "type": "mc",
+      "text": "What does the word tunnel mean in this text?",
+      "options": [
+       "A small hill of loose soil on top of the ground",
+       "A room lined with dry grass for sleeping",
+       "A long hole dug under the ground by moles",
+       "A worm that a mole eats for its dinner at night"
+      ],
+      "correct": 2,
+      "evidence": 5,
+      "why": "Paragraph 5 says the word tunnel means a long hole dug under the ground."
+     },
+     {
+      "n": 4,
+      "std": "RI.2.3",
+      "type": "written",
+      "text": "How does a mole make a tunnel, and why does a small hill of soil appear on top of the ground?",
+      "sample": "First, a mole digs with its front paws and pushes the loose soil behind it. Then it shoves the soil up to the top of the ground, and that makes a small hill."
+     }
     ]
-  },
-  {
+   },
+   {
     "id": 2,
     "tag": "Section 2",
     "tagClass": "tag-2",
     "title": "Reading Comprehension",
-    "subtitle": "Fiction · Nina and the Little Lighthouse Lamp · 4 questions",
-    "passageTitle": "Nina and the Little Lighthouse Lamp",
+    "subtitle": "Fiction · Tara and the Runaway Scarf · 4 questions",
+    "passageTitle": "Tara and the Runaway Scarf",
     "paragraphs": [
-      "[1] I am Nina. I am visiting Grandpa, who keeps the lighthouse on the rocky point. A little lamp with a small warm flame stands by the door for dark nights.",
-      "[2] Tonight a storm wind shook the tower. The big lighthouse lamp flickered, then went out. Out at sea, a small boat rocked near the sharp rocks, and my hands shook too.",
-      "[3] Grandpa stayed calm. “Step by step,” he said. “Step by step, up we go.” He lit the little lamp, and I carried it up the stone steps that twisted up and up through the dark tower.",
-      "[4] Step by step, step by step, we climbed. The wind banged the door below us. The little lamp's flame bent in the wind but stayed lit, and its light showed us each stone step.",
-      "[5] At the top, Grandpa fixed the big lamp with his tools. Its bright beam swept across the sea again. Below us, the small boat turned away from the rocks and sailed to safety.",
-      "[6] Grandpa put his hand on my shoulder. “Your little lamp helped the big one tonight,” he said. I felt proud and warm. A small light and slow steps can help with big work."
+     "[1] I am Tara. On a windy morning, I walked to school with my red scarf tied tight. The scarf was a gift from my grandmother, so it was special to me.",
+     "[2] A big gust of wind pulled the scarf off my neck. It flew over the fence and landed in Mr. Lee's garden. My heart thumped as I watched it go.",
+     "[3] I knocked on Mr. Lee's door and told him about my scarf. He smiled and said, “Come in. We will get it together, step by step.”",
+     "[4] The scarf hung on a tall rose bush. Mr. Lee held the bush still, and I reached up on my tiptoes. My fingers just touched the soft red wool.",
+     "[5] I pulled gently, and the scarf came free. “Thank you!” I said. Mr. Lee waved and said, “Hold it tight on windy days.”",
+     "[6] I tied the scarf twice around my neck and walked on to school. The wind still blew, but my grandmother's gift was safe with me."
     ],
     "chart": null,
     "questions": [
-      {
-        "n": 5,
-        "std": "RL.2.1",
-        "type": "mc",
-        "text": "What does Nina carry up the lighthouse stairs?",
-        "options": [
-          "A heavy pot of soup for Grandpa",
-          "A little lamp with a small warm flame",
-          "A thick coat for the cold night wind outside",
-          "A wooden box of tools and rope for the top room door"
-        ],
-        "correct": 1,
-        "evidence": 3,
-        "why": "Paragraph 3 says Grandpa lit the little lamp and Nina carried it up the stone steps."
-      },
-      {
-        "n": 6,
-        "std": "RL.2.7",
-        "type": "mc",
-        "text": "Which sentence helps you picture the stairs inside the dark tower?",
-        "options": [
-          "Grandpa kept the lighthouse on the rocky point",
-          "The stairs curled round and round into the black",
-          "A boat sailed safely past the rocks at dawn",
-          "Nina ate warm bread with Grandpa in the small kitchen room"
-        ],
-        "correct": 1,
-        "evidence": 3,
-        "why": "Paragraph 3 tells the stone steps twisted up and up through the dark tower; the chosen sentence pictures the same winding stairs in fresh words."
-      },
-      {
-        "n": 7,
-        "std": "RL.2.4",
-        "type": "mc",
-        "text": "Which words does Grandpa say again and again to help Nina keep going?",
-        "options": [
-          "Hold on tight and run up fast",
-          "Step by step, step by step, up we go",
-          "Mind the wind, mind the rain, mind the sea",
-          "Light the lamp and wave to all the boats at sea tonight"
-        ],
-        "correct": 1,
-        "evidence": 3,
-        "why": "Paragraph 3 has Grandpa say 'Step by step' twice, and paragraph 4 repeats the same words as they climb."
-      },
-      {
-        "n": 8,
-        "std": "RL.2.2",
-        "type": "written",
-        "text": "What problem did Nina face at the lighthouse, and what happened at the end of the night?",
-        "sample": "A storm wind made the big lighthouse lamp go out while a boat rocked near the rocks. At the end, Grandpa fixed the big lamp, its beam swept the sea again, and the boat sailed to safety."
-      }
+     {
+      "n": 5,
+      "std": "RL.2.1",
+      "type": "mc",
+      "text": "Whose garden does Tara's scarf land in?",
+      "options": [
+       "Her grandmother's garden, past the gate",
+       "Mr. Lee's garden, just over the fence",
+       "Her own garden, beside the tall rose bush at home",
+       "The school garden, near the gate where children play"
+      ],
+      "correct": 1,
+      "evidence": 2,
+      "why": "Paragraph 2 says the scarf flew over the fence and landed in Mr. Lee's garden."
+     },
+     {
+      "n": 6,
+      "std": "RL.2.7",
+      "type": "mc",
+      "text": "Which sentence helps you picture Tara reaching for the scarf?",
+      "options": [
+       "Tara knocked and told him about the scarf",
+       "Tara stood on tiptoe and her fingers just touched the wool",
+       "Tara tied the scarf twice and walked on to school that morning",
+       "Tara's grandmother gave her the scarf as a special gift"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Paragraph 4 tells Tara reached up on her tiptoes and her fingers just touched the soft red wool; the chosen sentence pictures the same reach in fresh words."
+     },
+     {
+      "n": 7,
+      "std": "RL.2.4",
+      "type": "mc",
+      "text": "Which words does Mr. Lee say to show Tara how they will get the scarf?",
+      "options": [
+       "Hold it tight on windy days, Tara",
+       "Come in, we will get it together, step by step",
+       "Watch out, the wind is coming back again now",
+       "Run fast and grab it before it flies away today, quick"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 has Mr. Lee say, 'Come in. We will get it together, step by step.'"
+     },
+     {
+      "n": 8,
+      "std": "RL.2.2",
+      "type": "written",
+      "text": "What problem did Tara have with her scarf, and how did the story end?",
+      "sample": "A big gust of wind pulled Tara's red scarf off and it landed in Mr. Lee's garden. At the end, Mr. Lee helped her get the scarf back, and she tied it twice and walked on to school."
+     }
     ]
-  },
-  {
+   },
+   {
     "id": 3,
     "tag": "Section 3",
     "tagClass": "tag-3",
     "title": "Integration of Knowledge and Ideas",
-    "subtitle": "Two texts and a chart · Our Class Bake Sale · 4 questions",
+    "subtitle": "Two texts and a chart · The School Play · 4 questions",
     "passageTitle": null,
     "paragraphs": [],
     "texts": [
-      {
-        "label": "Text A",
-        "title": "Our Class Bake Sale — Told by Ana",
-        "body": "[1] I am Ana. Our class held a bake sale in the school hall. I set up our table, put the money box at my side, and kept a list of every muffin we sold.\n\n[2] First, I sorted the muffins into two groups by taste. The sweet muffins — apple, banana, and berry — sat on the red tray. The salty cheese muffins sat on the blue tray.\n\n[3] Families came to buy muffins on all four days of the sale. The chart shows how many muffins our class sold each day. On the first day, we sold twelve muffins.\n\n[4] On the fourth day on the chart, we sold twenty-one muffins, the most of any day. The school fair was on that day, so many visitors came to our table.\n\n[5] I like my job because careful counting keeps our sale fair. Ana's list and money box always agree. Our class will use the sale money to buy new books for our reading corner."
-      },
-      {
-        "label": "Text B",
-        "title": "Our Class Bake Sale — Told by Leo",
-        "body": "[6] I am Leo. I did not count money at the bake sale. I carried trays of muffins from the kitchen to Ana's table, one tray at a time.\n\n[7] My favourite job was greeting the buyers. I smiled, told them the muffin kinds, and handed each buyer a muffin on a small paper plate.\n\n[8] At noon on the second day, the apple tray was sold out. The words sold out mean that every muffin was gone and none were left to sell.\n\n[9] Ana and I did different jobs at the sale. Ana counted the money and kept the list of sales. I carried the trays and greeted the buyers at the table.\n\n[10] We both agree the bake sale was a happy week for our class. The money we made will buy new books for our reading corner, and every classmate helped."
-      }
+     {
+      "label": "Text A",
+      "title": "The School Play — Told by Mia",
+      "body": "[1] I am Mia. Our class put on a school play about a kind dragon. I was in charge of the tickets, and I kept a list of every ticket we sold.\n\n[2] First, I sorted the tickets into two piles by colour. The gold tickets were for the front rows. The green tickets were for the back rows.\n\n[3] We sold tickets on four days. The chart shows how many tickets we sold each day. On the first day, we sold ten tickets.\n\n[4] On the fourth day on the chart, we sold seventeen tickets, the most of any day. Many grandparents came that day to watch the play.\n\n[5] I like my job because fair counting helps every family get a seat. Our class will use the ticket money to buy paint for art class."
+     },
+     {
+      "label": "Text B",
+      "title": "The School Play — Told by Ben",
+      "body": "[6] I am Ben. I did not sell tickets for the play. I built the dragon's cave out of big boxes and grey paper in the hall.\n\n[7] My favourite job was painting the cave. I painted dark rocks and a round door, and I put soft lights inside the cave.\n\n[8] On the second day, the gold tickets were sold out. The words sold out mean that every ticket was gone and none were left to sell.\n\n[9] Mia and I did different jobs for the play. Mia sold the tickets and kept the list of sales. I built the dragon's cave and painted it.\n\n[10] We both agree the play was a happy night for our class. The money we made will buy paint for art class, and every classmate helped."
+     }
     ],
     "chart": {
-      "title": "Muffins Our Class Sold Each Day",
-      "sub": "How many muffins our class sold each day",
-      "max": 21,
-      "unit": "",
-      "col1": "Day",
-      "col2": "Muffins Sold",
-      "rows": [
-        {
-          "label": "First Day",
-          "count": 12,
-          "cls": "teal"
-        },
-        {
-          "label": "Second Day",
-          "count": 18,
-          "cls": "banana"
-        },
-        {
-          "label": "Third Day",
-          "count": 15,
-          "cls": "apple"
-        },
-        {
-          "label": "Fourth Day",
-          "count": 21,
-          "cls": "orange"
-        }
-      ]
+     "title": "Tickets Our Class Sold Each Day",
+     "sub": "How many tickets our class sold each day",
+     "max": 17,
+     "unit": "",
+     "col1": "Day",
+     "col2": "Tickets Our Class Sold",
+     "rows": [
+      {
+       "label": "First Day",
+       "count": 10,
+       "cls": "teal"
+      },
+      {
+       "label": "Second Day",
+       "count": 14,
+       "cls": "banana"
+      },
+      {
+       "label": "Third Day",
+       "count": 9,
+       "cls": "apple"
+      },
+      {
+       "label": "Fourth Day",
+       "count": 17,
+       "cls": "orange"
+      }
+     ]
     },
     "questions": [
-      {
-        "n": 9,
-        "std": "RL.2.9",
-        "type": "mc",
-        "text": "How are Ana's and Leo's jobs at the bake sale different?",
-        "options": [
-          "Ana greets buyers, but Leo counts the money box",
-          "Ana counts money and lists sales, but Leo carries trays",
-          "Ana bakes muffins, but Leo grows seeds for the garden",
-          "Ana hands out muffins, but Leo writes names on the class list board"
-        ],
-        "correct": 1,
-        "evidence": 9,
-        "why": "Paragraph 9 says Ana counted the money and kept the list, and Leo carried the trays and greeted the buyers."
-      },
-      {
-        "n": 10,
-        "std": "RI.2.4",
-        "type": "mc",
-        "text": "What do the words sold out mean in Leo's telling?",
-        "options": [
-          "Every buyer took a free muffin home",
-          "Every muffin was gone and none were left",
-          "Every tray was washed and put away clean",
-          "Every child in class paid with paper money at the table"
-        ],
-        "correct": 1,
-        "evidence": 8,
-        "why": "Paragraph 8 says sold out means every muffin was gone and none were left to sell."
-      },
-      {
-        "n": 11,
-        "std": "L.2.5",
-        "type": "written",
-        "text": "How did Ana sort the muffins into groups, and which muffins did she put in the sweet group?",
-        "sample": "Ana sorted the muffins by taste into a sweet group and a salty group. She put the apple, banana, and berry muffins in the sweet group."
-      },
-      {
-        "n": 12,
-        "std": "RI.2.10",
-        "type": "written",
-        "text": "What do both tellings agree the sale money will buy, and on which day did the class sell the most muffins?",
-        "sample": "Both tellings agree the sale money will buy new books for the class reading corner. The class sold the most muffins on the fourth day, twenty-one muffins."
-      }
+     {
+      "n": 9,
+      "std": "RL.2.9",
+      "type": "mc",
+      "text": "How are Mia's and Ben's jobs for the play different?",
+      "options": [
+       "Mia builds the cave, but Ben sells the tickets",
+       "Mia sells tickets and lists sales, but Ben builds the cave",
+       "Mia paints the cave, but Ben keeps the ticket list",
+       "Mia puts lights in the cave, but Ben sorts tickets by colour"
+      ],
+      "correct": 1,
+      "evidence": 9,
+      "why": "Paragraph 9 says Mia sold the tickets and kept the list, and Ben built the dragon's cave and painted it."
+     },
+     {
+      "n": 10,
+      "std": "RI.2.7",
+      "type": "mc",
+      "text": "On which day did the class sell the most tickets?",
+      "options": [
+       "The first day, when ten tickets were sold",
+       "The second day, when the gold tickets ran out at noon",
+       "The fourth day, when seventeen tickets were all sold",
+       "The third day, when nine tickets were sold to families"
+      ],
+      "correct": 2,
+      "evidence": 4,
+      "why": "Paragraph 4 says the class sold seventeen tickets on the fourth day, the most of any day, and the chart shows the same."
+     },
+     {
+      "n": 11,
+      "std": "RI.2.6",
+      "type": "written",
+      "text": "Why did Mia like her ticket job, and why did Ben like his cave job best?",
+      "sample": "Mia liked her job because fair counting helps every family get a seat. Ben's favourite job was painting the cave, with dark rocks, a round door, and soft lights inside."
+     },
+     {
+      "n": 12,
+      "std": "L.2.5",
+      "type": "written",
+      "text": "How did Mia sort the tickets into piles, and which tickets did she put in the front-row pile?",
+      "sample": "Mia sorted the tickets by colour into two piles. She put the gold tickets in the front-row pile, and the green tickets went in the back-row pile."
+     }
     ]
+   }
+  ],
+  "gradeKeys": {
+   "4": [
+    {
+     "found": "The mole digs with its front paws and pushes soil behind it",
+     "missing": "how the mole digs — with its front paws, pushing soil back",
+     "alt": [
+      [
+       "dig",
+       "paws"
+      ],
+      [
+       "digs",
+       "front paws"
+      ],
+      [
+       "paws",
+       "push"
+      ]
+     ]
+    },
+    {
+     "found": "The mole shoves soil up to the top, and that makes a hill",
+     "missing": "the mole pushing soil up to the top to make a hill",
+     "alt": [
+      [
+       "soil",
+       "up",
+       "hill"
+      ],
+      [
+       "push",
+       "soil",
+       "hill"
+      ],
+      [
+       "shoves",
+       "soil",
+       "top"
+      ],
+      [
+       "dirt",
+       "up",
+       "hill"
+      ],
+      [
+       "push",
+       "dirt",
+       "hill"
+      ]
+     ]
+    }
+   ],
+   "8": [
+    {
+     "found": "The wind blew Tara's scarf off into Mr. Lee's garden",
+     "missing": "the wind taking the scarf into Mr. Lee's garden",
+     "alt": [
+      [
+       "wind",
+       "scarf",
+       "garden"
+      ],
+      [
+       "wind",
+       "blew",
+       "scarf"
+      ],
+      [
+       "scarf",
+       "flew",
+       "garden"
+      ]
+     ]
+    },
+    {
+     "found": "Mr. Lee helped her get it back and she tied it on and went to school",
+     "missing": "Mr. Lee helping her get the scarf back at the end",
+     "alt": [
+      [
+       "help",
+       "scarf back"
+      ],
+      [
+       "got",
+       "scarf",
+       "back"
+      ],
+      [
+       "tied",
+       "scarf",
+       "school"
+      ]
+     ]
+    }
+   ],
+   "11": [
+    {
+     "found": "Mia liked fair counting because it helps every family get a seat",
+     "missing": "Mia's reason — fair counting helps families get seats",
+     "alt": [
+      [
+       "counting",
+       "seat"
+      ],
+      [
+       "fair",
+       "counting",
+       "famil"
+      ],
+      [
+       "count",
+       "seat"
+      ]
+     ]
+    },
+    {
+     "found": "Ben's favourite job was painting the cave",
+     "missing": "Ben liking painting the cave best",
+     "alt": [
+      [
+       "paint",
+       "cave"
+      ],
+      [
+       "favourite",
+       "paint"
+      ],
+      [
+       "liked",
+       "painting",
+       "cave"
+      ]
+     ]
+    }
+   ],
+   "12": [
+    {
+     "found": "Mia sorted the tickets by colour into two piles",
+     "missing": "sorting the tickets by colour",
+     "alt": [
+      [
+       "sort",
+       "colour"
+      ],
+      [
+       "sorted",
+       "color"
+      ],
+      [
+       "by colour",
+       "piles"
+      ],
+      [
+       "by color",
+       "piles"
+      ]
+     ]
+    },
+    {
+     "found": "The gold tickets went in the front-row pile",
+     "missing": "the gold tickets being for the front rows",
+     "alt": [
+      [
+       "gold",
+       "front"
+      ],
+      [
+       "gold tickets",
+       "front rows"
+      ]
+     ]
+    }
+   ]
   }
-]
+ },
+ {
+  "paper": 2,
+  "seq": 23,
+  "cycleDay": 11,
+  "quizId": "eden-reading-weeklypack-2026-11-30-p2",
+  "date": "2026-12-01",
+  "title": "Grade 2 Reading Quiz — Weekly Pack Paper #2 (Seq 23, Cycle 2 Day 11)",
+  "sections": [
+   {
+    "id": 1,
+    "tag": "Section 1",
+    "tagClass": "tag-1",
+    "title": "Key Ideas and Details",
+    "subtitle": "Nonfiction · How Cactus Plants Store Water · 4 questions",
+    "passageTitle": "How Cactus Plants Store Water",
+    "paragraphs": [
+     "[1] A cactus is a plant that grows in hot, dry deserts. It has a thick green stem and sharp spines instead of leaves. A cactus can live for a long time with very little rain.",
+     "[2] When rain does fall, a cactus drinks it up fast. Its roots spread wide under the sand and take in water from a big area. The water moves up into the thick stem.",
+     "[3] Inside the stem, the cactus stores the water it drank. The stem swells up like a sponge full of water. Then, on dry days, the cactus slowly uses the water it saved.",
+     "[4] The cactus has a thick, waxy skin. This skin holds the water in, so the hot sun cannot dry the plant out. The word waxy means smooth and a bit shiny, like a candle.",
+     "[5] Sharp spines keep thirsty animals away from the cactus. The spines also give a little shade. Birds sometimes rest on a cactus, but they do not eat it.",
+     "[6] A cactus teaches us how living things fit their homes. Its wide roots, thick stem, waxy skin, and sharp spines all help it store water in the dry desert."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 1,
+      "std": "RI.2.2",
+      "type": "mc",
+      "text": "What is this whole text mostly about?",
+      "options": [
+       "How birds rest on cactus plants in the hot sun",
+       "How a cactus stores water to live in the dry desert",
+       "Why deserts are hot in the long summer days",
+       "How rain falls on the sand in far away desert lands at noon"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 tells the main idea in action: the cactus stores water in its stem and slowly uses it on dry days."
+     },
+     {
+      "n": 2,
+      "std": "RI.2.8",
+      "type": "mc",
+      "text": "Why does the cactus have a thick, waxy skin?",
+      "options": [
+       "To give birds a smooth place to rest in the cool shade at noon",
+       "To hold the water in, so the sun cannot dry it out",
+       "To drink up rain fast when storms come to the desert",
+       "To keep its stem green and thick all summer long"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Paragraph 4 says the thick, waxy skin holds the water in, so the hot sun cannot dry the plant out."
+     },
+     {
+      "n": 3,
+      "std": "RF.2.3",
+      "type": "mc",
+      "text": "Which word has the same ending sound as the word rain?",
+      "options": [
+       "Sand, from the desert floor",
+       "Train, on tracks by the town",
+       "Stem, on the thick green cactus plant",
+       "Spine, on the sharp cactus skin"
+      ],
+      "correct": 1,
+      "evidence": 2,
+      "why": "Rain and train end with the same sound, -ain. Paragraph 2 talks about rain falling on the desert."
+     },
+     {
+      "n": 4,
+      "std": "RI.2.3",
+      "type": "written",
+      "text": "How does a cactus take in water when rain falls, and what happens to the water inside the stem?",
+      "sample": "When rain falls, the cactus's wide roots take in water from a big area and the water moves up into the thick stem. Inside the stem, the cactus stores the water, and the stem swells up like a sponge."
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "tag": "Section 2",
+    "tagClass": "tag-2",
+    "title": "Reading Comprehension",
+    "subtitle": "Fiction · Omar and the Borrowed Boat · 4 questions",
+    "passageTitle": "Omar and the Borrowed Boat",
+    "paragraphs": [
+     "[1] I am Omar. My uncle Tomas has a small blue boat. One calm morning, he said I could take it out on the pond if I was careful.",
+     "[2] I rowed to the middle of the pond. Splash! A fish jumped beside the boat, and I leaned too far to look. Water sloshed over the side.",
+     "[3] The boat tipped, and my hat fell into the pond. I sat very still and held both sides of the boat. “Slow and steady,” I told myself.",
+     "[4] Slow and steady, I rowed back to the dock. Uncle Tomas reached out and caught the rope. He pulled the boat in, hand over hand.",
+     "[5] “You stayed calm,” Uncle Tomas said. “That is what good sailors do.” He fished my wet hat out of the water with a long pole.",
+     "[6] I hung my hat on the dock to dry in the sun. Next time, I will sit still and watch the fish from my seat."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 5,
+      "std": "RL.2.3",
+      "type": "mc",
+      "text": "What does Omar do right after his hat falls into the pond?",
+      "options": [
+       "He jumps into the water to grab the hat",
+       "He sits very still and holds both sides of the boat",
+       "He rows fast to the dock and calls for his uncle loudly",
+       "He leans far over the side to look at the fish again"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 says Omar sat very still and held both sides of the boat after his hat fell in."
+     },
+     {
+      "n": 6,
+      "std": "RL.2.10",
+      "type": "mc",
+      "text": "How does this story end?",
+      "options": [
+       "Omar leans too far and water sloshes into the boat",
+       "Omar's hat dries on the dock and he sits still next time",
+       "Uncle Tomas gives Omar a new dry hat to wear home",
+       "Omar rows to the middle of the pond to watch the fish jump"
+      ],
+      "correct": 1,
+      "evidence": 6,
+      "why": "Paragraph 6 ends the story: Omar hung his hat on the dock to dry and will sit still next time."
+     },
+     {
+      "n": 7,
+      "std": "RL.2.6",
+      "type": "mc",
+      "text": "Who is telling this story?",
+      "options": [
+       "Uncle Tomas, who owns the blue boat",
+       "Omar, who borrowed the boat and rowed it",
+       "A fish, who jumped beside the boat on the pond",
+       "A sailor, who watched from the dock that morning"
+      ],
+      "correct": 1,
+      "evidence": 1,
+      "why": "Paragraph 1 begins 'I am Omar,' so Omar tells the story in his own words."
+     },
+     {
+      "n": 8,
+      "std": "RL.2.2",
+      "type": "written",
+      "text": "What problem did Omar have in the boat, and how did the story end?",
+      "sample": "Omar leaned too far to look at a fish, water sloshed in, and his hat fell into the pond. At the end, he rowed back slowly, Uncle Tomas pulled the boat in and got his hat, and Omar hung it on the dock to dry."
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "tag": "Section 3",
+    "tagClass": "tag-3",
+    "title": "Integration of Knowledge and Ideas",
+    "subtitle": "Two texts and a chart · The Fox and the Stork · 4 questions",
+    "passageTitle": null,
+    "paragraphs": [],
+    "texts": [
+     {
+      "label": "Text A",
+      "title": "The Fox and the Stork — Told by the Fox",
+      "body": "[1] I am the Fox. I once asked my friend the Stork to dinner at my home. I made a tasty soup with corn and berries in it.\n\n[2] First, I picked the berries for the soup. I gathered them on four mornings, and the chart shows how many I picked each day.\n\n[3] I served the soup in a flat dish. I lapped up my soup fast, but the Stork could not eat from the flat dish with her long beak.\n\n[4] On the fourth day on the chart, I picked eleven berries, the most of any day. I wanted the soup to taste sweet for my guest.\n\n[5] I felt proud of my dinner, but the Stork went home hungry. I did not think about how hard the flat dish was for her."
+     },
+     {
+      "label": "Text B",
+      "title": "The Fox and the Stork — Told by the Stork",
+      "body": "[6] I am the Stork. The Fox asked me to dinner, and I was glad to go. He is my friend, and I wore my best white feathers.\n\n[7] The Fox served soup in a flat dish. My beak is long and thin, so I could not pick up the soup. I went home hungry that night.\n\n[8] Next week, I asked the Fox to dinner at my home. I served soup in a tall jar with a narrow neck. The word narrow means not wide.\n\n[9] I ate well from the tall jar with my long beak. The Fox could not reach the soup in the jar at all. We both learned how the other one felt.\n\n[10] Now the Fox and I serve soup in bowls we can both use. We both agree a good dinner is one that every guest can eat."
+     }
+    ],
+    "chart": {
+     "title": "Berries the Fox Picked Each Day",
+     "sub": "How many berries the Fox picked each day",
+     "max": 11,
+     "unit": "",
+     "col1": "Day",
+     "col2": "Berries the Fox Picked",
+     "rows": [
+      {
+       "label": "First Day",
+       "count": 6,
+       "cls": "teal"
+      },
+      {
+       "label": "Second Day",
+       "count": 9,
+       "cls": "banana"
+      },
+      {
+       "label": "Third Day",
+       "count": 5,
+       "cls": "apple"
+      },
+      {
+       "label": "Fourth Day",
+       "count": 11,
+       "cls": "orange"
+      }
+     ]
+    },
+    "questions": [
+     {
+      "n": 9,
+      "std": "RI.2.9",
+      "type": "mc",
+      "text": "How are the two dinners in the story different?",
+      "options": [
+       "The Fox serves soup in a flat dish, but the Stork uses a tall jar",
+       "The Fox serves soup in a tall jar, but the Stork serves it in a flat dish",
+       "The Fox makes corn soup, but the Stork makes berry soup for dinner",
+       "The Fox eats at home, but the Stork eats dinner by the pond"
+      ],
+      "correct": 0,
+      "evidence": 9,
+      "why": "Paragraph 9 tells the Stork ate from the tall jar while the Fox could not reach the soup; paragraph 3 tells the Fox served soup in a flat dish."
+     },
+     {
+      "n": 10,
+      "std": "RI.2.10",
+      "type": "mc",
+      "text": "What do both tellings agree about at the end?",
+      "options": [
+       "A flat dish is the best way to serve hot soup",
+       "A good dinner is one that every guest can eat",
+       "A tall jar keeps soup warm on cold nights for guests",
+       "Berries make every soup taste sweet and good"
+      ],
+      "correct": 1,
+      "evidence": 10,
+      "why": "Paragraph 10 says both agree a good dinner is one that every guest can eat."
+     },
+     {
+      "n": 11,
+      "std": "L.2.4",
+      "type": "written",
+      "text": "What does the word narrow mean, and what part of the Stork's jar does it tell about?",
+      "sample": "The word narrow means not wide. The Stork served soup in a tall jar with a narrow neck, so the top of the jar was not wide at all."
+     },
+     {
+      "n": 12,
+      "std": "L.2.6",
+      "type": "written",
+      "text": "What words does the Stork use to tell how she felt at the Fox's dinner, and what words does she use for her best feathers?",
+      "sample": "The Stork says she was glad to go to dinner, and that she went home hungry that night. She says she wore her best white feathers."
+     }
+    ]
+   }
+  ],
+  "gradeKeys": {
+   "4": [
+    {
+     "found": "Wide roots take in water and it moves up into the stem",
+     "missing": "the wide roots taking in water up into the stem",
+     "alt": [
+      [
+       "roots",
+       "water",
+       "stem"
+      ],
+      [
+       "roots",
+       "take in",
+       "water"
+      ],
+      [
+       "wide roots",
+       "water"
+      ]
+     ]
+    },
+    {
+     "found": "The stem stores the water and swells like a sponge",
+     "missing": "the stem storing the water and swelling",
+     "alt": [
+      [
+       "stores",
+       "water"
+      ],
+      [
+       "stem",
+       "swells"
+      ],
+      [
+       "stem",
+       "stores",
+       "water"
+      ],
+      [
+       "like a sponge"
+      ]
+     ]
+    }
+   ],
+   "8": [
+    {
+     "found": "Omar leaned too far, water came in, and his hat fell in the pond",
+     "missing": "the boat tipping and Omar's hat falling in",
+     "alt": [
+      [
+       "lean",
+       "hat fell"
+      ],
+      [
+       "hat fell",
+       "pond"
+      ],
+      [
+       "water",
+       "hat",
+       "pond"
+      ],
+      [
+       "tipped",
+       "hat"
+      ]
+     ]
+    },
+    {
+     "found": "He rowed back, his uncle pulled the boat in and got the hat, and it dried on the dock",
+     "missing": "getting back to the dock and the hat drying at the end",
+     "alt": [
+      [
+       "rowed back",
+       "dock"
+      ],
+      [
+       "uncle",
+       "hat"
+      ],
+      [
+       "hat",
+       "dock",
+       "dry"
+      ],
+      [
+       "hung",
+       "hat",
+       "dry"
+      ]
+     ]
+    }
+   ],
+   "11": [
+    {
+     "found": "Narrow means not wide",
+     "missing": "narrow meaning not wide",
+     "alt": [
+      [
+       "narrow",
+       "not wide"
+      ],
+      [
+       "narrow means",
+       "not wide"
+      ]
+     ]
+    },
+    {
+     "found": "The jar had a narrow neck / top that was not wide",
+     "missing": "the jar's narrow neck",
+     "alt": [
+      [
+       "jar",
+       "narrow neck"
+      ],
+      [
+       "jar",
+       "neck"
+      ],
+      [
+       "tall jar",
+       "neck"
+      ]
+     ]
+    }
+   ],
+   "12": [
+    {
+     "found": "The Stork was glad to go but went home hungry",
+     "missing": "the Stork being glad, then hungry",
+     "alt": [
+      [
+       "glad",
+       "hungry"
+      ],
+      [
+       "glad to go",
+       "hungry"
+      ]
+     ]
+    },
+    {
+     "found": "She wore her best white feathers",
+     "missing": "her best white feathers",
+     "alt": [
+      [
+       "best",
+       "white feathers"
+      ],
+      [
+       "best white feathers"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "paper": 3,
+  "seq": 24,
+  "cycleDay": 12,
+  "quizId": "eden-reading-weeklypack-2026-11-30-p3",
+  "date": "2026-12-02",
+  "title": "Grade 2 Reading Quiz — Weekly Pack Paper #3 (Seq 24, Cycle 2 Day 12)",
+  "sections": [
+   {
+    "id": 1,
+    "tag": "Section 1",
+    "tagClass": "tag-1",
+    "title": "Key Ideas and Details",
+    "subtitle": "Nonfiction · How Honeybees Talk to Each Other · 4 questions",
+    "passageTitle": "How Honeybees Talk to Each Other",
+    "paragraphs": [
+     "[1] A honeybee lives with thousands of other bees in a hive. Bees must tell each other where to find flowers with sweet nectar. They cannot use words, so they use a dance.",
+     "[2] When a bee finds good flowers, it flies back to the hive. First, it walks in a line, then it turns and walks back in a curve. It does this again and again on the flat wall of the hive.",
+     "[3] As the bee walks the line, it wiggles its body from side to side. This part is called the waggle. A long waggle tells the other bees the flowers are far away.",
+     "[4] The way the bee faces as it waggles tells the others which way to fly. If it faces up, the flowers are toward the sun. If it faces down, the flowers are away from the sun.",
+     "[5] The other bees watch the dance closely. Then they fly out and find the flowers by following the dance's clues. The word clue means a hint that helps you find something.",
+     "[6] The waggle dance helps the whole hive work as a team. One bee finds the flowers, the dance shares the news, and many bees bring home the nectar."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 1,
+      "std": "RI.2.4",
+      "type": "mc",
+      "text": "What does the word clue mean in this text?",
+      "options": [
+       "A dance that bees do on the wall of the hive",
+       "A hint that helps you find something you need",
+       "A sweet drink inside a flower for bees",
+       "A line that a bee walks before it turns in a curve"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 says the word clue means a hint that helps you find something."
+     },
+     {
+      "n": 2,
+      "std": "RI.2.1",
+      "type": "mc",
+      "text": "What does a long waggle tell the other bees?",
+      "options": [
+       "The flowers are close to the hive",
+       "The flowers are far away from the hive",
+       "The flowers have no sweet nectar left in them",
+       "The flowers grow toward the sun in the morning"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 says a long waggle tells the other bees the flowers are far away."
+     },
+     {
+      "n": 3,
+      "std": "L.2.5",
+      "type": "mc",
+      "text": "Which words in the text are about the same kind of thing as nectar and flowers?",
+      "options": [
+       "Hive, wall, and line, which are parts of home",
+       "Sweet, far, and up, which tell how things look and where they are",
+       "Team, news, and dance, which are things the bees share",
+       "Flowers, nectar, and hive, which all belong to the bees' world"
+      ],
+      "correct": 3,
+      "evidence": 1,
+      "why": "Paragraph 1 puts flowers, nectar, and the hive together in the bees' world."
+     },
+     {
+      "n": 4,
+      "std": "RI.2.6",
+      "type": "written",
+      "text": "Why does a bee do the waggle dance, and who is the dance for?",
+      "sample": "A bee does the waggle dance to tell the other bees where to find flowers with sweet nectar. The dance is for the other bees in the hive, so they can fly out and find the flowers too."
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "tag": "Section 2",
+    "tagClass": "tag-2",
+    "title": "Reading Comprehension",
+    "subtitle": "Fiction · Lena and the Night Market · 4 questions",
+    "passageTitle": "Lena and the Night Market",
+    "paragraphs": [
+     "[1] I am Lena. Every Friday night, our street holds a night market. Stalls with bright lights line both sides of the road, and the air smells of sweet corn.",
+     "[2] Tonight I had five coins to spend. I wanted a paper lantern for my room. The lantern stall stood at the far end of the market.",
+     "[3] On my way, I stopped to watch a man make animal shapes from sugar. A crowd pressed close, and someone bumped my arm. Two of my coins fell and rolled away.",
+     "[4] I looked under the sugar stall. “One coin, two coins — there you are!” I said. Both coins lay beside the stall's leg, shining in the light.",
+     "[5] At the lantern stall, I picked a round red lantern. The seller smiled and said, “A fine choice. Red brings good luck.”",
+     "[6] I carried my lantern home high above the crowd. Its soft light danced on the street. Friday nights at the market are my favourite nights."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 5,
+      "std": "RL.2.5",
+      "type": "mc",
+      "text": "What happens in the middle of this story?",
+      "options": [
+       "Lena picks a lantern at the far stall",
+       "Lena's coins fall and she finds them under a stall",
+       "Lena walks home with her lantern above the crowd",
+       "Lena gets five coins to spend at the night market stall"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 is the middle trouble: two coins fell and rolled away, and paragraph 4 tells Lena found them under the stall."
+     },
+     {
+      "n": 6,
+      "std": "RL.2.1",
+      "type": "mc",
+      "text": "What does Lena want to buy at the market?",
+      "options": [
+       "A bag of sweet corn from the first stall",
+       "A paper lantern for her own small room",
+       "An animal shape made of sugar candy",
+       "A round red ball to play with at home"
+      ],
+      "correct": 1,
+      "evidence": 2,
+      "why": "Paragraph 2 says Lena wanted a paper lantern for her room."
+     },
+     {
+      "n": 7,
+      "std": "RL.2.3",
+      "type": "mc",
+      "text": "Why does Lena look under the sugar stall?",
+      "options": [
+       "Her coins fell and rolled under it when she bumped",
+       "The lantern stall was hidden under the sugar stall",
+       "A crowd pressed close and she wanted to rest there a while",
+       "The seller told her the lanterns were kept under it"
+      ],
+      "correct": 0,
+      "evidence": 3,
+      "why": "Paragraph 3 says someone bumped Lena's arm, two coins fell and rolled away, and paragraph 4 tells she looked under the sugar stall."
+     },
+     {
+      "n": 8,
+      "std": "RL.2.2",
+      "type": "written",
+      "text": "What problem did Lena have at the market, and how did the story end?",
+      "sample": "Lena's two coins fell and rolled away when someone bumped her arm at the sugar stall. At the end, she found both coins, bought a round red lantern, and carried it home above the crowd."
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "tag": "Section 3",
+    "tagClass": "tag-3",
+    "title": "Integration of Knowledge and Ideas",
+    "subtitle": "Two texts and a chart · Our Class Garden · 4 questions",
+    "passageTitle": null,
+    "paragraphs": [],
+    "texts": [
+     {
+      "label": "Text A",
+      "title": "Our Class Garden — Told by Rosa",
+      "body": "[1] I am Rosa. Our class grows vegetables in the school garden. I am in charge of watering, and I keep a chart of what we pick.\n\n[2] First, I sort the seeds into two boxes by size. The big seeds, like beans, go in the red box. The small seeds, like carrots, go in the blue box.\n\n[3] We picked cucumbers over four weeks. The chart shows how many cucumbers we picked each week. In the first week, we picked four cucumbers.\n\n[4] In the fourth week on the chart, we picked ten cucumbers, the most of any week. The warm sun that week helped the plants grow fast.\n\n[5] I like my job because plants cannot wait for water. Our class will sell the vegetables at the school fair to buy new seeds."
+     },
+     {
+      "label": "Text B",
+      "title": "Our Class Garden — Told by Tom",
+      "body": "[6] I am Tom. I do not water the garden. I pull out weeds and dig rows for new seeds with a small spade.\n\n[7] My favourite job is digging. I dig straight rows, and I put a stick at the end of each row so we know where the seeds are.\n\n[8] In the second week, the cucumber vines were covered with yellow flowers. The word covered means spread all over something, like a blanket.\n\n[9] Rosa and I do different jobs in the garden. Rosa waters the plants and keeps the picking chart. I pull weeds and dig the rows.\n\n[10] We both agree the garden teaches our class to work together. The money from the fair will buy new seeds, and every classmate helped."
+     }
+    ],
+    "chart": {
+     "title": "Cucumbers Our Class Picked Each Week",
+     "sub": "How many cucumbers our class picked each week",
+     "max": 10,
+     "unit": "",
+     "col1": "Day",
+     "col2": "Cucumbers Our Class Picked",
+     "rows": [
+      {
+       "label": "First Week",
+       "count": 4,
+       "cls": "teal"
+      },
+      {
+       "label": "Second Week",
+       "count": 7,
+       "cls": "banana"
+      },
+      {
+       "label": "Third Week",
+       "count": 6,
+       "cls": "apple"
+      },
+      {
+       "label": "Fourth Week",
+       "count": 10,
+       "cls": "orange"
+      }
+     ]
+    },
+    "questions": [
+     {
+      "n": 9,
+      "std": "RL.2.9",
+      "type": "mc",
+      "text": "How are Rosa's and Tom's garden jobs different?",
+      "options": [
+       "Rosa pulls weeds, but Tom waters the plants each day",
+       "Rosa waters and keeps the picking chart, but Tom digs rows",
+       "Rosa digs the rows, but Tom sorts the seeds by their size",
+       "Rosa sells vegetables, but Tom plants all the seeds alone"
+      ],
+      "correct": 1,
+      "evidence": 9,
+      "why": "Paragraph 9 says Rosa waters the plants and keeps the chart, and Tom pulls weeds and digs the rows."
+     },
+     {
+      "n": 10,
+      "std": "RI.2.8",
+      "type": "mc",
+      "text": "Why does Rosa say plants cannot wait for water?",
+      "options": [
+       "Because the warm sun helped plants grow fast",
+       "Because plants need water on time to stay alive and grow",
+       "Because the chart shows ten cucumbers in the fourth week of all",
+       "Because Tom digs straight rows with sticks at the ends"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 gives Rosa's reason: plants cannot wait for water — they need it on time, which is why her watering job matters."
+     },
+     {
+      "n": 11,
+      "std": "RI.2.3",
+      "type": "written",
+      "text": "How did the warm sun in the fourth week change the garden, and how many cucumbers did the class pick that week?",
+      "sample": "The warm sun in the fourth week helped the plants grow fast. That week the class picked ten cucumbers, the most of any week."
+     },
+     {
+      "n": 12,
+      "std": "RI.2.10",
+      "type": "written",
+      "text": "What do both tellings agree the fair money will buy, and in which week did the class pick the most cucumbers?",
+      "sample": "Both tellings agree the fair money will buy new seeds. The class picked the most cucumbers in the fourth week, ten cucumbers."
+     }
+    ]
+   }
+  ],
+  "gradeKeys": {
+   "4": [
+    {
+     "found": "The dance tells where the flowers with nectar are",
+     "missing": "the dance sharing where the flowers are",
+     "alt": [
+      [
+       "tell",
+       "flowers"
+      ],
+      [
+       "dance",
+       "where",
+       "flowers"
+      ],
+      [
+       "tells",
+       "where to find",
+       "flowers"
+      ]
+     ]
+    },
+    {
+     "found": "The dance is for the other bees in the hive",
+     "missing": "the dance being for the other bees",
+     "alt": [
+      [
+       "for the other bees"
+      ],
+      [
+       "other bees",
+       "hive"
+      ],
+      [
+       "the other bees"
+      ]
+     ]
+    }
+   ],
+   "8": [
+    {
+     "found": "Lena's coins fell and rolled away when she was bumped",
+     "missing": "the coins falling when Lena was bumped",
+     "alt": [
+      [
+       "coins fell"
+      ],
+      [
+       "coins",
+       "rolled away"
+      ],
+      [
+       "bumped",
+       "coins"
+      ]
+     ]
+    },
+    {
+     "found": "She found the coins, bought the red lantern, and carried it home",
+     "missing": "finding the coins and buying the lantern at the end",
+     "alt": [
+      [
+       "found",
+       "coins",
+       "lantern"
+      ],
+      [
+       "bought",
+       "lantern"
+      ],
+      [
+       "found both coins"
+      ],
+      [
+       "carried",
+       "lantern",
+       "home"
+      ]
+     ]
+    }
+   ],
+   "11": [
+    {
+     "found": "The warm sun helped the plants grow fast",
+     "missing": "the sun helping the plants grow fast",
+     "alt": [
+      [
+       "sun",
+       "grow fast"
+      ],
+      [
+       "warm sun",
+       "helped",
+       "grow"
+      ],
+      [
+       "sun",
+       "plants",
+       "fast"
+      ]
+     ]
+    },
+    {
+     "found": "The class picked ten cucumbers in the fourth week",
+     "missing": "ten cucumbers in the fourth week",
+     "alt": [
+      [
+       "ten cucumbers"
+      ],
+      [
+       "10 cucumbers"
+      ],
+      [
+       "picked ten"
+      ]
+     ]
+    }
+   ],
+   "12": [
+    {
+     "found": "Both tellings agree the money will buy new seeds",
+     "missing": "the money buying new seeds",
+     "alt": [
+      [
+       "money",
+       "new seeds"
+      ],
+      [
+       "buy new seeds"
+      ],
+      [
+       "will buy",
+       "seeds"
+      ]
+     ]
+    },
+    {
+     "found": "The most cucumbers were picked in the fourth week",
+     "missing": "the fourth week having the most",
+     "alt": [
+      [
+       "fourth week",
+       "most"
+      ],
+      [
+       "most",
+       "fourth week"
+      ],
+      [
+       "most cucumbers",
+       "fourth"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "paper": 4,
+  "seq": 25,
+  "cycleDay": 13,
+  "quizId": "eden-reading-weeklypack-2026-11-30-p4",
+  "date": "2026-12-03",
+  "title": "Grade 2 Reading Quiz — Weekly Pack Paper #4 (Seq 25, Cycle 2 Day 13)",
+  "sections": [
+   {
+    "id": 1,
+    "tag": "Section 1",
+    "tagClass": "tag-1",
+    "title": "Key Ideas and Details",
+    "subtitle": "Nonfiction · How Owls See at Night · 4 questions",
+    "passageTitle": "How Owls See at Night",
+    "paragraphs": [
+     "[1] An owl is a bird that wakes up when the sun goes down. It hunts small animals in the dark. An owl's big eyes help it see when other birds are asleep.",
+     "[2] An owl's eyes face forward, like a person's eyes. They take in as much light as they can. Even a tiny bit of light is enough for an owl to see a mouse.",
+     "[3] Because its eyes are so big, an owl cannot move them in their sockets. Instead, the owl turns its whole head. An owl can turn its head far around to look behind it.",
+     "[4] Seeing is only half the hunt. An owl also hears very well. Its ears sit at different heights, so it can tell exactly where a sound comes from, even under leaves.",
+     "[5] The word silent means making no sound at all. An owl's soft wing feathers let it fly silently, so the mouse never hears it coming.",
+     "[6] Big forward eyes, a turning head, sharp ears, and silent wings — an owl's body is built for the night. That is how owls see and hunt in the dark."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 1,
+      "std": "RI.2.2",
+      "type": "mc",
+      "text": "What is this whole text mostly about?",
+      "options": [
+       "How owls turn their heads far around at night",
+       "How an owl's body helps it see and hunt at night",
+       "Why mice hide under leaves when the sun goes down at night",
+       "How birds sleep in trees on quiet dark nights"
+      ],
+      "correct": 1,
+      "evidence": 6,
+      "why": "Paragraph 6 sums the text up: big eyes, a turning head, sharp ears, and silent wings make the owl built for the night."
+     },
+     {
+      "n": 2,
+      "std": "RI.2.5",
+      "type": "mc",
+      "text": "Which paragraph tells why an owl turns its whole head?",
+      "options": [
+       "Paragraph two, where the owl's eyes take light",
+       "Paragraph three, where the owl's big eyes cannot move",
+       "Paragraph four, where the owl hears sounds under leaves",
+       "Paragraph six, where the owl's body is called built for night"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 tells an owl's big eyes cannot move, so it turns its whole head instead."
+     },
+     {
+      "n": 3,
+      "std": "RI.2.4",
+      "type": "mc",
+      "text": "What does the word silent mean in this text?",
+      "options": [
+       "Flying very high above the dark trees",
+       "Making no sound at all as it flies",
+       "Seeing well in a tiny bit of light at night",
+       "Turning the head far around to look behind"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 says the word silent means making no sound at all."
+     },
+     {
+      "n": 4,
+      "std": "L.2.4",
+      "type": "written",
+      "text": "What does the word silent mean, and how do the owl's wing feathers make it silent?",
+      "sample": "Silent means making no sound at all. The owl's soft wing feathers let it fly silently, so a mouse never hears it coming."
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "tag": "Section 2",
+    "tagClass": "tag-2",
+    "title": "Reading Comprehension",
+    "subtitle": "Fiction · Kai and the Paper Plane Race · 4 questions",
+    "passageTitle": "Kai and the Paper Plane Race",
+    "paragraphs": [
+     "[1] I am Kai. Our school held a paper plane race on the sports field. Each child folded a plane and threw it from the white line.",
+     "[2] My first plane had a bent wing. It spun in a circle and landed at my feet. My cheeks felt hot, and I wanted to give up.",
+     "[3] My friend Ana said, “Fold it again. Fold it neat and flat.” She showed me how to press each fold hard with my thumb.",
+     "[4] Fold it neat, fold it flat — I said the words as I worked. The new plane felt smooth and sharp. Its wings sat straight and even.",
+     "[5] I threw the new plane with a steady arm. It sailed over the field, past the other planes, and landed by the far fence. Our class cheered.",
+     "[6] Ana and I took the plane home to keep. Trying again with care can turn a bad throw into a good one — that is what the race taught me."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 5,
+      "std": "RL.2.4",
+      "type": "mc",
+      "text": "Which words does Kai say again as he folds the new plane?",
+      "options": [
+       "Throw it far and watch it sail away",
+       "Fold it neat, fold it flat, as he works",
+       "Press it hard and hold your thumb down tight",
+       "Sit still and wait for the wind to help you"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Paragraph 4 has Kai say 'Fold it neat, fold it flat' as he worked."
+     },
+     {
+      "n": 6,
+      "std": "RL.2.6",
+      "type": "mc",
+      "text": "Who is telling this story?",
+      "options": [
+       "Ana, who showed her friend how to fold",
+       "Kai, who folded the planes and threw them all",
+       "A teacher, who held the race on the sports field",
+       "The class, who cheered by the far fence at the end"
+      ],
+      "correct": 1,
+      "evidence": 1,
+      "why": "Paragraph 1 begins 'I am Kai,' so Kai tells the story."
+     },
+     {
+      "n": 7,
+      "std": "RL.2.7",
+      "type": "mc",
+      "text": "Which sentence helps you picture Kai's new plane flying?",
+      "options": [
+       "The plane sailed over the field and landed by the fence",
+       "Kai's first plane spun in a circle at his feet",
+       "Ana pressed each fold hard with her thumb to show him how",
+       "The class held a race on the sports field that day"
+      ],
+      "correct": 0,
+      "evidence": 5,
+      "why": "Paragraph 5 tells the new plane sailed over the field and landed by the far fence; the chosen sentence pictures that same flight."
+     },
+     {
+      "n": 8,
+      "std": "RL.2.2",
+      "type": "written",
+      "text": "What problem did Kai have with his first plane, and how did the story end?",
+      "sample": "Kai's first plane had a bent wing, spun in a circle, and landed at his feet. At the end, he folded a new plane neatly, threw it past all the others to the far fence, and the class cheered."
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "tag": "Section 3",
+    "tagClass": "tag-3",
+    "title": "Integration of Knowledge and Ideas",
+    "subtitle": "Two texts and a chart · The Little Red Hen · 4 questions",
+    "passageTitle": null,
+    "paragraphs": [],
+    "texts": [
+     {
+      "label": "Text A",
+      "title": "The Little Red Hen — Told by the Hen",
+      "body": "[1] I am the Little Red Hen. I found some grains of wheat by the farm gate. I decided to grow the wheat and make bread.\n\n[2] First, I counted the cups of flour I used each day when I practised baking. The chart shows the cups for four days of practice.\n\n[3] I asked the Cat, the Dog, and the Duck to help me plant the wheat. “Not I,” said each one. So I planted the wheat myself.\n\n[4] On the second day on the chart, I used three cups of flour, the most of any practice day. Big loaves need more flour.\n\n[5] When the bread was baked, I asked who would help me eat it. Everyone wanted some, but I ate it with my chicks, because we did the work."
+     },
+     {
+      "label": "Text B",
+      "title": "The Little Red Hen — Told by the Dog",
+      "body": "[6] I am the Dog. The Hen found wheat and asked us to help her plant it. I was sleepy that day, and I said, “Not I.”\n\n[7] The Hen planted the wheat, watered it, and cut it when it grew tall. I watched from the shade and played with the Duck.\n\n[8] The Hen ground the wheat into flour. The word grind means to crush something into tiny bits, like sand.\n\n[9] The Hen did all the work herself. She planted, watered, cut, ground, and baked. We did not help her with any of the jobs.\n\n[10] We both agree the Hen was fair. The ones who do the work are the ones who eat the bread, and I will help next time."
+     }
+    ],
+    "chart": {
+     "title": "Cups of Flour the Hen Used Each Day",
+     "sub": "How many cups of flour the Hen used each day",
+     "max": 3,
+     "unit": "",
+     "col1": "Day",
+     "col2": "Cups of Flour the Hen Used",
+     "rows": [
+      {
+       "label": "First Day",
+       "count": 2,
+       "cls": "teal"
+      },
+      {
+       "label": "Second Day",
+       "count": 3,
+       "cls": "banana"
+      },
+      {
+       "label": "Third Day",
+       "count": 2,
+       "cls": "apple"
+      },
+      {
+       "label": "Fourth Day",
+       "count": 1,
+       "cls": "orange"
+      }
+     ]
+    },
+    "questions": [
+     {
+      "n": 9,
+      "std": "RI.2.7",
+      "type": "mc",
+      "text": "On which day did the Hen use the most flour in practice?",
+      "options": [
+       "The first day and the third day, with two cups each day",
+       "The second day, with three cups of flour in all",
+       "The fourth day, with cups like day three",
+       "Every day the same, with two cups of flour each day"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Paragraph 4 says the Hen used three cups on the second day, the most of any practice day, and the chart shows the same."
+     },
+     {
+      "n": 10,
+      "std": "RL.2.10",
+      "type": "mc",
+      "text": "How does this story end?",
+      "options": [
+       "The Hen shares the bread with the Cat, Dog, and the Duck",
+       "The Hen eats bread with her chicks, who did the work",
+       "The Dog plants wheat and bakes bread for the Hen",
+       "The Hen finds more wheat grains by the farm gate"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 ends the Hen's telling: she ate the bread with her chicks, because they did the work."
+     },
+     {
+      "n": 11,
+      "std": "RI.2.3",
+      "type": "written",
+      "text": "What did the Hen ask the Cat, the Dog, and the Duck to do, and what did each animal say back?",
+      "sample": "The Hen asked the Cat, the Dog, and the Duck to help her plant the wheat. Each animal said, 'Not I,' so the Hen planted the wheat herself."
+     },
+     {
+      "n": 12,
+      "std": "RI.2.6",
+      "type": "written",
+      "text": "Why did the Hen eat the bread with her chicks, and why does the Dog say the Hen was fair?",
+      "sample": "The Hen ate the bread with her chicks because they were the ones who did the work. The Dog says the Hen was fair because the ones who do the work are the ones who eat the bread."
+     }
+    ]
+   }
+  ],
+  "gradeKeys": {
+   "4": [
+    {
+     "found": "Silent means making no sound at all",
+     "missing": "silent meaning no sound",
+     "alt": [
+      [
+       "silent",
+       "no sound"
+      ],
+      [
+       "silent means",
+       "no sound"
+      ],
+      [
+       "making no sound"
+      ]
+     ]
+    },
+    {
+     "found": "Soft wing feathers let the owl fly silently",
+     "missing": "soft wing feathers making the flight silent",
+     "alt": [
+      [
+       "soft",
+       "wing",
+       "feathers"
+      ],
+      [
+       "soft wing feathers",
+       "silent"
+      ],
+      [
+       "feathers",
+       "fly silently"
+      ]
+     ]
+    }
+   ],
+   "8": [
+    {
+     "found": "The first plane had a bent wing and landed at his feet",
+     "missing": "the first plane's bent wing and bad flight",
+     "alt": [
+      [
+       "bent wing"
+      ],
+      [
+       "first plane",
+       "landed at",
+       "feet"
+      ],
+      [
+       "spun",
+       "landed"
+      ]
+     ]
+    },
+    {
+     "found": "The new plane flew past the others to the far fence and the class cheered",
+     "missing": "the new plane winning at the end",
+     "alt": [
+      [
+       "new plane",
+       "far fence"
+      ],
+      [
+       "past",
+       "other planes"
+      ],
+      [
+       "fence",
+       "cheer"
+      ]
+     ]
+    }
+   ],
+   "11": [
+    {
+     "found": "The Hen asked the animals to help plant the wheat",
+     "missing": "asking the animals to help plant",
+     "alt": [
+      [
+       "asked",
+       "help",
+       "plant"
+      ],
+      [
+       "help her plant"
+      ],
+      [
+       "asked",
+       "plant the wheat"
+      ]
+     ]
+    },
+    {
+     "found": "Each animal said 'Not I'",
+     "missing": "each animal saying Not I",
+     "alt": [
+      [
+       "not i"
+      ],
+      [
+       "said not"
+      ],
+      [
+       "each",
+       "not"
+      ]
+     ]
+    }
+   ],
+   "12": [
+    {
+     "found": "The Hen ate with her chicks because they did the work",
+     "missing": "eating with the chicks who did the work",
+     "alt": [
+      [
+       "chicks",
+       "did the work"
+      ],
+      [
+       "ate",
+       "chicks",
+       "work"
+      ],
+      [
+       "because",
+       "did the work"
+      ]
+     ]
+    },
+    {
+     "found": "The Dog says the workers are the ones who eat — that is fair",
+     "missing": "the Dog's fairness reason",
+     "alt": [
+      [
+       "do the work",
+       "eat"
+      ],
+      [
+       "ones who do the work",
+       "eat the bread"
+      ],
+      [
+       "fair",
+       "work",
+       "eat"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "paper": 5,
+  "seq": 26,
+  "cycleDay": 14,
+  "quizId": "eden-reading-weeklypack-2026-11-30-p5",
+  "date": "2026-12-04",
+  "title": "Grade 2 Reading Quiz — Weekly Pack Paper #5 (Seq 26, Cycle 2 Day 14)",
+  "sections": [
+   {
+    "id": 1,
+    "tag": "Section 1",
+    "tagClass": "tag-1",
+    "title": "Key Ideas and Details",
+    "subtitle": "Nonfiction · How Rain Forms in the Sky · 4 questions",
+    "passageTitle": "How Rain Forms in the Sky",
+    "paragraphs": [
+     "[1] Rain begins far above our heads. The sun warms water in lakes, rivers, and the sea. The warm water rises into the air as an invisible gas.",
+     "[2] High in the sky, the air is cold. The gas cools and changes into tiny drops of water. Millions of tiny drops together make a cloud.",
+     "[3] Inside the cloud, the tiny drops bump into each other and join. They grow bigger and heavier. A drop must grow big before it can fall.",
+     "[4] When the drops are too heavy for the cloud to hold, they fall to the ground. That falling water is rain. The word cycle means a circle of steps that happens again and again.",
+     "[5] Rain fills the lakes and rivers again. Plants drink the water, and puddles shine on the ground. Then the sun warms the water, and the circle starts over.",
+     "[6] Sun, rising gas, cooling drops, and falling rain — the water cycle keeps rain coming. The same water moves around our world again and again."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 1,
+      "std": "RI.2.1",
+      "type": "mc",
+      "text": "What warms the water in lakes and the sea first?",
+      "options": [
+       "The cold air high in the sky above the clouds",
+       "The sun, which warms the water so it rises",
+       "The rain, which fills the lakes in spring time",
+       "The plants, which drink water from the ground"
+      ],
+      "correct": 1,
+      "evidence": 1,
+      "why": "Paragraph 1 says the sun warms water in lakes, rivers, and the sea, and the warm water rises."
+     },
+     {
+      "n": 2,
+      "std": "RI.2.9",
+      "type": "mc",
+      "text": "How is rain like a circle, as this text tells it?",
+      "options": [
+       "Drops fall in round shapes from round grey clouds above the sea",
+       "The same water goes up, falls as rain, and rises again",
+       "Clouds move in circles high above the lakes and sea",
+       "Rain falls, stops, and never comes back to the sky"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 says rain fills the lakes, then the sun warms the water and the circle starts over — the same water again and again."
+     },
+     {
+      "n": 3,
+      "std": "RF.2.3",
+      "type": "mc",
+      "text": "Which word has the same ending sound as the word cold?",
+      "options": [
+       "Cloud, which holds the tiny drops of water",
+       "Hold, which is what a cloud does to drops",
+       "Cool, which is what the gas does in the sky",
+       "Fall, which is what big drops do at last"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Cold and hold end with the same sound, -old. Paragraph 4 talks about drops too heavy for the cloud to hold."
+     },
+     {
+      "n": 4,
+      "std": "RI.2.3",
+      "type": "written",
+      "text": "How do tiny drops in a cloud change, and what happens when the drops get too heavy?",
+      "sample": "Inside the cloud, the tiny drops bump into each other, join, and grow bigger and heavier. When the drops are too heavy for the cloud to hold, they fall to the ground as rain."
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "tag": "Section 2",
+    "tagClass": "tag-2",
+    "title": "Reading Comprehension",
+    "subtitle": "Fiction · Pia and the Silver Bell · 4 questions",
+    "passageTitle": "Pia and the Silver Bell",
+    "paragraphs": [
+     "[1] I am Pia. My grandmother gave me a small silver bell. When I shake it, it rings with a clear, sweet sound: ting-a-ling!",
+     "[2] One morning, I took the bell to the park to show my friends. I put it in my coat pocket and ran to the swings. The pocket had a small hole.",
+     "[3] At the swings, I reached into my pocket — the bell was gone! My friends and I looked in the grass. We looked and looked, but we found nothing.",
+     "[4] Then we stopped and listened. Ting-a-ling! A soft sound came from the path. “Listen first, look second,” said my friend Rosa.",
+     "[5] We followed the sound to a bench. A little bird was hopping beside my bell, and each hop made it ring. I picked it up gently.",
+     "[6] I tied the bell on a ribbon around my neck. Now it rings when I run, and it cannot slip away. Listen first — that is what I learned."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 5,
+      "std": "RL.2.3",
+      "type": "mc",
+      "text": "What does Pia find when she reaches into her pocket at the swings?",
+      "options": [
+       "A small hole, but the bell is still safe inside",
+       "The bell is gone from her coat pocket",
+       "A ribbon from her grandmother last year",
+       "Two coins that she can spend at the park shop"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 says Pia reached into her pocket and the bell was gone."
+     },
+     {
+      "n": 6,
+      "std": "RL.2.5",
+      "type": "mc",
+      "text": "What happens near the end of this story?",
+      "options": [
+       "Pia and her friends look in the grass, finding nothing",
+       "Pia follows a sound and finds the bell by a bench",
+       "Pia's grandmother gives her a new silver bell",
+       "A bird flies away with the bell over the park trees today"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Paragraph 4 tells Pia heard the bell's sound, and paragraph 5 tells she followed it to a bench and found the bell."
+     },
+     {
+      "n": 7,
+      "std": "L.2.5",
+      "type": "mc",
+      "text": "Which two words both tell how Pia's bell sounds?",
+      "options": [
+       "Ringing and hopping, which tell sounds at the park",
+       "Clear and sweet, which both tell how the bell sounds",
+       "Small and silver, which both tell how the bell looks",
+       "Gone and lost, which both tell the bell cannot be found"
+      ],
+      "correct": 1,
+      "evidence": 1,
+      "why": "Paragraph 1 says the bell rings with a clear, sweet sound — clear and sweet both tell how it sounds."
+     },
+     {
+      "n": 8,
+      "std": "RL.2.2",
+      "type": "written",
+      "text": "What problem did Pia have with her bell, and how did the story end?",
+      "sample": "Pia's silver bell slipped out through a hole in her coat pocket and was lost at the park. At the end, she followed its ringing sound, found it by a bench, and tied it on a ribbon around her neck."
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "tag": "Section 3",
+    "tagClass": "tag-3",
+    "title": "Integration of Knowledge and Ideas",
+    "subtitle": "Two texts and a chart · Stone Soup · 4 questions",
+    "passageTitle": null,
+    "paragraphs": [],
+    "texts": [
+     {
+      "label": "Text A",
+      "title": "Stone Soup — Told by the Cook",
+      "body": "[1] I am a cook who walked into a small village long ago. The people there had little food, and no one wanted to share with a stranger.\n\n[2] First, I counted the vegetables people put in my pot each hour. The chart shows the vegetables for the first four hours.\n\n[3] I filled a big pot with water and put a clean round stone in it. “Stone soup is tasty,” I said. “It just needs a few vegetables.”\n\n[4] On the fourth hour on the chart, people put eight vegetables in the pot, the most of any hour. By then, everyone in the village was helping.\n\n[5] I say the stone made the soup, but the people really made it. When everyone shares a little, the whole village eats well."
+     },
+     {
+      "label": "Text B",
+      "title": "Stone Soup — Told by the Mayor",
+      "body": "[6] I am the Mayor of the village. A cook came with an empty pot and a round stone. At first, I did not trust his plan at all.\n\n[7] The cook boiled water with the stone in it. One by one, we brought vegetables from our gardens — carrots, potatoes, and beans.\n\n[8] A woman brought carrots for the pot. The word share means to give some of what you have to others.\n\n[9] The cook and the stone did not make the soup alone. Every villager who brought a vegetable helped make it, one handful at a time.\n\n[10] We both agree the soup fed the whole village. Sharing a little from every home made a dinner big enough for everyone."
+     }
+    ],
+    "chart": {
+     "title": "Vegetables Put in the Soup Each Hour",
+     "sub": "How many vegetables were put in the soup each hour",
+     "max": 8,
+     "unit": "",
+     "col1": "Day",
+     "col2": "Vegetables Put in the Soup",
+     "rows": [
+      {
+       "label": "First Hour",
+       "count": 3,
+       "cls": "teal"
+      },
+      {
+       "label": "Second Hour",
+       "count": 5,
+       "cls": "banana"
+      },
+      {
+       "label": "Third Hour",
+       "count": 4,
+       "cls": "apple"
+      },
+      {
+       "label": "Fourth Hour",
+       "count": 8,
+       "cls": "orange"
+      }
+     ]
+    },
+    "questions": [
+     {
+      "n": 9,
+      "std": "RI.2.10",
+      "type": "mc",
+      "text": "What do both tellings agree made the soup?",
+      "options": [
+       "The clean round stone, which made the water tasty",
+       "Every person sharing a little food from their home",
+       "The Mayor's garden, which grew all the vegetables",
+       "The big pot, which was the largest in the village"
+      ],
+      "correct": 1,
+      "evidence": 10,
+      "why": "Paragraph 10 says both agree sharing a little from every home made a dinner big enough for everyone."
+     },
+     {
+      "n": 10,
+      "std": "RI.2.6",
+      "type": "mc",
+      "text": "Why does the Cook put a stone in the pot of water?",
+      "options": [
+       "To make the water boil faster over fire",
+       "To get people to bring vegetables for the soup",
+       "To show the Mayor a trick with a round stone",
+       "To keep the pot heavy so it cannot tip over"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 tells the Cook's plan in action: he called it tasty stone soup that 'just needs a few vegetables,' so people would bring some."
+     },
+     {
+      "n": 11,
+      "std": "L.2.4",
+      "type": "written",
+      "text": "What does the word share mean, and what did the woman in the story share?",
+      "sample": "The word share means to give some of what you have to others. The woman shared carrots from her garden for the soup pot."
+     },
+     {
+      "n": 12,
+      "std": "L.2.6",
+      "type": "written",
+      "text": "What words does the Cook use to tell about the soup, and what words does the Mayor use about the cook at first?",
+      "sample": "The Cook says, 'Stone soup is tasty. It just needs a few vegetables.' The Mayor says that at first he did not trust the cook's plan at all."
+     }
+    ]
+   }
+  ],
+  "gradeKeys": {
+   "4": [
+    {
+     "found": "Tiny drops bump, join, and grow bigger and heavier",
+     "missing": "drops joining and growing heavier",
+     "alt": [
+      [
+       "drops",
+       "join",
+       "bigger"
+      ],
+      [
+       "bump",
+       "join"
+      ],
+      [
+       "drops",
+       "grow",
+       "heavier"
+      ]
+     ]
+    },
+    {
+     "found": "Too-heavy drops fall to the ground as rain",
+     "missing": "heavy drops falling as rain",
+     "alt": [
+      [
+       "too heavy",
+       "fall"
+      ],
+      [
+       "heavy",
+       "fall",
+       "rain"
+      ],
+      [
+       "drops fall",
+       "ground"
+      ]
+     ]
+    }
+   ],
+   "8": [
+    {
+     "found": "The bell slipped out of the holed pocket and was lost",
+     "missing": "the bell lost through the pocket hole",
+     "alt": [
+      [
+       "hole",
+       "pocket",
+       "bell"
+      ],
+      [
+       "bell",
+       "gone"
+      ],
+      [
+       "slipped",
+       "pocket"
+      ],
+      [
+       "lost",
+       "bell"
+      ]
+     ]
+    },
+    {
+     "found": "She followed the sound, found the bell, and tied it on a ribbon",
+     "missing": "finding the bell by its sound at the end",
+     "alt": [
+      [
+       "followed",
+       "sound",
+       "found"
+      ],
+      [
+       "found",
+       "bell",
+       "ribbon"
+      ],
+      [
+       "tied",
+       "bell",
+       "ribbon"
+      ]
+     ]
+    }
+   ],
+   "11": [
+    {
+     "found": "Share means to give some of what you have to others",
+     "missing": "share meaning giving some to others",
+     "alt": [
+      [
+       "share",
+       "give",
+       "others"
+      ],
+      [
+       "share means",
+       "give"
+      ],
+      [
+       "give some",
+       "others"
+      ]
+     ]
+    },
+    {
+     "found": "The woman shared / brought carrots for the pot",
+     "missing": "the woman's carrots",
+     "alt": [
+      [
+       "woman",
+       "carrots"
+      ],
+      [
+       "brought carrots"
+      ],
+      [
+       "shared carrots"
+      ]
+     ]
+    }
+   ],
+   "12": [
+    {
+     "found": "The Cook calls the stone soup tasty",
+     "missing": "the Cook calling the soup tasty",
+     "alt": [
+      [
+       "soup is tasty"
+      ],
+      [
+       "called",
+       "tasty"
+      ],
+      [
+       "says",
+       "tasty"
+      ],
+      [
+       "calls",
+       "tasty"
+      ]
+     ]
+    },
+    {
+     "found": "The Mayor did not trust the plan at first",
+     "missing": "the Mayor not trusting at first",
+     "alt": [
+      [
+       "did not trust"
+      ],
+      [
+       "not trust",
+       "plan"
+      ],
+      [
+       "didnt trust"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "paper": 6,
+  "seq": 27,
+  "cycleDay": 15,
+  "quizId": "eden-reading-weeklypack-2026-11-30-p6",
+  "date": "2026-12-05",
+  "title": "Grade 2 Reading Quiz — Weekly Pack Paper #6 (Seq 27, Cycle 2 Day 15)",
+  "sections": [
+   {
+    "id": 1,
+    "tag": "Section 1",
+    "tagClass": "tag-1",
+    "title": "Key Ideas and Details",
+    "subtitle": "Nonfiction · How Snails Move and Eat · 4 questions",
+    "passageTitle": "How Snails Move and Eat",
+    "paragraphs": [
+     "[1] A snail is a small animal with a shell on its back. It has no legs at all. A snail moves slowly on one flat body part called a foot.",
+     "[2] The snail's foot makes a slimy trail as it moves. The slime helps the foot grip the ground and slide. A snail can even climb up a wall on its slime.",
+     "[3] A snail moves by squeezing its foot in waves. First the front of the foot pushes forward, then the back part follows. Wave after wave, the snail creeps along.",
+     "[4] On its head, a snail has two long feelers with eyes at the tips. It also has two short feelers for smelling food. A snail finds leaves by smell more than by sight.",
+     "[5] A snail's mouth has thousands of tiny teeth on a rough tongue. It scrapes soft leaves and fruit with its tongue. The word scrape means to rub something hard across a surface.",
+     "[6] No legs, a slimy foot, waving squeezes, and a scraping tongue — a snail's body fits its slow life. It carries its home and finds its food as it goes."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 1,
+      "std": "RI.2.8",
+      "type": "mc",
+      "text": "Why does a snail make a slimy trail as it moves?",
+      "options": [
+       "To mark the way home for snails at night",
+       "To help its foot grip the ground and slide along",
+       "To water the leaves it will eat later that same day",
+       "To make its shell shiny and hard in the sun"
+      ],
+      "correct": 1,
+      "evidence": 2,
+      "why": "Paragraph 2 says the slime helps the foot grip the ground and slide."
+     },
+     {
+      "n": 2,
+      "std": "RI.2.2",
+      "type": "mc",
+      "text": "What is this whole text mostly about?",
+      "options": [
+       "How a snail's shell grows bigger every single year slowly",
+       "How a snail's body helps it move and eat",
+       "Why snails come out after rain",
+       "How snails hide from birds in the daytime"
+      ],
+      "correct": 1,
+      "evidence": 6,
+      "why": "Paragraph 6 sums the text up: the snail's foot, slime, and scraping tongue fit its life of moving and eating."
+     },
+     {
+      "n": 3,
+      "std": "L.2.4",
+      "type": "mc",
+      "text": "What does the word scrape mean in this text?",
+      "options": [
+       "To squeeze in waves from front to back slowly",
+       "To rub something hard across a rough surface",
+       "To climb up a wall using slime",
+       "To smell food with two short feelers on the head"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 says the word scrape means to rub something hard across a surface."
+     },
+     {
+      "n": 4,
+      "std": "RI.2.6",
+      "type": "written",
+      "text": "Why does this text tell about the snail's feelers, and which feelers does the snail use to smell food?",
+      "sample": "The text tells about the feelers to show how a snail finds its food. The snail uses its two short feelers for smelling food, and it finds leaves by smell more than by sight."
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "tag": "Section 2",
+    "tagClass": "tag-2",
+    "title": "Reading Comprehension",
+    "subtitle": "Fiction · Marco and the Runaway Kite · 4 questions",
+    "passageTitle": "Marco and the Runaway Kite",
+    "paragraphs": [
+     "[1] I am Marco. On a bright spring day, I took my yellow kite to the hill behind our house. The wind was strong and steady.",
+     "[2] My kite rose fast and danced in the sky. Then a sudden gust snapped the string! The kite sailed away over the rooftops, and my heart sank.",
+     "[3] I ran after it, down the hill and across the park. “Keep your eyes up, keep running,” I told myself as I ran.",
+     "[4] The kite dropped slowly and caught in the top of a tall apple tree. Its tail hung down, waving just above my head.",
+     "[5] Old Mr. Park was picking apples below the tree. He reached up with his long picking pole and gently pushed the kite free for me.",
+     "[6] I wound the string tight and thanked Mr. Park. A runaway kite can come home again when kind hands help it down."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 5,
+      "std": "RL.2.1",
+      "type": "mc",
+      "text": "What snaps and lets Marco's kite fly away?",
+      "options": [
+       "The kite's tail, which hangs in the tree",
+       "The string, snapped by a sudden gust of wind",
+       "The picking pole, which Mr. Park holds up high today",
+       "The kite's wing, torn by the strong spring wind"
+      ],
+      "correct": 1,
+      "evidence": 2,
+      "why": "Paragraph 2 says a sudden gust snapped the string and the kite sailed away."
+     },
+     {
+      "n": 6,
+      "std": "RL.2.1",
+      "type": "mc",
+      "text": "Who helps Marco get his kite back, and how?",
+      "options": [
+       "Marco climbs the tall apple tree by himself",
+       "Mr. Park pushes the kite free with his picking pole",
+       "The wind blows the kite down to the grass below the hill",
+       "Marco's father catches the kite over the rooftops"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 says Mr. Park reached up with his long picking pole and gently pushed the kite free."
+     },
+     {
+      "n": 7,
+      "std": "RL.2.10",
+      "type": "mc",
+      "text": "How does this story end?",
+      "options": [
+       "The kite sails away over the rooftops",
+       "Marco gets the kite back and thanks Mr. Park",
+       "Marco runs across the park looking up at the sky",
+       "Mr. Park picks apples under the tree all afternoon"
+      ],
+      "correct": 1,
+      "evidence": 6,
+      "why": "Paragraph 6 ends the story: Marco wound the string tight and thanked Mr. Park."
+     },
+     {
+      "n": 8,
+      "std": "RL.2.2",
+      "type": "written",
+      "text": "What problem did Marco have with his kite, and how did the story end?",
+      "sample": "A gust of wind snapped Marco's kite string, and the kite sailed away and caught in a tall apple tree. At the end, Mr. Park pushed the kite free with his picking pole, and Marco wound the string and thanked him."
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "tag": "Section 3",
+    "tagClass": "tag-3",
+    "title": "Integration of Knowledge and Ideas",
+    "subtitle": "Two texts and a chart · The Milkmaid and Her Pail · 4 questions",
+    "passageTitle": null,
+    "paragraphs": [],
+    "texts": [
+     {
+      "label": "Text A",
+      "title": "The Milkmaid and Her Pail — Told by the Milkmaid",
+      "body": "[1] I am a milkmaid on a small farm. Every morning, I milk our cow and carry the pail of milk to market on my head.\n\n[2] First, I counted the cups of milk our cow gave each day last week. The chart shows the cups for four days.\n\n[3] One morning, I walked to market and dreamed as I walked. “I will sell this milk and buy eggs,” I said. “The eggs will hatch into chicks.”\n\n[4] On the fourth day on the chart, our cow gave nine cups of milk, the most of any day. Good grass makes good milk, my mother says.\n\n[5] I dreamed on: “I will sell the chicks and buy a fine dress.” I tossed my head proudly — and the pail fell! All the milk spilled into the road."
+     },
+     {
+      "label": "Text B",
+      "title": "The Milkmaid and Her Pail — Told by Her Mother",
+      "body": "[6] I am the milkmaid's mother. My daughter milks the cow each morning and walks to market with the pail on her head.\n\n[7] That morning, I watched her walk away, dreaming with every step. Her eyes were on the sky, not on the road in front of her.\n\n[8] She dreamed of eggs, chicks, and a fine new dress. The word proud means feeling pleased and important about something.\n\n[9] My daughter dreamed the whole walk, step by step. First the milk, then the eggs, then the chicks, then the dress — each dream grew from the one before.\n\n[10] We both agree on the lesson now. Do the work in front of you first, and dream after the job is done."
+     }
+    ],
+    "chart": {
+     "title": "Cups of Milk the Cow Gave Each Day",
+     "sub": "How many cups of milk the cow gave each day",
+     "max": 8,
+     "unit": "",
+     "col1": "Day",
+     "col2": "Cups of Milk the Cow Gave",
+     "rows": [
+      {
+       "label": "First Day",
+       "count": 5,
+       "cls": "teal"
+      },
+      {
+       "label": "Second Day",
+       "count": 8,
+       "cls": "banana"
+      },
+      {
+       "label": "Third Day",
+       "count": 6,
+       "cls": "apple"
+      },
+      {
+       "label": "Fourth Day",
+       "count": 9,
+       "cls": "orange"
+      }
+     ]
+    },
+    "questions": [
+     {
+      "n": 9,
+      "std": "RI.2.5",
+      "type": "mc",
+      "text": "Which paragraph tells the order of the milkmaid's dreams?",
+      "options": [
+       "Paragraph three, where she plans to sell milk and buy eggs",
+       "Paragraph nine, where each dream grows from the one before",
+       "Paragraph five, where she tosses her head and spills the milk",
+       "Paragraph seven, where her mother watches her walk away"
+      ],
+      "correct": 1,
+      "evidence": 9,
+      "why": "Paragraph 9 lists the dreams in order: first the milk, then the eggs, then the chicks, then the dress."
+     },
+     {
+      "n": 10,
+      "std": "RI.2.7",
+      "type": "mc",
+      "text": "On which day did the cow give the most milk?",
+      "options": [
+       "The second day, when the cow gave eight",
+       "The fourth day, when the cow gave nine cups",
+       "The first day, when the cow gave five cups of milk",
+       "The third day, when the cow gave six cups of milk"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Paragraph 4 says the cow gave nine cups on the fourth day, the most of any day, and the chart shows the same."
+     },
+     {
+      "n": 11,
+      "std": "RI.2.3",
+      "type": "written",
+      "text": "What did the milkmaid dream would happen step by step, and what really happened when she tossed her head?",
+      "sample": "The milkmaid dreamed she would sell the milk, buy eggs, hatch chicks, sell the chicks, and buy a fine dress. When she tossed her head proudly, the pail fell and all the milk spilled into the road."
+     },
+     {
+      "n": 12,
+      "std": "L.2.5",
+      "type": "written",
+      "text": "How did the milkmaid sort her dreams into steps, and which dream did she put first?",
+      "sample": "The milkmaid sorted her dreams into steps that grew from each other, one by one. She put selling the milk first, because the milk money would buy the eggs."
+     }
+    ]
+   }
+  ],
+  "gradeKeys": {
+   "4": [
+    {
+     "found": "The feelers show how the snail finds food",
+     "missing": "the feelers' job of finding food",
+     "alt": [
+      [
+       "feelers",
+       "find",
+       "food"
+      ],
+      [
+       "feelers",
+       "smell"
+      ],
+      [
+       "how",
+       "snail finds",
+       "food"
+      ]
+     ]
+    },
+    {
+     "found": "The two short feelers are for smelling food",
+     "missing": "the short feelers smelling food",
+     "alt": [
+      [
+       "short feelers",
+       "smell"
+      ],
+      [
+       "two short feelers",
+       "smelling"
+      ],
+      [
+       "short",
+       "smell",
+       "food"
+      ]
+     ]
+    }
+   ],
+   "8": [
+    {
+     "found": "The wind snapped the string and the kite caught in a tree",
+     "missing": "the string snapping and the kite in the tree",
+     "alt": [
+      [
+       "snapped",
+       "string"
+      ],
+      [
+       "string snapped",
+       "tree"
+      ],
+      [
+       "kite",
+       "caught",
+       "tree"
+      ]
+     ]
+    },
+    {
+     "found": "Mr. Park pushed the kite free and Marco thanked him",
+     "missing": "Mr. Park freeing the kite at the end",
+     "alt": [
+      [
+       "park",
+       "pushed",
+       "kite free"
+      ],
+      [
+       "park",
+       "pole",
+       "free"
+      ],
+      [
+       "thanked",
+       "park"
+      ]
+     ]
+    }
+   ],
+   "11": [
+    {
+     "found": "Her dream steps: sell milk, buy eggs, hatch chicks, sell chicks, buy a dress",
+     "missing": "the step-by-step dream chain",
+     "alt": [
+      [
+       "sell",
+       "milk",
+       "eggs"
+      ],
+      [
+       "eggs",
+       "chicks",
+       "dress"
+      ],
+      [
+       "buy eggs",
+       "chicks"
+      ]
+     ]
+    },
+    {
+     "found": "She tossed her head, the pail fell, and the milk spilled",
+     "missing": "the pail falling and milk spilling",
+     "alt": [
+      [
+       "tossed",
+       "head",
+       "pail fell"
+      ],
+      [
+       "pail fell",
+       "spilled"
+      ],
+      [
+       "milk spilled"
+      ]
+     ]
+    }
+   ],
+   "12": [
+    {
+     "found": "Her dreams were steps that grew from each other",
+     "missing": "dreams as steps growing from each other",
+     "alt": [
+      [
+       "dreams",
+       "steps"
+      ],
+      [
+       "each dream",
+       "grew"
+      ],
+      [
+       "steps",
+       "grew from"
+      ]
+     ]
+    },
+    {
+     "found": "Selling the milk came first",
+     "missing": "selling the milk first",
+     "alt": [
+      [
+       "sell",
+       "milk",
+       "first"
+      ],
+      [
+       "selling the milk first"
+      ],
+      [
+       "milk first"
+      ]
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "paper": 7,
+  "seq": 28,
+  "cycleDay": 16,
+  "quizId": "eden-reading-weeklypack-2026-11-30-p7",
+  "date": "2026-12-06",
+  "title": "Grade 2 Reading Quiz — Weekly Pack Paper #7 (Seq 28, Cycle 2 Day 16)",
+  "sections": [
+   {
+    "id": 1,
+    "tag": "Section 1",
+    "tagClass": "tag-1",
+    "title": "Key Ideas and Details",
+    "subtitle": "Nonfiction · How Volcanoes Grow into Islands · 4 questions",
+    "passageTitle": "How Volcanoes Grow into Islands",
+    "paragraphs": [
+     "[1] Some islands begin under the sea. Deep below the water, a volcano can erupt, or burst open, and pour out hot melted rock called lava.",
+     "[2] When the hot lava meets the cold sea water, it cools and turns hard. More lava pours out, cools, and piles up. The pile grows taller and taller under the waves.",
+     "[3] After many eruptions, the pile can rise above the water. Now it is an island. At first, the new island is bare black rock with nothing living on it.",
+     "[4] Wind and waves break the hard rock into small bits. Birds drop seeds on the island. Rain helps tiny plants grow in the cracks of the rock.",
+     "[5] Over a long time, plants cover the island, and animals come to live there. The word erupt means to burst open suddenly and throw out hot rock.",
+     "[6] A pile of lava, cooled under the sea and built up eruption by eruption, can become a green island. Volcanoes do not only break land — they can also build it."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 1,
+      "std": "RI.2.4",
+      "type": "mc",
+      "text": "What does the word erupt mean in this text?",
+      "options": [
+       "To cool and turn hard under sea water",
+       "To burst open suddenly and throw out hot rock",
+       "To break hard rock into small bits over a long time",
+       "To rise above the water after many long years"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Paragraph 5 says the word erupt means to burst open suddenly and throw out hot rock."
+     },
+     {
+      "n": 2,
+      "std": "RI.2.10",
+      "type": "mc",
+      "text": "What is this text mostly about, from start to end?",
+      "options": [
+       "How birds drop seeds on black rock islands",
+       "How an underwater volcano can build a new island",
+       "Why lava is hot and sea water is cold in deep places",
+       "How rain helps tiny plants grow in rock cracks"
+      ],
+      "correct": 1,
+      "evidence": 6,
+      "why": "Paragraph 6 sums the whole text up: lava piled under the sea can become a green island."
+     },
+     {
+      "n": 3,
+      "std": "L.2.5",
+      "type": "mc",
+      "text": "Which words in the text go together as hot and cold opposites?",
+      "options": [
+       "Lava and rock, which are both parts of a volcano",
+       "Hot and cold, which tell opposite heat words",
+       "Pile and island, which tell land shapes",
+       "Wind and waves, which both break the hard rock"
+      ],
+      "correct": 1,
+      "evidence": 2,
+      "why": "Paragraph 2 calls the lava 'hot' and the sea water 'cold' — hot and cold are opposite heats."
+     },
+     {
+      "n": 4,
+      "std": "L.2.6",
+      "type": "written",
+      "text": "What words does the text use for the melted rock, and what words does it use for what the lava does in cold water?",
+      "sample": "The text calls the hot melted rock lava. It says the lava cools and turns hard when it meets the cold sea water."
+     }
+    ]
+   },
+   {
+    "id": 2,
+    "tag": "Section 2",
+    "tagClass": "tag-2",
+    "title": "Reading Comprehension",
+    "subtitle": "Fiction · Suki and the Moon Cake · 4 questions",
+    "passageTitle": "Suki and the Moon Cake",
+    "paragraphs": [
+     "[1] I am Suki. Every autumn, my family makes moon cakes for the Moon Festival. This year, Grandma said I could help make them for the first time.",
+     "[2] Grandma mixed the dough and rolled it flat. I pressed the dough into a wooden mould with a flower pattern. My first cake came out lopsided.",
+     "[3] “Press it even, press it firm,” Grandma said, smiling. She put her hands over mine and pressed with me. The next cake had a clear flower on top.",
+     "[4] We filled each cake with sweet bean paste. I pinched the edges shut, one by one, all around the circle, so the filling could not leak out.",
+     "[5] When the cakes came out of the oven, they shone golden brown. Grandma cut the first cake — my flower cake — and shared it with the whole family.",
+     "[6] That night, we ate moon cakes under the big round moon. Making something with care, together, is the sweetest part of the festival."
+    ],
+    "chart": null,
+    "questions": [
+     {
+      "n": 5,
+      "std": "RL.2.6",
+      "type": "mc",
+      "text": "Who is telling this story?",
+      "options": [
+       "Grandma, who mixed the dough and rolled it flat for her",
+       "Suki, who helped make moon cakes for the first time",
+       "The family, who ate cakes under the round moon",
+       "A baker, who sold cakes at the autumn festival"
+      ],
+      "correct": 1,
+      "evidence": 1,
+      "why": "Paragraph 1 begins 'I am Suki,' so Suki tells the story."
+     },
+     {
+      "n": 6,
+      "std": "RL.2.4",
+      "type": "mc",
+      "text": "Which words does Grandma say to teach Suki how to press the dough?",
+      "options": [
+       "Cut the first cake and share it out",
+       "Press it even, press it firm, with a smile",
+       "Pinch the edges shut all around the circle well",
+       "Roll it flat and fill it with sweet bean paste"
+      ],
+      "correct": 1,
+      "evidence": 3,
+      "why": "Paragraph 3 has Grandma say, 'Press it even, press it firm.'"
+     },
+     {
+      "n": 7,
+      "std": "RF.2.3",
+      "type": "mc",
+      "text": "Which word has the same ending sound as the word cake?",
+      "options": [
+       "Moon, which shines big and round at the festival night",
+       "Bake, which is what the oven does to cakes",
+       "Dough, which Grandma mixed and rolled flat",
+       "Oven, which made the cakes golden brown"
+      ],
+      "correct": 1,
+      "evidence": 5,
+      "why": "Cake and bake end with the same sound, -ake. Paragraph 5 tells the cakes came out of the oven golden brown."
+     },
+     {
+      "n": 8,
+      "std": "RL.2.2",
+      "type": "written",
+      "text": "What problem did Suki have with her first moon cake, and how did the story end?",
+      "sample": "Suki's first moon cake came out lopsided because she did not press the dough evenly. At the end, Grandma helped her press a cake with a clear flower, and the family shared that cake under the moon."
+     }
+    ]
+   },
+   {
+    "id": 3,
+    "tag": "Section 3",
+    "tagClass": "tag-3",
+    "title": "Integration of Knowledge and Ideas",
+    "subtitle": "Two texts and a chart · Our School Fair · 4 questions",
+    "passageTitle": null,
+    "paragraphs": [],
+    "texts": [
+     {
+      "label": "Text A",
+      "title": "Our School Fair — Told by Zoe",
+      "body": "[1] I am Zoe. Our school held a fair in the gym last week. I ran the ribbon stall, and I kept a list of every ribbon we sold.\n\n[2] First, I sorted the ribbons into two boxes by colour family. The warm colours — red, orange, and yellow — went in the sun box. The cool colours went in the sky box.\n\n[3] We sold ribbons on four days before the fair. The chart shows how many ribbons we sold each day. On the first day, we sold seven ribbons.\n\n[4] On the fourth day on the chart, we sold thirteen ribbons, the most of any day. A dance team bought ribbons that week to wear in their hair at the fair show.\n\n[5] I like my job because neat lists keep the stall fair for everyone. Our school will use the fair money to buy new balls for sports day."
+     },
+     {
+      "label": "Text B",
+      "title": "Our School Fair — Told by Max",
+      "body": "[6] I am Max. I did not sell ribbons at the fair. I helped set up the gym, carrying tables and chairs from the classrooms.\n\n[7] My favourite job was blowing up balloons. I blew up red, blue, and green balloons and tied them along the gym walls.\n\n[8] On the fourth day, the sun box was empty. The word empty means with nothing inside it at all.\n\n[9] Zoe and I did different jobs at the fair. Zoe sold the ribbons and kept the list of sales. I set up the gym and blew up the balloons.\n\n[10] We both agree the fair was a happy week for our school. The money we made will buy new balls for sports day, and every helper did a job."
+     }
+    ],
+    "chart": {
+     "title": "Ribbons Our School Sold Each Day",
+     "sub": "How many ribbons our school sold each day",
+     "max": 13,
+     "unit": "",
+     "col1": "Day",
+     "col2": "Ribbons Our School Sold",
+     "rows": [
+      {
+       "label": "First Day",
+       "count": 7,
+       "cls": "teal"
+      },
+      {
+       "label": "Second Day",
+       "count": 11,
+       "cls": "banana"
+      },
+      {
+       "label": "Third Day",
+       "count": 8,
+       "cls": "apple"
+      },
+      {
+       "label": "Fourth Day",
+       "count": 13,
+       "cls": "orange"
+      }
+     ]
+    },
+    "questions": [
+     {
+      "n": 9,
+      "std": "RL.2.7",
+      "type": "mc",
+      "text": "Which day on the chart had the most ribbons sold?",
+      "options": [
+       "The second day, when a dance team bought",
+       "The fourth day, with thirteen ribbons sold in all",
+       "The first day, when seven ribbons were sold at the stall",
+       "The third day, with eight ribbons sold before the fair"
+      ],
+      "correct": 1,
+      "evidence": 4,
+      "why": "Paragraph 4 says the school sold thirteen ribbons on the fourth day, the most of any day, and the chart shows the same."
+     },
+     {
+      "n": 10,
+      "std": "RI.2.9",
+      "type": "mc",
+      "text": "How are the two tellings of the fair different in what they tell about?",
+      "options": [
+       "Zoe tells about selling ribbons, but Max tells about the gym setup",
+       "Zoe tells about balloons, but Max tells about selling ribbons",
+       "Zoe tells about the dance team, but Max tells about the ribbon list",
+       "Zoe tells about sports day, but Max tells about the fair money box"
+      ],
+      "correct": 0,
+      "evidence": 9,
+      "why": "Paragraph 9 says Zoe sold the ribbons and kept the list, and Max set up the gym and blew up the balloons."
+     },
+     {
+      "n": 11,
+      "std": "RI.2.6",
+      "type": "written",
+      "text": "Why did Zoe like her ribbon job, and why did Max like blowing up balloons best?",
+      "sample": "Zoe liked her job because neat lists keep the stall fair for everyone. Max's favourite job was blowing up balloons and tying them along the gym walls."
+     },
+     {
+      "n": 12,
+      "std": "L.2.4",
+      "type": "written",
+      "text": "What does the word empty mean, and which box in the story was empty?",
+      "sample": "The word empty means with nothing inside it at all. The sun box was empty on the fourth day, because all the warm-colour ribbons were sold."
+     }
+    ]
+   }
+  ],
+  "gradeKeys": {
+   "4": [
+    {
+     "found": "The hot melted rock is called lava",
+     "missing": "melted rock called lava",
+     "alt": [
+      [
+       "melted rock",
+       "lava"
+      ],
+      [
+       "called lava"
+      ],
+      [
+       "hot melted rock"
+      ]
+     ]
+    },
+    {
+     "found": "The lava cools and turns hard in the cold sea water",
+     "missing": "lava cooling and turning hard",
+     "alt": [
+      [
+       "lava",
+       "cools",
+       "hard"
+      ],
+      [
+       "cools and turns hard"
+      ],
+      [
+       "lava",
+       "turns hard"
+      ]
+     ]
+    }
+   ],
+   "8": [
+    {
+     "found": "The first cake came out lopsided",
+     "missing": "the first cake being lopsided",
+     "alt": [
+      [
+       "lopsided"
+      ],
+      [
+       "first cake",
+       "lopsided"
+      ],
+      [
+       "came out lopsided"
+      ]
+     ]
+    },
+    {
+     "found": "Grandma helped her make a good cake and the family shared it",
+     "missing": "the helped flower cake shared at the end",
+     "alt": [
+      [
+       "grandma helped",
+       "cake"
+      ],
+      [
+       "shared",
+       "cake",
+       "family"
+      ],
+      [
+       "family shared"
+      ],
+      [
+       "flower cake",
+       "shared"
+      ]
+     ]
+    }
+   ],
+   "11": [
+    {
+     "found": "Zoe liked neat lists because they keep the stall fair",
+     "missing": "Zoe's reason — neat lists keep it fair",
+     "alt": [
+      [
+       "neat lists",
+       "fair"
+      ],
+      [
+       "lists keep",
+       "fair"
+      ],
+      [
+       "liked",
+       "lists",
+       "fair"
+      ]
+     ]
+    },
+    {
+     "found": "Max's favourite job was blowing up balloons",
+     "missing": "Max liking blowing up balloons",
+     "alt": [
+      [
+       "favourite job",
+       "balloons"
+      ],
+      [
+       "blowing up balloons"
+      ],
+      [
+       "liked",
+       "balloons"
+      ]
+     ]
+    }
+   ],
+   "12": [
+    {
+     "found": "Empty means with nothing inside",
+     "missing": "empty meaning nothing inside",
+     "alt": [
+      [
+       "empty",
+       "nothing inside"
+      ],
+      [
+       "empty means",
+       "nothing"
+      ]
+     ]
+    },
+    {
+     "found": "The sun box was empty",
+     "missing": "the sun box being empty",
+     "alt": [
+      [
+       "sun box",
+       "empty"
+      ],
+      [
+       "sun box was empty"
+      ]
+     ]
+    }
+   ]
+  }
+ }
+];
+  var CURRENT_DAY = PACK_DAYS[0];
+  var SECTIONS = CURRENT_DAY.sections;
+  var GRADE_KEYS = CURRENT_DAY.gradeKeys;
   var ALL_MC = [], ALL_WRITTEN = [];
-  SECTIONS.forEach(function(s){ s.questions.forEach(function(q){ q.section = s.id; if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q); }); });
+  function rebuildIndex(){
+    ALL_MC = []; ALL_WRITTEN = [];
+    SECTIONS.forEach(function(s){ s.questions.forEach(function(q){ q.section = s.id; if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q); }); });
+  }
+  rebuildIndex();
   var LETTERS = ["A","B","C","D"];
   var TOTAL_SECONDS = 20 * 60;
   try {
@@ -875,7 +3542,7 @@
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function fmtTime(sec){ sec = Math.max(0, Math.floor(sec)); var m = Math.floor(sec/60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
-  function show(viewId){ ["view-start","view-quiz","view-results","view-passed","view-redo"].forEach(function(v){ $(v).classList.toggle("hidden", v !== viewId); }); window.scrollTo(0,0); }
+  function show(viewId){ ["view-days","view-start","view-quiz","view-sending","view-results","view-passed","view-redo"].forEach(function(v){ var el = $(v); if(el) el.classList.toggle("hidden", v !== viewId); }); window.scrollTo(0,0); }
 
   
 
@@ -909,11 +3576,11 @@
     });
     var h1 = 5381, h2 = 52711;
     for(var i = 0; i < raw.length; i++){ var c = raw.charCodeAt(i); h1 = ((h1 * 33) ^ c) >>> 0; h2 = ((h2 * 31) ^ c) >>> 0; }
-    return "g2-2026-11-26-seq21";
+    return QUIZ_ID;
   }
-  var QUIZ_ID = "2026-11-26-seq21";
+  var QUIZ_ID = "eden-reading-weeklypack-2026-11-30-p1";
   function normalizedStudentName(){ return String(studentName || "").trim().toLowerCase().replace(/\s+/g, " "); }
-  function attemptStorageKey(){ return "g2rq-attempts-v1:" + QUIZ_ID + ":" + normalizedStudentName() + (TEST_MODE ? ":TEST" : ""); }
+  function attemptStorageKey(){ return "g2rq-pack-attempts-v1:" + QUIZ_ID + ":" + normalizedStudentName() + (TEST_MODE ? ":TEST" : ""); }
   function recordAttempt(){
     var key = attemptStorageKey();
     var prev = 0;
@@ -922,6 +3589,12 @@
     storeSet(key, String(next));
     return next;
   }
+  function peekAttemptCount(){
+    var prev = 0;
+    try { prev = parseInt(storeGet(attemptStorageKey()) || "0", 10) || 0; } catch(e) { prev = 0; }
+    return prev + 1;
+  }
+  function commitAttemptCount(n){ storeSet(attemptStorageKey(), String(n)); }
   function attemptLine(n){ n = n || attemptCount || 1; return n <= 1 ? "Attempt #1 \u2014 first try!" : "Attempt #" + n; }
 
   
@@ -1131,10 +3804,10 @@
     $("quiz-body").innerHTML = html;
     ALL_MC.forEach(function(q){
       var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
-      Array.prototype.forEach.call(radios, function(r){ r.addEventListener("change", function(){ answers[q.n] = parseInt(r.value, 10); updateProgress(); }); });
+      Array.prototype.forEach.call(radios, function(r){ r.addEventListener("change", function(){ answers[q.n] = parseInt(r.value, 10); updateProgress(); saveDraft(); }); });
       var evBtns = document.querySelectorAll('.ev-btn[data-q="'+q.n+'"]');
       Array.prototype.forEach.call(evBtns, function(b){ b.addEventListener("click", function(){
-        evidence[q.n] = parseInt(b.getAttribute("data-p"), 10);
+        evidence[q.n] = parseInt(b.getAttribute("data-p"), 10); saveDraft();
         Array.prototype.forEach.call(evBtns, function(x){ var on = x === b; x.classList.toggle("selected", on); x.setAttribute("aria-pressed", on ? "true" : "false"); });
         updateProgress();
       }); });
@@ -1143,7 +3816,7 @@
       writtenParts[q.n] = ["",""];
       [1,2].forEach(function(pi){
         var ta = $("ta-"+q.n+"-"+pi);
-        if(ta) ta.addEventListener("input", function(e){ writtenParts[q.n][pi-1] = e.target.value; syncWritten(q.n); updateProgress(); });
+        if(ta) ta.addEventListener("input", function(e){ writtenParts[q.n][pi-1] = e.target.value; syncWritten(q.n); updateProgress(); saveDraft(); });
       });
     });
   }
@@ -1174,8 +3847,8 @@
     });
   }
 
-  function startTimer(){
-    startStamp = Date.now(); submitted = false; autoSubmitted = false;
+  function startTimer(resumeStamp){
+    startStamp = (typeof resumeStamp === "number" && resumeStamp > 0) ? resumeStamp : Date.now(); submitted = false; autoSubmitted = false;
     var w = $("time-warning"); if(w) w.classList.add("hidden");
     var t0 = $("timer"); if(t0){ t0.classList.remove("low","critical"); }
     _lastProgCount = 0;
@@ -1216,7 +3889,33 @@
     e.preventDefault();
     studentName = TEST_MODE ? "TEST" : "Eden";
     $("student-chip").textContent = "\uD83D\uDC64 " + studentName;
-    buildQuiz(); updateProgress(); show("view-quiz"); startTimer();
+    var draft = loadDraft();
+    buildQuiz();
+    var resumeStamp = null;
+    if(draft){
+      var ra = {}, re2 = {}, rp = {};
+      Object.keys(draft.answers || {}).forEach(function(k){ ra[parseInt(k, 10)] = draft.answers[k]; });
+      Object.keys(draft.evidence || {}).forEach(function(k){ re2[parseInt(k, 10)] = draft.evidence[k]; });
+      Object.keys(draft.writtenParts || {}).forEach(function(k){ rp[parseInt(k, 10)] = draft.writtenParts[k]; });
+      answers = ra; evidence = re2; writtenParts = rp;
+      ALL_WRITTEN.forEach(function(q){ syncWritten(q.n); });
+      applyDraftToDom();
+      if(typeof draft.startStamp === "number" && draft.startStamp > 0) resumeStamp = draft.startStamp;
+    }
+    if(draft && draft.pending && draft.pending.payload){
+      gradeAllWritten();
+      pendingSubmission = { payload: draft.pending.payload, attempt: draft.pending.attempt || peekAttemptCount() };
+      attemptCount = pendingSubmission.attempt;
+      submitted = true;
+      show("view-sending");
+      attemptDelivery();
+      return;
+    }
+    updateProgress();
+    show("view-quiz");
+    startTimer(resumeStamp);
+    if(!draft) saveDraft();
+    if(resumeStamp && elapsedSeconds() >= TOTAL_SECONDS) autoSubmit();
   });
 
   $("submit-btn").addEventListener("click", function(){
@@ -1331,241 +4030,208 @@
     });
     return lines.join("\n");
   }
-  function saveAnswerLog(totalScore){
-    if(REDO_MODE) return; 
+  function todayStr(){ return pstTodayKey() || QUIZ_DATE; }
+  function makeSubmissionId(){
+    var rand = "";
+    try { rand = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2); }
+    catch(e) { rand = String(Date.now()); }
+    return "eden:" + QUIZ_ID + ":a" + attemptCount + ":" + rand;
+  }
+  function buildLogPayload(){
+    var total = lastResult ? lastResult.total : 0;
+    var sentAt = new Date().toISOString();
     var logText = "";
-    try { logText = buildAnswerLog(totalScore); } catch(e) { logText = ""; }
-    var payload = { folder: "Eden", subfolder: "阅读理解", student: studentName, test: QUIZ_TITLE, date: QUIZ_DATE, attempt: attemptCount, score: totalScore + "/12", log: logText };
-    
-  /* MIGRATED SAVE TRANSPORT (Nov 19, 2026): this page is no longer served by
-     Google Apps Script, so the Apps Script runner does not exist here. The answer
-     log is POSTed directly to the same receiver endpoint (its doPost), with
-     the identical payload shape the watcher already parses. sendBeacon
-     first; fetch(no-cors, keepalive) as fallback. */
-  function postLog(payload){
-    var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
-    var body;
-    try { body = JSON.stringify(payload); } catch (e) { return false; }
-    function beacon(){
-      try {
-        if (navigator && typeof navigator.sendBeacon === "function") {
-          return !!navigator.sendBeacon(RECEIVER_URL, new Blob([body], { type: "text/plain;charset=UTF-8" }));
-        }
-      } catch (e) {}
-      return false;
-    }
-    function fetchPost(){
-      return fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true,
-        headers: { "Content-Type": "text/plain;charset=UTF-8" }, body: body });
-    }
+    try { logText = buildAnswerLog(total); } catch(e) { logText = ""; }
+    return { folder: "Eden", subfolder: "阅读理解", student: studentName, test: QUIZ_TITLE, date: todayStr(), attempt: attemptCount, score: total + "/12", submissionId: makeSubmissionId(), sentAt: sentAt, log: logText };
+  }
+  /* ---------------- Double-verify delivery (realDeliver) ----------------
+     A submission counts ONLY when the receiver confirms it TWICE:
+       step 1 — POST the log; the receiver answers JSON { ok, id }.
+       step 2 — GET ?action=verify&id=<id>; the receiver answers
+                { ok, exists:true } for that exact record.
+     The POST is sent with fetch mode "cors" so the response can be read. */
+  var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+  function fetchJson(url, opts, cb){
+    var done = false;
+    var timer = setTimeout(function(){ if(!done){ done = true; cb(null); } }, 12000);
+    function finish(json){ if(done) return; done = true; clearTimeout(timer); cb(json); }
     try {
-      if (beacon()) return true;
-      if (window.fetch) { fetchPost().catch(function(){}); return true; }
-      return false;
-    } catch (e) {
-      try { if (window.fetch) { fetchPost().catch(function(){}); return true; } } catch (e2) {}
-      return false;
-    }
+      if(typeof fetch !== "function"){ finish(null); return; }
+      opts.mode = "cors";
+      fetch(url, opts).then(function(resp){ return resp.text(); }).then(function(text){
+        var json = null;
+        try { json = JSON.parse(text); } catch(e) {}
+        finish(json);
+      }).catch(function(){ finish(null); });
+    } catch(e) { finish(null); }
   }
-    try { postLog(payload); } catch (e) {}
+  function postToReceiver(payload){
+    return new Promise(function(resolve){
+      var body = "";
+      try { body = JSON.stringify(payload); } catch(e) { resolve(null); return; }
+      fetchJson(RECEIVER_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body }, resolve);
+    });
   }
+  function verifyWithReceiver(id){
+    return new Promise(function(resolve){
+      var url = RECEIVER_URL + "?action=verify&id=" + encodeURIComponent(id);
+      fetchJson(url, { method: "GET" }, function(json){
+        resolve(!!(json && json.ok && json.exists));
+      });
+    });
+  }
+  function realDeliver(payload){
+    return postToReceiver(payload).then(function(res){
+      if(!res || !res.ok || !res.id) return false;
+      return verifyWithReceiver(res.id);
+    });
+  }
+  function deliverLogConfirmed(payload){ return realDeliver(payload); }
+
+  /* ---------------- Submit: confirmed delivery, DOUBLE VERIFY ----------------
+     Until both confirmations pass, the page stays on the sending view:
+     no results, the paper is NOT consumed, no punch. The page retries
+     by itself (timer + "online" event). Only after both confirmations
+     does the submission settle: attempt counted, punch, pack progress
+     stored, draft cleared, outcome shown. */
+  var pendingSubmission = null;
+  var deliveryBusy = false;
+  var deliveryRetryTimer = null;
+
   function goToResults(isAuto){
     if(submitted) return;
-    submitted = true; autoSubmitted = !!isAuto;
-    attemptCount = REDO_MODE ? 1 : recordAttempt();
+    if(REDO_MODE){
+      // Practice mode (kept from the daily page): records nothing.
+      submitted = true; autoSubmitted = !!isAuto;
+      attemptCount = 1;
+      syncWrittenFromDom();
+      elapsedAtSubmit = autoSubmitted ? TOTAL_SECONDS : Math.min(elapsedSeconds(), TOTAL_SECONDS);
+      stopTimer(); gradeAllWritten(); buildResults(); showOutcome();
+      return;
+    }
+    if(!TEST_MODE && CURRENT_DAY && getDayResult(CURRENT_DAY)){
+      openReview(PACK_DAYS.indexOf(CURRENT_DAY));
+      return;
+    }
+    submitted = true;
+    autoSubmitted = !!isAuto;
     syncWrittenFromDom();
     elapsedAtSubmit = autoSubmitted ? TOTAL_SECONDS : Math.min(elapsedSeconds(), TOTAL_SECONDS);
-    stopTimer(); gradeAllWritten(); buildResults(); showOutcome();
+    stopTimer();
+    gradeAllWritten();
+    buildResults();
+    var prior = loadDraft();
+    if(prior && prior.pending && prior.pending.payload){
+      pendingSubmission = { payload: prior.pending.payload, attempt: prior.pending.attempt || peekAttemptCount() };
+      attemptCount = pendingSubmission.attempt;
+    } else {
+      attemptCount = peekAttemptCount();
+      pendingSubmission = { payload: buildLogPayload(), attempt: attemptCount };
+      persistPendingSubmission();
+    }
+    show("view-sending");
+    attemptDelivery();
+  }
+  function persistPendingSubmission(){
+    if(!pendingSubmission) return;
+    try {
+      var d = loadDraft() || { quizId: QUIZ_ID, startStamp: startStamp || Date.now(), answers: answers, evidence: evidence, writtenParts: writtenParts };
+      d.pending = { payload: pendingSubmission.payload, attempt: pendingSubmission.attempt };
+      storeSet(draftKey(), JSON.stringify(d));
+    } catch(e) {}
+  }
+  function attemptDelivery(){
+    if(!pendingSubmission || deliveryBusy) return;
+    deliveryBusy = true;
+    deliverLogConfirmed(pendingSubmission.payload).then(function(ok){
+      deliveryBusy = false;
+      if(!pendingSubmission) return;
+      if(ok) finishSubmission();
+      else scheduleDeliveryRetry();
+    });
+  }
+  function scheduleDeliveryRetry(){
+    if(deliveryRetryTimer) return;
+    deliveryRetryTimer = setTimeout(function(){
+      deliveryRetryTimer = null;
+      attemptDelivery();
+    }, 3000);
+  }
+  try {
+    window.addEventListener("online", function(){
+      if(!pendingSubmission) return;
+      if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+      attemptDelivery();
+    });
+  } catch(e) {}
+  function finishSubmission(){
+    if(!pendingSubmission) return;
+    var attempt = pendingSubmission.attempt;
+    pendingSubmission = null;
+    if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+    commitAttemptCount(attempt);
+    attemptCount = attempt;
     punchToday();
-    try { saveAnswerLog(lastResult ? lastResult.total : 0); } catch(e) {}
+    storeDayResult();
+    clearDraft();
+    showOutcome();
   }
 
-  
+  /* ---------------- In-progress draft ----------------
+     Every answer is saved locally with the paper's ORIGINAL start
+     stamp; reopening restores answers and keeps the SAME clock. The
+     draft is cleared only when a submission is confirmed delivered. */
+  function draftKey(){
+    return "g2rq-pack-draft-v1:eden:" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
+  }
+  function saveDraft(){
+    if(!CURRENT_DAY || submitted) return;
+    var d = { quizId: QUIZ_ID, startStamp: startStamp || Date.now(),
+              answers: answers, evidence: evidence, writtenParts: writtenParts };
+    try { storeSet(draftKey(), JSON.stringify(d)); } catch(e) {}
+  }
+  function loadDraft(){
+    if(!CURRENT_DAY) return null;
+    try {
+      var raw = storeGet(draftKey());
+      if(!raw) return null;
+      var d = JSON.parse(raw);
+      if(!d || d.quizId !== QUIZ_ID) return null;
+      return d;
+    } catch(e) { return null; }
+  }
+  function clearDraft(){
+    try { storeSet(draftKey(), ""); } catch(e) {}
+    try { window.localStorage.removeItem(draftKey()); } catch(e) {}
+    try { delete _memStore[draftKey()]; } catch(e) {}
+  }
+  function applyDraftToDom(){
+    ALL_MC.forEach(function(q){
+      var v = answers[q.n];
+      if(typeof v === "number"){
+        var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
+        Array.prototype.forEach.call(radios, function(r){ if(parseInt(r.value, 10) === v) r.checked = true; });
+      }
+      var ev = evidence[q.n];
+      if(typeof ev === "number"){
+        var evBtns = document.querySelectorAll('.ev-btn[data-q="'+q.n+'"]');
+        Array.prototype.forEach.call(evBtns, function(b){
+          var on = parseInt(b.getAttribute("data-p"), 10) === ev;
+          b.classList.toggle("selected", on); b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+    });
+    ALL_WRITTEN.forEach(function(q){
+      var p = writtenParts[q.n] || ["",""];
+      var ta = $("ta-" + q.n + "-1");
+      if(ta && p[0]) ta.value = p[0];
+    });
+  }
 
   function normalizeAnswer(str){ return String(str == null ? "" : str).toLowerCase().replace(/[’‘]/g, "'").replace(/'/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim(); }
   function altMatches(norm, alt){ for(var i = 0; i < alt.length; i++){ if(norm.indexOf(normalizeAnswer(alt[i])) === -1) return false; } return true; }
   function pointFound(norm, alternatives){ for(var i = 0; i < alternatives.length; i++){ if(altMatches(norm, alternatives[i])) return true; } return false; }
-      var GRADE_KEYS = {
-  "4": [
-    {
-      "found": "The oil makes water roll off the feathers, so the skin stays dry",
-      "missing": "the oil — water beads and rolls off, so the duck's skin stays dry",
-      "alt": [
-        [
-          "oil",
-          "roll"
-        ],
-        [
-          "oil",
-          "water",
-          "off"
-        ],
-        [
-          "water",
-          "beads"
-        ],
-        [
-          "skin",
-          "dry"
-        ],
-        [
-          "feathers",
-          "dry"
-        ]
-      ]
-    },
-    {
-      "found": "Preening cleans and smooths the feathers, so the oil spreads well",
-      "missing": "preening — it cleans and smooths the feathers with the beak",
-      "alt": [
-        [
-          "preen",
-          "clean"
-        ],
-        [
-          "preen",
-          "smooth"
-        ],
-        [
-          "clean",
-          "smooth"
-        ],
-        [
-          "beak",
-          "feathers"
-        ],
-        [
-          "spread",
-          "oil"
-        ]
-      ]
-    }
-  ],
-  "8": [
-    {
-      "found": "The big lighthouse lamp went out in the storm",
-      "missing": "the problem — the big lamp went out and a boat was near the rocks",
-      "alt": [
-        [
-          "lamp",
-          "out"
-        ],
-        [
-          "light",
-          "went",
-          "out"
-        ],
-        [
-          "lamp",
-          "dark"
-        ],
-        [
-          "storm",
-          "lamp"
-        ]
-      ]
-    },
-    {
-      "found": "Grandpa fixed the big lamp and the boat sailed to safety",
-      "missing": "the end — the big lamp was fixed and the boat turned safe",
-      "alt": [
-        [
-          "beam"
-        ],
-        [
-          "boat",
-          "safe"
-        ],
-        [
-          "boat",
-          "safety"
-        ],
-        [
-          "lamp",
-          "fixed"
-        ],
-        [
-          "light",
-          "back"
-        ]
-      ]
-    }
-  ],
-  "11": [
-    {
-      "found": "Ana sorted the muffins by taste into sweet and salty groups",
-      "missing": "the sorting — two groups by taste, sweet and salty",
-      "alt": [
-        [
-          "sweet",
-          "salty"
-        ],
-        [
-          "sweet",
-          "salt"
-        ],
-        [
-          "taste"
-        ],
-        [
-          "sweet",
-          "group"
-        ]
-      ]
-    },
-    {
-      "found": "The apple, banana, and berry muffins went in the sweet group",
-      "missing": "the sweet group — apple, banana, or berry muffins",
-      "alt": [
-        [
-          "apple"
-        ],
-        [
-          "banana"
-        ],
-        [
-          "berry"
-        ]
-      ]
-    }
-  ],
-  "12": [
-    {
-      "found": "Both tellings agree the money will buy new books for the reading corner",
-      "missing": "the money — it will buy new books for the reading corner",
-      "alt": [
-        [
-          "books"
-        ],
-        [
-          "reading",
-          "corner"
-        ],
-        [
-          "new",
-          "books"
-        ]
-      ]
-    },
-    {
-      "found": "The class sold the most muffins on the fourth day",
-      "missing": "the best day — the fourth day, with twenty-one muffins",
-      "alt": [
-        [
-          "fourth"
-        ],
-        [
-          "21"
-        ],
-        [
-          "twenty",
-          "one"
-        ]
-      ]
-    }
-  ]
-}
-
+      /* GRADE_KEYS comes from PACK_DAYS (per-paper gradeKeys), set by setDayData. */
   function gradeWrittenAnswer(qn, rawText){
     var keys = GRADE_KEYS[qn];
     var norm = normalizeAnswer(rawText);
@@ -1681,18 +4347,131 @@
   $("passed-review-btn").addEventListener("click", function(){ show("view-results"); });
   $("redo-review-btn").addEventListener("click", function(){ show("view-results"); });
 
-  $("again-btn").addEventListener("click", function(){
-    answers = {}; evidence = {}; written = {}; writtenParts = {}; writtenGrades = {}; submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
-    stopTimer();
-    var w = $("time-warning"); if(w) w.classList.add("hidden");
-    var an = $("r-auto-note"); if(an) an.classList.add("hidden");
-    var tm = $("timer"); if(tm){ tm.textContent = "\u23F1 " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical"); }
-    var btm = $("bottom-timer"); if(btm) btm.textContent = fmtTime(TOTAL_SECONDS);
-    var bpg = $("bottom-progression"); if(bpg) bpg.textContent = "0 / 12";
-    _lastProgCount = 0;
-    studentName = TEST_MODE ? "TEST" : "Eden";
-    show("view-start");
-  });
+  /* ================= WEEKLY PACK =================
+     SEQUENCE + ONE PER DAY: the seven papers are ordered Paper #1..#7.
+     (1) sequence — a paper opens only after the previous paper has been
+     submitted; (2) one per day — after a paper is submitted, the next
+     paper stays locked until the NEXT America/Los_Angeles day (today's
+     LA date must be later than the previous paper's submitDay). Missing
+     a day never hurts. A finished paper re-opens read-only.
+     ?test=1 is the hidden TEST backdoor; ?testSeconds as on the daily
+     page; ?testDayOffset=N (TEST only) shifts the pack gate's "today"
+     by N days so the one-per-day lock can be test-driven. */
+  function backToDays(){ stopTimer(); renderPicker(); show("view-days"); }
+  $("days-btn").addEventListener("click", backToDays);
+  $("back-days-btn").addEventListener("click", backToDays);
+  $("passed-days-btn").addEventListener("click", backToDays);
+  $("redo-days-btn").addEventListener("click", backToDays);
+
+  function resultKey(day){ return "g2rq-pack-result-v1:eden:" + day.quizId + (TEST_MODE ? ":TEST" : ""); }
+  function getDayResult(day){
+    try { var raw = storeGet(resultKey(day)); return raw ? JSON.parse(raw) : null; } catch(e){ return null; }
+  }
+  function storeDayResult(){
+    if(!CURRENT_DAY || !lastResult) return;
+    var rec = { score: lastResult.total, answers: answers, evidence: evidence, written: written,
+                writtenParts: writtenParts, timeUsed: elapsedAtSubmit, attempt: attemptCount,
+                auto: autoSubmitted, submitDay: packTodayKey() };
+    try { storeSet(resultKey(CURRENT_DAY), JSON.stringify(rec)); } catch(e) {}
+  }
+  function packTodayKey(){
+    var base = pstTodayKey();
+    if(!base) return null;
+    var off = 0;
+    if(TEST_MODE){
+      try { off = parseInt(new URLSearchParams(window.location.search).get("testDayOffset") || "0", 10) || 0; } catch(e){}
+    }
+    if(!off) return base;
+    var p = base.split("-");
+    var dt = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]) + off * 86400000);
+    function pad(n){ return (n < 10 ? "0" : "") + n; }
+    return dt.getUTCFullYear() + "-" + pad(dt.getUTCMonth() + 1) + "-" + pad(dt.getUTCDate());
+  }
+  function paperStatus(i){
+    if(getDayResult(PACK_DAYS[i])) return "done";
+    if(i === 0) return "next";
+    var prev = getDayResult(PACK_DAYS[i - 1]);
+    if(!prev) return "locked";
+    if(!prev.submitDay) return "next";
+    var today = packTodayKey();
+    if(today && today > prev.submitDay) return "next";
+    return "wait";
+  }
+  function setDayData(i){
+    CURRENT_DAY = PACK_DAYS[i];
+    SECTIONS = CURRENT_DAY.sections;
+    GRADE_KEYS = CURRENT_DAY.gradeKeys;
+    QUIZ_ID = CURRENT_DAY.quizId;
+    QUIZ_TITLE = CURRENT_DAY.title;
+    QUIZ_DATE = CURRENT_DAY.date;
+    rebuildIndex();
+    answers = {}; evidence = {}; written = {}; writtenParts = {}; writtenGrades = {};
+    submitted = false; autoSubmitted = false; startStamp = null;
+    elapsedAtSubmit = 0; attemptCount = 0; lastResult = null; pendingSubmission = null;
+    document.title = CURRENT_DAY.title;
+    var head = $("start-day-head");
+    if(head) head.innerHTML = "📦 <b>Paper #" + CURRENT_DAY.paper + "</b> · Seq " + CURRENT_DAY.seq +
+      " · Cycle 2 Day " + CURRENT_DAY.cycleDay + " · 12 questions · 20 minutes";
+    refreshAttendance();
+  }
+  function openDay(i){
+    if(paperStatus(i) !== "next") return;
+    setDayData(i); show("view-start");
+  }
+  function openReview(i){
+    setDayData(i);
+    var rec = getDayResult(CURRENT_DAY);
+    if(!rec) return;
+    var a = {}, ev = {};
+    Object.keys(rec.answers || {}).forEach(function(k){ a[parseInt(k, 10)] = rec.answers[k]; });
+    Object.keys(rec.evidence || {}).forEach(function(k){ ev[parseInt(k, 10)] = rec.evidence[k]; });
+    answers = a; evidence = ev;
+    writtenParts = rec.writtenParts || {};
+    written = rec.written || {};
+    if(!Object.keys(writtenParts).length && Object.keys(written).length){
+      Object.keys(written).forEach(function(k){ writtenParts[k] = [written[k], ""]; });
+    }
+    attemptCount = rec.attempt || 1;
+    elapsedAtSubmit = rec.timeUsed || 0;
+    autoSubmitted = !!rec.auto;
+    submitted = true;
+    gradeAllWritten();
+    buildResults();
+    show("view-results");
+  }
+  function renderPicker(){
+    var doneCount = 0;
+    PACK_DAYS.forEach(function(day){ if(getDayResult(day)) doneCount++; });
+    var pp = $("pack-progress");
+    if(pp) pp.textContent = "⭐ Finished " + doneCount + " of 7 quizzes";
+    var grid = "";
+    PACK_DAYS.forEach(function(day, i){
+      var st = paperStatus(i);
+      var rec = getDayResult(day);
+      var btnText = st === "done" ? ("✓ Done — " + rec.score + "/12 · View result")
+        : st === "next" ? "▶ Ready Set Go — start this one"
+        : st === "wait" ? "🌙 All done for today! Come back tomorrow for the next quiz."
+        : "🔒 Locked — finish Paper #" + i + " first";
+      var cls = st === "done" ? "done" : st === "next" ? "today" : "locked";
+      grid += '<button type="button" class="day-card ' + cls + '" data-day="' + i + '"' +
+        ((st === "done" || st === "next") ? "" : " disabled") + '>' +
+        '<span class="dc-weekday">Paper #' + day.paper + '</span>' +
+        '<span class="dc-date">Seq ' + day.seq + ' · Cycle 2 Day ' + day.cycleDay + ' · 12 questions</span>' +
+        '<span class="dc-status">' + esc(btnText) + '</span></button>';
+    });
+    var dg = $("day-grid"); if(dg) dg.innerHTML = grid;
+    Array.prototype.forEach.call(document.querySelectorAll(".day-card"), function(card){
+      card.addEventListener("click", function(){
+        var i = parseInt(card.getAttribute("data-day"), 10);
+        var st = paperStatus(i);
+        if(st === "next") openDay(i);
+        else if(st === "done") openReview(i);
+      });
+    });
+    var nx = document.querySelector(".day-card.today");
+    if(nx && nx.scrollIntoView) nx.scrollIntoView({ block: "center" });
+  }
+  renderPicker();
 })();
 </script>
 </body>

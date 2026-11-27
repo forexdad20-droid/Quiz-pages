@@ -5,45 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Grade 2 Math Quiz — November 26, 2026</title>
+<title>Grade 2 Math Quiz — Weekly Pack · Nov 30 – Dec 6, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#eaf4f7;
+    --bg:#eef6ee;
     --surface:#ffffff;
-    --surface-2:#f2f9fb;
-    --ink:#20303c;
-    --ink-soft:#526a7a;
-    --line:#cfe3ea;
-    --green:#1278a6;
-    --green-dark:#0d5d82;
-    --green-soft:#dcf0f8;
-    --teal:#0e8a7b;
-    --teal-soft:#d9f2ed;
+    --surface-2:#f4faf2;
+    --ink:#1d2b1f;
+    --ink-soft:#4a5d4e;
+    --line:#d7e6d3;
+    --green:#1f7a3d;
+    --green-dark:#155c2c;
+    --green-soft:#e2f2df;
+    --teal:#0e7c7b;
+    --teal-soft:#dff3f2;
     --sun:#f2b705;
     --sun-soft:#fff3cf;
     --orange:#d96c06;
     --orange-soft:#ffedda;
     --red:#c0392b;
     --red-soft:#fdecea;
-    --radius:20px;
-    --shadow:0 4px 18px rgba(18,70,95,.09);
+    --radius:18px;
+    --shadow:0 4px 18px rgba(29,60,30,.08);
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#121c22;
-      --surface:#1d2c35;
-      --surface-2:#243842;
-      --ink:#eef6f9;
-      --ink-soft:#b7cbd4;
-      --line:#36505e;
-      --green:#4db2dd;
-      --green-dark:#8acfea;
-      --green-soft:#1e3a4a;
-      --teal:#3ec2ab;
-      --teal-soft:#1d3833;
+      --bg:#131a14;
+      --surface:#1e2a20;
+      --surface-2:#243128;
+      --ink:#eef5ee;
+      --ink-soft:#b7c8b8;
+      --line:#37493a;
+      --green:#4cc26e;
+      --green-dark:#7ad992;
+      --green-soft:#233d29;
+      --teal:#3ec2c0;
+      --teal-soft:#1d3838;
       --sun:#f2b705;
       --sun-soft:#3a3317;
       --orange:#f39a4a;
@@ -55,27 +55,62 @@
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:18px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
   h1,h2,h3,.display{font-family:"Fredoka","Nunito",sans-serif;line-height:1.15;margin:0}
   button,input,textarea{font:inherit}
-  .wrap{max-width:780px;margin:0 auto;padding:20px 16px 56px}
+  .wrap{max-width:780px;margin:0 auto;padding:20px 16px 26px}
   .hidden{display:none !important}
-  /* ---------- Shared daily-quiz format (same as Amber's) ---------- */
+
+  /* ---------- Start ---------- */
+  .start-card{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow);padding:32px 24px 28px;text-align:center;margin-top:18px;
+  }
+  /* Start view: three peer boxes (Start the Quiz / Math Growth / Last 12 Tests)
+     stacked with one even gap and matching full-width edges. */
   .start-stack{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+  .start-stack .start-card{margin-top:0}
+  .start-stack .growth-chart,.start-stack .history{max-width:none;width:100%;margin:0}
   @media (max-width:560px){ .start-stack{gap:16px} }
-  /* Merged: My Last 6 Tests (growth chart) + My Last 12 Tests (table) in ONE
-     black-and-white box: white background, black border, black header bar. */
-  .merged-tests{background:#fff;color:#20303c;--ink:#20303c;--ink-soft:#526a7a;--sun-soft:#fff3cf;border:2.5px solid #111;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;width:100%;margin:0 auto;text-align:center}
+  /* Merged: My Last 6 Tests (growth chart) + My Last 12 Tests (table) in ONE box */
+  /* Black-and-white frame for the merged tests box: white background, black
+     border, black title bar — no green frame, no green title. */
+  .merged-tests{background:#fff;color:#1d2b1f;--ink:#1d2b1f;--ink-soft:#4a5d4e;--sun-soft:#fff3cf;border:2.5px solid #111;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;width:100%;max-width:560px;margin:0 auto;text-align:center}
   .start-stack .merged-tests{max-width:none;width:100%;margin:0}
   .results-actions .merged-tests{width:100%;justify-self:center}
   .merged-tests .growth-chart,.merged-tests .history{background:transparent;border:none;border-radius:0;box-shadow:none;margin:0;max-width:none;width:100%}
   .merged-tests .history{border-top:2.5px solid #111}
-  /* Top dash: (1) attendance punch card → (2) Lexile → (3) Ready, Set, Go */
-  .top-dash{background:var(--surface);border:2px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:20px;text-align:center}
+  .badge{
+    display:inline-block;background:var(--sun-soft);color:#7a5b00;border:1.5px solid var(--sun);
+    font-weight:900;font-size:14px;letter-spacing:.04em;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;
+  }
+  @media (prefers-color-scheme: dark){ .badge{color:var(--sun)} }
+  /* Top badge on two lines: grade + date, then the quiz name */
+  .badge-top{border-radius:18px;padding:9px 20px 10px;line-height:1.4}
+  .badge-top .badge-line{display:block}
+  .badge-top .badge-line + .badge-line{margin-top:1px}
+  .lexile-banner{
+    display:block;margin:18px auto 0;max-width:520px;
+    background:var(--sun-soft);border:2.5px solid var(--sun);border-radius:16px;
+    padding:14px 20px;font-family:"Fredoka","Nunito",sans-serif;font-weight:700;
+    font-size:26px;line-height:1.25;color:var(--ink);letter-spacing:.01em;
+  }
+  @media (max-width:560px){ .lexile-banner{font-size:23px} }
+
+  /* ---------- Top dash: (1) attendance punch card → (2) Lexile → (3) Ready, Set, Go ---------- */
+  .top-dash{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow);padding:20px 20px 20px;text-align:center;
+  }
   .att-head{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
   .att-title{font-size:24px;font-weight:700;line-height:1.2}
   .att-count{display:inline-block;background:var(--green);color:#fff;font-weight:900;font-size:15px;padding:5px 13px;border-radius:999px;white-space:nowrap}
-  @media (prefers-color-scheme: dark){ .att-count{color:#0b2233} }
   .att-sub{font-size:15px;font-weight:700;color:var(--ink-soft);margin:6px 0 0;line-height:1.45}
   .punch-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
   .punch-day{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
@@ -83,7 +118,6 @@
   .day-zh{display:block;font-family:"Nunito",sans-serif;font-size:11.5px;font-weight:800;color:var(--ink-soft);line-height:1.25}
   .punch-circle{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;line-height:1;margin-top:2px}
   .punch-circle.done{background:var(--green);border:2.5px solid var(--green-dark);color:#fff;font-size:23px}
-  @media (prefers-color-scheme: dark){ .punch-circle.done{color:#0b2233} }
   .punch-circle.today-ring{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--sun)}
   .punch-circle.empty{background:var(--surface-2);border:2.5px dashed var(--line);color:var(--ink-soft);font-size:20px}
   .punch-circle.upcoming{background:var(--surface);border:2.5px solid var(--line);color:var(--ink-soft);font-size:16px}
@@ -93,6 +127,7 @@
   .att-message strong{color:var(--green-dark)}
   .top-dash .lexile-banner{margin:16px auto 0;max-width:560px;width:100%}
   .top-dash form{margin:0}
+  .top-dash .how{margin:18px 0 0}
   .top-dash .go-zone{margin-top:16px}
   @media (max-width:560px){
     .top-dash{padding:16px 12px 14px}
@@ -103,7 +138,10 @@
     .day-name{font-size:13.5px}
     .att-message{font-size:15.5px}
   }
-  .growth-chart{margin:18px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px 16px 14px;text-align:center}
+  .growth-chart{
+    margin:18px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);
+    border:2px solid var(--line);border-radius:18px;padding:18px 16px 14px;text-align:center;
+  }
   .growth-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
   .growth-title .gt-line{display:block}
   .growth-title .gt-line-2{margin-top:26px}
@@ -122,54 +160,127 @@
   .color-legend .swatch.green{background:#27a24b}
   .color-legend .swatch.red{background:#d64541}
   .color-legend .swatch.gold{background:#f2b705;border-color:#d9a400}
-  .color-legend .swatch.grey{background:#5b8db8}
-  .history{margin:14px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:18px 16px 10px;text-align:center}
-  .history-table-wrap{margin-top:12px;border:2px solid #111;border-radius:12px;overflow:hidden;width:100%;max-width:100%;background:#fff}
+  .color-legend .swatch.same{background:#7f97a8}
+  .history-grid .date{white-space:nowrap}
+  .history .color-legend{margin-bottom:0}
+  @media (prefers-color-scheme: dark){ .growth-note strong{color:var(--green-dark)} }
+  .history{
+    margin:14px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);
+    border:2px solid var(--line);border-radius:18px;padding:18px 16px 10px;text-align:center;
+  }
+  .history-table-wrap{
+    margin-top:12px;border:2px solid #111;border-radius:12px;overflow:hidden;
+    width:100%;max-width:100%;background:#fff;
+  }
   .history-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
   .history-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 4px;line-height:1.45}
+  /* "My Last 12 Tests" rows are CSS grid, not a <table>: the fixed-layout
+     table rendered narrower than its frame in the phone webview (Safari),
+     leaving a white strip on the right of the header and gold rows. Grid
+     tracks sized in % of the frame span its full width in every engine. */
   .history-grid{width:100%;font-size:17px;text-align:left}
-  .history-grid .date{white-space:nowrap}
   .hg-row{display:grid;grid-template-columns:28% 29% 15% 28%;width:100%}
-  .hg-row>*{padding:11px 8px;font-weight:700;line-height:1.35;text-align:left;overflow-wrap:break-word;min-width:0}
-  .hg-row.hg-head>*{background:#111;color:#fff;font-weight:900;font-size:16.5px;line-height:1.3}
+  .hg-row>*{
+    padding:11px 8px;font-weight:700;line-height:1.35;text-align:left;
+    overflow-wrap:break-word;min-width:0;
+  }
+  .hg-row.hg-head>*{
+    background:#111;color:#fff;font-weight:900;font-size:16.5px;line-height:1.3;
+  }
   .hg-row .c{text-align:center}
+  /* Entry rows always carry BLACK text on a solid fill (white / deep green /
+     gold), in light and dark mode alike — the colour lives in the row
+     background, never in the words. */
   .hg-row:not(.hg-head){color:#000}
   .hg-row:not(.hg-head)>*{border-top:1.5px solid var(--line);background:#fff}
   .hg-row .score{font-weight:900;white-space:nowrap}
   .hg-row .lex{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:19px}
+  .hg-row .lex.up{color:var(--ink)}
   .hg-row .lex .lex-line{display:inline-flex;align-items:center;gap:5px}
   .hg-row .lex .crown{font-size:.85em;line-height:1;display:inline-flex;align-items:center}
-  .hg-row .lex .delta{display:block;font-family:"Nunito",sans-serif;font-size:14.5px;font-weight:900;margin-top:2px;color:var(--ink);overflow-wrap:break-word}
+  .hg-row .lex .delta{
+    display:block;font-family:"Nunito",sans-serif;font-size:14.5px;font-weight:900;
+    margin-top:2px;color:var(--ink);overflow-wrap:break-word;
+  }
   .hg-row.best>*{background:var(--sun);color:#000;border-top-color:#d9a400}
+  .hg-row.best .lex.up{color:#000}
   .hg-row.best .lex .delta{color:#000}
+  /* Whole-row highlight for any test where the Lexile went UP vs the previous
+     test: the SAME deep green as the "went up" bars in the growth chart above
+     (#27a24b — also the green legend swatch), not the pale green-soft wash.
+     Text on the highlight stays black. */
   .hg-row.improved>*{background:#27a24b;color:#000}
+  .hg-row.improved .lex.up{color:#000}
   .hg-row.improved .lex .delta{color:#000}
-  .hg-row.down>*{background:#fbe3e0;color:#000}
-  .hg-row.down .lex .delta{color:#000}
-  .hg-row.same>*{background:#dbe7f0;color:#000}
-  .hg-row.same .lex .delta{color:#000}
   @media (max-width:560px){
-    .merged-tests .history{padding:16px 10px 10px}
-    .merged-tests .growth-chart{padding:16px 10px 12px}
+    .history{padding:16px 10px 10px}
+    .growth-chart{padding:16px 10px 12px}
     .history-grid{font-size:14.5px}
     .hg-row.hg-head>*{font-size:13.5px;padding:9px 5px}
     .hg-row>*{padding:9px 5px}
     .hg-row .lex{font-size:16px}
     .hg-row .lex .delta{font-size:13px}
   }
-  /* Ready, Set, Go! launch zone */
-  .go-zone{margin-top:4px;background:var(--green-soft);border:3px solid var(--green);border-radius:20px;padding:0 18px 18px;overflow:hidden;text-align:center;box-shadow:0 8px 22px rgba(13,93,130,.16)}
-  .go-checker{height:14px;margin:0 -18px;background:repeating-conic-gradient(var(--ink) 0% 25%, var(--surface) 0% 50%) 0 0/28px 28px;opacity:.92}
-  .ready-set-go{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin:16px 0 2px;font-family:"Fredoka","Nunito",sans-serif}
-  .rsg-step{display:inline-flex;align-items:center;gap:6px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;padding:9px 16px;border-radius:999px;border:2.5px solid}
+  .start-card h1{font-size:42px;font-weight:700;margin:16px 0 8px;letter-spacing:-.01em}
+  .start-card .sub{font-size:19px;color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
+  .how{
+    display:flex;flex-direction:column;gap:8px;margin:16px 0 0;text-align:left;
+  }
+  @media (max-width:560px){ .how{grid-template-columns:1fr} .start-card h1{font-size:34px} }
+  .how-item{background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+  .how-item .how-text{flex:1;min-width:0}
+  .how-item b{display:block;font-size:17px;margin-bottom:2px;line-height:1.3}
+  .how-item .how-text > span{font-size:15.5px;color:var(--ink-soft);font-weight:600;line-height:1.45;display:block}
+  .how-item > span.how-num{
+    flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin:2px 0 0;line-height:1;
+  }
+  .btn{
+    appearance:none;border:none;cursor:pointer;border-radius:999px;font-weight:900;
+    padding:16px 28px;font-size:19px;transition:transform .08s ease, background .15s ease, opacity .15s;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--green);color:#fff;width:100%;margin-top:16px;font-size:21px;padding:18px 28px}
+  .btn-primary:hover{background:var(--green-dark)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:2px solid var(--line)}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .start-note{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:14px}
+
+  /* ---------- Ready, Set, Go! launch zone ---------- */
+  .go-zone{
+    margin-top:4px;background:var(--green-soft);border:3px solid var(--green);
+    border-radius:20px;padding:0 18px 18px;overflow:hidden;text-align:center;
+    box-shadow:0 8px 22px rgba(21,92,44,.18);
+  }
+  .go-checker{
+    height:14px;margin:0 -18px;
+    background:
+      repeating-conic-gradient(var(--ink) 0% 25%, var(--surface) 0% 50%)
+      0 0/28px 28px;
+    opacity:.92;
+  }
+  .ready-set-go{
+    display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;
+    margin:16px 0 2px;font-family:"Fredoka","Nunito",sans-serif;
+  }
+  .rsg-step{
+    display:inline-flex;align-items:center;gap:6px;
+    font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;
+    padding:9px 16px;border-radius:999px;border:2.5px solid;
+  }
   .rsg-ready{background:var(--surface);border-color:var(--orange);color:var(--orange);font-size:17px}
   .rsg-set{background:var(--sun-soft);border-color:var(--sun);color:#7a5b00;font-size:19px}
   @media (prefers-color-scheme: dark){ .rsg-set{color:var(--sun)} }
-  .rsg-go{background:var(--green);border-color:var(--green-dark);color:#fff;font-size:23px;padding:11px 22px;box-shadow:0 4px 12px rgba(13,93,130,.3)}
-  @media (prefers-color-scheme: dark){ .rsg-go{color:#0b2233} }
+  .rsg-go{background:var(--green);border-color:var(--green-dark);color:#fff;font-size:23px;padding:11px 22px;box-shadow:0 4px 12px rgba(21,92,44,.35)}
   .rsg-arrow{font-weight:900;color:var(--ink-soft);font-size:16px}
-  .go-zone .btn-primary{margin-top:14px;font-size:24px;padding:20px 28px;min-height:68px;letter-spacing:.01em;box-shadow:0 6px 0 var(--green-dark),0 12px 24px rgba(13,93,130,.25)}
-  .go-zone .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--green-dark),0 6px 14px rgba(13,93,130,.22)}
+  .go-zone .btn-primary{
+    margin-top:14px;font-size:24px;padding:20px 28px;letter-spacing:.01em;
+    box-shadow:0 6px 0 var(--green-dark),0 12px 24px rgba(21,92,44,.28);
+  }
+  .go-zone .btn-primary:hover{box-shadow:0 6px 0 var(--green-dark),0 14px 28px rgba(21,92,44,.34)}
+  .go-zone .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--green-dark),0 6px 14px rgba(21,92,44,.25)}
   .go-zone .start-note{color:var(--ink);max-width:560px;margin-left:auto;margin-right:auto}
   @media (max-width:560px){
     .go-zone{padding:0 12px 14px}
@@ -183,204 +294,310 @@
     .rsg-go{animation:rsg-pop 1.6s ease-in-out infinite}
     @keyframes rsg-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
   }
-  .badge{display:inline-block;background:var(--sun-soft);color:#7a5b00;border:1.5px solid var(--sun);font-weight:900;font-size:14px;letter-spacing:.04em;text-transform:uppercase;padding:7px 15px;border-radius:999px}
-  @media (prefers-color-scheme: dark){ .badge{color:var(--sun)} }
-  .lexile-banner{background:var(--sun-soft);border:3px solid var(--sun);color:var(--ink);border-radius:18px;padding:16px 20px;margin:20px auto 4px;max-width:560px;font-family:"Fredoka","Nunito",sans-serif;font-size:30px;font-weight:700;line-height:1.2;letter-spacing:.01em;box-shadow:var(--shadow)}
-  .lexile-banner-results{margin:16px auto 6px}
-  @media (max-width:560px){ .lexile-banner{font-size:26px;padding:14px 16px} }
-  .btn{appearance:none;border:none;cursor:pointer;border-radius:999px;font-weight:900;padding:16px 28px;font-size:20px;transition:transform .08s ease, background .15s ease, opacity .15s;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;min-height:58px}
-  .btn:active{transform:scale(.98)}
-  .btn-primary{background:var(--green);color:#fff;width:100%;margin-top:16px;font-size:22px;padding:18px 28px;min-height:64px}
-  .btn-primary:hover{background:var(--green-dark)}
-  @media (prefers-color-scheme: dark){ .btn-primary{color:#0b2233} .btn-primary:hover{color:#0b2233} }
-  .btn-ghost{background:var(--surface);color:var(--ink);border:2px solid var(--line)}
-  .btn:disabled{opacity:.45;cursor:not-allowed}
-  .start-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:14px;line-height:1.55}
-  .quiz-bar{position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0 10px;border-bottom:2px solid var(--line)}
+
+  /* ---------- Sticky quiz bar ---------- */
+  .quiz-bar{
+    position:sticky;top:0;z-index:20;background:var(--bg);
+    padding:12px 0 10px;border-bottom:2px solid var(--line);
+  }
   .quiz-bar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .student-chip{font-weight:900;font-size:17px;background:var(--surface);border:1.5px solid var(--line);padding:8px 15px;border-radius:999px;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .timer{font-family:"Fredoka",sans-serif;font-weight:700;font-size:24px;letter-spacing:.02em;background:var(--surface);border:2px solid var(--line);padding:7px 17px;border-radius:999px;font-variant-numeric:tabular-nums}
+  .student-chip{font-weight:900;font-size:16px;background:var(--surface);border:1.5px solid var(--line);padding:7px 14px;border-radius:999px;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .timer{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;letter-spacing:.02em;
+    background:var(--surface);border:2px solid var(--line);padding:6px 16px;border-radius:999px;font-variant-numeric:tabular-nums;
+  }
   .timer.low{border-color:var(--orange);color:var(--orange)}
   .timer.critical{border-color:var(--red);background:var(--red-soft);color:var(--red)}
-  .time-warning{margin-top:10px;background:var(--red-soft);border:2px solid var(--red);color:var(--red);border-radius:14px;padding:13px 16px;font-weight:900;font-size:18px;line-height:1.45;text-align:center}
-  .auto-note{margin:16px auto 0;max-width:560px;background:var(--orange-soft);border:2px solid var(--orange);color:var(--orange);border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45}
-  @media (prefers-reduced-motion: no-preference){ .timer.critical{animation:timer-pulse 1s ease-in-out infinite} @keyframes timer-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}} }
-  .progress-track{height:16px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;overflow:hidden;margin-top:10px}
+  .timer.done{border-color:var(--orange);background:var(--orange-soft);color:var(--orange);font-size:17px;font-family:"Nunito",sans-serif;font-weight:900}
+  .time-warning{
+    margin-top:10px;background:var(--red-soft);border:2px solid var(--red);color:var(--red);
+    border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45;text-align:center;
+  }
+  @media (prefers-color-scheme: dark){ .time-warning{color:var(--red)} }
+  .auto-note{
+    margin:16px auto 0;max-width:560px;background:var(--orange-soft);border:2px solid var(--orange);color:var(--orange);
+    border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .timer.critical{animation:timer-pulse 1s ease-in-out infinite}
+    @keyframes timer-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  }
+  .progress-track{height:14px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;overflow:hidden;margin-top:10px}
   .progress-fill{height:100%;background:var(--green);width:0%;transition:width .3s ease;border-radius:999px}
-  .progress-label{font-size:16px;font-weight:800;color:var(--ink-soft);margin-top:6px}
-  .section-head{margin:32px 0 14px}
-  .section-tag{display:inline-block;font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;padding:6px 13px;border-radius:999px;margin-bottom:8px}
+  .progress-label{font-size:15px;font-weight:800;color:var(--ink-soft);margin-top:6px}
+
+  /* ---------- Sections & passages ---------- */
+  .section-head{margin:30px 0 14px}
+  .section-tag{
+    display:inline-block;font-weight:900;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;margin-bottom:8px;
+  }
   .tag-1{background:var(--green-soft);color:var(--green-dark)}
   .tag-2{background:var(--teal-soft);color:var(--teal)}
   .tag-3{background:var(--sun-soft);color:#7a5b00}
   @media (prefers-color-scheme: dark){ .tag-3{color:var(--sun)} }
-  .section-head h2{font-size:29px;font-weight:700}
-  .section-head p{margin:4px 0 0;color:var(--ink-soft);font-weight:700;font-size:17px}
-  .passage{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:24px 24px 10px;box-shadow:var(--shadow)}
-  .passage h3{font-size:25px;margin-bottom:12px}
-  .passage h4.passage-subhead{font-family:"Fredoka","Nunito",sans-serif;font-size:21px;font-weight:700;color:var(--green-dark);margin:20px 0 8px;line-height:1.3}
-  .passage p{font-size:21px;line-height:1.85;margin:0 0 15px}
+  .section-head h2{font-size:28px;font-weight:700}
+  .section-head p{margin:4px 0 0;color:var(--ink-soft);font-weight:700;font-size:16.5px}
+  .passage{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:22px 22px 8px;box-shadow:var(--shadow);
+  }
+  .passage h3{font-size:23px;margin-bottom:10px}
+  .passage p{font-size:18.5px;line-height:1.75;margin:0 0 14px}
   .passage .pnum{font-weight:900;color:var(--green)}
   .passage-label{font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:18px 0 4px}
   .passage-label:first-of-type{margin-top:0}
-  .chart{margin:6px 0 18px;border:1.5px solid var(--line);border-radius:16px;padding:18px;background:var(--surface-2)}
-  .chart h4{margin:0 0 4px;font-size:19px;font-family:"Fredoka",sans-serif}
-  .chart .chart-sub{font-size:15px;color:var(--ink-soft);font-weight:700;margin:0 0 16px}
-  .bar-row{display:grid;grid-template-columns:110px 1fr 64px;align-items:center;gap:12px;margin-bottom:12px}
-  @media (max-width:480px){ .bar-row{grid-template-columns:88px 1fr 54px} }
-  .bar-row .blabel{font-weight:800;font-size:17px;line-height:1.3}
-  .bar-track{height:30px;background:var(--surface);border:1.5px solid var(--line);border-radius:9px;overflow:hidden}
-  .bar-fill{height:100%;border-radius:7px}
-  .bar-fill.apple{background:#e0533d}
-  .bar-fill.banana{background:#eab308}
-  .bar-fill.orange{background:#e67e22}
-  .bar-fill.teal{background:var(--teal)}
-  .bar-row .bval{font-weight:900;font-size:18px;font-variant-numeric:tabular-nums}
-  table.count-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:17px}
-  table.count-table th,table.count-table td{border:1.5px solid var(--line);padding:10px 13px;text-align:left}
-  table.count-table th{background:var(--surface);font-weight:900}
-  table.count-table td:last-child,table.count-table th:last-child{text-align:right;font-variant-numeric:tabular-nums}
-  .qcard{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:16px;box-shadow:var(--shadow)}
+
+  /* chart */
+  .chart{margin:6px 0 18px;border:1.5px solid var(--line);border-radius:14px;padding:16px;background:var(--surface-2)}
+  .chart h4{margin:0 0 4px;font-size:17px;font-family:"Fredoka",sans-serif}
+  .chart .chart-sub{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:0 0 14px}
+  .bar-row{display:grid;grid-template-columns:128px 1fr 52px;align-items:center;gap:10px;margin-bottom:10px}
+  @media (max-width:480px){ .bar-row{grid-template-columns:104px 1fr 46px} }
+  .bar-row .blabel{font-weight:800;font-size:15.5px;line-height:1.3}
+  .bar-track{height:26px;background:var(--surface);border:1.5px solid var(--line);border-radius:8px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px}
+  .bar-fill.sunny{background:#e67e22}
+  .bar-fill.canopy{background:var(--teal)}
+  .bar-fill.tree{background:var(--green)}
+  .bar-row .bval{font-weight:900;font-size:17px;font-variant-numeric:tabular-nums}
+  table.temp-table{width:100%;border-collapse:collapse;margin-top:6px;font-size:16px}
+  table.temp-table th,table.temp-table td{border:1.5px solid var(--line);padding:9px 12px;text-align:left}
+  table.temp-table th{background:var(--surface);font-weight:900}
+  table.temp-table td:last-child,table.temp-table th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* ---------- Questions ---------- */
+  .qcard{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:20px;margin-top:16px;box-shadow:var(--shadow);
+  }
   .qcard.answered{border-color:var(--green)}
-  .q-top{display:flex;gap:13px;align-items:flex-start}
-  .q-num{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;margin-top:1px}
+  .q-top{display:flex;gap:12px;align-items:flex-start}
+  .q-num{
+    flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--bg);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;margin-top:1px;
+  }
   .qcard.answered .q-num{background:var(--green);color:#fff}
-  @media (prefers-color-scheme: dark){ .qcard.answered .q-num{color:#0b2233} }
-  .q-text{font-size:21px;font-weight:800;line-height:1.5;padding-top:5px}
-  .q-type{font-size:14px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
-  .options{margin-top:15px;display:grid;gap:11px}
-  .option{display:flex;gap:13px;align-items:flex-start;cursor:pointer;border:2px solid var(--line);border-radius:16px;padding:16px 17px;background:var(--surface);transition:border-color .12s, background .12s;min-height:62px}
+  .q-text{font-size:20px;font-weight:800;line-height:1.45;padding-top:4px}
+  .q-type{font-size:13.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+  .options{margin-top:14px;display:grid;gap:10px}
+  .option{
+    display:flex;gap:12px;align-items:flex-start;cursor:pointer;
+    border:2px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface);
+    transition:border-color .12s, background .12s;
+  }
   .option:hover{border-color:var(--green)}
-  .option input{appearance:none;-webkit-appearance:none;flex:0 0 auto;cursor:pointer;width:30px;height:30px;border-radius:50%;border:2.5px solid var(--line);background:var(--surface);margin:2px 0 0;padding:0}
-  .option input:checked{border-color:var(--green);background:var(--green);box-shadow:inset 0 0 0 6px var(--surface)}
+  .option input{
+    appearance:none;-webkit-appearance:none;flex:0 0 auto;cursor:pointer;
+    width:27px;height:27px;border-radius:50%;border:2.5px solid var(--line);
+    background:var(--surface);margin:3px 0 0;padding:0;
+  }
+  .option input:checked{border-color:var(--green);background:var(--green);box-shadow:inset 0 0 0 5px var(--surface)}
   .option input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
-  .option .otext{font-size:19px;font-weight:700;line-height:1.5;padding-top:3px}
+  .option .otext{font-size:18px;font-weight:700;line-height:1.45;padding-top:3px}
   .option .otext b{font-weight:900;margin-right:2px}
   .option:has(input:checked){border-color:var(--green);background:var(--green-soft)}
-  textarea{width:100%;margin-top:10px;min-height:118px;resize:vertical;padding:15px 17px;font-size:19px;line-height:1.65;color:var(--ink);background:var(--surface-2);border:2px solid var(--line);border-radius:16px;outline:none}
+  textarea{
+    width:100%;margin-top:14px;min-height:110px;resize:vertical;
+    padding:14px 16px;font-size:18px;line-height:1.6;color:var(--ink);
+    background:var(--surface-2);border:2px solid var(--line);border-radius:14px;outline:none;
+  }
   textarea:focus{border-color:var(--green);background:var(--surface)}
   textarea.part-box{min-height:84px;margin-top:8px}
-  .part-label{display:flex;align-items:center;gap:9px;margin-top:16px;font-weight:900;font-size:17.5px;line-height:1.4}
-  .part-chip{flex:0 0 auto;background:var(--teal);color:#fff;font-size:13.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
-  @media (prefers-color-scheme: dark){ .part-chip{color:#07231f} }
-  .q-hint{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:8px}
-  .submit-zone{margin-top:34px;text-align:center}
-  .submit-zone .btn-primary{max-width:440px;margin-left:auto;margin-right:auto}
-  .submit-note{font-size:16px;color:var(--ink-soft);font-weight:700;margin-top:10px}
-  .modal-backdrop{position:fixed;inset:0;background:rgba(10,22,28,.55);z-index:50;display:flex;align-items:center;justify-content:center;padding:20px}
-  .modal{background:var(--surface);border-radius:22px;max-width:440px;width:100%;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
-  .modal h3{font-size:24px;margin-bottom:8px}
+  .part-label{display:flex;align-items:center;gap:9px;margin-top:16px;font-weight:900;font-size:16.5px;line-height:1.4}
+  .part-chip{flex:0 0 auto;background:var(--teal);color:#fff;font-size:13px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+  .q-hint{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:8px}
+
+  .submit-zone{margin-top:32px;text-align:center}
+  .submit-zone .btn-primary{max-width:420px;margin-left:auto;margin-right:auto}
+  .submit-note{font-size:15.5px;color:var(--ink-soft);font-weight:700;margin-top:10px}
+  /* Bottom row of the paper: Timer + Progression (Ellis's settled panel) */
+  .bottom-panel{
+    margin-top:28px;background:var(--surface);border:2px solid var(--line);border-radius:16px;
+    box-shadow:var(--shadow);padding:14px 16px;
+    display:flex;align-items:center;justify-content:center;gap:10px 22px;flex-wrap:wrap;
+    text-align:center;color:#1e5fd6;
+  }
+  @media (prefers-color-scheme: dark){ .bottom-panel{color:#6ea8ff} }
+  .bottom-panel .bp-label{font-weight:900;font-size:19px}
+  .bottom-panel .bp-time{font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+  .bottom-panel .bp-frac{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:30px;line-height:1;
+    font-variant-numeric:tabular-nums;display:inline-block;
+  }
+  .bottom-panel .bp-time.low{color:var(--orange)}
+  .bottom-panel .bp-time.critical{color:var(--red)}
+  @media (prefers-reduced-motion: no-preference){
+    .bottom-panel .bp-frac.pop{animation:prog-pop .45s ease}
+    @keyframes prog-pop{0%{transform:scale(1)}35%{transform:scale(1.35)}100%{transform:scale(1)}}
+  }
+  @media (max-width:560px){
+    .bottom-panel{gap:8px 16px;padding:12px 10px}
+    .bottom-panel .bp-label{font-size:17px}
+    .bottom-panel .bp-time{font-size:20px}
+    .bottom-panel .bp-frac{font-size:27px}
+  }
+
+
+  /* ---------- Modal ---------- */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(10,20,12,.55);z-index:50;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal{background:var(--surface);border-radius:20px;max-width:440px;width:100%;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
+  .modal h3{font-size:23px;margin-bottom:8px}
   .modal p{font-weight:700;color:var(--ink-soft);margin:0 0 18px}
   .modal .row{display:grid;gap:10px}
   .modal .btn{width:100%;margin:0}
-  .results-head{background:var(--surface);border:2px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:30px 24px;text-align:center;margin-top:18px}
-  .results-head h2{font-size:32px;margin-bottom:8px}
+
+  /* ---------- Results head ---------- */
+  .results-head{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+    padding:28px 24px;text-align:center;margin-top:18px;
+  }
+  .results-head h2{font-size:30px;margin-bottom:8px}
   .results-head p{color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
-  .score-big{font-family:"Fredoka",sans-serif;font-size:68px;font-weight:700;line-height:1;margin:14px 0 2px}
-  .score-big small{font-size:32px;color:var(--ink-soft)}
-  .score-pct{font-size:23px;font-weight:900;color:var(--green-dark)}
-  .attempt-badge{display:inline-block;margin-top:12px;background:var(--teal-soft);color:var(--teal);border:2px solid var(--teal);border-radius:999px;padding:8px 19px;font-weight:900;font-size:19px}
-  .stars{font-size:32px;letter-spacing:6px;color:var(--sun);margin:6px 0 2px}
+  /* ---------- Results ---------- */
+  .score-big{font-family:"Fredoka",sans-serif;font-size:64px;font-weight:700;line-height:1;margin:14px 0 2px}
+  .score-big small{font-size:30px;color:var(--ink-soft)}
+  .score-pct{font-size:22px;font-weight:900;color:var(--green-dark)}
+  .attempt-badge{
+    display:inline-block;margin-top:12px;background:var(--teal-soft);color:var(--teal);
+    border:2px solid var(--teal);border-radius:999px;padding:7px 18px;font-weight:900;font-size:18px;
+  }
+  .stars{font-size:30px;letter-spacing:6px;color:var(--sun);margin:6px 0 2px}
   .stars .off{color:var(--line)}
-  .friendly{font-size:21px;font-weight:800;margin-top:10px}
-  .saved-line{margin:14px 0 0;font-size:15px;font-weight:700;color:var(--ink-soft);text-align:center}
+  .friendly{font-size:20px;font-weight:800;margin-top:10px}
   .meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-  .meta-chip{background:var(--surface-2);border:1.5px solid var(--line);border-radius:999px;padding:9px 17px;font-weight:800;font-size:16px}
-  .section-scores{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
-  .section-scores .meta-chip{font-weight:900;background:var(--green-soft);border-color:var(--green);color:var(--green-dark)}
+  .meta-chip{background:var(--surface-2);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:800;font-size:15.5px}
+  .section-scores{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .section-score-chip{border-radius:999px;padding:10px 18px;font-weight:900;font-size:17.5px;line-height:1.3;border:2px solid;white-space:nowrap}
+  .section-score-chip.sec-1{background:var(--green-soft);border-color:var(--green);color:var(--green-dark)}
+  .section-score-chip.sec-2{background:var(--teal-soft);border-color:var(--teal);color:var(--teal)}
+  .section-score-chip.sec-3{background:var(--sun-soft);border-color:var(--sun);color:#7a5b00}
+  @media (prefers-color-scheme: dark){ .section-score-chip.sec-3{color:var(--sun)} }
+  @media (max-width:560px){ .section-scores{gap:8px} .section-score-chip{font-size:16px;padding:9px 14px} }
+  .saved-note{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:14px 0 0}
   .breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px}
   @media (max-width:560px){ .breakdown{grid-template-columns:1fr} }
-  .bd-card{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:17px;text-align:center;box-shadow:var(--shadow)}
-  .bd-card .bd-name{font-weight:900;font-size:16px;line-height:1.35;min-height:44px}
-  .bd-card .bd-score{font-family:"Fredoka",sans-serif;font-size:36px;font-weight:700}
-  .bd-card .bd-score small{font-size:19px;color:var(--ink-soft)}
+  .bd-card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+  .bd-card .bd-name{font-weight:900;font-size:15px;line-height:1.35;min-height:42px}
+  .bd-card .bd-score{font-family:"Fredoka",sans-serif;font-size:34px;font-weight:700}
+  .bd-card .bd-score small{font-size:18px;color:var(--ink-soft)}
   .bd-dots{display:flex;gap:6px;justify-content:center;margin-top:6px}
-  .bd-dots i{width:15px;height:15px;border-radius:50%;background:var(--line);display:block}
+  .bd-dots i{width:14px;height:14px;border-radius:50%;background:var(--line);display:block}
   .bd-dots i.on{background:var(--green)}
-  .review-title{font-size:26px;margin:34px 0 4px}
+  .review-title{font-size:25px;margin:32px 0 4px}
   .review-sub{color:var(--ink-soft);font-weight:700;margin:0 0 6px}
-  .rev-card{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:19px 21px;margin-top:12px;box-shadow:var(--shadow)}
+  .rev-card{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-top:12px;box-shadow:var(--shadow)}
   .rev-card.correct{border-color:var(--green)}
   .rev-card.wrong{border-color:var(--orange)}
   .rev-head{display:flex;gap:10px;align-items:flex-start}
-  .rev-badge{flex:0 0 auto;font-weight:900;font-size:14px;padding:6px 13px;border-radius:999px;margin-top:2px}
+  .rev-badge{flex:0 0 auto;font-weight:900;font-size:14px;padding:5px 12px;border-radius:999px;margin-top:2px}
   .rev-badge.ok{background:var(--green-soft);color:var(--green-dark)}
   .rev-badge.no{background:var(--orange-soft);color:var(--orange)}
-  .rev-q{font-size:19px;font-weight:800;line-height:1.5}
-  .rev-line{font-size:17px;margin-top:8px;line-height:1.55}
+  .rev-q{font-size:18.5px;font-weight:800;line-height:1.45}
+  .rev-line{font-size:16.5px;margin-top:8px;line-height:1.55}
   .rev-line b{font-weight:900}
-  .rev-why{background:var(--surface-2);border-radius:10px;padding:11px 15px;margin-top:10px;font-size:17px;line-height:1.55}
+  .rev-why{background:var(--surface-2);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:16px;line-height:1.55}
   .rev-why b{color:var(--teal)}
-  .answer-box{border-radius:12px;padding:12px 15px;margin-top:10px;font-size:17px;line-height:1.6}
-  .your-box{background:var(--surface-2);border:1.5px solid var(--line)}
-  .sample-box{background:var(--teal-soft)}
-  .ab-label{display:block;font-weight:900;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
-  .empty-answer{color:var(--ink-soft);font-style:italic}
-  .kp-box{background:var(--surface-2);border-radius:10px;padding:11px 15px;margin-top:10px}
-  .kp-title{display:block;font-weight:900;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
-  .kp-line{font-size:16.5px;line-height:1.55;margin-top:3px}
-  .kp-ok{color:var(--green-dark);font-weight:900}
-  .kp-miss{color:var(--orange);font-weight:900}
-  .results-actions{display:grid;gap:12px;margin-top:30px}
+  .results-actions{display:grid;gap:12px;margin-top:28px}
+  .results-actions>*{min-width:0;max-width:100%}
+  .results-actions .history,.results-actions .growth-chart{width:100%;justify-self:center}
   .results-actions .btn{width:100%;margin:0}
-  footer.note{text-align:center;color:var(--ink-soft);font-size:14px;font-weight:700;margin-top:36px}
-  @media print{ body{background:#fff} .quiz-bar,.submit-zone,.results-actions,.no-print{display:none !important} .wrap{max-width:100%} .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid} }
+  footer.note{text-align:center;color:var(--ink-soft);font-size:13.5px;font-weight:700;line-height:1.35;margin-top:14px}
+
+  @media print{
+    body{background:#fff}
+    .quiz-bar,.submit-zone,.results-actions,.bottom-panel,.no-print{display:none !important}
+    .wrap{max-width:100%}
+    .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid}
+  }
+
+  /* ---- Weekly pack: day picker + week strip ---- */
+  .pack-title{font-family:Fredoka,Nunito,sans-serif;font-size:26px;margin:2px 0 6px}
+  .pack-sub{color:var(--ink-soft);font-weight:700;line-height:1.45;margin:0 0 14px}
+  .pack-progress{font-family:Fredoka,Nunito,sans-serif;font-size:20px;font-weight:900;text-align:center;margin:0 0 14px}
+  .day-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 16px}
+  .day-card{border:2.5px solid var(--line);border-radius:16px;padding:14px 10px;background:var(--card,#fff);cursor:pointer;text-align:center;font-family:inherit}
+  .day-card .dc-weekday{display:block;font-family:Fredoka,Nunito,sans-serif;font-size:19px;font-weight:900}
+  .day-card .dc-date{display:block;color:var(--ink-soft);font-weight:800;font-size:13px;margin:3px 0 7px}
+  .day-card .dc-status{display:block;font-weight:900;font-size:14px}
+  .day-card.today{border-color:#f2b705;background:#fff8e1}
+  .day-card.done{border-color:#27a24b;background:#eafaf0}
+  .day-card:disabled{cursor:default;opacity:.6}
+  .pack-day-head{font-size:17px;font-weight:800;text-align:center;margin:0 0 10px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <section id="view-start">
+  <!-- ================= WEEKLY PACK: DAY PICKER ================= -->
+  <section id="view-days">
+    <div class="start-stack">
+      <div class="top-dash">
+        <h2 class="pack-title">🗓️ My Math Week — 7 Quizzes</h2>
+        <p class="pack-sub">Seven quizzes, in order — one quiz a day. Finish today's quiz, and the next one opens tomorrow. Miss a day? No problem — the next quiz will be waiting for you when you come back. The day you finish a quiz is the day that earns your punch. Tap a finished quiz to see your questions and result again.</p>
+        <p class="pack-progress" id="pack-progress"></p>
+        <div class="day-grid" id="day-grid"></div>
+        <span class="lexile-banner" role="note">⭐ My Quantile Level: 340Q</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= START ================= -->
+  <section id="view-start" class="hidden">
     <div class="start-stack">
     <div class="top-dash">
       <div class="attendance">
         <div class="att-head">
           <h2 class="att-title">📅 My Attendance This Week</h2>
-          <span class="att-count" id="att-count">4 / 7 days</span>
+          <span class="att-count">0 / 7 days</span>
         </div>
-        <p class="att-sub">本周出席打卡 · Mon Nov 23 – Sun Nov 29 — finish a quiz, get a punch for that day!</p>
+        <p class="att-sub">本周出席打卡 · Mon Nov 30 – Sun Dec 6 — finish a quiz, get a punch for that day!</p>
         <div class="punch-row">
-          <div class="punch-day" data-date="2026-11-23">
+          <div class="punch-day" data-date="2026-11-30">
             <span class="day-name">Mon<span class="day-zh">周一</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/23</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/30</span>
           </div>
-          <div class="punch-day" data-date="2026-11-24">
+          <div class="punch-day" data-date="2026-12-01">
             <span class="day-name">Tue<span class="day-zh">周二</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/24</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/1</span>
           </div>
-          <div class="punch-day" data-date="2026-11-25">
+          <div class="punch-day" data-date="2026-12-02">
             <span class="day-name">Wed<span class="day-zh">周三</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/25</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/2</span>
           </div>
-          <div class="punch-day today" data-date="2026-11-26">
+          <div class="punch-day" data-date="2026-12-03">
             <span class="day-name">Thu<span class="day-zh">周四</span></span>
-            <span class="punch-circle done today-ring" aria-hidden="true">✓</span>
-            <span class="day-date">11/26</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/3</span>
           </div>
-          <div class="punch-day" data-date="2026-11-27">
+          <div class="punch-day" data-date="2026-12-04">
             <span class="day-name">Fri<span class="day-zh">周五</span></span>
-            <span class="punch-circle upcoming" aria-hidden="true">·</span>
-            <span class="day-date">11/27</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/4</span>
           </div>
-          <div class="punch-day" data-date="2026-11-28">
+          <div class="punch-day" data-date="2026-12-05">
             <span class="day-name">Sat<span class="day-zh">周六</span></span>
-            <span class="punch-circle upcoming" aria-hidden="true">·</span>
-            <span class="day-date">11/28</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/5</span>
           </div>
-          <div class="punch-day" data-date="2026-11-29">
+          <div class="punch-day" data-date="2026-12-06">
             <span class="day-name">Sun<span class="day-zh">周日</span></span>
-            <span class="punch-circle upcoming" aria-hidden="true">·</span>
-            <span class="day-date">11/29</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/6</span>
           </div>
         </div>
-        <p class="att-message" id="att-message">🎉 You showed up <strong>4 times</strong> this week — great job, Eden!</p>
+        <p class="att-message">🎉 A brand-new week, Eden — finish a quiz each day to fill all 7 punches!</p>
       </div>
 
-      <div class="lexile-banner" role="note" aria-label="My Quantile Level: 340Q">⭐ My Quantile Level: 340Q</div>
+      <span class="lexile-banner" role="note">⭐ My Quantile Level: 340Q</span>
 
+      <p class="pack-day-head" id="start-day-head"></p>
       <form id="start-form">
         <div class="go-zone">
           <div class="go-checker" aria-hidden="true"></div>
@@ -391,10 +608,17 @@
             <span class="rsg-arrow">›</span>
             <span class="rsg-step rsg-go">Go! 🏁</span>
           </div>
-          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions score 0, so try to finish before the timer ends!</p>
           <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
+          <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions will score 0, so try to finish before the timer ends!</p>
         </div>
       </form>
+      <button class="btn btn-ghost" id="back-days-btn" type="button">📅 Back to this week's days</button>
+
+      <div class="how" role="list" aria-label="How the quiz works">
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">1</span><span class="how-text" style="font-weight:800">Solve and answer</span></div>
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">2</span><span class="how-text" style="font-weight:800">Writing checked for you</span></div>
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">3</span><span class="how-text" style="font-weight:800">See your score</span></div>
+      </div>
     </div>
       <div class="merged-tests">
       <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth, last 6 tests: 11/20/26 Daily Quiz 330Q (up 10Q), 11/21/26 Daily Quiz 340Q (up 10Q, gold bar — your best ever, with a crown), 11/22/26 Daily Quiz 340Q (stayed the same), 11/23/26 Daily Quiz 340Q (stayed the same), 11/24/26 Daily Quiz 340Q (stayed the same), 11/25/26 Daily Quiz 340Q (stayed the same)">
@@ -417,7 +641,7 @@
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line">330Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line">320Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
-          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Level Test</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">▲ +20Q</span></span></div>
           </div>
         </div>
@@ -427,53 +651,79 @@
     </div>
   </section>
 
+  <!-- ================= QUIZ ================= -->
   <section id="view-quiz" class="hidden">
     <div class="quiz-bar">
       <div class="quiz-bar-row">
-        <span class="student-chip" id="student-chip">Student</span>
+        <span class="student-chip" id="student-chip">Eden</span>
         <span class="timer" id="timer">20:00</span>
       </div>
       <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
       <div class="progress-label" id="progress-label">0 of 12 answered</div>
       <div class="time-warning hidden" id="time-warning" role="alert">⏰ 1 minute left! Finish your last answers — the quiz will send itself when time is up.</div>
     </div>
+
     <div id="quiz-body"></div>
+
     <div class="submit-zone">
       <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
-      <p class="submit-note">Your score will appear right away. If time runs out, your quiz will be sent with the answers you have so far.</p>
+      <p class="submit-note">Your score will appear right away — your written answers are checked automatically. If time runs out, your quiz will be sent automatically with the answers you have so far.</p>
+    </div>
+    <div class="bottom-panel" aria-label="Timer and progression">
+      <span class="bp-label">Timer:</span>
+      <span class="bp-time" id="bottom-timer">20:00</span>
+      <span class="bp-label">Done:</span>
+      <span class="bp-frac" id="bottom-prog">0 / 12</span>
+    </div>
+
+  </section>
+
+  <!-- ================= SENDING (waiting for confirmed delivery) ================= -->
+  <section id="view-sending" class="hidden">
+    <div class="results-head">
+      <span class="badge">Sending…</span>
+      <h2 style="margin-top:12px">📡 Sending your answers…</h2>
+      <p class="friendly" id="sending-text">No internet yet — your answers are saved here. This page will send them when the internet comes back.</p>
+      <p class="friendly">Please keep this page open. You do not need to do anything — it keeps trying by itself. ⏳</p>
     </div>
   </section>
 
+  <!-- ================= RESULTS ================= -->
   <section id="view-results" class="hidden">
     <div class="results-head">
       <span class="badge">Your Result</span>
-      <div class="lexile-banner lexile-banner-results" role="note" aria-label="My Quantile Level: 340Q">⭐ My Quantile Level: 340Q</div>
-      <h2 style="margin-top:12px">Great work, <span id="r-name">friend</span>!</h2>
+      <h2 style="margin-top:12px">Great work, <span id="r-name">Eden</span>!</h2>
+      <span class="lexile-banner" role="note">⭐ My Quantile Level: 340Q</span>
       <div class="stars" id="r-stars"></div>
       <div class="score-big"><span id="r-score">0</span><small> / 12</small></div>
       <div class="score-pct" id="r-pct">0%</div>
       <div><span class="attempt-badge" id="r-attempt">Attempt #1</span></div>
+      <div class="section-scores" id="r-section-scores" aria-label="Scores by section">
+        <span class="section-score-chip sec-1">Section 1: <span id="r-sec1">0 / 4</span></span>
+        <span class="section-score-chip sec-2">Section 2: <span id="r-sec2">0 / 4</span></span>
+        <span class="section-score-chip sec-3">Section 3: <span id="r-sec3">0 / 4</span></span>
+      </div>
       <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was sent automatically.</div>
       <p class="friendly" id="r-message"></p>
       <div class="meta-row">
         <span class="meta-chip">⏱ Time used: <span id="r-time">0:00</span></span>
-        <span class="meta-chip">Tap questions: <span id="r-mc">0 / 8</span></span>
-        <span class="meta-chip">Writing questions: <span id="r-wr">0 / 4</span></span>
+        <span class="meta-chip">Choice questions: <span id="r-mc">0 / 8</span></span>
+        <span class="meta-chip">Written questions: <span id="r-wr">0 / 4</span></span>
       </div>
-      <div class="section-scores" id="r-section-scores" aria-label="Scores by section">
-        <span class="meta-chip">Section 1: 0/4</span>
-        <span class="meta-chip">Section 2: 0/4</span>
-        <span class="meta-chip">Section 3: 0/4</span>
-      </div>
-      <p class="saved-line">Answers saved ✓</p>
+      <p class="saved-note">Answers saved ✓</p>
+      <button class="btn btn-primary" id="see-answers-btn" type="button" style="max-width:440px;margin:16px auto 0">See My Answers →</button>
     </div>
+
     <div class="breakdown" id="r-breakdown"></div>
-    <h3 class="review-title">Review: Tap-the-Answer Questions</h3>
+
+    <h3 class="review-title">Review: Choice Questions</h3>
     <p class="review-sub">See what you got right and learn from any mistakes.</p>
     <div id="r-mc-review"></div>
-    <h3 class="review-title">Review: Your Writing</h3>
-    <p class="review-sub">Checked for the key ideas. Your answers are shown next to the sample answers.</p>
+
+    <h3 class="review-title">Review: Your Written Answers</h3>
+    <p class="review-sub">Checked automatically for the key ideas. Your answers are shown next to the sample answers.</p>
     <div id="r-wr-review"></div>
+
     <div class="results-actions">
       <div class="merged-tests">
       <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth, last 6 tests: 11/20/26 Daily Quiz 330Q (up 10Q), 11/21/26 Daily Quiz 340Q (up 10Q, gold bar — your best ever, with a crown), 11/22/26 Daily Quiz 340Q (stayed the same), 11/23/26 Daily Quiz 340Q (stayed the same), 11/24/26 Daily Quiz 340Q (stayed the same), 11/25/26 Daily Quiz 340Q (stayed the same)">
@@ -496,24 +746,25 @@
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line">330Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line">320Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
-          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Level Test</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row improved" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell"><span class="lex-line">310Q</span><span class="delta">▲ +20Q</span></span></div>
           </div>
         </div>
         <p class="color-legend"><span class="legend-item"><span class="swatch green" aria-hidden="true"></span>Green = went up</span><span class="legend-item"><span class="swatch red" aria-hidden="true"></span>Red = went down</span><span class="legend-item"><span class="swatch gold" aria-hidden="true"></span>Gold = your best ever</span><span class="legend-item"><span class="swatch grey" aria-hidden="true"></span>Grey = stayed the same</span></p>
       </div>
       </div>
-      <button class="btn btn-ghost" id="again-btn" type="button">↻ Try Again</button>
+      <button class="btn btn-ghost" id="days-btn" type="button">📅 Back to this week's days</button>
     </div>
   </section>
 
-  <footer class="note">Grade 2 · Math Practice · 12 questions · 20 minutes</footer>
+  <footer class="note">Grade 2 · Math Weekly Pack · 7 days × 12 questions</footer>
 </div>
 
+<!-- Unanswered warning modal -->
 <div class="modal-backdrop hidden" id="warn-modal" role="dialog" aria-modal="true" aria-labelledby="warn-title">
   <div class="modal">
     <h3 id="warn-title">Some questions are empty!</h3>
-    <p id="warn-text">You haven't answered some questions yet.</p>
+    <p id="warn-text">You haven't answered some choice questions yet.</p>
     <div class="row">
       <button class="btn btn-primary" id="warn-back" type="button" style="margin-top:0">Go Back and Check</button>
       <button class="btn btn-ghost" id="warn-submit" type="button">Submit Anyway</button>
@@ -522,57 +773,85 @@
 </div>
 
 <script>
+/* Attendance "today" ring — NEVER hard-coded from this quiz's edition date.
+   At page open, today is derived from the live date in America/Los_Angeles
+   (PST): the gold ring and green day name land on the real PST day in the
+   Mon Nov 23 – Sun Nov 29 week; days still to come stay plain empty circles
+   until their day actually arrives. Same rule as Eden's quiz page. */
+(function(){
+  function pstTodayLabel(){
+    try{
+      var parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Los_Angeles", month: "numeric", day: "numeric"
+      }).formatToParts(new Date());
+      var m = "", d = "";
+      for(var i = 0; i < parts.length; i++){
+        if(parts[i].type === "month") m = parts[i].value;
+        if(parts[i].type === "day") d = parts[i].value;
+      }
+      return (m && d) ? (m + "/" + d) : null;
+    }catch(e){ return null; }
+  }
+  var label = pstTodayLabel();
+  if(!label) return;
+  var days = document.querySelectorAll(".punch-day");
+  for(var i = 0; i < days.length; i++){
+    var dateEl = days[i].querySelector(".day-date");
+    if(dateEl && dateEl.textContent.replace(/\s+/g, "") === label){
+      days[i].classList.add("today");
+      var circle = days[i].querySelector(".punch-circle");
+      if(circle) circle.classList.add("today-ring");
+    }
+  }
+})();
+</script>
+
+<script>
 (function(){
   "use strict";
-  /* ---------- November 26, 2026 math quiz (2026-11-26-math1, Cycle 1 Day 12) ----------
-     Per-submit rebuild: Eden submitted the November 25 quiz (8/12,
-     Attempt 1) \u2014 STEP 0 gate (a). 8/12 = no change, peak floor holds
-     340Q: S1 \u2248290Q, S2 \u2248340Q, S3 \u2248390Q. Attendance baked 4/7
-     \u2014 week Mon 11/23 \u2013 Sun 11/29: Mon + Tue + Wed + Thu punched (Thu = the
-     triggering Nov 25-quiz submission day, 11/26).
-     Growth: ten records before today incl. the Nov 18 Placement;
-     chart shows last 6. Points: weak revisits 2.NBT.3 + 2.MD.9 +
-     2.G.3, plus least-recently covered points. Backups B
-     and C are parallel forms, unpublished. */
-  var QUIZ_TITLE = "Grade 2 Math Quiz \u2014 November 26, 2026";
-  var QUIZ_DATE = "2026-11-26";
-var SECTIONS = [
-    { id: 1, tag: "Section 1", tagClass: "tag-1", title: "Quick Adding, Big Adding & Counting", subtitle: "Quick Adding, Column Adding, Counting On & Number Words · 4 questions", passageTitle: "Adding and Counting", paragraphs: ['Adding within 20 crosses ten: 18 + 7 = 25. Big adding stacks hundreds, tens and ones: 346 + 128 = 474.', 'Counting by tens adds ten each time: 230, 240, 250, 260. Numbers can be written in words and expanded form: 548 is five hundred forty-eight, and 500 + 40 + 8.'], chart: null, questions: [{ n:1, std:"2.OA.2", type:"mc", text:"What is 18 + 7?", options:["The answer is 25 here", "The answer is 24 here", "The answer is 26 here", "The answer is 15 here"], correct:0, why:"18 + 7 = 25." },{ n:2, std:"2.NBT.7", type:"mc", text:"What is 346 + 128?", options:["The total is 464 here", "The total is 474 here", "The total is 484 here", "The total is 374 here"], correct:1, why:"346 + 128 = 474." },{ n:3, std:"2.NBT.2", type:"mc", text:"Mia counts by tens: 230, 240, 250. What number comes next?", options:["The next number is 255", "The next number is 260", "The next number is 240", "The next number is 300"], correct:1, why:"Counting by tens after 250 comes 260." },{ n:4, std:"2.NBT.3", type:"written", text:"Write the number 548 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", part1:"Write 548 in words.", part2:"Write 548 in expanded form (hundreds + tens + ones).", sample:"In words: five hundred forty-eight. In expanded form: 500 + 40 + 8." }] },
-    { id: 2, tag: "Section 2", tagClass: "tag-2", title: "Units, Guessing Lengths, Strings & Coins", subtitle: "Two Units, Estimating, Length Stories & Coins · 4 questions", passageTitle: "Measuring and Money", paragraphs: ['The same pencil can be measured in centimetres and in inches: centimetres are smaller units, so the centimetre number is bigger. A new pencil is about 15 centimetres long.', 'A string story uses subtraction: 72 - 27 = 45 cm left. Coins add up: a quarter is 25 cents, a dime is 10 cents and a nickel is 5 cents, so 25 + 10 + 5 = 40 cents.'], chart: null, questions: [{ n:5, std:"2.MD.2", type:"mc", text:"Tom measures the same pencil in centimetres (14) and in inches (about 5). Why is the centimetre number bigger?", options:["Because centimetres are smaller units", "Because inches are smaller units here", "Because pencils change size when measured", "Because centimetres are longer units here"], correct:0, why:"Centimetres are smaller, so more of them fit the same pencil." },{ n:6, std:"2.MD.3", type:"mc", text:"About how long is a new pencil?", options:["About 15 centimetres long", "About 15 metres long here", "About 2 centimetres long", "About 2 metres long here"], correct:0, why:"A new pencil is about 15 centimetres long." },{ n:7, std:"2.MD.5", type:"written", text:"A string is 72 cm long. Ana cuts off 27 cm. How much string is left, and how did you work it out?", part1:"How much string is left?", part2:"How did you work it out? (Write the number sentence you used.)", sample:"45 cm is left. I worked it out with 72 - 27 = 45." },{ n:8, std:"2.MD.8", type:"mc", text:"Ben has 1 quarter, 1 dime and 1 nickel. How much money does Ben have?", options:["He has 40 cents in all", "He has 35 cents in all", "He has 45 cents in all", "He has 30 cents in all"], correct:0, why:"25 + 10 + 5 = 40 cents." }] },
-    { id: 3, tag: "Section 3", tagClass: "tag-3", title: "Charts, Rectangles & Fair Shares", subtitle: "Length Charts, Rectangles, Fair Shares & Story Problems · 4 questions", passageTitle: "Charts, Shapes and Stories", paragraphs: ["The chart below shows crayon lengths the class measured. To answer 'how many crayons are 7 cm or longer', add the counts for 7 cm and for every length above it.", 'A rectangle cut into 3 rows and 4 columns has 12 same-size squares. Cutting a whole into 3 EQUAL parts makes thirds, and a bird story uses subtraction: 53 - 28 = 25.'], chart: {
-        title:"Crayon Lengths We Measured",
-        sub:"How many crayons of each length",
-        max: 5,
-        unit: "crayons",
-        col1: "Length",
-        col2: "Crayons",
-        rows:[
-          { label:"5 cm", count:3, cls:"apple" },
-          { label:"6 cm", count:4, cls:"teal" },
-          { label:"7 cm", count:2, cls:"banana" },
-          { label:"8 cm", count:5, cls:"orange" }
-        ]
-      }, questions: [{ n:9, std:"2.MD.9", type:"mc", text:"Look at the chart. How many crayons are 7 cm or longer?", options:["7 crayons in total", "3 crayons in total", "9 crayons in total", "5 crayons in total"], correct:0, why:"Add the counts for 7 cm and 8 cm: 2 + 5 = 7 crayons." },{ n:10, std:"2.G.2", type:"mc", text:"A rectangle is cut into 3 rows and 4 columns of same-size squares. How many squares are there in all?", options:["12 squares in all here", "7 squares in all here", "9 squares in all here", "16 squares in all here"], correct:0, why:"3 rows of 4 squares make 3 x 4 = 12 squares." },{ n:11, std:"2.G.3", type:"written", text:"A cake is cut into 3 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole cake?", part1:"What is each equal part called?", part2:"How many of those parts make the whole cake?", sample:"Each part is called a third. It takes 3 thirds to make the whole cake." },{ n:12, std:"2.OA.1", type:"written", text:"There were 53 birds in a tree. Then 28 birds flew away. How many birds are left, and how did you work it out?", part1:"How many birds are left?", part2:"How did you work it out? (Write the number sentence you used.)", sample:"25 birds are left. I worked it out with 53 - 28 = 25." }] }
 
-  ];
+  /* ---------------- Data (exactly from the practice sheet) ---------------- */
+/* ---------- WEEKLY PACK — Cycle 1 Days 13-19, Mon Nov 30 - Sun Dec 6, 2026 ----------
+     One page, seven daily quizzes for Eden (Grade 2). Points continue
+     the Grade 2 math rotation after Day 12 (2026-11-26): Q4 is always
+     written 2.NBT.3 and Q11 always written 2.G.3 (the two 0% weak
+     points, revisited every quiz); Q7 written rotates 2.MD.5 / 2.MD.9;
+     Q12 written rotates 2.NBT.4 / 2.NBT.9 / 2.OA.1 / 2.OA.3; the eight
+     MC slots rotate the remaining points, least-recently covered
+     first. Production build: realDeliver only, no sample simulation.
+     Hidden ?test=1 backdoor and ?testDayOffset hook carried over. */
+  var PACK_DAYS = [{"paper": 1, "cycleDay": 13, "quizId": "eden-math-weeklypack-2026-11-30-p1", "title": "Grade 2 Math Quiz — Weekly Pack Paper #1", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Arrays, Place Value & Adding", "subtitle": "Arrays, Place Value, Adding & Number Words · 4 questions", "passageTitle": "Numbers and Arrays", "paragraphs": ["An array with 3 rows and 5 stars in each row has 3 × 5 = 15 stars. In 642, the digit 4 is in the tens place, so its value is 40.", "Adding stacks the ones first: 56 + 27 = 83."], "chart": null, "questions": [{"n": 1, "std": "2.OA.4", "type": "mc", "text": "An array has 3 rows with 5 stars in each row. How many stars are there in all?", "options": ["15 stars in all", "8 stars in all", "12 stars in all", "20 stars in all"], "correct": 0, "why": "3 rows of 5 is 3 × 5 = 15 stars."}, {"n": 2, "std": "2.NBT.1", "type": "mc", "text": "In the number 642, what is the value of the digit 4?", "options": ["400, because it is in the hundreds place", "4, because it is in the ones place", "40, because it is in the tens place", "4,000, because it is in the thousands place"], "correct": 2, "why": "The 4 is in the tens place, so its value is 40."}, {"n": 3, "std": "2.NBT.5", "type": "mc", "text": "What is 56 + 27?", "options": ["73 is the sum here", "83 is the sum here", "82 is the sum here", "93 is the sum here"], "correct": 1, "why": "56 + 27 = 83."}, {"n": 4, "std": "2.NBT.3", "type": "written", "text": "Write the number 375 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", "part1": "Write 375 in words.", "part2": "Write 375 in expanded form (hundreds + tens + ones).", "sample": "In words: three hundred seventy-five. In expanded form: 300 + 70 + 5."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Comparing Lengths, Stories & Time", "subtitle": "Comparing Lengths, Length Stories, Shares & Time · 4 questions", "passageTitle": "Measuring and Time", "paragraphs": ["A ribbon 48 cm long is longer than a ribbon 35 cm long, and 48 − 35 = 13, so it is 13 cm longer.", "Half past 4 is written 4:30 — the long hand points at the 6."], "chart": null, "questions": [{"n": 5, "std": "2.MD.4", "type": "mc", "text": "A red ribbon is 48 cm long. A blue ribbon is 35 cm long. How much longer is the red ribbon?", "options": ["13 cm longer", "12 cm longer", "83 cm longer", "15 cm longer"], "correct": 0, "why": "48 − 35 = 13 cm longer."}, {"n": 6, "std": "2.OA.3", "type": "mc", "text": "Is the number 16 even or odd?", "options": ["Odd — it leaves 1 left over", "Even — it makes pairs with none left over", "Odd — it ends in 6 here", "Even — it is bigger than 10"], "correct": 1, "why": "16 makes 8 pairs with none left over, so 16 is even."}, {"n": 7, "std": "2.MD.5", "type": "written", "text": "A ribbon is 84 cm long. Mia cuts off 36 cm. How much ribbon is left, and how did you work it out?", "part1": "How much is there? (Write the number and cm.)", "part2": "How did you work it out? (Write the number sentence you used.)", "sample": "48 cm of ribbon is left. I worked it out with 84 - 36 = 48."}, {"n": 8, "std": "2.MD.7", "type": "mc", "text": "What time is half past 4?", "options": ["4:15 is the time here", "5:30 is the time here", "4:30 is the time here", "3:30 is the time here"], "correct": 2, "why": "Half past 4 is 4:30."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Graphs, Shapes & Shares", "subtitle": "Picture Graphs, Shapes & Fair Shares · 4 questions", "passageTitle": "Graphs and Shapes", "paragraphs": ["The graph below shows shells the class found. Ben found 6 shells and Cat found 4 shells, so Ben found 2 more shells than Cat.", "A hexagon has 6 sides."], "chart": {"title": "Shells We Found", "sub": "How many shells each child found", "max": 6, "unit": "shells", "col1": "Child", "col2": "Shells", "rows": [{"label": "Ben", "count": 6, "value": 6, "cls": "apple"}, {"label": "Cat", "count": 4, "value": 4, "cls": "teal"}, {"label": "Dan", "count": 5, "value": 5, "cls": "banana"}]}, "questions": [{"n": 9, "std": "2.MD.10", "type": "mc", "text": "Look at the graph. How many more shells did Ben find than Cat?", "options": ["6 more shells", "2 more shells", "4 more shells", "10 more shells"], "correct": 1, "why": "Ben found 6 and Cat found 4, and 6 − 4 = 2 more shells."}, {"n": 10, "std": "2.G.1", "type": "mc", "text": "How many sides does a hexagon have?", "options": ["5 sides in all", "8 sides in all", "4 sides in all", "6 sides in all"], "correct": 3, "why": "A hexagon has 6 sides."}, {"n": 11, "std": "2.G.3", "type": "written", "text": "A pizza is cut into 4 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole pizza?", "part1": "What is each equal part called?", "part2": "How many of those parts make the whole pizza?", "sample": "Each part is called a fourth. It takes 4 fourths to make the whole pizza."}, {"n": 12, "std": "2.NBT.4", "type": "written", "text": "Which number is greater: 485 or 472? Tell which number is greater, and tell how the tens place helps you know.", "part1": "Which number is greater?", "part2": "How does the tens place help you know?", "sample": "485 is greater. The hundreds are the same, and in the tens place 8 tens is more than 7 tens."}]}], "gradeKeys": {"4": [{"found": "375 in words: three hundred seventy-five", "missing": "375 written in words (three hundred seventy-five)", "alt": [["three hundred seventy-five"]]}, {"found": "375 in expanded form: 300 + 70 + 5", "missing": "375 in expanded form (300 + 70 + 5)", "alt": [["300 + 70 + 5"]]}], "7": [{"found": "The answer: 48 cm", "missing": "the answer — 48 cm", "alt": [["48 cm"]]}, {"found": "Working: 84 - 36", "missing": "the working — 84 - 36", "alt": [["84 - 36"], ["84-36"], ["subtract"]]}], "11": [{"found": "Each part is called a fourth", "missing": "what each part is called — a fourth", "alt": [["fourth"], ["fourths"]]}, {"found": "It takes 4 parts to make the whole", "missing": "how many parts make the whole — 4", "alt": [["4 parts"], ["4"]]}], "12": [{"found": "The greater number: 485", "missing": "the greater number — 485", "alt": [["485"]]}, {"found": "Reasoning: the tens place decides it", "missing": "the tens-place reasoning", "alt": [["tens place"], ["tens"]]}]}}, {"paper": 2, "cycleDay": 14, "quizId": "eden-math-weeklypack-2026-11-30-p2", "title": "Grade 2 Math Quiz — Weekly Pack Paper #2", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Adding Four Numbers, Counting & Tools", "subtitle": "Adding, Counting On & Measuring Tools · 4 questions", "passageTitle": "Adding and Counting", "paragraphs": ["Four numbers can be added by making tens: 12 + 8 + 15 + 5 = 40, because 12 + 8 = 20 and 15 + 5 = 20.", "100 more than 356 is 456 — only the hundreds digit changes. A metre stick is the best tool for measuring a door."], "chart": null, "questions": [{"n": 1, "std": "2.NBT.6", "type": "mc", "text": "What is 12 + 8 + 15 + 5?", "options": ["30 is the total here", "40 is the total here", "35 is the total here", "45 is the total here"], "correct": 1, "why": "12 + 8 = 20 and 15 + 5 = 20, so the total is 40."}, {"n": 2, "std": "2.NBT.8", "type": "mc", "text": "What number is 100 more than 356?", "options": ["366 is the number here", "356 is the number here", "456 is the number here", "446 is the number here"], "correct": 2, "why": "100 more than 356 is 456."}, {"n": 3, "std": "2.MD.1", "type": "mc", "text": "Which tool is best for measuring how tall a door is?", "options": ["A small ruler", "A metre stick", "A paper clip", "A crayon"], "correct": 1, "why": "A metre stick is best for measuring a tall door."}, {"n": 4, "std": "2.NBT.3", "type": "written", "text": "Write the number 618 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", "part1": "Write 618 in words.", "part2": "Write 618 in expanded form (hundreds + tens + ones).", "sample": "In words: six hundred eighteen. In expanded form: 600 + 10 + 8."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Number Lines, Adding & Length Charts", "subtitle": "Number Lines, Quick Adding & Length Charts · 4 questions", "passageTitle": "Lines and Lengths", "paragraphs": ["On a number line, start at 64 and jump back 20 to land on 44. Quick adding crosses ten: 15 + 6 = 21.", "The chart below shows pencil lengths the class measured."], "chart": {"title": "Pencils Lengths We Measured", "sub": "How many pencils of each length", "max": 5, "unit": "pencils", "col1": "Length", "col2": "Pencils", "rows": [{"label": "6 cm", "count": 2, "value": 2, "cls": "apple"}, {"label": "7 cm", "count": 5, "value": 5, "cls": "teal"}, {"label": "8 cm", "count": 3, "value": 3, "cls": "banana"}, {"label": "9 cm", "count": 4, "value": 4, "cls": "orange"}]}, "questions": [{"n": 5, "std": "2.MD.6", "type": "mc", "text": "Start at 64 on a number line. Jump back 20. Where do you land?", "options": ["44 is where you land", "54 is where you land", "84 is where you land", "46 is where you land"], "correct": 0, "why": "64 − 20 = 44."}, {"n": 6, "std": "2.OA.2", "type": "mc", "text": "What is 15 + 6?", "options": ["20 is the answer here", "19 is the answer here", "21 is the answer here", "26 is the answer here"], "correct": 2, "why": "15 + 6 = 21."}, {"n": 7, "std": "2.MD.9", "type": "written", "text": "Look at the pencils chart in this section.", "part1": "How many pencils are 8 cm or longer?", "part2": "How many pencils were measured in all?", "sample": "7 pencils are 8 cm or longer. 14 pencils in all were measured."}, {"n": 8, "std": "2.NBT.2", "type": "mc", "text": "Lily counts by fives: 35, 40, 45. What number comes next?", "options": ["46 is the next number", "50 is the next number", "55 is the next number", "40 is the next number"], "correct": 1, "why": "Counting by fives after 45 comes 50."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Guessing Lengths, Rectangles & Shares", "subtitle": "Estimating, Rectangles & Fair Shares · 4 questions", "passageTitle": "Lengths and Shapes", "paragraphs": ["A new crayon is about 9 centimetres long. A rectangle cut into 2 rows and 6 columns has 12 same-size squares."], "chart": null, "questions": [{"n": 9, "std": "2.MD.3", "type": "mc", "text": "About how long is a new crayon?", "options": ["About 9 metres long", "About 90 centimetres long", "About 9 centimetres long", "About 2 centimetres long"], "correct": 2, "why": "A new crayon is about 9 centimetres long."}, {"n": 10, "std": "2.G.2", "type": "mc", "text": "A rectangle is cut into 2 rows and 6 columns of same-size squares. How many squares are there in all?", "options": ["12 squares in all here", "8 squares in all here", "16 squares in all here", "10 squares in all here"], "correct": 0, "why": "2 rows of 6 squares make 2 × 6 = 12 squares."}, {"n": 11, "std": "2.G.3", "type": "written", "text": "A cake is cut into 3 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole cake?", "part1": "What is each equal part called?", "part2": "How many of those parts make the whole cake?", "sample": "Each part is called a third. It takes 3 thirds to make the whole cake."}, {"n": 12, "std": "2.NBT.9", "type": "written", "text": "Add 47 + 35. Tell the answer, and tell the steps you used (add the tens first, then the ones).", "part1": "What is 47 + 35?", "part2": "What steps did you use? (Add the tens first, then the ones.)", "sample": "47 + 35 = 82. First I add the tens: 47 + 30 = 77. Then I add the ones: 77 + 5 = 82."}]}], "gradeKeys": {"4": [{"found": "618 in words: six hundred eighteen", "missing": "618 written in words (six hundred eighteen)", "alt": [["six hundred eighteen"]]}, {"found": "618 in expanded form: 600 + 10 + 8", "missing": "618 in expanded form (600 + 10 + 8)", "alt": [["600 + 10 + 8"]]}], "7": [{"found": "pencils that are 8 cm or longer: 7", "missing": "how many pencils are 8 cm or longer — 7", "alt": [["7"]]}, {"found": "pencils measured in all: 14", "missing": "how many pencils in all — 14", "alt": [["14"]]}], "11": [{"found": "Each part is called a third", "missing": "what each part is called — a third", "alt": [["third"], ["thirds"]]}, {"found": "It takes 3 parts to make the whole", "missing": "how many parts make the whole — 3", "alt": [["3 parts"], ["3"]]}], "12": [{"found": "The answer: 82", "missing": "the answer — 82", "alt": [["82"]]}, {"found": "Steps: 47 + 30 = 77, then 77 + 5 = 82", "missing": "the break-apart steps (tens first, then ones)", "alt": [["77"], ["47 + 30"]]}]}}, {"paper": 3, "cycleDay": 15, "quizId": "eden-math-weeklypack-2026-11-30-p3", "title": "Grade 2 Math Quiz — Weekly Pack Paper #3", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Big Adding, Coins & Two Units", "subtitle": "Column Adding, Coins, Two Units & Number Words · 4 questions", "passageTitle": "Adding and Money", "paragraphs": ["Big adding stacks hundreds, tens and ones: 258 + 136 = 394. A quarter is 25 cents and a dime is 10 cents, so together they are 35 cents.", "The same book can be measured in centimetres and in inches: inches are bigger units, so the inch number is smaller."], "chart": null, "questions": [{"n": 1, "std": "2.NBT.7", "type": "mc", "text": "What is 258 + 136?", "options": ["384 is the total here", "394 is the total here", "374 is the total here", "494 is the total here"], "correct": 1, "why": "258 + 136 = 394."}, {"n": 2, "std": "2.MD.8", "type": "mc", "text": "Sam has 1 quarter and 1 dime. How much money does Sam have?", "options": ["35 cents in all", "30 cents in all", "40 cents in all", "15 cents in all"], "correct": 0, "why": "25 + 10 = 35 cents."}, {"n": 3, "std": "2.MD.2", "type": "mc", "text": "Ana measures the same book in inches (about 8) and in centimetres (20). Why is the inch number smaller?", "options": ["Because the book got smaller", "Because inches are smaller units here", "Because inches are bigger units", "Because centimetres are bigger units here"], "correct": 2, "why": "Inches are bigger units, so fewer of them fit the same book."}, {"n": 4, "std": "2.NBT.3", "type": "written", "text": "Write the number 246 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", "part1": "Write 246 in words.", "part2": "Write 246 in expanded form (hundreds + tens + ones).", "sample": "In words: two hundred forty-six. In expanded form: 200 + 40 + 6."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Arrays, Place Value & String Stories", "subtitle": "Arrays, Place Value, String Stories & Comparing · 4 questions", "passageTitle": "Arrays and Strings", "paragraphs": ["An array with 4 rows and 4 chairs in each row has 16 chairs. In 375, the digit 7 is in the tens place, so its value is 70."], "chart": null, "questions": [{"n": 5, "std": "2.OA.4", "type": "mc", "text": "An array has 4 rows with 4 chairs in each row. How many chairs are there in all?", "options": ["8 chairs in all", "12 chairs in all", "16 chairs in all", "20 chairs in all"], "correct": 2, "why": "4 rows of 4 is 4 × 4 = 16 chairs."}, {"n": 6, "std": "2.NBT.1", "type": "mc", "text": "In the number 375, what is the value of the digit 7?", "options": ["70, because it is in the tens place", "7, because it is in the ones place", "700, because it is in the hundreds place", "17, because it is next to the 1"], "correct": 0, "why": "The 7 is in the tens place, so its value is 70."}, {"n": 7, "std": "2.MD.5", "type": "written", "text": "One string is 63 cm long and another is 28 cm long. They are put end to end. 63 + 28 How long are they together, and how did you work it out?", "part1": "How much is there? (Write the number and cm.)", "part2": "How did you work it out? (Write the number sentence you used.)", "sample": "91 cm in all. I worked it out with 63 + 28 = 91."}, {"n": 8, "std": "2.MD.4", "type": "mc", "text": "A long rope is 92 cm long. A short rope is 67 cm long. How much longer is the long rope?", "options": ["159 cm longer", "25 cm longer", "35 cm longer", "15 cm longer"], "correct": 1, "why": "92 − 67 = 25 cm longer."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Graphs, Shapes & Shares", "subtitle": "Picture Graphs, Shapes & Fair Shares · 4 questions", "passageTitle": "Graphs and Shapes", "paragraphs": ["The graph below shows books the class read. Kim read 7 books and Leo read 5 books, so Kim read 2 more books than Leo.", "A pentagon has 5 sides."], "chart": {"title": "Books We Read", "sub": "How many books each child read", "max": 7, "unit": "books", "col1": "Child", "col2": "Books", "rows": [{"label": "Kim", "count": 7, "value": 7, "cls": "apple"}, {"label": "Leo", "count": 5, "value": 5, "cls": "teal"}, {"label": "Mia", "count": 6, "value": 6, "cls": "banana"}]}, "questions": [{"n": 9, "std": "2.MD.10", "type": "mc", "text": "Look at the graph. How many more books did Kim read than Leo?", "options": ["12 more books", "5 more books", "2 more books", "7 more books"], "correct": 2, "why": "Kim read 7 and Leo read 5, and 7 − 5 = 2 more books."}, {"n": 10, "std": "2.G.1", "type": "mc", "text": "How many sides does a pentagon have?", "options": ["5 sides in all", "6 sides in all", "4 sides in all", "3 sides in all"], "correct": 0, "why": "A pentagon has 5 sides."}, {"n": 11, "std": "2.G.3", "type": "written", "text": "A sandwich is cut into 2 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole sandwich?", "part1": "What is each equal part called?", "part2": "How many of those parts make the whole sandwich?", "sample": "Each part is called a half. It takes 2 halves to make the whole sandwich."}, {"n": 12, "std": "2.OA.1", "type": "written", "text": "There were 64 apples in a box. Then 29 apples were taken out. How many apples are left, and how did you work it out?", "part1": "How many apples are left?", "part2": "How did you work it out? (Write the number sentence you used.)", "sample": "35 apples are left. I worked it out with 64 - 29 = 35."}]}], "gradeKeys": {"4": [{"found": "246 in words: two hundred forty-six", "missing": "246 written in words (two hundred forty-six)", "alt": [["two hundred forty-six"]]}, {"found": "246 in expanded form: 200 + 40 + 6", "missing": "246 in expanded form (200 + 40 + 6)", "alt": [["200 + 40 + 6"]]}], "7": [{"found": "The answer: 91 cm", "missing": "the answer — 91 cm", "alt": [["91 cm"]]}, {"found": "Working: 63 + 28", "missing": "the working — 63 + 28", "alt": [["63 + 28"], ["63+28"], ["add"]]}], "11": [{"found": "Each part is called a half", "missing": "what each part is called — a half", "alt": [["half"], ["halves"]]}, {"found": "It takes 2 parts to make the whole", "missing": "how many parts make the whole — 2", "alt": [["2 parts"], ["2"]]}], "12": [{"found": "The answer: 35 apples", "missing": "the answer — 35 apples", "alt": [["35 apples"]]}, {"found": "Working: 64 - 29", "missing": "the working — 64 - 29", "alt": [["64 - 29"], ["64-29"], ["taken out"], ["subtract"]]}]}}, {"paper": 4, "cycleDay": 16, "quizId": "eden-math-weeklypack-2026-11-30-p4", "title": "Grade 2 Math Quiz — Weekly Pack Paper #4", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Odd or Even, Adding & Subtracting", "subtitle": "Odd or Even, Adding, Subtracting & Number Words · 4 questions", "passageTitle": "Even, Odd and Adding", "paragraphs": ["23 is odd: it makes pairs and leaves 1 left over. Adding four numbers can make tens: 21 + 9 + 14 + 6 = 50.", "10 less than 475 is 465 — only the tens digit changes."], "chart": null, "questions": [{"n": 1, "std": "2.OA.3", "type": "mc", "text": "Is the number 23 even or odd?", "options": ["Even — it makes pairs with none left over", "Odd — it makes pairs and leaves 1 left over", "Even — it ends in 3 here", "Odd — it is smaller than 30"], "correct": 1, "why": "23 makes 11 pairs and leaves 1 left over, so 23 is odd."}, {"n": 2, "std": "2.NBT.6", "type": "mc", "text": "What is 21 + 9 + 14 + 6?", "options": ["40 is the total here", "60 is the total here", "50 is the total here", "45 is the total here"], "correct": 2, "why": "21 + 9 = 30 and 14 + 6 = 20, so the total is 50."}, {"n": 3, "std": "2.NBT.5", "type": "mc", "text": "What is 82 − 37?", "options": ["45 is the answer here", "55 is the answer here", "35 is the answer here", "119 is the answer here"], "correct": 0, "why": "82 − 37 = 45."}, {"n": 4, "std": "2.NBT.3", "type": "written", "text": "Write the number 834 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", "part1": "Write 834 in words.", "part2": "Write 834 in expanded form (hundreds + tens + ones).", "sample": "In words: eight hundred thirty-four. In expanded form: 800 + 30 + 4."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Time, Adding & Straw Charts", "subtitle": "Time, Quick Adding & Length Charts · 4 questions", "passageTitle": "Time and Lengths", "paragraphs": ["Quarter past 2 is written 2:15 — the long hand points at the 3. Quick adding crosses ten: 26 + 8 = 34.", "The chart below shows straw lengths the class measured."], "chart": {"title": "Straws Lengths We Measured", "sub": "How many straws of each length", "max": 6, "unit": "straws", "col1": "Length", "col2": "Straws", "rows": [{"label": "5 cm", "count": 3, "value": 3, "cls": "apple"}, {"label": "6 cm", "count": 6, "value": 6, "cls": "teal"}, {"label": "7 cm", "count": 2, "value": 2, "cls": "banana"}, {"label": "8 cm", "count": 4, "value": 4, "cls": "orange"}]}, "questions": [{"n": 5, "std": "2.MD.7", "type": "mc", "text": "What time is quarter past 2?", "options": ["2:30 is the time here", "2:15 is the time here", "3:15 is the time here", "2:45 is the time here"], "correct": 1, "why": "Quarter past 2 is 2:15."}, {"n": 6, "std": "2.OA.2", "type": "mc", "text": "What is 26 + 8?", "options": ["34 is the answer here", "24 is the answer here", "28 is the answer here", "44 is the answer here"], "correct": 0, "why": "26 + 8 = 34."}, {"n": 7, "std": "2.MD.9", "type": "written", "text": "Look at the straws chart in this section.", "part1": "How many straws are 7 cm or longer?", "part2": "How many straws were measured in all?", "sample": "6 straws are 7 cm or longer. 15 straws in all were measured."}, {"n": 8, "std": "2.NBT.2", "type": "mc", "text": "Tom counts by tens: 410, 420, 430. What number comes next?", "options": ["435 is the next number", "400 is the next number", "440 is the next number", "500 is the next number"], "correct": 2, "why": "Counting by tens after 430 comes 440."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Guessing Lengths, Rectangles & Shares", "subtitle": "Estimating, Rectangles & Fair Shares · 4 questions", "passageTitle": "Lengths and Shapes", "paragraphs": ["A classroom door is about 2 metres tall. A rectangle cut into 4 rows and 3 columns has 12 same-size squares."], "chart": null, "questions": [{"n": 9, "std": "2.MD.3", "type": "mc", "text": "About how tall is a classroom door?", "options": ["About 2 centimetres tall", "About 20 centimetres tall", "About 2 metres tall", "About 20 metres tall"], "correct": 2, "why": "A classroom door is about 2 metres tall."}, {"n": 10, "std": "2.G.2", "type": "mc", "text": "A rectangle is cut into 4 rows and 3 columns of same-size squares. How many squares are there in all?", "options": ["7 squares in all here", "12 squares in all here", "9 squares in all here", "14 squares in all here"], "correct": 1, "why": "4 rows of 3 squares make 4 × 3 = 12 squares."}, {"n": 11, "std": "2.G.3", "type": "written", "text": "A melon is cut into 3 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole melon?", "part1": "What is each equal part called?", "part2": "How many of those parts make the whole melon?", "sample": "Each part is called a third. It takes 3 thirds to make the whole melon."}, {"n": 12, "std": "2.NBT.4", "type": "written", "text": "Which number is greater: 693 or 685? Tell which number is greater, and tell how the tens place helps you know.", "part1": "Which number is greater?", "part2": "How does the tens place help you know?", "sample": "693 is greater. The hundreds are the same, and in the tens place 9 tens is more than 8 tens."}]}], "gradeKeys": {"4": [{"found": "834 in words: eight hundred thirty-four", "missing": "834 written in words (eight hundred thirty-four)", "alt": [["eight hundred thirty-four"]]}, {"found": "834 in expanded form: 800 + 30 + 4", "missing": "834 in expanded form (800 + 30 + 4)", "alt": [["800 + 30 + 4"]]}], "7": [{"found": "straws that are 7 cm or longer: 6", "missing": "how many straws are 7 cm or longer — 6", "alt": [["6"]]}, {"found": "straws measured in all: 15", "missing": "how many straws in all — 15", "alt": [["15"]]}], "11": [{"found": "Each part is called a third", "missing": "what each part is called — a third", "alt": [["third"], ["thirds"]]}, {"found": "It takes 3 parts to make the whole", "missing": "how many parts make the whole — 3", "alt": [["3 parts"], ["3"]]}], "12": [{"found": "The greater number: 693", "missing": "the greater number — 693", "alt": [["693"]]}, {"found": "Reasoning: the tens place decides it", "missing": "the tens-place reasoning", "alt": [["tens place"], ["tens"]]}]}}, {"paper": 5, "cycleDay": 17, "quizId": "eden-math-weeklypack-2026-11-30-p5", "title": "Grade 2 Math Quiz — Weekly Pack Paper #5", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Arrays, Subtracting & Coins", "subtitle": "Arrays, Subtracting, Coins & Number Words · 4 questions", "passageTitle": "Arrays and Money", "paragraphs": ["An array with 5 rows and 3 apples in each row has 5 × 3 = 15 apples. Subtracting stacks the ones first: 174 − 58 = 116.", "Two dimes and a nickel are 10 + 10 + 5 = 25 cents."], "chart": null, "questions": [{"n": 1, "std": "2.OA.4", "type": "mc", "text": "An array has 5 rows with 3 apples in each row. How many apples are there in all?", "options": ["8 apples in all", "12 apples in all", "15 apples in all", "18 apples in all"], "correct": 2, "why": "5 rows of 3 is 5 × 3 = 15 apples."}, {"n": 2, "std": "2.NBT.7", "type": "mc", "text": "What is 174 − 58?", "options": ["116 is the answer here", "106 is the answer here", "126 is the answer here", "232 is the answer here"], "correct": 0, "why": "174 − 58 = 116."}, {"n": 3, "std": "2.MD.8", "type": "mc", "text": "Nia has 2 dimes and 1 nickel. How much money does Nia have?", "options": ["15 cents in all", "25 cents in all", "30 cents in all", "20 cents in all"], "correct": 1, "why": "10 + 10 + 5 = 25 cents."}, {"n": 4, "std": "2.NBT.3", "type": "written", "text": "Write the number 591 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", "part1": "Write 591 in words.", "part2": "Write 591 in expanded form (hundreds + tens + ones).", "sample": "In words: five hundred ninety-one. In expanded form: 500 + 90 + 1."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Two Units, Graphs & Board Stories", "subtitle": "Two Units, Picture Graphs & Length Stories · 4 questions", "passageTitle": "Measuring and Graphs", "paragraphs": ["The same ribbon can be measured in centimetres and in inches: centimetres are smaller units, so the centimetre number is bigger.", "The graph in the third section shows fruit the class picked."], "chart": null, "questions": [{"n": 5, "std": "2.MD.2", "type": "mc", "text": "Eli measures the same ribbon in centimetres (18) and in inches (about 7). Why is the centimetre number bigger?", "options": ["Because centimetres are smaller units", "Because inches are smaller units here", "Because ribbons grow when measured", "Because centimetres are longer units here"], "correct": 0, "why": "Centimetres are smaller, so more of them fit the same ribbon."}, {"n": 6, "std": "2.MD.10", "type": "mc", "text": "A class picked 9 apples and 6 pears. How many more apples than pears did the class pick?", "options": ["15 more apples", "3 more apples", "6 more apples", "9 more apples"], "correct": 1, "why": "9 − 6 = 3 more apples."}, {"n": 7, "std": "2.MD.5", "type": "written", "text": "A board is 95 cm long. A piece 47 cm long is cut off. How much board is left, and how did you work it out?", "part1": "How much is there? (Write the number and cm.)", "part2": "How did you work it out? (Write the number sentence you used.)", "sample": "48 cm of board is left. I worked it out with 95 - 47 = 48."}, {"n": 8, "std": "2.G.1", "type": "mc", "text": "Which shape has exactly 4 sides and 4 corners?", "options": ["A triangle here", "A circle here", "A pentagon here", "A square here"], "correct": 3, "why": "A square has exactly 4 sides and 4 corners."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Comparing Lengths, Place Value & Shares", "subtitle": "Comparing Lengths, Place Value & Fair Shares · 4 questions", "passageTitle": "Lengths and Numbers", "paragraphs": ["A tall plant is 78 cm tall and a short plant is 54 cm tall, and 78 − 54 = 24, so the tall plant is 24 cm taller.", "In 829, the digit 2 is in the tens place, so its value is 20."], "chart": null, "questions": [{"n": 9, "std": "2.MD.4", "type": "mc", "text": "A tall plant is 78 cm tall. A short plant is 54 cm tall. How much taller is the tall plant?", "options": ["24 cm taller", "34 cm taller", "132 cm taller", "14 cm taller"], "correct": 0, "why": "78 − 54 = 24 cm taller."}, {"n": 10, "std": "2.NBT.1", "type": "mc", "text": "In the number 829, what is the value of the digit 2?", "options": ["200, because it is in the hundreds place", "2, because it is in the ones place", "20, because it is in the tens place", "820, because it is next to the 8"], "correct": 2, "why": "The 2 is in the tens place, so its value is 20."}, {"n": 11, "std": "2.G.3", "type": "written", "text": "A pie is cut into 4 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole pie?", "part1": "What is each equal part called?", "part2": "How many of those parts make the whole pie?", "sample": "Each part is called a fourth. It takes 4 fourths to make the whole pie."}, {"n": 12, "std": "2.NBT.9", "type": "written", "text": "Add 58 + 24. Tell the answer, and tell the steps you used (add the tens first, then the ones).", "part1": "What is 58 + 24?", "part2": "What steps did you use? (Add the tens first, then the ones.)", "sample": "58 + 24 = 82. First I add the tens: 58 + 20 = 78. Then I add the ones: 78 + 4 = 82."}]}], "gradeKeys": {"4": [{"found": "591 in words: five hundred ninety-one", "missing": "591 written in words (five hundred ninety-one)", "alt": [["five hundred ninety-one"]]}, {"found": "591 in expanded form: 500 + 90 + 1", "missing": "591 in expanded form (500 + 90 + 1)", "alt": [["500 + 90 + 1"]]}], "7": [{"found": "The answer: 48 cm", "missing": "the answer — 48 cm", "alt": [["48 cm"]]}, {"found": "Working: 95 - 47", "missing": "the working — 95 - 47", "alt": [["95 - 47"], ["95-47"], ["subtract"]]}], "11": [{"found": "Each part is called a fourth", "missing": "what each part is called — a fourth", "alt": [["fourth"], ["fourths"]]}, {"found": "It takes 4 parts to make the whole", "missing": "how many parts make the whole — 4", "alt": [["4 parts"], ["4"]]}], "12": [{"found": "The answer: 82", "missing": "the answer — 82", "alt": [["82"]]}, {"found": "Steps: 58 + 20 = 78, then 78 + 4 = 82", "missing": "the break-apart steps (tens first, then ones)", "alt": [["78"], ["58 + 20"]]}]}}, {"paper": 6, "cycleDay": 18, "quizId": "eden-math-weeklypack-2026-11-30-p6", "title": "Grade 2 Math Quiz — Weekly Pack Paper #6", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Story Problems, Adding & Counting", "subtitle": "Story Problems, Quick Adding, Counting & Number Words · 4 questions", "passageTitle": "Stories and Counting", "paragraphs": ["A story problem can add two groups: 38 + 25 = 63. Quick adding crosses ten: 19 + 5 = 24.", "Counting by hundreds adds one hundred each time: 200, 300, 400, 500."], "chart": null, "questions": [{"n": 1, "std": "2.OA.1", "type": "mc", "text": "There are 38 red pens and 25 blue pens. How many pens are there in all?", "options": ["53 pens in all", "63 pens in all", "58 pens in all", "73 pens in all"], "correct": 1, "why": "38 + 25 = 63 pens."}, {"n": 2, "std": "2.OA.2", "type": "mc", "text": "What is 19 + 5?", "options": ["24 is the answer here", "14 is the answer here", "29 is the answer here", "23 is the answer here"], "correct": 0, "why": "19 + 5 = 24."}, {"n": 3, "std": "2.NBT.2", "type": "mc", "text": "Max counts by hundreds: 200, 300, 400. What number comes next?", "options": ["410 is the next number", "450 is the next number", "500 is the next number", "600 is the next number"], "correct": 2, "why": "Counting by hundreds after 400 comes 500."}, {"n": 4, "std": "2.NBT.3", "type": "written", "text": "Write the number 467 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", "part1": "Write 467 in words.", "part2": "Write 467 in expanded form (hundreds + tens + ones).", "sample": "In words: four hundred sixty-seven. In expanded form: 400 + 60 + 7."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Adding Four Numbers, Tools & Leaf Charts", "subtitle": "Adding, Measuring Tools & Length Charts · 4 questions", "passageTitle": "Adding and Measuring", "paragraphs": ["Four numbers can be added by making tens: 16 + 4 + 12 + 8 = 40, because 16 + 4 = 20 and 12 + 8 = 20.", "A ruler is the best tool for measuring a book. The chart below shows leaf lengths the class measured."], "chart": {"title": "Leaves Lengths We Measured", "sub": "How many leaves of each length", "max": 6, "unit": "leaves", "col1": "Length", "col2": "Leaves", "rows": [{"label": "4 cm", "count": 4, "value": 4, "cls": "apple"}, {"label": "5 cm", "count": 3, "value": 3, "cls": "teal"}, {"label": "6 cm", "count": 6, "value": 6, "cls": "banana"}, {"label": "7 cm", "count": 2, "value": 2, "cls": "orange"}]}, "questions": [{"n": 5, "std": "2.NBT.6", "type": "mc", "text": "What is 16 + 4 + 12 + 8?", "options": ["30 is the total here", "36 is the total here", "40 is the total here", "48 is the total here"], "correct": 2, "why": "16 + 4 = 20 and 12 + 8 = 20, so the total is 40."}, {"n": 6, "std": "2.MD.1", "type": "mc", "text": "Which tool is best for measuring how long a book is?", "options": ["A metre stick", "A ruler", "A long rope", "A tall ladder"], "correct": 1, "why": "A ruler is best for measuring a book."}, {"n": 7, "std": "2.MD.9", "type": "written", "text": "Look at the leaves chart in this section.", "part1": "How many leaves are 6 cm or longer?", "part2": "How many leaves were measured in all?", "sample": "8 leaves are 6 cm or longer. 15 leaves in all were measured."}, {"n": 8, "std": "2.MD.3", "type": "mc", "text": "About how long is a new pencil?", "options": ["About 15 metres long", "About 2 centimetres long", "About 15 centimetres long", "About 2 metres long"], "correct": 2, "why": "A new pencil is about 15 centimetres long."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Rectangles, Time & Shares", "subtitle": "Rectangles, Time & Fair Shares · 4 questions", "passageTitle": "Shapes and Time", "paragraphs": ["A rectangle cut into 3 rows and 3 columns has 9 same-size squares. Half past 7 is written 7:30."], "chart": null, "questions": [{"n": 9, "std": "2.G.2", "type": "mc", "text": "A rectangle is cut into 3 rows and 3 columns of same-size squares. How many squares are there in all?", "options": ["6 squares in all here", "12 squares in all here", "9 squares in all here", "8 squares in all here"], "correct": 2, "why": "3 rows of 3 squares make 3 × 3 = 9 squares."}, {"n": 10, "std": "2.MD.7", "type": "mc", "text": "What time is half past 7?", "options": ["7:30 is the time here", "7:15 is the time here", "8:30 is the time here", "6:30 is the time here"], "correct": 0, "why": "Half past 7 is 7:30."}, {"n": 11, "std": "2.G.3", "type": "written", "text": "A orange is cut into 3 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole orange?", "part1": "What is each equal part called?", "part2": "How many of those parts make the whole orange?", "sample": "Each part is called a third. It takes 3 thirds to make the whole orange."}, {"n": 12, "std": "2.OA.3", "type": "written", "text": "Is the number 27 odd or even? Tell if 27 is odd or even, and tell how you know (think about making pairs).", "part1": "Is 27 odd or even?", "part2": "How do you know? (Think about making pairs.)", "sample": "27 is odd. It makes pairs and leaves 1 left over."}]}], "gradeKeys": {"4": [{"found": "467 in words: four hundred sixty-seven", "missing": "467 written in words (four hundred sixty-seven)", "alt": [["four hundred sixty-seven"]]}, {"found": "467 in expanded form: 400 + 60 + 7", "missing": "467 in expanded form (400 + 60 + 7)", "alt": [["400 + 60 + 7"]]}], "7": [{"found": "leaves that are 6 cm or longer: 8", "missing": "how many leaves are 6 cm or longer — 8", "alt": [["8"]]}, {"found": "leaves measured in all: 15", "missing": "how many leaves in all — 15", "alt": [["15"]]}], "11": [{"found": "Each part is called a third", "missing": "what each part is called — a third", "alt": [["third"], ["thirds"]]}, {"found": "It takes 3 parts to make the whole", "missing": "how many parts make the whole — 3", "alt": [["3 parts"], ["3"]]}], "12": [{"found": "27 is odd", "missing": "whether 27 is odd or even — odd", "alt": [["odd"]]}, {"found": "Reasoning: pairs leave 1 left over", "missing": "the pairs reasoning — pairs leave 1 left over", "alt": [["pairs", "1 left over"], ["pairs", "left over 1"], ["leave 1"]]}]}}, {"paper": 7, "cycleDay": 19, "quizId": "eden-math-weeklypack-2026-11-30-p7", "title": "Grade 2 Math Quiz — Weekly Pack Paper #7", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Counting On, Explaining & Number Lines", "subtitle": "Counting On, Explaining Adding, Number Lines & Number Words · 4 questions", "passageTitle": "Counting and Lines", "paragraphs": ["10 more than 689 is 699 — only the tens digit changes. Explaining adding uses place value: 300 + 40 + 7 = 347.", "On a number line, start at 35 and jump forward 20 to land on 55."], "chart": null, "questions": [{"n": 1, "std": "2.NBT.8", "type": "mc", "text": "What number is 10 more than 689?", "options": ["679 is the number here", "699 is the number here", "789 is the number here", "690 is the number here"], "correct": 1, "why": "10 more than 689 is 699."}, {"n": 2, "std": "2.NBT.9", "type": "mc", "text": "Which number sentence shows 347 in expanded form?", "options": ["300 + 40 + 7", "300 + 47 + 0 here", "30 + 40 + 7 here", "347 + 0 + 0 here"], "correct": 0, "why": "347 is 300 + 40 + 7 in expanded form."}, {"n": 3, "std": "2.MD.6", "type": "mc", "text": "Start at 35 on a number line. Jump forward 20. Where do you land?", "options": ["45 is where you land", "55 is where you land", "50 is where you land", "65 is where you land"], "correct": 1, "why": "35 + 20 = 55."}, {"n": 4, "std": "2.NBT.3", "type": "written", "text": "Write the number 729 in WORDS, and also in EXPANDED form (hundreds + tens + ones).", "part1": "Write 729 in words.", "part2": "Write 729 in expanded form (hundreds + tens + ones).", "sample": "In words: seven hundred twenty-nine. In expanded form: 700 + 20 + 9."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Comparing Lengths, Graphs & Strip Stories", "subtitle": "Comparing Lengths, Picture Graphs & Length Stories · 4 questions", "passageTitle": "Lengths and Graphs", "paragraphs": ["A green strip is 84 cm long and a yellow strip is 59 cm long, and 84 − 59 = 25, so the green strip is 25 cm longer.", "The graph below shows cups the class collected. Ana collected 8 cups and Ben collected 5 cups."], "chart": {"title": "Cups We Collected", "sub": "How many cups each child collected", "max": 8, "unit": "cups", "col1": "Child", "col2": "Cups", "rows": [{"label": "Ana", "count": 8, "value": 8, "cls": "apple"}, {"label": "Ben", "count": 5, "value": 5, "cls": "teal"}, {"label": "Cid", "count": 7, "value": 7, "cls": "banana"}]}, "questions": [{"n": 5, "std": "2.MD.4", "type": "mc", "text": "A green strip is 84 cm long. A yellow strip is 59 cm long. How much longer is the green strip?", "options": ["143 cm longer", "35 cm longer", "25 cm longer", "15 cm longer"], "correct": 2, "why": "84 − 59 = 25 cm longer."}, {"n": 6, "std": "2.MD.10", "type": "mc", "text": "Look at the graph. How many more cups did Ana collect than Ben?", "options": ["3 more cups", "13 more cups", "5 more cups", "8 more cups"], "correct": 0, "why": "Ana collected 8 and Ben collected 5, and 8 − 5 = 3 more cups."}, {"n": 7, "std": "2.MD.5", "type": "written", "text": "A paper strip is 76 cm long. Lena cuts off 39 cm. How much paper strip is left, and how did you work it out?", "part1": "How much is there? (Write the number and cm.)", "part2": "How did you work it out? (Write the number sentence you used.)", "sample": "37 cm of paper strip is left. I worked it out with 76 - 39 = 37."}, {"n": 8, "std": "2.OA.4", "type": "mc", "text": "An array has 2 rows with 7 dots in each row. How many dots are there in all?", "options": ["9 dots in all", "14 dots in all", "12 dots in all", "17 dots in all"], "correct": 1, "why": "2 rows of 7 is 2 × 7 = 14 dots."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Coins, Shapes & Shares", "subtitle": "Coins, Shapes & Fair Shares · 4 questions", "passageTitle": "Money and Shapes", "paragraphs": ["A quarter and two nickels are 25 + 5 + 5 = 35 cents. A triangle has 3 sides and 3 corners."], "chart": null, "questions": [{"n": 9, "std": "2.MD.8", "type": "mc", "text": "Omar has 1 quarter and 2 nickels. How much money does Omar have?", "options": ["30 cents in all", "35 cents in all", "40 cents in all", "27 cents in all"], "correct": 1, "why": "25 + 5 + 5 = 35 cents."}, {"n": 10, "std": "2.G.1", "type": "mc", "text": "How many corners does a triangle have?", "options": ["4 corners in all", "2 corners in all", "3 corners in all", "5 corners in all"], "correct": 2, "why": "A triangle has 3 corners."}, {"n": 11, "std": "2.G.3", "type": "written", "text": "A apple is cut into 2 EQUAL parts. What is EACH part called, and HOW MANY of those parts make the whole apple?", "part1": "What is each equal part called?", "part2": "How many of those parts make the whole apple?", "sample": "Each part is called a half. It takes 2 halves to make the whole apple."}, {"n": 12, "std": "2.NBT.4", "type": "written", "text": "Which number is greater: 548 or 534? Tell which number is greater, and tell how the tens place helps you know.", "part1": "Which number is greater?", "part2": "How does the tens place help you know?", "sample": "548 is greater. The hundreds are the same, and in the tens place 4 tens is more than 3 tens."}]}], "gradeKeys": {"4": [{"found": "729 in words: seven hundred twenty-nine", "missing": "729 written in words (seven hundred twenty-nine)", "alt": [["seven hundred twenty-nine"]]}, {"found": "729 in expanded form: 700 + 20 + 9", "missing": "729 in expanded form (700 + 20 + 9)", "alt": [["700 + 20 + 9"]]}], "7": [{"found": "The answer: 37 cm", "missing": "the answer — 37 cm", "alt": [["37 cm"]]}, {"found": "Working: 76 - 39", "missing": "the working — 76 - 39", "alt": [["76 - 39"], ["76-39"], ["subtract"]]}], "11": [{"found": "Each part is called a half", "missing": "what each part is called — a half", "alt": [["half"], ["halves"]]}, {"found": "It takes 2 parts to make the whole", "missing": "how many parts make the whole — 2", "alt": [["2 parts"], ["2"]]}], "12": [{"found": "The greater number: 548", "missing": "the greater number — 548", "alt": [["548"]]}, {"found": "Reasoning: the tens place decides it", "missing": "the tens-place reasoning", "alt": [["tens place"], ["tens"]]}]}}];
+  var SECTIONS = [];
+  var CURRENT_DAY = null;
 
   var ALL_MC = [], ALL_WRITTEN = [];
-  SECTIONS.forEach(function(s){ s.questions.forEach(function(q){ q.section = s.id; if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q); }); });
+  function rebuildIndex(){
+    ALL_MC = []; ALL_WRITTEN = [];
+    SECTIONS.forEach(function(s){
+      s.questions.forEach(function(q){
+        q.section = s.id;
+        if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q);
+      });
+    });
+  }
   var LETTERS = ["A","B","C","D"];
   var TOTAL_SECONDS = 20 * 60;
+  // Test hook: ?testSeconds=12 shortens the limit so expiry can be verified
+  // quickly. Normal student links have no parameter and always get 20:00.
   try {
     var _ts = parseInt(new URLSearchParams(window.location.search).get("testSeconds") || "", 10);
     if(_ts >= 5 && _ts <= 1200) TOTAL_SECONDS = _ts;
   } catch(e) {}
 
+  /* ---------------- State ---------------- */
   var studentName = "Eden";
 
   /* Test hook (Tuesday's hidden QC backdoor, Ellis Nov 18, 2026):
      opening this page with ?test=1 turns it into a test drive — the
      student name becomes "TEST", so the saved answer log is filed
      under TEST in Eden's own math folder and the watcher skips it,
-     and attempt counting + punches key off the student name, so a
-     test drive never touches Eden's real records or punches.
+     and the attempt + punch storage keys are namespaced under TEST,
+     so a test drive never touches Eden's real records or punches.
      Nothing on the page shows test mode; normal student links carry
      no parameter and behave exactly as before. */
   var TEST_MODE = false;
@@ -598,178 +877,46 @@ var SECTIONS = [
   var timerId = null;
   var submitted = false;
   var autoSubmitted = false;
-  var attemptCount = 0;
-  var answers = {};
-  var written = {};
-  var writtenParts = {};
-  var writtenGrades = {};
-  var lastResult = null;
-
-  function $(id){ return document.getElementById(id); }
-  function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
-  function fmtTime(sec){ sec = Math.max(0, Math.floor(sec)); var m = Math.floor(sec/60), s = sec % 60; return m + ":" + (s < 10 ? "0" : "") + s; }
-  function show(viewId){ ["view-start","view-quiz","view-results"].forEach(function(v){ $(v).classList.toggle("hidden", v !== viewId); }); window.scrollTo(0,0); }
+  var attemptCount = 0;  // attempts completed for THIS quiz + THIS student (incl. current)
+  var answers = {};      // qn -> option index
+  var written = {};      // qn -> text
+  var writtenGrades = {}; // qn -> { earned:bool, points:[bool,bool] } from the auto-grader
+  var writtenParts = {}; // qn -> [part1, part2] (m2d two-box format)
 
   /* ---------------- Defensive storage ----------------
      Every localStorage read/write goes through these helpers. Inside a
      sandboxed iframe host, storage access can throw or be unavailable;
      the in-memory map keeps the page (and attempt counting) working for
      the whole page session in that case. */
-  var _memStore = {};
+  var memoryStore = {};
   function storeGet(key){
     try {
-      var store = window.localStorage;
-      if(store){
-        var v = store.getItem(key);
-        if(v !== null && v !== undefined) return v;
-      }
+      var v = window.localStorage.getItem(key);
+      if(v !== null && v !== undefined) return v;
     } catch(e) {}
-    return Object.prototype.hasOwnProperty.call(_memStore, key) ? _memStore[key] : null;
+    return Object.prototype.hasOwnProperty.call(memoryStore, key) ? memoryStore[key] : null;
   }
   function storeSet(key, value){
-    var s = String(value);
-    _memStore[key] = s;
-    try {
-      var store = window.localStorage;
-      if(store) store.setItem(key, s);
-    } catch(e) {}
+    memoryStore[key] = value;
+    try { window.localStorage.setItem(key, value); } catch(e) {}
   }
 
-  function computeQuizId(){
-    var raw = "";
-    SECTIONS.forEach(function(s){
-      raw += s.title + "|" + (s.passageTitle || "") + "|";
-      (s.paragraphs || []).forEach(function(p){ raw += p + "|"; });
-      if(s.texts) s.texts.forEach(function(t){ raw += t.title + "|" + t.body + "|"; });
-      s.questions.forEach(function(q){ raw += q.n + ":" + q.text + "|"; });
-    });
-    var h1 = 5381, h2 = 52711;
-    for(var i = 0; i < raw.length; i++){ var c = raw.charCodeAt(i); h1 = ((h1 * 33) ^ c) >>> 0; h2 = ((h2 * 31) ^ c) >>> 0; }
-    return "g2-2026-11-26-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
+  function $(id){ return document.getElementById(id); }
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;");
   }
-  var QUIZ_ID = "2026-11-26-math1";
-  function normalizedStudentName(){ return String(studentName || "").trim().toLowerCase().replace(/\s+/g, " "); }
-  function attemptStorageKey(){ return "g2rq-attempts-v1:" + QUIZ_ID + ":" + normalizedStudentName(); }
-  function recordAttempt(){
-    var key = attemptStorageKey();
-    var prev = 0;
-    try { prev = parseInt(storeGet(key) || "0", 10) || 0; } catch(e) { prev = 0; }
-    var next = prev + 1;
-    storeSet(key, String(next));
-    return next;
+  function fmtTime(sec){
+    sec = Math.max(0, Math.floor(sec));
+    var m = Math.floor(sec/60), s = sec % 60;
+    return m + ":" + (s < 10 ? "0" : "") + s;
   }
-  function attemptLine(n){ n = n || attemptCount || 1; return n <= 1 ? "Attempt #1 \u2014 first try!" : "Attempt #" + n; }
-
-  /* ---------------- Attendance punch card ----------------
-     "Today" is NEVER hardcoded: it is computed at page open from the
-     current date in Los Angeles time (America/Los_Angeles \u2014 PST/PDT),
-     so the ring + "Today" label always land on the real today, even
-     when this quiz page (dated 2026-11-20) is opened a day early or
-     late. PUNCH RULE (Ellis, Nov 17, 2026): a punch belongs to the
-     CALENDAR DAY the quiz is submitted (America/Los_Angeles), NOT the
-     date written on the quiz \u2014 whenever you turn it in, that day gets
-     the punch; one punch per day, and a day already punched stays
-     punched. So finishing this quiz (manual submit or timer
-     auto-submit) punches the submission day via pstTodayKey(). The
-     punch is remembered via storeSet, keyed by that submission day,
-     so going back to the start screen keeps it punched. Days Eden
-     already earned before this page was built are baked in as "done"
-     circles in the HTML and counted by refreshAttendance on load:
-     Wednesday 11/18 is punched because he submitted the November 17
-     math quiz that day (2026-11-18 04:09 PST, 10/12), Thursday
-     11/19 is punched because he submitted the November 18 math quiz
-     that day (2026-11-19 06:50 PST, 8/12), and Friday 11/20 is
-     punched because he submitted the November 19 math quiz that day
-     (2026-11-20 05:34 PST, 9/12). The math page keeps its OWN card,
-     baked from Eden's \u6578\u5b78\u4e60\u9898 (math) logs only, with
-     its own subject-scoped punch key (g2mq-). */
-  function pstTodayKey(){
-    try {
-      var parts = new Intl.DateTimeFormat("en-US", { timeZone:"America/Los_Angeles", year:"numeric", month:"2-digit", day:"2-digit" }).formatToParts(new Date());
-      var y = "", m = "", d = "";
-      for(var i = 0; i < parts.length; i++){
-        if(parts[i].type === "year") y = parts[i].value;
-        else if(parts[i].type === "month") m = parts[i].value;
-        else if(parts[i].type === "day") d = parts[i].value;
-      }
-      if(y && m && d) return y + "-" + m + "-" + d;
-    } catch(e) {}
-    var now = new Date();
-    function pad(n){ return (n < 10 ? "0" : "") + n; }
-    return now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate());
-  }
-  function refreshAttendance(){
-    var todayKey = pstTodayKey();
-    var days = document.querySelectorAll(".punch-day");
-    var doneCount = 0, todayDone = false, quizDone = false, todayInWeek = false;
-    Array.prototype.forEach.call(days, function(day){
-      var date = day.getAttribute("data-date");
-      var circle = day.querySelector(".punch-circle");
-      if(!circle) return;
-      var isDone = circle.classList.contains("done");
-      var isToday = date === todayKey;
-      if(isDone) doneCount++;
-      if(isToday){ todayInWeek = true; todayDone = isDone; }
-      if(date === QUIZ_DATE && isDone) quizDone = true;
-      day.classList.toggle("today", isToday);
-      circle.classList.toggle("today-ring", isToday);
-      if(!isDone){
-        if(isToday){
-          circle.classList.add("empty"); circle.classList.remove("upcoming");
-          circle.textContent = "\u00B7";
-        } else if(date < todayKey){
-          circle.classList.add("empty"); circle.classList.remove("upcoming");
-          circle.textContent = "\u00B7";
-        } else {
-          circle.classList.add("upcoming"); circle.classList.remove("empty");
-          circle.textContent = "\u2022";
-        }
-      }
-    });
-    var count = $("att-count");
-    if(count) count.textContent = doneCount + " / 7 days";
-    var msg = $("att-message");
-    if(msg){
-      var timesWord = doneCount === 1 ? "time" : "times";
-      if(quizDone){
-        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 great job, Eden!";
-      } else if(todayDone){
-        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 today's punch is already yours. Great job, Eden!";
-      } else if(todayInWeek){
-        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 finish today's quiz to earn today's punch, Eden!";
-      } else {
-        msg.innerHTML = "\uD83C\uDF89 You showed up <strong>" + doneCount + " " + timesWord + "</strong> this week \u2014 great job, Eden!";
-      }
-    }
-  }
-  function punchStorageKey(){ return "g2mq-punched:" + pstTodayKey() + ":" + normalizedStudentName(); }
-  function applyPunch(){
-    var punchDay = pstTodayKey();
-    var days = document.querySelectorAll(".punch-day");
-    Array.prototype.forEach.call(days, function(day){
-      if(day.getAttribute("data-date") !== punchDay) return;
-      var circle = day.querySelector(".punch-circle");
-      if(circle){ circle.classList.remove("empty","upcoming"); circle.classList.add("done"); circle.textContent = "\u2713"; }
-    });
-    refreshAttendance();
-  }
-  function punchToday(){
-    try { storeSet(punchStorageKey(), "1"); } catch(e) {}
-    applyPunch();
-  }
-  if(storeGet(punchStorageKey()) === "1") applyPunch(); else refreshAttendance();
 
   /* ---------------- Math-growth bar chart ----------------
-     Same format as the English page: bars in EQUAL slots spanning the
-     full plot width (axis at x=56 to the right edge at x=554), last 6
-     tests, best bar gold with a crown in the middle of the bar. Eden's
-     math history has THREE daily records: 11/17/26 Daily Quiz (10/12,
-     submitted 2026-11-18 04:09 PST) rose from the 290Q starting
-     anchor to 310Q, up +20Q; 11/18/26 Daily Quiz (8/12, submitted
-     2026-11-19 06:50 PST) held 310Q, stayed the same, so its bar is
-     grey-blue; 11/19/26 Daily Quiz (9/12, submitted 2026-11-20 05:34
-     PST) rose to 320Q, up +10Q \u2014 his best ever, so the bar is gold.
-     Chart scale top is best + 250 = 570. */
+     Eden's math history (from the staged m2d page): last 6 daily
+     quizzes, 330Q up to the 340Q peak (best ever, gold). Chart
+     top = best + 250. */
   var GROWTH = [
                     { date:"11/20/26", type:"Daily Quiz", lexile:330, delta:"+10Q", kind:"up" },
     { date:"11/21/26", type:"Daily Quiz", lexile:340, delta:"+10Q", kind:"best" },
@@ -789,7 +936,7 @@ var SECTIONS = [
     if(n === 0){ var mm = document.querySelectorAll("[data-growth-chart]"); for(var z=0; z<mm.length; z++){ mm[z].innerHTML = "<p style=\"font-weight:800;font-size:17px\">🌟 This is your very first math quiz — your growth chart starts today!</p>"; } return; }
     var slotW = (PLOT_R - PLOT_L) / n;
     var barW = Math.min(134, slotW * 0.7);
-    var fills = { base:"#5b8db8", same:"#5b8db8", up:"#27a24b", down:"#d64541", best:"#f2b705" };
+    var fills = { base:"#5b8db8", up:"#27a24b", down:"#d64541", best:"#f2b705", same:"#7f97a8" };
     var out = ['<svg viewBox="0 -6 560 328" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">',
       '<g font-family="Nunito, system-ui, sans-serif">'];
     [MAXL, MAXL * 3 / 4, MAXL / 2, MAXL / 4].forEach(function(v){
@@ -808,13 +955,14 @@ var SECTIONS = [
       out.push('<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="10" fill="' + fills[d.kind] + '"' + stroke + '/>');
       out.push('<text x="' + cx.toFixed(1) + '" y="' + (y - 13).toFixed(1) + '" text-anchor="middle" font-size="21" font-weight="900" fill="var(--ink)" font-family="Fredoka, Nunito, sans-serif">' + d.lexile + 'Q</text>');
       if(d.delta){
-        var arrow = d.kind === "down" ? "\u25BC " : d.kind === "same" ? "\u2192 " : "\u25B2 ";
+        var arrow = d.same ? "→ " : (d.kind === "down" ? "▼ " : "▲ ");
+        var deltaText = d.same ? "same" : d.delta;
         var dcol = d.kind === "best" ? "#4a3500" : "#ffffff";
-        out.push('<text x="' + cx.toFixed(1) + '" y="' + (y + 29).toFixed(1) + '" text-anchor="middle" font-size="17" font-weight="900" fill="' + dcol + '">' + arrow + d.delta + '</text>');
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (y + 29).toFixed(1) + '" text-anchor="middle" font-size="17" font-weight="900" fill="' + dcol + '">' + arrow + deltaText + '</text>');
       }
       if(d.kind === "best"){
         var crownY = y + h / 2;
-        out.push('<text x="' + cx.toFixed(1) + '" y="' + (crownY + 9).toFixed(1) + '" text-anchor="middle" font-size="26" aria-hidden="true">\uD83D\uDC51</text>');
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (crownY + 9).toFixed(1) + '" text-anchor="middle" font-size="26" aria-hidden="true">👑</text>');
       }
       var dateSize = n > 4 ? 14 : 16, typeSize = n > 4 ? 12 : 13.5;
       out.push('<text x="' + cx.toFixed(1) + '" y="284" text-anchor="middle" font-size="' + dateSize + '" font-weight="900" fill="var(--ink)">' + esc(d.date) + '</text>');
@@ -825,304 +973,643 @@ var SECTIONS = [
     var mounts = document.querySelectorAll("[data-growth-chart]");
     for(var k = 0; k < mounts.length; k++){ mounts[k].innerHTML = svg; }
   }
-  renderGrowthCharts();
-
-  function buildChart(chart){
-    var bars = chart.rows.map(function(r){
-      var pct = Math.round(r.count / chart.max * 100);
-      return '<div class="bar-row"><span class="blabel">'+esc(r.label)+'</span><span class="bar-track"><span class="bar-fill '+r.cls+'" style="display:block;width:'+pct+'%"></span></span><span class="bval">'+r.count+' '+(chart.unit || "")+'</span></div>';
-    }).join("");
-    var rows = chart.rows.map(function(r){ return "<tr><td>"+esc(r.label)+"</td><td>"+r.count+"</td></tr>"; }).join("");
-    return '<div class="chart"><h4>'+esc(chart.title)+'</h4><p class="chart-sub">'+esc(chart.sub)+'</p>'+ bars + '<table class="count-table"><tr><th>'+esc(chart.col1 || "Item")+'</th><th>'+esc(chart.col2 || "Count")+'</th></tr>'+rows+'</table></div>';
+    renderGrowthCharts();
+  function show(viewId){
+    ["view-days","view-start","view-quiz","view-sending","view-results"].forEach(function(v){
+      $(v).classList.toggle("hidden", v !== viewId);
+    });
+    window.scrollTo(0,0);
   }
+
+  /* ---------------- Attempt count (Eden + quiz date) ----------------
+     This quiz is Eden's only. Keyed by the fixed name "Eden" plus this
+     quiz's date / identity — a fingerprint of its passages and questions,
+     so a different daily test (different date and content) starts fresh
+     from Attempt #1. Stored in localStorage; only a completed submission
+     increments it. */
+  function computeQuizId(){
+    var raw = "";
+    SECTIONS.forEach(function(s){
+      raw += s.title + "|" + (s.passageTitle || "") + "|";
+      (s.paragraphs || []).forEach(function(p){ raw += p + "|"; });
+      if(s.texts) s.texts.forEach(function(t){ raw += t.title + "|" + t.body + "|"; });
+      s.questions.forEach(function(q){ raw += q.n + ":" + q.text + "|"; });
+    });
+    var h1 = 5381, h2 = 52711;
+    for(var i = 0; i < raw.length; i++){
+      var c = raw.charCodeAt(i);
+      h1 = ((h1 * 33) ^ c) >>> 0;
+      h2 = ((h2 * 31) ^ c) >>> 0;
+    }
+    return "g2-pack-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
+  }
+  var QUIZ_ID = "";
+  function attemptStorageKey(){
+    return "g2rq-attempts-v1:eden:" + todayStr() + ":" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
+  }
+  function recordAttempt(){
+    var key = attemptStorageKey();
+    var prev = parseInt(storeGet(key) || "0", 10) || 0;
+    var next = prev + 1;
+    storeSet(key, String(next));
+    return next;
+  }
+  // Confirmed-delivery flow: the number a submission WILL carry is
+  // peeked when it is sent, but only committed (counted) once the
+  // delivery is confirmed twice — an unconfirmed submission must not
+  // consume the attempt.
+  function peekAttemptCount(){
+    var prev = parseInt(storeGet(attemptStorageKey()) || "0", 10) || 0;
+    return prev + 1;
+  }
+  function commitAttemptCount(n){
+    storeSet(attemptStorageKey(), String(n));
+  }
+
+  /* ---------------- Attendance punch (submission-day rule) ----------------
+     A punch belongs to the CALENDAR DAY the quiz is submitted, in
+     America/Los_Angeles — NOT the date written on the quiz. One punch
+     per day; a day already punched simply stays punched. The punch is
+     stored keyed by that submission day, and on page open any stored
+     punches for the displayed week are restored onto the card. */
+  function pstTodayKey(){
+    try{
+      var parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit"
+      }).formatToParts(new Date());
+      var y = "", m = "", d = "";
+      for(var i = 0; i < parts.length; i++){
+        if(parts[i].type === "year") y = parts[i].value;
+        if(parts[i].type === "month") m = parts[i].value;
+        if(parts[i].type === "day") d = parts[i].value;
+      }
+      return (y && m && d) ? (y + "-" + m + "-" + d) : null;
+    }catch(e){ return null; }
+  }
+  function punchStorageKey(dayKey){
+    return "g2mq-punch-v1:eden:" + dayKey + (TEST_MODE ? ":TEST" : "");
+  }
+  var PUNCH_WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  // Marks the punch-day cell for dayKey done. Returns its weekday name
+  // when it newly punches, or null when there is no such cell in the
+  // displayed week or the day is already punched.
+  function markPunchDay(dayKey){
+    var days = document.querySelectorAll(".punch-day");
+    for(var i = 0; i < days.length; i++){
+      if(days[i].getAttribute("data-date") === dayKey){
+        var circle = days[i].querySelector(".punch-circle");
+        if(circle && !circle.classList.contains("done")){
+          circle.classList.remove("upcoming", "empty");
+          circle.classList.add("done");
+          circle.textContent = "✓";
+          return PUNCH_WEEKDAYS[i] || null;
+        }
+        return null;
+      }
+    }
+    return null;
+  }
+  function refreshAttendance(punchedWeekday){
+    var doneCount = document.querySelectorAll(".punch-circle.done").length;
+    var countEl = document.querySelector(".att-count");
+    if(countEl) countEl.textContent = doneCount + " / 7 days";
+    var msgEl = document.querySelector(".att-message");
+    if(!msgEl) return;
+    if(doneCount >= 7){
+      msgEl.innerHTML = "🎉 Amazing, Eden! You filled the whole week — <strong>7 / 7 days</strong>!";
+    } else if(punchedWeekday){
+      msgEl.innerHTML = "🎉 Great job, Eden! You earned your <strong>" + esc(punchedWeekday) + " punch</strong> — " +
+        doneCount + " of 7 days this week. Let's fill the whole week!";
+    }
+  }
+  function applyPunch(){
+    var dayKey = pstTodayKey();
+    if(!dayKey) return;
+    storeSet(punchStorageKey(dayKey), "1");
+    var weekday = markPunchDay(dayKey);
+    refreshAttendance(weekday);
+  }
+  // Restore punches earned on earlier days of this displayed week.
+  (function restorePunches(){
+    var days = document.querySelectorAll(".punch-day");
+    var lastWeekday = null, changed = false;
+    for(var i = 0; i < days.length; i++){
+      var dk = days[i].getAttribute("data-date");
+      if(dk && storeGet(punchStorageKey(dk))){
+        var wd = markPunchDay(dk);
+        if(wd){ changed = true; lastWeekday = wd; }
+      }
+    }
+    if(changed) refreshAttendance(lastWeekday);
+  })();
 
   function writtenCombined(qn){
     var p = writtenParts[qn] || ["",""];
-    return (String(p[0] || "") + " " + String(p[1] || "")).trim();
+    return [p[0], p[1]].filter(function(x){ return String(x || "").trim(); }).join("\n");
   }
-  function writtenDisplay(qn){
-    var p = writtenParts[qn] || ["",""];
-    var a = String(p[0] || "").trim(), b = String(p[1] || "").trim();
-    if(!a && !b) return "";
-    return "Part 1: " + (a || "(blank)") + "\nPart 2: " + (b || "(blank)");
+  function writtenDisplay(qn){ return writtenCombined(qn); }
+  function syncWritten(qn){ written[qn] = writtenCombined(qn); }
+  function writtenDone(q){
+    var p = writtenParts[q.n] || ["",""];
+    return String(p[0] || "").trim().length > 0 && String(p[1] || "").trim().length > 0;
   }
-  function syncWritten(qn){
-    written[qn] = writtenCombined(qn);
+
+  /* ---------------- Build quiz ---------------- */
+  function buildChart(chart){
+    var max = 0;
+    chart.rows.forEach(function(r){ if(r.value > max) max = r.value; });
+    if(max <= 0) max = 1;
+    var bars = chart.rows.map(function(r){
+      var pct = Math.round(r.value / max * 100);
+      return '<div class="bar-row"><span class="blabel">'+esc(r.label)+'</span>'+
+        '<span class="bar-track"><span class="bar-fill '+r.cls+'" style="display:block;width:'+pct+'%"></span></span>'+
+        '<span class="bval">'+r.value+'</span></div>';
+    }).join("");
+    var rows = chart.rows.map(function(r){
+      return "<tr><td>"+esc(r.label)+"</td><td>"+r.value+"</td></tr>";
+    }).join("");
+    return '<div class="chart"><h4>'+esc(chart.title)+'</h4><p class="chart-sub">'+esc(chart.sub)+'</p>'+
+      bars +
+      '<table class="temp-table"><tr><th>'+esc(chart.col1 || "Item")+'</th><th>'+esc(chart.col2 || "Count")+'</th></tr>'+rows+'</table></div>';
+  }
+
+  function buildSimpleTable(tbl){
+    var rows = tbl.rows.map(function(r){
+      return "<tr><td>"+esc(r.label)+"</td><td>"+r.value+"</td></tr>";
+    }).join("");
+    return '<div class="chart"><h4>'+esc(tbl.title)+'</h4>'+
+      '<table class="temp-table"><tr><th>'+esc(tbl.col1 || "Item")+'</th><th>'+esc(tbl.col2 || "Count")+'</th></tr>'+rows+'</table></div>';
   }
 
   function buildQuiz(){
     var html = "";
     SECTIONS.forEach(function(s){
-      html += '<div class="section-head"><span class="section-tag '+s.tagClass+'">'+esc(s.tag)+' \u00B7 Questions '+ s.questions[0].n + '\u2013' + s.questions[s.questions.length-1].n + '</span><h2>'+esc(s.title)+'</h2><p>'+esc(s.subtitle)+'</p></div>';
+      html += '<div class="section-head"><span class="section-tag '+s.tagClass+'">'+esc(s.tag)+' · Questions '+
+        s.questions[0].n + '–' + s.questions[s.questions.length-1].n + '</span>'+
+        '<h2>'+esc(s.title)+'</h2><p>'+esc(s.subtitle)+'</p></div>';
+
       html += '<div class="passage">';
       if(s.passageTitle) html += '<h3>'+esc(s.passageTitle)+'</h3>';
-      if(s.paragraphs){ s.paragraphs.forEach(function(p){ if(p.indexOf("## ") === 0){ html += '<h4 class="passage-subhead">'+esc(p.slice(3))+'</h4>'; return; } var t = esc(p).replace(/^(\[\d\])/, '<span class="pnum">$1</span>'); html += '<p>'+t+'</p>'; }); }
-      if(s.texts){ s.texts.forEach(function(t){ html += '<div class="passage-label">'+esc(t.label)+' \u2014 '+esc(t.title)+'</div><p>'+esc(t.body)+'</p>'; }); }
+      if(s.paragraphs){
+        s.paragraphs.forEach(function(p){
+          var t = esc(p).replace(/^(\[\d\])/, '<span class="pnum">$1</span>');
+          t = t.replace(/\n/g, "<br>");
+          if(p.charAt(0) === "[") t = "<em>" + t + "</em>";
+          t = t.replace(/^([A-Z][A-Z ]{2,}:)/, "<b>$1</b>");
+          html += '<p>'+t+'</p>';
+        });
+      }
+      if(s.texts){
+        s.texts.forEach(function(t){
+          html += '<div class="passage-label">'+esc(t.label)+' — '+esc(t.title)+'</div><p>'+esc(t.body)+'</p>';
+        });
+      }
       if(s.chart) html += buildChart(s.chart);
+      if(s.table) html += buildSimpleTable(s.table);
       html += '</div>';
+
       s.questions.forEach(function(q){
         html += '<div class="qcard" id="qcard-'+q.n+'">';
-        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div><div class="q-text">'+esc(q.text)+'</div><div class="q-type">'+(q.type === "mc" ? "Tap one answer" : "Write your answer \u00B7 two parts")+'</div></div></div>';
+        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div>'+
+          '<div class="q-text">'+esc(q.text)+'</div>'+
+          '<div class="q-type">'+(q.type === "mc" ? "Choose one answer" : "Write your answer · 1–2 sentences")+'</div>'+
+          '</div></div>';
         if(q.type === "mc"){
           html += '<div class="options" role="radiogroup" aria-label="Question '+q.n+'">';
-          q.options.forEach(function(opt, i){ html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'"><span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>'; });
+          q.options.forEach(function(opt, i){
+            html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'">'+
+              '<span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>';
+          });
           html += '</div>';
         } else {
-          html += '<div class="part-label"><span class="part-chip">Part 1</span><span>'+esc(q.part1)+'</span></div>';
-          html += '<textarea class="part-box" id="ta-'+q.n+'-1" placeholder="Write Part 1 here\u2026" aria-label="Question '+q.n+' part 1 answer"></textarea>';
-          html += '<div class="part-label"><span class="part-chip">Part 2</span><span>'+esc(q.part2)+'</span></div>';
-          html += '<textarea class="part-box" id="ta-'+q.n+'-2" placeholder="Write Part 2 here\u2026" aria-label="Question '+q.n+' part 2 answer"></textarea>';
-          html += '<div class="q-hint">This question has TWO parts \u2014 write an answer in BOTH boxes. Your writing will be checked when you finish.</div>';
+          [1, 2].forEach(function(pi){
+            var label = pi === 1 ? (q.part1 || "Part 1") : (q.part2 || "Part 2");
+            html += '<div class="part-label"><span class="part-chip">Part ' + pi + '</span><span>' + esc(label) + '</span></div>' +
+              '<textarea class="part-box" id="ta-' + q.n + '-' + pi + '" placeholder="Write your answer here…" aria-label="Question ' + q.n + ' part ' + pi + '"></textarea>';
+          });
+          html += '<div class="q-hint">Write your answer in the two boxes. This answer will be checked automatically when you submit.</div>';
         }
         html += '</div>';
       });
     });
     $("quiz-body").innerHTML = html;
+
+    // wire events
     ALL_MC.forEach(function(q){
       var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
-      Array.prototype.forEach.call(radios, function(r){ r.addEventListener("change", function(){ answers[q.n] = parseInt(r.value, 10); updateProgress(); }); });
+      Array.prototype.forEach.call(radios, function(r){
+        r.addEventListener("change", function(){
+          answers[q.n] = parseInt(r.value, 10);
+          saveDraft();
+          updateProgress();
+        });
+      });
     });
     ALL_WRITTEN.forEach(function(q){
-      writtenParts[q.n] = ["",""];
-      [1,2].forEach(function(pi){
-        var ta = $("ta-"+q.n+"-"+pi);
-        if(ta) ta.addEventListener("input", function(e){ writtenParts[q.n][pi-1] = e.target.value; syncWritten(q.n); updateProgress(); });
+      writtenParts[q.n] = writtenParts[q.n] || ["",""];
+      [1, 2].forEach(function(pi){
+        var ta = $("ta-" + q.n + "-" + pi);
+        if(ta) ta.addEventListener("input", function(e){
+          writtenParts[q.n][pi - 1] = e.target.value;
+          syncWritten(q.n);
+          saveDraft();
+          updateProgress();
+        });
       });
     });
   }
 
-  function writtenDone(q){
-    var p = writtenParts[q.n] || ["",""];
-    return String(p[0] || "").trim().length > 0 && String(p[1] || "").trim().length > 0;
+  function answeredCount(){
+    var c = 0;
+    ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; });
+    ALL_WRITTEN.forEach(function(q){ if(writtenDone(q)) c++; });
+    return c;
   }
-  function answeredCount(){ var c = 0; ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; }); ALL_WRITTEN.forEach(function(q){ if(writtenDone(q)) c++; }); return c; }
+  var lastProgCount = 0;
   function updateProgress(){
     var c = answeredCount();
     $("progress-fill").style.width = (c/12*100) + "%";
-    $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " \u2014 nice, you answered everything!" : "");
+    $("progress-label").textContent = c + " of 12 answered" + (c === 12 ? " — nice, you answered everything!" : "");
+    var bp = $("bottom-prog");
+    if(bp){
+      bp.textContent = c + " / 12";
+      if(c !== lastProgCount){
+        bp.classList.remove("pop");
+        void bp.offsetWidth;
+        bp.classList.add("pop");
+      }
+    }
+    lastProgCount = c;
     ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
       var done = q.type === "mc" ? (typeof answers[q.n] === "number") : writtenDone(q);
-      var card = $("qcard-"+q.n); if(card) card.classList.toggle("answered", done);
+      var card = $("qcard-"+q.n);
+      if(card) card.classList.toggle("answered", done);
     });
   }
 
-  function startTimer(){
-    startStamp = Date.now(); submitted = false; autoSubmitted = false;
-    var w = $("time-warning"); if(w) w.classList.add("hidden");
-    var t0 = $("timer"); if(t0){ t0.classList.remove("low","critical"); }
-    updateTimer(); timerId = setInterval(updateTimer, 250);
+  /* ---------------- Timer (hard 20-minute limit) ---------------- */
+  function startTimer(resumeStamp){
+    if(timerId){ clearInterval(timerId); timerId = null; }
+    // A resumed draft keeps its ORIGINAL start stamp: the clock runs
+    // from when this paper was first started, never from the reopen.
+    startStamp = (typeof resumeStamp === "number" && resumeStamp > 0) ? resumeStamp : Date.now();
+    submitted = false;
+    autoSubmitted = false;
+    var w = $("time-warning");
+    if(w) w.classList.add("hidden");
+    var t0 = $("timer");
+    if(t0){ t0.classList.remove("low","critical","done"); }
+    var bt0 = $("bottom-timer");
+    if(bt0){ bt0.classList.remove("low","critical"); bt0.textContent = fmtTime(TOTAL_SECONDS); }
+    updateTimer();
+    timerId = setInterval(updateTimer, 250);
   }
-  function elapsedSeconds(){ if(!startStamp) return 0; return (Date.now() - startStamp) / 1000; }
+  function elapsedSeconds(){
+    if(!startStamp) return 0;
+    return (Date.now() - startStamp) / 1000;
+  }
   function updateTimer(){
     if(submitted) return;
-    var el = elapsedSeconds(); var left = TOTAL_SECONDS - el; var t = $("timer");
+    var el = elapsedSeconds();
+    var left = TOTAL_SECONDS - el;
+    var t = $("timer");
+    var bt = $("bottom-timer");
     if(left > 0){
-      t.textContent = "\u23F1 " + fmtTime(Math.ceil(left));
+      t.textContent = "⏱ " + fmtTime(Math.ceil(left));
       var inLastMinute = left <= 60;
       t.classList.toggle("critical", inLastMinute);
       t.classList.toggle("low", !inLastMinute && left <= 120);
-      if(inLastMinute){ var w = $("time-warning"); if(w) w.classList.remove("hidden"); }
+      t.classList.remove("done");
+      if(bt){
+        bt.textContent = fmtTime(Math.ceil(left));
+        bt.classList.toggle("critical", inLastMinute);
+        bt.classList.toggle("low", !inLastMinute && left <= 120);
+      }
+      if(inLastMinute){
+        var w = $("time-warning");
+        if(w) w.classList.remove("hidden");
+      }
     } else {
-      t.textContent = "\u23F1 0:00"; t.classList.add("critical"); t.classList.remove("low"); autoSubmit();
+      t.textContent = "⏱ 0:00";
+      t.classList.add("critical");
+      t.classList.remove("low","done");
+      if(bt){ bt.textContent = "0:00"; bt.classList.add("critical"); bt.classList.remove("low"); }
+      autoSubmit();
     }
   }
-  function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
+  function stopTimer(){
+    if(timerId){ clearInterval(timerId); timerId = null; }
+  }
   function syncWrittenFromDom(){
     ALL_WRITTEN.forEach(function(q){
       var p = writtenParts[q.n] || ["",""];
-      var t1 = $("ta-" + q.n + "-1"); if(t1) p[0] = t1.value;
-      var t2 = $("ta-" + q.n + "-2"); if(t2) p[1] = t2.value;
+      [1, 2].forEach(function(pi){
+        var ta = $("ta-" + q.n + "-" + pi);
+        if(ta) p[pi - 1] = ta.value;
+      });
       writtenParts[q.n] = p;
       syncWritten(q.n);
     });
   }
-  function autoSubmit(){ if(submitted) return; var wm = $("warn-modal"); if(wm) wm.classList.add("hidden"); goToResults(true); }
+  function autoSubmit(){
+    if(submitted) return;
+    // No unanswered-warning modal on auto-submit — there is no time to confirm.
+    var wm = $("warn-modal");
+    if(wm) wm.classList.add("hidden");
+    goToResults(true);
+  }
 
+  /* ---------------- In-progress draft (Ellis, Nov 26, 2026) ----------------
+     While a paper is being answered, every answer is saved to a local
+     draft together with the paper's ORIGINAL start stamp. Refreshing
+     or closing the page and reopening the same paper restores the
+     answers and keeps the SAME clock: remaining time = the limit
+     minus the time already used — the timer never restarts. If the
+     time has already run out when the paper is reopened, the restored
+     answers are auto-submitted at once (through the confirmed-send
+     flow below). The draft is cleared only when a submission is
+     confirmed delivered. */
+  function draftKey(){
+    return "g2mq-pack-draft-v1:eden:" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
+  }
+  function saveDraft(){
+    if(!CURRENT_DAY || submitted) return;
+    var d = { quizId: QUIZ_ID, startStamp: startStamp || Date.now(),
+              answers: answers, written: written, writtenParts: writtenParts };
+    try { storeSet(draftKey(), JSON.stringify(d)); } catch(e) {}
+  }
+  function loadDraft(){
+    if(!CURRENT_DAY) return null;
+    try {
+      var raw = storeGet(draftKey());
+      if(!raw) return null;
+      var d = JSON.parse(raw);
+      if(!d || d.quizId !== QUIZ_ID) return null;
+      return d;
+    } catch(e) { return null; }
+  }
+  function clearDraft(){
+    try { storeSet(draftKey(), ""); } catch(e) {}
+    try { window.localStorage.removeItem(draftKey()); } catch(e) {}
+    try { delete memoryStore[draftKey()]; } catch(e) {}
+  }
+  function applyDraftToDom(){
+    ALL_MC.forEach(function(q){
+      var v = answers[q.n];
+      if(typeof v !== "number") return;
+      var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
+      Array.prototype.forEach.call(radios, function(r){
+        if(parseInt(r.value, 10) === v) r.checked = true;
+      });
+    });
+    ALL_WRITTEN.forEach(function(q){
+      var p = writtenParts[q.n] || ["",""];
+      [1, 2].forEach(function(pi){
+        var ta = $("ta-" + q.n + "-" + pi);
+        if(ta) ta.value = p[pi - 1] || "";
+      });
+    });
+  }
+
+  /* ---------------- Start ---------------- */
   $("start-form").addEventListener("submit", function(e){
     e.preventDefault();
     studentName = TEST_MODE ? "TEST" : "Eden";
-    $("student-chip").textContent = "\uD83D\uDC64 " + studentName;
-    buildQuiz(); updateProgress(); show("view-quiz"); startTimer();
+    $("student-chip").textContent = "👤 " + studentName;
+    var draft = loadDraft();
+    buildQuiz();
+    var resumeStamp = null;
+    if(draft){
+      var restoredAnswers = {};
+      Object.keys(draft.answers || {}).forEach(function(k){
+        restoredAnswers[parseInt(k, 10)] = draft.answers[k];
+      });
+      answers = restoredAnswers;
+      written = draft.written || {};
+      writtenParts = draft.writtenParts || {};
+      ALL_WRITTEN.forEach(function(q){ if(!writtenParts[q.n] && written[q.n]) writtenParts[q.n] = [written[q.n], ""]; syncWritten(q.n); });
+      applyDraftToDom();
+      if(typeof draft.startStamp === "number" && draft.startStamp > 0) resumeStamp = draft.startStamp;
+    }
+    if(draft && draft.pending && draft.pending.payload){
+      // This sitting was already submitted before the page was closed
+      // or refreshed, but the delivery was never confirmed. Go back to
+      // the sending view and keep delivering the SAME payload (same
+      // submissionId) — the submission counts once, under its original
+      // id, however many times the page comes and goes.
+      gradeAllWritten();
+      pendingSubmission = { payload: draft.pending.payload, attempt: draft.pending.attempt || peekAttemptCount() };
+      attemptCount = pendingSubmission.attempt;
+      submitted = true;
+      show("view-sending");
+      attemptDelivery();
+      return;
+    }
+    updateProgress();
+    show("view-quiz");
+    startTimer(resumeStamp);
+    if(!draft) saveDraft();  // stamp the start time from the first open
+    // Reopened after the time already ran out: send the restored
+    // answers right away, through the confirmed-send flow.
+    if(resumeStamp && elapsedSeconds() >= TOTAL_SECONDS) autoSubmit();
   });
 
+  /* ---------------- Submit flow ---------------- */
   $("submit-btn").addEventListener("click", function(){
     if(submitted) return;
     syncWrittenFromDom();
     var missing = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; });
     if(missing.length > 0){
       var nums = missing.map(function(q){ return "Q" + q.n; }).join(", ");
-      $("warn-text").textContent = "You haven't answered " + nums + " yet. Empty questions score 0 points.";
-      $("warn-modal").classList.remove("hidden"); return;
+      $("warn-text").textContent = "You haven't answered " + nums + " yet. Unanswered questions score 0 points.";
+      $("warn-modal").classList.remove("hidden");
+      return;
     }
-    goToResults(false);
+    goToResults();
   });
   $("warn-back").addEventListener("click", function(){
     $("warn-modal").classList.add("hidden");
     var first = ALL_MC.filter(function(q){ return typeof answers[q.n] !== "number"; })[0];
-    if(first){ var card = $("qcard-"+first.n); if(card) card.scrollIntoView({behavior:"smooth", block:"center"}); }
+    if(first){
+      var card = $("qcard-"+first.n);
+      if(card) card.scrollIntoView({behavior:"smooth", block:"center"});
+    }
   });
-  $("warn-submit").addEventListener("click", function(){ $("warn-modal").classList.add("hidden"); goToResults(false); });
+  $("warn-submit").addEventListener("click", function(){
+    $("warn-modal").classList.add("hidden");
+    goToResults(false);
+  });
 
-  function passageTextForSection(sec){
-    var parts = [];
-    if(!sec) return "";
-    if(sec.passageTitle) parts.push(sec.passageTitle);
-    if(sec.paragraphs && sec.paragraphs.length){
-      sec.paragraphs.forEach(function(p){ parts.push(String(p)); });
-    }
-    if(sec.texts && sec.texts.length){
-      sec.texts.forEach(function(t){ parts.push(t.label + " \u2014 " + t.title + "\n" + t.body); });
-    }
-    if(sec.chart){
-      var c = sec.chart;
-      var chartLines = [];
-      chartLines.push("Chart: " + c.title + " (" + c.sub + ")");
-      (c.rows || []).forEach(function(r){ chartLines.push(r.label + ": " + r.count + " " + (c.unit || "")); });
-      parts.push(chartLines.join("\n"));
-    }
-    return parts.join("\n");
-  }
-  function buildAnswerLog(totalScore){
-    var lines = [];
-    lines.push("Grade 2 Math Quiz \u2014 Answer Log");
-    lines.push("Student: " + studentName);
-    lines.push("Quiz: " + QUIZ_TITLE);
-    lines.push("Date: " + QUIZ_DATE);
-    lines.push("Attempt: " + attemptCount);
-    lines.push("Score: " + totalScore + "/12");
-    lines.push("Time used: " + fmtTime(elapsedAtSubmit) + (autoSubmitted ? " (auto-submitted \u2014 time ran out)" : ""));
-    lines.push("Per-section scores:");
-    SECTIONS.forEach(function(s){
-      var label = "Section " + s.id + " \u2014 " + s.title + (s.passageTitle ? " (" + s.passageTitle + ")" : "");
-      lines.push("  " + label + ": " + sectionScore(s.id) + "/" + s.questions.length);
-    });
-    var mcScore = 0, wrScore = 0;
-    ALL_MC.forEach(function(q){ if(answers[q.n] === q.correct) mcScore++; });
-    ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
-    lines.push("Tap-the-answer questions: " + mcScore + "/8");
-    lines.push("Writing questions: " + wrScore + "/4");
-    lines.push("");
-    lines.push("====================");
-    lines.push("");
-    var ordered = [];
-    SECTIONS.forEach(function(s){ s.questions.forEach(function(q){ ordered.push(q); }); });
-    ordered.sort(function(a, b){ return a.n - b.n; });
-    ordered.forEach(function(q){
-      var sec = SECTIONS[q.section - 1];
-      lines.push("Q" + q.n + " (Section " + q.section + " \u2014 " + (sec ? sec.title : "") + ")");
-      var pText = passageTextForSection(sec);
-      if(pText){
-        lines.push("Passage:");
-        lines.push(pText);
-      }
-      lines.push("Question: " + q.text);
-      if(q.std) lines.push("Standard: " + q.std);
-      if(q.type === "mc"){
-        var correctText = LETTERS[q.correct] + ". " + q.options[q.correct];
-        lines.push("Correct answer: " + correctText);
-        var mine = answers[q.n];
-        if(typeof mine === "number"){
-          lines.push("Student's answer: " + LETTERS[mine] + ". " + q.options[mine]);
-        } else {
-          lines.push("Student's answer: No answer");
-        }
-        var isRight = mine === q.correct;
-        lines.push("Result: " + (isRight ? "Correct \u2713" : "Wrong \u2717"));
-      } else {
-        lines.push("Correct answer (sample answer): " + q.sample);
-        var keys = (typeof GRADE_KEYS !== "undefined" && GRADE_KEYS[q.n]) ? GRADE_KEYS[q.n] : [];
-        if(keys && keys.length){
-          lines.push("Key points:");
-          keys.forEach(function(k, i){ lines.push("  " + (i + 1) + ". " + k.found); });
-        }
-        var disp = writtenDisplay(q.n);
-        lines.push("Student's answer: " + (disp ? disp : "No answer"));
-        var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
-        lines.push("Result: " + (g.earned ? "Correct \u2713" : "Wrong \u2717"));
-        if(keys && keys.length){
-          keys.forEach(function(k, i){
-            if(g.points && g.points[i]) lines.push("  Key point found: " + k.found);
-            else lines.push("  Key point missing: " + k.missing);
-          });
-        }
-      }
-      lines.push("");
-    });
-    return lines.join("\n");
-  }
-  var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
-  function postLog(payload){
-    var body = "";
-    try { body = JSON.stringify(payload); } catch(e) { return; }
-    try {
-      if(navigator && navigator.sendBeacon){
-        var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
-        if(navigator.sendBeacon(RECEIVER_URL, blob)) return;
-      }
-    } catch(e) {}
-    try {
-      fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body });
-    } catch(e) {}
-  }
-  function saveAnswerLog(totalScore){
-    var logText = "";
-    try { logText = buildAnswerLog(totalScore); } catch(e) { logText = ""; }
-    var payload = { folder: "Eden", subfolder: "數學习题", student: studentName, test: QUIZ_TITLE, date: QUIZ_DATE, attempt: attemptCount, score: totalScore + "/12", log: logText };
-    try { postLog(payload); } catch (e) {}
-  }
+  /* ---------------- Submit: confirmed delivery, DOUBLE VERIFY ----------------
+     (Ellis, Nov 26, 2026) Sending is not submitting. A submission
+     counts ONLY when the receiver has confirmed it TWICE:
+       step 1 — the receiver answers the POST with { ok:true, id };
+       step 2 — the page asks the receiver to read that record id
+                back, and the receiver confirms it exists.
+     Until both pass, the page stays on the sending/waiting view: no
+     results page, the paper is NOT consumed, no punch. The page
+     retries by itself (a timer, plus the browser's "online" event) —
+     the child does nothing. Only after both confirmations does the
+     submission settle: attempt counted, punch for the day, pack
+     progress stored, draft cleared, results shown. */
+  var pendingSubmission = null;   // { payload, attempt }
+  var deliveryBusy = false;
+  var deliveryRetryTimer = null;
+
   function goToResults(isAuto){
     if(submitted) return;
-    submitted = true; autoSubmitted = !!isAuto;
-    attemptCount = recordAttempt();
+    // One paper, one record: if this paper already has a CONFIRMED
+    // result (settled from another tab or an earlier instance), a
+    // stale open copy must not file a second record for the same
+    // sitting — show the stored result instead. TEST drives are
+    // exempt: re-driving the same paper is the QC workflow, and TEST
+    // logs never reach the formal record.
+    if(!TEST_MODE && CURRENT_DAY && getDayResult(CURRENT_DAY)){
+      openReview(PACK_DAYS.indexOf(CURRENT_DAY));
+      return;
+    }
+    submitted = true;
+    autoSubmitted = !!isAuto;
     syncWrittenFromDom();
+    // Auto-submit always reports the full limit (20:00 for real quizzes).
     elapsedAtSubmit = autoSubmitted ? TOTAL_SECONDS : Math.min(elapsedSeconds(), TOTAL_SECONDS);
-    stopTimer(); gradeAllWritten(); buildResults(); show("view-results");
-    punchToday();
-    try { saveAnswerLog(lastResult ? lastResult.total : 0); } catch(e) {}
+    stopTimer();
+    gradeAllWritten();
+    var prior = loadDraft();
+    if(prior && prior.pending && prior.pending.payload){
+      // A submission for this sitting was already sent (another tab,
+      // or an earlier page instance) and is still unconfirmed: deliver
+      // THAT payload — same submissionId — never build a second one.
+      pendingSubmission = { payload: prior.pending.payload, attempt: prior.pending.attempt || peekAttemptCount() };
+      attemptCount = pendingSubmission.attempt;
+    } else {
+      attemptCount = peekAttemptCount();
+      pendingSubmission = { payload: buildLogPayload(), attempt: attemptCount };
+      persistPendingSubmission();
+    }
+    show("view-sending");
+    attemptDelivery();
+  }
+
+  /* The moment a submission is built, its payload (with its
+     submissionId) is written into the local draft. If the page is
+     closed or refreshed while the submission is still unconfirmed,
+     reopening resumes delivery of THIS SAME payload: the receiver
+     answers duplicate for the repeated id and files nothing new, so
+     one sitting can never become two records. */
+  function persistPendingSubmission(){
+    if(!pendingSubmission) return;
+    try {
+      var d = loadDraft() || { quizId: QUIZ_ID, startStamp: startStamp || Date.now(), answers: answers, written: written, writtenParts: writtenParts };
+      d.pending = { payload: pendingSubmission.payload, attempt: pendingSubmission.attempt };
+      storeSet(draftKey(), JSON.stringify(d));
+    } catch(e) {}
+  }
+  function attemptDelivery(){
+    if(!pendingSubmission || deliveryBusy) return;
+    deliveryBusy = true;
+    deliverLogConfirmed(pendingSubmission.payload).then(function(ok){
+      deliveryBusy = false;
+      if(!pendingSubmission) return;
+      if(ok) finishSubmission();
+      else scheduleDeliveryRetry();
+    });
+  }
+  function scheduleDeliveryRetry(){
+    if(deliveryRetryTimer) return;
+    deliveryRetryTimer = setTimeout(function(){
+      deliveryRetryTimer = null;
+      attemptDelivery();
+    }, 3000);
+  }
+  try {
+    window.addEventListener("online", function(){
+      if(!pendingSubmission) return;
+      if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+      attemptDelivery();
+    });
+  } catch(e) {}
+  function finishSubmission(){
+    if(!pendingSubmission) return;
+    var payload = pendingSubmission.payload;
+    var attempt = pendingSubmission.attempt;
+    pendingSubmission = null;
+    if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+    // Confirmed twice — NOW this submission counts.
+    commitAttemptCount(attempt);
+    attemptCount = attempt;
+    // Punch the SUBMISSION day (today in America/Los_Angeles), not the
+    // date written on this quiz — see the attendance punch section.
+    applyPunch();
+    buildResults();
+    storeDayResult();
+    if(SAMPLE_PACK) keepLogOnDevice(payload);
+    clearDraft();
+    show("view-results");
   }
 
   /* ---------------- Auto-grading: written answers ----------------
-     Each written question earns its 1 point only when BOTH key points
-     are found across the two part-boxes combined. Matching is tolerant:
-     text is lower-cased, punctuation is ignored, and generous synonym /
-     word-stem lists count (Grade 2 paraphrasing and small spelling
-     differences are fine). An alternative is a group of stems that must
-     ALL appear; a point is found when ANY of its groups matches. */
-  function normalizeAnswer(str){ return String(str == null ? "" : str).toLowerCase().replace(/[’‘]/g, "'").replace(/'/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim(); }
-  function altMatches(norm, alt){ for(var i = 0; i < alt.length; i++){ if(norm.indexOf(normalizeAnswer(alt[i])) === -1) return false; } return true; }
-  function pointFound(norm, alternatives){ for(var i = 0; i < alternatives.length; i++){ if(altMatches(norm, alternatives[i])) return true; } return false; }
-var GRADE_KEYS = {
-    4: [
-      { found: "548 in words: five hundred forty-eight", missing: "548 written in words (five hundred forty-eight)", alt: [["five hundred forty-eight"],["five hundred forty eight"]] },
-      { found: "548 in expanded form: 500 + 40 + 8", missing: "548 in expanded form (500 + 40 + 8)", alt: [["500 + 40 + 8"],["500+40+8"]] }
-    ],
-    7: [
-      { found: "The answer: 45 cm", missing: "the answer \u2014 45 cm", alt: [["45 cm"]] },
-      { found: "Working: 72 - 27", missing: "the working \u2014 72 - 27", alt: [['72 - 27'], ['72-27'], ['cut off'], ['subtract']] }
-    ],
-    11: [
-      { found: "Each part is called a third", missing: "what each part is called \u2014 a third", alt: [['third'], ['thirds']] },
-      { found: "It takes 3 parts to make the whole", missing: "how many parts make the whole \u2014 3", alt: [["3 parts"],["3"]] }
-    ],
-    12: [
-      { found: "The answer: 25 birds", missing: "the answer \u2014 25 birds", alt: [["25 birds"]] },
-      { found: "Working: 53 - 28", missing: "the working \u2014 53 - 28", alt: [['53 - 28'], ['53-28'], ['flew away'], ['subtract']] }
-    ]
+     Static, in-browser grading. Each written question earns its 1 point
+     only when BOTH key points are found. Matching is tolerant: text is
+     lower-cased, punctuation is ignored, and word stems / synonyms /
+     paraphrases count (e.g. "water" matches "watering", "smil" matches
+     "smiled"). An alternative is a group of stems that must ALL appear;
+     a point is found when ANY of its alternative groups matches. */
+  /* GRADE-CORE-START */
+  function normalizeAnswer(str){
+    return String(str == null ? "" : str)
+      .toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/'/g, "")
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+  function altMatches(norm, alt){
+    for(var i = 0; i < alt.length; i++){
+      if(norm.indexOf(normalizeAnswer(alt[i])) === -1) return false;
+    }
+    return true;
+  }
+  function pointFound(norm, alternatives){
+    for(var i = 0; i < alternatives.length; i++){
+      if(altMatches(norm, alternatives[i])) return true;
+    }
+    return false;
+  }
+  function crossAlt(a, b){
+    var out = [];
+    for(var i = 0; i < a.length; i++){
+      for(var j = 0; j < b.length; j++){ out.push([a[i], b[j]]); }
+    }
+    return out;
+  }
+var GRADE_KEYS = {};
 
-  };
   function gradeWrittenAnswer(qn, rawText){
     var keys = GRADE_KEYS[qn];
     var norm = normalizeAnswer(rawText);
     var words = norm ? norm.split(" ").length : 0;
     var points = keys.map(function(k){ return pointFound(norm, k.alt); });
+    // Empty or far too short answers cannot earn the point.
     var earned = words >= 2 && points.length === 2 && points[0] && points[1];
     return { earned: earned, points: points };
   }
-  function gradeAllWritten(){ writtenGrades = {}; ALL_WRITTEN.forEach(function(q){ writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || ""); }); }
+  /* GRADE-CORE-END */
+  function gradeAllWritten(){
+    writtenGrades = {};
+    ALL_WRITTEN.forEach(function(q){
+      writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || "");
+    });
+  }
 
+  /* ---------------- Results ---------------- */
   function sectionScore(secId){
     var sec = SECTIONS[secId - 1], pts = 0;
-    sec.questions.forEach(function(q){ if(q.type === "mc"){ if(answers[q.n] === q.correct) pts++; } else if(writtenGrades[q.n] && writtenGrades[q.n].earned) pts++; });
+    sec.questions.forEach(function(q){
+      if(q.type === "mc"){ if(answers[q.n] === q.correct) pts++; }
+      else if(writtenGrades[q.n] && writtenGrades[q.n].earned) pts++;
+    });
     return pts;
   }
 
@@ -1133,69 +1620,467 @@ var GRADE_KEYS = {
     var total = mcScore + wrScore;
     var pct = Math.round(total / 12 * 100);
     lastResult = { total: total, pct: pct, mcScore: mcScore, wrScore: wrScore, attempt: attemptCount };
+
     $("r-name").textContent = studentName;
-    $("r-attempt").textContent = attemptLine(attemptCount);
-    var autoNote = $("r-auto-note"); if(autoNote) autoNote.classList.toggle("hidden", !autoSubmitted);
+    $("r-attempt").textContent = "Attempt #" + attemptCount + (attemptCount === 1 ? " — first try!" : "");
+    var autoNote = $("r-auto-note");
+    if(autoNote) autoNote.classList.toggle("hidden", !autoSubmitted);
     $("r-score").textContent = total;
     $("r-pct").textContent = pct + "% correct";
     $("r-time").textContent = fmtTime(elapsedAtSubmit);
     $("r-mc").textContent = mcScore + " / 8";
     $("r-wr").textContent = wrScore + " / 4";
-    var secScoresEl = $("r-section-scores");
-    if(secScoresEl){
-      var s1 = sectionScore(1), s2 = sectionScore(2), s3 = sectionScore(3);
-      secScoresEl.innerHTML = '<span class="meta-chip">Section 1: ' + s1 + '/4</span><span class="meta-chip">Section 2: ' + s2 + '/4</span><span class="meta-chip">Section 3: ' + s3 + '/4</span>';
-    }
-    var filled = total >= 11 ? 5 : total >= 9 ? 4 : total >= 6 ? 3 : total >= 4 ? 2 : 1;
+    $("r-sec1").textContent = sectionScore(1) + " / 4";
+    $("r-sec2").textContent = sectionScore(2) + " / 4";
+    $("r-sec3").textContent = sectionScore(3) + " / 4";
+
+    var filled = total >= 11 ? 5 : total >= 9 ? 4 : total >= 6 ? 3 : total >= 3 ? 2 : 1;
     var stars = "";
-    for(var i = 0; i < 5; i++) stars += i < filled ? "\u2605" : '<span class="off">\u2605</span>';
+    for(var i = 0; i < 5; i++) stars += i < filled ? "★" : '<span class="off">★</span>';
     $("r-stars").innerHTML = stars;
+
     var msg;
-    if(total === 12) msg = "Perfect score! You are a math superstar! \uD83C\uDF1F";
-    else if(total >= 10) msg = "Excellent work! You worked very carefully. \uD83C\uDF89";
-    else if(total >= 6) msg = "Good job! Keep practising and you'll get even better. \uD83D\uDCAA";
-    else if(total >= 4) msg = "Nice try! Look at the review below, then try again \u2014 you can do it! \uD83C\uDF31";
-    else msg = "Good effort finishing the quiz! Look at the review below and try again. \uD83C\uDF31";
+    if(total === 12) msg = "You got 12 of 12. Great work on this math quiz.";
+    else if(total >= 9) msg = "You got " + total + " of 12. Great work on this math quiz.";
+    else if(total >= 6) msg = "You got " + total + " of 12. See your answers below.";
+    else if(total >= 3) msg = "You got " + total + " of 12. See your answers below.";
+    else msg = "You got " + total + " of 12. See your answers below.";
     $("r-message").textContent = msg;
+
+    // breakdown
     var bd = "";
     SECTIONS.forEach(function(s){
-      var pts = sectionScore(s.id); var totalQ = s.questions.length; var dots = "";
-      for(var i = 0; i < totalQ; i++) dots += '<i class="'+(i < pts ? "on" : "")+'"></i>';
-      bd += '<div class="bd-card"><div class="bd-name">Section '+s.id+': '+pts+'/'+totalQ+'<br>'+esc(s.title)+'</div><div class="bd-score">'+pts+'<small> / '+totalQ+'</small></div><div class="bd-dots">'+dots+'</div></div>';
+      var pts = sectionScore(s.id);
+      var dots = "";
+      for(var i = 0; i < 4; i++) dots += '<i class="'+(i < pts ? "on" : "")+'"></i>';
+      bd += '<div class="bd-card"><div class="bd-name">Section '+s.id+'<br>'+esc(s.title)+'</div>'+
+        '<div class="bd-score">'+pts+'<small> / 4</small></div><div class="bd-dots">'+dots+'</div></div>';
     });
     $("r-breakdown").innerHTML = bd;
+
+    // MC review
     var rev = "";
     ALL_MC.forEach(function(q){
-      var sec = SECTIONS[q.section - 1]; var mine = answers[q.n]; var isRight = mine === q.correct;
-      rev += '<div class="rev-card '+(isRight ? "correct" : "wrong")+'"><div class="rev-head"><span class="rev-badge '+(isRight ? "ok" : "no")+'">'+(isRight ? "\u2713 Correct" : "\u2717 Not quite")+'</span><span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div><div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
-      if(!isRight){ rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>'; }
+      var sec = SECTIONS[q.section - 1];
+      var mine = answers[q.n];
+      var isRight = mine === q.correct;
+      rev += '<div class="rev-card '+(isRight ? "correct" : "wrong")+'">'+
+        '<div class="rev-head"><span class="rev-badge '+(isRight ? "ok" : "no")+'">'+(isRight ? "✓ Correct" : "✗ Not quite")+'</span>'+
+        '<span class="rev-q">['+q.std+'] Q'+q.n+'. '+esc(q.text)+'</span></div>'+
+        '<div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
+      if(!isRight){
+        rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>';
+      }
       rev += '<div class="rev-why"><b>Why:</b> ' + esc(q.why) + ' <span style="color:var(--ink-soft);font-weight:700">(' + esc(sec.title) + ')</span></div></div>';
     });
     $("r-mc-review").innerHTML = rev;
+
+    // Written review (auto-graded)
     var wr = "";
     ALL_WRITTEN.forEach(function(q){
-      var disp = writtenDisplay(q.n);
+      var mine = (written[q.n] || "").trim();
       var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
       var keys = GRADE_KEYS[q.n];
-      wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'"><div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "\u2713 Correct" : "\u2717 Not quite")+'</span><span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div><div class="answer-box your-box"><span class="ab-label">Your answer</span>'+ (disp ? esc(disp).replace(/\n/g, "<br>") : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div><div class="kp-box"><span class="kp-title">Key points</span>';
+      wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'">'+
+        '<div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "✓ Correct" : "✗ Not quite")+'</span>'+
+        '<span class="rev-q">['+q.std+'] Q'+q.n+'. '+esc(q.text)+'</span></div>'+
+        '<div class="answer-box your-box"><span class="ab-label">Your answer</span>'+
+          (mine ? esc(mine) : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div>'+
+        '<div class="kp-box"><span class="kp-title">Key points</span>';
       keys.forEach(function(k, i){
-        if(g.points[i]){ wr += '<div class="kp-line"><span class="kp-ok">\u2713 Found:</span> ' + esc(k.found) + '</div>'; }
-        else { wr += '<div class="kp-line"><span class="kp-miss">\u2717 Missing:</span> ' + esc(k.missing) + '</div>'; }
+        if(g.points[i]){
+          wr += '<div class="kp-line"><span class="kp-ok">✓ Found:</span> ' + esc(k.found) + '</div>';
+        } else {
+          wr += '<div class="kp-line"><span class="kp-miss">✗ Missing:</span> ' + esc(k.missing) + '</div>';
+        }
       });
-      wr += '</div><div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div></div>';
+      wr += '</div>'+
+        '<div class="answer-box sample-box"><span class="ab-label">Sample answer</span>'+esc(q.sample)+'</div></div>';
     });
     $("r-wr-review").innerHTML = wr;
   }
 
-  $("again-btn").addEventListener("click", function(){
-    answers = {}; written = {}; writtenParts = {}; writtenGrades = {}; submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
-    stopTimer();
-    var w = $("time-warning"); if(w) w.classList.add("hidden");
-    var an = $("r-auto-note"); if(an) an.classList.add("hidden");
-    var tm = $("timer"); if(tm){ tm.textContent = "\u23F1 " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical"); }
-    studentName = TEST_MODE ? "TEST" : "Eden";
-    show("view-start");
+  var lastResult = null;
+
+  /* ---------------- Automatic answer saving ----------------
+     On finish (manual submit AND timer auto-submit both funnel through
+     goToResults), the full answer log is built as a payload and sent
+     through the DOUBLE-VERIFY delivery below: the submission counts
+     only after the receiver confirms it twice. */
+  function todayStr(){
+    return pstTodayKey() || "";
+  }
+  function sectionPassageText(sec){
+    var parts = [];
+    if(sec.passageTitle) parts.push(sec.passageTitle);
+    if(sec.paragraphs) sec.paragraphs.forEach(function(p){ parts.push(p); });
+    if(sec.texts) sec.texts.forEach(function(t){
+      parts.push(t.label + " — " + t.title + "\n" + t.body);
+    });
+    if(sec.chart){
+      var lines = [sec.chart.title + " (" + sec.chart.sub + ")"];
+      sec.chart.rows.forEach(function(r){ lines.push(r.label + ": " + r.value); });
+      parts.push(lines.join("\n"));
+    }
+    if(sec.table){
+      var tlines = [sec.table.title];
+      sec.table.rows.forEach(function(r){ tlines.push(r.label + ": " + r.value); });
+      parts.push(tlines.join("\n"));
+    }
+    return parts.join("\n");
+  }
+  function buildAnswerLog(total, sentAt){
+    var lines = [];
+    lines.push(document.title);
+    lines.push("Student: " + studentName);
+    lines.push("Date: " + todayStr());
+    lines.push("Sent: " + (sentAt || ""));
+    lines.push("Attempt: " + attemptCount);
+    lines.push("Score: " + total + "/12");
+    lines.push("Time used: " + fmtTime(elapsedAtSubmit));
+    var secParts = SECTIONS.map(function(s){
+      return "Section " + s.id + " (" + s.title + "): " + sectionScore(s.id) + "/4";
+    });
+    lines.push("Section scores: " + secParts.join(" · "));
+
+    SECTIONS.forEach(function(sec){
+      var passage = sectionPassageText(sec);
+      sec.questions.forEach(function(q){
+        lines.push("");
+        lines.push("----------------------------------------");
+        lines.push("Question " + q.n + " — Section " + sec.id + ": " + sec.title);
+        if(passage) lines.push("Passage:\n" + passage);
+        lines.push("Question: " + q.text);
+        if(q.type === "mc"){
+          var mine = answers[q.n];
+          lines.push("Correct answer: " + LETTERS[q.correct] + ". " + q.options[q.correct]);
+          lines.push("Student's answer: " + (typeof mine === "number" ? LETTERS[mine] + ". " + q.options[mine] : "No answer"));
+          lines.push("Result: " + (mine === q.correct ? "✓ Correct" : "✗ Wrong"));
+        } else {
+          var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
+          var keys = GRADE_KEYS[q.n] || [];
+          var raw = written[q.n] || "";
+          lines.push("Sample answer: " + q.sample);
+          lines.push("Key points: " + keys.map(function(k){ return k.found; }).join(" | "));
+          lines.push("Student's answer: " + (raw.trim() ? raw : "No answer"));
+          lines.push("Result: " + (g.earned ? "✓ Correct" : "✗ Not quite"));
+          keys.forEach(function(k, i){
+            if(g.points[i]) lines.push("  ✓ Found: " + k.found);
+            else lines.push("  ✗ Missing: " + k.missing);
+          });
+        }
+      });
+    });
+    return lines.join("\n");
+  }
+  function buildPdfText(total){
+    var lines = [];
+    lines.push(document.title);
+    lines.push("Student: " + studentName);
+    lines.push("Date: " + todayStr());
+    lines.push("Score: " + total + "/12");
+    var anyRedo = false;
+    SECTIONS.forEach(function(sec){
+      var redoQs = sec.questions.filter(function(q){
+        if(q.type === "mc") return answers[q.n] !== q.correct;
+        var g = writtenGrades[q.n] || { earned:false };
+        return !g.earned;
+      });
+      if(redoQs.length === 0) return;
+      anyRedo = true;
+      lines.push("");
+      lines.push("----------------------------------------");
+      var passage = sectionPassageText(sec);
+      if(passage) lines.push(passage);
+      redoQs.forEach(function(q){
+        lines.push("");
+        lines.push("Question " + q.n + ": " + q.text);
+        if(q.type === "mc"){
+          q.options.forEach(function(opt, i){
+            lines.push(LETTERS[i] + ". " + opt);
+          });
+          lines.push("Your answer: ____");
+        } else {
+          lines.push("Your answer: ____");
+          lines.push("");
+          lines.push("____");
+          lines.push("");
+          lines.push("____");
+        }
+      });
+    });
+    if(!anyRedo){
+      lines.push("");
+      lines.push("All correct — perfect score! Nothing to redo.");
+    }
+    return lines.join("\n");
+  }
+  var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+  function computeTotal(){
+    var t = 0;
+    ALL_MC.forEach(function(q){ if(answers[q.n] === q.correct) t++; });
+    ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) t++; });
+    return t;
+  }
+  function makeSubmissionId(){
+    var rand = "";
+    try { rand = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2); }
+    catch(e) { rand = String(Date.now()); }
+    return "eden:" + QUIZ_ID + ":a" + attemptCount + ":" + rand;
+  }
+  function buildLogPayload(){
+    var total = computeTotal();
+    var sentAt = new Date().toISOString();
+    return {
+      folder: "Eden",
+      subfolder: "數學习题",
+      student: studentName,
+      test: document.title,
+      date: todayStr(),
+      attempt: attemptCount,
+      score: total + "/12",
+      submissionId: makeSubmissionId(),
+      sentAt: sentAt,
+      log: buildAnswerLog(total, sentAt)
+    };
+  }
+  function keepLogOnDevice(payload){
+    // SAMPLE BUILD only: the simulated receiver "kept" this log —
+    // mirror the payload on-device for inspection, as the old
+    // SAMPLE_PACK branch did. Production builds never call this.
+    try { window.__lastLogPayload = payload; } catch(e) {}
+    try { storeSet("g2mq-pack-lastlog:" + QUIZ_ID + (TEST_MODE ? ":TEST" : ""), JSON.stringify(payload)); } catch(e) {}
+  }
+
+  /* ---------------- Double-verify delivery ----------------
+     deliverLogConfirmed(payload) resolves true ONLY when both
+     confirmations pass:
+       step 1 — POST the log; the receiver answers JSON { ok, id }.
+       step 2 — GET ?action=verify&id=<id>; the receiver answers
+                { ok, exists:true } for that exact record.
+     SAMPLE_PACK builds simulate the receiver on-device (this sample
+     NEVER contacts the real receiver). Simulation modes:
+       ?testSend=ok   (TEST mode) both steps succeed — the default;
+       ?testSend=fail step 1 fails (offline / no answer at all);
+       ?testSend=half step 1 succeeds with an id, step 2 read-back
+                      reports the record missing.
+     window.__setSampleSendMode("ok"|"fail"|"half") flips the mode
+     live, so a test can start "offline" and recover without reload.
+     Each simulated delivery also records window.__lastDelivery =
+     { step1Ok, id, step2Ok } for test inspection.
+     PRODUCTION NOTE: step 1 must read the response, so the POST is
+     sent with fetch mode "cors" (the old fire-and-forget no-cors /
+     sendBeacon path can never confirm anything). The receiver needs
+     a matching doGet route: ?action=verify&id=<fileId> answering
+     ContentService JSON { ok:true, exists:<bool> } — see the 1.1.0
+     draft, Part 2. */
+  var sampleSendMode = "ok";
+  try {
+    if(TEST_MODE){
+      var _sm = new URLSearchParams(window.location.search).get("testSend");
+      if(_sm === "fail" || _sm === "half" || _sm === "ok") sampleSendMode = _sm;
+    }
+  } catch(e) {}
+  try {
+    window.__setSampleSendMode = function(m){
+      if(m === "ok" || m === "fail" || m === "half") sampleSendMode = m;
+    };
+  } catch(e) {}
+  function deliverLogConfirmed(payload){
+    if(SAMPLE_PACK) return sampleDeliver(payload);
+    return realDeliver(payload);
+  }
+  function sampleDeliver(payload){
+    return new Promise(function(resolve){
+      setTimeout(function(){
+        var rec = { step1Ok: false, id: null, step2Ok: false };
+        if(sampleSendMode !== "fail"){
+          rec.step1Ok = true;
+          rec.id = "sample-rec-" + payload.attempt + "-" + Date.now();
+          rec.step2Ok = (sampleSendMode === "ok");
+        }
+        try { window.__lastDelivery = rec; } catch(e) {}
+        resolve(rec.step1Ok && rec.step2Ok);
+      }, 250);
+    });
+  }
+  function realDeliver(payload){
+    return postToReceiver(payload).then(function(res){
+      if(!res || !res.ok || !res.id) return false;
+      return verifyWithReceiver(res.id);
+    });
+  }
+  function postToReceiver(payload){
+    return new Promise(function(resolve){
+      var body = "";
+      try { body = JSON.stringify(payload); } catch(e) { resolve(null); return; }
+      fetchJson(RECEIVER_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body }, resolve);
+    });
+  }
+  function verifyWithReceiver(id){
+    return new Promise(function(resolve){
+      var url = RECEIVER_URL + "?action=verify&id=" + encodeURIComponent(id);
+      fetchJson(url, { method: "GET" }, function(json){
+        resolve(!!(json && json.ok && json.exists));
+      });
+    });
+  }
+  function fetchJson(url, opts, cb){
+    var done = false;
+    var timer = setTimeout(function(){ if(!done){ done = true; cb(null); } }, 12000);
+    function finish(json){ if(done) return; done = true; clearTimeout(timer); cb(json); }
+    try {
+      if(typeof fetch !== "function"){ finish(null); return; }
+      opts.mode = "cors";
+      fetch(url, opts).then(function(resp){ return resp.text(); }).then(function(text){
+        var json = null;
+        try { json = JSON.parse(text); } catch(e) {}
+        finish(json);
+      }).catch(function(){ finish(null); });
+    } catch(e) { finish(null); }
+  }
+  /* ================= WEEKLY PACK (SAMPLE) =================
+     SEQUENCE + ONE PER DAY (Ellis, Nov 26, 2026): the seven papers
+     are ordered Paper #1..#7 and are NOT tied to fixed calendar
+     dates, but there are TWO locks: (1) sequence — a paper opens
+     only after the previous paper has been submitted, no skipping;
+     (2) one per day — after a paper is submitted, the next paper
+     stays locked until the NEXT America/Los_Angeles day (today's LA
+     date must be later than the previous paper's submission LA
+     date, stored as submitDay in its result record). Missing a day
+     never hurts: whenever the student comes back, the next paper is
+     open as long as it was not submitted on that same LA day. A
+     finished paper re-opens read-only (its questions + result).
+     The punch follows the standing rule unchanged: whichever LA day
+     the submission happens on gets that day's punch (see applyPunch
+     / pstTodayKey) — one paper a day means at most one punch a day.
+     The picker head shows progress "n / 7"; which days were worked
+     is shown by the ordinary attendance card on the start screen,
+     not by a strip here.
+     ?test=1 is the hidden TEST backdoor; ?testSeconds as on the
+     daily page; ?testDayOffset=N (TEST only) shifts the pack gate's
+     "today" by N days so the one-per-day lock can be test-driven.
+     SAMPLE_PACK keeps finished logs on-device (see keepLogOnDevice) —
+     this sample never posts to the receiver. */
+  var SAMPLE_PACK = false;
+  $("days-btn").addEventListener("click", function(){ stopTimer(); renderPicker(); show("view-days"); });
+  var sab = $("see-answers-btn");
+  if(sab) sab.addEventListener("click", function(){
+    var t = document.querySelector(".review-title");
+    if(t && t.scrollIntoView) t.scrollIntoView({ behavior: "smooth", block: "start" });
   });
+  $("back-days-btn").addEventListener("click", function(){ renderPicker(); show("view-days"); });
+
+  function resultKey(day){ return "g2mq-pack-result-v1:eden:" + day.quizId + (TEST_MODE ? ":TEST" : ""); }
+  function getDayResult(day){
+    try { var raw = storeGet(resultKey(day)); return raw ? JSON.parse(raw) : null; } catch(e){ return null; }
+  }
+  function storeDayResult(){
+    if(!CURRENT_DAY || !lastResult) return;
+    var rec = { score: lastResult.total, answers: answers, written: written, writtenParts: writtenParts,
+                timeUsed: elapsedAtSubmit, attempt: attemptCount, auto: autoSubmitted,
+                submitDay: packTodayKey() };
+    try { storeSet(resultKey(CURRENT_DAY), JSON.stringify(rec)); } catch(e) {}
+  }
+  /* The pack gate's "today" (LA date, YYYY-MM-DD). In TEST mode the
+     ?testDayOffset=N query parameter shifts it by N days so the
+     one-per-day lock can be test-driven without waiting for midnight;
+     production always uses the real LA date. Date keys compare
+     correctly as strings. */
+  function packTodayKey(){
+    var base = pstTodayKey();
+    if(!base) return null;
+    var off = 0;
+    if(TEST_MODE){
+      try { off = parseInt(new URLSearchParams(window.location.search).get("testDayOffset") || "0", 10) || 0; } catch(e){}
+    }
+    if(!off) return base;
+    var p = base.split("-");
+    var dt = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]) + off * 86400000);
+    function pad(n){ return (n < 10 ? "0" : "") + n; }
+    return dt.getUTCFullYear() + "-" + pad(dt.getUTCMonth() + 1) + "-" + pad(dt.getUTCDate());
+  }
+  function paperStatus(i){
+    if(getDayResult(PACK_DAYS[i])) return "done";
+    if(i === 0) return "next";
+    var prev = getDayResult(PACK_DAYS[i - 1]);
+    if(!prev) return "locked";
+    // One per day: the next paper opens only on a LATER LA day than
+    // the previous paper's submission day. A result record saved
+    // before this gate existed carries no submitDay — treat it as
+    // open rather than locking the student out forever.
+    if(!prev.submitDay) return "next";
+    var today = packTodayKey();
+    if(today && today > prev.submitDay) return "next";
+    return "wait";
+  }
+  function setDayData(i){
+    CURRENT_DAY = PACK_DAYS[i];
+    SECTIONS = CURRENT_DAY.sections;
+    GRADE_KEYS = CURRENT_DAY.gradeKeys;
+    QUIZ_ID = CURRENT_DAY.quizId;
+    rebuildIndex();
+    answers = {}; written = {}; writtenParts = {}; writtenGrades = {};
+    submitted = false; autoSubmitted = false; startStamp = null;
+    elapsedAtSubmit = 0; attemptCount = 0; lastResult = null;
+    document.title = CURRENT_DAY.title;
+    var head = $("start-day-head");
+    if(head) head.innerHTML = "📦 <b>Paper #" + CURRENT_DAY.paper + "</b> · Cycle 1 Day " +
+      CURRENT_DAY.cycleDay + " · 12 questions · 20 minutes";
+  }
+  function openDay(i){
+    if(paperStatus(i) !== "next") return;  // sequence + one-per-day gate
+    setDayData(i); show("view-start");
+  }
+  function openReview(i){
+    setDayData(i);
+    var rec = getDayResult(CURRENT_DAY);
+    if(!rec) return;
+    var a = {};
+    Object.keys(rec.answers || {}).forEach(function(k){ a[parseInt(k, 10)] = rec.answers[k]; });
+    answers = a; written = rec.written || {}; writtenParts = rec.writtenParts || {};
+    ALL_WRITTEN.forEach(function(q){ syncWritten(q.n); });
+    attemptCount = rec.attempt || 1;
+    elapsedAtSubmit = rec.timeUsed || 0;
+    autoSubmitted = !!rec.auto;
+    submitted = true;  // review is read-only: no timer, no re-submit path
+    gradeAllWritten();
+    buildResults();
+    show("view-results");
+  }
+  function renderPicker(){
+    var doneCount = 0;
+    PACK_DAYS.forEach(function(day){ if(getDayResult(day)) doneCount++; });
+    var pp = $("pack-progress");
+    if(pp) pp.textContent = "⭐ Finished " + doneCount + " of 7 quizzes";
+    var grid = "";
+    PACK_DAYS.forEach(function(day, i){
+      var st = paperStatus(i);
+      var rec = getDayResult(day);
+      var btnText = st === "done" ? ("✓ Done — " + rec.score + "/12 · View result")
+        : st === "next" ? "▶ Ready Set Go — start this one"
+        : st === "wait" ? "🌙 All done for today! Come back tomorrow for the next quiz."
+        : "🔒 Locked — finish Paper #" + i + " first";
+      var cls = st === "done" ? "done" : st === "next" ? "today" : "locked";
+      grid += '<button type="button" class="day-card ' + cls + '" data-day="' + i + '"' +
+        ((st === "done" || st === "next") ? "" : " disabled") + '>' +
+        '<span class="dc-weekday">Paper #' + day.paper + '</span>' +
+        '<span class="dc-date">Cycle 1 Day ' + day.cycleDay + ' · 12 questions</span>' +
+        '<span class="dc-status">' + esc(btnText) + '</span></button>';
+    });
+    var dg = $("day-grid"); if(dg) dg.innerHTML = grid;
+    Array.prototype.forEach.call(document.querySelectorAll(".day-card"), function(card){
+      card.addEventListener("click", function(){
+        var i = parseInt(card.getAttribute("data-day"), 10);
+        var st = paperStatus(i);
+        if(st === "next") openDay(i);
+        else if(st === "done") openReview(i);
+      });
+    });
+    var nx = document.querySelector(".day-card.today");
+    if(nx && nx.scrollIntoView) nx.scrollIntoView({ block: "center" });
+  }
+  renderPicker();
 })();
 </script>
 </body>

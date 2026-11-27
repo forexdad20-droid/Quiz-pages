@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>Grade 4 Math Quiz — November 26, 2026</title>
+<title>Grade 4 Math Quiz — Weekly Pack · Nov 30 – Dec 6, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -510,63 +510,91 @@
     .wrap{max-width:100%}
     .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid}
   }
+
+  /* ---- Weekly pack: day picker + week strip ---- */
+  .pack-title{font-family:Fredoka,Nunito,sans-serif;font-size:26px;margin:2px 0 6px}
+  .pack-sub{color:var(--ink-soft);font-weight:700;line-height:1.45;margin:0 0 14px}
+  .pack-progress{font-family:Fredoka,Nunito,sans-serif;font-size:20px;font-weight:900;text-align:center;margin:0 0 14px}
+  .day-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 16px}
+  .day-card{border:2.5px solid var(--line);border-radius:16px;padding:14px 10px;background:var(--card,#fff);cursor:pointer;text-align:center;font-family:inherit}
+  .day-card .dc-weekday{display:block;font-family:Fredoka,Nunito,sans-serif;font-size:19px;font-weight:900}
+  .day-card .dc-date{display:block;color:var(--ink-soft);font-weight:800;font-size:13px;margin:3px 0 7px}
+  .day-card .dc-status{display:block;font-weight:900;font-size:14px}
+  .day-card.today{border-color:#f2b705;background:#fff8e1}
+  .day-card.done{border-color:#27a24b;background:#eafaf0}
+  .day-card:disabled{cursor:default;opacity:.6}
+  .pack-day-head{font-size:17px;font-weight:800;text-align:center;margin:0 0 10px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+  <!-- ================= WEEKLY PACK: DAY PICKER ================= -->
+  <section id="view-days">
+    <div class="start-stack">
+      <div class="top-dash">
+        <h2 class="pack-title">🗓️ My Math Week — 7 Quizzes</h2>
+        <p class="pack-sub">Seven quizzes, in order — one quiz a day. Finish today's quiz, and the next one opens tomorrow. Miss a day? No problem — the next quiz will be waiting for you when you come back. The day you finish a quiz is the day that earns your punch. Tap a finished quiz to see your questions and result again.</p>
+        <p class="pack-progress" id="pack-progress"></p>
+        <div class="day-grid" id="day-grid"></div>
+        <span class="lexile-banner" role="note">⭐ My Quantile Level: 610Q</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= START ================= -->
-  <section id="view-start">
+  <section id="view-start" class="hidden">
     <div class="start-stack">
     <div class="top-dash">
       <div class="attendance">
         <div class="att-head">
           <h2 class="att-title">📅 My Attendance This Week</h2>
-          <span class="att-count">4 / 7 days</span>
+          <span class="att-count">0 / 7 days</span>
         </div>
-        <p class="att-sub">本周出席打卡 · Mon Nov 23 – Sun Nov 29 — finish a quiz, get a punch for that day!</p>
+        <p class="att-sub">本周出席打卡 · Mon Nov 30 – Sun Dec 6 — finish a quiz, get a punch for that day!</p>
         <div class="punch-row">
-          <div class="punch-day" data-date="2026-11-23">
+          <div class="punch-day" data-date="2026-11-30">
             <span class="day-name">Mon<span class="day-zh">周一</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/23</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/30</span>
           </div>
-          <div class="punch-day" data-date="2026-11-24">
+          <div class="punch-day" data-date="2026-12-01">
             <span class="day-name">Tue<span class="day-zh">周二</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/24</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/1</span>
           </div>
-          <div class="punch-day" data-date="2026-11-25">
+          <div class="punch-day" data-date="2026-12-02">
             <span class="day-name">Wed<span class="day-zh">周三</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/25</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/2</span>
           </div>
-          <div class="punch-day" data-date="2026-11-26">
+          <div class="punch-day" data-date="2026-12-03">
             <span class="day-name">Thu<span class="day-zh">周四</span></span>
-            <span class="punch-circle done" aria-hidden="true">✓</span>
-            <span class="day-date">11/26</span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/3</span>
           </div>
-          <div class="punch-day" data-date="2026-11-27">
+          <div class="punch-day" data-date="2026-12-04">
             <span class="day-name">Fri<span class="day-zh">周五</span></span>
             <span class="punch-circle empty" aria-hidden="true">·</span>
-            <span class="day-date">11/27</span>
+            <span class="day-date">12/4</span>
           </div>
-          <div class="punch-day" data-date="2026-11-28">
+          <div class="punch-day" data-date="2026-12-05">
             <span class="day-name">Sat<span class="day-zh">周六</span></span>
             <span class="punch-circle empty" aria-hidden="true">·</span>
-            <span class="day-date">11/28</span>
+            <span class="day-date">12/5</span>
           </div>
-          <div class="punch-day" data-date="2026-11-29">
+          <div class="punch-day" data-date="2026-12-06">
             <span class="day-name">Sun<span class="day-zh">周日</span></span>
             <span class="punch-circle empty" aria-hidden="true">·</span>
-            <span class="day-date">11/29</span>
+            <span class="day-date">12/6</span>
           </div>
         </div>
-        <p class="att-message">🎉 You showed up <strong>4 times</strong> this week — great job, Amber!</p>
+        <p class="att-message">🎉 A brand-new week, Amber — finish a quiz each day to fill all 7 punches!</p>
       </div>
 
       <span class="lexile-banner" role="note">⭐ My Quantile Level: 610Q</span>
 
+      <p class="pack-day-head" id="start-day-head"></p>
       <form id="start-form">
         <div class="go-zone">
           <div class="go-checker" aria-hidden="true"></div>
@@ -581,6 +609,7 @@
           <p class="start-note">⏰ You have 20 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions will score 0, so try to finish before the timer ends!</p>
         </div>
       </form>
+      <button class="btn btn-ghost" id="back-days-btn" type="button">📅 Back to this week's days</button>
 
       <div class="how" role="list" aria-label="How the quiz works">
         <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">1</span><span class="how-text" style="font-weight:800">Solve and answer</span></div>
@@ -609,7 +638,7 @@
           <div class="hg-row same" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell"><span class="lex-line">610Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>610Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
-          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Level Test</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
           </div>
         </div>
         <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
@@ -639,10 +668,20 @@
     <div class="bottom-panel" aria-label="Timer and progression">
       <span class="bp-label">Timer:</span>
       <span class="bp-time" id="bottom-timer">20:00</span>
-      <span class="bp-label">Progression:</span>
+      <span class="bp-label">Done:</span>
       <span class="bp-frac" id="bottom-prog">0 / 12</span>
     </div>
 
+  </section>
+
+  <!-- ================= SENDING (waiting for confirmed delivery) ================= -->
+  <section id="view-sending" class="hidden">
+    <div class="results-head">
+      <span class="badge">Sending…</span>
+      <h2 style="margin-top:12px">📡 Sending your answers…</h2>
+      <p class="friendly" id="sending-text">No internet yet — your answers are saved here. This page will send them when the internet comes back.</p>
+      <p class="friendly">Please keep this page open. You do not need to do anything — it keeps trying by itself. ⏳</p>
+    </div>
   </section>
 
   <!-- ================= RESULTS ================= -->
@@ -702,17 +741,17 @@
           <div class="hg-row same" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell"><span class="lex-line">610Q</span><span class="delta">→ same</span></span></div>
           <div class="hg-row best" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>610Q</span><span class="delta">▲ +10Q</span></span></div>
           <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
-          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Placement</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
+          <div class="hg-row same" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Level Test</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell"><span class="lex-line">600Q</span><span class="delta">→ same</span></span></div>
           </div>
         </div>
         <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
       </div>
       </div>
-      <button class="btn btn-ghost" id="again-btn" type="button">↻ Try Again</button>
+      <button class="btn btn-ghost" id="days-btn" type="button">📅 Back to this week's days</button>
     </div>
   </section>
 
-  <footer class="note">Grade 4 · Math Practice · 12 questions</footer>
+  <footer class="note">Grade 4 · Math Weekly Pack · 7 days × 12 questions</footer>
 </div>
 
 <!-- Unanswered warning modal -->
@@ -766,131 +805,26 @@
   "use strict";
 
   /* ---------------- Data (exactly from the practice sheet) ---------------- */
-/* ---------- November 26, 2026 math quiz (2026-11-26-math1, Cycle 1 Day 10) ----------
-     Per-submit rebuild: Amber submitted the November 25 quiz
-     (8/12, Attempt 1, processed 2026-11-26). Quantile: 8/12 =
-     no change, peak floor holds 610Q: S1 \u2248560Q, S2 \u2248610Q,
-     S3 \u2248660Q. Attendance baked 4/7 for Mon Nov 23 -
-     Sun Nov 29: Mon 11/23, Tue 11/24, Wed 11/25 and Thu 11/26 done (submission days).
-     Growth shows NINE records incl. the 11/18 Placement;
-     chart shows the last 6 tests. Points: weak revisits
-     4.NBT.6 / 4.MD.4 / 4.MD.1 / 4.OA.3 + rotated
-     4.NBT.2, 4.OA.1, 4.NBT.4, 4.NF.1, 4.NF.7, 4.MD.2,
-     4.MD.3, 4.G.1. Paper A (main) of the A+B+C triple set (B/C parallel forms, same points/positions, held unpublished in backups-2026-11-26). Hidden ?test=1 backdoor carried over. */
-  var SECTIONS = [
-    {
-      id: 1, tag: "Section 1", tagClass: "tag-1",
-      title: "Comparing, Times As Many & Adding",
-      subtitle: "Comparing Numbers, Multiplicative Comparison, Addition & Division · 4 questions",
-      passageTitle: "Number Work",
-      paragraphs: [
-        "Comparing numbers place by place: 47,382 and 47,328 match until the tens place, where 8 beats 2, so 47,382 is greater. Times-as-many works backwards too: Sam has 3 times as many pens as Joy, and Sam has 21 pens, so Joy has 21 \u00f7 3 = 7 pens.",
-        "Adding with carrying: 38,476 + 25,389 = 63,865.",
-        "Division can leave a remainder: 642 \u00f7 7 = 91 remainder 5, because 7 \u00d7 91 = 637 and 642 \u2212 637 = 5."
-      ],
-      chart: null,
-      questions: [
-        { n:1, std:"4.NBT.2", type:"mc", text:"Which number is greater, 47,382 or 47,328?",
-          options:["47,328 is greater here", "47,382 is greater here", "Both numbers are equal here", "Neither one is greater here"],
-          correct:1,
-          why:"The numbers match until the tens place, where 8 beats 2, so 47,382 is greater." },
-        { n:2, std:"4.OA.1", type:"mc", text:"Sam has 3 times as many pens as Joy. Sam has 21 pens. How many pens does Joy have?",
-          options:["7 pens for Joy here", "63 pens for Joy here", "24 pens for Joy here", "18 pens for Joy here"],
-          correct:0,
-          why:"Joy has 21 \u00f7 3 = 7 pens." },
-        { n:3, std:"4.NBT.4", type:"mc", text:"What is 38,476 + 25,389?",
-          options:["63,765 is the sum here", "63,865 is the sum here", "64,865 is the sum here", "53,865 is the sum here"],
-          correct:1,
-          why:"38,476 + 25,389 = 63,865, carrying where each column passes 9." },
-        { n:4, std:"4.NBT.6", type:"written", text:"Divide: 642 \u00f7 7.",
-          part1:"What is the quotient (the whole-number answer)?",
-          part2:"What is the remainder?",
-          sample:"642 \u00f7 7 = 91 remainder 5, because 7 \u00d7 91 = 637 and 642 \u2212 637 = 5." }
-      ]
-    },
-    {
-      id: 2, tag: "Section 2", tagClass: "tag-2",
-      title: "Fractions, Sticks & Units",
-      subtitle: "Equivalent Fractions, Decimals, Line Plots & Units · 4 questions",
-      passageTitle: "Fractions and Measures",
-      paragraphs: [
-        "Equivalent fractions name the same amount: 4/6 = 2/3, because both top and bottom are halved. Decimals compare by place value too: 0.8 is 0.80, which is more than 0.75.",
-        "The chart below shows sticks the class measured to the nearest half inch. Four sticks are 3 inches long.",
-        "Bigger units change into smaller ones by multiplying: 1 metre = 100 centimetres, so 8 metres = 800 centimetres. And 1 litre = 1,000 millilitres, so 3,450 mL is 3 whole litres with 450 mL left over \u2014 written 3 L 450 mL."
-      ],
-      chart: {
-        title:"Stick Lengths We Measured",
-        sub:"How many sticks of each length",
-        max: 4,
-        unit: "sticks",
-        col1: "Length",
-        col2: "Sticks",
-        rows:[
-          { label:"2\u00bd in", count:2, value:2, cls:"teal" },
-          { label:"3 in", count:4, value:4, cls:"apple" },
-          { label:"3\u00bd in", count:3, value:3, cls:"banana" },
-          { label:"4 in", count:2, value:2, cls:"orange" }
-        ]
-      },
-      questions: [
-        { n:5, std:"4.NF.1", type:"mc", text:"Which fraction is EQUAL to 4/6?",
-          options:["2/3 is equal here", "3/4 is equal here", "4/12 is equal here", "5/6 is equal here"],
-          correct:0,
-          why:"Halve the top and bottom of 4/6 to get 2/3." },
-        { n:6, std:"4.NF.7", type:"mc", text:"Which decimal is greater, 0.8 or 0.75?",
-          options:["0.75 is greater here", "Both decimals are equal here", "0.8 is greater here", "Neither decimal is greater here"],
-          correct:2,
-          why:"0.8 is 0.80, and 80 hundredths is more than 75 hundredths." },
-        { n:7, std:"4.MD.4", type:"written", text:"Look at the stick chart in this section.",
-          part1:"How many sticks are 3 inches long?",
-          part2:"How many sticks are LONGER than 3 inches?",
-          sample:"4 sticks are 3 inches long. The sticks longer than 3 inches are the 3\u00bd-inch (3) and 4-inch (2) ones, so 5 longer in all." },
-        { n:8, std:"4.MD.1", type:"written", text:"A ribbon is 8 metres long. A jug holds 3,450 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.",
-          part1:"How many centimetres long is the ribbon?",
-          part2:"Write the jug's amount (3,450 mL) in litres and millilitres.",
-          sample:"The ribbon is 800 cm long (8 \u00d7 100). The jug holds 3 L 450 mL (3,000 mL + 450 mL)." }
-      ]
-    },
-    {
-      id: 3, tag: "Section 3", tagClass: "tag-3",
-      title: "Time, Rectangles, Rays & Problems",
-      subtitle: "Elapsed Time, Area, Lines & Multi-Step Problems · 4 questions",
-      passageTitle: "Time, Shapes and Problems",
-      paragraphs: [
-        "Elapsed time counts from start to end: from 1:30 to 3:05 is 1 hour and 35 minutes. A rectangle's area is length times width: a garden 9 metres by 6 metres has area 9 \u00d7 6 = 54 square metres.",
-        "A ray has one endpoint and goes on forever in one direction, like an arrow starting at a point.",
-        "Multi-step problems take one step at a time: Mia buys 4 bags at $16 each, so she spends 4 \u00d7 $16 = $64; from $95 she has $95 \u2212 $64 = $31 left."
-      ],
-      chart: null,
-      questions: [
-        { n:9, std:"4.MD.2", type:"mc", text:"A film starts at 1:30 and ends at 3:05. How long is the film?",
-          options:["1 hour 35 minutes long", "2 hours 35 minutes long", "1 hour 25 minutes long", "35 minutes long in all"],
-          correct:0,
-          why:"From 1:30 to 3:05 is 1 hour and 35 minutes." },
-        { n:10, std:"4.MD.3", type:"mc", text:"A garden is 9 metres long and 6 metres wide. What is its area?",
-          options:["54 square metres here", "30 square metres here", "15 square metres here", "45 square metres here"],
-          correct:0,
-          why:"Area = length \u00d7 width = 9 \u00d7 6 = 54 square metres." },
-        { n:11, std:"4.G.1", type:"mc", text:"Which shape has ONE endpoint and goes on forever in one direction?",
-          options:["A line segment fits here", "A ray fits this shape here", "A line fits this shape here", "An angle fits this shape"],
-          correct:1,
-          why:"A ray starts at one endpoint and goes on forever in one direction." },
-        { n:12, std:"4.OA.3", type:"written", text:"Mia has $95. She buys 4 bags that cost $16 each. How much money does she have left?",
-          part1:"How much money does Mia have left?",
-          part2:"Show your working: how much did the 4 bags cost altogether?",
-          sample:"Mia has $31 left. The 4 bags cost 4 \u00d7 $16 = $64 altogether, and $95 \u2212 $64 = $31." }
-      ]
-    }
-
-  ];
+/* ---------- WEEKLY PACK — Cycle 1 Days 11-17, Mon Nov 30 - Sun Dec 6, 2026 ----------
+     One page, seven daily quizzes. Points continue the Grade 4 math rotation
+     after Day 10 (2026-11-26): written slots keep the four chronic misses
+     (4.NBT.6 / 4.MD.4 / 4.MD.1 / 4.OA.3) daily; MC slots rotate the other 24
+     points (Days 11-13 all 24 once, Days 14-16 staggered repeat, Day 17 the
+     eight weakest). Hidden ?test=1 backdoor carried over. */
+  var PACK_DAYS = [{"paper": 1, "cycleDay": 11, "quizId": "weeklypack-2026-11-30-p1", "title": "Grade 4 Math Quiz — Weekly Pack Paper #1", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Place Value, Rows & Rounding", "subtitle": "Place Value, Operations & Division · 4 questions", "passageTitle": "Number Work", "paragraphs": ["The 3 is in the hundreds place, so its value is 300. 6 rows of 8 is 6 × 8 = 48 flowers. The tens digit is 8, so 47,382 rounds up to 47,400.", "Division can leave a remainder: 738 ÷ 8 = 92 remainder 2, because 8 × 92 = 736 and 738 − 736 = 2."], "chart": null, "questions": [{"n": 1, "std": "4.NBT.1", "type": "mc", "text": "In the number 5,382, what is the value of the digit 3?", "options": ["300, because the 3 sits in the hundreds place", "3,000, because the 3 sits in the thousands place", "30, because the 3 sits in the tens place", "3, because the 3 sits in the ones place"], "correct": 0, "why": "The 3 is in the hundreds place, so its value is 300."}, {"n": 2, "std": "4.OA.2", "type": "mc", "text": "A gardener plants 6 rows with 8 flowers in each row. How many flowers is that in all?", "options": ["48 flowers in all", "14 flowers in all", "42 flowers in all", "36 flowers in all"], "correct": 0, "why": "6 rows of 8 is 6 × 8 = 48 flowers."}, {"n": 3, "std": "4.NBT.3", "type": "mc", "text": "What is 47,382 rounded to the nearest hundred?", "options": ["47,300 is the rounded number", "47,400 is the rounded number", "47,000 is the rounded number", "48,000 is the rounded number"], "correct": 1, "why": "The tens digit is 8, so 47,382 rounds up to 47,400."}, {"n": 4, "std": "4.NBT.6", "type": "written", "text": "Divide: 738 ÷ 8.", "part1": "What is the quotient (the whole-number answer)?", "part2": "What is the remainder?", "sample": "738 ÷ 8 = 92 remainder 2, because 8 × 92 = 736 and 738 − 736 = 2."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Fractions, Ribbons & Units", "subtitle": "Fractions, Line Plots & Units · 4 questions", "passageTitle": "Fractions and Measures", "paragraphs": ["3/4 of 8 is 6: 8 ÷ 4 = 2, and 3 × 2 = 6. 2/10 = 0.20 and 3/100 = 0.03, so the sum is 0.23.", "The chart below shows ribbons the class measured to the nearest half inch.", "The rope is 600 cm long (6 × 100). The jug holds 2 L 750 mL (2,000 mL + 750 mL)."], "chart": {"title": "Ribbons We Measured", "sub": "How many ribbons of each length", "max": 5, "unit": "ribbons", "col1": "Length", "col2": "Ribbons", "rows": [{"label": "2½ in", "count": 2, "value": 2, "cls": "teal"}, {"label": "3 in", "count": 5, "value": 5, "cls": "apple"}, {"label": "3½ in", "count": 3, "value": 3, "cls": "banana"}, {"label": "4 in", "count": 1, "value": 1, "cls": "orange"}]}, "questions": [{"n": 5, "std": "4.NF.4", "type": "mc", "text": "What is 3/4 × 8?", "options": ["6 is the answer here", "24 is the answer here", "32 is the answer here", "11 is the answer here"], "correct": 0, "why": "3/4 of 8 is 6: 8 ÷ 4 = 2, and 3 × 2 = 6."}, {"n": 6, "std": "4.NF.5", "type": "mc", "text": "What is 2/10 + 3/100 as a decimal?", "options": ["0.23 is the decimal here", "0.32 is the decimal here", "0.05 is the decimal here", "0.5 is the decimal here"], "correct": 0, "why": "2/10 = 0.20 and 3/100 = 0.03, so the sum is 0.23."}, {"n": 7, "std": "4.MD.4", "type": "written", "text": "Look at the ribbons chart in this section.", "part1": "How many ribbons are 3 in long?", "part2": "How many ribbons are LONGER than 3 in?", "sample": "5 ribbons are 3 in long. The ribbons longer than 3 in add up to 4 longer in all."}, {"n": 8, "std": "4.MD.1", "type": "written", "text": "A rope is 6 metres long. A jug holds 2,750 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.", "part1": "How many centimetres long is the rope?", "part2": "Write the jug's amount (2,750 mL) in litres and millilitres.", "sample": "The rope is 600 cm long (6 × 100). The jug holds 2 L 750 mL (2,000 mL + 750 mL)."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Angles, Symmetry & Problems", "subtitle": "Measurement, Geometry & Multi-Step Problems · 4 questions", "passageTitle": "Time, Shapes and Problems", "paragraphs": ["A protractor is the tool for measuring angles. A square folds evenly 4 ways: across, down, and both diagonals. 180 − 50 = 130, so the other angle is 130°.", "Multi-step problems take one step at a time: Tom has $38 left. The 3 kits cost 3 × $14 = $42 altogether, and $80 − $42 = $38."], "chart": null, "questions": [{"n": 9, "std": "4.MD.6", "type": "mc", "text": "Which tool do we use to measure an angle?", "options": ["A protractor measures angles", "A ruler measures angles in cm", "A scale measures angles in kg", "A clock measures angles in min"], "correct": 0, "why": "A protractor is the tool for measuring angles."}, {"n": 10, "std": "4.G.3", "type": "mc", "text": "How many lines of symmetry does a square have?", "options": ["4 lines of symmetry", "2 lines of symmetry", "1 line of symmetry", "0 lines of symmetry"], "correct": 0, "why": "A square folds evenly 4 ways: across, down, and both diagonals."}, {"n": 11, "std": "4.MD.7", "type": "mc", "text": "One angle is 50°. The two angles together make 180°. What is the other angle?", "options": ["130 degrees in all", "40 degrees in all", "230 degrees in all", "90 degrees in all"], "correct": 0, "why": "180 − 50 = 130, so the other angle is 130°."}, {"n": 12, "std": "4.OA.3", "type": "written", "text": "Tom has $80. Tom buys 3 kits that cost $14 each. How much money does Tom have left?", "part1": "How much money does Tom have left?", "part2": "Show your working: how much did the 3 kits cost altogether?", "sample": "Tom has $38 left. The 3 kits cost 3 × $14 = $42 altogether, and $80 − $42 = $38."}]}], "gradeKeys": {"4": [{"found": "Quotient of 738 ÷ 8: 92", "missing": "the quotient — 92", "alt": [["92"]]}, {"found": "Remainder of 738 ÷ 8: 2", "missing": "the remainder — 2", "alt": [["remainder 2"], ["r 2"], ["r2"], ["rem 2"], ["2 left over"], ["left over 2"], ["2 remains"]]}], "7": [{"found": "Ribbons that are 3 in long: 5", "missing": "how many ribbons are 3 in long — 5", "alt": [["5 ribbons"], ["5 are"], ["5 of them"]]}, {"found": "Ribbons longer than 3 in: 4", "missing": "how many ribbons are longer than 3 in — 4", "alt": [["4 longer"], ["4 are longer"], ["4 ribbons longer"], ["4 of them longer"], ["4 of them"]]}], "8": [{"found": "The rope: 600 cm", "missing": "the rope in centimetres — 600 cm", "alt": [["600 cm"], ["600 cm"], ["600 centimetres"], ["600 centimeters"], ["600"]]}, {"found": "The 2,750 mL jug: 2 L 750 mL", "missing": "the jug in litres and millilitres — 2 L 750 mL", "alt": [["2 l 750"], ["2 litres 750"], ["2 liters 750"], ["2 litre 750"]]}], "12": [{"found": "Money left: $38", "missing": "how much money Tom has left — $38", "alt": [["38 left"], ["$38"], ["38 dollars left"], ["has 38"], ["left 38"]]}, {"found": "Working: 3 kits cost $42 altogether", "missing": "the working — 3 kits cost 3 × $14 = $42 altogether", "alt": [["3 x 14"], ["3 × 14"], ["cost 42"], ["costs 42"], ["42 altogether"], ["42 total"]]}]}}, {"paper": 2, "cycleDay": 12, "quizId": "weeklypack-2026-11-30-p2", "title": "Grade 4 Math Quiz — Weekly Pack Paper #2", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Factors, Multiplying & Patterns", "subtitle": "Place Value, Operations & Division · 4 questions", "passageTitle": "Number Work", "paragraphs": ["24 ÷ 8 = 3 with nothing left over, so 8 is a factor of 24. 34 × 6 = 204. Each number doubles, so 40 × 2 = 80 comes next.", "Division can leave a remainder: 515 ÷ 6 = 85 remainder 5, because 6 × 85 = 510 and 515 − 510 = 5."], "chart": null, "questions": [{"n": 1, "std": "4.OA.4", "type": "mc", "text": "Which number is a factor of 24?", "options": ["8 is a factor of 24", "9 is a factor of 24", "10 is a factor of 24", "11 is a factor of 24"], "correct": 0, "why": "24 ÷ 8 = 3 with nothing left over, so 8 is a factor of 24."}, {"n": 2, "std": "4.NBT.5", "type": "mc", "text": "What is 34 × 6?", "options": ["204 is the product", "184 is the product", "240 is the product", "196 is the product"], "correct": 0, "why": "34 × 6 = 204."}, {"n": 3, "std": "4.OA.5", "type": "mc", "text": "A pattern starts 5, 10, 20, 40. What comes next?", "options": ["80 comes next in the pattern", "60 comes next in the pattern", "45 comes next in the pattern", "50 comes next in the pattern"], "correct": 0, "why": "Each number doubles, so 40 × 2 = 80 comes next."}, {"n": 4, "std": "4.NBT.6", "type": "written", "text": "Divide: 515 ÷ 6.", "part1": "What is the quotient (the whole-number answer)?", "part2": "What is the remainder?", "sample": "515 ÷ 6 = 85 remainder 5, because 6 × 85 = 510 and 515 − 510 = 5."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Fractions, Pencils & Units", "subtitle": "Fractions, Line Plots & Units · 4 questions", "passageTitle": "Fractions and Measures", "paragraphs": ["The denominators are the same: 3 + 2 = 5, so the sum is 5/8. 45/100 is 45 hundredths, which is 0.45.", "The chart below shows pencils the class measured to the nearest half inch.", "The board is 900 cm long (9 × 100). The tank holds 4 L 200 mL (4,000 mL + 200 mL)."], "chart": {"title": "Pencils We Measured", "sub": "How many pencils of each length", "max": 4, "unit": "pencils", "col1": "Length", "col2": "Pencils", "rows": [{"label": "3 in", "count": 3, "value": 3, "cls": "teal"}, {"label": "3½ in", "count": 4, "value": 4, "cls": "apple"}, {"label": "4 in", "count": 2, "value": 2, "cls": "banana"}, {"label": "4½ in", "count": 2, "value": 2, "cls": "orange"}]}, "questions": [{"n": 5, "std": "4.NF.3", "type": "mc", "text": "What is 3/8 + 2/8?", "options": ["5/8 is the sum here", "5/16 is the sum here", "6/8 is the sum here", "1/8 is the sum here"], "correct": 0, "why": "The denominators are the same: 3 + 2 = 5, so the sum is 5/8."}, {"n": 6, "std": "4.NF.6", "type": "mc", "text": "Which decimal is the same as 45/100?", "options": ["0.45 is the same here", "4.5 is the same here", "0.045 is the same here", "45.0 is the same here"], "correct": 0, "why": "45/100 is 45 hundredths, which is 0.45."}, {"n": 7, "std": "4.MD.4", "type": "written", "text": "Look at the pencils chart in this section.", "part1": "How many pencils are 3½ in long?", "part2": "How many pencils are LONGER than 3½ in?", "sample": "4 pencils are 3½ in long. The pencils longer than 3½ in add up to 4 longer in all."}, {"n": 8, "std": "4.MD.1", "type": "written", "text": "A board is 9 metres long. A tank holds 4,200 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.", "part1": "How many centimetres long is the board?", "part2": "Write the tank's amount (4,200 mL) in litres and millilitres.", "sample": "The board is 900 cm long (9 × 100). The tank holds 4 L 200 mL (4,000 mL + 200 mL)."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Angles, Shapes & Stickers", "subtitle": "Measurement, Geometry & Multi-Step Problems · 4 questions", "passageTitle": "Time, Shapes and Problems", "paragraphs": ["An angle of exactly 90° is a right angle. A rectangle has 2 pairs of parallel sides and 4 right angles. Ben has 28 ÷ 4 = 7 stickers.", "Multi-step problems take one step at a time: Sara has $28 left. The 5 books cost 5 × $9 = $45 altogether, and $73 − $45 = $28."], "chart": null, "questions": [{"n": 9, "std": "4.MD.5", "type": "mc", "text": "An angle that measures exactly 90° is called…", "options": ["a right angle, exactly 90°", "an acute angle, under 90°", "an obtuse angle, over 90°", "a straight angle, 180° flat"], "correct": 0, "why": "An angle of exactly 90° is a right angle."}, {"n": 10, "std": "4.G.2", "type": "mc", "text": "Which shape has exactly 2 pairs of parallel sides and 4 right angles?", "options": ["A rectangle fits this shape", "A triangle fits this shape too", "A circle fits this shape", "A pentagon fits this shape"], "correct": 0, "why": "A rectangle has 2 pairs of parallel sides and 4 right angles."}, {"n": 11, "std": "4.OA.1", "type": "mc", "text": "Mia has 4 times as many stickers as Ben. Mia has 28 stickers. How many stickers does Ben have?", "options": ["7 stickers for Ben", "112 stickers for Ben", "32 stickers for Ben", "24 stickers for Ben"], "correct": 0, "why": "Ben has 28 ÷ 4 = 7 stickers."}, {"n": 12, "std": "4.OA.3", "type": "written", "text": "Sara has $73. Sara buys 5 books that cost $9 each. How much money does Sara have left?", "part1": "How much money does Sara have left?", "part2": "Show your working: how much did the 5 books cost altogether?", "sample": "Sara has $28 left. The 5 books cost 5 × $9 = $45 altogether, and $73 − $45 = $28."}]}], "gradeKeys": {"4": [{"found": "Quotient of 515 ÷ 6: 85", "missing": "the quotient — 85", "alt": [["85"]]}, {"found": "Remainder of 515 ÷ 6: 5", "missing": "the remainder — 5", "alt": [["remainder 5"], ["r 5"], ["r5"], ["rem 5"], ["5 left over"], ["left over 5"], ["5 remains"]]}], "7": [{"found": "Pencils that are 3½ in long: 4", "missing": "how many pencils are 3½ in long — 4", "alt": [["4 pencils"], ["4 are"], ["4 of them"]]}, {"found": "Pencils longer than 3½ in: 4", "missing": "how many pencils are longer than 3½ in — 4", "alt": [["4 longer"], ["4 are longer"], ["4 pencils longer"], ["4 of them longer"], ["4 of them"]]}], "8": [{"found": "The board: 900 cm", "missing": "the board in centimetres — 900 cm", "alt": [["900 cm"], ["900 cm"], ["900 centimetres"], ["900 centimeters"], ["900"]]}, {"found": "The 4,200 mL tank: 4 L 200 mL", "missing": "the tank in litres and millilitres — 4 L 200 mL", "alt": [["4 l 200"], ["4 litres 200"], ["4 liters 200"], ["4 litre 200"]]}], "12": [{"found": "Money left: $28", "missing": "how much money Sara has left — $28", "alt": [["28 left"], ["$28"], ["28 dollars left"], ["has 28"], ["left 28"]]}, {"found": "Working: 5 books cost $45 altogether", "missing": "the working — 5 books cost 5 × $9 = $45 altogether", "alt": [["5 x 9"], ["5 × 9"], ["cost 45"], ["costs 45"], ["45 altogether"], ["45 total"]]}]}}, {"paper": 3, "cycleDay": 13, "quizId": "weeklypack-2026-11-30-p3", "title": "Grade 4 Math Quiz — Weekly Pack Paper #3", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Comparing, Subtracting & Fractions", "subtitle": "Place Value, Operations & Division · 4 questions", "passageTitle": "Number Work", "paragraphs": ["The numbers match until the tens place, where 0 is less than 9, so 63,509 is less. 52,648 − 27,359 = 25,289. The tops are the same, and fifths are bigger pieces than eighths, so 3/5 is greater.", "Division can leave a remainder: 869 ÷ 9 = 96 remainder 5, because 9 × 96 = 864 and 869 − 864 = 5."], "chart": null, "questions": [{"n": 1, "std": "4.NBT.2", "type": "mc", "text": "Which number is less, 63,509 or 63,590?", "options": ["63,509 is the lesser number", "63,590 is the lesser number", "Both numbers are exactly equal", "Neither number can be compared"], "correct": 0, "why": "The numbers match until the tens place, where 0 is less than 9, so 63,509 is less."}, {"n": 2, "std": "4.NBT.4", "type": "mc", "text": "What is 52,648 − 27,359?", "options": ["25,289 is the difference", "25,389 is the difference", "26,289 is the difference", "24,289 is the difference"], "correct": 0, "why": "52,648 − 27,359 = 25,289."}, {"n": 3, "std": "4.NF.2", "type": "mc", "text": "Which fraction is GREATER, 3/5 or 3/8?", "options": ["3/5 is greater here", "3/8 is greater here", "Both are equal here", "Neither is greater"], "correct": 0, "why": "The tops are the same, and fifths are bigger pieces than eighths, so 3/5 is greater."}, {"n": 4, "std": "4.NBT.6", "type": "written", "text": "Divide: 869 ÷ 9.", "part1": "What is the quotient (the whole-number answer)?", "part2": "What is the remainder?", "sample": "869 ÷ 9 = 96 remainder 5, because 9 × 96 = 864 and 869 − 864 = 5."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Fractions, Shells & Units", "subtitle": "Fractions, Line Plots & Units · 4 questions", "passageTitle": "Fractions and Measures", "paragraphs": ["Halve the top and bottom of 6/8 to get 3/4. 0.6 is 0.60, and 60 hundredths is less than 65 hundredths.", "The chart below shows shells the class measured to the nearest half inch.", "The ribbon is 700 cm long (7 × 100). The bucket holds 5 L 60 mL (5,000 mL + 60 mL)."], "chart": {"title": "Shells We Measured", "sub": "How many shells of each length", "max": 4, "unit": "shells", "col1": "Length", "col2": "Shells", "rows": [{"label": "2½ in", "count": 3, "value": 3, "cls": "teal"}, {"label": "3 in", "count": 4, "value": 4, "cls": "apple"}, {"label": "3½ in", "count": 2, "value": 2, "cls": "banana"}, {"label": "4 in", "count": 2, "value": 2, "cls": "orange"}]}, "questions": [{"n": 5, "std": "4.NF.1", "type": "mc", "text": "Which fraction is EQUAL to 6/8?", "options": ["3/4 is equal here", "6/16 is equal here", "2/8 is equal here", "8/6 is equal here"], "correct": 0, "why": "Halve the top and bottom of 6/8 to get 3/4."}, {"n": 6, "std": "4.NF.7", "type": "mc", "text": "Which decimal is smaller, 0.6 or 0.65?", "options": ["0.6 is smaller here", "0.65 is smaller here", "Both decimals are equal", "Neither decimal is smaller"], "correct": 0, "why": "0.6 is 0.60, and 60 hundredths is less than 65 hundredths."}, {"n": 7, "std": "4.MD.4", "type": "written", "text": "Look at the shells chart in this section.", "part1": "How many shells are 3 in long?", "part2": "How many shells are LONGER than 3 in?", "sample": "4 shells are 3 in long. The shells longer than 3 in add up to 4 longer in all."}, {"n": 8, "std": "4.MD.1", "type": "written", "text": "A ribbon is 7 metres long. A bucket holds 5,060 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.", "part1": "How many centimetres long is the ribbon?", "part2": "Write the bucket's amount (5,060 mL) in litres and millilitres.", "sample": "The ribbon is 700 cm long (7 × 100). The bucket holds 5 L 60 mL (5,000 mL + 60 mL)."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Time, Perimeter & Lines", "subtitle": "Measurement, Geometry & Multi-Step Problems · 4 questions", "passageTitle": "Time, Shapes and Problems", "paragraphs": ["From 9:15 to 10:40 is 1 hour and 25 minutes. Perimeter = 2 × (7 + 4) = 22 metres. A line goes on forever in both directions and has no endpoints.", "Multi-step problems take one step at a time: Leo has $24 left. The 4 games cost 4 × $18 = $72 altogether, and $96 − $72 = $24."], "chart": null, "questions": [{"n": 9, "std": "4.MD.2", "type": "mc", "text": "A class starts at 9:15 and ends at 10:40. How long is the class?", "options": ["1 hour 25 minutes long", "1 hour 35 minutes long", "2 hours 25 minutes long", "55 minutes long in all"], "correct": 0, "why": "From 9:15 to 10:40 is 1 hour and 25 minutes."}, {"n": 10, "std": "4.MD.3", "type": "mc", "text": "A rug is 7 metres long and 4 metres wide. What is its perimeter?", "options": ["22 metres of perimeter", "28 metres of perimeter", "11 metres of perimeter", "24 metres of perimeter"], "correct": 0, "why": "Perimeter = 2 × (7 + 4) = 22 metres."}, {"n": 11, "std": "4.G.1", "type": "mc", "text": "Which one goes on forever in BOTH directions and has no endpoints?", "options": ["A line has no endpoints", "A ray has no endpoints", "A segment has no endpoints", "An angle has no endpoints"], "correct": 0, "why": "A line goes on forever in both directions and has no endpoints."}, {"n": 12, "std": "4.OA.3", "type": "written", "text": "Leo has $96. Leo buys 4 games that cost $18 each. How much money does Leo have left?", "part1": "How much money does Leo have left?", "part2": "Show your working: how much did the 4 games cost altogether?", "sample": "Leo has $24 left. The 4 games cost 4 × $18 = $72 altogether, and $96 − $72 = $24."}]}], "gradeKeys": {"4": [{"found": "Quotient of 869 ÷ 9: 96", "missing": "the quotient — 96", "alt": [["96"]]}, {"found": "Remainder of 869 ÷ 9: 5", "missing": "the remainder — 5", "alt": [["remainder 5"], ["r 5"], ["r5"], ["rem 5"], ["5 left over"], ["left over 5"], ["5 remains"]]}], "7": [{"found": "Shells that are 3 in long: 4", "missing": "how many shells are 3 in long — 4", "alt": [["4 shells"], ["4 are"], ["4 of them"]]}, {"found": "Shells longer than 3 in: 4", "missing": "how many shells are longer than 3 in — 4", "alt": [["4 longer"], ["4 are longer"], ["4 shells longer"], ["4 of them longer"], ["4 of them"]]}], "8": [{"found": "The ribbon: 700 cm", "missing": "the ribbon in centimetres — 700 cm", "alt": [["700 cm"], ["700 cm"], ["700 centimetres"], ["700 centimeters"], ["700"]]}, {"found": "The 5,060 mL bucket: 5 L 60 mL", "missing": "the bucket in litres and millilitres — 5 L 60 mL", "alt": [["5 l 60"], ["5 litres 60"], ["5 liters 60"], ["5 litre 60"]]}], "12": [{"found": "Money left: $24", "missing": "how much money Leo has left — $24", "alt": [["24 left"], ["$24"], ["24 dollars left"], ["has 24"], ["left 24"]]}, {"found": "Working: 4 games cost $72 altogether", "missing": "the working — 4 games cost 4 × $18 = $72 altogether", "alt": [["4 x 18"], ["4 × 18"], ["cost 72"], ["costs 72"], ["72 altogether"], ["72 total"]]}]}}, {"paper": 4, "cycleDay": 14, "quizId": "weeklypack-2026-11-30-p4", "title": "Grade 4 Math Quiz — Weekly Pack Paper #4", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Rounding, Baskets & Place Value", "subtitle": "Place Value, Operations & Division · 4 questions", "passageTitle": "Number Work", "paragraphs": ["The hundreds digit is 4, so 6,482 rounds down to 6,000. 4 groups of 9 is 4 × 9 = 36 plums. The 9 is in the hundreds place, so its value is 900.", "Division can leave a remainder: 457 ÷ 5 = 91 remainder 2, because 5 × 91 = 455 and 457 − 455 = 2."], "chart": null, "questions": [{"n": 1, "std": "4.NBT.3", "type": "mc", "text": "What is 6,482 rounded to the nearest thousand?", "options": ["6,000 is the rounded number", "7,000 is the rounded number", "6,400 is the rounded number", "6,500 is the rounded number"], "correct": 0, "why": "The hundreds digit is 4, so 6,482 rounds down to 6,000."}, {"n": 2, "std": "4.OA.2", "type": "mc", "text": "Nina picks 4 baskets with 9 plums in each basket. Which number sentence tells how many plums there are in all?", "options": ["4 × 9 = 36 plums in all", "4 + 9 = 13 plums in all", "9 − 4 = 5 plums in all", "36 ÷ 4 = 9 plums in all"], "correct": 0, "why": "4 groups of 9 is 4 × 9 = 36 plums."}, {"n": 3, "std": "4.NBT.1", "type": "mc", "text": "In the number 73,905, what is the value of the digit 9?", "options": ["900, in the hundreds place", "9,000, in the thousands place", "90, in the tens place here", "9, in the ones place here"], "correct": 0, "why": "The 9 is in the hundreds place, so its value is 900."}, {"n": 4, "std": "4.NBT.6", "type": "written", "text": "Divide: 457 ÷ 5.", "part1": "What is the quotient (the whole-number answer)?", "part2": "What is the remainder?", "sample": "457 ÷ 5 = 91 remainder 2, because 5 × 91 = 455 and 457 − 455 = 2."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Fractions, Crayons & Units", "subtitle": "Fractions, Line Plots & Units · 4 questions", "passageTitle": "Fractions and Measures", "paragraphs": ["7/100 = 0.07 and 4/10 = 0.40, so the sum is 0.47. 5/6 of 12 is 10: 12 ÷ 6 = 2, and 5 × 2 = 10.", "The chart below shows crayons the class measured to the nearest half inch.", "The string is 400 cm long (4 × 100). The pot holds 1 L 580 mL (1,000 mL + 580 mL)."], "chart": {"title": "Crayons We Measured", "sub": "How many crayons of each length", "max": 4, "unit": "crayons", "col1": "Length", "col2": "Crayons", "rows": [{"label": "3½ in", "count": 2, "value": 2, "cls": "teal"}, {"label": "4 in", "count": 4, "value": 4, "cls": "apple"}, {"label": "4¼ in", "count": 3, "value": 3, "cls": "banana"}, {"label": "4½ in", "count": 1, "value": 1, "cls": "orange"}]}, "questions": [{"n": 5, "std": "4.NF.5", "type": "mc", "text": "What is 7/100 + 4/10 as a decimal?", "options": ["0.47 is the decimal here", "0.74 is the decimal here", "0.11 is the decimal here", "0.407 is the decimal here"], "correct": 0, "why": "7/100 = 0.07 and 4/10 = 0.40, so the sum is 0.47."}, {"n": 6, "std": "4.NF.4", "type": "mc", "text": "What is 5/6 × 12?", "options": ["10 is the answer here", "60 is the answer here", "17 is the answer here", "72 is the answer here"], "correct": 0, "why": "5/6 of 12 is 10: 12 ÷ 6 = 2, and 5 × 2 = 10."}, {"n": 7, "std": "4.MD.4", "type": "written", "text": "Look at the crayons chart in this section.", "part1": "How many crayons are 4 in long?", "part2": "How many crayons are LONGER than 4 in?", "sample": "4 crayons are 4 in long. The crayons longer than 4 in add up to 4 longer in all."}, {"n": 8, "std": "4.MD.1", "type": "written", "text": "A string is 4 metres long. A pot holds 1,580 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.", "part1": "How many centimetres long is the string?", "part2": "Write the pot's amount (1,580 mL) in litres and millilitres.", "sample": "The string is 400 cm long (4 × 100). The pot holds 1 L 580 mL (1,000 mL + 580 mL)."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Symmetry, Angles & Problems", "subtitle": "Measurement, Geometry & Multi-Step Problems · 4 questions", "passageTitle": "Time, Shapes and Problems", "paragraphs": ["A rectangle folds evenly across and down — 2 lines of symmetry. 90 − 35 = 55, so the other angle is 55°. 120° is more than 90° and less than 180°, so it is an obtuse angle.", "Multi-step problems take one step at a time: Ava has $22 left. The 6 pens cost 6 × $7 = $42 altogether, and $64 − $42 = $22."], "chart": null, "questions": [{"n": 9, "std": "4.G.3", "type": "mc", "text": "How many lines of symmetry does a rectangle have?", "options": ["2 lines of symmetry", "4 lines of symmetry", "1 line of symmetry", "0 lines of symmetry"], "correct": 0, "why": "A rectangle folds evenly across and down — 2 lines of symmetry."}, {"n": 10, "std": "4.MD.7", "type": "mc", "text": "Two angles together make 90°. One angle is 35°. What is the other angle?", "options": ["55 degrees in all", "65 degrees in all", "45 degrees in all", "125 degrees in all"], "correct": 0, "why": "90 − 35 = 55, so the other angle is 55°."}, {"n": 11, "std": "4.MD.6", "type": "mc", "text": "An angle measures 120°. What kind of angle is it?", "options": ["Obtuse — more than 90°", "Acute — less than 90°", "Right — exactly 90° here", "Straight — exactly 180°"], "correct": 0, "why": "120° is more than 90° and less than 180°, so it is an obtuse angle."}, {"n": 12, "std": "4.OA.3", "type": "written", "text": "Ava has $64. Ava buys 6 pens that cost $7 each. How much money does Ava have left?", "part1": "How much money does Ava have left?", "part2": "Show your working: how much did the 6 pens cost altogether?", "sample": "Ava has $22 left. The 6 pens cost 6 × $7 = $42 altogether, and $64 − $42 = $22."}]}], "gradeKeys": {"4": [{"found": "Quotient of 457 ÷ 5: 91", "missing": "the quotient — 91", "alt": [["91"]]}, {"found": "Remainder of 457 ÷ 5: 2", "missing": "the remainder — 2", "alt": [["remainder 2"], ["r 2"], ["r2"], ["rem 2"], ["2 left over"], ["left over 2"], ["2 remains"]]}], "7": [{"found": "Crayons that are 4 in long: 4", "missing": "how many crayons are 4 in long — 4", "alt": [["4 crayons"], ["4 are"], ["4 of them"]]}, {"found": "Crayons longer than 4 in: 4", "missing": "how many crayons are longer than 4 in — 4", "alt": [["4 longer"], ["4 are longer"], ["4 crayons longer"], ["4 of them longer"], ["4 of them"]]}], "8": [{"found": "The string: 400 cm", "missing": "the string in centimetres — 400 cm", "alt": [["400 cm"], ["400 cm"], ["400 centimetres"], ["400 centimeters"], ["400"]]}, {"found": "The 1,580 mL pot: 1 L 580 mL", "missing": "the pot in litres and millilitres — 1 L 580 mL", "alt": [["1 l 580"], ["1 litres 580"], ["1 liters 580"], ["1 litre 580"]]}], "12": [{"found": "Money left: $22", "missing": "how much money Ava has left — $22", "alt": [["22 left"], ["$22"], ["22 dollars left"], ["has 22"], ["left 22"]]}, {"found": "Working: 6 pens cost $42 altogether", "missing": "the working — 6 pens cost 6 × $7 = $42 altogether", "alt": [["6 x 7"], ["6 × 7"], ["cost 42"], ["costs 42"], ["42 altogether"], ["42 total"]]}]}}, {"paper": 5, "cycleDay": 15, "quizId": "weeklypack-2026-11-30-p5", "title": "Grade 4 Math Quiz — Weekly Pack Paper #5", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Patterns, Multiplying & Multiples", "subtitle": "Place Value, Operations & Division · 4 questions", "passageTitle": "Number Work", "paragraphs": ["Each number doubles, so 24 × 2 = 48 comes next. 47 × 3 = 141. 7 × 8 = 56, so 56 is a multiple of 7.", "Division can leave a remainder: 692 ÷ 7 = 98 remainder 6, because 7 × 98 = 686 and 692 − 686 = 6."], "chart": null, "questions": [{"n": 1, "std": "4.OA.5", "type": "mc", "text": "A pattern starts 3, 6, 12, 24. What comes next?", "options": ["48 comes next in the pattern", "36 comes next in the pattern", "30 comes next in the pattern", "26 comes next in the pattern"], "correct": 0, "why": "Each number doubles, so 24 × 2 = 48 comes next."}, {"n": 2, "std": "4.NBT.5", "type": "mc", "text": "What is 47 × 3?", "options": ["141 is the product", "121 is the product", "150 is the product", "131 is the product"], "correct": 0, "why": "47 × 3 = 141."}, {"n": 3, "std": "4.OA.4", "type": "mc", "text": "Which number is a multiple of 7?", "options": ["56 is a multiple of 7", "54 is a multiple of 7", "48 is a multiple of 7", "65 is a multiple of 7"], "correct": 0, "why": "7 × 8 = 56, so 56 is a multiple of 7."}, {"n": 4, "std": "4.NBT.6", "type": "written", "text": "Divide: 692 ÷ 7.", "part1": "What is the quotient (the whole-number answer)?", "part2": "What is the remainder?", "sample": "692 ÷ 7 = 98 remainder 6, because 7 × 98 = 686 and 692 − 686 = 6."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Decimals, Fractions & Leaves", "subtitle": "Fractions, Line Plots & Units · 4 questions", "passageTitle": "Fractions and Measures", "paragraphs": ["0.9 is 9 tenths, which is 9/10. The denominators are the same: 7 − 4 = 3, so the answer is 3/9.", "The chart below shows leaves the class measured to the nearest half inch.", "The path is 1,200 cm long (12 × 100). The can holds 3 L 305 mL (3,000 mL + 305 mL)."], "chart": {"title": "Leaves We Measured", "sub": "How many leaves of each length", "max": 5, "unit": "leaves", "col1": "Length", "col2": "Leaves", "rows": [{"label": "3 in", "count": 2, "value": 2, "cls": "teal"}, {"label": "3½ in", "count": 5, "value": 5, "cls": "apple"}, {"label": "4 in", "count": 3, "value": 3, "cls": "banana"}, {"label": "4½ in", "count": 2, "value": 2, "cls": "orange"}]}, "questions": [{"n": 5, "std": "4.NF.6", "type": "mc", "text": "Which fraction is the same as 0.9?", "options": ["9/10 is the same here", "9/100 is the same here", "90/10 is the same here", "1/9 is the same here"], "correct": 0, "why": "0.9 is 9 tenths, which is 9/10."}, {"n": 6, "std": "4.NF.3", "type": "mc", "text": "What is 7/9 − 4/9?", "options": ["3/9 is the difference", "3/18 is the difference", "4/9 is the difference", "11/9 is the difference"], "correct": 0, "why": "The denominators are the same: 7 − 4 = 3, so the answer is 3/9."}, {"n": 7, "std": "4.MD.4", "type": "written", "text": "Look at the leaves chart in this section.", "part1": "How many leaves are 3½ in long?", "part2": "How many leaves are LONGER than 3½ in?", "sample": "5 leaves are 3½ in long. The leaves longer than 3½ in add up to 5 longer in all."}, {"n": 8, "std": "4.MD.1", "type": "written", "text": "A path is 12 metres long. A can holds 3,305 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.", "part1": "How many centimetres long is the path?", "part2": "Write the can's amount (3,305 mL) in litres and millilitres.", "sample": "The path is 1,200 cm long (12 × 100). The can holds 3 L 305 mL (3,000 mL + 305 mL)."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Shapes, Stickers & Angles", "subtitle": "Measurement, Geometry & Multi-Step Problems · 4 questions", "passageTitle": "Time, Shapes and Problems", "paragraphs": ["A pentagon has 5 sides and 5 angles. Boys = 30 ÷ 5 = 6. Acute means less than 90°, and 35° is less than 90°.", "Multi-step problems take one step at a time: Ben has $14 left. The 4 toys cost 4 × $11 = $44 altogether, and $58 − $44 = $14."], "chart": null, "questions": [{"n": 9, "std": "4.G.2", "type": "mc", "text": "Which shape has 5 sides and 5 angles?", "options": ["A pentagon has 5 of each", "A hexagon has 5 of each", "A square has 5 of each one", "A triangle has 5 of each"], "correct": 0, "why": "A pentagon has 5 sides and 5 angles."}, {"n": 10, "std": "4.OA.1", "type": "mc", "text": "A class has 5 times as many girls as boys. There are 30 girls. How many boys are there?", "options": ["6 boys in the class", "150 boys in the class", "35 boys in the class", "25 boys in the class"], "correct": 0, "why": "Boys = 30 ÷ 5 = 6."}, {"n": 11, "std": "4.MD.5", "type": "mc", "text": "Which angle is an acute angle?", "options": ["35° is an acute angle", "95° is an acute angle", "90° is an acute angle", "180° is an acute angle"], "correct": 0, "why": "Acute means less than 90°, and 35° is less than 90°."}, {"n": 12, "std": "4.OA.3", "type": "written", "text": "Ben has $58. Ben buys 4 toys that cost $11 each. How much money does Ben have left?", "part1": "How much money does Ben have left?", "part2": "Show your working: how much did the 4 toys cost altogether?", "sample": "Ben has $14 left. The 4 toys cost 4 × $11 = $44 altogether, and $58 − $44 = $14."}]}], "gradeKeys": {"4": [{"found": "Quotient of 692 ÷ 7: 98", "missing": "the quotient — 98", "alt": [["98"]]}, {"found": "Remainder of 692 ÷ 7: 6", "missing": "the remainder — 6", "alt": [["remainder 6"], ["r 6"], ["r6"], ["rem 6"], ["6 left over"], ["left over 6"], ["6 remains"]]}], "7": [{"found": "Leaves that are 3½ in long: 5", "missing": "how many leaves are 3½ in long — 5", "alt": [["5 leaves"], ["5 are"], ["5 of them"]]}, {"found": "Leaves longer than 3½ in: 5", "missing": "how many leaves are longer than 3½ in — 5", "alt": [["5 longer"], ["5 are longer"], ["5 leaves longer"], ["5 of them longer"], ["5 of them"]]}], "8": [{"found": "The path: 1,200 cm", "missing": "the path in centimetres — 1,200 cm", "alt": [["1,200 cm"], ["1200 cm"], ["1200 centimetres"], ["1200 centimeters"], ["1200"]]}, {"found": "The 3,305 mL can: 3 L 305 mL", "missing": "the can in litres and millilitres — 3 L 305 mL", "alt": [["3 l 305"], ["3 litres 305"], ["3 liters 305"], ["3 litre 305"]]}], "12": [{"found": "Money left: $14", "missing": "how much money Ben has left — $14", "alt": [["14 left"], ["$14"], ["14 dollars left"], ["has 14"], ["left 14"]]}, {"found": "Working: 4 toys cost $44 altogether", "missing": "the working — 4 toys cost 4 × $11 = $44 altogether", "alt": [["4 x 11"], ["4 × 11"], ["cost 44"], ["costs 44"], ["44 altogether"], ["44 total"]]}]}}, {"paper": 6, "cycleDay": 16, "quizId": "weeklypack-2026-11-30-p6", "title": "Grade 4 Math Quiz — Weekly Pack Paper #6", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Adding, Fractions & Comparing", "subtitle": "Place Value, Operations & Division · 4 questions", "passageTitle": "Number Work", "paragraphs": ["46,573 + 18,246 = 64,819. Halve the top and bottom of 2/6 to get 1/3. The numbers match until the tens place, where 4 beats 0, so 89,240 is greater.", "Division can leave a remainder: 548 ÷ 6 = 91 remainder 2, because 6 × 91 = 546 and 548 − 546 = 2."], "chart": null, "questions": [{"n": 1, "std": "4.NBT.4", "type": "mc", "text": "What is 46,573 + 18,246?", "options": ["64,819 is the sum here", "64,719 is the sum here", "65,819 is the sum here", "63,819 is the sum here"], "correct": 0, "why": "46,573 + 18,246 = 64,819."}, {"n": 2, "std": "4.NF.1", "type": "mc", "text": "Which fraction is EQUAL to 2/6?", "options": ["1/3 is equal here", "2/3 is equal here", "1/6 is equal here", "4/6 is equal here"], "correct": 0, "why": "Halve the top and bottom of 2/6 to get 1/3."}, {"n": 3, "std": "4.NBT.2", "type": "mc", "text": "Which number is greater, 89,204 or 89,240?", "options": ["89,204 is greater here", "89,240 is greater here", "Both numbers are equal", "Neither one is greater"], "correct": 1, "why": "The numbers match until the tens place, where 4 beats 0, so 89,240 is greater."}, {"n": 4, "std": "4.NBT.6", "type": "written", "text": "Divide: 548 ÷ 6.", "part1": "What is the quotient (the whole-number answer)?", "part2": "What is the remainder?", "sample": "548 ÷ 6 = 91 remainder 2, because 6 × 91 = 546 and 548 − 546 = 2."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Decimals, Fractions & Straws", "subtitle": "Fractions, Line Plots & Units · 4 questions", "passageTitle": "Fractions and Measures", "paragraphs": ["0.5 is 0.50, and 50 hundredths is more than 45 hundredths. The tops are the same, and fifths are smaller pieces than thirds, so 2/5 is smaller.", "The chart below shows straws the class measured to the nearest half inch.", "The ribbon is 1,500 cm long (15 × 100). The tank holds 6 L 430 mL (6,000 mL + 430 mL)."], "chart": {"title": "Straws We Measured", "sub": "How many straws of each length", "max": 4, "unit": "straws", "col1": "Length", "col2": "Straws", "rows": [{"label": "4 in", "count": 3, "value": 3, "cls": "teal"}, {"label": "4½ in", "count": 4, "value": 4, "cls": "apple"}, {"label": "5 in", "count": 2, "value": 2, "cls": "banana"}, {"label": "5½ in", "count": 2, "value": 2, "cls": "orange"}]}, "questions": [{"n": 5, "std": "4.NF.7", "type": "mc", "text": "Which decimal is greater, 0.45 or 0.5?", "options": ["0.45 is greater here", "0.5 is greater here", "Both decimals are equal", "Neither decimal is greater"], "correct": 1, "why": "0.5 is 0.50, and 50 hundredths is more than 45 hundredths."}, {"n": 6, "std": "4.NF.2", "type": "mc", "text": "Which fraction is SMALLER, 2/3 or 2/5?", "options": ["2/3 is smaller here", "2/5 is smaller here", "Both are equal here", "Neither is smaller"], "correct": 1, "why": "The tops are the same, and fifths are smaller pieces than thirds, so 2/5 is smaller."}, {"n": 7, "std": "4.MD.4", "type": "written", "text": "Look at the straws chart in this section.", "part1": "How many straws are 4½ in long?", "part2": "How many straws are LONGER than 4½ in?", "sample": "4 straws are 4½ in long. The straws longer than 4½ in add up to 4 longer in all."}, {"n": 8, "std": "4.MD.1", "type": "written", "text": "A ribbon is 15 metres long. A tank holds 6,430 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.", "part1": "How many centimetres long is the ribbon?", "part2": "Write the tank's amount (6,430 mL) in litres and millilitres.", "sample": "The ribbon is 1,500 cm long (15 × 100). The tank holds 6 L 430 mL (6,000 mL + 430 mL)."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Area, Segments & Time", "subtitle": "Measurement, Geometry & Multi-Step Problems · 4 questions", "passageTitle": "Time, Shapes and Problems", "paragraphs": ["Area = length × width = 8 × 3 = 24 square units. A line segment has two endpoints with the straight path between them. From 3:45 to 5:10 is 1 hour and 25 minutes.", "Multi-step problems take one step at a time: Zoe has $31 left. The 7 cards cost 7 × $8 = $56 altogether, and $87 − $56 = $31."], "chart": null, "questions": [{"n": 9, "std": "4.MD.3", "type": "mc", "text": "A poster is 8 units long and 3 units wide. What is its area?", "options": ["24 square units here", "22 square units here", "11 square units here", "16 square units here"], "correct": 0, "why": "Area = length × width = 8 × 3 = 24 square units."}, {"n": 10, "std": "4.G.1", "type": "mc", "text": "Which shape is made of two endpoints and the straight path between them?", "options": ["A line segment fits here", "A ray fits this shape here", "A line fits this shape here", "An angle fits this shape"], "correct": 0, "why": "A line segment has two endpoints with the straight path between them."}, {"n": 11, "std": "4.MD.2", "type": "mc", "text": "Soccer practice starts at 3:45 and ends at 5:10. How long is practice?", "options": ["1 hour 25 minutes long", "1 hour 35 minutes long", "2 hours 25 minutes long", "65 minutes long in all"], "correct": 0, "why": "From 3:45 to 5:10 is 1 hour and 25 minutes."}, {"n": 12, "std": "4.OA.3", "type": "written", "text": "Zoe has $87. Zoe buys 7 cards that cost $8 each. How much money does Zoe have left?", "part1": "How much money does Zoe have left?", "part2": "Show your working: how much did the 7 cards cost altogether?", "sample": "Zoe has $31 left. The 7 cards cost 7 × $8 = $56 altogether, and $87 − $56 = $31."}]}], "gradeKeys": {"4": [{"found": "Quotient of 548 ÷ 6: 91", "missing": "the quotient — 91", "alt": [["91"]]}, {"found": "Remainder of 548 ÷ 6: 2", "missing": "the remainder — 2", "alt": [["remainder 2"], ["r 2"], ["r2"], ["rem 2"], ["2 left over"], ["left over 2"], ["2 remains"]]}], "7": [{"found": "Straws that are 4½ in long: 4", "missing": "how many straws are 4½ in long — 4", "alt": [["4 straws"], ["4 are"], ["4 of them"]]}, {"found": "Straws longer than 4½ in: 4", "missing": "how many straws are longer than 4½ in — 4", "alt": [["4 longer"], ["4 are longer"], ["4 straws longer"], ["4 of them longer"], ["4 of them"]]}], "8": [{"found": "The ribbon: 1,500 cm", "missing": "the ribbon in centimetres — 1,500 cm", "alt": [["1,500 cm"], ["1500 cm"], ["1500 centimetres"], ["1500 centimeters"], ["1500"]]}, {"found": "The 6,430 mL tank: 6 L 430 mL", "missing": "the tank in litres and millilitres — 6 L 430 mL", "alt": [["6 l 430"], ["6 litres 430"], ["6 liters 430"], ["6 litre 430"]]}], "12": [{"found": "Money left: $31", "missing": "how much money Zoe has left — $31", "alt": [["31 left"], ["$31"], ["31 dollars left"], ["has 31"], ["left 31"]]}, {"found": "Working: 7 cards cost $56 altogether", "missing": "the working — 7 cards cost 7 × $8 = $56 altogether", "alt": [["7 x 8"], ["7 × 8"], ["cost 56"], ["costs 56"], ["56 altogether"], ["56 total"]]}]}}, {"paper": 7, "cycleDay": 17, "quizId": "weeklypack-2026-11-30-p7", "title": "Grade 4 Math Quiz — Weekly Pack Paper #7", "sections": [{"id": 1, "tag": "Section 1", "tagClass": "tag-1", "title": "Comparing, Marbles & Subtracting", "subtitle": "Place Value, Operations & Division · 4 questions", "passageTitle": "Number Work", "paragraphs": ["The numbers match until the tens place, where 1 is less than 7, so 35,617 is less. Sam has 42 ÷ 6 = 7 marbles. 29,486 − 13,297 = 16,189.", "Division can leave a remainder: 375 ÷ 4 = 93 remainder 3, because 4 × 93 = 372 and 375 − 372 = 3."], "chart": null, "questions": [{"n": 1, "std": "4.NBT.2", "type": "mc", "text": "Which number is less, 35,617 or 35,671?", "options": ["35,617 is the lesser number", "35,671 is the lesser number", "Both numbers are exactly equal", "Neither number can be compared"], "correct": 0, "why": "The numbers match until the tens place, where 1 is less than 7, so 35,617 is less."}, {"n": 2, "std": "4.OA.1", "type": "mc", "text": "Jack has 6 times as many marbles as Sam. Jack has 42 marbles. How many marbles does Sam have?", "options": ["7 marbles for Sam here", "252 marbles for Sam here", "48 marbles for Sam here", "36 marbles for Sam here"], "correct": 0, "why": "Sam has 42 ÷ 6 = 7 marbles."}, {"n": 3, "std": "4.NBT.4", "type": "mc", "text": "What is 29,486 − 13,297?", "options": ["16,189 is the difference", "16,289 is the difference", "15,189 is the difference", "16,089 is the difference"], "correct": 0, "why": "29,486 − 13,297 = 16,189."}, {"n": 4, "std": "4.NBT.6", "type": "written", "text": "Divide: 375 ÷ 4.", "part1": "What is the quotient (the whole-number answer)?", "part2": "What is the remainder?", "sample": "375 ÷ 4 = 93 remainder 3, because 4 × 93 = 372 and 375 − 372 = 3."}]}, {"id": 2, "tag": "Section 2", "tagClass": "tag-2", "title": "Fractions, Seedlings & Units", "subtitle": "Fractions, Line Plots & Units · 4 questions", "passageTitle": "Fractions and Measures", "paragraphs": ["Divide the top and bottom of 9/12 by 3 to get 3/4. 7/10 is 7 tenths, which is 0.7.", "The chart below shows seedlings the class measured to the nearest half inch.", "The hose is 2,000 cm long (20 × 100). The bucket holds 8 L 90 mL (8,000 mL + 90 mL)."], "chart": {"title": "Seedlings We Measured", "sub": "How many seedlings of each length", "max": 4, "unit": "seedlings", "col1": "Length", "col2": "Seedlings", "rows": [{"label": "2½ in", "count": 2, "value": 2, "cls": "teal"}, {"label": "3 in", "count": 3, "value": 3, "cls": "apple"}, {"label": "3½ in", "count": 4, "value": 4, "cls": "banana"}, {"label": "4 in", "count": 2, "value": 2, "cls": "orange"}]}, "questions": [{"n": 5, "std": "4.NF.1", "type": "mc", "text": "Which fraction is EQUAL to 9/12?", "options": ["3/4 is equal here", "9/6 is equal here", "3/12 is equal here", "12/9 is equal here"], "correct": 0, "why": "Divide the top and bottom of 9/12 by 3 to get 3/4."}, {"n": 6, "std": "4.NF.6", "type": "mc", "text": "Which decimal is the same as 7/10?", "options": ["0.7 is the same here", "0.07 is the same here", "7.0 is the same here", "0.007 is the same here"], "correct": 0, "why": "7/10 is 7 tenths, which is 0.7."}, {"n": 7, "std": "4.MD.4", "type": "written", "text": "Look at the seedlings chart in this section.", "part1": "How many seedlings are 3½ in long?", "part2": "How many seedlings are LONGER than 3½ in?", "sample": "4 seedlings are 3½ in long. The seedlings longer than 3½ in add up to 2 longer in all."}, {"n": 8, "std": "4.MD.1", "type": "written", "text": "A hose is 20 metres long. A bucket holds 8,090 millilitres. Use 1 metre = 100 centimetres and 1 litre = 1,000 millilitres.", "part1": "How many centimetres long is the hose?", "part2": "Write the bucket's amount (8,090 mL) in litres and millilitres.", "sample": "The hose is 2,000 cm long (20 × 100). The bucket holds 8 L 90 mL (8,000 mL + 90 mL)."}]}, {"id": 3, "tag": "Section 3", "tagClass": "tag-3", "title": "Time, Floors & Angles", "subtitle": "Measurement, Geometry & Multi-Step Problems · 4 questions", "passageTitle": "Time, Shapes and Problems", "paragraphs": ["From 8:20 to 9:05 is 45 minutes. Perimeter = 2 × (6 + 5) = 22 metres. An angle is two rays that share one endpoint, the vertex.", "Multi-step problems take one step at a time: Kim has $27 left. The 5 puzzles cost 5 × $13 = $65 altogether, and $92 − $65 = $27."], "chart": null, "questions": [{"n": 9, "std": "4.MD.2", "type": "mc", "text": "A bus ride starts at 8:20 and ends at 9:05. How long is the ride?", "options": ["45 minutes long in all", "55 minutes long in all", "1 hour 25 minutes long", "35 minutes long in all"], "correct": 0, "why": "From 8:20 to 9:05 is 45 minutes."}, {"n": 10, "std": "4.MD.3", "type": "mc", "text": "A tile floor is 6 metres by 5 metres. What is its perimeter?", "options": ["22 metres of perimeter", "30 metres of perimeter", "11 metres of perimeter", "26 metres of perimeter"], "correct": 0, "why": "Perimeter = 2 × (6 + 5) = 22 metres."}, {"n": 11, "std": "4.G.1", "type": "mc", "text": "An angle is formed by two…", "options": ["rays that share an endpoint", "lines that never meet at all", "segments with no endpoints", "circles that share a centre"], "correct": 0, "why": "An angle is two rays that share one endpoint, the vertex."}, {"n": 12, "std": "4.OA.3", "type": "written", "text": "Kim has $92. Kim buys 5 puzzles that cost $13 each. How much money does Kim have left?", "part1": "How much money does Kim have left?", "part2": "Show your working: how much did the 5 puzzles cost altogether?", "sample": "Kim has $27 left. The 5 puzzles cost 5 × $13 = $65 altogether, and $92 − $65 = $27."}]}], "gradeKeys": {"4": [{"found": "Quotient of 375 ÷ 4: 93", "missing": "the quotient — 93", "alt": [["93"]]}, {"found": "Remainder of 375 ÷ 4: 3", "missing": "the remainder — 3", "alt": [["remainder 3"], ["r 3"], ["r3"], ["rem 3"], ["3 left over"], ["left over 3"], ["3 remains"]]}], "7": [{"found": "Seedlings that are 3½ in long: 4", "missing": "how many seedlings are 3½ in long — 4", "alt": [["4 seedlings"], ["4 are"], ["4 of them"]]}, {"found": "Seedlings longer than 3½ in: 2", "missing": "how many seedlings are longer than 3½ in — 2", "alt": [["2 longer"], ["2 are longer"], ["2 seedlings longer"], ["2 of them longer"], ["2 of them"]]}], "8": [{"found": "The hose: 2,000 cm", "missing": "the hose in centimetres — 2,000 cm", "alt": [["2,000 cm"], ["2000 cm"], ["2000 centimetres"], ["2000 centimeters"], ["2000"]]}, {"found": "The 8,090 mL bucket: 8 L 90 mL", "missing": "the bucket in litres and millilitres — 8 L 90 mL", "alt": [["8 l 90"], ["8 litres 90"], ["8 liters 90"], ["8 litre 90"]]}], "12": [{"found": "Money left: $27", "missing": "how much money Kim has left — $27", "alt": [["27 left"], ["$27"], ["27 dollars left"], ["has 27"], ["left 27"]]}, {"found": "Working: 5 puzzles cost $65 altogether", "missing": "the working — 5 puzzles cost 5 × $13 = $65 altogether", "alt": [["5 x 13"], ["5 × 13"], ["cost 65"], ["costs 65"], ["65 altogether"], ["65 total"]]}]}}];
+  var SECTIONS = [];
+  var CURRENT_DAY = null;
 
   var ALL_MC = [], ALL_WRITTEN = [];
-  SECTIONS.forEach(function(s){
-    s.questions.forEach(function(q){
-      q.section = s.id;
-      if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q);
+  function rebuildIndex(){
+    ALL_MC = []; ALL_WRITTEN = [];
+    SECTIONS.forEach(function(s){
+      s.questions.forEach(function(q){
+        q.section = s.id;
+        if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q);
+      });
     });
-  });
+  }
   var LETTERS = ["A","B","C","D"];
   var TOTAL_SECONDS = 20 * 60;
   // Test hook: ?testSeconds=12 shortens the limit so expiry can be verified
@@ -970,7 +904,7 @@
   }
 
   /* ---------------- Math-growth bar chart ----------------
-     Amber's math history has FOUR records: 11/18/26 Placement
+     Amber's math history has FOUR records: 11/18/26 Level Test
      (27/38, 600Q same), 11/18/26 Daily Quiz (8/12, 600Q same),
      11/19/26 Daily Quiz (9/12, +10Q to 610Q, best ever, gold) and
      11/20/26 Daily Quiz (7/12, submitted 2026-11-21 09:32 PST,
@@ -1033,7 +967,7 @@
   }
     renderGrowthCharts();
   function show(viewId){
-    ["view-start","view-quiz","view-results"].forEach(function(v){
+    ["view-days","view-start","view-quiz","view-sending","view-results"].forEach(function(v){
       $(v).classList.toggle("hidden", v !== viewId);
     });
     window.scrollTo(0,0);
@@ -1059,9 +993,9 @@
       h1 = ((h1 * 33) ^ c) >>> 0;
       h2 = ((h2 * 31) ^ c) >>> 0;
     }
-    return "g4-2026-11-26-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
+    return "g4-pack-" + h1.toString(36) + h2.toString(36) + "-" + raw.length;
   }
-  var QUIZ_ID = "2026-11-26-math1";
+  var QUIZ_ID = "";
   function attemptStorageKey(){
     return "g4rq-attempts-v1:amber:" + todayStr() + ":" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
   }
@@ -1071,6 +1005,17 @@
     var next = prev + 1;
     storeSet(key, String(next));
     return next;
+  }
+  // Confirmed-delivery flow: the number a submission WILL carry is
+  // peeked when it is sent, but only committed (counted) once the
+  // delivery is confirmed twice — an unconfirmed submission must not
+  // consume the attempt.
+  function peekAttemptCount(){
+    var prev = parseInt(storeGet(attemptStorageKey()) || "0", 10) || 0;
+    return prev + 1;
+  }
+  function commitAttemptCount(n){
+    storeSet(attemptStorageKey(), String(n));
   }
 
   /* ---------------- Attendance punch (submission-day rule) ----------------
@@ -1232,6 +1177,7 @@
       Array.prototype.forEach.call(radios, function(r){
         r.addEventListener("change", function(){
           answers[q.n] = parseInt(r.value, 10);
+          saveDraft();
           updateProgress();
         });
       });
@@ -1239,6 +1185,7 @@
     ALL_WRITTEN.forEach(function(q){
       $("ta-"+q.n).addEventListener("input", function(e){
         written[q.n] = e.target.value;
+        saveDraft();
         updateProgress();
       });
     });
@@ -1273,8 +1220,11 @@
   }
 
   /* ---------------- Timer (hard 20-minute limit) ---------------- */
-  function startTimer(){
-    startStamp = Date.now();
+  function startTimer(resumeStamp){
+    if(timerId){ clearInterval(timerId); timerId = null; }
+    // A resumed draft keeps its ORIGINAL start stamp: the clock runs
+    // from when this paper was first started, never from the reopen.
+    startStamp = (typeof resumeStamp === "number" && resumeStamp > 0) ? resumeStamp : Date.now();
     submitted = false;
     autoSubmitted = false;
     var w = $("time-warning");
@@ -1336,15 +1286,94 @@
     goToResults(true);
   }
 
+  /* ---------------- In-progress draft (Ellis, Nov 26, 2026) ----------------
+     While a paper is being answered, every answer is saved to a local
+     draft together with the paper's ORIGINAL start stamp. Refreshing
+     or closing the page and reopening the same paper restores the
+     answers and keeps the SAME clock: remaining time = the limit
+     minus the time already used — the timer never restarts. If the
+     time has already run out when the paper is reopened, the restored
+     answers are auto-submitted at once (through the confirmed-send
+     flow below). The draft is cleared only when a submission is
+     confirmed delivered. */
+  function draftKey(){
+    return "g4mq-pack-draft-v1:amber:" + QUIZ_ID + (TEST_MODE ? ":TEST" : "");
+  }
+  function saveDraft(){
+    if(!CURRENT_DAY || submitted) return;
+    var d = { quizId: QUIZ_ID, startStamp: startStamp || Date.now(),
+              answers: answers, written: written };
+    try { storeSet(draftKey(), JSON.stringify(d)); } catch(e) {}
+  }
+  function loadDraft(){
+    if(!CURRENT_DAY) return null;
+    try {
+      var raw = storeGet(draftKey());
+      if(!raw) return null;
+      var d = JSON.parse(raw);
+      if(!d || d.quizId !== QUIZ_ID) return null;
+      return d;
+    } catch(e) { return null; }
+  }
+  function clearDraft(){
+    try { storeSet(draftKey(), ""); } catch(e) {}
+    try { window.localStorage.removeItem(draftKey()); } catch(e) {}
+    try { delete memoryStore[draftKey()]; } catch(e) {}
+  }
+  function applyDraftToDom(){
+    ALL_MC.forEach(function(q){
+      var v = answers[q.n];
+      if(typeof v !== "number") return;
+      var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
+      Array.prototype.forEach.call(radios, function(r){
+        if(parseInt(r.value, 10) === v) r.checked = true;
+      });
+    });
+    ALL_WRITTEN.forEach(function(q){
+      var ta = $("ta-" + q.n);
+      if(ta && written[q.n]) ta.value = written[q.n];
+    });
+  }
+
   /* ---------------- Start ---------------- */
   $("start-form").addEventListener("submit", function(e){
     e.preventDefault();
     studentName = TEST_MODE ? "TEST" : "Amber";
     $("student-chip").textContent = "👤 " + studentName;
+    var draft = loadDraft();
     buildQuiz();
+    var resumeStamp = null;
+    if(draft){
+      var restoredAnswers = {};
+      Object.keys(draft.answers || {}).forEach(function(k){
+        restoredAnswers[parseInt(k, 10)] = draft.answers[k];
+      });
+      answers = restoredAnswers;
+      written = draft.written || {};
+      applyDraftToDom();
+      if(typeof draft.startStamp === "number" && draft.startStamp > 0) resumeStamp = draft.startStamp;
+    }
+    if(draft && draft.pending && draft.pending.payload){
+      // This sitting was already submitted before the page was closed
+      // or refreshed, but the delivery was never confirmed. Go back to
+      // the sending view and keep delivering the SAME payload (same
+      // submissionId) — the submission counts once, under its original
+      // id, however many times the page comes and goes.
+      gradeAllWritten();
+      pendingSubmission = { payload: draft.pending.payload, attempt: draft.pending.attempt || peekAttemptCount() };
+      attemptCount = pendingSubmission.attempt;
+      submitted = true;
+      show("view-sending");
+      attemptDelivery();
+      return;
+    }
     updateProgress();
     show("view-quiz");
-    startTimer();
+    startTimer(resumeStamp);
+    if(!draft) saveDraft();  // stamp the start time from the first open
+    // Reopened after the time already ran out: send the restored
+    // answers right away, through the confirmed-send flow.
+    if(resumeStamp && elapsedSeconds() >= TOTAL_SECONDS) autoSubmit();
   });
 
   /* ---------------- Submit flow ---------------- */
@@ -1373,23 +1402,110 @@
     goToResults(false);
   });
 
+  /* ---------------- Submit: confirmed delivery, DOUBLE VERIFY ----------------
+     (Ellis, Nov 26, 2026) Sending is not submitting. A submission
+     counts ONLY when the receiver has confirmed it TWICE:
+       step 1 — the receiver answers the POST with { ok:true, id };
+       step 2 — the page asks the receiver to read that record id
+                back, and the receiver confirms it exists.
+     Until both pass, the page stays on the sending/waiting view: no
+     results page, the paper is NOT consumed, no punch. The page
+     retries by itself (a timer, plus the browser's "online" event) —
+     the child does nothing. Only after both confirmations does the
+     submission settle: attempt counted, punch for the day, pack
+     progress stored, draft cleared, results shown. */
+  var pendingSubmission = null;   // { payload, attempt }
+  var deliveryBusy = false;
+  var deliveryRetryTimer = null;
+
   function goToResults(isAuto){
     if(submitted) return;
+    // One paper, one record: if this paper already has a CONFIRMED
+    // result (settled from another tab or an earlier instance), a
+    // stale open copy must not file a second record for the same
+    // sitting — show the stored result instead. TEST drives are
+    // exempt: re-driving the same paper is the QC workflow, and TEST
+    // logs never reach the formal record.
+    if(!TEST_MODE && CURRENT_DAY && getDayResult(CURRENT_DAY)){
+      openReview(PACK_DAYS.indexOf(CURRENT_DAY));
+      return;
+    }
     submitted = true;
     autoSubmitted = !!isAuto;
-    // Count this completed submission (manual and auto-submit both count,
-    // exactly once — the submitted flag above blocks any double-fire).
-    attemptCount = recordAttempt();
-    // Punch the SUBMISSION day (today in America/Los_Angeles), not the
-    // date written on this quiz — see the attendance punch section.
-    applyPunch();
     syncWrittenFromDom();
     // Auto-submit always reports the full limit (20:00 for real quizzes).
     elapsedAtSubmit = autoSubmitted ? TOTAL_SECONDS : Math.min(elapsedSeconds(), TOTAL_SECONDS);
     stopTimer();
     gradeAllWritten();
+    var prior = loadDraft();
+    if(prior && prior.pending && prior.pending.payload){
+      // A submission for this sitting was already sent (another tab,
+      // or an earlier page instance) and is still unconfirmed: deliver
+      // THAT payload — same submissionId — never build a second one.
+      pendingSubmission = { payload: prior.pending.payload, attempt: prior.pending.attempt || peekAttemptCount() };
+      attemptCount = pendingSubmission.attempt;
+    } else {
+      attemptCount = peekAttemptCount();
+      pendingSubmission = { payload: buildLogPayload(), attempt: attemptCount };
+      persistPendingSubmission();
+    }
+    show("view-sending");
+    attemptDelivery();
+  }
+
+  /* The moment a submission is built, its payload (with its
+     submissionId) is written into the local draft. If the page is
+     closed or refreshed while the submission is still unconfirmed,
+     reopening resumes delivery of THIS SAME payload: the receiver
+     answers duplicate for the repeated id and files nothing new, so
+     one sitting can never become two records. */
+  function persistPendingSubmission(){
+    if(!pendingSubmission) return;
+    try {
+      var d = loadDraft() || { quizId: QUIZ_ID, startStamp: startStamp || Date.now(), answers: answers, written: written };
+      d.pending = { payload: pendingSubmission.payload, attempt: pendingSubmission.attempt };
+      storeSet(draftKey(), JSON.stringify(d));
+    } catch(e) {}
+  }
+  function attemptDelivery(){
+    if(!pendingSubmission || deliveryBusy) return;
+    deliveryBusy = true;
+    deliverLogConfirmed(pendingSubmission.payload).then(function(ok){
+      deliveryBusy = false;
+      if(!pendingSubmission) return;
+      if(ok) finishSubmission();
+      else scheduleDeliveryRetry();
+    });
+  }
+  function scheduleDeliveryRetry(){
+    if(deliveryRetryTimer) return;
+    deliveryRetryTimer = setTimeout(function(){
+      deliveryRetryTimer = null;
+      attemptDelivery();
+    }, 3000);
+  }
+  try {
+    window.addEventListener("online", function(){
+      if(!pendingSubmission) return;
+      if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+      attemptDelivery();
+    });
+  } catch(e) {}
+  function finishSubmission(){
+    if(!pendingSubmission) return;
+    var payload = pendingSubmission.payload;
+    var attempt = pendingSubmission.attempt;
+    pendingSubmission = null;
+    if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+    // Confirmed twice — NOW this submission counts.
+    commitAttemptCount(attempt);
+    attemptCount = attempt;
+    // Punch the SUBMISSION day (today in America/Los_Angeles), not the
+    // date written on this quiz — see the attendance punch section.
+    applyPunch();
     buildResults();
-    saveAnswerLog();
+    storeDayResult();
+    clearDraft();
     show("view-results");
   }
 
@@ -1429,41 +1545,7 @@
     }
     return out;
   }
-var GRADE_KEYS = {
-    4: [
-      { found: "Quotient of 642 \u00f7 7: 91",
-        missing: "the quotient \u2014 91",
-        alt: [["91"],["ninety one"]] },
-      { found: "Remainder of 642 \u00f7 7: 5",
-        missing: "the remainder \u2014 5",
-        alt: [["remainder 5"],["r 5"],["r5"],["rem 5"],["5 left over"],["left over 5"],["5 remains"]] }
-    ],
-    7: [
-      { found: "Sticks that are 3 inches long: 4",
-        missing: "how many sticks are 3 inches long \u2014 4",
-        alt: [["4 sticks"],["four sticks"],["4 are"],["4 of them"]] },
-      { found: "Sticks longer than 3 inches: 5",
-        missing: "how many sticks are longer than 3 inches \u2014 5",
-        alt: [["5 longer"],["five longer"],["5 are longer"],["5 sticks longer"],["5 of them longer"],["5 of them"]] }
-    ],
-    8: [
-      { found: "The ribbon: 800 cm",
-        missing: "the ribbon in centimetres \u2014 800 cm",
-        alt: [["800 cm"],["800 centimetres"],["800 centimeters"],["800cm"],["800"]] },
-      { found: "The 3,450 mL jug: 3 L 450 mL",
-        missing: "the jug in litres and millilitres \u2014 3 L 450 mL",
-        alt: [["3 l 450"],["3 litres 450"],["3 liters 450"],["3 litre 450"],["3.45 l"],["3.45 litres"]] }
-    ],
-    12: [
-      { found: "Money left: $31",
-        missing: "how much money Mia has left \u2014 $31",
-        alt: [["31 left"],["$31"],["31 dollars left"],["has 31"],["left 31"]] },
-      { found: "Working: 4 bags cost $64 altogether",
-        missing: "the working \u2014 4 bags cost 4 \u00d7 $16 = $64 altogether",
-        alt: [["4 x 16"],["4 \u00d7 16"],["cost 64"],["costs 64"],["64 altogether"],["64 total"]] }
-    ]
-
-  };
+var GRADE_KEYS = {};
 
   function gradeWrittenAnswer(qn, rawText){
     var keys = GRADE_KEYS[qn];
@@ -1519,11 +1601,11 @@ var GRADE_KEYS = {
     $("r-stars").innerHTML = stars;
 
     var msg;
-    if(total === 12) msg = "Perfect score! You are a reading superstar! 🌟";
-    else if(total >= 9) msg = "Excellent work! You understood the passages really well. 🎉";
-    else if(total >= 6) msg = "Good job! Keep reading carefully and you'll get even better. 💪";
-    else if(total >= 3) msg = "Nice try! Read the review below, then try again — you can do it! 🌱";
-    else msg = "Good effort finishing the quiz! Read the review below and try again. 🌱";
+    if(total === 12) msg = "You got 12 of 12. Great work on this math quiz.";
+    else if(total >= 9) msg = "You got " + total + " of 12. Great work on this math quiz.";
+    else if(total >= 6) msg = "You got " + total + " of 12. See your answers below.";
+    else if(total >= 3) msg = "You got " + total + " of 12. See your answers below.";
+    else msg = "You got " + total + " of 12. See your answers below.";
     $("r-message").textContent = msg;
 
     // breakdown
@@ -1545,7 +1627,7 @@ var GRADE_KEYS = {
       var isRight = mine === q.correct;
       rev += '<div class="rev-card '+(isRight ? "correct" : "wrong")+'">'+
         '<div class="rev-head"><span class="rev-badge '+(isRight ? "ok" : "no")+'">'+(isRight ? "✓ Correct" : "✗ Not quite")+'</span>'+
-        '<span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>'+
+        '<span class="rev-q">['+q.std+'] Q'+q.n+'. '+esc(q.text)+'</span></div>'+
         '<div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
       if(!isRight){
         rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>';
@@ -1562,7 +1644,7 @@ var GRADE_KEYS = {
       var keys = GRADE_KEYS[q.n];
       wr += '<div class="rev-card '+(g.earned ? "correct" : "wrong")+'">'+
         '<div class="rev-head"><span class="rev-badge '+(g.earned ? "ok" : "no")+'">'+(g.earned ? "✓ Correct" : "✗ Not quite")+'</span>'+
-        '<span class="rev-q">Q'+q.n+'. '+esc(q.text)+'</span></div>'+
+        '<span class="rev-q">['+q.std+'] Q'+q.n+'. '+esc(q.text)+'</span></div>'+
         '<div class="answer-box your-box"><span class="ab-label">Your answer</span>'+
           (mine ? esc(mine) : '<span class="empty-answer">(You did not write an answer.)</span>')+'</div>'+
         '<div class="kp-box"><span class="kp-title">Key points</span>';
@@ -1583,12 +1665,11 @@ var GRADE_KEYS = {
 
   /* ---------------- Automatic answer saving ----------------
      On finish (manual submit AND timer auto-submit both funnel through
-     goToResults, which calls this exactly once per finished attempt),
-     the full answer log is POSTed to the receiver endpoint below
-     (navigator.sendBeacon first, fetch no-cors as fallback) — the same
-     transport as the GitHub-hosted English and Grade 2 math pages. */
+     goToResults), the full answer log is built as a payload and sent
+     through the DOUBLE-VERIFY delivery below: the submission counts
+     only after the receiver confirms it twice. */
   function todayStr(){
-    return "2026-11-26";
+    return pstTodayKey() || "";
   }
   function sectionPassageText(sec){
     var parts = [];
@@ -1609,11 +1690,12 @@ var GRADE_KEYS = {
     }
     return parts.join("\n");
   }
-  function buildAnswerLog(total){
+  function buildAnswerLog(total, sentAt){
     var lines = [];
     lines.push(document.title);
     lines.push("Student: " + studentName);
     lines.push("Date: " + todayStr());
+    lines.push("Sent: " + (sentAt || ""));
     lines.push("Attempt: " + attemptCount);
     lines.push("Score: " + total + "/12");
     lines.push("Time used: " + fmtTime(elapsedAtSubmit));
@@ -1695,22 +1777,22 @@ var GRADE_KEYS = {
     return lines.join("\n");
   }
   var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
-  function postLog(payload){
-    var body = "";
-    try { body = JSON.stringify(payload); } catch(e) { return; }
-    try {
-      if(navigator && navigator.sendBeacon){
-        var blob = new Blob([body], { type: "text/plain;charset=utf-8" });
-        if(navigator.sendBeacon(RECEIVER_URL, blob)) return;
-      }
-    } catch(e) {}
-    try {
-      fetch(RECEIVER_URL, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body });
-    } catch(e) {}
+  function computeTotal(){
+    var t = 0;
+    ALL_MC.forEach(function(q){ if(answers[q.n] === q.correct) t++; });
+    ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) t++; });
+    return t;
   }
-  function saveAnswerLog(){
-    var total = lastResult ? lastResult.total : 0;
-    var payload = {
+  function makeSubmissionId(){
+    var rand = "";
+    try { rand = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2); }
+    catch(e) { rand = String(Date.now()); }
+    return "amber:" + QUIZ_ID + ":a" + attemptCount + ":" + rand;
+  }
+  function buildLogPayload(){
+    var total = computeTotal();
+    var sentAt = new Date().toISOString();
+    return {
       folder: "Amber",
       subfolder: "數學习题",
       student: studentName,
@@ -1718,23 +1800,197 @@ var GRADE_KEYS = {
       date: todayStr(),
       attempt: attemptCount,
       score: total + "/12",
-      log: buildAnswerLog(total)
+      submissionId: makeSubmissionId(),
+      sentAt: sentAt,
+      log: buildAnswerLog(total, sentAt)
     };
-    try { postLog(payload); } catch (e) {}
   }
-  $("again-btn").addEventListener("click", function(){
+  /* ---------------- Double-verify delivery ----------------
+     deliverLogConfirmed(payload) resolves true ONLY when both
+     confirmations pass:
+       step 1 — POST the log; the receiver answers JSON { ok, id }.
+       step 2 — GET ?action=verify&id=<id>; the receiver answers
+                { ok, exists:true } for that exact record.
+     Delivery always goes through realDeliver to the live receiver:
+     step 1 must read the response, so the POST is sent with fetch
+     mode "cors" (the old fire-and-forget no-cors / sendBeacon path
+     can never confirm anything). The receiver needs a matching
+     doGet route: ?action=verify&id=<fileId> answering
+     ContentService JSON { ok:true, exists:<bool> } — see the 1.1.0
+     draft, Part 2. */
+  function deliverLogConfirmed(payload){
+    return realDeliver(payload);
+  }
+  function realDeliver(payload){
+    return postToReceiver(payload).then(function(res){
+      if(!res || !res.ok || !res.id) return false;
+      return verifyWithReceiver(res.id);
+    });
+  }
+  function postToReceiver(payload){
+    return new Promise(function(resolve){
+      var body = "";
+      try { body = JSON.stringify(payload); } catch(e) { resolve(null); return; }
+      fetchJson(RECEIVER_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body }, resolve);
+    });
+  }
+  function verifyWithReceiver(id){
+    return new Promise(function(resolve){
+      var url = RECEIVER_URL + "?action=verify&id=" + encodeURIComponent(id);
+      fetchJson(url, { method: "GET" }, function(json){
+        resolve(!!(json && json.ok && json.exists));
+      });
+    });
+  }
+  function fetchJson(url, opts, cb){
+    var done = false;
+    var timer = setTimeout(function(){ if(!done){ done = true; cb(null); } }, 12000);
+    function finish(json){ if(done) return; done = true; clearTimeout(timer); cb(json); }
+    try {
+      if(typeof fetch !== "function"){ finish(null); return; }
+      opts.mode = "cors";
+      fetch(url, opts).then(function(resp){ return resp.text(); }).then(function(text){
+        var json = null;
+        try { json = JSON.parse(text); } catch(e) {}
+        finish(json);
+      }).catch(function(){ finish(null); });
+    } catch(e) { finish(null); }
+  }
+  /* ================= WEEKLY PACK ==================
+     SEQUENCE + ONE PER DAY (Ellis, Nov 26, 2026): the seven papers
+     are ordered Paper #1..#7 and are NOT tied to fixed calendar
+     dates, but there are TWO locks: (1) sequence — a paper opens
+     only after the previous paper has been submitted, no skipping;
+     (2) one per day — after a paper is submitted, the next paper
+     stays locked until the NEXT America/Los_Angeles day (today's LA
+     date must be later than the previous paper's submission LA
+     date, stored as submitDay in its result record). Missing a day
+     never hurts: whenever the student comes back, the next paper is
+     open as long as it was not submitted on that same LA day. A
+     finished paper re-opens read-only (its questions + result).
+     The punch follows the standing rule unchanged: whichever LA day
+     the submission happens on gets that day's punch (see applyPunch
+     / pstTodayKey) — one paper a day means at most one punch a day.
+     The picker head shows progress "n / 7"; which days were worked
+     is shown by the ordinary attendance card on the start screen,
+     not by a strip here.
+     ?test=1 is the hidden TEST backdoor; ?testSeconds as on the
+     daily page; ?testDayOffset=N (TEST only) shifts the pack gate's
+     "today" by N days so the one-per-day lock can be test-driven.
+     Finished logs are delivered through the confirmed realDeliver
+     path to the live receiver (see the double-verify section). */
+  $("days-btn").addEventListener("click", function(){ stopTimer(); renderPicker(); show("view-days"); });
+  $("back-days-btn").addEventListener("click", function(){ renderPicker(); show("view-days"); });
+
+  function resultKey(day){ return "g4mq-pack-result-v1:amber:" + day.quizId + (TEST_MODE ? ":TEST" : ""); }
+  function getDayResult(day){
+    try { var raw = storeGet(resultKey(day)); return raw ? JSON.parse(raw) : null; } catch(e){ return null; }
+  }
+  function storeDayResult(){
+    if(!CURRENT_DAY || !lastResult) return;
+    var rec = { score: lastResult.total, answers: answers, written: written,
+                timeUsed: elapsedAtSubmit, attempt: attemptCount, auto: autoSubmitted,
+                submitDay: packTodayKey() };
+    try { storeSet(resultKey(CURRENT_DAY), JSON.stringify(rec)); } catch(e) {}
+  }
+  /* The pack gate's "today" (LA date, YYYY-MM-DD). In TEST mode the
+     ?testDayOffset=N query parameter shifts it by N days so the
+     one-per-day lock can be test-driven without waiting for midnight;
+     production always uses the real LA date. Date keys compare
+     correctly as strings. */
+  function packTodayKey(){
+    var base = pstTodayKey();
+    if(!base) return null;
+    var off = 0;
+    if(TEST_MODE){
+      try { off = parseInt(new URLSearchParams(window.location.search).get("testDayOffset") || "0", 10) || 0; } catch(e){}
+    }
+    if(!off) return base;
+    var p = base.split("-");
+    var dt = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2]) + off * 86400000);
+    function pad(n){ return (n < 10 ? "0" : "") + n; }
+    return dt.getUTCFullYear() + "-" + pad(dt.getUTCMonth() + 1) + "-" + pad(dt.getUTCDate());
+  }
+  function paperStatus(i){
+    if(getDayResult(PACK_DAYS[i])) return "done";
+    if(i === 0) return "next";
+    var prev = getDayResult(PACK_DAYS[i - 1]);
+    if(!prev) return "locked";
+    // One per day: the next paper opens only on a LATER LA day than
+    // the previous paper's submission day. A result record saved
+    // before this gate existed carries no submitDay — treat it as
+    // open rather than locking the student out forever.
+    if(!prev.submitDay) return "next";
+    var today = packTodayKey();
+    if(today && today > prev.submitDay) return "next";
+    return "wait";
+  }
+  function setDayData(i){
+    CURRENT_DAY = PACK_DAYS[i];
+    SECTIONS = CURRENT_DAY.sections;
+    GRADE_KEYS = CURRENT_DAY.gradeKeys;
+    QUIZ_ID = CURRENT_DAY.quizId;
+    rebuildIndex();
     answers = {}; written = {}; writtenGrades = {};
-    submitted = false; autoSubmitted = false; startStamp = null; elapsedAtSubmit = 0; lastResult = null;
-    stopTimer();
-    var w = $("time-warning"); if(w) w.classList.add("hidden");
-    var an = $("r-auto-note"); if(an) an.classList.add("hidden");
-    var tm = $("timer"); if(tm){ tm.textContent = "⏱ " + fmtTime(TOTAL_SECONDS); tm.classList.remove("low","critical","done"); }
-    var bt2 = $("bottom-timer"); if(bt2){ bt2.textContent = fmtTime(TOTAL_SECONDS); bt2.classList.remove("low","critical"); }
-    var bp2 = $("bottom-prog"); if(bp2){ bp2.textContent = "0 / 12"; bp2.classList.remove("pop"); }
-    lastProgCount = 0;
-    studentName = TEST_MODE ? "TEST" : "Amber";
-    show("view-start");
-  });
+    submitted = false; autoSubmitted = false; startStamp = null;
+    elapsedAtSubmit = 0; attemptCount = 0; lastResult = null;
+    document.title = CURRENT_DAY.title;
+    var head = $("start-day-head");
+    if(head) head.innerHTML = "📦 <b>Paper #" + CURRENT_DAY.paper + "</b> · Cycle 1 Day " +
+      CURRENT_DAY.cycleDay + " · 12 questions · 20 minutes";
+  }
+  function openDay(i){
+    if(paperStatus(i) !== "next") return;  // sequence + one-per-day gate
+    setDayData(i); show("view-start");
+  }
+  function openReview(i){
+    setDayData(i);
+    var rec = getDayResult(CURRENT_DAY);
+    if(!rec) return;
+    var a = {};
+    Object.keys(rec.answers || {}).forEach(function(k){ a[parseInt(k, 10)] = rec.answers[k]; });
+    answers = a; written = rec.written || {};
+    attemptCount = rec.attempt || 1;
+    elapsedAtSubmit = rec.timeUsed || 0;
+    autoSubmitted = !!rec.auto;
+    submitted = true;  // review is read-only: no timer, no re-submit path
+    gradeAllWritten();
+    buildResults();
+    show("view-results");
+  }
+  function renderPicker(){
+    var doneCount = 0;
+    PACK_DAYS.forEach(function(day){ if(getDayResult(day)) doneCount++; });
+    var pp = $("pack-progress");
+    if(pp) pp.textContent = "⭐ Finished " + doneCount + " of 7 quizzes";
+    var grid = "";
+    PACK_DAYS.forEach(function(day, i){
+      var st = paperStatus(i);
+      var rec = getDayResult(day);
+      var btnText = st === "done" ? ("✓ Done — " + rec.score + "/12 · View result")
+        : st === "next" ? "▶ Ready Set Go — start this one"
+        : st === "wait" ? "🌙 All done for today! Come back tomorrow for the next quiz."
+        : "🔒 Locked — finish Paper #" + i + " first";
+      var cls = st === "done" ? "done" : st === "next" ? "today" : "locked";
+      grid += '<button type="button" class="day-card ' + cls + '" data-day="' + i + '"' +
+        ((st === "done" || st === "next") ? "" : " disabled") + '>' +
+        '<span class="dc-weekday">Paper #' + day.paper + '</span>' +
+        '<span class="dc-date">Cycle 1 Day ' + day.cycleDay + ' · 12 questions</span>' +
+        '<span class="dc-status">' + esc(btnText) + '</span></button>';
+    });
+    var dg = $("day-grid"); if(dg) dg.innerHTML = grid;
+    Array.prototype.forEach.call(document.querySelectorAll(".day-card"), function(card){
+      card.addEventListener("click", function(){
+        var i = parseInt(card.getAttribute("data-day"), 10);
+        var st = paperStatus(i);
+        if(st === "next") openDay(i);
+        else if(st === "done") openReview(i);
+      });
+    });
+    var nx = document.querySelector(".day-card.today");
+    if(nx && nx.scrollIntoView) nx.scrollIntoView({ block: "center" });
+  }
+  renderPicker();
 })();
 </script>
 </body>
