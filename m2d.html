@@ -1034,7 +1034,26 @@
     }catch(e){ return null; }
   }
   function punchStorageKey(dayKey){
-    return "g2mq-punch-v1:eden:" + dayKey + (TEST_MODE ? ":TEST" : "");
+    return "pack-punch-v2:eden:" + dayKey + (TEST_MODE ? ":TEST" : "");
+  }
+  function legacyPunchKeys(dayKey){
+    var sfx = (TEST_MODE ? ":TEST" : "");
+    return ["g2mq-punch-v1:eden:" + dayKey + sfx, "g2en-punched:" + dayKey + ":eden" + sfx];
+  }
+  // SHARED ATTENDANCE (Ellis, Nov 27, 2026): ONE punch card per child,
+  // shared by reading + math + vocabulary. A confirmed submission in
+  // ANY subject punches the LA arrival day on all three pages: every
+  // page reads and writes the same localStorage record
+  // ("pack-punch-v2:<child>:<day>"). Legacy per-subject keys are still
+  // honoured (and migrated to the shared key) so a punch earned
+  // earlier today on an older page version is never lost.
+  function punchRecorded(dayKey){
+    if(storeGet(punchStorageKey(dayKey))) return true;
+    var ks = legacyPunchKeys(dayKey);
+    for(var i = 0; i < ks.length; i++){
+      if(storeGet(ks[i])){ storeSet(punchStorageKey(dayKey), "1"); return true; }
+    }
+    return false;
   }
   var PUNCH_WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
   // Marks the punch-day cell for dayKey done. Returns its weekday name
@@ -1082,7 +1101,7 @@
     var lastWeekday = null, changed = false;
     for(var i = 0; i < days.length; i++){
       var dk = days[i].getAttribute("data-date");
-      if(dk && storeGet(punchStorageKey(dk))){
+      if(dk && punchRecorded(dk)){
         var wd = markPunchDay(dk);
         if(wd){ changed = true; lastWeekday = wd; }
       }

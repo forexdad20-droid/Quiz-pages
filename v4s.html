@@ -41,6 +41,27 @@ button:disabled{opacity:.5;cursor:default}
 .day-card.done{border-color:#1e7d32;background:#eafaf0}
 .pack-progress{font-size:19px;font-weight:bold;text-align:center;margin:0 0 14px}
 .btn-ghost{background:#fff;border:2px solid #e5d9c5}
+
+/* ---------- Shared attendance punch card (same card on all 3 subjects) ---------- */
+.attendance{border:3px solid #222;border-radius:14px;padding:14px 12px 12px;margin:0 0 14px;text-align:center;background:#fff}
+.att-head{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.att-title{font-size:22px;font-weight:bold;line-height:1.2;margin:0}
+.att-count{display:inline-block;background:#27a24b;color:#fff;font-weight:900;font-size:15px;padding:5px 13px;border-radius:999px;white-space:nowrap}
+.att-sub{font-size:14px;font-weight:bold;color:#666;margin:6px 0 0;line-height:1.45}
+.punch-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:12px}
+.punch-day{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+.day-name{font-weight:bold;font-size:15px;line-height:1.2;white-space:nowrap}
+.day-zh{display:block;font-size:11px;font-weight:bold;color:#888;line-height:1.25}
+.punch-circle{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;line-height:1;margin-top:2px}
+.punch-circle.done{background:#27a24b;border:2.5px solid #1c7a38;color:#fff;font-size:22px}
+.punch-circle.today-ring{box-shadow:0 0 0 3px #fff,0 0 0 6px #f2b705}
+.punch-circle.empty{background:#f7f2e7;border:2.5px dashed #d8c9a3;color:#888;font-size:19px}
+.punch-circle.upcoming{background:#fff;border:2.5px solid #e5d9c5;color:#888;font-size:15px}
+.day-date{font-size:12px;font-weight:bold;color:#888;line-height:1.3}
+.punch-day.today .day-name{color:#1c7a38}
+.att-message{margin:12px 0 0;font-size:16px;font-weight:bold;line-height:1.45}
+.att-message strong{color:#1c7a38}
+@media (max-width:560px){.att-title{font-size:19px}.punch-row{gap:3px}.punch-circle{width:36px;height:36px}.punch-circle.done{font-size:19px}.day-name{font-size:13px}.att-message{font-size:15px}}
 </style></head><body><div class="wrap">
 
 <section id="view-start">
@@ -49,6 +70,52 @@ button:disabled{opacity:.5;cursor:default}
     <p style="font-size:19px">Hi Amber! 🌟</p>
     <p class="pack-progress" id="pack-progress"></p>
     <p class="pack-day-head" id="start-day-head" style="font-weight:bold"></p>
+      <div class="attendance">
+        <div class="att-head">
+          <h2 class="att-title">📅 My Attendance This Week</h2>
+          <span class="att-count">0 / 7 days</span>
+        </div>
+        <p class="att-sub">本周出席打卡 · Mon Nov 30 – Sun Dec 6 — finish a quiz, get a punch for that day!</p>
+        <div class="punch-row">
+          <div class="punch-day" data-date="2026-11-30">
+            <span class="day-name">Mon<span class="day-zh">周一</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">11/30</span>
+          </div>
+          <div class="punch-day" data-date="2026-12-01">
+            <span class="day-name">Tue<span class="day-zh">周二</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/1</span>
+          </div>
+          <div class="punch-day" data-date="2026-12-02">
+            <span class="day-name">Wed<span class="day-zh">周三</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/2</span>
+          </div>
+          <div class="punch-day" data-date="2026-12-03">
+            <span class="day-name">Thu<span class="day-zh">周四</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/3</span>
+          </div>
+          <div class="punch-day" data-date="2026-12-04">
+            <span class="day-name">Fri<span class="day-zh">周五</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/4</span>
+          </div>
+          <div class="punch-day" data-date="2026-12-05">
+            <span class="day-name">Sat<span class="day-zh">周六</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/5</span>
+          </div>
+          <div class="punch-day" data-date="2026-12-06">
+            <span class="day-name">Sun<span class="day-zh">周日</span></span>
+            <span class="punch-circle empty" aria-hidden="true">·</span>
+            <span class="day-date">12/6</span>
+          </div>
+        </div>
+        <p class="att-message">🎉 A brand-new week, Amber — finish a quiz each day to fill all 7 punches!</p>
+      </div>
+
     <span class="level-banner" role="note">⭐ My Word Level: Pool 1000 — I know 214 / 800 words</span>
     <p style="font-size:17px">100 words · 60 minutes · Read the meaning, then pick the word that matches it. If you don't know a word, pick <b>IDK</b>.<br>
     When the timer reaches 0:00, your answers are sent in all by themselves.</p>
@@ -118,6 +185,80 @@ function packTodayKey(){
   if(!off) return base;
   var p=base.split("-"); var dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2])+off*86400000);
   return dt.getUTCFullYear()+"-"+pad(dt.getUTCMonth()+1)+"-"+pad(dt.getUTCDate());
+}
+
+/* ---- SHARED ATTENDANCE PUNCH CARD (Ellis, Nov 27, 2026): ONE card
+   per child, shared by reading + math + vocabulary. A confirmed
+   submission in ANY subject punches the LA arrival day on all three
+   pages via one localStorage record ("pack-punch-v2:<child>:<day>");
+   legacy per-subject keys are honoured and migrated. ---- */
+function punchStorageKey(dayKey){ return "pack-punch-v2:amber:" + dayKey + (TEST_MODE ? ":TEST" : ""); }
+function legacyPunchKeys(dayKey){
+  var sfx = (TEST_MODE ? ":TEST" : "");
+  return ["g4rq-pack-punch-v1:amber:" + dayKey + sfx, "g4mq-punch-v1:amber:" + dayKey + sfx];
+}
+function punchRecorded(dayKey){
+  if(storeGet(punchStorageKey(dayKey))) return true;
+  var ks = legacyPunchKeys(dayKey);
+  for(var i = 0; i < ks.length; i++){
+    if(storeGet(ks[i])){ storeSet(punchStorageKey(dayKey), "1"); return true; }
+  }
+  return false;
+}
+var PUNCH_WEEKDAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+function markPunchDay(dayKey){
+  var days = document.querySelectorAll(".punch-day");
+  for(var i = 0; i < days.length; i++){
+    if(days[i].getAttribute("data-date") === dayKey){
+      var circle = days[i].querySelector(".punch-circle");
+      if(circle && !circle.classList.contains("done")){
+        circle.classList.remove("upcoming", "empty");
+        circle.classList.add("done");
+        circle.textContent = "✓";
+        return PUNCH_WEEKDAYS[i] || null;
+      }
+      return null;
+    }
+  }
+  return null;
+}
+function refreshAttendance(punchedWeekday){
+  var doneCount = document.querySelectorAll(".punch-circle.done").length;
+  var countEl = document.querySelector(".att-count");
+  if(countEl) countEl.textContent = doneCount + " / 7 days";
+  var msgEl = document.querySelector(".att-message");
+  if(!msgEl) return;
+  if(doneCount >= 7){
+    msgEl.innerHTML = "🎉 Amazing, Amber! You filled the whole week — <strong>7 / 7 days</strong>!";
+  } else if(punchedWeekday){
+    msgEl.innerHTML = "🎉 Great job, Amber! You earned your <strong>" + esc(punchedWeekday) + " punch</strong> — " +
+      doneCount + " of 7 days this week. Let's fill the whole week!";
+  }
+}
+function applyPunch(){
+  var dayKey = pstTodayKey();
+  if(!dayKey) return;
+  storeSet(punchStorageKey(dayKey), "1");
+  var weekday = markPunchDay(dayKey);
+  refreshAttendance(weekday);
+}
+function restorePunches(){
+  var days = document.querySelectorAll(".punch-day");
+  var lastWeekday = null, changed = false;
+  var todayKey = pstTodayKey();
+  for(var i = 0; i < days.length; i++){
+    var dk = days[i].getAttribute("data-date");
+    if(dk && dk === todayKey){
+      days[i].classList.add("today");
+      var c0 = days[i].querySelector(".punch-circle");
+      if(c0) c0.classList.add("today-ring");
+    }
+    if(dk && punchRecorded(dk)){
+      var wd = markPunchDay(dk);
+      if(wd){ changed = true; lastWeekday = wd; }
+    }
+  }
+  if(changed) refreshAttendance(lastWeekday);
 }
 
 /* ---- per-day storage: localStorage prefix v4s-pack ---- */
@@ -314,6 +455,7 @@ function finishSubmission(){
   var attempt=pendingSubmission.attempt; pendingSubmission=null;
   if(deliveryTimer){ clearTimeout(deliveryTimer); deliveryTimer=null; }
   commitAttempt(CURRENT,attempt);
+  applyPunch();
   var rec={score:lastResult.score,learned:lastResult.learned,answers:answers,timeUsed:lastResult.timeUsed,attempt:attempt,auto:lastResult.auto,submitDay:packTodayKey()};
   try{ storeSet(resultKey(CURRENT), JSON.stringify(rec)); }catch(e){}
   clearDraft();
@@ -326,6 +468,7 @@ function buildResults(){
   $("saveLine").textContent="Answers saved ✓";
   var g=grade(); $("review").innerHTML=g.review;
 }
+restorePunches();
 goStart();
 })();
 

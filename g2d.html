@@ -3646,6 +3646,31 @@
     }
   }
   function punchStorageKey(){ return "g2en-punched:" + pstTodayKey() + ":" + normalizedStudentName() + (TEST_MODE ? ":TEST" : ""); }
+  function sharedPunchKey(dayKey){ return "pack-punch-v2:eden:" + dayKey + (TEST_MODE ? ":TEST" : ""); }
+  function legacyPunchKeys(dayKey){
+    var sfx = (TEST_MODE ? ":TEST" : "");
+    return ["g2mq-punch-v1:eden:" + dayKey + sfx, "g2en-punched:" + dayKey + ":eden" + sfx];
+  }
+  // SHARED ATTENDANCE (Ellis, Nov 27, 2026): ONE punch card per child,
+  // shared by reading + math + vocabulary — see punchRecorded in the
+  // daily pages. Any subject's confirmed submission punches the LA
+  // arrival day on all three pages via the shared localStorage record.
+  function punchRecorded(dayKey){
+    if(storeGet(sharedPunchKey(dayKey))) return true;
+    var ks = legacyPunchKeys(dayKey);
+    for(var i = 0; i < ks.length; i++){
+      if(storeGet(ks[i])){ storeSet(sharedPunchKey(dayKey), "1"); return true; }
+    }
+    return false;
+  }
+  function markDayDone(dateStr){
+    var days = document.querySelectorAll(".punch-day");
+    Array.prototype.forEach.call(days, function(day){
+      if(day.getAttribute("data-date") !== dateStr) return;
+      var circle = day.querySelector(".punch-circle");
+      if(circle){ circle.classList.remove("empty","upcoming"); circle.classList.add("done"); circle.textContent = "\u2713"; }
+    });
+  }
   function applyPunch(){
     var punchDay = pstTodayKey();
     var days = document.querySelectorAll(".punch-day");
@@ -3657,10 +3682,17 @@
     refreshAttendance();
   }
   function punchToday(){
-    try { storeSet(punchStorageKey(), "1"); } catch(e) {}
+    try { storeSet(sharedPunchKey(pstTodayKey()), "1"); } catch(e) {}
     applyPunch();
   }
-  if(storeGet(punchStorageKey()) === "1") applyPunch(); else refreshAttendance();
+  (function restoreSharedPunches(){
+    var days = document.querySelectorAll(".punch-day");
+    Array.prototype.forEach.call(days, function(day){
+      var dk = day.getAttribute("data-date");
+      if(dk && punchRecorded(dk)) markDayDone(dk);
+    });
+    refreshAttendance();
+  })();
 
   
 
