@@ -1,0 +1,1495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Grade 2 Math Review — 20 Questions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&amp;family=Nunito:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eef6ee;
+    --surface:#ffffff;
+    --surface-2:#f4faf2;
+    --ink:#1d2b1f;
+    --ink-soft:#4a5d4e;
+    --line:#d7e6d3;
+    --green:#1f7a3d;
+    --green-dark:#155c2c;
+    --green-soft:#e2f2df;
+    --teal:#0e7c7b;
+    --teal-soft:#dff3f2;
+    --sun:#f2b705;
+    --sun-soft:#fff3cf;
+    --orange:#d96c06;
+    --orange-soft:#ffedda;
+    --red:#c0392b;
+    --red-soft:#fdecea;
+    --radius:18px;
+    --shadow:0 4px 18px rgba(29,60,30,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#131a14;
+      --surface:#1e2a20;
+      --surface-2:#243128;
+      --ink:#eef5ee;
+      --ink-soft:#b7c8b8;
+      --line:#37493a;
+      --green:#4cc26e;
+      --green-dark:#7ad992;
+      --green-soft:#233d29;
+      --teal:#3ec2c0;
+      --teal-soft:#1d3838;
+      --sun:#f2b705;
+      --sun-soft:#3a3317;
+      --orange:#f39a4a;
+      --orange-soft:#3d2c1b;
+      --red:#ff8a7a;
+      --red-soft:#402625;
+      --shadow:0 4px 18px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:18px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:"Fredoka","Nunito",sans-serif;line-height:1.15;margin:0}
+  button,input,textarea{font:inherit}
+  .wrap{max-width:780px;margin:0 auto;padding:20px 16px 26px}
+  .hidden{display:none !important}
+
+   
+  .start-card{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow);padding:32px 24px 28px;text-align:center;margin-top:18px;
+  }
+   
+  .start-stack{display:flex;flex-direction:column;gap:18px;margin-top:18px}
+  .start-stack .start-card{margin-top:0}
+  .start-stack .growth-chart,.start-stack .history{max-width:none;width:100%;margin:0}
+  @media (max-width:560px){ .start-stack{gap:16px} }
+   
+   
+  .merged-tests{background:#fff;color:#1d2b1f;--ink:#1d2b1f;--ink-soft:#4a5d4e;--sun-soft:#fff3cf;border:2.5px solid #111;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;width:100%;max-width:560px;margin:0 auto;text-align:center}
+  .start-stack .merged-tests{max-width:none;width:100%;margin:0}
+  .results-actions .merged-tests{width:100%;justify-self:center}
+  .merged-tests .growth-chart,.merged-tests .history{background:transparent;border:none;border-radius:0;box-shadow:none;margin:0;max-width:none;width:100%}
+  .merged-tests .history{border-top:2.5px solid #111}
+  .badge{
+    display:inline-block;background:var(--sun-soft);color:#7a5b00;border:1.5px solid var(--sun);
+    font-weight:900;font-size:14px;letter-spacing:.04em;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;
+  }
+  @media (prefers-color-scheme: dark){ .badge{color:var(--sun)} }
+   
+  .badge-top{border-radius:18px;padding:9px 20px 10px;line-height:1.4}
+  .badge-top .badge-line{display:block}
+  .badge-top .badge-line + .badge-line{margin-top:1px}
+  .lexile-banner{
+    display:block;margin:18px auto 0;max-width:520px;
+    background:var(--sun-soft);border:2.5px solid var(--sun);border-radius:16px;
+    padding:14px 20px;font-family:"Fredoka","Nunito",sans-serif;font-weight:700;
+    font-size:26px;line-height:1.25;color:var(--ink);letter-spacing:.01em;
+  }
+  @media (max-width:560px){ .lexile-banner{font-size:23px} }
+
+   
+  .top-dash{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;
+    box-shadow:var(--shadow);padding:20px 20px 20px;text-align:center;
+  }
+  .att-head{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+  .att-title{font-size:24px;font-weight:700;line-height:1.2}
+  .att-count{display:inline-block;background:var(--green);color:#fff;font-weight:900;font-size:15px;padding:5px 13px;border-radius:999px;white-space:nowrap}
+  .att-sub{font-size:15px;font-weight:700;color:var(--ink-soft);margin:6px 0 0;line-height:1.45}
+  .punch-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
+  .punch-day{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+  .day-name{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:15.5px;line-height:1.2;white-space:nowrap}
+  .day-zh{display:block;font-family:"Nunito",sans-serif;font-size:11.5px;font-weight:800;color:var(--ink-soft);line-height:1.25}
+  .punch-circle{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;line-height:1;margin-top:2px}
+  .punch-circle.done{background:var(--green);border:2.5px solid var(--green-dark);color:#fff;font-size:23px}
+  .punch-circle.today-ring{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--sun)}
+  .punch-circle.empty{background:var(--surface-2);border:2.5px dashed var(--line);color:var(--ink-soft);font-size:20px}
+  .punch-circle.upcoming{background:var(--surface);border:2.5px solid var(--line);color:var(--ink-soft);font-size:16px}
+  .day-date{font-size:12.5px;font-weight:800;color:var(--ink-soft);font-variant-numeric:tabular-nums;line-height:1.3}
+  .punch-day.today .day-name{color:var(--green-dark)}
+  .att-message{margin:12px 0 0;font-size:16.5px;font-weight:800;line-height:1.45}
+  .att-message strong{color:var(--green-dark)}
+  .top-dash .lexile-banner{margin:16px auto 0;max-width:560px;width:100%}
+  .top-dash form{margin:0}
+  .top-dash .how{margin:18px 0 0}
+  .top-dash .go-zone{margin-top:16px}
+  @media (max-width:560px){
+    .top-dash{padding:16px 12px 14px}
+    .att-title{font-size:21px}
+    .punch-row{gap:3px}
+    .punch-circle{width:38px;height:38px}
+    .punch-circle.done{font-size:20px}
+    .day-name{font-size:13.5px}
+    .att-message{font-size:15.5px}
+  }
+  .growth-chart{
+    margin:18px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);
+    border:2px solid var(--line);border-radius:18px;padding:18px 16px 14px;text-align:center;
+  }
+  .growth-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
+  .growth-title .gt-line{display:block}
+  .growth-title .gt-line-2{margin-top:26px}
+  .growth-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 8px;line-height:1.45}
+  .growth-chart svg{width:100%;height:auto;display:block}
+  .growth-celebration{margin:16px 0 14px;background:var(--sun-soft);border:2.5px solid var(--sun);border-radius:16px;padding:18px 20px;text-align:center}
+  .growth-celebration .celebration-label{font-size:16px;font-weight:800;color:var(--ink-soft);margin:0 0 6px;line-height:1.35}
+  .growth-note{font-size:20px;font-weight:700;color:var(--ink);margin:0;line-height:1.45;font-family:"Fredoka","Nunito",sans-serif}
+  .growth-note strong{color:var(--green-dark);font-weight:700}
+  @media (max-width:560px){ .growth-celebration{margin:14px 0 12px;padding:16px 14px} .growth-note{font-size:19px} }
+  .color-legend{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;align-items:center;margin:8px 0 2px;font-size:15.5px;font-weight:900;line-height:1.3;color:var(--ink);max-width:100%;width:100%;box-sizing:border-box;padding-left:4px;padding-right:4px}
+  .merged-tests .color-legend{margin:10px 0 2px;padding-left:4px;padding-right:4px}
+  .color-legend .legend-item{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .color-legend .swatch{width:14px;height:14px;border-radius:4px;display:inline-block;flex:0 0 auto;border:1.5px solid rgba(0,0,0,.22)}
+  @media (max-width:560px){ .color-legend{gap:4px 9px;font-size:13px} .color-legend .legend-item{gap:4px} .color-legend .swatch{width:12px;height:12px} }
+  .color-legend .swatch.green{background:#27a24b}
+  .color-legend .swatch.red{background:#d64541}
+  .color-legend .swatch.gold{background:#f2b705;border-color:#d9a400}
+  .color-legend .swatch.same{background:#7f97a8}
+  .history-grid .date{white-space:nowrap}
+  .history .color-legend{margin-bottom:0}
+  @media (prefers-color-scheme: dark){ .growth-note strong{color:var(--green-dark)} }
+  .history{
+    margin:14px auto 0;max-width:560px;width:100%;min-width:0;overflow:hidden;background:var(--surface);
+    border:2px solid var(--line);border-radius:18px;padding:18px 16px 10px;text-align:center;
+  }
+  .history-table-wrap{
+    margin-top:12px;border:2px solid #111;border-radius:12px;overflow:hidden;
+    width:100%;max-width:100%;background:#fff;
+  }
+  .history-title{font-size:23px;font-weight:700;line-height:1.2;margin:0}
+  .history-sub{font-size:16px;font-weight:700;color:var(--ink-soft);margin:6px 0 4px;line-height:1.45}
+   
+  .history-grid{width:100%;font-size:17px;text-align:left}
+  .hg-row{display:grid;grid-template-columns:28% 29% 15% 28%;width:100%}
+  .hg-row>*{
+    padding:11px 8px;font-weight:700;line-height:1.35;text-align:left;
+    overflow-wrap:break-word;min-width:0;
+  }
+  .hg-row.hg-head>*{
+    background:#111;color:#fff;font-weight:900;font-size:16.5px;line-height:1.3;
+  }
+  .hg-row .c{text-align:center}
+   
+  .hg-row:not(.hg-head){color:#000}
+  .hg-row:not(.hg-head)>*{border-top:1.5px solid var(--line);background:#fff}
+  .hg-row .score{font-weight:900;white-space:nowrap}
+  .hg-row .lex{font-family:"Fredoka","Nunito",sans-serif;font-weight:700;font-size:19px}
+  .hg-row .lex.up{color:var(--ink)}
+  .hg-row .lex .lex-line{display:inline-flex;align-items:center;gap:5px}
+  .hg-row .lex .crown{font-size:.85em;line-height:1;display:inline-flex;align-items:center}
+  .hg-row .lex .delta{
+    display:block;font-family:"Nunito",sans-serif;font-size:14.5px;font-weight:900;
+    margin-top:2px;color:var(--ink);overflow-wrap:break-word;
+  }
+  .hg-row.best>*{background:var(--sun);color:#000;border-top-color:#d9a400}
+  .hg-row.best .lex.up{color:#000}
+  .hg-row.best .lex .delta{color:#000}
+   
+  .hg-row.improved>*{background:#27a24b;color:#000}
+  .hg-row.improved .lex.up{color:#000}
+  .hg-row.improved .lex .delta{color:#000}
+  @media (max-width:560px){
+    .history{padding:16px 10px 10px}
+    .growth-chart{padding:16px 10px 12px}
+    .history-grid{font-size:14.5px}
+    .hg-row.hg-head>*{font-size:13.5px;padding:9px 5px}
+    .hg-row>*{padding:9px 5px}
+    .hg-row .lex{font-size:16px}
+    .hg-row .lex .delta{font-size:13px}
+  }
+  .start-card h1{font-size:42px;font-weight:700;margin:16px 0 8px;letter-spacing:-.01em}
+  .start-card .sub{font-size:19px;color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
+  .how{
+    display:flex;flex-direction:column;gap:8px;margin:16px 0 0;text-align:left;
+  }
+  @media (max-width:560px){ .how{grid-template-columns:1fr} .start-card h1{font-size:34px} }
+  .how-item{background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+  .how-item .how-text{flex:1;min-width:0}
+  .how-item b{display:block;font-size:17px;margin-bottom:2px;line-height:1.3}
+  .how-item .how-text > span{font-size:15.5px;color:var(--ink-soft);font-weight:600;line-height:1.45;display:block}
+  .how-item > span.how-num{
+    flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;margin:2px 0 0;line-height:1;
+  }
+  .btn{
+    appearance:none;border:none;cursor:pointer;border-radius:999px;font-weight:900;
+    padding:16px 28px;font-size:19px;transition:transform .08s ease, background .15s ease, opacity .15s;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--green);color:#fff;width:100%;margin-top:16px;font-size:21px;padding:18px 28px}
+  .btn-primary:hover{background:var(--green-dark)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:2px solid var(--line)}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .start-note{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:14px}
+
+   
+  .go-zone{
+    margin-top:4px;background:var(--green-soft);border:3px solid var(--green);
+    border-radius:20px;padding:0 18px 18px;overflow:hidden;text-align:center;
+    box-shadow:0 8px 22px rgba(21,92,44,.18);
+  }
+  .go-checker{
+    height:14px;margin:0 -18px;
+    background:
+      repeating-conic-gradient(var(--ink) 0% 25%, var(--surface) 0% 50%)
+      0 0/28px 28px;
+    opacity:.92;
+  }
+  .ready-set-go{
+    display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;
+    margin:16px 0 2px;font-family:"Fredoka","Nunito",sans-serif;
+  }
+  .rsg-step{
+    display:inline-flex;align-items:center;gap:6px;
+    font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;
+    padding:9px 16px;border-radius:999px;border:2.5px solid;
+  }
+  .rsg-ready{background:var(--surface);border-color:var(--orange);color:var(--orange);font-size:17px}
+  .rsg-set{background:var(--sun-soft);border-color:var(--sun);color:#7a5b00;font-size:19px}
+  @media (prefers-color-scheme: dark){ .rsg-set{color:var(--sun)} }
+  .rsg-go{background:var(--green);border-color:var(--green-dark);color:#fff;font-size:23px;padding:11px 22px;box-shadow:0 4px 12px rgba(21,92,44,.35)}
+  .rsg-arrow{font-weight:900;color:var(--ink-soft);font-size:16px}
+  .go-zone .btn-primary{
+    margin-top:14px;font-size:24px;padding:20px 28px;letter-spacing:.01em;
+    box-shadow:0 6px 0 var(--green-dark),0 12px 24px rgba(21,92,44,.28);
+  }
+  .go-zone .btn-primary:hover{box-shadow:0 6px 0 var(--green-dark),0 14px 28px rgba(21,92,44,.34)}
+  .go-zone .btn-primary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--green-dark),0 6px 14px rgba(21,92,44,.25)}
+  .go-zone .start-note{color:var(--ink);max-width:560px;margin-left:auto;margin-right:auto}
+  @media (max-width:560px){
+    .go-zone{padding:0 12px 14px}
+    .go-checker{margin:0 -12px}
+    .rsg-ready{font-size:15px;padding:8px 12px}
+    .rsg-set{font-size:16px;padding:8px 13px}
+    .rsg-go{font-size:20px;padding:10px 17px}
+    .go-zone .btn-primary{font-size:22px;padding:18px 20px}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .rsg-go{animation:rsg-pop 1.6s ease-in-out infinite}
+    @keyframes rsg-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+  }
+
+   
+  .quiz-bar{
+    position:sticky;top:0;z-index:20;background:var(--bg);
+    padding:12px 0 10px;border-bottom:2px solid var(--line);
+  }
+  .quiz-bar-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .student-chip{font-weight:900;font-size:16px;background:var(--surface);border:1.5px solid var(--line);padding:7px 14px;border-radius:999px;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .timer{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;letter-spacing:.02em;
+    background:var(--surface);border:2px solid var(--line);padding:6px 16px;border-radius:999px;font-variant-numeric:tabular-nums;
+  }
+  .timer.low{border-color:var(--orange);color:var(--orange)}
+  .timer.critical{border-color:var(--red);background:var(--red-soft);color:var(--red)}
+  .timer.done{border-color:var(--orange);background:var(--orange-soft);color:var(--orange);font-size:17px;font-family:"Nunito",sans-serif;font-weight:900}
+  .time-warning{
+    margin-top:10px;background:var(--red-soft);border:2px solid var(--red);color:var(--red);
+    border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45;text-align:center;
+  }
+  @media (prefers-color-scheme: dark){ .time-warning{color:var(--red)} }
+  .auto-note{
+    margin:16px auto 0;max-width:560px;background:var(--orange-soft);border:2px solid var(--orange);color:var(--orange);
+    border-radius:14px;padding:12px 16px;font-weight:900;font-size:17px;line-height:1.45;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .timer.critical{animation:timer-pulse 1s ease-in-out infinite}
+    @keyframes timer-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  }
+  .progress-track{height:14px;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;overflow:hidden;margin-top:10px}
+  .progress-fill{height:100%;background:var(--green);width:0%;transition:width .3s ease;border-radius:999px}
+  .progress-label{font-size:15px;font-weight:800;color:var(--ink-soft);margin-top:6px}
+
+  /* Bottom row on every paper: Timer: + Done: — centred, blue, live */
+  :root{ --timer-blue:#1d4ed8; }
+  @media (prefers-color-scheme: dark){ :root{ --timer-blue:#8ab6ff; } }
+  .bottom-timer-bar{
+    position:sticky;bottom:10px;z-index:25;
+    margin-top:22px;
+    background:var(--surface);border:2px solid var(--timer-blue);border-radius:16px;
+    box-shadow:0 6px 20px rgba(20,50,120,.16);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    display:flex;align-items:center;justify-content:center;gap:10px 26px;flex-wrap:wrap;
+    text-align:center;color:var(--timer-blue);
+  }
+  .bt-group{display:inline-flex;align-items:baseline;gap:8px;white-space:nowrap}
+  .bt-label{font-weight:900;font-size:18px;color:var(--timer-blue);letter-spacing:.01em}
+  .bt-time{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:22px;color:var(--timer-blue);
+    font-variant-numeric:tabular-nums;letter-spacing:.02em;
+  }
+  .bt-time.low{color:var(--orange)}
+  .bt-time.critical{color:var(--red)}
+  .bt-fraction{
+    font-family:"Fredoka",sans-serif;font-weight:700;font-size:28px;line-height:1;color:var(--timer-blue);
+    font-variant-numeric:tabular-nums;letter-spacing:.02em;display:inline-block;
+  }
+  @media (max-width:560px){
+    .bottom-timer-bar{gap:6px 18px;padding:10px 10px calc(10px + env(safe-area-inset-bottom, 0px))}
+    .bt-label{font-size:16px}
+    .bt-time{font-size:20px}
+    .bt-fraction{font-size:25px}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .bt-fraction.pop{animation:prog-pop .38s ease}
+    @keyframes prog-pop{0%{transform:scale(1)}35%{transform:scale(1.22)}100%{transform:scale(1)}}
+    .bt-time.critical{animation:timer-pulse 1s ease-in-out infinite}
+  }
+
+   
+  .section-head{margin:30px 0 14px}
+  .section-tag{
+    display:inline-block;font-weight:900;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;
+    padding:5px 12px;border-radius:999px;margin-bottom:8px;
+  }
+  .tag-1{background:var(--green-soft);color:var(--green-dark)}
+  .tag-2{background:var(--teal-soft);color:var(--teal)}
+  .tag-3{background:var(--sun-soft);color:#7a5b00}
+  @media (prefers-color-scheme: dark){ .tag-3{color:var(--sun)} }
+  .section-head h2{font-size:28px;font-weight:700}
+  .section-head p{margin:4px 0 0;color:var(--ink-soft);font-weight:700;font-size:16.5px}
+  .passage{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:22px 22px 8px;box-shadow:var(--shadow);
+  }
+  .passage h3{font-size:23px;margin-bottom:10px}
+  .passage p{font-family:Georgia,"Times New Roman",serif;font-size:19px;line-height:1.75;margin:0 0 18px}
+  .passage .pnum{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:38px;line-height:1;color:var(--ink);margin-right:8px}
+  .evidence{margin-top:12px;padding-top:10px;border-top:2px dashed var(--line)}
+  .ev-label{font-weight:800;font-size:15.5px;color:var(--ink-soft);margin-bottom:8px}
+  .ev-row{display:flex;gap:8px;flex-wrap:wrap}
+  .ev-btn{width:44px;height:44px;border-radius:50%;border:2.5px solid var(--ink-soft);background:var(--card,#fff);color:var(--ink);font-family:"Fredoka",sans-serif;font-size:19px;font-weight:700;cursor:pointer;padding:0}
+  .ev-btn.sel{background:#27a24b;border-color:#27a24b;color:#fff}
+  .passage-label{font-weight:900;font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);margin:18px 0 4px}
+  .passage-label:first-of-type{margin-top:0}
+
+   
+  .chart{margin:6px 0 18px;border:1.5px solid var(--line);border-radius:14px;padding:16px;background:var(--surface-2)}
+  .chart h4{margin:0 0 4px;font-size:17px;font-family:"Fredoka",sans-serif}
+  .chart .chart-sub{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:0 0 14px}
+  .bar-row{display:grid;grid-template-columns:128px 1fr 52px;align-items:center;gap:10px;margin-bottom:10px}
+  @media (max-width:480px){ .bar-row{grid-template-columns:104px 1fr 46px} }
+  .bar-row .blabel{font-weight:800;font-size:15.5px;line-height:1.3}
+  .bar-track{height:26px;background:var(--surface);border:1.5px solid var(--line);border-radius:8px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px}
+  .bar-fill.sunny{background:#e67e22}
+  .bar-fill.canopy{background:var(--teal)}
+  .bar-fill.tree{background:var(--green)}
+  .bar-row .bval{font-weight:900;font-size:17px;font-variant-numeric:tabular-nums}
+  table.temp-table{width:100%;border-collapse:collapse;margin-top:6px;font-size:16px}
+  table.temp-table th,table.temp-table td{border:1.5px solid var(--line);padding:9px 12px;text-align:left}
+  table.temp-table th{background:var(--surface);font-weight:900}
+  table.temp-table td:last-child,table.temp-table th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+
+   
+  .qcard{
+    background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:20px;margin-top:16px;box-shadow:var(--shadow);
+  }
+  .qcard.answered{border-color:var(--green)}
+  .q-top{display:flex;gap:12px;align-items:flex-start}
+  .q-num{
+    flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--bg);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;margin-top:1px;
+  }
+  .qcard.answered .q-num{background:var(--green);color:#fff}
+  .q-text{font-size:20px;font-weight:800;line-height:1.45;padding-top:4px}
+  .q-type{font-size:13.5px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+  .options{margin-top:14px;display:grid;gap:10px}
+  .option{
+    display:flex;gap:12px;align-items:flex-start;cursor:pointer;
+    border:2px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface);
+    transition:border-color .12s, background .12s;
+  }
+  .option:hover{border-color:var(--green)}
+  .option input{
+    appearance:none;-webkit-appearance:none;flex:0 0 auto;cursor:pointer;
+    width:27px;height:27px;border-radius:50%;border:2.5px solid var(--line);
+    background:var(--surface);margin:3px 0 0;padding:0;
+  }
+  .option input:checked{border-color:var(--green);background:var(--green);box-shadow:inset 0 0 0 5px var(--surface)}
+  .option input:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+  .option .otext{font-size:18px;font-weight:700;line-height:1.45;padding-top:3px}
+  .option .otext b{font-weight:900;margin-right:2px}
+  .option:has(input:checked){border-color:var(--green);background:var(--green-soft)}
+  textarea{
+    width:100%;margin-top:14px;min-height:110px;resize:vertical;
+    padding:14px 16px;font-size:18px;line-height:1.6;color:var(--ink);
+    background:var(--surface-2);border:2px solid var(--line);border-radius:14px;outline:none;
+  }
+  textarea:focus{border-color:var(--green);background:var(--surface)}
+  .q-hint{font-size:15px;color:var(--ink-soft);font-weight:700;margin-top:8px}
+  .written-parts{display:grid;gap:16px;margin-top:16px}
+  .written-part{background:var(--surface-2);border:1.5px solid var(--line);border-radius:14px;padding:16px}
+  .part-label{font-size:18.5px;font-weight:800;line-height:1.45;color:var(--ink)}
+  .part-label strong{font-weight:900}
+  .written-part textarea{margin-top:10px;background:var(--surface);min-height:88px}
+  .written-part .q-hint{margin-top:6px}
+  .answer-box{border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:16.5px;line-height:1.55;background:var(--surface)}
+  .answer-box .ab-label{display:block;font-weight:900;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+  .answer-box.sample-box{background:var(--surface-2)}
+  .empty-answer{color:var(--ink-soft);font-weight:700}
+  .kp-box{margin-top:10px}
+  .kp-box .kp-title{display:block;font-weight:900;font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+  .kp-line{font-size:16.5px;line-height:1.55;margin-top:4px}
+  .kp-ok{font-weight:900;color:var(--green-dark)}
+  .kp-miss{font-weight:900;color:var(--orange)}
+  .rev-part{border-top:2px solid var(--line);margin-top:16px;padding-top:14px}
+  .rev-part:first-of-type{margin-top:14px}
+  .rev-part-title{font-size:17.5px;font-weight:900;line-height:1.4;margin:0}
+
+  .submit-zone{margin-top:32px;text-align:center}
+  .submit-zone .btn-primary{max-width:420px;margin-left:auto;margin-right:auto}
+  .submit-note{font-size:15.5px;color:var(--ink-soft);font-weight:700;margin-top:10px}
+
+   
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(10,20,12,.55);z-index:50;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal{background:var(--surface);border-radius:20px;max-width:440px;width:100%;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.3);text-align:center}
+  .modal h3{font-size:23px;margin-bottom:8px}
+  .modal p{font-weight:700;color:var(--ink-soft);margin:0 0 18px}
+  .modal .row{display:grid;gap:10px}
+  .modal .btn{width:100%;margin:0}
+
+   
+  .results-head{
+    background:var(--surface);border:2px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+    padding:28px 24px;text-align:center;margin-top:18px;
+  }
+  .results-head h2{font-size:30px;margin-bottom:8px}
+  .results-head p{color:var(--ink-soft);font-weight:700;margin:0 auto;max-width:520px}
+   
+  .score-big{font-family:"Fredoka",sans-serif;font-size:64px;font-weight:700;line-height:1;margin:14px 0 2px}
+  .score-big small{font-size:30px;color:var(--ink-soft)}
+  .score-pct{font-size:22px;font-weight:900;color:var(--green-dark)}
+  .attempt-badge{
+    display:inline-block;margin-top:12px;background:var(--teal-soft);color:var(--teal);
+    border:2px solid var(--teal);border-radius:999px;padding:7px 18px;font-weight:900;font-size:18px;
+  }
+  .stars{font-size:30px;letter-spacing:6px;color:var(--sun);margin:6px 0 2px}
+  .stars .off{color:var(--line)}
+  .friendly{font-size:20px;font-weight:800;margin-top:10px}
+  .meta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .meta-chip{background:var(--surface-2);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:800;font-size:15.5px}
+  .section-scores{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+  .section-score-chip{border-radius:999px;padding:10px 18px;font-weight:900;font-size:17.5px;line-height:1.3;border:2px solid;white-space:nowrap}
+  .section-score-chip.sec-1{background:var(--green-soft);border-color:var(--green);color:var(--green-dark)}
+  .section-score-chip.sec-2{background:var(--teal-soft);border-color:var(--teal);color:var(--teal)}
+  .section-score-chip.sec-3{background:var(--sun-soft);border-color:var(--sun);color:#7a5b00}
+  @media (prefers-color-scheme: dark){ .section-score-chip.sec-3{color:var(--sun)} }
+  @media (max-width:560px){ .section-scores{gap:8px} .section-score-chip{font-size:16px;padding:9px 14px} }
+  .saved-note{font-size:14.5px;color:var(--ink-soft);font-weight:700;margin:14px 0 0}
+  .breakdown{display:grid;grid-template-columns:1fr;gap:12px;margin-top:18px}
+  @media (max-width:560px){ .breakdown{grid-template-columns:1fr} }
+  .bd-card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:16px;text-align:center;box-shadow:var(--shadow)}
+  .bd-card .bd-name{font-weight:900;font-size:15px;line-height:1.35;min-height:42px}
+  .bd-card .bd-score{font-family:"Fredoka",sans-serif;font-size:34px;font-weight:700}
+  .bd-card .bd-score small{font-size:18px;color:var(--ink-soft)}
+  .bd-dots{display:flex;gap:6px;justify-content:center;margin-top:6px}
+  .bd-dots i{width:14px;height:14px;border-radius:50%;background:var(--line);display:block}
+  .bd-dots i.on{background:var(--green)}
+  .review-title{font-size:25px;margin:32px 0 4px}
+  .review-sub{color:var(--ink-soft);font-weight:700;margin:0 0 6px}
+  .rev-card{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-top:12px;box-shadow:var(--shadow)}
+  .rev-card.correct{border-color:var(--green)}
+  .rev-card.wrong{border-color:var(--orange)}
+  .rev-head{display:flex;gap:10px;align-items:flex-start}
+  .rev-badge{flex:0 0 auto;font-weight:900;font-size:14px;padding:5px 12px;border-radius:999px;margin-top:2px}
+  .rev-badge.ok{background:var(--green-soft);color:var(--green-dark)}
+  .rev-badge.no{background:var(--orange-soft);color:var(--orange)}
+  .rev-q{font-size:18.5px;font-weight:800;line-height:1.45}
+  .rev-line{font-size:16.5px;margin-top:8px;line-height:1.55}
+  .rev-line b{font-weight:900}
+  .rev-why{background:var(--surface-2);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:16px;line-height:1.55}
+  .rev-why b{color:var(--teal)}
+  .results-actions{display:grid;gap:12px;margin-top:28px}
+  .results-actions>*{min-width:0;max-width:100%}
+  .results-actions .history,.results-actions .growth-chart{width:100%;justify-self:center}
+  .results-actions .btn{width:100%;margin:0}
+  footer.note{text-align:center;color:var(--ink-soft);font-size:13.5px;font-weight:700;line-height:1.35;margin-top:14px}
+
+  @media print{
+    body{background:#fff}
+    .quiz-bar,.submit-zone,.results-actions,.bottom-timer-bar,.no-print{display:none !important}
+    .wrap{max-width:100%}
+    .rev-card,.bd-card,.results-head{box-shadow:none;break-inside:avoid}
+  }
+
+   
+  .outcome{text-align:center;padding:52px 24px 44px;border-radius:24px;margin-top:26px}
+  .outcome-pass{background:#eafaf0;border:3px solid var(--green)}
+  .outcome-redo{background:#fff3e2;border:3px solid #e8590c}
+  .outcome-emoji{font-size:66px;line-height:1}
+  .outcome-title{font-size:42px;line-height:1.25;margin:20px 0 12px}
+  .outcome-lexile{font-size:24px;font-weight:700;margin:10px 0}
+  .outcome-score{font-size:20px;margin:8px 0 22px}
+  .outcome a.outcome-btn,.outcome button.outcome-btn{display:inline-block;width:auto;font-size:24px;padding:16px 42px;margin-top:8px;text-decoration:none}
+  .outcome-note{font-size:17px;margin-top:16px}
+
+  /* ===== Listen + Words Look Up (added Nov 22, 2026 — the dragon-sample
+     features, graduated to the daily papers at Ellis's order) ===== */
+  .quiz-bottom-stack{position:sticky;bottom:10px;z-index:26;margin-top:22px}
+  .quiz-bottom-stack .bottom-timer-bar{position:static;margin-top:10px;box-shadow:0 6px 20px rgba(20,50,120,.16)}
+  .lookupbar{
+    background:var(--surface);border:2px solid var(--teal);border-radius:16px;
+    box-shadow:0 6px 20px rgba(20,50,120,.12);
+    display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;
+    padding:10px 16px;font-size:15px;line-height:1.45;color:var(--ink);
+  }
+  .lookupbar .lk-label{
+    font-size:11px;letter-spacing:.1em;font-weight:900;
+    color:var(--teal);text-transform:uppercase;white-space:nowrap;
+  }
+  .lookupbar .lk-body{flex:1 1 auto;min-width:0}
+  .lookupbar .lk-hint{color:var(--ink-soft);font-size:14px}
+  .lookupbar .vocab-word{font-family:Georgia,"Times New Roman",serif;font-size:21px;font-weight:700;color:var(--ink);line-height:1.15;vertical-align:middle}
+  .lookupbar .vocab-pos{display:inline-block;font-size:13px;font-weight:700;color:var(--teal);background:var(--teal-soft);border-radius:999px;padding:1px 10px;margin:0 2px 0 0}
+  .lookupbar .lk-def{color:var(--ink)}
+  .lookupbar .lk-ex{color:var(--ink-soft);font-family:Georgia,"Times New Roman",serif;font-size:14px}
+  .lookupbar .vocab-zh{font-size:14px;font-weight:700;color:var(--ink)}
+  .lookupbar .lk-ex-zh{color:var(--ink-soft);font-size:13px}
+  .lookupbar .vocab-note{color:var(--ink-soft);font-size:13.5px}
+  .lookupbar .vocab-say{
+    display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:20px;height:20px;min-height:20px;padding:0;vertical-align:middle;
+    background:var(--teal);color:#fff;border:none;border-radius:50%;
+    cursor:pointer;-webkit-tap-highlight-color:transparent;
+  }
+  .lookupbar .vocab-say svg{width:11px;height:11px;display:block}
+  .lookupbar .vocab-say:active{transform:scale(.94)}
+  .lookupbar .vocab-say:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  @media (prefers-color-scheme: dark){ .lookupbar .vocab-say{color:#10201f} }
+  @media (max-width:560px){ .lookupbar{padding:8px 12px;gap:6px 10px} }
+  @media print{ .quiz-bottom-stack{display:none !important} }
+
+  /* tappable words in the passages */
+  .passage .wlk{
+    border-radius:4px;padding:0 1px;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    text-decoration:underline dotted rgba(14,124,123,.5);
+    text-underline-offset:4px;text-decoration-thickness:1px;
+  }
+  .passage .wlk:hover,.passage .wlk:focus-visible{background:var(--teal-soft);outline:none}
+  .passage .wlk.selected{background:var(--teal);color:#fff;text-decoration:none}
+
+  /* Listen microphone: inline in paragraph 1, between the paragraph
+     number and the first word, exactly as tall as the number (38px). */
+  .passage .listen-row{display:inline-flex;align-items:center;gap:0;margin:0 8px 0 0;vertical-align:baseline;position:relative}
+  .listen-btn{
+    display:inline-flex;align-items:center;justify-content:center;flex:none;
+    width:38px;height:38px;min-height:38px;padding:0;
+    background:var(--teal);color:#fff;border:none;border-radius:50%;
+    font-family:inherit;cursor:pointer;box-shadow:var(--shadow);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .listen-btn .listen-icon{display:inline-flex;align-items:center;justify-content:center}
+  .listen-btn .listen-icon svg{width:25px;height:25px;display:block}
+  @media (prefers-color-scheme: dark){ .listen-btn{color:#10201f} }
+  .listen-btn:hover{filter:brightness(1.06)}
+  .listen-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  .listen-btn.playing{background:var(--ink);color:var(--surface)}
+  .passage .listen-status{font-size:12.5px;color:var(--ink-soft);white-space:nowrap}
+  .passage .listen-status:not(:empty){margin-left:8px}
+  .listen-audio{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+
+  /* ===== Weekly pack: day picker ===== */
+  .pack-title{font-family:Fredoka,Nunito,sans-serif;font-size:26px;margin:2px 0 6px}
+  .pack-sub{color:var(--ink-soft);font-weight:700;line-height:1.45;margin:0 0 14px}
+  .pack-progress{font-family:Fredoka,Nunito,sans-serif;font-size:20px;font-weight:900;text-align:center;margin:0 0 14px}
+  .day-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 16px}
+  .day-card{border:2.5px solid var(--line);border-radius:16px;padding:14px 10px;background:var(--surface,#fff);cursor:pointer;text-align:center;font-family:inherit;color:var(--ink)}
+  .day-card .dc-weekday{display:block;font-family:Fredoka,Nunito,sans-serif;font-size:19px;font-weight:900}
+  .day-card .dc-date{display:block;color:var(--ink-soft);font-weight:800;font-size:13px;margin:3px 0 7px}
+  .day-card .dc-status{display:block;font-weight:900;font-size:14px}
+  .day-card.today{border-color:#f2b705;background:#fff8e1}
+  .day-card.done{border-color:#27a24b;background:#eafaf0}
+  .day-card:disabled{cursor:default;opacity:.6}
+  .pack-day-head{font-size:17px;font-weight:800;text-align:center;margin:0 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="view-start">
+    <div class="start-stack">
+    <div class="top-dash">
+
+      <span class="lexile-banner" role="note">⭐ My Quantile Level: 350Q</span>
+      <form id="start-form">
+        <div class="go-zone">
+          <div class="go-checker" aria-hidden="true"></div>
+          <div class="ready-set-go" aria-hidden="true">
+            <span class="rsg-step rsg-ready">Ready</span>
+            <span class="rsg-arrow">›</span>
+            <span class="rsg-step rsg-set">Set</span>
+            <span class="rsg-arrow">›</span>
+            <span class="rsg-step rsg-go">Go! 🏁</span>
+          </div>
+          <button type="submit" class="btn btn-primary">🏁 Start the Quiz — GO!</button>
+          <p class="start-note">⏰ You have 40 minutes. When the time is up, the quiz will send itself automatically — you don't need to press anything. Your answers are sent automatically when you finish. Unanswered questions will score 0, so try to finish before the timer ends!</p>
+        </div>
+      </form>
+
+      <div class="how" role="list" aria-label="How the quiz works">
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">1</span><span class="how-text" style="font-weight:800">Solve and answer</span></div>
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">2</span><span class="how-text" style="font-weight:800">Writing checked for you</span></div>
+        <div class="how-item" role="listitem"><span class="how-num" aria-hidden="true">3</span><span class="how-text" style="font-weight:800">See your score</span></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+<section id="view-quiz" class="hidden">
+    <div id="quiz-body"></div>
+
+    <div class="submit-zone">
+      <button class="btn btn-primary" id="submit-btn" type="button">I'm Done — Check My Answers ✓</button>
+      <p class="submit-note">Your score will appear right away — your written answers are checked automatically. If time runs out, your quiz will be sent automatically with the answers you have so far.</p>
+    </div>
+
+    <div class="quiz-bottom-stack">
+    <div class="bottom-timer-bar" id="bottom-timer-bar" role="status" aria-label="Timer and progression">
+      <span class="bt-group"><span class="bt-label">Timer:</span><span class="bt-time" id="bottom-timer">40:00</span></span>
+      <span class="bt-group"><span class="bt-label">Done:</span><span class="bt-fraction" id="bottom-progression">0 / 20</span></span>
+    </div>
+    </div>
+  </section>
+
+<section id="view-sending" class="hidden">
+    <div class="results-head">
+      <span class="badge">Sending…</span>
+      <h2 style="margin-top:12px">📡 Sending your answers…</h2>
+      <p class="friendly" id="sending-text">No internet yet — your answers are saved here. This page will send them when the internet comes back.</p>
+      <p class="friendly">Please keep this page open. You do not need to do anything — it keeps trying by itself. ⏳</p>
+    </div>
+  </section>
+
+<section id="view-results" class="hidden">
+    <div class="results-head">
+      <span class="badge">Your Result</span>
+      <h2 style="margin-top:12px">Great work, <span id="r-name">Eden</span>!</h2>
+      <span class="lexile-banner" role="note">⭐ My Quantile Level: 350Q</span>
+      <div class="stars" id="r-stars"></div>
+      <div class="score-big"><span id="r-score">0</span><small> / 20</small></div>
+      <div class="score-pct" id="r-pct">0%</div>
+      <div><span class="attempt-badge" id="r-attempt">Attempt #1</span></div>
+      <div class="section-scores" id="r-section-scores" aria-label="Scores by section">
+        <span class="section-score-chip sec-1">Review total: <span id="r-sec1">0 / 20</span></span>
+      </div>
+      <div class="auto-note hidden" id="r-auto-note">⏰ Time's up — your quiz was sent automatically.</div>
+      <p class="friendly" id="r-message"></p>
+      <div class="meta-row">
+        <span class="meta-chip">⏱ Time used: <span id="r-time">0:00</span></span>
+        <span class="meta-chip">Choice questions: <span id="r-mc">0 / 18</span></span>
+        <span class="meta-chip">Written questions: <span id="r-wr">0 / 2</span></span>
+      </div>
+      <p class="saved-note">Answers saved ✓</p>
+    </div>
+
+    <div class="breakdown" id="r-breakdown"></div>
+
+    <h3 class="review-title">Review: Choice Questions</h3>
+    <p class="review-sub">See what you got right and learn from any mistakes.</p>
+    <div id="r-mc-review"></div>
+
+    <h3 class="review-title">Review: Your Written Answers</h3>
+    <p class="review-sub">Checked automatically for the key ideas. Your answers are shown next to the sample answers.</p>
+    <div id="r-wr-review"></div>
+
+    <div class="results-actions">
+      <div class="merged-tests">
+      <div class="growth-chart" role="img" aria-label="Bar chart showing Quantile growth, last 6 tests: 11/21/26 Daily Quiz 340Q (up 10Q), 11/22/26 Daily Quiz 340Q (stayed the same), 11/23/26 Daily Quiz 340Q (stayed the same), 11/24/26 Daily Quiz 340Q (stayed the same), 11/25/26 Daily Quiz 340Q (stayed the same), 11/27/26 Daily Quiz 350Q (up 10Q, gold bar with a crown — your best ever)">
+        <h3 class="growth-title"><span class="gt-line">📈 My Math Growth</span><span class="gt-line gt-line-2">My Last 6 Tests</span></h3>
+        <div class="growth-celebration"><p class="celebration-label">🎉 Great job — look how far you've come!</p><p class="growth-note">You grew from <strong>290Q to 350Q</strong> — that's <strong>+60Q</strong>! Keep going!</p></div>
+        <p class="growth-sub">Each bar is one test you finished.</p>
+        <div data-growth-chart></div>
+      </div>
+      <div class="history">
+        <h3 class="history-title">📋 My Last 12 Tests</h3>
+        <p class="history-sub">Every test you finished, newest first. The last number shows your Quantile after that test!</p>
+        <div class="history-table-wrap">
+        <div class="history-grid" role="table" aria-label="My last 12 tests, newest first">
+          <div class="hg-row hg-head" role="row"><span role="columnheader">Date</span><span role="columnheader">Type</span><span role="columnheader" class="c">Score</span><span role="columnheader" class="c">Quantile</span></div>
+          <div class="hg-row best" role="row"><span class="date" role="cell">11/27/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex up" role="cell"><span class="lex-line"><span class="crown" aria-hidden="true">👑</span>350Q</span><span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/25/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">340Q<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/24/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">340Q<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/23/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell">340Q<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/22/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">7/12</span><span class="c lex" role="cell">340Q<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/21/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">340Q<span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/20/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">330Q<span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/19/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">9/12</span><span class="c lex" role="cell">320Q<span class="delta">▲ +10Q</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">8/12</span><span class="c lex" role="cell">310Q<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/18/26</span><span role="cell">Level Test</span><span class="c score" role="cell">27/38</span><span class="c lex" role="cell">310Q<span class="delta">→ same</span></span></div>
+          <div class="hg-row" role="row"><span class="date" role="cell">11/17/26</span><span role="cell">Daily Quiz</span><span class="c score" role="cell">10/12</span><span class="c lex" role="cell">310Q<span class="delta">▲ +20Q</span></span></div>
+          
+        </div>
+        </div>
+        <p class="color-legend">🟩 Green = went up&emsp;🟥 Red = went down&emsp;🟨 Gold = your best ever</p>
+      </div>
+      </div>
+      <button class="btn btn-ghost" id="again-btn" type="button">🏠 Back to Start</button>
+    </div>
+  </section>
+
+<footer class="note">Grade 2 · Targeted Math Practice · 20 questions</footer>
+</div>
+
+<div class="modal-backdrop hidden" id="warn-modal" role="dialog" aria-modal="true" aria-labelledby="warn-title">
+  <div class="modal">
+    <h3 id="warn-title">Some questions are empty!</h3>
+    <p id="warn-text">You haven't answered some choice questions yet.</p>
+    <div class="row">
+      <button class="btn btn-primary" id="warn-back" type="button" style="margin-top:0">Go Back and Check</button>
+      <button class="btn btn-ghost" id="warn-submit" type="button">Submit Anyway</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+"use strict";
+/* PRODUCTION math review paper #1 (built 2026-11-28, staged -- not yet
+   launched): Eden Grade 2 math review, 20 questions, 40 minutes.
+   Composition (parent-set from the cleaned standards rotation ledger):
+   weakest 5 points x2 (2.MD.9, 2.NBT.3, 2.G.3, 2.MD.8, 2.OA.1) + fill
+   2.MD.2 x4, 2.MD.6 x3, 2.NBT.9 x3; written questions exactly Q17-Q20,
+   all inside the weakest 5 (Q17 2.NBT.3, Q18 2.OA.1, Q19 2.MD.9,
+   Q20 2.G.3; each of those points also has 1 MC question, 2.MD.8 has
+   2 MC). Same shell as rm4d (start page = Quantile banner + Ready Set
+   Go only; quiz view; bottom Timer/Done bar; results page). Written
+   answers are graded by GRADE_KEYS -- both key points required --
+   exactly as the math daily papers.
+   Transport: the SAME confirmed-send mechanism as rm4d (POST {ok,id}
+   + verify read-back; unconfirmed -> waiting page, retry every 3s and
+   on 'online'; the pending payload is stored in the draft at send
+   time and resumed after a reopen).
+   Scoring rule (Ellis, 2026-11-27, carried from the reading reviews):
+   the review IS scored and the score shows on the results page, but
+   the result does NOT enter the knowledge records, does NOT feed the
+   "last 5" mastery sequence, does NOT change the Quantile level and
+   does NOT punch -- only regular papers do those. The submission log
+   carries the REVIEW marker (quiz identity "review-eden-math-1" + a
+   "Review: yes" line) and is filed to Eden's math folder; the
+   watcher reports the score only. */
+var QUIZ_ID = "review-eden-math-1";
+var STUDENT = "Eden";
+var TOTAL_Q = 20;
+
+var qs = new URLSearchParams(location.search);
+var TEST_MODE = qs.get("test") === "1";
+var TOTAL = qs.get("testSeconds") ? parseInt(qs.get("testSeconds"), 10) : 2400; // 40 minutes
+
+var SECTIONS = [{"id": 1, "tag": "Review", "tagClass": "tag-1", "title": "20 Math Questions", "subtitle": "Grade 2 Math Review · 20 questions · solve each problem and check your work", "texts": [], "questions": [{"n": 1, "std": "2.MD.2", "type": "mc", "section": 1, "text": "A book is 20 cm long. A pen is 12 cm long. How much longer is the book than the pen?", "options": ["8 cm", "6 cm", "9 cm", "7 cm"], "correct": 0, "why": "20 − 12 = 8, so the book is 8 cm longer."}, {"n": 2, "std": "2.NBT.9", "type": "mc", "section": 1, "text": "Mia adds 35 + 24. First she adds the tens: 30 + 20 = 50. Then she adds the ones: 5 + 4 = 9. What is 35 + 24?", "options": ["69", "59", "58", "68"], "correct": 1, "why": "50 + 9 = 59, so 35 + 24 = 59."}, {"n": 3, "std": "2.MD.8", "type": "mc", "section": 1, "text": "Nia has 2 dimes and 1 nickel. How much money does Nia have?", "options": ["20 cents", "30 cents", "25 cents", "15 cents"], "correct": 2, "why": "2 dimes = 20 cents, and 1 nickel = 5 cents. 20 + 5 = 25 cents."}, {"n": 4, "std": "2.MD.6", "type": "mc", "section": 1, "text": "A number line goes 40, 45, 50, __, 60. What number is missing?", "options": ["52", "58", "65", "55"], "correct": 3, "why": "The numbers go up by 5 each time: 40, 45, 50, 55, 60."}, {"n": 5, "std": "2.NBT.3", "type": "mc", "section": 1, "text": "How do you write 517 in expanded form?", "options": ["500 + 10 + 7", "500 + 70 + 1", "500 + 100 + 7", "50 + 17 + 0"], "correct": 0, "why": "517 has 5 hundreds, 1 ten, and 7 ones: 500 + 10 + 7."}, {"n": 6, "std": "2.MD.2", "type": "mc", "section": 1, "text": "Lena measures her shoe. It is 18 cm long. Then she measures the same shoe in inches. The number of inches will be:", "options": ["more than 18 in.", "less than 18 in.", "just 18 inches", "about 36 inches"], "correct": 1, "why": "An inch is longer than a cm, so the same shoe needs fewer inches. The number will be less than 18."}, {"n": 7, "std": "2.G.3", "type": "mc", "section": 1, "text": "A pie is cut into 3 equal parts. Mia eats 1 part. How much of the pie did Mia eat?", "options": ["1 out of 2 parts", "2 out of 3 parts", "1 out of 3 parts", "3 out of 3 parts"], "correct": 2, "why": "The pie has 3 equal parts and Mia ate 1 of them: 1 out of 3 parts."}, {"n": 8, "std": "2.MD.6", "type": "mc", "section": 1, "text": "On a number line, you start at 28 and jump back 10. Where do you land?", "options": ["20", "16", "38", "18"], "correct": 3, "why": "28 − 10 = 18, so you land on 18."}, {"n": 9, "std": "2.OA.1", "type": "mc", "section": 1, "text": "Ben has 38 cards. He gives 17 cards to Ana. How many cards does Ben have now?", "options": ["21 cards", "19 cards", "23 cards", "55 cards"], "correct": 0, "why": "38 − 17 = 21, so Ben has 21 cards now."}, {"n": 10, "std": "2.MD.9", "type": "mc", "section": 1, "text": "A chart shows leaf lengths. 4 leaves are 5 cm long, 3 leaves are 6 cm long, 5 leaves are 7 cm long, and 2 leaves are 8 cm long. How many leaves are 7 cm or longer?", "options": ["5 leaves", "7 leaves", "9 leaves", "6 leaves"], "correct": 1, "why": "Leaves 7 cm or longer: 5 leaves at 7 cm plus 2 leaves at 8 cm. 5 + 2 = 7 leaves."}, {"n": 11, "std": "2.MD.2", "type": "mc", "section": 1, "text": "Ana measures a board in feet. She gets 3 feet. Then she measures the same board in inches. What number will she get?", "options": ["3 inches", "12 inches", "36 inches", "30 inches"], "correct": 2, "why": "1 foot = 12 inches, so 3 feet = 3 × 12 = 36 inches."}, {"n": 12, "std": "2.NBT.9", "type": "mc", "section": 1, "text": "Sam adds 78 + 15. First he adds 78 + 10 = 88. Then he adds 88 + 5. What is 78 + 15?", "options": ["83", "90", "95", "93"], "correct": 3, "why": "88 + 5 = 93, so 78 + 15 = 93."}, {"n": 13, "std": "2.MD.8", "type": "mc", "section": 1, "text": "Tom has 1 quarter and 2 pennies. How much money does Tom have?", "options": ["27 cents", "25 cents", "30 cents", "12 cents"], "correct": 0, "why": "1 quarter = 25 cents, and 2 pennies = 2 cents. 25 + 2 = 27 cents."}, {"n": 14, "std": "2.MD.6", "type": "mc", "section": 1, "text": "On a number line, you start at 63 and jump forward 20. Where do you land?", "options": ["73", "83", "80", "93"], "correct": 1, "why": "63 + 20 = 83, so you land on 83."}, {"n": 15, "std": "2.MD.2", "type": "mc", "section": 1, "text": "A hose is 5 meters long. Sam measures the same hose in centimeters. What will the number of centimeters be like?", "options": ["the same, just 5", "a little less, 4", "much bigger than 5", "much smaller than 5"], "correct": 2, "why": "A centimeter is much smaller than a meter, so the same hose needs many more of them. The number will be much bigger than 5."}, {"n": 16, "std": "2.NBT.9", "type": "mc", "section": 1, "text": "To add 46 + 47, Jo first adds the tens and then the ones. Why does this help?", "options": ["It makes the numbers big.", "It skips all the ones.", "It changes the answer.", "It splits tens and ones."], "correct": 3, "why": "Adding tens first and ones next splits the numbers into tens and ones, which makes the adding easier. The answer stays the same."}, {"n": 17, "std": "2.NBT.3", "type": "written", "section": 1, "text": "Write 683 in words. Then write 683 in expanded form.", "sample": "683 in words is six hundred eighty-three. 683 in expanded form is 600 + 80 + 3."}, {"n": 18, "std": "2.OA.1", "type": "written", "section": 1, "text": "Lily has 45 beads. She buys 28 more beads. Then she gives 13 beads to Kim. How many beads does Lily have now? Show your work and write the answer.", "sample": "45 + 28 = 73 beads at first. 73 − 13 = 60, so Lily has 60 beads now."}, {"n": 19, "std": "2.MD.9", "type": "written", "section": 1, "text": "A chart shows stick lengths. 3 sticks are 4 cm long, 5 sticks are 5 cm long, 4 sticks are 6 cm long, and 2 sticks are 7 cm long. How many sticks are 6 cm or longer? How many sticks are there in all? Write both answers and tell how you know.", "sample": "4 + 2 = 6 sticks are 6 cm or longer. 3 + 5 + 4 + 2 = 14, so there are 14 sticks in all."}, {"n": 20, "std": "2.G.3", "type": "written", "section": 1, "text": "A circle is cut into 2 equal parts. What is each part called? How many equal parts are there? Write both answers.", "sample": "Each part is a half. The circle is cut into 2 equal parts."}]}];
+var GRADE_KEYS = {"17": [{"found": "six hundred eighty-three", "missing": "683 in words — six hundred eighty-three", "alt": [["six hundred eighty-three"], ["six hundred", "eighty-three"]]}, {"found": "600 + 80 + 3", "missing": "683 in expanded form — 600 + 80 + 3", "alt": [["600 + 80 + 3"], ["600", "80", "3"]]}], "18": [{"found": "45 + 28 = 73 beads at first", "missing": "the first step — 45 + 28 = 73 beads at first", "alt": [["45", "28", "73"], ["73 beads"]]}, {"found": "73 − 13 = 60 beads now", "missing": "the last step — 73 − 13 = 60 beads now", "alt": [["73", "13", "60"], ["60 beads"]]}], "19": [{"found": "6 sticks are 6 cm or longer", "missing": "6 sticks are 6 cm or longer — 4 sticks at 6 cm plus 2 sticks at 7 cm", "alt": [["6", "longer"], ["6 sticks"]]}, {"found": "14 sticks in all", "missing": "14 sticks in all — 3 + 5 + 4 + 2 = 14", "alt": [["14", "in all"], ["14 sticks"]]}], "20": [{"found": "a half", "missing": "each part is a half — the circle is cut into 2 equal parts", "alt": [["half"]]}, {"found": "2 equal parts", "missing": "2 equal parts in all", "alt": [["2", "parts"], ["2 equal"]]}]};
+var WL_DICT = {};
+
+var ALL_MC = [], ALL_WRITTEN = [];
+SECTIONS.forEach(function(s){ s.questions.forEach(function(q){
+  if(q.type === "mc") ALL_MC.push(q); else ALL_WRITTEN.push(q);
+}); });
+var LETTERS = ["A","B","C","D"];
+
+var LS_KEY = "reviewEdenMath1.v1" + (TEST_MODE ? ":TEST" : "");
+var S = { started:false, startedAt:0, answers:{}, evidence:{}, written:{}, taps:[],
+          submitted:false, auto:false, elapsed:0, pendingId:null, sentAt:null, pendingPayload:null, result:null };
+try { var raw = localStorage.getItem(LS_KEY); if(raw){ var p = JSON.parse(raw); if(p && typeof p === "object") S = Object.assign(S, p); } } catch(e) {}
+function saveDraft(){ try { localStorage.setItem(LS_KEY, JSON.stringify(S)); } catch(e) {} }
+
+/* engine views of the state (g4d function compatibility) */
+var answers = S.answers, evidenceSel = S.evidence, written = S.written;
+var writtenParts = {};
+var writtenGrades = {};
+var autoSubmitted = false;
+var elapsedAtSubmit = 0;
+var attemptCount = 1;
+var studentName = TEST_MODE ? "TEST" : STUDENT;
+
+function show(viewId){
+  ["view-start","view-quiz","view-sending","view-results"].forEach(function(v){
+    $(v).classList.toggle("hidden", v !== viewId);
+  });
+  window.scrollTo(0,0);
+}
+
+function $(id){ return document.getElementById(id); }
+function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;");
+  }
+function fmtTime(sec){
+    sec = Math.max(0, Math.floor(sec));
+    var m = Math.floor(sec/60), s = sec % 60;
+    return m + ":" + (s < 10 ? "0" : "") + s;
+  }
+var WL_MIC_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>';
+
+function wrapWords(escaped){
+    function wrapSegment(seg){
+      return seg.replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, function(w){
+        var k = w.toLowerCase();
+        return '<span class="wlk" data-w="' + k + '" role="button" tabindex="0" aria-label="查单词：' + k + '">' + w + '</span>';
+      });
+    }
+    return String(escaped).split(/(&[a-zA-Z#0-9]+;)/g).map(function(part){
+      return part.charAt(0) === "&" ? part : wrapSegment(part);
+    }).join("");
+  }
+function wlListenHtml(id){ return ""; }
+function wlPara(raw, audioId){
+    var num = "", body = String(raw);
+    var mm = body.match(/^\[(\d+)\]\s*/);
+    if(mm){ num = mm[1]; body = body.slice(mm[0].length); }
+    var t = wrapWords(esc(body)).replace(/\n/g, "<br>");
+    var head = "";
+    if(num) head += '<span class="pnum">' + num + '</span>';
+    if(audioId) head += wlListenHtml(audioId);
+    return head + t;
+  }
+function wlClean(raw){
+    var w = String(raw || "").toLowerCase().replace(/[‘’]/g, "'");
+    w = w.replace(/^[^a-z]+/, "").replace(/[^a-z'-]+$/, "").replace(/'+$/, "");
+    return w;
+  }
+function wlEntry(key){
+    if(!key) return null;
+    if(WL_DICT[key]) return WL_DICT[key];
+    var tries = [];
+    if(/'s$/.test(key)) tries.push(key.slice(0, -2));
+    if(/ies$/.test(key) && key.length > 3) tries.push(key.slice(0, -3) + "y");
+    if(/es$/.test(key) && key.length > 2) tries.push(key.slice(0, -2));
+    if(/s$/.test(key) && key.length > 1) tries.push(key.slice(0, -1));
+    if(/ing$/.test(key) && key.length > 4){ tries.push(key.slice(0, -3)); tries.push(key.slice(0, -3) + "e"); }
+    if(/ed$/.test(key) && key.length > 3){ tries.push(key.slice(0, -2)); tries.push(key.slice(0, -1)); }
+    for(var i = 0; i < tries.length; i++) if(WL_DICT[tries[i]]) return WL_DICT[tries[i]];
+    return null;
+  }
+function wlPaint(d){
+    var body = document.getElementById("lookupBody");
+    if(!body) return;
+    var h = '<button type="button" class="vocab-say" data-say="' + esc(d.word) + '" aria-label="念出来：' + esc(d.word) + '" title="念出来">' + WL_MIC_SVG + '</button>';
+    h += ' <span class="vocab-word">' + esc(d.word) + '</span>';
+    if(d.pos) h += ' <span class="vocab-pos">' + esc(d.pos) + '</span>';
+    if(d.def) h += ' <span class="lk-def">' + esc(d.def) + '</span>';
+    if(d.ex) h += ' <span class="lk-ex">&ldquo;' + esc(d.ex) + '&rdquo;</span>';
+    if(d.zh) h += ' <span class="vocab-zh">' + esc(d.zh) + '</span>';
+    if(d.zhEx) h += ' <span class="lk-ex-zh">' + esc(d.zhEx) + '</span>';
+    body.innerHTML = h;
+  }
+function wlSpeak(word){
+    function tts(){
+      try {
+        if(window.speechSynthesis){
+          var u = new SpeechSynthesisUtterance(word);
+          u.lang = "en-US"; u.rate = 0.92;
+          window.speechSynthesis.cancel();
+          window.speechSynthesis.speak(u);
+        }
+      } catch(e) {}
+    }
+    function playUrl(url){
+      try {
+        if(!wlSayAudio) wlSayAudio = new Audio();
+        wlSayAudio.src = url;
+        var p = wlSayAudio.play();
+        if(p && typeof p.catch === "function") p.catch(function(){ tts(); });
+      } catch(e) { tts(); }
+    }
+    if(wlAudioUrlCache[word]){ playUrl(wlAudioUrlCache[word]); return; }
+    if(typeof fetch !== "function"){ tts(); return; }
+    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + encodeURIComponent(word))
+      .then(function(r){ if(!r.ok) throw new Error("nf"); return r.json(); })
+      .then(function(data){
+        var entry = data && data[0] ? data[0] : null;
+        var audio = "";
+        var phs = (entry && entry.phonetics) || [];
+        for(var i = 0; i < phs.length; i++){ if(!audio && phs[i].audio) audio = phs[i].audio; }
+        if(audio){ wlAudioUrlCache[word] = audio; playUrl(audio); }
+        else tts();
+      })
+      .catch(function(){ tts(); });
+  }
+function wlClosest(el, sel){
+    while(el && el !== document){
+      if(el.matches && el.matches(sel)) return el;
+      el = el.parentNode;
+    }
+    return null;
+  }
+
+/* ---------- Words Look Up: silent collection into this attempt ---------- */
+function wlRecord(word){
+  if(S.taps.indexOf(word) === -1){ S.taps.push(word); saveDraft(); }
+}
+function wlLookup(rawKey, el){
+  var key = wlClean(rawKey);
+  var e = wlEntry(key);
+  if(!e) return;
+  wlRecord(key);
+  var ws = document.querySelectorAll(".passage .wlk.selected");
+  for(var i = 0; i < ws.length; i++) ws[i].classList.remove("selected");
+  if(el) el.classList.add("selected");
+  wlPaint({ word: key, pos: e.pos, def: e.en, ex: e.ex, zh: e.zh, zhEx: e.zhEx });
+}
+document.addEventListener("click", function(ev){
+  var say = wlClosest(ev.target, "[data-say]");
+  if(say){ ev.stopPropagation(); wlSpeak(say.getAttribute("data-say")); return; }
+  var w = wlClosest(ev.target, ".wlk");
+  if(w){ wlLookup(w.getAttribute("data-w"), w); }
+});
+document.addEventListener("keydown", function(ev){
+  if((ev.key === "Enter" || ev.key === " ") && ev.target && ev.target.classList && ev.target.classList.contains("wlk")){
+    ev.preventDefault(); wlLookup(ev.target.getAttribute("data-w"), ev.target);
+  }
+});
+
+/* ---------- draft helpers used by buildQuiz ---------- */
+function collectWritten(n){ var ta = $("ta-" + n); return ta ? ta.value : ""; }
+function collectWrittenParts(n){ return written[n] || ""; }
+function getWrittenPart(n, i){ return ""; }
+
+function buildQuiz(){
+    var html = "";
+    SECTIONS.forEach(function(s){
+      html += '<div class="section-head"><span class="section-tag '+s.tagClass+'">'+esc(s.tag)+' · Questions '+
+        s.questions[0].n + '–' + s.questions[s.questions.length-1].n + '</span>'+
+        '<h2>'+esc(s.title)+'</h2><p>'+esc(s.subtitle)+'</p></div>';
+
+      s.questions.forEach(function(q){
+        var isWrittenParts = q.type !== "mc" && q.parts && q.parts.length === 2;
+        html += '<div class="qcard" id="qcard-'+q.n+'">';
+        html += '<div class="q-top"><span class="q-num">'+q.n+'</span><div>'+
+          '<div class="q-text">'+esc(q.text)+'</div>'+
+          '<div class="q-type">'+(q.type === "mc" ? "Choose one answer" : (isWrittenParts ? "Write your answers · 2 parts — one box for each part" : "Write your answer · 1–2 sentences"))+'</div>'+
+          '</div></div>';
+        if(q.type === "mc"){
+          html += '<div class="options" role="radiogroup" aria-label="Question '+q.n+'">';
+          q.options.forEach(function(opt, i){
+            html += '<label class="option"><input type="radio" name="q'+q.n+'" value="'+i+'">'+
+              '<span class="otext"><b>'+LETTERS[i]+'.</b> '+esc(opt)+'</span></label>';
+          });
+          html += '</div>';
+        } else if(isWrittenParts){
+          html += '<div class="written-parts">';
+          q.parts.forEach(function(part, pi){
+            var partNo = pi + 1;
+            html += '<div class="written-part">'+
+              '<div class="part-label"><strong>Part '+partNo+':</strong> '+esc(part.text)+'</div>'+
+              '<textarea id="ta-'+q.n+'-'+partNo+'" placeholder="Write your answer for Part '+partNo+' here…" aria-label="Question '+q.n+' Part '+partNo+' written answer"></textarea>'+
+              '<div class="q-hint">Write 1–2 sentences for this part only.</div>'+
+              '</div>';
+          });
+          html += '</div>';
+        } else {
+          html += '<textarea id="ta-'+q.n+'" placeholder="Write your answer here…" aria-label="Question '+q.n+' written answer"></textarea>'+
+            '<div class="q-hint">Write 1–2 sentences. Your answer will be checked automatically when you submit.</div>';
+        }
+        html += '</div>';
+      });
+    });
+    $("quiz-body").innerHTML = html;
+
+    
+    ALL_MC.forEach(function(q){
+      var radios = document.querySelectorAll('input[name="q'+q.n+'"]');
+      Array.prototype.forEach.call(radios, function(r){
+        r.addEventListener("change", function(){
+          answers[q.n] = parseInt(r.value, 10);
+          updateProgress(); saveDraft();
+        });
+      });
+    });
+    ALL_MC.forEach(function(q){
+      var btns = document.querySelectorAll('.ev-btn[data-q="'+q.n+'"]');
+      Array.prototype.forEach.call(btns, function(b){
+        b.addEventListener("click", function(){
+          evidenceSel[q.n] = parseInt(b.getAttribute("data-ev"), 10);
+          Array.prototype.forEach.call(btns, function(x){ x.classList.toggle("sel", x === b); });
+          updateProgress(); saveDraft();
+        });
+      });
+    });
+    ALL_WRITTEN.forEach(function(q){
+      if(q.parts && q.parts.length === 2){
+        q.parts.forEach(function(part, pi){
+          var partNo = pi + 1;
+          var ta = $("ta-"+q.n+"-"+partNo);
+          if(ta) ta.addEventListener("input", function(){
+            collectWrittenParts(q.n);
+            updateProgress(); saveDraft();
+          });
+        });
+      } else {
+        var ta = $("ta-"+q.n);
+        if(ta) ta.addEventListener("input", function(){
+          written[q.n] = collectWritten(q.n);
+          updateProgress(); saveDraft();
+        });
+      }
+    });
+  }
+
+function restoreSelections(){
+  ALL_MC.forEach(function(q){
+    if(typeof answers[q.n] === "number"){
+      var r = document.querySelector('input[name="q' + q.n + '"][value="' + answers[q.n] + '"]');
+      if(r) r.checked = true;
+    }
+    if(typeof evidenceSel[q.n] === "number"){
+      var b = document.querySelector('.ev-btn[data-q="' + q.n + '"][data-ev="' + evidenceSel[q.n] + '"]');
+      if(b) b.classList.add("sel");
+    }
+  });
+  ALL_WRITTEN.forEach(function(q){
+    var ta = $("ta-" + q.n);
+    if(ta && written[q.n]) ta.value = written[q.n];
+  });
+}
+
+function answeredCount(){
+  var c = 0;
+  ALL_MC.forEach(function(q){ if(typeof answers[q.n] === "number") c++; });
+  ALL_WRITTEN.forEach(function(q){ if((written[q.n] || "").trim().length > 0) c++; });
+  return c;
+}
+var lastProgression = -1;
+function updateProgress(){
+  var c = answeredCount();
+  var bp = $("bottom-progression");
+  if(bp){
+    bp.textContent = c + " / " + TOTAL_Q;
+    if(c !== lastProgression){ bp.classList.remove("pop"); void bp.offsetWidth; bp.classList.add("pop"); }
+  }
+  lastProgression = c;
+  ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
+    var done = q.type === "mc" ? (typeof answers[q.n] === "number")
+                               : (written[q.n] || "").trim().length > 0;
+    var card = $("qcard-" + q.n);
+    if(card) card.classList.toggle("answered", done);
+  });
+}
+
+var tick = null;
+function startTimer(){
+  if(tick) return;
+  tick = setInterval(function(){
+    var left = TOTAL - Math.floor((Date.now() - S.startedAt) / 1000);
+    var t = $("bottom-timer");
+    if(left <= 0){ t.textContent = "0:00"; t.classList.add("red"); doSubmit(true); return; }
+    t.textContent = fmtTime(left);
+    t.classList.toggle("red", left <= 60);
+  }, 500);
+}
+
+/* ---------- grading ---------- */
+function mcCorrect(q){ return answers[q.n] === q.correct; }
+function normalizeAnswer(str){
+    return String(str == null ? "" : str)
+      .toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/'/g, "")
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+function altMatches(norm, alt){
+    for(var i = 0; i < alt.length; i++){
+      if(norm.indexOf(normalizeAnswer(alt[i])) === -1) return false;
+    }
+    return true;
+  }
+function pointFound(norm, alternatives){
+    for(var i = 0; i < alternatives.length; i++){
+      if(altMatches(norm, alternatives[i])) return true;
+    }
+    return false;
+  }
+function gradeWrittenAnswer(qn, rawText){
+    var keys = GRADE_KEYS[qn];
+    var norm = normalizeAnswer(rawText);
+    var words = norm ? norm.split(" ").length : 0;
+    var points = keys.map(function(k){ return pointFound(norm, k.alt); });
+    var earned = words >= 3 && points.length === 2 && points[0] && points[1];
+    return { earned: earned, points: points };
+  }
+function gradeWrittenParts(qn){
+    var keys = GRADE_KEYS[qn] || [];
+    var points = keys.map(function(k, i){
+      var norm = normalizeAnswer(getWrittenPart(qn, i) || "");
+      return pointFound(norm, k.alt);
+    });
+    var earned = points.length === 2 && points[0] && points[1];
+    return { earned: earned, points: points };
+  }
+function gradeAllWritten(){
+    writtenGrades = {};
+    ALL_WRITTEN.forEach(function(q){
+      if(q.parts && q.parts.length === 2) writtenGrades[q.n] = gradeWrittenParts(q.n);
+      else writtenGrades[q.n] = gradeWrittenAnswer(q.n, written[q.n] || "");
+    });
+  }
+function writtenQuestionAnswered(q){
+    if(q.parts && q.parts.length === 2){
+      var parts = writtenParts[q.n] || ["",""];
+      return (parts[0] || "").trim().length > 0 && (parts[1] || "").trim().length > 0;
+    }
+    return (written[q.n] || "").trim().length > 0;
+  }
+
+/* ---------- confirmed send (same mechanism as the daily papers) ---------- */
+var RECEIVER_URL = "https://script.google.com/macros/s/AKfycby_oP6WAr2li0QavyQr3yijQhJW1GCC9XNqMPkmnoPx4oybSsoBrCnShZ2-TkmKcb46/exec";
+function todayStr(){
+  try {
+    var parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", month: "numeric", day: "numeric", year: "2-digit" }).formatToParts(new Date());
+    var m = "", d = "", y = "";
+    parts.forEach(function(p){ if(p.type === "month") m = p.value; if(p.type === "day") d = p.value; if(p.type === "year") y = p.value; });
+    return m + "/" + d + "/" + y;
+  } catch(e) { return new Date().toISOString().slice(0, 10); }
+}
+function makeSubmissionId(){
+  var rand = "";
+  try { rand = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2); }
+  catch(e) { rand = String(Date.now()); }
+  return "eden:" + QUIZ_ID + ":a1:" + rand;
+}
+function buildAnswerLog(total){
+  var lines = [];
+  lines.push(document.title);
+  lines.push("Student: " + studentName);
+  lines.push("Review: yes");
+  lines.push("Date: " + todayStr());
+  lines.push("Attempt: 1");
+  lines.push("Score: " + total + "/20");
+  lines.push("Time used: " + fmtTime(S.elapsed || 0));
+  SECTIONS.forEach(function(sec){
+    sec.questions.forEach(function(q){
+      lines.push("");
+      lines.push("----------------------------------------");
+      lines.push("Question " + q.n + ": " + q.text);
+      lines.push("Standard: " + (q.std || ""));
+      if(q.type === "mc"){
+        var mine = answers[q.n];
+        lines.push("Correct answer: " + LETTERS[q.correct] + ". " + q.options[q.correct]);
+        lines.push("Student's answer: " + (typeof mine === "number" ? LETTERS[mine] + ". " + q.options[mine] : "No answer"));
+        lines.push("Result: " + (mcCorrect(q) ? "\u2713 Correct" : "\u2717 Wrong"));
+      } else {
+        var g = writtenGrades[q.n] || { earned: false, points: [false, false] };
+        var keys = GRADE_KEYS[q.n] || [];
+        var raw = written[q.n] || "";
+        lines.push("Sample answer: " + q.sample);
+        lines.push("Key points: " + keys.map(function(k){ return k.found; }).join(" | "));
+        lines.push("Student's answer: " + (raw.trim() ? raw : "No answer"));
+        lines.push("Result: " + (g.earned ? "\u2713 Correct" : "\u2717 Not quite"));
+        keys.forEach(function(k, i){
+          if(g.points[i]) lines.push("  \u2713 Found: " + k.found);
+          else lines.push("  \u2717 Missing: " + k.missing);
+        });
+      }
+    });
+  });
+  lines.push("");
+  lines.push("----------------------------------------");
+  return lines.join("\n");
+}
+function buildLogPayload(total){
+  return {
+    folder: "Eden",
+    subfolder: "數學习题",
+    student: studentName,
+    test: document.title,
+    date: todayStr(),
+    attempt: 1,
+    score: total + "/20",
+    submissionId: makeSubmissionId(),
+    sentAt: new Date().toISOString(),
+    log: buildAnswerLog(total)
+  };
+}
+function fetchJson(url, opts, cb){
+  var done = false;
+  var timer = setTimeout(function(){ if(!done){ done = true; cb(null); } }, 12000);
+  function finish(json){ if(done) return; done = true; clearTimeout(timer); cb(json); }
+  try {
+    if(typeof fetch !== "function"){ finish(null); return; }
+    opts.mode = "cors";
+    fetch(url, opts).then(function(resp){ return resp.text(); }).then(function(text){
+      var json = null;
+      try { json = JSON.parse(text); } catch(e) {}
+      finish(json);
+    }).catch(function(){ finish(null); });
+  } catch(e) { finish(null); }
+}
+function postToReceiver(payload){
+  return new Promise(function(resolve){
+    var body = "";
+    try { body = JSON.stringify(payload); } catch(e) { resolve(null); return; }
+    fetchJson(RECEIVER_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: body }, resolve);
+  });
+}
+function verifyWithReceiver(id){
+  return new Promise(function(resolve){
+    var url = RECEIVER_URL + "?action=verify&id=" + encodeURIComponent(id);
+    fetchJson(url, { method: "GET" }, function(json){
+      resolve(!!(json && json.ok && json.exists));
+    });
+  });
+}
+/* Double verify: delivery counts ONLY when the POST answers {ok,id}
+   AND a read-back GET confirms that exact record exists. */
+function realDeliver(payload){
+  return postToReceiver(payload).then(function(res){
+    if(!res || !res.ok || !res.id) return false;
+    return verifyWithReceiver(res.id);
+  });
+}
+var deliveryBusy = false;
+var deliveryRetryTimer = null;
+function attemptDelivery(){
+  if(!S.pendingPayload || S.submitted || deliveryBusy) return;
+  deliveryBusy = true;
+  realDeliver(S.pendingPayload).then(function(ok){
+    deliveryBusy = false;
+    if(S.submitted) return;
+    if(ok) finishDelivery();
+    else scheduleDeliveryRetry();
+  });
+}
+function scheduleDeliveryRetry(){
+  if(deliveryRetryTimer) return;
+  deliveryRetryTimer = setTimeout(function(){
+    deliveryRetryTimer = null;
+    attemptDelivery();
+  }, 3000);
+}
+try {
+  window.addEventListener("online", function(){
+    if(!S.pendingPayload || S.submitted) return;
+    if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+    attemptDelivery();
+  });
+} catch(e) {}
+function finishDelivery(){
+  if(deliveryRetryTimer){ clearTimeout(deliveryRetryTimer); deliveryRetryTimer = null; }
+  S.submitted = true;
+  saveDraft();
+  buildResults();
+  show("view-results");
+}
+
+var submitting = false;
+function doSubmit(auto){
+  if(submitting || S.submitted) return;
+  submitting = true;
+  autoSubmitted = !!auto;
+  S.auto = autoSubmitted;
+  elapsedAtSubmit = Math.min(TOTAL, Math.floor((Date.now() - S.startedAt) / 1000));
+  S.elapsed = elapsedAtSubmit;
+  gradeAllWritten();
+  var mcScore = 0, wrScore = 0;
+  ALL_MC.forEach(function(q){ if(mcCorrect(q)) mcScore++; });
+  ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
+  S.result = { total: mcScore + wrScore, mcScore: mcScore, wrScore: wrScore };
+  if(!S.pendingPayload){
+    /* The pending payload (submissionId + sentAt + full log) is minted ONCE
+       and stored in the draft, so a refresh/reopen during sending resumes
+       THIS payload instead of filing a second submission (Part 2 fix). */
+    S.pendingPayload = buildLogPayload(S.result.total);
+    S.pendingId = S.pendingPayload.submissionId;
+    S.sentAt = S.pendingPayload.sentAt;
+  }
+  saveDraft();
+  show("view-sending");
+  submitting = false;
+  attemptDelivery();
+}
+
+function buildResults(){
+  var mcScore = 0, wrScore = 0;
+  ALL_MC.forEach(function(q){ if(mcCorrect(q)) mcScore++; });
+  ALL_WRITTEN.forEach(function(q){ if(writtenGrades[q.n] && writtenGrades[q.n].earned) wrScore++; });
+  var total = mcScore + wrScore;
+  var pct = Math.round(total / TOTAL_Q * 100);
+  elapsedAtSubmit = S.elapsed || elapsedAtSubmit;
+
+  $("r-name").textContent = studentName;
+  $("r-attempt").textContent = "Review Paper";
+  var autoNote = $("r-auto-note");
+  if(autoNote) autoNote.classList.toggle("hidden", !S.auto);
+  $("r-score").textContent = total;
+  $("r-pct").textContent = pct + "% correct";
+  $("r-time").textContent = fmtTime(elapsedAtSubmit);
+  $("r-mc").textContent = mcScore + " / " + ALL_MC.length;
+  $("r-wr").textContent = wrScore + " / " + ALL_WRITTEN.length;
+  $("r-sec1").textContent = total + " / " + TOTAL_Q;
+
+  var filled = total >= 20 ? 5 : total >= 16 ? 4 : total >= 12 ? 3 : total >= 6 ? 2 : 1;
+  var stars = "";
+  for(var i = 0; i < 5; i++) stars += i < filled ? "\u2605" : '<span class="off">\u2605</span>';
+  $("r-stars").innerHTML = stars;
+
+  var msg;
+  if(total === 20) msg = "Perfect score! You got every question right. \u2B50";
+  else if(total >= 16) msg = "Great work! You understood both passages really well.";
+  else if(total >= 10) msg = "Good job! Read the review below to see each answer.";
+  else msg = "You finished the review. Read the review below to see each answer.";
+  $("r-message").textContent = msg;
+
+  /* breakdown: one card per knowledge point, 4 questions each */
+  var order = [], byStd = {};
+  ALL_MC.concat(ALL_WRITTEN).forEach(function(q){
+    if(!byStd[q.std]){ byStd[q.std] = []; order.push(q.std); }
+    byStd[q.std].push(q);
+  });
+  var bd = "";
+  order.forEach(function(std){
+    var qs2 = byStd[std], pts = 0;
+    qs2.forEach(function(q){
+      var ok = q.type === "mc" ? mcCorrect(q) : (writtenGrades[q.n] && writtenGrades[q.n].earned);
+      if(ok) pts++;
+    });
+    var dots = "";
+    for(var i = 0; i < qs2.length; i++) dots += '<i class="' + (i < pts ? "on" : "") + '"></i>';
+    bd += '<div class="bd-card"><div class="bd-name">' + std + '<br>Review point</div>' +
+      '<div class="bd-score">' + pts + '<small> / ' + qs2.length + '</small></div><div class="bd-dots">' + dots + '</div></div>';
+  });
+  $("r-breakdown").innerHTML = bd;
+
+  var rev = "";
+  ALL_MC.forEach(function(q){
+    var mine = answers[q.n];
+    var isRight = mcCorrect(q);
+    rev += '<div class="rev-card ' + (isRight ? "correct" : "wrong") + '">' +
+      '<div class="rev-head"><span class="rev-badge ' + (isRight ? "ok" : "no") + '">' + (isRight ? "\u2713 Correct" : "\u2717 Not quite") + '</span>' +
+      '<span class="rev-q">Q' + q.n + '. ' + esc(q.text) + '</span></div>' +
+      '<div class="rev-line">Your answer: <b>' + (typeof mine === "number" ? LETTERS[mine] + ". " + esc(q.options[mine]) : "(No answer)") + '</b></div>';
+    if(mine !== q.correct){
+      rev += '<div class="rev-line">Correct answer: <b>' + LETTERS[q.correct] + ". " + esc(q.options[q.correct]) + '</b></div>';
+    }
+    rev += '<div class="rev-why"><b>Why:</b> ' + esc(q.why) + ' <span style="color:var(--ink-soft);font-weight:700">(' + esc(q.std) + ')</span></div></div>';
+  });
+  $("r-mc-review").innerHTML = rev;
+
+  var wr = "";
+  ALL_WRITTEN.forEach(function(q){
+    var g = writtenGrades[q.n] || { earned:false, points:[false,false] };
+    var keys = GRADE_KEYS[q.n] || [];
+    wr += '<div class="rev-card ' + (g.earned ? "correct" : "wrong") + '">' +
+      '<div class="rev-head"><span class="rev-badge ' + (g.earned ? "ok" : "no") + '">' + (g.earned ? "\u2713 Correct" : "\u2717 Not quite") + '</span>' +
+      '<span class="rev-q">Q' + q.n + '. ' + esc(q.text) + '</span></div>';
+    var mine = (written[q.n] || "").trim();
+    wr += '<div class="answer-box your-box"><span class="ab-label">Your answer</span>' +
+      (mine ? esc(mine) : '<span class="empty-answer">(You did not write an answer.)</span>') + '</div>' +
+      '<div class="kp-box"><span class="kp-title">Key points</span>';
+    keys.forEach(function(k, i){
+      if(g.points[i]) wr += '<div class="kp-line"><span class="kp-ok">\u2713 Found:</span> ' + esc(k.found) + '</div>';
+      else wr += '<div class="kp-line"><span class="kp-miss">\u2717 Missing:</span> ' + esc(k.missing) + '</div>';
+    });
+    wr += '</div>' +
+      '<div class="answer-box sample-box"><span class="ab-label">Sample answer</span>' + esc(q.sample) + '</div>';
+    wr += '</div>';
+  });
+  $("r-wr-review").innerHTML = wr;
+  updateProgress();
+}
+
+/* ---------- wiring ---------- */
+$("start-form").addEventListener("submit", function(ev){
+  ev.preventDefault();
+  if(S.submitted){ gradeAllWritten(); buildResults(); show("view-results"); return; }
+  if(!S.started){ S.started = true; S.startedAt = Date.now(); saveDraft(); }
+  show("view-quiz");
+  startTimer(); updateProgress();
+});
+$("submit-btn").addEventListener("click", function(){
+  if(answeredCount() < TOTAL_Q){ $("warn-modal").classList.remove("hidden"); return; }
+  doSubmit(false);
+});
+$("warn-back").addEventListener("click", function(){ $("warn-modal").classList.add("hidden"); });
+$("warn-submit").addEventListener("click", function(){ $("warn-modal").classList.add("hidden"); doSubmit(false); });
+$("again-btn").addEventListener("click", function(){ show("view-start"); });
+
+var GROWTH = [
+    { date:"11/21/26", type:"Daily Quiz", lexile:340, delta:"+10Q", kind:"up" },
+    { date:"11/22/26", type:"Daily Quiz", lexile:340, delta:"same", same:true, kind:"same" },
+    { date:"11/23/26", type:"Daily Quiz", lexile:340, delta:"same", same:true, kind:"same" },
+    { date:"11/24/26", type:"Daily Quiz", lexile:340, delta:"same", same:true, kind:"same" },
+    { date:"11/25/26", type:"Daily Quiz", lexile:340, delta:"same", same:true, kind:"same" },
+    { date:"11/27/26", type:"Daily Quiz", lexile:350, delta:"+10Q", kind:"best" }
+  ];
+function renderGrowthCharts(){
+    var PLOT_L = 56, PLOT_R = 554, BASE = 260, TOP = 30, MAXL = 1270;
+    var n = GROWTH.length;
+    var slotW = (PLOT_R - PLOT_L) / n;
+    var barW = Math.min(134, slotW * 0.7);
+    var fills = { base:"#5b8db8", up:"#27a24b", down:"#d64541", best:"#f2b705", same:"#7f97a8" };
+    var out = ['<svg viewBox="0 -6 560 328" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">',
+      '<g font-family="Nunito, system-ui, sans-serif">'];
+    [1000, 750, 500, 250].forEach(function(v){
+      var y = BASE - (v / MAXL) * (BASE - TOP);
+      out.push('<line x1="' + PLOT_L + '" y1="' + y + '" x2="' + PLOT_R + '" y2="' + y + '" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="5 5"/>');
+      out.push('<text x="48" y="' + (y + 5) + '" text-anchor="end" font-size="13" font-weight="800" fill="var(--ink-soft)">' + v + 'L</text>');
+    });
+    out.push('<line x1="' + PLOT_L + '" y1="' + BASE + '" x2="' + PLOT_R + '" y2="' + BASE + '" stroke="var(--ink-soft)" stroke-width="2"/>');
+    out.push('<text x="48" y="265" text-anchor="end" font-size="13" font-weight="800" fill="var(--ink-soft)">0</text>');
+    GROWTH.forEach(function(d, i){
+      var cx = PLOT_L + slotW * (i + 0.5);
+      var x = cx - barW / 2;
+      var h = (d.lexile / MAXL) * (BASE - TOP);
+      var y = BASE - h;
+      var stroke = d.kind === "best" ? ' stroke="#d9a400" stroke-width="2.5"' : '';
+      out.push('<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barW.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="10" fill="' + fills[d.kind] + '"' + stroke + '/>');
+      out.push('<text x="' + cx.toFixed(1) + '" y="' + (y - 13).toFixed(1) + '" text-anchor="middle" font-size="21" font-weight="900" fill="var(--ink)" font-family="Fredoka, Nunito, sans-serif">' + d.lexile + 'L</text>');
+      if(d.delta){
+        var arrow = d.same ? "→ " : (d.kind === "down" ? "▼ " : "▲ ");
+        var deltaText = d.same ? "same" : d.delta;
+        var dcol = d.kind === "best" ? "#4a3500" : (d.kind === "down" ? "#ffffff" : "#ffffff");
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (y + 29).toFixed(1) + '" text-anchor="middle" font-size="17" font-weight="900" fill="' + dcol + '">' + arrow + deltaText + '</text>');
+      }
+      if(d.kind === "best"){
+        var crownY = y + h / 2;
+        out.push('<text x="' + cx.toFixed(1) + '" y="' + (crownY + 9).toFixed(1) + '" text-anchor="middle" font-size="26" aria-hidden="true">👑</text>');
+      }
+      var dateSize = n > 4 ? 14 : 16, typeSize = n > 4 ? 12 : 13.5;
+      out.push('<text x="' + cx.toFixed(1) + '" y="284" text-anchor="middle" font-size="' + dateSize + '" font-weight="900" fill="var(--ink)">' + esc(d.date) + '</text>');
+      out.push('<text x="' + cx.toFixed(1) + '" y="304" text-anchor="middle" font-size="' + typeSize + '" font-weight="700" fill="var(--ink-soft)">' + esc(d.type) + '</text>');
+    });
+    out.push('</g></svg>');
+    var svg = out.join("");
+    var mounts = document.querySelectorAll("[data-growth-chart]");
+    for(var k = 0; k < mounts.length; k++){ mounts[k].innerHTML = svg; }
+  }
+renderGrowthCharts();
+buildQuiz();
+restoreSelections();
+updateProgress();
+if(S.submitted){
+  gradeAllWritten(); buildResults(); show("view-results");
+} else if(S.started && S.pendingPayload){
+  show("view-sending"); attemptDelivery();
+} else if(S.started){
+  show("view-quiz"); startTimer();
+  if(TOTAL - Math.floor((Date.now() - S.startedAt) / 1000) <= 0) doSubmit(true);
+}
+if(TEST_MODE){ window.__RT = { state: S, sections: SECTIONS, gradeKeys: GRADE_KEYS }; }
+
+</script>
+</body>
+</html>
